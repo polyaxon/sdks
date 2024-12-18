@@ -21,7 +21,7 @@ import json
 
 
 from typing import List, Optional
-from pydantic import BaseModel, StrictBool, StrictStr, conlist
+from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 
 class V1Installation(BaseModel):
     """
@@ -34,8 +34,10 @@ class V1Installation(BaseModel):
     hmac: Optional[StrictStr] = None
     mode: Optional[StrictStr] = None
     orgs: Optional[StrictBool] = None
+    single_url: Optional[StrictBool] = Field(None, alias="singleUrl")
+    default_streams_url: Optional[StrictStr] = Field(None, alias="defaultStreamsUrl")
     auth: Optional[conlist(StrictStr)] = None
-    __properties = ["key", "version", "dist", "host", "hmac", "mode", "orgs", "auth"]
+    __properties = ["key", "version", "dist", "host", "hmac", "mode", "orgs", "singleUrl", "defaultStreamsUrl", "auth"]
 
     class Config:
         allow_population_by_field_name = True
@@ -79,6 +81,8 @@ class V1Installation(BaseModel):
             "hmac": obj.get("hmac"),
             "mode": obj.get("mode"),
             "orgs": obj.get("orgs"),
+            "single_url": obj.get("singleUrl"),
+            "default_streams_url": obj.get("defaultStreamsUrl"),
             "auth": obj.get("auth")
         })
         return _obj

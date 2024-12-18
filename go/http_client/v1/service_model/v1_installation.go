@@ -20,6 +20,9 @@ type V1Installation struct {
 	// auth
 	Auth []string `json:"auth"`
 
+	// default streams Url
+	DefaultStreamsURL string `json:"defaultStreamsUrl,omitempty"`
+
 	// dist
 	Dist string `json:"dist,omitempty"`
 
@@ -37,6 +40,9 @@ type V1Installation struct {
 
 	// orgs
 	Orgs bool `json:"orgs,omitempty"`
+
+	// single Url
+	SingleURL bool `json:"singleUrl,omitempty"`
 
 	// version
 	Version string `json:"version,omitempty"`

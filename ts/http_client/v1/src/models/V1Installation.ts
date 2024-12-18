@@ -63,6 +63,18 @@ export interface V1Installation {
     orgs?: boolean;
     /**
      *
+     * @type {boolean}
+     * @memberof V1Installation
+     */
+    singleUrl?: boolean;
+    /**
+     *
+     * @type {string}
+     * @memberof V1Installation
+     */
+    defaultStreamsUrl?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Installation
      */
@@ -95,6 +107,8 @@ export function V1InstallationFromJSONTyped(json: any, ignoreDiscriminator: bool
         'hmac': !exists(json, 'hmac') ? undefined : json['hmac'],
         'mode': !exists(json, 'mode') ? undefined : json['mode'],
         'orgs': !exists(json, 'orgs') ? undefined : json['orgs'],
+        'singleUrl': !exists(json, 'singleUrl') ? undefined : json['singleUrl'],
+        'defaultStreamsUrl': !exists(json, 'defaultStreamsUrl') ? undefined : json['defaultStreamsUrl'],
         'auth': !exists(json, 'auth') ? undefined : json['auth'],
     };
 }
@@ -115,6 +129,8 @@ export function V1InstallationToJSON(value?: V1Installation | null): any {
         'hmac': value.hmac,
         'mode': value.mode,
         'orgs': value.orgs,
+        'singleUrl': value.singleUrl,
+        'defaultStreamsUrl': value.defaultStreamsUrl,
         'auth': value.auth,
     };
 }

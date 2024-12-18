@@ -96,6 +96,22 @@ public class V1InstallationTest {
     }
 
     /**
+     * Test the property 'singleUrl'
+     */
+    @Test
+    public void singleUrlTest() {
+        // TODO: test singleUrl
+    }
+
+    /**
+     * Test the property 'defaultStreamsUrl'
+     */
+    @Test
+    public void defaultStreamsUrlTest() {
+        // TODO: test defaultStreamsUrl
+    }
+
+    /**
      * Test the property 'auth'
      */
     @Test

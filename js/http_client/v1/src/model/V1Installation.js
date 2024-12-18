@@ -68,6 +68,12 @@ class V1Installation {
             if (data.hasOwnProperty('orgs')) {
                 obj['orgs'] = ApiClient.convertToType(data['orgs'], 'Boolean');
             }
+            if (data.hasOwnProperty('singleUrl')) {
+                obj['singleUrl'] = ApiClient.convertToType(data['singleUrl'], 'Boolean');
+            }
+            if (data.hasOwnProperty('defaultStreamsUrl')) {
+                obj['defaultStreamsUrl'] = ApiClient.convertToType(data['defaultStreamsUrl'], 'String');
+            }
             if (data.hasOwnProperty('auth')) {
                 obj['auth'] = ApiClient.convertToType(data['auth'], ['String']);
             }
@@ -104,6 +110,10 @@ class V1Installation {
         // ensure the json data is a string
         if (data['mode'] && !(typeof data['mode'] === 'string' || data['mode'] instanceof String)) {
             throw new Error("Expected the field `mode` to be a primitive type in the JSON string but got " + data['mode']);
+        }
+        // ensure the json data is a string
+        if (data['defaultStreamsUrl'] && !(typeof data['defaultStreamsUrl'] === 'string' || data['defaultStreamsUrl'] instanceof String)) {
+            throw new Error("Expected the field `defaultStreamsUrl` to be a primitive type in the JSON string but got " + data['defaultStreamsUrl']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['auth'])) {
@@ -152,6 +162,16 @@ V1Installation.prototype['mode'] = undefined;
  * @member {Boolean} orgs
  */
 V1Installation.prototype['orgs'] = undefined;
+
+/**
+ * @member {Boolean} singleUrl
+ */
+V1Installation.prototype['singleUrl'] = undefined;
+
+/**
+ * @member {String} defaultStreamsUrl
+ */
+V1Installation.prototype['defaultStreamsUrl'] = undefined;
 
 /**
  * @member {Array.<String>} auth

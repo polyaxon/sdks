@@ -28328,9 +28328,11 @@ components:
         - auth
         - auth
         hmac: hmac
+        defaultStreamsUrl: defaultStreamsUrl
         host: host
         dist: dist
         orgs: true
+        singleUrl: true
         version: version
         key: key
       properties:
@@ -28348,6 +28350,10 @@ components:
           type: string
         orgs:
           type: boolean
+        singleUrl:
+          type: boolean
+        defaultStreamsUrl:
+          type: string
         auth:
           items:
             type: string

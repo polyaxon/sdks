@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **hmac** | **str** |  | [optional] 
 **mode** | **str** |  | [optional] 
 **orgs** | **bool** |  | [optional] 
+**single_url** | **bool** |  | [optional] 
+**default_streams_url** | **str** |  | [optional] 
 **auth** | **List[str]** |  | [optional] 
 
 ## Example

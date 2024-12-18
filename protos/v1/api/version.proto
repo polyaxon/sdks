@@ -22,7 +22,9 @@ message Installation {
     string hmac = 5;
     string mode = 6;
     bool orgs = 7;
-    repeated string auth = 8;
+    bool singleUrl = 8;
+    string defaultStreamsUrl = 9;
+    repeated string auth = 10;
 }
 
 message Compatibility {

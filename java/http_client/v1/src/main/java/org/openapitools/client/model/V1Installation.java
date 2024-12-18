@@ -78,6 +78,14 @@ public class V1Installation {
   @SerializedName(SERIALIZED_NAME_ORGS)
   private Boolean orgs;
 
+  public static final String SERIALIZED_NAME_SINGLE_URL = "singleUrl";
+  @SerializedName(SERIALIZED_NAME_SINGLE_URL)
+  private Boolean singleUrl;
+
+  public static final String SERIALIZED_NAME_DEFAULT_STREAMS_URL = "defaultStreamsUrl";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_STREAMS_URL)
+  private String defaultStreamsUrl;
+
   public static final String SERIALIZED_NAME_AUTH = "auth";
   @SerializedName(SERIALIZED_NAME_AUTH)
   private List<String> auth;
@@ -239,6 +247,50 @@ public class V1Installation {
   }
 
 
+  public V1Installation singleUrl(Boolean singleUrl) {
+
+    this.singleUrl = singleUrl;
+    return this;
+  }
+
+   /**
+   * Get singleUrl
+   * @return singleUrl
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getSingleUrl() {
+    return singleUrl;
+  }
+
+
+  public void setSingleUrl(Boolean singleUrl) {
+    this.singleUrl = singleUrl;
+  }
+
+
+  public V1Installation defaultStreamsUrl(String defaultStreamsUrl) {
+
+    this.defaultStreamsUrl = defaultStreamsUrl;
+    return this;
+  }
+
+   /**
+   * Get defaultStreamsUrl
+   * @return defaultStreamsUrl
+  **/
+  @javax.annotation.Nullable
+
+  public String getDefaultStreamsUrl() {
+    return defaultStreamsUrl;
+  }
+
+
+  public void setDefaultStreamsUrl(String defaultStreamsUrl) {
+    this.defaultStreamsUrl = defaultStreamsUrl;
+  }
+
+
   public V1Installation auth(List<String> auth) {
 
     this.auth = auth;
@@ -286,12 +338,14 @@ public class V1Installation {
         Objects.equals(this.hmac, v1Installation.hmac) &&
         Objects.equals(this.mode, v1Installation.mode) &&
         Objects.equals(this.orgs, v1Installation.orgs) &&
+        Objects.equals(this.singleUrl, v1Installation.singleUrl) &&
+        Objects.equals(this.defaultStreamsUrl, v1Installation.defaultStreamsUrl) &&
         Objects.equals(this.auth, v1Installation.auth);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(key, version, dist, host, hmac, mode, orgs, auth);
+    return Objects.hash(key, version, dist, host, hmac, mode, orgs, singleUrl, defaultStreamsUrl, auth);
   }
 
   @Override
@@ -305,6 +359,8 @@ public class V1Installation {
     sb.append("    hmac: ").append(toIndentedString(hmac)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
     sb.append("    orgs: ").append(toIndentedString(orgs)).append("\n");
+    sb.append("    singleUrl: ").append(toIndentedString(singleUrl)).append("\n");
+    sb.append("    defaultStreamsUrl: ").append(toIndentedString(defaultStreamsUrl)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -335,6 +391,8 @@ public class V1Installation {
     openapiFields.add("hmac");
     openapiFields.add("mode");
     openapiFields.add("orgs");
+    openapiFields.add("singleUrl");
+    openapiFields.add("defaultStreamsUrl");
     openapiFields.add("auth");
 
     // a set of required properties/fields (JSON key names)
@@ -378,6 +436,9 @@ public class V1Installation {
       }
       if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
+      }
+      if ((jsonObj.get("defaultStreamsUrl") != null && !jsonObj.get("defaultStreamsUrl").isJsonNull()) && !jsonObj.get("defaultStreamsUrl").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `defaultStreamsUrl` to be a primitive type in the JSON string but got `%s`", jsonObj.get("defaultStreamsUrl").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("auth") != null && !jsonObj.get("auth").isJsonArray()) {

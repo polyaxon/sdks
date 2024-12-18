@@ -23054,6 +23054,12 @@
         "orgs": {
           "type": "boolean"
         },
+        "singleUrl": {
+          "type": "boolean"
+        },
+        "defaultStreamsUrl": {
+          "type": "string"
+        },
         "auth": {
           "type": "array",
           "items": {

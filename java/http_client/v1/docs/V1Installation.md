@@ -14,6 +14,8 @@
 |**hmac** | **String** |  |  [optional] |
 |**mode** | **String** |  |  [optional] |
 |**orgs** | **Boolean** |  |  [optional] |
+|**singleUrl** | **Boolean** |  |  [optional] |
+|**defaultStreamsUrl** | **String** |  |  [optional] |
 |**auth** | **List&lt;String&gt;** |  |  [optional] |
 
 
