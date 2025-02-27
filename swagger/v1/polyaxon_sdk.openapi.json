@@ -12200,14 +12200,30 @@
             "type" : "string"
           }
         }, {
-          "name" : "organization.preset",
+          "name" : "organization.default_presets",
           "in" : "query",
-          "description" : "Default preset.",
+          "description" : "Default presets.",
           "required" : false,
           "style" : "form",
           "explode" : true,
           "schema" : {
-            "type" : "string"
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }, {
+          "name" : "organization.default_presets_ordered",
+          "in" : "query",
+          "description" : "Default presets ordered.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           }
         }, {
           "name" : "organization.is_cloud_viewable",
@@ -34278,9 +34294,19 @@
             "title" : "Default queue",
             "type" : "string"
           },
-          "preset" : {
-            "title" : "Default preset",
-            "type" : "string"
+          "default_presets" : {
+            "title" : "Default presets",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "default_presets_ordered" : {
+            "title" : "Default presets ordered",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
           "is_cloud_viewable" : {
             "title" : "Setting to enable viewable metadata on cloud",
@@ -34614,9 +34640,19 @@
               "type" : "string"
             }
           },
-          "preset" : {
-            "title" : "Default Preset",
-            "type" : "string"
+          "default_presets" : {
+            "title" : "Default Presets",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "default_presets_ordered" : {
+            "title" : "Default Presets ordered",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
           "presets" : {
             "title" : "Authorized Presets",
@@ -34898,9 +34934,19 @@
               "type" : "string"
             }
           },
-          "preset" : {
-            "title" : "Default Preset",
-            "type" : "string"
+          "default_presets" : {
+            "title" : "Default Presets",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "default_presets_ordered" : {
+            "title" : "Default Presets ordered",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
           "presets" : {
             "title" : "Authorized Presets",
@@ -36923,9 +36969,19 @@
             "title" : "Optional queue to configure for user",
             "type" : "string"
           },
-          "preset" : {
-            "title" : "Optional preset to configure for user",
-            "type" : "string"
+          "default_presets" : {
+            "title" : "Optional default presets to configure for user",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "default_presets_ordered" : {
+            "title" : "Default presets ordered",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
           },
           "namespace" : {
             "title" : "Optiona namespace to configure for user",

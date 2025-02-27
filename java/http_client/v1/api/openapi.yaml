@@ -8674,13 +8674,25 @@ paths:
         schema:
           type: string
         style: form
-      - description: Default preset.
+      - description: Default presets.
         explode: true
         in: query
-        name: organization.preset
+        name: organization.default_presets
         required: false
         schema:
-          type: string
+          items:
+            type: string
+          type: array
+        style: form
+      - description: Default presets ordered.
+        explode: true
+        in: query
+        name: organization.default_presets_ordered
+        required: false
+        schema:
+          items:
+            type: string
+          type: array
         style: form
       - description: Setting to enable viewable metadata on cloud.
         explode: true
@@ -29271,12 +29283,17 @@ components:
         results:
         - user_email: user_email
           role: role
+          default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
           support_revoke_at: 2000-01-23T04:56:07.000+00:00
           auth: "{}"
           is_cloud_viewable: true
           usage: "{}"
           created_at: 2000-01-23T04:56:07.000+00:00
-          preset: preset
           archived_deletion_interval: 6
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -29287,12 +29304,17 @@ components:
           queue: queue
         - user_email: user_email
           role: role
+          default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
           support_revoke_at: 2000-01-23T04:56:07.000+00:00
           auth: "{}"
           is_cloud_viewable: true
           usage: "{}"
           created_at: 2000-01-23T04:56:07.000+00:00
-          preset: preset
           archived_deletion_interval: 6
           updated_at: 2000-01-23T04:56:07.000+00:00
           name: name
@@ -29329,6 +29351,12 @@ components:
           excluded_features:
           - excluded_features
           - excluded_features
+          default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
           projects:
           - projects
           - projects
@@ -29341,7 +29369,6 @@ components:
           - connected_projects
           - connected_projects
           archived_deletion_interval: 6
-          preset: preset
           uuid: uuid
           tags:
           - tags
@@ -29354,18 +29381,28 @@ components:
           - presets
           updated_at: 2000-01-23T04:56:07.000+00:00
           user_accesses:
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
           queues:
@@ -29386,6 +29423,12 @@ components:
           excluded_features:
           - excluded_features
           - excluded_features
+          default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
           projects:
           - projects
           - projects
@@ -29398,7 +29441,6 @@ components:
           - connected_projects
           - connected_projects
           archived_deletion_interval: 6
-          preset: preset
           uuid: uuid
           tags:
           - tags
@@ -29411,18 +29453,28 @@ components:
           - presets
           updated_at: 2000-01-23T04:56:07.000+00:00
           user_accesses:
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
           queues:
@@ -29654,6 +29706,12 @@ components:
           - excluded_features
           - excluded_features
           settings:
+            default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
             presets:
             - presets
             - presets
@@ -29664,24 +29722,33 @@ components:
             - teams
             - teams
             user_accesses:
-            - namespace: namespace
+            - default_presets:
+              - default_presets
+              - default_presets
+              default_presets_ordered:
+              - default_presets_ordered
+              - default_presets_ordered
+              namespace: namespace
               user_data:
                 is_sa: true
                 username: username
-              preset: preset
               user: user
               queue: queue
-            - namespace: namespace
+            - default_presets:
+              - default_presets
+              - default_presets
+              default_presets_ordered:
+              - default_presets_ordered
+              - default_presets_ordered
+              namespace: namespace
               user_data:
                 is_sa: true
                 username: username
-              preset: preset
               user: user
               queue: queue
             queues:
             - queues
             - queues
-            preset: preset
             connections:
             - connections
             - connections
@@ -29718,6 +29785,12 @@ components:
           - excluded_features
           - excluded_features
           settings:
+            default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
             presets:
             - presets
             - presets
@@ -29728,24 +29801,33 @@ components:
             - teams
             - teams
             user_accesses:
-            - namespace: namespace
+            - default_presets:
+              - default_presets
+              - default_presets
+              default_presets_ordered:
+              - default_presets_ordered
+              - default_presets_ordered
+              namespace: namespace
               user_data:
                 is_sa: true
                 username: username
-              preset: preset
               user: user
               queue: queue
-            - namespace: namespace
+            - default_presets:
+              - default_presets
+              - default_presets
+              default_presets_ordered:
+              - default_presets_ordered
+              - default_presets_ordered
+              namespace: namespace
               user_data:
                 is_sa: true
                 username: username
-              preset: preset
               user: user
               queue: queue
             queues:
             - queues
             - queues
-            preset: preset
             connections:
             - connections
             - connections
@@ -33457,12 +33539,17 @@ components:
       example:
         user_email: user_email
         role: role
+        default_presets:
+        - default_presets
+        - default_presets
+        default_presets_ordered:
+        - default_presets_ordered
+        - default_presets_ordered
         support_revoke_at: 2000-01-23T04:56:07.000+00:00
         auth: "{}"
         is_cloud_viewable: true
         usage: "{}"
         created_at: 2000-01-23T04:56:07.000+00:00
-        preset: preset
         archived_deletion_interval: 6
         updated_at: 2000-01-23T04:56:07.000+00:00
         name: name
@@ -33506,9 +33593,16 @@ components:
         queue:
           title: Default queue
           type: string
-        preset:
-          title: Default preset
-          type: string
+        default_presets:
+          items:
+            type: string
+          title: Default presets
+          type: array
+        default_presets_ordered:
+          items:
+            type: string
+          title: Default presets ordered
+          type: array
         is_cloud_viewable:
           title: Setting to enable viewable metadata on cloud
           type: boolean
@@ -34129,6 +34223,12 @@ components:
         excluded_features:
         - excluded_features
         - excluded_features
+        default_presets:
+        - default_presets
+        - default_presets
+        default_presets_ordered:
+        - default_presets_ordered
+        - default_presets_ordered
         projects:
         - projects
         - projects
@@ -34141,7 +34241,6 @@ components:
         - connected_projects
         - connected_projects
         archived_deletion_interval: 6
-        preset: preset
         uuid: uuid
         tags:
         - tags
@@ -34154,18 +34253,28 @@ components:
         - presets
         updated_at: 2000-01-23T04:56:07.000+00:00
         user_accesses:
-        - namespace: namespace
+        - default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
+          namespace: namespace
           user_data:
             is_sa: true
             username: username
-          preset: preset
           user: user
           queue: queue
-        - namespace: namespace
+        - default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
+          namespace: namespace
           user_data:
             is_sa: true
             username: username
-          preset: preset
           user: user
           queue: queue
         queues:
@@ -34227,9 +34336,16 @@ components:
             type: string
           title: Authorized connections
           type: array
-        preset:
-          title: Default Preset
-          type: string
+        default_presets:
+          items:
+            type: string
+          title: Default Presets
+          type: array
+        default_presets_ordered:
+          items:
+            type: string
+          title: Default Presets ordered
+          type: array
         presets:
           items:
             type: string
@@ -34430,6 +34546,12 @@ components:
         - excluded_features
         - excluded_features
         settings:
+          default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
           presets:
           - presets
           - presets
@@ -34440,24 +34562,33 @@ components:
           - teams
           - teams
           user_accesses:
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
-          - namespace: namespace
+          - default_presets:
+            - default_presets
+            - default_presets
+            default_presets_ordered:
+            - default_presets_ordered
+            - default_presets_ordered
+            namespace: namespace
             user_data:
               is_sa: true
               username: username
-            preset: preset
             user: user
             queue: queue
           queues:
           - queues
           - queues
-          preset: preset
           connections:
           - connections
           - connections
@@ -34557,6 +34688,12 @@ components:
       type: object
     v1ProjectSettings:
       example:
+        default_presets:
+        - default_presets
+        - default_presets
+        default_presets_ordered:
+        - default_presets_ordered
+        - default_presets_ordered
         presets:
         - presets
         - presets
@@ -34567,24 +34704,33 @@ components:
         - teams
         - teams
         user_accesses:
-        - namespace: namespace
+        - default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
+          namespace: namespace
           user_data:
             is_sa: true
             username: username
-          preset: preset
           user: user
           queue: queue
-        - namespace: namespace
+        - default_presets:
+          - default_presets
+          - default_presets
+          default_presets_ordered:
+          - default_presets_ordered
+          - default_presets_ordered
+          namespace: namespace
           user_data:
             is_sa: true
             username: username
-          preset: preset
           user: user
           queue: queue
         queues:
         - queues
         - queues
-        preset: preset
         connections:
         - connections
         - connections
@@ -34602,9 +34748,16 @@ components:
             type: string
           title: Authorized connections
           type: array
-        preset:
-          title: Default Preset
-          type: string
+        default_presets:
+          items:
+            type: string
+          title: Default Presets
+          type: array
+        default_presets_ordered:
+          items:
+            type: string
+          title: Default Presets ordered
+          type: array
         presets:
           items:
             type: string
@@ -52240,11 +52393,16 @@ components:
       type: object
     v1UserAccess:
       example:
+        default_presets:
+        - default_presets
+        - default_presets
+        default_presets_ordered:
+        - default_presets_ordered
+        - default_presets_ordered
         namespace: namespace
         user_data:
           is_sa: true
           username: username
-        preset: preset
         user: user
         queue: queue
       properties:
@@ -52256,9 +52414,16 @@ components:
         queue:
           title: Optional queue to configure for user
           type: string
-        preset:
-          title: Optional preset to configure for user
-          type: string
+        default_presets:
+          items:
+            type: string
+          title: Optional default presets to configure for user
+          type: array
+        default_presets_ordered:
+          items:
+            type: string
+          title: Default presets ordered
+          type: array
         namespace:
           title: Optiona namespace to configure for user
           type: string

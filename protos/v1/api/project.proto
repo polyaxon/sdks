@@ -108,35 +108,38 @@ message ProjectSettings {
     // Authorized connections
     repeated string connections = 1;
 
-    // Default Preset
-    string preset = 2;
+    // Default Presets
+    repeated string default_presets = 2;
+
+    // Default Presets ordered
+    repeated string default_presets_ordered = 3;
 
     // Authorized Presets
-    repeated string presets = 3;
+    repeated string presets = 4;
 
     // Default Queue
-    string queue = 4;
+    string queue = 5;
 
     // Authorized queues
-    repeated string queues = 5;
+    repeated string queues = 6;
 
     // Authorized agents
-    repeated string agents = 6;
+    repeated string agents = 7;
 
     // Authorized namespaces
-    repeated string namespaces = 7;
+    repeated string namespaces = 8;
 
     // Authorized users
-    repeated UserAccess user_accesses = 8;
+    repeated UserAccess user_accesses = 9;
 
     // Authorized teams
-    repeated string teams = 9;
+    repeated string teams = 10;
 
     // Authorized projects
-    repeated string projects = 10;
+    repeated string projects = 11;
 
     // Attached policy
-    string policy = 11;
+    string policy = 12;
 }
 
 // Request data to update project settings

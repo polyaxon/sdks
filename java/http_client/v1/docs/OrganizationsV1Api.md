@@ -1442,7 +1442,7 @@ public class Example {
 
 <a name="getOrganizationSettings"></a>
 # **getOrganizationSettings**
-> V1Organization getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval)
+> V1Organization getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationDefaultPresets, organizationDefaultPresetsOrdered, organizationIsCloudViewable, organizationArchivedDeletionInterval)
 
 Get organization settings
 
@@ -1479,11 +1479,12 @@ public class Example {
     Integer organizationExpiration = 56; // Integer | Optional expiration for support.
     String organizationRole = "organizationRole_example"; // String | Current user's role in this org.
     String organizationQueue = "organizationQueue_example"; // String | Default queue.
-    String organizationPreset = "organizationPreset_example"; // String | Default preset.
+    List<String> organizationDefaultPresets = Arrays.asList(); // List<String> | Default presets.
+    List<String> organizationDefaultPresetsOrdered = Arrays.asList(); // List<String> | Default presets ordered.
     Boolean organizationIsCloudViewable = true; // Boolean | Setting to enable viewable metadata on cloud.
     Integer organizationArchivedDeletionInterval = 56; // Integer | Setting to configure default archived deletion interval.
     try {
-      V1Organization result = apiInstance.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval);
+      V1Organization result = apiInstance.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationDefaultPresets, organizationDefaultPresetsOrdered, organizationIsCloudViewable, organizationArchivedDeletionInterval);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationSettings");
@@ -1511,7 +1512,8 @@ public class Example {
 | **organizationExpiration** | **Integer**| Optional expiration for support. | [optional] |
 | **organizationRole** | **String**| Current user&#39;s role in this org. | [optional] |
 | **organizationQueue** | **String**| Default queue. | [optional] |
-| **organizationPreset** | **String**| Default preset. | [optional] |
+| **organizationDefaultPresets** | [**List&lt;String&gt;**](String.md)| Default presets. | [optional] |
+| **organizationDefaultPresetsOrdered** | [**List&lt;String&gt;**](String.md)| Default presets ordered. | [optional] |
 | **organizationIsCloudViewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional] |
 | **organizationArchivedDeletionInterval** | **Integer**| Setting to configure default archived deletion interval. | [optional] |
 

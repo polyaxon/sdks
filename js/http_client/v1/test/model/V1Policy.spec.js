@@ -120,8 +120,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property preset (base name: "preset")', function() {
-      // uncomment below and update the code to test the property preset
+    it('should have the property default_presets (base name: "default_presets")', function() {
+      // uncomment below and update the code to test the property default_presets
+      //var instance = new PolyaxonSdk.V1Policy();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property default_presets_ordered (base name: "default_presets_ordered")', function() {
+      // uncomment below and update the code to test the property default_presets_ordered
       //var instance = new PolyaxonSdk.V1Policy();
       //expect(instance).to.be();
     });

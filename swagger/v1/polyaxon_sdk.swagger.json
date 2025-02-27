@@ -8015,11 +8015,26 @@
             "type": "string"
           },
           {
-            "name": "organization.preset",
-            "description": "Default preset.",
+            "name": "organization.default_presets",
+            "description": "Default presets.",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "organization.default_presets_ordered",
+            "description": "Default presets ordered.",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "organization.is_cloud_viewable",
@@ -24461,9 +24476,19 @@
           "type": "string",
           "title": "Default queue"
         },
-        "preset": {
-          "type": "string",
-          "title": "Default preset"
+        "default_presets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets"
+        },
+        "default_presets_ordered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets ordered"
         },
         "is_cloud_viewable": {
           "type": "boolean",
@@ -24807,9 +24832,19 @@
           },
           "title": "Authorized connections"
         },
-        "preset": {
-          "type": "string",
-          "title": "Default Preset"
+        "default_presets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets"
+        },
+        "default_presets_ordered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets ordered"
         },
         "presets": {
           "type": "array",
@@ -25092,9 +25127,19 @@
           },
           "title": "Authorized connections"
         },
-        "preset": {
-          "type": "string",
-          "title": "Default Preset"
+        "default_presets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets"
+        },
+        "default_presets_ordered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets ordered"
         },
         "presets": {
           "type": "array",
@@ -27210,9 +27255,19 @@
           "type": "string",
           "title": "Optional queue to configure for user"
         },
-        "preset": {
-          "type": "string",
-          "title": "Optional preset to configure for user"
+        "default_presets": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional default presets to configure for user"
+        },
+        "default_presets_ordered": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets ordered"
         },
         "namespace": {
           "type": "string",

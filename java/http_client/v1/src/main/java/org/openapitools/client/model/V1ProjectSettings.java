@@ -55,9 +55,13 @@ public class V1ProjectSettings {
   @SerializedName(SERIALIZED_NAME_CONNECTIONS)
   private List<String> connections;
 
-  public static final String SERIALIZED_NAME_PRESET = "preset";
-  @SerializedName(SERIALIZED_NAME_PRESET)
-  private String preset;
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS = "default_presets";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS)
+  private List<String> defaultPresets;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED = "default_presets_ordered";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED)
+  private List<String> defaultPresetsOrdered;
 
   public static final String SERIALIZED_NAME_PRESETS = "presets";
   @SerializedName(SERIALIZED_NAME_PRESETS)
@@ -128,25 +132,63 @@ public class V1ProjectSettings {
   }
 
 
-  public V1ProjectSettings preset(String preset) {
+  public V1ProjectSettings defaultPresets(List<String> defaultPresets) {
 
-    this.preset = preset;
+    this.defaultPresets = defaultPresets;
+    return this;
+  }
+
+  public V1ProjectSettings addDefaultPresetsItem(String defaultPresetsItem) {
+    if (this.defaultPresets == null) {
+      this.defaultPresets = new ArrayList<>();
+    }
+    this.defaultPresets.add(defaultPresetsItem);
     return this;
   }
 
    /**
-   * Get preset
-   * @return preset
+   * Get defaultPresets
+   * @return defaultPresets
   **/
   @javax.annotation.Nullable
 
-  public String getPreset() {
-    return preset;
+  public List<String> getDefaultPresets() {
+    return defaultPresets;
   }
 
 
-  public void setPreset(String preset) {
-    this.preset = preset;
+  public void setDefaultPresets(List<String> defaultPresets) {
+    this.defaultPresets = defaultPresets;
+  }
+
+
+  public V1ProjectSettings defaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
+    return this;
+  }
+
+  public V1ProjectSettings addDefaultPresetsOrderedItem(String defaultPresetsOrderedItem) {
+    if (this.defaultPresetsOrdered == null) {
+      this.defaultPresetsOrdered = new ArrayList<>();
+    }
+    this.defaultPresetsOrdered.add(defaultPresetsOrderedItem);
+    return this;
+  }
+
+   /**
+   * Get defaultPresetsOrdered
+   * @return defaultPresetsOrdered
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getDefaultPresetsOrdered() {
+    return defaultPresetsOrdered;
+  }
+
+
+  public void setDefaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
   }
 
 
@@ -415,7 +457,8 @@ public class V1ProjectSettings {
     }
     V1ProjectSettings v1ProjectSettings = (V1ProjectSettings) o;
     return Objects.equals(this.connections, v1ProjectSettings.connections) &&
-        Objects.equals(this.preset, v1ProjectSettings.preset) &&
+        Objects.equals(this.defaultPresets, v1ProjectSettings.defaultPresets) &&
+        Objects.equals(this.defaultPresetsOrdered, v1ProjectSettings.defaultPresetsOrdered) &&
         Objects.equals(this.presets, v1ProjectSettings.presets) &&
         Objects.equals(this.queue, v1ProjectSettings.queue) &&
         Objects.equals(this.queues, v1ProjectSettings.queues) &&
@@ -429,7 +472,7 @@ public class V1ProjectSettings {
 
   @Override
   public int hashCode() {
-    return Objects.hash(connections, preset, presets, queue, queues, agents, namespaces, userAccesses, teams, projects, policy);
+    return Objects.hash(connections, defaultPresets, defaultPresetsOrdered, presets, queue, queues, agents, namespaces, userAccesses, teams, projects, policy);
   }
 
   @Override
@@ -437,7 +480,8 @@ public class V1ProjectSettings {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ProjectSettings {\n");
     sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
-    sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
+    sb.append("    defaultPresets: ").append(toIndentedString(defaultPresets)).append("\n");
+    sb.append("    defaultPresetsOrdered: ").append(toIndentedString(defaultPresetsOrdered)).append("\n");
     sb.append("    presets: ").append(toIndentedString(presets)).append("\n");
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
     sb.append("    queues: ").append(toIndentedString(queues)).append("\n");
@@ -470,7 +514,8 @@ public class V1ProjectSettings {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("connections");
-    openapiFields.add("preset");
+    openapiFields.add("default_presets");
+    openapiFields.add("default_presets_ordered");
     openapiFields.add("presets");
     openapiFields.add("queue");
     openapiFields.add("queues");
@@ -509,8 +554,13 @@ public class V1ProjectSettings {
       if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
       }
-      if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets") != null && !jsonObj.get("default_presets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets_ordered") != null && !jsonObj.get("default_presets_ordered").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets_ordered` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets_ordered").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("presets") != null && !jsonObj.get("presets").isJsonArray()) {

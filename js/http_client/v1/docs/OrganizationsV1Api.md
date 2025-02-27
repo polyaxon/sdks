@@ -1103,7 +1103,8 @@ let opts = {
   'organization_expiration': 56, // Number | Optional expiration for support.
   'organization_role': "organization_role_example", // String | Current user's role in this org.
   'organization_queue': "organization_queue_example", // String | Default queue.
-  'organization_preset': "organization_preset_example", // String | Default preset.
+  'organization_default_presets': ["null"], // [String] | Default presets.
+  'organization_default_presets_ordered': ["null"], // [String] | Default presets ordered.
   'organization_is_cloud_viewable': true, // Boolean | Setting to enable viewable metadata on cloud.
   'organization_archived_deletion_interval': 56 // Number | Setting to configure default archived deletion interval.
 };
@@ -1132,7 +1133,8 @@ Name | Type | Description  | Notes
  **organization_expiration** | **Number**| Optional expiration for support. | [optional] 
  **organization_role** | **String**| Current user&#39;s role in this org. | [optional] 
  **organization_queue** | **String**| Default queue. | [optional] 
- **organization_preset** | **String**| Default preset. | [optional] 
+ **organization_default_presets** | [**[String]**](String.md)| Default presets. | [optional] 
+ **organization_default_presets_ordered** | [**[String]**](String.md)| Default presets ordered. | [optional] 
  **organization_is_cloud_viewable** | **Boolean**| Setting to enable viewable metadata on cloud. | [optional] 
  **organization_archived_deletion_interval** | **Number**| Setting to configure default archived deletion interval. | [optional] 
 

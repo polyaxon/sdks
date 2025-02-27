@@ -34,10 +34,16 @@ export interface V1ProjectSettings {
     connections?: Array<string>;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof V1ProjectSettings
      */
-    preset?: string;
+    default_presets?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1ProjectSettings
+     */
+    default_presets_ordered?: Array<string>;
     /**
      *
      * @type {Array<string>}
@@ -114,7 +120,8 @@ export function V1ProjectSettingsFromJSONTyped(json: any, ignoreDiscriminator: b
     return {
 
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
-        'preset': !exists(json, 'preset') ? undefined : json['preset'],
+        'default_presets': !exists(json, 'default_presets') ? undefined : json['default_presets'],
+        'default_presets_ordered': !exists(json, 'default_presets_ordered') ? undefined : json['default_presets_ordered'],
         'presets': !exists(json, 'presets') ? undefined : json['presets'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'queues': !exists(json, 'queues') ? undefined : json['queues'],
@@ -137,7 +144,8 @@ export function V1ProjectSettingsToJSON(value?: V1ProjectSettings | null): any {
     return {
 
         'connections': value.connections,
-        'preset': value.preset,
+        'default_presets': value.default_presets,
+        'default_presets_ordered': value.default_presets_ordered,
         'presets': value.presets,
         'queue': value.queue,
         'queues': value.queues,

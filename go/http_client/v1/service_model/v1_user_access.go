@@ -18,11 +18,14 @@ import (
 // swagger:model v1UserAccess
 type V1UserAccess struct {
 
+	// Optional default presets to configure for user
+	DefaultPresets []string `json:"default_presets"`
+
+	// Default presets ordered
+	DefaultPresetsOrdered []string `json:"default_presets_ordered"`
+
 	// Optiona namespace to configure for user
 	Namespace string `json:"namespace,omitempty"`
-
-	// Optional preset to configure for user
-	Preset string `json:"preset,omitempty"`
 
 	// Optional queue to configure for user
 	Queue string `json:"queue,omitempty"`

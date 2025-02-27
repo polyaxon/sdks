@@ -29,7 +29,8 @@ class V1ProjectSettings(BaseModel):
     V1ProjectSettings
     """
     connections: Optional[conlist(StrictStr)] = None
-    preset: Optional[StrictStr] = None
+    default_presets: Optional[conlist(StrictStr)] = None
+    default_presets_ordered: Optional[conlist(StrictStr)] = None
     presets: Optional[conlist(StrictStr)] = None
     queue: Optional[StrictStr] = None
     queues: Optional[conlist(StrictStr)] = None
@@ -39,7 +40,7 @@ class V1ProjectSettings(BaseModel):
     teams: Optional[conlist(StrictStr)] = None
     projects: Optional[conlist(StrictStr)] = None
     policy: Optional[StrictStr] = None
-    __properties = ["connections", "preset", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "policy"]
+    __properties = ["connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "policy"]
 
     class Config:
         allow_population_by_field_name = True
@@ -84,7 +85,8 @@ class V1ProjectSettings(BaseModel):
 
         _obj = V1ProjectSettings.parse_obj({
             "connections": obj.get("connections"),
-            "preset": obj.get("preset"),
+            "default_presets": obj.get("default_presets"),
+            "default_presets_ordered": obj.get("default_presets_ordered"),
             "presets": obj.get("presets"),
             "queue": obj.get("queue"),
             "queues": obj.get("queues"),

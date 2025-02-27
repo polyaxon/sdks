@@ -22,6 +22,8 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -89,9 +91,13 @@ public class V1Organization {
   @SerializedName(SERIALIZED_NAME_QUEUE)
   private String queue;
 
-  public static final String SERIALIZED_NAME_PRESET = "preset";
-  @SerializedName(SERIALIZED_NAME_PRESET)
-  private String preset;
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS = "default_presets";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS)
+  private List<String> defaultPresets;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED = "default_presets_ordered";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED)
+  private List<String> defaultPresetsOrdered;
 
   public static final String SERIALIZED_NAME_IS_CLOUD_VIEWABLE = "is_cloud_viewable";
   @SerializedName(SERIALIZED_NAME_IS_CLOUD_VIEWABLE)
@@ -336,25 +342,63 @@ public class V1Organization {
   }
 
 
-  public V1Organization preset(String preset) {
+  public V1Organization defaultPresets(List<String> defaultPresets) {
 
-    this.preset = preset;
+    this.defaultPresets = defaultPresets;
+    return this;
+  }
+
+  public V1Organization addDefaultPresetsItem(String defaultPresetsItem) {
+    if (this.defaultPresets == null) {
+      this.defaultPresets = new ArrayList<>();
+    }
+    this.defaultPresets.add(defaultPresetsItem);
     return this;
   }
 
    /**
-   * Get preset
-   * @return preset
+   * Get defaultPresets
+   * @return defaultPresets
   **/
   @javax.annotation.Nullable
 
-  public String getPreset() {
-    return preset;
+  public List<String> getDefaultPresets() {
+    return defaultPresets;
   }
 
 
-  public void setPreset(String preset) {
-    this.preset = preset;
+  public void setDefaultPresets(List<String> defaultPresets) {
+    this.defaultPresets = defaultPresets;
+  }
+
+
+  public V1Organization defaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
+    return this;
+  }
+
+  public V1Organization addDefaultPresetsOrderedItem(String defaultPresetsOrderedItem) {
+    if (this.defaultPresetsOrdered == null) {
+      this.defaultPresetsOrdered = new ArrayList<>();
+    }
+    this.defaultPresetsOrdered.add(defaultPresetsOrderedItem);
+    return this;
+  }
+
+   /**
+   * Get defaultPresetsOrdered
+   * @return defaultPresetsOrdered
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getDefaultPresetsOrdered() {
+    return defaultPresetsOrdered;
+  }
+
+
+  public void setDefaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
   }
 
 
@@ -488,7 +532,8 @@ public class V1Organization {
         Objects.equals(this.expiration, v1Organization.expiration) &&
         Objects.equals(this.role, v1Organization.role) &&
         Objects.equals(this.queue, v1Organization.queue) &&
-        Objects.equals(this.preset, v1Organization.preset) &&
+        Objects.equals(this.defaultPresets, v1Organization.defaultPresets) &&
+        Objects.equals(this.defaultPresetsOrdered, v1Organization.defaultPresetsOrdered) &&
         Objects.equals(this.isCloudViewable, v1Organization.isCloudViewable) &&
         Objects.equals(this.archivedDeletionInterval, v1Organization.archivedDeletionInterval) &&
         Objects.equals(this.auth, v1Organization.auth) &&
@@ -498,7 +543,7 @@ public class V1Organization {
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, userEmail, name, isPublic, createdAt, updatedAt, supportRevokeAt, expiration, role, queue, preset, isCloudViewable, archivedDeletionInterval, auth, plan, usage);
+    return Objects.hash(user, userEmail, name, isPublic, createdAt, updatedAt, supportRevokeAt, expiration, role, queue, defaultPresets, defaultPresetsOrdered, isCloudViewable, archivedDeletionInterval, auth, plan, usage);
   }
 
   @Override
@@ -515,7 +560,8 @@ public class V1Organization {
     sb.append("    expiration: ").append(toIndentedString(expiration)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
-    sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
+    sb.append("    defaultPresets: ").append(toIndentedString(defaultPresets)).append("\n");
+    sb.append("    defaultPresetsOrdered: ").append(toIndentedString(defaultPresetsOrdered)).append("\n");
     sb.append("    isCloudViewable: ").append(toIndentedString(isCloudViewable)).append("\n");
     sb.append("    archivedDeletionInterval: ").append(toIndentedString(archivedDeletionInterval)).append("\n");
     sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
@@ -553,7 +599,8 @@ public class V1Organization {
     openapiFields.add("expiration");
     openapiFields.add("role");
     openapiFields.add("queue");
-    openapiFields.add("preset");
+    openapiFields.add("default_presets");
+    openapiFields.add("default_presets_ordered");
     openapiFields.add("is_cloud_viewable");
     openapiFields.add("archived_deletion_interval");
     openapiFields.add("auth");
@@ -599,8 +646,13 @@ public class V1Organization {
       if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
       }
-      if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets") != null && !jsonObj.get("default_presets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets_ordered") != null && !jsonObj.get("default_presets_ordered").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets_ordered` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets_ordered").toString()));
       }
   }
 

@@ -44,35 +44,38 @@ message Policy {
   // Authorized connections
   repeated string connections = 11;
 
-  // Default Preset
-  string preset = 12;
+  // Default Presets
+  repeated string default_presets = 12;
+
+  // Default Presets ordered
+  repeated string default_presets_ordered = 13;
 
   // Authorized Presets
-  repeated string presets = 13;
+  repeated string presets = 14;
 
   // Default Queue
-  string queue = 14;
+  string queue = 15;
 
   // Authorized queues
-  repeated string queues = 15;
+  repeated string queues = 16;
 
   // Authorized agents
-  repeated string agents = 16;
+  repeated string agents = 17;
 
   // Authorized namespaces
-  repeated string namespaces = 17;
+  repeated string namespaces = 18;
 
   // Authorized users
-  repeated UserAccess user_accesses = 18;
+  repeated UserAccess user_accesses = 19;
 
   // Authorized teams
-  repeated string teams = 19;
+  repeated string teams = 20;
 
   // Authorized projects
-  repeated string projects = 20;
+  repeated string projects = 21;
 
   // Connected projects
-  repeated string connected_projects = 21;
+  repeated string connected_projects = 22;
 }
 
 

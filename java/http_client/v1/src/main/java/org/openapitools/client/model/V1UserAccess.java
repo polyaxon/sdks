@@ -21,6 +21,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.V1UserAccessData;
 
 import com.google.gson.Gson;
@@ -61,9 +63,13 @@ public class V1UserAccess {
   @SerializedName(SERIALIZED_NAME_QUEUE)
   private String queue;
 
-  public static final String SERIALIZED_NAME_PRESET = "preset";
-  @SerializedName(SERIALIZED_NAME_PRESET)
-  private String preset;
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS = "default_presets";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS)
+  private List<String> defaultPresets;
+
+  public static final String SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED = "default_presets_ordered";
+  @SerializedName(SERIALIZED_NAME_DEFAULT_PRESETS_ORDERED)
+  private List<String> defaultPresetsOrdered;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
@@ -138,25 +144,63 @@ public class V1UserAccess {
   }
 
 
-  public V1UserAccess preset(String preset) {
+  public V1UserAccess defaultPresets(List<String> defaultPresets) {
 
-    this.preset = preset;
+    this.defaultPresets = defaultPresets;
+    return this;
+  }
+
+  public V1UserAccess addDefaultPresetsItem(String defaultPresetsItem) {
+    if (this.defaultPresets == null) {
+      this.defaultPresets = new ArrayList<>();
+    }
+    this.defaultPresets.add(defaultPresetsItem);
     return this;
   }
 
    /**
-   * Get preset
-   * @return preset
+   * Get defaultPresets
+   * @return defaultPresets
   **/
   @javax.annotation.Nullable
 
-  public String getPreset() {
-    return preset;
+  public List<String> getDefaultPresets() {
+    return defaultPresets;
   }
 
 
-  public void setPreset(String preset) {
-    this.preset = preset;
+  public void setDefaultPresets(List<String> defaultPresets) {
+    this.defaultPresets = defaultPresets;
+  }
+
+
+  public V1UserAccess defaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
+    return this;
+  }
+
+  public V1UserAccess addDefaultPresetsOrderedItem(String defaultPresetsOrderedItem) {
+    if (this.defaultPresetsOrdered == null) {
+      this.defaultPresetsOrdered = new ArrayList<>();
+    }
+    this.defaultPresetsOrdered.add(defaultPresetsOrderedItem);
+    return this;
+  }
+
+   /**
+   * Get defaultPresetsOrdered
+   * @return defaultPresetsOrdered
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getDefaultPresetsOrdered() {
+    return defaultPresetsOrdered;
+  }
+
+
+  public void setDefaultPresetsOrdered(List<String> defaultPresetsOrdered) {
+    this.defaultPresetsOrdered = defaultPresetsOrdered;
   }
 
 
@@ -195,13 +239,14 @@ public class V1UserAccess {
     return Objects.equals(this.user, v1UserAccess.user) &&
         Objects.equals(this.userData, v1UserAccess.userData) &&
         Objects.equals(this.queue, v1UserAccess.queue) &&
-        Objects.equals(this.preset, v1UserAccess.preset) &&
+        Objects.equals(this.defaultPresets, v1UserAccess.defaultPresets) &&
+        Objects.equals(this.defaultPresetsOrdered, v1UserAccess.defaultPresetsOrdered) &&
         Objects.equals(this.namespace, v1UserAccess.namespace);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, userData, queue, preset, namespace);
+    return Objects.hash(user, userData, queue, defaultPresets, defaultPresetsOrdered, namespace);
   }
 
   @Override
@@ -211,7 +256,8 @@ public class V1UserAccess {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    queue: ").append(toIndentedString(queue)).append("\n");
-    sb.append("    preset: ").append(toIndentedString(preset)).append("\n");
+    sb.append("    defaultPresets: ").append(toIndentedString(defaultPresets)).append("\n");
+    sb.append("    defaultPresetsOrdered: ").append(toIndentedString(defaultPresetsOrdered)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -238,7 +284,8 @@ public class V1UserAccess {
     openapiFields.add("user");
     openapiFields.add("user_data");
     openapiFields.add("queue");
-    openapiFields.add("preset");
+    openapiFields.add("default_presets");
+    openapiFields.add("default_presets_ordered");
     openapiFields.add("namespace");
 
     // a set of required properties/fields (JSON key names)
@@ -275,8 +322,13 @@ public class V1UserAccess {
       if ((jsonObj.get("queue") != null && !jsonObj.get("queue").isJsonNull()) && !jsonObj.get("queue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `queue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("queue").toString()));
       }
-      if ((jsonObj.get("preset") != null && !jsonObj.get("preset").isJsonNull()) && !jsonObj.get("preset").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preset` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preset").toString()));
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets") != null && !jsonObj.get("default_presets").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("default_presets_ordered") != null && !jsonObj.get("default_presets_ordered").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `default_presets_ordered` to be an array in the JSON string but got `%s`", jsonObj.get("default_presets_ordered").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));

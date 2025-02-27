@@ -8750,6 +8750,20 @@
           "title": "Optional time when the entity was created",
           "type": "string"
         },
+        "default_presets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets",
+          "type": "array"
+        },
+        "default_presets_ordered": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets ordered",
+          "type": "array"
+        },
         "expiration": {
           "format": "int32",
           "title": "Optional expiration for support",
@@ -8770,10 +8784,6 @@
         "plan": {
           "title": "Plan settings",
           "type": "object"
-        },
-        "preset": {
-          "title": "Default preset",
-          "type": "string"
         },
         "queue": {
           "title": "Default queue",
@@ -9098,6 +9108,20 @@
           "title": "Optional time when the entity was created",
           "type": "string"
         },
+        "default_presets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets",
+          "type": "array"
+        },
+        "default_presets_ordered": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets ordered",
+          "type": "array"
+        },
         "description": {
           "title": "Optional description",
           "type": "string"
@@ -9129,10 +9153,6 @@
         },
         "owner": {
           "title": "Owner/namespace where the project was created",
-          "type": "string"
-        },
-        "preset": {
-          "title": "Default Preset",
           "type": "string"
         },
         "presets": {
@@ -9418,6 +9438,20 @@
           "title": "Authorized connections",
           "type": "array"
         },
+        "default_presets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets",
+          "type": "array"
+        },
+        "default_presets_ordered": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default Presets ordered",
+          "type": "array"
+        },
         "namespaces": {
           "items": {
             "type": "string"
@@ -9427,10 +9461,6 @@
         },
         "policy": {
           "title": "Attached policy",
-          "type": "string"
-        },
-        "preset": {
-          "title": "Default Preset",
           "type": "string"
         },
         "presets": {
@@ -11525,12 +11555,22 @@
     },
     "v1UserAccess": {
       "properties": {
+        "default_presets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional default presets to configure for user",
+          "type": "array"
+        },
+        "default_presets_ordered": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Default presets ordered",
+          "type": "array"
+        },
         "namespace": {
           "title": "Optiona namespace to configure for user",
-          "type": "string"
-        },
-        "preset": {
-          "title": "Optional preset to configure for user",
           "type": "string"
         },
         "queue": {

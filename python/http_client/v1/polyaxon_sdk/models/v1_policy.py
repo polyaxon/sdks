@@ -39,7 +39,8 @@ class V1Policy(BaseModel):
     excluded_runtimes: Optional[conlist(StrictStr)] = None
     archived_deletion_interval: Optional[StrictInt] = None
     connections: Optional[conlist(StrictStr)] = None
-    preset: Optional[StrictStr] = None
+    default_presets: Optional[conlist(StrictStr)] = None
+    default_presets_ordered: Optional[conlist(StrictStr)] = None
     presets: Optional[conlist(StrictStr)] = None
     queue: Optional[StrictStr] = None
     queues: Optional[conlist(StrictStr)] = None
@@ -49,7 +50,7 @@ class V1Policy(BaseModel):
     teams: Optional[conlist(StrictStr)] = None
     projects: Optional[conlist(StrictStr)] = None
     connected_projects: Optional[conlist(StrictStr)] = None
-    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "preset", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "connected_projects"]
+    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "connected_projects"]
 
     class Config:
         allow_population_by_field_name = True
@@ -104,7 +105,8 @@ class V1Policy(BaseModel):
             "excluded_runtimes": obj.get("excluded_runtimes"),
             "archived_deletion_interval": obj.get("archived_deletion_interval"),
             "connections": obj.get("connections"),
-            "preset": obj.get("preset"),
+            "default_presets": obj.get("default_presets"),
+            "default_presets_ordered": obj.get("default_presets_ordered"),
             "presets": obj.get("presets"),
             "queue": obj.get("queue"),
             "queues": obj.get("queues"),

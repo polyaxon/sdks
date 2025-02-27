@@ -81,8 +81,11 @@ class V1Policy {
             if (data.hasOwnProperty('connections')) {
                 obj['connections'] = ApiClient.convertToType(data['connections'], ['String']);
             }
-            if (data.hasOwnProperty('preset')) {
-                obj['preset'] = ApiClient.convertToType(data['preset'], 'String');
+            if (data.hasOwnProperty('default_presets')) {
+                obj['default_presets'] = ApiClient.convertToType(data['default_presets'], ['String']);
+            }
+            if (data.hasOwnProperty('default_presets_ordered')) {
+                obj['default_presets_ordered'] = ApiClient.convertToType(data['default_presets_ordered'], ['String']);
             }
             if (data.hasOwnProperty('presets')) {
                 obj['presets'] = ApiClient.convertToType(data['presets'], ['String']);
@@ -153,9 +156,13 @@ class V1Policy {
         if (!Array.isArray(data['connections'])) {
             throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
         }
-        // ensure the json data is a string
-        if (data['preset'] && !(typeof data['preset'] === 'string' || data['preset'] instanceof String)) {
-            throw new Error("Expected the field `preset` to be a primitive type in the JSON string but got " + data['preset']);
+        // ensure the json data is an array
+        if (!Array.isArray(data['default_presets'])) {
+            throw new Error("Expected the field `default_presets` to be an array in the JSON data but got " + data['default_presets']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['default_presets_ordered'])) {
+            throw new Error("Expected the field `default_presets_ordered` to be an array in the JSON data but got " + data['default_presets_ordered']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['presets'])) {
@@ -264,9 +271,14 @@ V1Policy.prototype['archived_deletion_interval'] = undefined;
 V1Policy.prototype['connections'] = undefined;
 
 /**
- * @member {String} preset
+ * @member {Array.<String>} default_presets
  */
-V1Policy.prototype['preset'] = undefined;
+V1Policy.prototype['default_presets'] = undefined;
+
+/**
+ * @member {Array.<String>} default_presets_ordered
+ */
+V1Policy.prototype['default_presets_ordered'] = undefined;
 
 /**
  * @member {Array.<String>} presets

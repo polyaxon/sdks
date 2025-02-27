@@ -81,10 +81,16 @@ export interface V1Organization {
     queue?: string;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof V1Organization
      */
-    preset?: string;
+    default_presets?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1Organization
+     */
+    default_presets_ordered?: Array<string>;
     /**
      *
      * @type {boolean}
@@ -146,7 +152,8 @@ export function V1OrganizationFromJSONTyped(json: any, ignoreDiscriminator: bool
         'expiration': !exists(json, 'expiration') ? undefined : json['expiration'],
         'role': !exists(json, 'role') ? undefined : json['role'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
-        'preset': !exists(json, 'preset') ? undefined : json['preset'],
+        'default_presets': !exists(json, 'default_presets') ? undefined : json['default_presets'],
+        'default_presets_ordered': !exists(json, 'default_presets_ordered') ? undefined : json['default_presets_ordered'],
         'is_cloud_viewable': !exists(json, 'is_cloud_viewable') ? undefined : json['is_cloud_viewable'],
         'archived_deletion_interval': !exists(json, 'archived_deletion_interval') ? undefined : json['archived_deletion_interval'],
         'auth': !exists(json, 'auth') ? undefined : json['auth'],
@@ -174,7 +181,8 @@ export function V1OrganizationToJSON(value?: V1Organization | null): any {
         'expiration': value.expiration,
         'role': value.role,
         'queue': value.queue,
-        'preset': value.preset,
+        'default_presets': value.default_presets,
+        'default_presets_ordered': value.default_presets_ordered,
         'is_cloud_viewable': value.is_cloud_viewable,
         'archived_deletion_interval': value.archived_deletion_interval,
         'auth': value.auth,

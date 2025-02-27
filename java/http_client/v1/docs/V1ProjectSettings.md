@@ -8,7 +8,8 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**connections** | **List&lt;String&gt;** |  |  [optional] |
-|**preset** | **String** |  |  [optional] |
+|**defaultPresets** | **List&lt;String&gt;** |  |  [optional] |
+|**defaultPresetsOrdered** | **List&lt;String&gt;** |  |  [optional] |
 |**presets** | **List&lt;String&gt;** |  |  [optional] |
 |**queue** | **String** |  |  [optional] |
 |**queues** | **List&lt;String&gt;** |  |  [optional] |

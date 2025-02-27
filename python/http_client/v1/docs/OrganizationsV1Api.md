@@ -1542,7 +1542,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_organization_settings**
-> V1Organization get_organization_settings(owner, organization_user=organization_user, organization_user_email=organization_user_email, organization_name=organization_name, organization_is_public=organization_is_public, organization_created_at=organization_created_at, organization_updated_at=organization_updated_at, organization_support_revoke_at=organization_support_revoke_at, organization_expiration=organization_expiration, organization_role=organization_role, organization_queue=organization_queue, organization_preset=organization_preset, organization_is_cloud_viewable=organization_is_cloud_viewable, organization_archived_deletion_interval=organization_archived_deletion_interval)
+> V1Organization get_organization_settings(owner, organization_user=organization_user, organization_user_email=organization_user_email, organization_name=organization_name, organization_is_public=organization_is_public, organization_created_at=organization_created_at, organization_updated_at=organization_updated_at, organization_support_revoke_at=organization_support_revoke_at, organization_expiration=organization_expiration, organization_role=organization_role, organization_queue=organization_queue, organization_default_presets=organization_default_presets, organization_default_presets_ordered=organization_default_presets_ordered, organization_is_cloud_viewable=organization_is_cloud_viewable, organization_archived_deletion_interval=organization_archived_deletion_interval)
 
 Get organization settings
 
@@ -1588,13 +1588,14 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     organization_expiration = 56 # int | Optional expiration for support. (optional)
     organization_role = 'organization_role_example' # str | Current user's role in this org. (optional)
     organization_queue = 'organization_queue_example' # str | Default queue. (optional)
-    organization_preset = 'organization_preset_example' # str | Default preset. (optional)
+    organization_default_presets = ['organization_default_presets_example'] # List[str] | Default presets. (optional)
+    organization_default_presets_ordered = ['organization_default_presets_ordered_example'] # List[str] | Default presets ordered. (optional)
     organization_is_cloud_viewable = True # bool | Setting to enable viewable metadata on cloud. (optional)
     organization_archived_deletion_interval = 56 # int | Setting to configure default archived deletion interval. (optional)
 
     try:
         # Get organization settings
-        api_response = api_instance.get_organization_settings(owner, organization_user=organization_user, organization_user_email=organization_user_email, organization_name=organization_name, organization_is_public=organization_is_public, organization_created_at=organization_created_at, organization_updated_at=organization_updated_at, organization_support_revoke_at=organization_support_revoke_at, organization_expiration=organization_expiration, organization_role=organization_role, organization_queue=organization_queue, organization_preset=organization_preset, organization_is_cloud_viewable=organization_is_cloud_viewable, organization_archived_deletion_interval=organization_archived_deletion_interval)
+        api_response = api_instance.get_organization_settings(owner, organization_user=organization_user, organization_user_email=organization_user_email, organization_name=organization_name, organization_is_public=organization_is_public, organization_created_at=organization_created_at, organization_updated_at=organization_updated_at, organization_support_revoke_at=organization_support_revoke_at, organization_expiration=organization_expiration, organization_role=organization_role, organization_queue=organization_queue, organization_default_presets=organization_default_presets, organization_default_presets_ordered=organization_default_presets_ordered, organization_is_cloud_viewable=organization_is_cloud_viewable, organization_archived_deletion_interval=organization_archived_deletion_interval)
         print("The response of OrganizationsV1Api->get_organization_settings:\n")
         pprint(api_response)
     except Exception as e:
@@ -1616,7 +1617,8 @@ Name | Type | Description  | Notes
  **organization_expiration** | **int**| Optional expiration for support. | [optional] 
  **organization_role** | **str**| Current user&#39;s role in this org. | [optional] 
  **organization_queue** | **str**| Default queue. | [optional] 
- **organization_preset** | **str**| Default preset. | [optional] 
+ **organization_default_presets** | [**List[str]**](str.md)| Default presets. | [optional] 
+ **organization_default_presets_ordered** | [**List[str]**](str.md)| Default presets ordered. | [optional] 
  **organization_is_cloud_viewable** | **bool**| Setting to enable viewable metadata on cloud. | [optional] 
  **organization_archived_deletion_interval** | **int**| Setting to configure default archived deletion interval. | [optional] 
 

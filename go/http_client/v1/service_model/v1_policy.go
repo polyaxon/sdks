@@ -36,6 +36,12 @@ type V1Policy struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`
 
+	// Default Presets
+	DefaultPresets []string `json:"default_presets"`
+
+	// Default Presets ordered
+	DefaultPresetsOrdered []string `json:"default_presets_ordered"`
+
 	// Optional description
 	Description string `json:"description,omitempty"`
 
@@ -53,9 +59,6 @@ type V1Policy struct {
 
 	// Owner/namespace where the project was created
 	Owner string `json:"owner,omitempty"`
-
-	// Default Preset
-	Preset string `json:"preset,omitempty"`
 
 	// Authorized Presets
 	Presets []string `json:"presets"`

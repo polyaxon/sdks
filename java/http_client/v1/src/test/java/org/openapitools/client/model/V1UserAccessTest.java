@@ -19,6 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import org.openapitools.client.model.V1UserAccessData;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -63,11 +65,19 @@ public class V1UserAccessTest {
     }
 
     /**
-     * Test the property 'preset'
+     * Test the property 'defaultPresets'
      */
     @Test
-    public void presetTest() {
-        // TODO: test preset
+    public void defaultPresetsTest() {
+        // TODO: test defaultPresets
+    }
+
+    /**
+     * Test the property 'defaultPresetsOrdered'
+     */
+    @Test
+    public void defaultPresetsOrderedTest() {
+        // TODO: test defaultPresetsOrdered
     }
 
     /**

@@ -20,8 +20,8 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import Any, Dict, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from typing import Any, Dict, List, Optional
+from pydantic import BaseModel, StrictBool, StrictInt, StrictStr, conlist
 
 class V1Organization(BaseModel):
     """
@@ -37,13 +37,14 @@ class V1Organization(BaseModel):
     expiration: Optional[StrictInt] = None
     role: Optional[StrictStr] = None
     queue: Optional[StrictStr] = None
-    preset: Optional[StrictStr] = None
+    default_presets: Optional[conlist(StrictStr)] = None
+    default_presets_ordered: Optional[conlist(StrictStr)] = None
     is_cloud_viewable: Optional[StrictBool] = None
     archived_deletion_interval: Optional[StrictInt] = None
     auth: Optional[Dict[str, Any]] = None
     plan: Optional[Dict[str, Any]] = None
     usage: Optional[Dict[str, Any]] = None
-    __properties = ["user", "user_email", "name", "is_public", "created_at", "updated_at", "support_revoke_at", "expiration", "role", "queue", "preset", "is_cloud_viewable", "archived_deletion_interval", "auth", "plan", "usage"]
+    __properties = ["user", "user_email", "name", "is_public", "created_at", "updated_at", "support_revoke_at", "expiration", "role", "queue", "default_presets", "default_presets_ordered", "is_cloud_viewable", "archived_deletion_interval", "auth", "plan", "usage"]
 
     class Config:
         allow_population_by_field_name = True
@@ -90,7 +91,8 @@ class V1Organization(BaseModel):
             "expiration": obj.get("expiration"),
             "role": obj.get("role"),
             "queue": obj.get("queue"),
-            "preset": obj.get("preset"),
+            "default_presets": obj.get("default_presets"),
+            "default_presets_ordered": obj.get("default_presets_ordered"),
             "is_cloud_viewable": obj.get("is_cloud_viewable"),
             "archived_deletion_interval": obj.get("archived_deletion_interval"),
             "auth": obj.get("auth"),

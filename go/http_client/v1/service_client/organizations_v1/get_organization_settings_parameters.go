@@ -78,6 +78,18 @@ type GetOrganizationSettingsParams struct {
 	*/
 	OrganizationCreatedAt *strfmt.DateTime
 
+	/* OrganizationDefaultPresets.
+
+	   Default presets.
+	*/
+	OrganizationDefaultPresets []string
+
+	/* OrganizationDefaultPresetsOrdered.
+
+	   Default presets ordered.
+	*/
+	OrganizationDefaultPresetsOrdered []string
+
 	/* OrganizationExpiration.
 
 	   Optional expiration for support.
@@ -103,12 +115,6 @@ type GetOrganizationSettingsParams struct {
 	   Name.
 	*/
 	OrganizationName *string
-
-	/* OrganizationPreset.
-
-	   Default preset.
-	*/
-	OrganizationPreset *string
 
 	/* OrganizationQueue.
 
@@ -231,6 +237,28 @@ func (o *GetOrganizationSettingsParams) SetOrganizationCreatedAt(organizationCre
 	o.OrganizationCreatedAt = organizationCreatedAt
 }
 
+// WithOrganizationDefaultPresets adds the organizationDefaultPresets to the get organization settings params
+func (o *GetOrganizationSettingsParams) WithOrganizationDefaultPresets(organizationDefaultPresets []string) *GetOrganizationSettingsParams {
+	o.SetOrganizationDefaultPresets(organizationDefaultPresets)
+	return o
+}
+
+// SetOrganizationDefaultPresets adds the organizationDefaultPresets to the get organization settings params
+func (o *GetOrganizationSettingsParams) SetOrganizationDefaultPresets(organizationDefaultPresets []string) {
+	o.OrganizationDefaultPresets = organizationDefaultPresets
+}
+
+// WithOrganizationDefaultPresetsOrdered adds the organizationDefaultPresetsOrdered to the get organization settings params
+func (o *GetOrganizationSettingsParams) WithOrganizationDefaultPresetsOrdered(organizationDefaultPresetsOrdered []string) *GetOrganizationSettingsParams {
+	o.SetOrganizationDefaultPresetsOrdered(organizationDefaultPresetsOrdered)
+	return o
+}
+
+// SetOrganizationDefaultPresetsOrdered adds the organizationDefaultPresetsOrdered to the get organization settings params
+func (o *GetOrganizationSettingsParams) SetOrganizationDefaultPresetsOrdered(organizationDefaultPresetsOrdered []string) {
+	o.OrganizationDefaultPresetsOrdered = organizationDefaultPresetsOrdered
+}
+
 // WithOrganizationExpiration adds the organizationExpiration to the get organization settings params
 func (o *GetOrganizationSettingsParams) WithOrganizationExpiration(organizationExpiration *int32) *GetOrganizationSettingsParams {
 	o.SetOrganizationExpiration(organizationExpiration)
@@ -273,17 +301,6 @@ func (o *GetOrganizationSettingsParams) WithOrganizationName(organizationName *s
 // SetOrganizationName adds the organizationName to the get organization settings params
 func (o *GetOrganizationSettingsParams) SetOrganizationName(organizationName *string) {
 	o.OrganizationName = organizationName
-}
-
-// WithOrganizationPreset adds the organizationPreset to the get organization settings params
-func (o *GetOrganizationSettingsParams) WithOrganizationPreset(organizationPreset *string) *GetOrganizationSettingsParams {
-	o.SetOrganizationPreset(organizationPreset)
-	return o
-}
-
-// SetOrganizationPreset adds the organizationPreset to the get organization settings params
-func (o *GetOrganizationSettingsParams) SetOrganizationPreset(organizationPreset *string) {
-	o.OrganizationPreset = organizationPreset
 }
 
 // WithOrganizationQueue adds the organizationQueue to the get organization settings params
@@ -405,6 +422,28 @@ func (o *GetOrganizationSettingsParams) WriteToRequest(r runtime.ClientRequest, 
 		}
 	}
 
+	if o.OrganizationDefaultPresets != nil {
+
+		// binding items for organization.default_presets
+		joinedOrganizationDefaultPresets := o.bindParamOrganizationDefaultPresets(reg)
+
+		// query array param organization.default_presets
+		if err := r.SetQueryParam("organization.default_presets", joinedOrganizationDefaultPresets...); err != nil {
+			return err
+		}
+	}
+
+	if o.OrganizationDefaultPresetsOrdered != nil {
+
+		// binding items for organization.default_presets_ordered
+		joinedOrganizationDefaultPresetsOrdered := o.bindParamOrganizationDefaultPresetsOrdered(reg)
+
+		// query array param organization.default_presets_ordered
+		if err := r.SetQueryParam("organization.default_presets_ordered", joinedOrganizationDefaultPresetsOrdered...); err != nil {
+			return err
+		}
+	}
+
 	if o.OrganizationExpiration != nil {
 
 		// query param organization.expiration
@@ -468,23 +507,6 @@ func (o *GetOrganizationSettingsParams) WriteToRequest(r runtime.ClientRequest, 
 		if qOrganizationName != "" {
 
 			if err := r.SetQueryParam("organization.name", qOrganizationName); err != nil {
-				return err
-			}
-		}
-	}
-
-	if o.OrganizationPreset != nil {
-
-		// query param organization.preset
-		var qrOrganizationPreset string
-
-		if o.OrganizationPreset != nil {
-			qrOrganizationPreset = *o.OrganizationPreset
-		}
-		qOrganizationPreset := qrOrganizationPreset
-		if qOrganizationPreset != "" {
-
-			if err := r.SetQueryParam("organization.preset", qOrganizationPreset); err != nil {
 				return err
 			}
 		}
@@ -601,4 +623,38 @@ func (o *GetOrganizationSettingsParams) WriteToRequest(r runtime.ClientRequest, 
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOrganizationSettings binds the parameter organization.default_presets
+func (o *GetOrganizationSettingsParams) bindParamOrganizationDefaultPresets(formats strfmt.Registry) []string {
+	organizationDefaultPresetsIR := o.OrganizationDefaultPresets
+
+	var organizationDefaultPresetsIC []string
+	for _, organizationDefaultPresetsIIR := range organizationDefaultPresetsIR { // explode []string
+
+		organizationDefaultPresetsIIV := organizationDefaultPresetsIIR // string as string
+		organizationDefaultPresetsIC = append(organizationDefaultPresetsIC, organizationDefaultPresetsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	organizationDefaultPresetsIS := swag.JoinByFormat(organizationDefaultPresetsIC, "multi")
+
+	return organizationDefaultPresetsIS
+}
+
+// bindParamGetOrganizationSettings binds the parameter organization.default_presets_ordered
+func (o *GetOrganizationSettingsParams) bindParamOrganizationDefaultPresetsOrdered(formats strfmt.Registry) []string {
+	organizationDefaultPresetsOrderedIR := o.OrganizationDefaultPresetsOrdered
+
+	var organizationDefaultPresetsOrderedIC []string
+	for _, organizationDefaultPresetsOrderedIIR := range organizationDefaultPresetsOrderedIR { // explode []string
+
+		organizationDefaultPresetsOrderedIIV := organizationDefaultPresetsOrderedIIR // string as string
+		organizationDefaultPresetsOrderedIC = append(organizationDefaultPresetsOrderedIC, organizationDefaultPresetsOrderedIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	organizationDefaultPresetsOrderedIS := swag.JoinByFormat(organizationDefaultPresetsOrderedIC, "multi")
+
+	return organizationDefaultPresetsOrderedIS
 }

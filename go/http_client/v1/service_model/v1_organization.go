@@ -29,6 +29,12 @@ type V1Organization struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`
 
+	// Default presets
+	DefaultPresets []string `json:"default_presets"`
+
+	// Default presets ordered
+	DefaultPresetsOrdered []string `json:"default_presets_ordered"`
+
 	// Optional expiration for support
 	Expiration int32 `json:"expiration,omitempty"`
 
@@ -43,9 +49,6 @@ type V1Organization struct {
 
 	// Plan settings
 	Plan interface{} `json:"plan,omitempty"`
-
-	// Default preset
-	Preset string `json:"preset,omitempty"`
 
 	// Default queue
 	Queue string `json:"queue,omitempty"`

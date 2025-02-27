@@ -77,8 +77,11 @@ class V1Organization {
             if (data.hasOwnProperty('queue')) {
                 obj['queue'] = ApiClient.convertToType(data['queue'], 'String');
             }
-            if (data.hasOwnProperty('preset')) {
-                obj['preset'] = ApiClient.convertToType(data['preset'], 'String');
+            if (data.hasOwnProperty('default_presets')) {
+                obj['default_presets'] = ApiClient.convertToType(data['default_presets'], ['String']);
+            }
+            if (data.hasOwnProperty('default_presets_ordered')) {
+                obj['default_presets_ordered'] = ApiClient.convertToType(data['default_presets_ordered'], ['String']);
             }
             if (data.hasOwnProperty('is_cloud_viewable')) {
                 obj['is_cloud_viewable'] = ApiClient.convertToType(data['is_cloud_viewable'], 'Boolean');
@@ -125,9 +128,13 @@ class V1Organization {
         if (data['queue'] && !(typeof data['queue'] === 'string' || data['queue'] instanceof String)) {
             throw new Error("Expected the field `queue` to be a primitive type in the JSON string but got " + data['queue']);
         }
-        // ensure the json data is a string
-        if (data['preset'] && !(typeof data['preset'] === 'string' || data['preset'] instanceof String)) {
-            throw new Error("Expected the field `preset` to be a primitive type in the JSON string but got " + data['preset']);
+        // ensure the json data is an array
+        if (!Array.isArray(data['default_presets'])) {
+            throw new Error("Expected the field `default_presets` to be an array in the JSON data but got " + data['default_presets']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['default_presets_ordered'])) {
+            throw new Error("Expected the field `default_presets_ordered` to be an array in the JSON data but got " + data['default_presets_ordered']);
         }
 
         return true;
@@ -189,9 +196,14 @@ V1Organization.prototype['role'] = undefined;
 V1Organization.prototype['queue'] = undefined;
 
 /**
- * @member {String} preset
+ * @member {Array.<String>} default_presets
  */
-V1Organization.prototype['preset'] = undefined;
+V1Organization.prototype['default_presets'] = undefined;
+
+/**
+ * @member {Array.<String>} default_presets_ordered
+ */
+V1Organization.prototype['default_presets_ordered'] = undefined;
 
 /**
  * @member {Boolean} is_cloud_viewable

@@ -94,10 +94,16 @@ export interface V1Policy {
     connections?: Array<string>;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof V1Policy
      */
-    preset?: string;
+    default_presets?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1Policy
+     */
+    default_presets_ordered?: Array<string>;
     /**
      *
      * @type {Array<string>}
@@ -184,7 +190,8 @@ export function V1PolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'excluded_runtimes': !exists(json, 'excluded_runtimes') ? undefined : json['excluded_runtimes'],
         'archived_deletion_interval': !exists(json, 'archived_deletion_interval') ? undefined : json['archived_deletion_interval'],
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
-        'preset': !exists(json, 'preset') ? undefined : json['preset'],
+        'default_presets': !exists(json, 'default_presets') ? undefined : json['default_presets'],
+        'default_presets_ordered': !exists(json, 'default_presets_ordered') ? undefined : json['default_presets_ordered'],
         'presets': !exists(json, 'presets') ? undefined : json['presets'],
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
         'queues': !exists(json, 'queues') ? undefined : json['queues'],
@@ -217,7 +224,8 @@ export function V1PolicyToJSON(value?: V1Policy | null): any {
         'excluded_runtimes': value.excluded_runtimes,
         'archived_deletion_interval': value.archived_deletion_interval,
         'connections': value.connections,
-        'preset': value.preset,
+        'default_presets': value.default_presets,
+        'default_presets_ordered': value.default_presets_ordered,
         'presets': value.presets,
         'queue': value.queue,
         'queues': value.queues,

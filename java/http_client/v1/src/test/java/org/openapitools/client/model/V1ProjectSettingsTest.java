@@ -49,11 +49,19 @@ public class V1ProjectSettingsTest {
     }
 
     /**
-     * Test the property 'preset'
+     * Test the property 'defaultPresets'
      */
     @Test
-    public void presetTest() {
-        // TODO: test preset
+    public void defaultPresetsTest() {
+        // TODO: test defaultPresets
+    }
+
+    /**
+     * Test the property 'defaultPresetsOrdered'
+     */
+    @Test
+    public void defaultPresetsOrderedTest() {
+        // TODO: test defaultPresetsOrdered
     }
 
     /**

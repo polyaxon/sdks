@@ -5,7 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **connections** | **[String]** |  | [optional] 
-**preset** | **String** |  | [optional] 
+**default_presets** | **[String]** |  | [optional] 
+**default_presets_ordered** | **[String]** |  | [optional] 
 **presets** | **[String]** |  | [optional] 
 **queue** | **String** |  | [optional] 
 **queues** | **[String]** |  | [optional] 

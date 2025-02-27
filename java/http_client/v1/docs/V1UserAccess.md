@@ -10,7 +10,8 @@
 |**user** | **String** |  |  [optional] |
 |**userData** | [**V1UserAccessData**](V1UserAccessData.md) |  |  [optional] |
 |**queue** | **String** |  |  [optional] |
-|**preset** | **String** |  |  [optional] |
+|**defaultPresets** | **List&lt;String&gt;** |  |  [optional] |
+|**defaultPresetsOrdered** | **List&lt;String&gt;** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] |
 
 

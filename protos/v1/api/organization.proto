@@ -39,23 +39,26 @@ message Organization {
     // Default queue
     string queue = 10;
 
-    // Default preset
-    string preset = 11;
+    // Default presets
+    repeated string default_presets = 11;
+
+    // Default presets ordered
+    repeated string default_presets_ordered = 12;
 
     // Setting to enable viewable metadata on cloud
-    bool is_cloud_viewable = 12;
+    bool is_cloud_viewable = 13;
 
     // Setting to configure default archived deletion interval
-    int32 archived_deletion_interval = 13;
+    int32 archived_deletion_interval = 14;
 
     // Auth Settings
-    google.protobuf.Struct auth = 14;
+    google.protobuf.Struct auth = 15;
 
     // Plan settings
-    google.protobuf.Struct plan = 15;
+    google.protobuf.Struct plan = 16;
 
     // Usage info
-    google.protobuf.Struct usage = 16;
+    google.protobuf.Struct usage = 17;
 }
 
  // Request data to update organizations

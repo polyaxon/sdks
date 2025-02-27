@@ -339,10 +339,11 @@ public class OrganizationsV1ApiTest {
         Integer organizationExpiration = null;
         String organizationRole = null;
         String organizationQueue = null;
-        String organizationPreset = null;
+        List<String> organizationDefaultPresets = null;
+        List<String> organizationDefaultPresetsOrdered = null;
         Boolean organizationIsCloudViewable = null;
         Integer organizationArchivedDeletionInterval = null;
-        V1Organization response = api.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationPreset, organizationIsCloudViewable, organizationArchivedDeletionInterval);
+        V1Organization response = api.getOrganizationSettings(owner, organizationUser, organizationUserEmail, organizationName, organizationIsPublic, organizationCreatedAt, organizationUpdatedAt, organizationSupportRevokeAt, organizationExpiration, organizationRole, organizationQueue, organizationDefaultPresets, organizationDefaultPresetsOrdered, organizationIsCloudViewable, organizationArchivedDeletionInterval);
         // TODO: test validations
     }
 

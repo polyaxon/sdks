@@ -25,14 +25,17 @@ type V1ProjectSettings struct {
 	// Authorized connections
 	Connections []string `json:"connections"`
 
+	// Default Presets
+	DefaultPresets []string `json:"default_presets"`
+
+	// Default Presets ordered
+	DefaultPresetsOrdered []string `json:"default_presets_ordered"`
+
 	// Authorized namespaces
 	Namespaces []string `json:"namespaces"`
 
 	// Attached policy
 	Policy string `json:"policy,omitempty"`
-
-	// Default Preset
-	Preset string `json:"preset,omitempty"`
 
 	// Authorized Presets
 	Presets []string `json:"presets"`

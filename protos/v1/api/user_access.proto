@@ -25,9 +25,12 @@ message UserAccess {
   // Optional queue to configure for user
   string queue = 3;
 
-  // Optional preset to configure for user
-  string preset = 4;
+  // Optional default presets to configure for user
+  repeated string default_presets = 4;
+
+  // Default presets ordered
+  repeated string default_presets_ordered = 5;
 
   // Optiona namespace to configure for user
-  string namespace = 5;
+  string namespace = 6;
 }

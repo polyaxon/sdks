@@ -1000,7 +1000,8 @@ export default class OrganizationsV1Api {
      * @param {Number} [organization_expiration] Optional expiration for support.
      * @param {String} [organization_role] Current user's role in this org.
      * @param {String} [organization_queue] Default queue.
-     * @param {String} [organization_preset] Default preset.
+     * @param {Array.<String>} [organization_default_presets] Default presets.
+     * @param {Array.<String>} [organization_default_presets_ordered] Default presets ordered.
      * @param {Boolean} [organization_is_cloud_viewable] Setting to enable viewable metadata on cloud.
      * @param {Number} [organization_archived_deletion_interval] Setting to configure default archived deletion interval.
      * @param {module:api/OrganizationsV1Api~getOrganizationSettingsCallback} callback The callback function, accepting three arguments: error, data, response
@@ -1028,7 +1029,8 @@ export default class OrganizationsV1Api {
         'organization.expiration': opts['organization_expiration'],
         'organization.role': opts['organization_role'],
         'organization.queue': opts['organization_queue'],
-        'organization.preset': opts['organization_preset'],
+        'organization.default_presets': this.apiClient.buildCollectionParam(opts['organization_default_presets'], 'multi'),
+        'organization.default_presets_ordered': this.apiClient.buildCollectionParam(opts['organization_default_presets_ordered'], 'multi'),
         'organization.is_cloud_viewable': opts['organization_is_cloud_viewable'],
         'organization.archived_deletion_interval': opts['organization_archived_deletion_interval']
       };

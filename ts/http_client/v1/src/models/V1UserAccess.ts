@@ -46,10 +46,16 @@ export interface V1UserAccess {
     queue?: string;
     /**
      *
-     * @type {string}
+     * @type {Array<string>}
      * @memberof V1UserAccess
      */
-    preset?: string;
+    default_presets?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1UserAccess
+     */
+    default_presets_ordered?: Array<string>;
     /**
      *
      * @type {string}
@@ -80,7 +86,8 @@ export function V1UserAccessFromJSONTyped(json: any, ignoreDiscriminator: boolea
         'user': !exists(json, 'user') ? undefined : json['user'],
         'user_data': !exists(json, 'user_data') ? undefined : V1UserAccessDataFromJSON(json['user_data']),
         'queue': !exists(json, 'queue') ? undefined : json['queue'],
-        'preset': !exists(json, 'preset') ? undefined : json['preset'],
+        'default_presets': !exists(json, 'default_presets') ? undefined : json['default_presets'],
+        'default_presets_ordered': !exists(json, 'default_presets_ordered') ? undefined : json['default_presets_ordered'],
         'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
     };
 }
@@ -97,7 +104,8 @@ export function V1UserAccessToJSON(value?: V1UserAccess | null): any {
         'user': value.user,
         'user_data': V1UserAccessDataToJSON(value.user_data),
         'queue': value.queue,
-        'preset': value.preset,
+        'default_presets': value.default_presets,
+        'default_presets_ordered': value.default_presets_ordered,
         'namespace': value.namespace,
     };
 }

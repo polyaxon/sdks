@@ -17,7 +17,8 @@
 |**expiration** | **Integer** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**queue** | **String** |  |  [optional] |
-|**preset** | **String** |  |  [optional] |
+|**defaultPresets** | **List&lt;String&gt;** |  |  [optional] |
+|**defaultPresetsOrdered** | **List&lt;String&gt;** |  |  [optional] |
 |**isCloudViewable** | **Boolean** |  |  [optional] |
 |**archivedDeletionInterval** | **Integer** |  |  [optional] |
 |**auth** | **Object** |  |  [optional] |

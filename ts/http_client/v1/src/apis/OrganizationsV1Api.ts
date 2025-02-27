@@ -205,7 +205,8 @@ export interface GetOrganizationSettingsRequest {
     organizationExpiration?: number;
     organizationRole?: string;
     organizationQueue?: string;
-    organizationPreset?: string;
+    organizationDefaultPresets?: Array<string>;
+    organizationDefaultPresetsOrdered?: Array<string>;
     organizationIsCloudViewable?: boolean;
     organizationArchivedDeletionInterval?: number;
 }
@@ -1269,8 +1270,12 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
             queryParameters['organization.queue'] = requestParameters.organizationQueue;
         }
 
-        if (requestParameters.organizationPreset !== undefined) {
-            queryParameters['organization.preset'] = requestParameters.organizationPreset;
+        if (requestParameters.organizationDefaultPresets) {
+            queryParameters['organization.default_presets'] = requestParameters.organizationDefaultPresets;
+        }
+
+        if (requestParameters.organizationDefaultPresetsOrdered) {
+            queryParameters['organization.default_presets_ordered'] = requestParameters.organizationDefaultPresetsOrdered;
         }
 
         if (requestParameters.organizationIsCloudViewable !== undefined) {

@@ -20,8 +20,8 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
-from pydantic import BaseModel, StrictStr
+from typing import List, Optional
+from pydantic import BaseModel, StrictStr, conlist
 from polyaxon_sdk.models.v1_user_access_data import V1UserAccessData
 
 class V1UserAccess(BaseModel):
@@ -31,9 +31,10 @@ class V1UserAccess(BaseModel):
     user: Optional[StrictStr] = None
     user_data: Optional[V1UserAccessData] = None
     queue: Optional[StrictStr] = None
-    preset: Optional[StrictStr] = None
+    default_presets: Optional[conlist(StrictStr)] = None
+    default_presets_ordered: Optional[conlist(StrictStr)] = None
     namespace: Optional[StrictStr] = None
-    __properties = ["user", "user_data", "queue", "preset", "namespace"]
+    __properties = ["user", "user_data", "queue", "default_presets", "default_presets_ordered", "namespace"]
 
     class Config:
         allow_population_by_field_name = True
@@ -76,7 +77,8 @@ class V1UserAccess(BaseModel):
             "user": obj.get("user"),
             "user_data": V1UserAccessData.from_dict(obj.get("user_data")) if obj.get("user_data") is not None else None,
             "queue": obj.get("queue"),
-            "preset": obj.get("preset"),
+            "default_presets": obj.get("default_presets"),
+            "default_presets_ordered": obj.get("default_presets_ordered"),
             "namespace": obj.get("namespace")
         })
         return _obj
