@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.6.1
+  version: 2.7.0-rc0
 servers:
 - url: /
 security:
