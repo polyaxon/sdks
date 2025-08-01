@@ -14,6 +14,7 @@
 |**height** | **Integer** |  |  [optional] |
 |**xaxis** | **String** |  |  [optional] |
 |**smoothing** | **Integer** |  |  [optional] |
+|**step** | **Integer** |  |  [optional] |
 |**ignoreOutliers** | **Boolean** |  |  [optional] |
 |**sampleSize** | **Integer** |  |  [optional] |
 |**widgets** | **List&lt;Object&gt;** |  |  [optional] |

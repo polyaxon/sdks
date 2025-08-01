@@ -5540,6 +5540,11 @@
           "title": "Smoothing",
           "type": "integer"
         },
+        "step": {
+          "format": "int32",
+          "title": "Step",
+          "type": "integer"
+        },
         "xaxis": {
           "title": "xaxis",
           "type": "string"
@@ -10738,6 +10743,11 @@
         "smoothing": {
           "format": "int32",
           "title": "Smoothing",
+          "type": "integer"
+        },
+        "step": {
+          "format": "int32",
+          "title": "Step",
           "type": "integer"
         },
         "widgets": {

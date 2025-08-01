@@ -31,6 +31,9 @@ type V1DashboardSpec struct {
 	// Smoothing
 	Smoothing int32 `json:"smoothing,omitempty"`
 
+	// Step
+	Step int32 `json:"step,omitempty"`
+
 	// xaxis
 	Xaxis string `json:"xaxis,omitempty"`
 }

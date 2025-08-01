@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.9.0
+  version: 2.9.1
 servers:
 - url: /
 security:
@@ -25622,38 +25622,41 @@ components:
         uuid: uuid
         spec:
           xaxis: xaxis
-          sample_size: 2
-          smoothing: 3
+          sample_size: 7
+          step: 4
+          smoothing: 2
           ignore_outliers: true
           sections:
-          - xaxis: xaxis
-            is_frozen: true
-            sample_size: 2
-            is_minimized: true
+          - is_frozen: true
             columns: 1
-            page_index: 7
-            name: name
-            smoothing: 5
             widgets:
             - "{}"
             - "{}"
+            xaxis: xaxis
+            sample_size: 7
+            is_minimized: true
+            page_index: 9
+            name: name
+            step: 2
+            smoothing: 5
             ignore_outliers: true
             height: 5
-            page_size: 9
-          - xaxis: xaxis
-            is_frozen: true
-            sample_size: 2
-            is_minimized: true
+            page_size: 3
+          - is_frozen: true
             columns: 1
-            page_index: 7
-            name: name
-            smoothing: 5
             widgets:
             - "{}"
             - "{}"
+            xaxis: xaxis
+            sample_size: 7
+            is_minimized: true
+            page_index: 9
+            name: name
+            step: 2
+            smoothing: 5
             ignore_outliers: true
             height: 5
-            page_size: 9
+            page_size: 3
         tags:
         - tags
         - tags
@@ -25694,38 +25697,41 @@ components:
     v1DashboardSpec:
       example:
         xaxis: xaxis
-        sample_size: 2
-        smoothing: 3
+        sample_size: 7
+        step: 4
+        smoothing: 2
         ignore_outliers: true
         sections:
-        - xaxis: xaxis
-          is_frozen: true
-          sample_size: 2
-          is_minimized: true
+        - is_frozen: true
           columns: 1
-          page_index: 7
-          name: name
-          smoothing: 5
           widgets:
           - "{}"
           - "{}"
+          xaxis: xaxis
+          sample_size: 7
+          is_minimized: true
+          page_index: 9
+          name: name
+          step: 2
+          smoothing: 5
           ignore_outliers: true
           height: 5
-          page_size: 9
-        - xaxis: xaxis
-          is_frozen: true
-          sample_size: 2
-          is_minimized: true
+          page_size: 3
+        - is_frozen: true
           columns: 1
-          page_index: 7
-          name: name
-          smoothing: 5
           widgets:
           - "{}"
           - "{}"
+          xaxis: xaxis
+          sample_size: 7
+          is_minimized: true
+          page_index: 9
+          name: name
+          step: 2
+          smoothing: 5
           ignore_outliers: true
           height: 5
-          page_size: 9
+          page_size: 3
       properties:
         sections:
           items:
@@ -25738,6 +25744,10 @@ components:
         smoothing:
           format: int32
           title: Smoothing
+          type: integer
+        step:
+          format: int32
+          title: Step
           type: integer
         ignore_outliers:
           title: Ignore outliers
@@ -29142,38 +29152,41 @@ components:
           uuid: uuid
           spec:
             xaxis: xaxis
-            sample_size: 2
-            smoothing: 3
+            sample_size: 7
+            step: 4
+            smoothing: 2
             ignore_outliers: true
             sections:
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+              page_size: 3
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
+              page_size: 3
           tags:
           - tags
           - tags
@@ -29186,38 +29199,41 @@ components:
           uuid: uuid
           spec:
             xaxis: xaxis
-            sample_size: 2
-            smoothing: 3
+            sample_size: 7
+            step: 4
+            smoothing: 2
             ignore_outliers: true
             sections:
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+              page_size: 3
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
+              page_size: 3
           tags:
           - tags
           - tags
@@ -30720,38 +30736,41 @@ components:
             limit: 1
             events:
               xaxis: xaxis
-              sample_size: 2
-              smoothing: 3
+              sample_size: 7
+              step: 4
+              smoothing: 2
               ignore_outliers: true
               sections:
-              - xaxis: xaxis
-                is_frozen: true
-                sample_size: 2
-                is_minimized: true
+              - is_frozen: true
                 columns: 1
-                page_index: 7
-                name: name
-                smoothing: 5
                 widgets:
                 - "{}"
                 - "{}"
+                xaxis: xaxis
+                sample_size: 7
+                is_minimized: true
+                page_index: 9
+                name: name
+                step: 2
+                smoothing: 5
                 ignore_outliers: true
                 height: 5
-                page_size: 9
-              - xaxis: xaxis
-                is_frozen: true
-                sample_size: 2
-                is_minimized: true
+                page_size: 3
+              - is_frozen: true
                 columns: 1
-                page_index: 7
-                name: name
-                smoothing: 5
                 widgets:
                 - "{}"
                 - "{}"
+                xaxis: xaxis
+                sample_size: 7
+                is_minimized: true
+                page_index: 9
+                name: name
+                step: 2
+                smoothing: 5
                 ignore_outliers: true
                 height: 5
-                page_size: 9
+                page_size: 3
             trends: "{}"
           tags:
           - tags
@@ -30783,38 +30802,41 @@ components:
             limit: 1
             events:
               xaxis: xaxis
-              sample_size: 2
-              smoothing: 3
+              sample_size: 7
+              step: 4
+              smoothing: 2
               ignore_outliers: true
               sections:
-              - xaxis: xaxis
-                is_frozen: true
-                sample_size: 2
-                is_minimized: true
+              - is_frozen: true
                 columns: 1
-                page_index: 7
-                name: name
-                smoothing: 5
                 widgets:
                 - "{}"
                 - "{}"
+                xaxis: xaxis
+                sample_size: 7
+                is_minimized: true
+                page_index: 9
+                name: name
+                step: 2
+                smoothing: 5
                 ignore_outliers: true
                 height: 5
-                page_size: 9
-              - xaxis: xaxis
-                is_frozen: true
-                sample_size: 2
-                is_minimized: true
+                page_size: 3
+              - is_frozen: true
                 columns: 1
-                page_index: 7
-                name: name
-                smoothing: 5
                 widgets:
                 - "{}"
                 - "{}"
+                xaxis: xaxis
+                sample_size: 7
+                is_minimized: true
+                page_index: 9
+                name: name
+                step: 2
+                smoothing: 5
                 ignore_outliers: true
                 height: 5
-                page_size: 9
+                page_size: 3
             trends: "{}"
           tags:
           - tags
@@ -50503,38 +50525,41 @@ components:
           limit: 1
           events:
             xaxis: xaxis
-            sample_size: 2
-            smoothing: 3
+            sample_size: 7
+            step: 4
+            smoothing: 2
             ignore_outliers: true
             sections:
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
-            - xaxis: xaxis
-              is_frozen: true
-              sample_size: 2
-              is_minimized: true
+              page_size: 3
+            - is_frozen: true
               columns: 1
-              page_index: 7
-              name: name
-              smoothing: 5
               widgets:
               - "{}"
               - "{}"
+              xaxis: xaxis
+              sample_size: 7
+              is_minimized: true
+              page_index: 9
+              name: name
+              step: 2
+              smoothing: 5
               ignore_outliers: true
               height: 5
-              page_size: 9
+              page_size: 3
           trends: "{}"
         tags:
         - tags
@@ -50595,38 +50620,41 @@ components:
         limit: 1
         events:
           xaxis: xaxis
-          sample_size: 2
-          smoothing: 3
+          sample_size: 7
+          step: 4
+          smoothing: 2
           ignore_outliers: true
           sections:
-          - xaxis: xaxis
-            is_frozen: true
-            sample_size: 2
-            is_minimized: true
+          - is_frozen: true
             columns: 1
-            page_index: 7
-            name: name
-            smoothing: 5
             widgets:
             - "{}"
             - "{}"
+            xaxis: xaxis
+            sample_size: 7
+            is_minimized: true
+            page_index: 9
+            name: name
+            step: 2
+            smoothing: 5
             ignore_outliers: true
             height: 5
-            page_size: 9
-          - xaxis: xaxis
-            is_frozen: true
-            sample_size: 2
-            is_minimized: true
+            page_size: 3
+          - is_frozen: true
             columns: 1
-            page_index: 7
-            name: name
-            smoothing: 5
             widgets:
             - "{}"
             - "{}"
+            xaxis: xaxis
+            sample_size: 7
+            is_minimized: true
+            page_index: 9
+            name: name
+            step: 2
+            smoothing: 5
             ignore_outliers: true
             height: 5
-            page_size: 9
+            page_size: 3
         trends: "{}"
       properties:
         query:
@@ -50677,20 +50705,21 @@ components:
       type: object
     v1SectionSpec:
       example:
-        xaxis: xaxis
         is_frozen: true
-        sample_size: 2
-        is_minimized: true
         columns: 1
-        page_index: 7
-        name: name
-        smoothing: 5
         widgets:
         - "{}"
         - "{}"
+        xaxis: xaxis
+        sample_size: 7
+        is_minimized: true
+        page_index: 9
+        name: name
+        step: 2
+        smoothing: 5
         ignore_outliers: true
         height: 5
-        page_size: 9
+        page_size: 3
       properties:
         name:
           title: Section name
@@ -50715,6 +50744,10 @@ components:
         smoothing:
           format: int32
           title: Smoothing
+          type: integer
+        step:
+          format: int32
+          title: Step
           type: integer
         ignore_outliers:
           title: Ignore outliers

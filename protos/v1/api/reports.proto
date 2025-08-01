@@ -29,20 +29,23 @@ message SectionSpec {
   // Smoothing
   int32 smoothing = 7;
 
+  // Step
+  int32 step = 8;
+
   // Ignore outliers
-  bool ignore_outliers = 8;
+  bool ignore_outliers = 9;
 
   // Sample size
-  int32 sample_size = 9;
+  int32 sample_size = 10;
 
   // Section's widgets
-  repeated google.protobuf.Struct widgets = 10;
+  repeated google.protobuf.Struct widgets = 11;
 
   // Page index
-  int32 page_index = 11;
+  int32 page_index = 12;
 
   // Page size
-  int32 page_size = 12;
+  int32 page_size = 13;
 }
 
 
@@ -57,11 +60,14 @@ message DashboardSpec {
   // Smoothing
   int32 smoothing = 3;
 
+  // Step
+  int32 step = 4;
+
   // Ignore outliers
-  bool ignore_outliers = 4;
+  bool ignore_outliers = 5;
 
   // Sample size
-  int32 sample_size = 5;
+  int32 sample_size = 6;
 }
 
 // Analytics spec definition

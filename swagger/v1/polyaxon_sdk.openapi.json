@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.9.0"
+    "version" : "2.9.1"
   },
   "servers" : [ {
     "url" : "/"
@@ -31257,6 +31257,11 @@
             "type" : "integer",
             "format" : "int32"
           },
+          "step" : {
+            "title" : "Step",
+            "type" : "integer",
+            "format" : "int32"
+          },
           "ignore_outliers" : {
             "title" : "Ignore outliers",
             "type" : "boolean"
@@ -36165,6 +36170,11 @@
           },
           "smoothing" : {
             "title" : "Smoothing",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "step" : {
+            "title" : "Step",
             "type" : "integer",
             "format" : "int32"
           },

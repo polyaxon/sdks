@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.9.0",
+    "version": "2.9.1",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -21357,6 +21357,11 @@
           "format": "int32",
           "title": "Smoothing"
         },
+        "step": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Step"
+        },
         "ignore_outliers": {
           "type": "boolean",
           "title": "Ignore outliers"
@@ -26412,6 +26417,11 @@
           "type": "integer",
           "format": "int32",
           "title": "Smoothing"
+        },
+        "step": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Step"
         },
         "ignore_outliers": {
           "type": "boolean",

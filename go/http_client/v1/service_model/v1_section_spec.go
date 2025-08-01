@@ -47,6 +47,9 @@ type V1SectionSpec struct {
 	// Smoothing
 	Smoothing int32 `json:"smoothing,omitempty"`
 
+	// Step
+	Step int32 `json:"step,omitempty"`
+
 	// Section's widgets
 	Widgets []interface{} `json:"widgets"`
 

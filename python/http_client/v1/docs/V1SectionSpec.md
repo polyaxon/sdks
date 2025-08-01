@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **height** | **int** |  | [optional] 
 **xaxis** | **str** |  | [optional] 
 **smoothing** | **int** |  | [optional] 
+**step** | **int** |  | [optional] 
 **ignore_outliers** | **bool** |  | [optional] 
 **sample_size** | **int** |  | [optional] 
 **widgets** | **List[object]** |  | [optional] 
