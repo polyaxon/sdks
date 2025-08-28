@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 )
 
 // NewGetAgentStatsParams creates a new GetAgentStatsParams object,
@@ -61,11 +62,69 @@ GetAgentStatsParams contains all the parameters to send to the API endpoint
 */
 type GetAgentStatsParams struct {
 
+	/* Aggregate.
+
+	   Stats aggregate.
+	*/
+	Aggregate *string
+
+	/* Bookmarks.
+
+	   Filter by bookmarks.
+	*/
+	Bookmarks *bool
+
+	/* Boundary.
+
+	   Stats boundary.
+	*/
+	Boundary *bool
+
+	/* EndDate.
+
+	   Stats end date.
+	*/
+	EndDate *string
+
 	/* Entity.
 
-	   Entity: project name, hub name, registry name, ...
+	   Entity name under namespace.
 	*/
 	Entity *string
+
+	/* Groupby.
+
+	   Stats group.
+	*/
+	Groupby *string
+
+	/* Kind.
+
+	   Stats Kind.
+	*/
+	Kind *string
+
+	/* Limit.
+
+	   Limit size.
+
+	   Format: int32
+	*/
+	Limit *int32
+
+	/* Mode.
+
+	   Stats Mode.
+	*/
+	Mode *string
+
+	/* Offset.
+
+	   Pagination offset.
+
+	   Format: int32
+	*/
+	Offset *int32
 
 	/* Owner.
 
@@ -73,9 +132,33 @@ type GetAgentStatsParams struct {
 	*/
 	Owner string
 
+	/* Query.
+
+	   Query filter the search.
+	*/
+	Query *string
+
+	/* Sort.
+
+	   Sort to order the search.
+	*/
+	Sort *string
+
+	/* StartDate.
+
+	   Stats start date.
+	*/
+	StartDate *string
+
+	/* Trunc.
+
+	   Stats trunc.
+	*/
+	Trunc *string
+
 	/* UUID.
 
-	   Uuid identifier of the sub-entity
+	   SubEntity uuid
 	*/
 	UUID string
 
@@ -132,6 +215,50 @@ func (o *GetAgentStatsParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithAggregate adds the aggregate to the get agent stats params
+func (o *GetAgentStatsParams) WithAggregate(aggregate *string) *GetAgentStatsParams {
+	o.SetAggregate(aggregate)
+	return o
+}
+
+// SetAggregate adds the aggregate to the get agent stats params
+func (o *GetAgentStatsParams) SetAggregate(aggregate *string) {
+	o.Aggregate = aggregate
+}
+
+// WithBookmarks adds the bookmarks to the get agent stats params
+func (o *GetAgentStatsParams) WithBookmarks(bookmarks *bool) *GetAgentStatsParams {
+	o.SetBookmarks(bookmarks)
+	return o
+}
+
+// SetBookmarks adds the bookmarks to the get agent stats params
+func (o *GetAgentStatsParams) SetBookmarks(bookmarks *bool) {
+	o.Bookmarks = bookmarks
+}
+
+// WithBoundary adds the boundary to the get agent stats params
+func (o *GetAgentStatsParams) WithBoundary(boundary *bool) *GetAgentStatsParams {
+	o.SetBoundary(boundary)
+	return o
+}
+
+// SetBoundary adds the boundary to the get agent stats params
+func (o *GetAgentStatsParams) SetBoundary(boundary *bool) {
+	o.Boundary = boundary
+}
+
+// WithEndDate adds the endDate to the get agent stats params
+func (o *GetAgentStatsParams) WithEndDate(endDate *string) *GetAgentStatsParams {
+	o.SetEndDate(endDate)
+	return o
+}
+
+// SetEndDate adds the endDate to the get agent stats params
+func (o *GetAgentStatsParams) SetEndDate(endDate *string) {
+	o.EndDate = endDate
+}
+
 // WithEntity adds the entity to the get agent stats params
 func (o *GetAgentStatsParams) WithEntity(entity *string) *GetAgentStatsParams {
 	o.SetEntity(entity)
@@ -143,6 +270,61 @@ func (o *GetAgentStatsParams) SetEntity(entity *string) {
 	o.Entity = entity
 }
 
+// WithGroupby adds the groupby to the get agent stats params
+func (o *GetAgentStatsParams) WithGroupby(groupby *string) *GetAgentStatsParams {
+	o.SetGroupby(groupby)
+	return o
+}
+
+// SetGroupby adds the groupby to the get agent stats params
+func (o *GetAgentStatsParams) SetGroupby(groupby *string) {
+	o.Groupby = groupby
+}
+
+// WithKind adds the kind to the get agent stats params
+func (o *GetAgentStatsParams) WithKind(kind *string) *GetAgentStatsParams {
+	o.SetKind(kind)
+	return o
+}
+
+// SetKind adds the kind to the get agent stats params
+func (o *GetAgentStatsParams) SetKind(kind *string) {
+	o.Kind = kind
+}
+
+// WithLimit adds the limit to the get agent stats params
+func (o *GetAgentStatsParams) WithLimit(limit *int32) *GetAgentStatsParams {
+	o.SetLimit(limit)
+	return o
+}
+
+// SetLimit adds the limit to the get agent stats params
+func (o *GetAgentStatsParams) SetLimit(limit *int32) {
+	o.Limit = limit
+}
+
+// WithMode adds the mode to the get agent stats params
+func (o *GetAgentStatsParams) WithMode(mode *string) *GetAgentStatsParams {
+	o.SetMode(mode)
+	return o
+}
+
+// SetMode adds the mode to the get agent stats params
+func (o *GetAgentStatsParams) SetMode(mode *string) {
+	o.Mode = mode
+}
+
+// WithOffset adds the offset to the get agent stats params
+func (o *GetAgentStatsParams) WithOffset(offset *int32) *GetAgentStatsParams {
+	o.SetOffset(offset)
+	return o
+}
+
+// SetOffset adds the offset to the get agent stats params
+func (o *GetAgentStatsParams) SetOffset(offset *int32) {
+	o.Offset = offset
+}
+
 // WithOwner adds the owner to the get agent stats params
 func (o *GetAgentStatsParams) WithOwner(owner string) *GetAgentStatsParams {
 	o.SetOwner(owner)
@@ -152,6 +334,50 @@ func (o *GetAgentStatsParams) WithOwner(owner string) *GetAgentStatsParams {
 // SetOwner adds the owner to the get agent stats params
 func (o *GetAgentStatsParams) SetOwner(owner string) {
 	o.Owner = owner
+}
+
+// WithQuery adds the query to the get agent stats params
+func (o *GetAgentStatsParams) WithQuery(query *string) *GetAgentStatsParams {
+	o.SetQuery(query)
+	return o
+}
+
+// SetQuery adds the query to the get agent stats params
+func (o *GetAgentStatsParams) SetQuery(query *string) {
+	o.Query = query
+}
+
+// WithSort adds the sort to the get agent stats params
+func (o *GetAgentStatsParams) WithSort(sort *string) *GetAgentStatsParams {
+	o.SetSort(sort)
+	return o
+}
+
+// SetSort adds the sort to the get agent stats params
+func (o *GetAgentStatsParams) SetSort(sort *string) {
+	o.Sort = sort
+}
+
+// WithStartDate adds the startDate to the get agent stats params
+func (o *GetAgentStatsParams) WithStartDate(startDate *string) *GetAgentStatsParams {
+	o.SetStartDate(startDate)
+	return o
+}
+
+// SetStartDate adds the startDate to the get agent stats params
+func (o *GetAgentStatsParams) SetStartDate(startDate *string) {
+	o.StartDate = startDate
+}
+
+// WithTrunc adds the trunc to the get agent stats params
+func (o *GetAgentStatsParams) WithTrunc(trunc *string) *GetAgentStatsParams {
+	o.SetTrunc(trunc)
+	return o
+}
+
+// SetTrunc adds the trunc to the get agent stats params
+func (o *GetAgentStatsParams) SetTrunc(trunc *string) {
+	o.Trunc = trunc
 }
 
 // WithUUID adds the uuid to the get agent stats params
@@ -173,6 +399,74 @@ func (o *GetAgentStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	}
 	var res []error
 
+	if o.Aggregate != nil {
+
+		// query param aggregate
+		var qrAggregate string
+
+		if o.Aggregate != nil {
+			qrAggregate = *o.Aggregate
+		}
+		qAggregate := qrAggregate
+		if qAggregate != "" {
+
+			if err := r.SetQueryParam("aggregate", qAggregate); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Bookmarks != nil {
+
+		// query param bookmarks
+		var qrBookmarks bool
+
+		if o.Bookmarks != nil {
+			qrBookmarks = *o.Bookmarks
+		}
+		qBookmarks := swag.FormatBool(qrBookmarks)
+		if qBookmarks != "" {
+
+			if err := r.SetQueryParam("bookmarks", qBookmarks); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Boundary != nil {
+
+		// query param boundary
+		var qrBoundary bool
+
+		if o.Boundary != nil {
+			qrBoundary = *o.Boundary
+		}
+		qBoundary := swag.FormatBool(qrBoundary)
+		if qBoundary != "" {
+
+			if err := r.SetQueryParam("boundary", qBoundary); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.EndDate != nil {
+
+		// query param end_date
+		var qrEndDate string
+
+		if o.EndDate != nil {
+			qrEndDate = *o.EndDate
+		}
+		qEndDate := qrEndDate
+		if qEndDate != "" {
+
+			if err := r.SetQueryParam("end_date", qEndDate); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.Entity != nil {
 
 		// query param entity
@@ -190,9 +484,162 @@ func (o *GetAgentStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		}
 	}
 
+	if o.Groupby != nil {
+
+		// query param groupby
+		var qrGroupby string
+
+		if o.Groupby != nil {
+			qrGroupby = *o.Groupby
+		}
+		qGroupby := qrGroupby
+		if qGroupby != "" {
+
+			if err := r.SetQueryParam("groupby", qGroupby); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Kind != nil {
+
+		// query param kind
+		var qrKind string
+
+		if o.Kind != nil {
+			qrKind = *o.Kind
+		}
+		qKind := qrKind
+		if qKind != "" {
+
+			if err := r.SetQueryParam("kind", qKind); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Limit != nil {
+
+		// query param limit
+		var qrLimit int32
+
+		if o.Limit != nil {
+			qrLimit = *o.Limit
+		}
+		qLimit := swag.FormatInt32(qrLimit)
+		if qLimit != "" {
+
+			if err := r.SetQueryParam("limit", qLimit); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Mode != nil {
+
+		// query param mode
+		var qrMode string
+
+		if o.Mode != nil {
+			qrMode = *o.Mode
+		}
+		qMode := qrMode
+		if qMode != "" {
+
+			if err := r.SetQueryParam("mode", qMode); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Offset != nil {
+
+		// query param offset
+		var qrOffset int32
+
+		if o.Offset != nil {
+			qrOffset = *o.Offset
+		}
+		qOffset := swag.FormatInt32(qrOffset)
+		if qOffset != "" {
+
+			if err := r.SetQueryParam("offset", qOffset); err != nil {
+				return err
+			}
+		}
+	}
+
 	// path param owner
 	if err := r.SetPathParam("owner", o.Owner); err != nil {
 		return err
+	}
+
+	if o.Query != nil {
+
+		// query param query
+		var qrQuery string
+
+		if o.Query != nil {
+			qrQuery = *o.Query
+		}
+		qQuery := qrQuery
+		if qQuery != "" {
+
+			if err := r.SetQueryParam("query", qQuery); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Sort != nil {
+
+		// query param sort
+		var qrSort string
+
+		if o.Sort != nil {
+			qrSort = *o.Sort
+		}
+		qSort := qrSort
+		if qSort != "" {
+
+			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.StartDate != nil {
+
+		// query param start_date
+		var qrStartDate string
+
+		if o.StartDate != nil {
+			qrStartDate = *o.StartDate
+		}
+		qStartDate := qrStartDate
+		if qStartDate != "" {
+
+			if err := r.SetQueryParam("start_date", qStartDate); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Trunc != nil {
+
+		// query param trunc
+		var qrTrunc string
+
+		if o.Trunc != nil {
+			qrTrunc = *o.Trunc
+		}
+		qTrunc := qrTrunc
+		if qTrunc != "" {
+
+			if err := r.SetQueryParam("trunc", qTrunc); err != nil {
+				return err
+			}
+		}
 	}
 
 	// path param uuid

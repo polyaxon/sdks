@@ -1541,7 +1541,7 @@ public class Example {
 
 <a name="getOrganizationStats"></a>
 # **getOrganizationStats**
-> Object getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc)
+> Object getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary)
 
 Get organization stats
 
@@ -1578,8 +1578,11 @@ public class Example {
     String aggregate = "aggregate_example"; // String | Stats aggregate.
     String groupby = "groupby_example"; // String | Stats group.
     String trunc = "trunc_example"; // String | Stats trunc.
+    String startDate = "startDate_example"; // String | Stats start date.
+    String endDate = "endDate_example"; // String | Stats end date.
+    Boolean boundary = true; // Boolean | Stats boundary.
     try {
-      Object result = apiInstance.getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
+      Object result = apiInstance.getOrganizationStats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OrganizationsV1Api#getOrganizationStats");
@@ -1607,6 +1610,9 @@ public class Example {
 | **aggregate** | **String**| Stats aggregate. | [optional] |
 | **groupby** | **String**| Stats group. | [optional] |
 | **trunc** | **String**| Stats trunc. | [optional] |
+| **startDate** | **String**| Stats start date. | [optional] |
+| **endDate** | **String**| Stats end date. | [optional] |
+| **boundary** | **Boolean**| Stats boundary. | [optional] |
 
 ### Return type
 

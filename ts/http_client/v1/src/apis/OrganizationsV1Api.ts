@@ -223,6 +223,9 @@ export interface GetOrganizationStatsRequest {
     aggregate?: string;
     groupby?: string;
     trunc?: string;
+    startDate?: string;
+    endDate?: string;
+    boundary?: boolean;
 }
 
 export interface GetOrganizationVersionsRequest {
@@ -1358,6 +1361,18 @@ export class OrganizationsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.trunc !== undefined) {
             queryParameters['trunc'] = requestParameters.trunc;
+        }
+
+        if (requestParameters.startDate !== undefined) {
+            queryParameters['start_date'] = requestParameters.startDate;
+        }
+
+        if (requestParameters.endDate !== undefined) {
+            queryParameters['end_date'] = requestParameters.endDate;
+        }
+
+        if (requestParameters.boundary !== undefined) {
+            queryParameters['boundary'] = requestParameters.boundary;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};

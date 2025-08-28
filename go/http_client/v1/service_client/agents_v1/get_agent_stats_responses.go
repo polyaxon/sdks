@@ -70,7 +70,7 @@ GetAgentStatsOK describes a response with status code 200, with default header v
 A successful response.
 */
 type GetAgentStatsOK struct {
-	Payload *service_model.V1Agent
+	Payload interface{}
 }
 
 // IsSuccess returns true when this get agent stats o k response has a 2xx status code
@@ -111,16 +111,14 @@ func (o *GetAgentStatsOK) String() string {
 	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/stats][%d] getAgentStatsOK  %+v", 200, o.Payload)
 }
 
-func (o *GetAgentStatsOK) GetPayload() *service_model.V1Agent {
+func (o *GetAgentStatsOK) GetPayload() interface{} {
 	return o.Payload
 }
 
 func (o *GetAgentStatsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(service_model.V1Agent)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

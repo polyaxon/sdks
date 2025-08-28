@@ -105,6 +105,19 @@ export interface GetAgentStatsRequest {
     owner: string;
     uuid: string;
     entity?: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    kind?: string;
+    aggregate?: string;
+    groupby?: string;
+    trunc?: string;
+    startDate?: string;
+    endDate?: string;
+    boundary?: boolean;
 }
 
 export interface GetAgentStatusesRequest {
@@ -594,7 +607,7 @@ export class AgentsV1Api extends runtime.BaseAPI {
     /**
      * Get agent stats
      */
-    async getAgentStatsRaw(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<V1Agent>> {
+    async getAgentStatsRaw(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
         if (requestParameters.owner === null || requestParameters.owner === undefined) {
             throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getAgentStats.');
         }
@@ -607,6 +620,58 @@ export class AgentsV1Api extends runtime.BaseAPI {
 
         if (requestParameters.entity !== undefined) {
             queryParameters['entity'] = requestParameters.entity;
+        }
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
+
+        if (requestParameters.aggregate !== undefined) {
+            queryParameters['aggregate'] = requestParameters.aggregate;
+        }
+
+        if (requestParameters.groupby !== undefined) {
+            queryParameters['groupby'] = requestParameters.groupby;
+        }
+
+        if (requestParameters.trunc !== undefined) {
+            queryParameters['trunc'] = requestParameters.trunc;
+        }
+
+        if (requestParameters.startDate !== undefined) {
+            queryParameters['start_date'] = requestParameters.startDate;
+        }
+
+        if (requestParameters.endDate !== undefined) {
+            queryParameters['end_date'] = requestParameters.endDate;
+        }
+
+        if (requestParameters.boundary !== undefined) {
+            queryParameters['boundary'] = requestParameters.boundary;
         }
 
         const headerParameters: runtime.HTTPHeaders = {};
@@ -622,13 +687,13 @@ export class AgentsV1Api extends runtime.BaseAPI {
             query: queryParameters,
         }, initOverrides);
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => V1AgentFromJSON(jsonValue));
+        return new runtime.JSONApiResponse<any>(response);
     }
 
     /**
      * Get agent stats
      */
-    async getAgentStats(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Agent> {
+    async getAgentStats(requestParameters: GetAgentStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
         const response = await this.getAgentStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }

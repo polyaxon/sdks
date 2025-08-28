@@ -34,6 +34,8 @@ type ClientService interface {
 
 	GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueOK, *GetQueueNoContent, error)
 
+	GetQueueStats(params *GetQueueStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueStatsOK, *GetQueueStatsNoContent, error)
+
 	ListOrganizationQueueNames(params *ListOrganizationQueueNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueueNamesOK, *ListOrganizationQueueNamesNoContent, error)
 
 	ListOrganizationQueues(params *ListOrganizationQueuesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueuesOK, *ListOrganizationQueuesNoContent, error)
@@ -166,6 +168,46 @@ func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInf
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*GetQueueDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+GetQueueStats gets queue stats
+*/
+func (a *Client) GetQueueStats(params *GetQueueStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueStatsOK, *GetQueueStatsNoContent, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetQueueStatsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "GetQueueStats",
+		Method:             "GET",
+		PathPattern:        "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &GetQueueStatsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *GetQueueStatsOK:
+		return value, nil, nil
+	case *GetQueueStatsNoContent:
+		return nil, value, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*GetQueueStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

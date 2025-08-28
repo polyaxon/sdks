@@ -76,6 +76,33 @@ public class QueuesV1ApiTest {
     }
 
     /**
+     * Get queue stats
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void getQueueStatsTest() throws ApiException {
+        String owner = null;
+        String entity = null;
+        String uuid = null;
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        String kind = null;
+        String aggregate = null;
+        String groupby = null;
+        String trunc = null;
+        String startDate = null;
+        String endDate = null;
+        Boolean boundary = null;
+        Object response = api.getQueueStats(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
+        // TODO: test validations
+    }
+
+    /**
      * List organization level queues names
      *
      * @throws ApiException if the Api call fails

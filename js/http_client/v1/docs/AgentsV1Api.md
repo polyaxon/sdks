@@ -521,7 +521,7 @@ Name | Type | Description  | Notes
 
 ## getAgentStats
 
-> V1Agent getAgentStats(owner, uuid, opts)
+> Object getAgentStats(owner, uuid, opts)
 
 Get agent stats
 
@@ -538,9 +538,22 @@ ApiKey.apiKey = 'YOUR API KEY';
 
 let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
-let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
+let uuid = "uuid_example"; // String | SubEntity uuid
 let opts = {
-  'entity': "entity_example" // String | Entity: project name, hub name, registry name, ...
+  'entity': "entity_example", // String | Entity name under namespace.
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'bookmarks': true, // Boolean | Filter by bookmarks.
+  'mode': "mode_example", // String | Stats Mode.
+  'kind': "kind_example", // String | Stats Kind.
+  'aggregate': "aggregate_example", // String | Stats aggregate.
+  'groupby': "groupby_example", // String | Stats group.
+  'trunc': "trunc_example", // String | Stats trunc.
+  'start_date': "start_date_example", // String | Stats start date.
+  'end_date': "end_date_example", // String | Stats end date.
+  'boundary': true // Boolean | Stats boundary.
 };
 apiInstance.getAgentStats(owner, uuid, opts, (error, data, response) => {
   if (error) {
@@ -557,12 +570,25 @@ apiInstance.getAgentStats(owner, uuid, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
- **uuid** | **String**| Uuid identifier of the sub-entity | 
- **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] 
+ **uuid** | **String**| SubEntity uuid | 
+ **entity** | **String**| Entity name under namespace. | [optional] 
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] 
+ **mode** | **String**| Stats Mode. | [optional] 
+ **kind** | **String**| Stats Kind. | [optional] 
+ **aggregate** | **String**| Stats aggregate. | [optional] 
+ **groupby** | **String**| Stats group. | [optional] 
+ **trunc** | **String**| Stats trunc. | [optional] 
+ **start_date** | **String**| Stats start date. | [optional] 
+ **end_date** | **String**| Stats end date. | [optional] 
+ **boundary** | **Boolean**| Stats boundary. | [optional] 
 
 ### Return type
 
-[**V1Agent**](V1Agent.md)
+**Object**
 
 ### Authorization
 

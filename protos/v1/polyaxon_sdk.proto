@@ -1322,7 +1322,7 @@ service AgentsV1 {
   }
 
   // Get agent stats
-  rpc GetAgentStats(OwnerSubEntityResourceRequestByUid) returns (Agent) {
+  rpc GetAgentStats(OwnerSubEntityStatsRequestByUid) returns (google.protobuf.Struct) {
     option (google.api.http) = {
       get: "/api/v1/orgs/{owner}/agents/{uuid}/stats"
     };
@@ -1570,6 +1570,13 @@ service QueuesV1 {
   rpc DeleteQueue(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}"
+    };
+  }
+
+  // Get queue stats
+  rpc GetQueueStats(OwnerSubEntityStatsRequestByUid) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats"
     };
   }
 }

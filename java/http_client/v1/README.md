@@ -274,6 +274,7 @@ Class | Method | HTTP request | Description
 *QueuesV1Api* | [**createQueue**](docs/QueuesV1Api.md#createQueue) | **POST** /api/v1/orgs/{owner}/agents/{agent}/queues | Create queue
 *QueuesV1Api* | [**deleteQueue**](docs/QueuesV1Api.md#deleteQueue) | **DELETE** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Delete queue
 *QueuesV1Api* | [**getQueue**](docs/QueuesV1Api.md#getQueue) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Get queue
+*QueuesV1Api* | [**getQueueStats**](docs/QueuesV1Api.md#getQueueStats) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats | Get queue stats
 *QueuesV1Api* | [**listOrganizationQueueNames**](docs/QueuesV1Api.md#listOrganizationQueueNames) | **GET** /api/v1/orgs/{owner}/queues/names | List organization level queues names
 *QueuesV1Api* | [**listOrganizationQueues**](docs/QueuesV1Api.md#listOrganizationQueues) | **GET** /api/v1/orgs/{owner}/queues | List organization level queues
 *QueuesV1Api* | [**listQueueNames**](docs/QueuesV1Api.md#listQueueNames) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues/names | List queues names

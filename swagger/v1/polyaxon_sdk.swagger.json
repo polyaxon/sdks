@@ -2035,6 +2035,157 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats": {
+      "get": {
+        "summary": "Get queue stats",
+        "operationId": "GetQueueStats",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "SubEntity uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Stats Kind.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "aggregate",
+            "description": "Stats aggregate.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "groupby",
+            "description": "Stats group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "trunc",
+            "description": "Stats trunc.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "QueuesV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/agents/{entity}/token": {
       "put": {
         "summary": "Update agent token",
@@ -2644,7 +2795,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/v1Agent"
+              "type": "object"
             }
           },
           "204": {
@@ -2676,17 +2827,110 @@
           },
           {
             "name": "uuid",
-            "description": "Uuid identifier of the sub-entity",
+            "description": "SubEntity uuid",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "entity",
-            "description": "Entity: project name, hub name, registry name, ...",
+            "description": "Entity name under namespace.",
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Stats Kind.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "aggregate",
+            "description": "Stats aggregate.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "groupby",
+            "description": "Stats group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "trunc",
+            "description": "Stats trunc.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -8268,6 +8512,27 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -10373,6 +10638,27 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -13254,6 +13540,27 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [
@@ -15832,6 +16139,27 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
           }
         ],
         "tags": [

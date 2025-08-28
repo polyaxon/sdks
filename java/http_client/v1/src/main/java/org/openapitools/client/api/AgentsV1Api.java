@@ -1507,8 +1507,21 @@ public class AgentsV1Api {
     /**
      * Build call for getAgentStats
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the sub-entity (required)
-     * @param entity Entity: project name, hub name, registry name, ... (optional)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namespace. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1522,7 +1535,7 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAgentStatsCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAgentStatsCall(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1553,6 +1566,58 @@ public class AgentsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("entity", entity));
         }
 
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (bookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("bookmarks", bookmarks));
+        }
+
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
+        if (kind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
+        }
+
+        if (aggregate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("aggregate", aggregate));
+        }
+
+        if (groupby != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("groupby", groupby));
+        }
+
+        if (trunc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("trunc", trunc));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (boundary != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("boundary", boundary));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1573,7 +1638,7 @@ public class AgentsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAgentStatsValidateBeforeCall(String owner, String uuid, String entity, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAgentStatsValidateBeforeCall(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getAgentStats(Async)");
@@ -1584,7 +1649,7 @@ public class AgentsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getAgentStats(Async)");
         }
 
-        return getAgentStatsCall(owner, uuid, entity, _callback);
+        return getAgentStatsCall(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
 
     }
 
@@ -1592,9 +1657,22 @@ public class AgentsV1Api {
      * Get agent stats
      *
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the sub-entity (required)
-     * @param entity Entity: project name, hub name, registry name, ... (optional)
-     * @return V1Agent
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namespace. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1606,8 +1684,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Agent getAgentStats(String owner, String uuid, String entity) throws ApiException {
-        ApiResponse<V1Agent> localVarResp = getAgentStatsWithHttpInfo(owner, uuid, entity);
+    public Object getAgentStats(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        ApiResponse<Object> localVarResp = getAgentStatsWithHttpInfo(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
         return localVarResp.getData();
     }
 
@@ -1615,9 +1693,22 @@ public class AgentsV1Api {
      * Get agent stats
      *
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the sub-entity (required)
-     * @param entity Entity: project name, hub name, registry name, ... (optional)
-     * @return ApiResponse&lt;V1Agent&gt;
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namespace. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1629,9 +1720,9 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Agent> getAgentStatsWithHttpInfo(String owner, String uuid, String entity) throws ApiException {
-        okhttp3.Call localVarCall = getAgentStatsValidateBeforeCall(owner, uuid, entity, null);
-        Type localVarReturnType = new TypeToken<V1Agent>(){}.getType();
+    public ApiResponse<Object> getAgentStatsWithHttpInfo(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        okhttp3.Call localVarCall = getAgentStatsValidateBeforeCall(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1639,8 +1730,21 @@ public class AgentsV1Api {
      * Get agent stats (asynchronously)
      *
      * @param owner Owner of the namespace (required)
-     * @param uuid Uuid identifier of the sub-entity (required)
-     * @param entity Entity: project name, hub name, registry name, ... (optional)
+     * @param uuid SubEntity uuid (required)
+     * @param entity Entity name under namespace. (optional)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1654,10 +1758,10 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAgentStatsAsync(String owner, String uuid, String entity, final ApiCallback<V1Agent> _callback) throws ApiException {
+    public okhttp3.Call getAgentStatsAsync(String owner, String uuid, String entity, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAgentStatsValidateBeforeCall(owner, uuid, entity, _callback);
-        Type localVarReturnType = new TypeToken<V1Agent>(){}.getType();
+        okhttp3.Call localVarCall = getAgentStatsValidateBeforeCall(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

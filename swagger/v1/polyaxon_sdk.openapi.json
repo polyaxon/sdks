@@ -3120,6 +3120,228 @@
         }
       }
     },
+    "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats" : {
+      "get" : {
+        "tags" : [ "QueuesV1" ],
+        "summary" : "Get queue stats",
+        "operationId" : "GetQueueStats",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "path",
+          "description" : "Entity name under namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "SubEntity uuid",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Stats Mode.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "Stats Kind.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "aggregate",
+          "in" : "query",
+          "description" : "Stats aggregate.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "groupby",
+          "in" : "query",
+          "description" : "Stats group.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "trunc",
+          "in" : "query",
+          "description" : "Stats trunc.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/orgs/{owner}/agents/{entity}/token" : {
       "put" : {
         "tags" : [ "AgentsV1" ],
@@ -4057,7 +4279,7 @@
         }, {
           "name" : "uuid",
           "in" : "path",
-          "description" : "Uuid identifier of the sub-entity",
+          "description" : "SubEntity uuid",
           "required" : true,
           "style" : "simple",
           "explode" : false,
@@ -4067,12 +4289,144 @@
         }, {
           "name" : "entity",
           "in" : "query",
-          "description" : "Entity: project name, hub name, registry name, ...",
+          "description" : "Entity name under namespace.",
           "required" : false,
           "style" : "form",
           "explode" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Stats Mode.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "Stats Kind.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "aggregate",
+          "in" : "query",
+          "description" : "Stats aggregate.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "groupby",
+          "in" : "query",
+          "description" : "Stats group.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "trunc",
+          "in" : "query",
+          "description" : "Stats trunc.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
           }
         } ],
         "responses" : {
@@ -4081,7 +4435,7 @@
             "content" : {
               "application/json" : {
                 "schema" : {
-                  "$ref" : "#/components/schemas/v1Agent"
+                  "type" : "object"
                 }
               }
             }
@@ -12578,6 +12932,36 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -15759,6 +16143,36 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
           }
         } ],
         "responses" : {
@@ -20158,6 +20572,36 @@
           "schema" : {
             "type" : "string"
           }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
         } ],
         "responses" : {
           "200" : {
@@ -24062,6 +24506,36 @@
           "explode" : true,
           "schema" : {
             "type" : "string"
+          }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
           }
         } ],
         "responses" : {

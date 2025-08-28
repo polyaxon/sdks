@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_agent_stats**
-> V1Agent get_agent_stats(owner, uuid, entity=entity)
+> object get_agent_stats(owner, uuid, entity=entity, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc, start_date=start_date, end_date=end_date, boundary=boundary)
 
 Get agent stats
 
@@ -796,12 +796,25 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = polyaxon_sdk.AgentsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
-    uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
-    entity = 'entity_example' # str | Entity: project name, hub name, registry name, ... (optional)
+    uuid = 'uuid_example' # str | SubEntity uuid
+    entity = 'entity_example' # str | Entity name under namespace. (optional)
+    offset = 56 # int | Pagination offset. (optional)
+    limit = 56 # int | Limit size. (optional)
+    sort = 'sort_example' # str | Sort to order the search. (optional)
+    query = 'query_example' # str | Query filter the search. (optional)
+    bookmarks = True # bool | Filter by bookmarks. (optional)
+    mode = 'mode_example' # str | Stats Mode. (optional)
+    kind = 'kind_example' # str | Stats Kind. (optional)
+    aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
+    groupby = 'groupby_example' # str | Stats group. (optional)
+    trunc = 'trunc_example' # str | Stats trunc. (optional)
+    start_date = 'start_date_example' # str | Stats start date. (optional)
+    end_date = 'end_date_example' # str | Stats end date. (optional)
+    boundary = True # bool | Stats boundary. (optional)
 
     try:
         # Get agent stats
-        api_response = api_instance.get_agent_stats(owner, uuid, entity=entity)
+        api_response = api_instance.get_agent_stats(owner, uuid, entity=entity, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc, start_date=start_date, end_date=end_date, boundary=boundary)
         print("The response of AgentsV1Api->get_agent_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -813,12 +826,25 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
- **uuid** | **str**| Uuid identifier of the sub-entity | 
- **entity** | **str**| Entity: project name, hub name, registry name, ... | [optional] 
+ **uuid** | **str**| SubEntity uuid | 
+ **entity** | **str**| Entity name under namespace. | [optional] 
+ **offset** | **int**| Pagination offset. | [optional] 
+ **limit** | **int**| Limit size. | [optional] 
+ **sort** | **str**| Sort to order the search. | [optional] 
+ **query** | **str**| Query filter the search. | [optional] 
+ **bookmarks** | **bool**| Filter by bookmarks. | [optional] 
+ **mode** | **str**| Stats Mode. | [optional] 
+ **kind** | **str**| Stats Kind. | [optional] 
+ **aggregate** | **str**| Stats aggregate. | [optional] 
+ **groupby** | **str**| Stats group. | [optional] 
+ **trunc** | **str**| Stats trunc. | [optional] 
+ **start_date** | **str**| Stats start date. | [optional] 
+ **end_date** | **str**| Stats end date. | [optional] 
+ **boundary** | **bool**| Stats boundary. | [optional] 
 
 ### Return type
 
-[**V1Agent**](V1Agent.md)
+**object**
 
 ### Authorization
 

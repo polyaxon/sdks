@@ -78,6 +78,16 @@
         done();
       });
     });
+    describe('getQueueStats', function() {
+      it('should call getQueueStats successfully', function(done) {
+        //uncomment below and update the code to test getQueueStats
+        //instance.getQueueStats(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('listOrganizationQueueNames', function() {
       it('should call listOrganizationQueueNames successfully', function(done) {
         //uncomment below and update the code to test listOrganizationQueueNames

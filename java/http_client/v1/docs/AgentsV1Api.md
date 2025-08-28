@@ -708,7 +708,7 @@ public class Example {
 
 <a name="getAgentStats"></a>
 # **getAgentStats**
-> V1Agent getAgentStats(owner, uuid, entity)
+> Object getAgentStats(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary)
 
 Get agent stats
 
@@ -735,10 +735,23 @@ public class Example {
 
     AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
-    String uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
-    String entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
+    String uuid = "uuid_example"; // String | SubEntity uuid
+    String entity = "entity_example"; // String | Entity name under namespace.
+    Integer offset = 56; // Integer | Pagination offset.
+    Integer limit = 56; // Integer | Limit size.
+    String sort = "sort_example"; // String | Sort to order the search.
+    String query = "query_example"; // String | Query filter the search.
+    Boolean bookmarks = true; // Boolean | Filter by bookmarks.
+    String mode = "mode_example"; // String | Stats Mode.
+    String kind = "kind_example"; // String | Stats Kind.
+    String aggregate = "aggregate_example"; // String | Stats aggregate.
+    String groupby = "groupby_example"; // String | Stats group.
+    String trunc = "trunc_example"; // String | Stats trunc.
+    String startDate = "startDate_example"; // String | Stats start date.
+    String endDate = "endDate_example"; // String | Stats end date.
+    Boolean boundary = true; // Boolean | Stats boundary.
     try {
-      V1Agent result = apiInstance.getAgentStats(owner, uuid, entity);
+      Object result = apiInstance.getAgentStats(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#getAgentStats");
@@ -756,12 +769,25 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
-| **uuid** | **String**| Uuid identifier of the sub-entity | |
-| **entity** | **String**| Entity: project name, hub name, registry name, ... | [optional] |
+| **uuid** | **String**| SubEntity uuid | |
+| **entity** | **String**| Entity name under namespace. | [optional] |
+| **offset** | **Integer**| Pagination offset. | [optional] |
+| **limit** | **Integer**| Limit size. | [optional] |
+| **sort** | **String**| Sort to order the search. | [optional] |
+| **query** | **String**| Query filter the search. | [optional] |
+| **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] |
+| **mode** | **String**| Stats Mode. | [optional] |
+| **kind** | **String**| Stats Kind. | [optional] |
+| **aggregate** | **String**| Stats aggregate. | [optional] |
+| **groupby** | **String**| Stats group. | [optional] |
+| **trunc** | **String**| Stats trunc. | [optional] |
+| **startDate** | **String**| Stats start date. | [optional] |
+| **endDate** | **String**| Stats end date. | [optional] |
+| **boundary** | **Boolean**| Stats boundary. | [optional] |
 
 ### Return type
 
-[**V1Agent**](V1Agent.md)
+**Object**
 
 ### Authorization
 

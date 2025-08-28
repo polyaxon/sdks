@@ -46,6 +46,25 @@ export interface GetQueueRequest {
     uuid: string;
 }
 
+export interface GetQueueStatsRequest {
+    owner: string;
+    entity: string;
+    uuid: string;
+    offset?: number;
+    limit?: number;
+    sort?: string;
+    query?: string;
+    bookmarks?: boolean;
+    mode?: string;
+    kind?: string;
+    aggregate?: string;
+    groupby?: string;
+    trunc?: string;
+    startDate?: string;
+    endDate?: string;
+    boundary?: boolean;
+}
+
 export interface ListOrganizationQueueNamesRequest {
     owner: string;
     offset?: number;
@@ -236,6 +255,100 @@ export class QueuesV1Api extends runtime.BaseAPI {
      */
     async getQueue(requestParameters: GetQueueRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<V1Queue> {
         const response = await this.getQueueRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
+
+    /**
+     * Get queue stats
+     */
+    async getQueueStatsRaw(requestParameters: GetQueueStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling getQueueStats.');
+        }
+
+        if (requestParameters.entity === null || requestParameters.entity === undefined) {
+            throw new runtime.RequiredError('entity','Required parameter requestParameters.entity was null or undefined when calling getQueueStats.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling getQueueStats.');
+        }
+
+        const queryParameters: any = {};
+
+        if (requestParameters.offset !== undefined) {
+            queryParameters['offset'] = requestParameters.offset;
+        }
+
+        if (requestParameters.limit !== undefined) {
+            queryParameters['limit'] = requestParameters.limit;
+        }
+
+        if (requestParameters.sort !== undefined) {
+            queryParameters['sort'] = requestParameters.sort;
+        }
+
+        if (requestParameters.query !== undefined) {
+            queryParameters['query'] = requestParameters.query;
+        }
+
+        if (requestParameters.bookmarks !== undefined) {
+            queryParameters['bookmarks'] = requestParameters.bookmarks;
+        }
+
+        if (requestParameters.mode !== undefined) {
+            queryParameters['mode'] = requestParameters.mode;
+        }
+
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
+
+        if (requestParameters.aggregate !== undefined) {
+            queryParameters['aggregate'] = requestParameters.aggregate;
+        }
+
+        if (requestParameters.groupby !== undefined) {
+            queryParameters['groupby'] = requestParameters.groupby;
+        }
+
+        if (requestParameters.trunc !== undefined) {
+            queryParameters['trunc'] = requestParameters.trunc;
+        }
+
+        if (requestParameters.startDate !== undefined) {
+            queryParameters['start_date'] = requestParameters.startDate;
+        }
+
+        if (requestParameters.endDate !== undefined) {
+            queryParameters['end_date'] = requestParameters.endDate;
+        }
+
+        if (requestParameters.boundary !== undefined) {
+            queryParameters['boundary'] = requestParameters.boundary;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats`.replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"entity"}}`, encodeURIComponent(String(requestParameters.entity))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Get queue stats
+     */
+    async getQueueStats(requestParameters: GetQueueStatsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.getQueueStatsRaw(requestParameters, initOverrides);
         return await response.value();
     }
 

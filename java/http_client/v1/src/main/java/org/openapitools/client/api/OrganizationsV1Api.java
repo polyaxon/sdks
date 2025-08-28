@@ -3329,6 +3329,9 @@ public class OrganizationsV1Api {
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
      * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3342,7 +3345,7 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationStatsCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getOrganizationStatsCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3408,6 +3411,18 @@ public class OrganizationsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("trunc", trunc));
         }
 
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (boundary != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("boundary", boundary));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -3428,13 +3443,13 @@ public class OrganizationsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getOrganizationStatsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getOrganizationStatsValidateBeforeCall(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'owner' is set
         if (owner == null) {
             throw new ApiException("Missing the required parameter 'owner' when calling getOrganizationStats(Async)");
         }
 
-        return getOrganizationStatsCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, _callback);
+        return getOrganizationStatsCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
 
     }
 
@@ -3452,6 +3467,9 @@ public class OrganizationsV1Api {
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
      * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3464,8 +3482,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object getOrganizationStats(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc) throws ApiException {
-        ApiResponse<Object> localVarResp = getOrganizationStatsWithHttpInfo(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
+    public Object getOrganizationStats(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        ApiResponse<Object> localVarResp = getOrganizationStatsWithHttpInfo(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
         return localVarResp.getData();
     }
 
@@ -3483,6 +3501,9 @@ public class OrganizationsV1Api {
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
      * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3495,8 +3516,8 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> getOrganizationStatsWithHttpInfo(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc) throws ApiException {
-        okhttp3.Call localVarCall = getOrganizationStatsValidateBeforeCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, null);
+    public ApiResponse<Object> getOrganizationStatsWithHttpInfo(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        okhttp3.Call localVarCall = getOrganizationStatsValidateBeforeCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3515,6 +3536,9 @@ public class OrganizationsV1Api {
      * @param aggregate Stats aggregate. (optional)
      * @param groupby Stats group. (optional)
      * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3528,9 +3552,9 @@ public class OrganizationsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getOrganizationStatsAsync(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call getOrganizationStatsAsync(String owner, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getOrganizationStatsValidateBeforeCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, _callback);
+        okhttp3.Call localVarCall = getOrganizationStatsValidateBeforeCall(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

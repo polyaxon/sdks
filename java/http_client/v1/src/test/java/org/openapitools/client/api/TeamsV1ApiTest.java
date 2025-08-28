@@ -311,7 +311,10 @@ public class TeamsV1ApiTest {
         String aggregate = null;
         String groupby = null;
         String trunc = null;
-        Object response = api.getTeamStats(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc);
+        String startDate = null;
+        String endDate = null;
+        Boolean boundary = null;
+        Object response = api.getTeamStats(owner, name, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
         // TODO: test validations
     }
 

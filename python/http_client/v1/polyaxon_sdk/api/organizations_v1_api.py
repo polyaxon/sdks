@@ -3366,13 +3366,13 @@ class OrganizationsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_organization_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs) -> object:  # noqa: E501
+    def get_organization_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, start_date : Annotated[Optional[StrictStr], Field(description="Stats start date.")] = None, end_date : Annotated[Optional[StrictStr], Field(description="Stats end date.")] = None, boundary : Annotated[Optional[StrictBool], Field(description="Stats boundary.")] = None, **kwargs) -> object:  # noqa: E501
         """Get organization stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_stats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, async_req=True)
+        >>> thread = api.get_organization_stats(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3397,6 +3397,12 @@ class OrganizationsV1Api(object):
         :type groupby: str
         :param trunc: Stats trunc.
         :type trunc: str
+        :param start_date: Stats start date.
+        :type start_date: str
+        :param end_date: Stats end date.
+        :type end_date: str
+        :param boundary: Stats boundary.
+        :type boundary: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3413,16 +3419,16 @@ class OrganizationsV1Api(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_organization_stats_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, **kwargs)  # noqa: E501
+        return self.get_organization_stats_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_organization_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, **kwargs):  # noqa: E501
+    def get_organization_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, start_date : Annotated[Optional[StrictStr], Field(description="Stats start date.")] = None, end_date : Annotated[Optional[StrictStr], Field(description="Stats end date.")] = None, boundary : Annotated[Optional[StrictBool], Field(description="Stats boundary.")] = None, **kwargs):  # noqa: E501
         """Get organization stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_organization_stats_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, async_req=True)
+        >>> thread = api.get_organization_stats_with_http_info(owner, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
@@ -3447,6 +3453,12 @@ class OrganizationsV1Api(object):
         :type groupby: str
         :param trunc: Stats trunc.
         :type trunc: str
+        :param start_date: Stats start date.
+        :type start_date: str
+        :param end_date: Stats end date.
+        :type end_date: str
+        :param boundary: Stats boundary.
+        :type boundary: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -3484,7 +3496,10 @@ class OrganizationsV1Api(object):
             'kind',
             'aggregate',
             'groupby',
-            'trunc'
+            'trunc',
+            'start_date',
+            'end_date',
+            'boundary'
         ]
         _all_params.extend(
             [
@@ -3547,6 +3562,15 @@ class OrganizationsV1Api(object):
 
         if _params.get('trunc') is not None:  # noqa: E501
             _query_params.append(('trunc', _params['trunc']))
+
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('start_date', _params['start_date']))
+
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('end_date', _params['end_date']))
+
+        if _params.get('boundary') is not None:  # noqa: E501
+            _query_params.append(('boundary', _params['boundary']))
 
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))

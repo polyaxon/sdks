@@ -974,7 +974,10 @@ let opts = {
   'kind': "kind_example", // String | Stats Kind.
   'aggregate': "aggregate_example", // String | Stats aggregate.
   'groupby': "groupby_example", // String | Stats group.
-  'trunc': "trunc_example" // String | Stats trunc.
+  'trunc': "trunc_example", // String | Stats trunc.
+  'start_date': "start_date_example", // String | Stats start date.
+  'end_date': "end_date_example", // String | Stats end date.
+  'boundary': true // Boolean | Stats boundary.
 };
 apiInstance.getTeamStats(owner, name, opts, (error, data, response) => {
   if (error) {
@@ -1002,6 +1005,9 @@ Name | Type | Description  | Notes
  **aggregate** | **String**| Stats aggregate. | [optional] 
  **groupby** | **String**| Stats group. | [optional] 
  **trunc** | **String**| Stats trunc. | [optional] 
+ **start_date** | **String**| Stats start date. | [optional] 
+ **end_date** | **String**| Stats end date. | [optional] 
+ **boundary** | **Boolean**| Stats boundary. | [optional] 
 
 ### Return type
 

@@ -745,6 +745,9 @@ export default class ProjectsV1Api {
      * @param {String} [aggregate] Stats aggregate.
      * @param {String} [groupby] Stats group.
      * @param {String} [trunc] Stats trunc.
+     * @param {String} [start_date] Stats start date.
+     * @param {String} [end_date] Stats end date.
+     * @param {Boolean} [boundary] Stats boundary.
      * @param {module:api/ProjectsV1Api~getProjectStatsCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -774,7 +777,10 @@ export default class ProjectsV1Api {
         'kind': opts['kind'],
         'aggregate': opts['aggregate'],
         'groupby': opts['groupby'],
-        'trunc': opts['trunc']
+        'trunc': opts['trunc'],
+        'start_date': opts['start_date'],
+        'end_date': opts['end_date'],
+        'boundary': opts['boundary']
       };
       let headerParams = {
       };

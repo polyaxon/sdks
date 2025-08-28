@@ -353,6 +353,15 @@ message OwnerStatsRequest {
 
   // Stats trunc
   string trunc = 11;
+
+  // Stats start date
+  string start_date = 12;
+
+  // Stats end date
+  string end_date = 13;
+
+  // Stats boundary
+  bool boundary = 14;
 }
 
 // Request list data with owner/agent namespace
@@ -422,6 +431,15 @@ message OwnerEntityStatsRequest {
 
   // Stats trunc
   string trunc = 12;
+
+  // Stats start date
+  string start_date = 13;
+
+  // Stats end date
+  string end_date = 14;
+
+  // Stats boundary
+  bool boundary = 15;
 }
 
 // Request list data with owner/project/entity namespace
@@ -545,6 +563,15 @@ message OwnerSubEntityStatsRequestByUid {
 
   // Stats trunc
   string trunc = 13;
+
+  // Stats start date
+  string start_date = 14;
+
+  // Stats end date
+  string end_date = 15;
+
+  // Stats boundary
+  bool boundary = 16;
 }
 
 // Artifact tree response

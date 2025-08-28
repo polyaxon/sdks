@@ -74,6 +74,18 @@ type GetOrganizationStatsParams struct {
 	*/
 	Bookmarks *bool
 
+	/* Boundary.
+
+	   Stats boundary.
+	*/
+	Boundary *bool
+
+	/* EndDate.
+
+	   Stats end date.
+	*/
+	EndDate *string
+
 	/* Groupby.
 
 	   Stats group.
@@ -125,6 +137,12 @@ type GetOrganizationStatsParams struct {
 	   Sort to order the search.
 	*/
 	Sort *string
+
+	/* StartDate.
+
+	   Stats start date.
+	*/
+	StartDate *string
 
 	/* Trunc.
 
@@ -205,6 +223,28 @@ func (o *GetOrganizationStatsParams) WithBookmarks(bookmarks *bool) *GetOrganiza
 // SetBookmarks adds the bookmarks to the get organization stats params
 func (o *GetOrganizationStatsParams) SetBookmarks(bookmarks *bool) {
 	o.Bookmarks = bookmarks
+}
+
+// WithBoundary adds the boundary to the get organization stats params
+func (o *GetOrganizationStatsParams) WithBoundary(boundary *bool) *GetOrganizationStatsParams {
+	o.SetBoundary(boundary)
+	return o
+}
+
+// SetBoundary adds the boundary to the get organization stats params
+func (o *GetOrganizationStatsParams) SetBoundary(boundary *bool) {
+	o.Boundary = boundary
+}
+
+// WithEndDate adds the endDate to the get organization stats params
+func (o *GetOrganizationStatsParams) WithEndDate(endDate *string) *GetOrganizationStatsParams {
+	o.SetEndDate(endDate)
+	return o
+}
+
+// SetEndDate adds the endDate to the get organization stats params
+func (o *GetOrganizationStatsParams) SetEndDate(endDate *string) {
+	o.EndDate = endDate
 }
 
 // WithGroupby adds the groupby to the get organization stats params
@@ -295,6 +335,17 @@ func (o *GetOrganizationStatsParams) SetSort(sort *string) {
 	o.Sort = sort
 }
 
+// WithStartDate adds the startDate to the get organization stats params
+func (o *GetOrganizationStatsParams) WithStartDate(startDate *string) *GetOrganizationStatsParams {
+	o.SetStartDate(startDate)
+	return o
+}
+
+// SetStartDate adds the startDate to the get organization stats params
+func (o *GetOrganizationStatsParams) SetStartDate(startDate *string) {
+	o.StartDate = startDate
+}
+
 // WithTrunc adds the trunc to the get organization stats params
 func (o *GetOrganizationStatsParams) WithTrunc(trunc *string) *GetOrganizationStatsParams {
 	o.SetTrunc(trunc)
@@ -343,6 +394,40 @@ func (o *GetOrganizationStatsParams) WriteToRequest(r runtime.ClientRequest, reg
 		if qBookmarks != "" {
 
 			if err := r.SetQueryParam("bookmarks", qBookmarks); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Boundary != nil {
+
+		// query param boundary
+		var qrBoundary bool
+
+		if o.Boundary != nil {
+			qrBoundary = *o.Boundary
+		}
+		qBoundary := swag.FormatBool(qrBoundary)
+		if qBoundary != "" {
+
+			if err := r.SetQueryParam("boundary", qBoundary); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.EndDate != nil {
+
+		// query param end_date
+		var qrEndDate string
+
+		if o.EndDate != nil {
+			qrEndDate = *o.EndDate
+		}
+		qEndDate := qrEndDate
+		if qEndDate != "" {
+
+			if err := r.SetQueryParam("end_date", qEndDate); err != nil {
 				return err
 			}
 		}
@@ -467,6 +552,23 @@ func (o *GetOrganizationStatsParams) WriteToRequest(r runtime.ClientRequest, reg
 		if qSort != "" {
 
 			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.StartDate != nil {
+
+		// query param start_date
+		var qrStartDate string
+
+		if o.StartDate != nil {
+			qrStartDate = *o.StartDate
+		}
+		qStartDate := qrStartDate
+		if qStartDate != "" {
+
+			if err := r.SetQueryParam("start_date", qStartDate); err != nil {
 				return err
 			}
 		}

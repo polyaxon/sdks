@@ -176,7 +176,20 @@ public class AgentsV1ApiTest {
         String owner = null;
         String uuid = null;
         String entity = null;
-        V1Agent response = api.getAgentStats(owner, uuid, entity);
+        Integer offset = null;
+        Integer limit = null;
+        String sort = null;
+        String query = null;
+        Boolean bookmarks = null;
+        String mode = null;
+        String kind = null;
+        String aggregate = null;
+        String groupby = null;
+        String trunc = null;
+        String startDate = null;
+        String endDate = null;
+        Boolean boundary = null;
+        Object response = api.getAgentStats(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
         // TODO: test validations
     }
 

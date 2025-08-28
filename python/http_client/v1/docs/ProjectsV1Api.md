@@ -1085,7 +1085,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_project_stats**
-> object get_project_stats(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+> object get_project_stats(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc, start_date=start_date, end_date=end_date, boundary=boundary)
 
 Get project stats
 
@@ -1132,10 +1132,13 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     aggregate = 'aggregate_example' # str | Stats aggregate. (optional)
     groupby = 'groupby_example' # str | Stats group. (optional)
     trunc = 'trunc_example' # str | Stats trunc. (optional)
+    start_date = 'start_date_example' # str | Stats start date. (optional)
+    end_date = 'end_date_example' # str | Stats end date. (optional)
+    boundary = True # bool | Stats boundary. (optional)
 
     try:
         # Get project stats
-        api_response = api_instance.get_project_stats(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc)
+        api_response = api_instance.get_project_stats(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, kind=kind, aggregate=aggregate, groupby=groupby, trunc=trunc, start_date=start_date, end_date=end_date, boundary=boundary)
         print("The response of ProjectsV1Api->get_project_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -1158,6 +1161,9 @@ Name | Type | Description  | Notes
  **aggregate** | **str**| Stats aggregate. | [optional] 
  **groupby** | **str**| Stats group. | [optional] 
  **trunc** | **str**| Stats trunc. | [optional] 
+ **start_date** | **str**| Stats start date. | [optional] 
+ **end_date** | **str**| Stats end date. | [optional] 
+ **boundary** | **bool**| Stats boundary. | [optional] 
 
 ### Return type
 

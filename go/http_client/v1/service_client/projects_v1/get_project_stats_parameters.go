@@ -74,6 +74,18 @@ type GetProjectStatsParams struct {
 	*/
 	Bookmarks *bool
 
+	/* Boundary.
+
+	   Stats boundary.
+	*/
+	Boundary *bool
+
+	/* EndDate.
+
+	   Stats end date.
+	*/
+	EndDate *string
+
 	/* Groupby.
 
 	   Stats group.
@@ -131,6 +143,12 @@ type GetProjectStatsParams struct {
 	   Sort to order the search.
 	*/
 	Sort *string
+
+	/* StartDate.
+
+	   Stats start date.
+	*/
+	StartDate *string
 
 	/* Trunc.
 
@@ -211,6 +229,28 @@ func (o *GetProjectStatsParams) WithBookmarks(bookmarks *bool) *GetProjectStatsP
 // SetBookmarks adds the bookmarks to the get project stats params
 func (o *GetProjectStatsParams) SetBookmarks(bookmarks *bool) {
 	o.Bookmarks = bookmarks
+}
+
+// WithBoundary adds the boundary to the get project stats params
+func (o *GetProjectStatsParams) WithBoundary(boundary *bool) *GetProjectStatsParams {
+	o.SetBoundary(boundary)
+	return o
+}
+
+// SetBoundary adds the boundary to the get project stats params
+func (o *GetProjectStatsParams) SetBoundary(boundary *bool) {
+	o.Boundary = boundary
+}
+
+// WithEndDate adds the endDate to the get project stats params
+func (o *GetProjectStatsParams) WithEndDate(endDate *string) *GetProjectStatsParams {
+	o.SetEndDate(endDate)
+	return o
+}
+
+// SetEndDate adds the endDate to the get project stats params
+func (o *GetProjectStatsParams) SetEndDate(endDate *string) {
+	o.EndDate = endDate
 }
 
 // WithGroupby adds the groupby to the get project stats params
@@ -312,6 +352,17 @@ func (o *GetProjectStatsParams) SetSort(sort *string) {
 	o.Sort = sort
 }
 
+// WithStartDate adds the startDate to the get project stats params
+func (o *GetProjectStatsParams) WithStartDate(startDate *string) *GetProjectStatsParams {
+	o.SetStartDate(startDate)
+	return o
+}
+
+// SetStartDate adds the startDate to the get project stats params
+func (o *GetProjectStatsParams) SetStartDate(startDate *string) {
+	o.StartDate = startDate
+}
+
 // WithTrunc adds the trunc to the get project stats params
 func (o *GetProjectStatsParams) WithTrunc(trunc *string) *GetProjectStatsParams {
 	o.SetTrunc(trunc)
@@ -360,6 +411,40 @@ func (o *GetProjectStatsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qBookmarks != "" {
 
 			if err := r.SetQueryParam("bookmarks", qBookmarks); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Boundary != nil {
+
+		// query param boundary
+		var qrBoundary bool
+
+		if o.Boundary != nil {
+			qrBoundary = *o.Boundary
+		}
+		qBoundary := swag.FormatBool(qrBoundary)
+		if qBoundary != "" {
+
+			if err := r.SetQueryParam("boundary", qBoundary); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.EndDate != nil {
+
+		// query param end_date
+		var qrEndDate string
+
+		if o.EndDate != nil {
+			qrEndDate = *o.EndDate
+		}
+		qEndDate := qrEndDate
+		if qEndDate != "" {
+
+			if err := r.SetQueryParam("end_date", qEndDate); err != nil {
 				return err
 			}
 		}
@@ -489,6 +574,23 @@ func (o *GetProjectStatsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qSort != "" {
 
 			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.StartDate != nil {
+
+		// query param start_date
+		var qrStartDate string
+
+		if o.StartDate != nil {
+			qrStartDate = *o.StartDate
+		}
+		qStartDate := qrStartDate
+		if qStartDate != "" {
+
+			if err := r.SetQueryParam("start_date", qStartDate); err != nil {
 				return err
 			}
 		}

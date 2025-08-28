@@ -1488,21 +1488,47 @@ class AgentsV1Api(object):
             _request_auth=_params.get('_request_auth'))
 
     @validate_arguments
-    def get_agent_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], entity : Annotated[Optional[StrictStr], Field(description="Entity: project name, hub name, registry name, ...")] = None, **kwargs) -> V1Agent:  # noqa: E501
+    def get_agent_stats(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namespace.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, start_date : Annotated[Optional[StrictStr], Field(description="Stats start date.")] = None, end_date : Annotated[Optional[StrictStr], Field(description="Stats end date.")] = None, boundary : Annotated[Optional[StrictBool], Field(description="Stats boundary.")] = None, **kwargs) -> object:  # noqa: E501
         """Get agent stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_agent_stats(owner, uuid, entity, async_req=True)
+        >>> thread = api.get_agent_stats(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param uuid: Uuid identifier of the sub-entity (required)
+        :param uuid: SubEntity uuid (required)
         :type uuid: str
-        :param entity: Entity: project name, hub name, registry name, ...
+        :param entity: Entity name under namespace.
         :type entity: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param bookmarks: Filter by bookmarks.
+        :type bookmarks: bool
+        :param mode: Stats Mode.
+        :type mode: str
+        :param kind: Stats Kind.
+        :type kind: str
+        :param aggregate: Stats aggregate.
+        :type aggregate: str
+        :param groupby: Stats group.
+        :type groupby: str
+        :param trunc: Stats trunc.
+        :type trunc: str
+        :param start_date: Stats start date.
+        :type start_date: str
+        :param end_date: Stats end date.
+        :type end_date: str
+        :param boundary: Stats boundary.
+        :type boundary: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1516,27 +1542,53 @@ class AgentsV1Api(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: V1Agent
+        :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_agent_stats_with_http_info(owner, uuid, entity, **kwargs)  # noqa: E501
+        return self.get_agent_stats_with_http_info(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def get_agent_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the sub-entity")], entity : Annotated[Optional[StrictStr], Field(description="Entity: project name, hub name, registry name, ...")] = None, **kwargs):  # noqa: E501
+    def get_agent_stats_with_http_info(self, owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="SubEntity uuid")], entity : Annotated[Optional[StrictStr], Field(description="Entity name under namespace.")] = None, offset : Annotated[Optional[StrictInt], Field(description="Pagination offset.")] = None, limit : Annotated[Optional[StrictInt], Field(description="Limit size.")] = None, sort : Annotated[Optional[StrictStr], Field(description="Sort to order the search.")] = None, query : Annotated[Optional[StrictStr], Field(description="Query filter the search.")] = None, bookmarks : Annotated[Optional[StrictBool], Field(description="Filter by bookmarks.")] = None, mode : Annotated[Optional[StrictStr], Field(description="Stats Mode.")] = None, kind : Annotated[Optional[StrictStr], Field(description="Stats Kind.")] = None, aggregate : Annotated[Optional[StrictStr], Field(description="Stats aggregate.")] = None, groupby : Annotated[Optional[StrictStr], Field(description="Stats group.")] = None, trunc : Annotated[Optional[StrictStr], Field(description="Stats trunc.")] = None, start_date : Annotated[Optional[StrictStr], Field(description="Stats start date.")] = None, end_date : Annotated[Optional[StrictStr], Field(description="Stats end date.")] = None, boundary : Annotated[Optional[StrictBool], Field(description="Stats boundary.")] = None, **kwargs):  # noqa: E501
         """Get agent stats  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.get_agent_stats_with_http_info(owner, uuid, entity, async_req=True)
+        >>> thread = api.get_agent_stats_with_http_info(owner, uuid, entity, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, start_date, end_date, boundary, async_req=True)
         >>> result = thread.get()
 
         :param owner: Owner of the namespace (required)
         :type owner: str
-        :param uuid: Uuid identifier of the sub-entity (required)
+        :param uuid: SubEntity uuid (required)
         :type uuid: str
-        :param entity: Entity: project name, hub name, registry name, ...
+        :param entity: Entity name under namespace.
         :type entity: str
+        :param offset: Pagination offset.
+        :type offset: int
+        :param limit: Limit size.
+        :type limit: int
+        :param sort: Sort to order the search.
+        :type sort: str
+        :param query: Query filter the search.
+        :type query: str
+        :param bookmarks: Filter by bookmarks.
+        :type bookmarks: bool
+        :param mode: Stats Mode.
+        :type mode: str
+        :param kind: Stats Kind.
+        :type kind: str
+        :param aggregate: Stats aggregate.
+        :type aggregate: str
+        :param groupby: Stats group.
+        :type groupby: str
+        :param trunc: Stats trunc.
+        :type trunc: str
+        :param start_date: Stats start date.
+        :type start_date: str
+        :param end_date: Stats end date.
+        :type end_date: str
+        :param boundary: Stats boundary.
+        :type boundary: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -1558,7 +1610,7 @@ class AgentsV1Api(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(V1Agent, status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(object, status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1566,7 +1618,20 @@ class AgentsV1Api(object):
         _all_params = [
             'owner',
             'uuid',
-            'entity'
+            'entity',
+            'offset',
+            'limit',
+            'sort',
+            'query',
+            'bookmarks',
+            'mode',
+            'kind',
+            'aggregate',
+            'groupby',
+            'trunc',
+            'start_date',
+            'end_date',
+            'boundary'
         ]
         _all_params.extend(
             [
@@ -1606,6 +1671,45 @@ class AgentsV1Api(object):
         if _params.get('entity') is not None:  # noqa: E501
             _query_params.append(('entity', _params['entity']))
 
+        if _params.get('offset') is not None:  # noqa: E501
+            _query_params.append(('offset', _params['offset']))
+
+        if _params.get('limit') is not None:  # noqa: E501
+            _query_params.append(('limit', _params['limit']))
+
+        if _params.get('sort') is not None:  # noqa: E501
+            _query_params.append(('sort', _params['sort']))
+
+        if _params.get('query') is not None:  # noqa: E501
+            _query_params.append(('query', _params['query']))
+
+        if _params.get('bookmarks') is not None:  # noqa: E501
+            _query_params.append(('bookmarks', _params['bookmarks']))
+
+        if _params.get('mode') is not None:  # noqa: E501
+            _query_params.append(('mode', _params['mode']))
+
+        if _params.get('kind') is not None:  # noqa: E501
+            _query_params.append(('kind', _params['kind']))
+
+        if _params.get('aggregate') is not None:  # noqa: E501
+            _query_params.append(('aggregate', _params['aggregate']))
+
+        if _params.get('groupby') is not None:  # noqa: E501
+            _query_params.append(('groupby', _params['groupby']))
+
+        if _params.get('trunc') is not None:  # noqa: E501
+            _query_params.append(('trunc', _params['trunc']))
+
+        if _params.get('start_date') is not None:  # noqa: E501
+            _query_params.append(('start_date', _params['start_date']))
+
+        if _params.get('end_date') is not None:  # noqa: E501
+            _query_params.append(('end_date', _params['end_date']))
+
+        if _params.get('boundary') is not None:  # noqa: E501
+            _query_params.append(('boundary', _params['boundary']))
+
         # process the header parameters
         _header_params = dict(_params.get('_headers', {}))
         # process the form parameters
@@ -1621,7 +1725,7 @@ class AgentsV1Api(object):
         _auth_settings = ['ApiKey']  # noqa: E501
 
         _response_types_map = {
-            '200': "V1Agent",
+            '200': "object",
             '204': "object",
             '403': "object",
             '404': "object",

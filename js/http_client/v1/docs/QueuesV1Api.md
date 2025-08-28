@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**createQueue**](QueuesV1Api.md#createQueue) | **POST** /api/v1/orgs/{owner}/agents/{agent}/queues | Create queue
 [**deleteQueue**](QueuesV1Api.md#deleteQueue) | **DELETE** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Delete queue
 [**getQueue**](QueuesV1Api.md#getQueue) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid} | Get queue
+[**getQueueStats**](QueuesV1Api.md#getQueueStats) | **GET** /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats | Get queue stats
 [**listOrganizationQueueNames**](QueuesV1Api.md#listOrganizationQueueNames) | **GET** /api/v1/orgs/{owner}/queues/names | List organization level queues names
 [**listOrganizationQueues**](QueuesV1Api.md#listOrganizationQueues) | **GET** /api/v1/orgs/{owner}/queues | List organization level queues
 [**listQueueNames**](QueuesV1Api.md#listQueueNames) | **GET** /api/v1/orgs/{owner}/agents/{name}/queues/names | List queues names
@@ -166,6 +167,87 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1Queue**](V1Queue.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## getQueueStats
+
+> Object getQueueStats(owner, entity, uuid, opts)
+
+Get queue stats
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.QueuesV1Api();
+let owner = "owner_example"; // String | Owner of the namespace
+let entity = "entity_example"; // String | Entity name under namespace
+let uuid = "uuid_example"; // String | SubEntity uuid
+let opts = {
+  'offset': 56, // Number | Pagination offset.
+  'limit': 56, // Number | Limit size.
+  'sort': "sort_example", // String | Sort to order the search.
+  'query': "query_example", // String | Query filter the search.
+  'bookmarks': true, // Boolean | Filter by bookmarks.
+  'mode': "mode_example", // String | Stats Mode.
+  'kind': "kind_example", // String | Stats Kind.
+  'aggregate': "aggregate_example", // String | Stats aggregate.
+  'groupby': "groupby_example", // String | Stats group.
+  'trunc': "trunc_example", // String | Stats trunc.
+  'start_date': "start_date_example", // String | Stats start date.
+  'end_date': "end_date_example", // String | Stats end date.
+  'boundary': true // Boolean | Stats boundary.
+};
+apiInstance.getQueueStats(owner, entity, uuid, opts, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **owner** | **String**| Owner of the namespace | 
+ **entity** | **String**| Entity name under namespace | 
+ **uuid** | **String**| SubEntity uuid | 
+ **offset** | **Number**| Pagination offset. | [optional] 
+ **limit** | **Number**| Limit size. | [optional] 
+ **sort** | **String**| Sort to order the search. | [optional] 
+ **query** | **String**| Query filter the search. | [optional] 
+ **bookmarks** | **Boolean**| Filter by bookmarks. | [optional] 
+ **mode** | **String**| Stats Mode. | [optional] 
+ **kind** | **String**| Stats Kind. | [optional] 
+ **aggregate** | **String**| Stats aggregate. | [optional] 
+ **groupby** | **String**| Stats group. | [optional] 
+ **trunc** | **String**| Stats trunc. | [optional] 
+ **start_date** | **String**| Stats start date. | [optional] 
+ **end_date** | **String**| Stats end date. | [optional] 
+ **boundary** | **Boolean**| Stats boundary. | [optional] 
+
+### Return type
+
+**Object**
 
 ### Authorization
 

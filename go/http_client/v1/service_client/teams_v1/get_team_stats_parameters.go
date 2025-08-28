@@ -74,6 +74,18 @@ type GetTeamStatsParams struct {
 	*/
 	Bookmarks *bool
 
+	/* Boundary.
+
+	   Stats boundary.
+	*/
+	Boundary *bool
+
+	/* EndDate.
+
+	   Stats end date.
+	*/
+	EndDate *string
+
 	/* Groupby.
 
 	   Stats group.
@@ -131,6 +143,12 @@ type GetTeamStatsParams struct {
 	   Sort to order the search.
 	*/
 	Sort *string
+
+	/* StartDate.
+
+	   Stats start date.
+	*/
+	StartDate *string
 
 	/* Trunc.
 
@@ -211,6 +229,28 @@ func (o *GetTeamStatsParams) WithBookmarks(bookmarks *bool) *GetTeamStatsParams 
 // SetBookmarks adds the bookmarks to the get team stats params
 func (o *GetTeamStatsParams) SetBookmarks(bookmarks *bool) {
 	o.Bookmarks = bookmarks
+}
+
+// WithBoundary adds the boundary to the get team stats params
+func (o *GetTeamStatsParams) WithBoundary(boundary *bool) *GetTeamStatsParams {
+	o.SetBoundary(boundary)
+	return o
+}
+
+// SetBoundary adds the boundary to the get team stats params
+func (o *GetTeamStatsParams) SetBoundary(boundary *bool) {
+	o.Boundary = boundary
+}
+
+// WithEndDate adds the endDate to the get team stats params
+func (o *GetTeamStatsParams) WithEndDate(endDate *string) *GetTeamStatsParams {
+	o.SetEndDate(endDate)
+	return o
+}
+
+// SetEndDate adds the endDate to the get team stats params
+func (o *GetTeamStatsParams) SetEndDate(endDate *string) {
+	o.EndDate = endDate
 }
 
 // WithGroupby adds the groupby to the get team stats params
@@ -312,6 +352,17 @@ func (o *GetTeamStatsParams) SetSort(sort *string) {
 	o.Sort = sort
 }
 
+// WithStartDate adds the startDate to the get team stats params
+func (o *GetTeamStatsParams) WithStartDate(startDate *string) *GetTeamStatsParams {
+	o.SetStartDate(startDate)
+	return o
+}
+
+// SetStartDate adds the startDate to the get team stats params
+func (o *GetTeamStatsParams) SetStartDate(startDate *string) {
+	o.StartDate = startDate
+}
+
 // WithTrunc adds the trunc to the get team stats params
 func (o *GetTeamStatsParams) WithTrunc(trunc *string) *GetTeamStatsParams {
 	o.SetTrunc(trunc)
@@ -360,6 +411,40 @@ func (o *GetTeamStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if qBookmarks != "" {
 
 			if err := r.SetQueryParam("bookmarks", qBookmarks); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Boundary != nil {
+
+		// query param boundary
+		var qrBoundary bool
+
+		if o.Boundary != nil {
+			qrBoundary = *o.Boundary
+		}
+		qBoundary := swag.FormatBool(qrBoundary)
+		if qBoundary != "" {
+
+			if err := r.SetQueryParam("boundary", qBoundary); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.EndDate != nil {
+
+		// query param end_date
+		var qrEndDate string
+
+		if o.EndDate != nil {
+			qrEndDate = *o.EndDate
+		}
+		qEndDate := qrEndDate
+		if qEndDate != "" {
+
+			if err := r.SetQueryParam("end_date", qEndDate); err != nil {
 				return err
 			}
 		}
@@ -489,6 +574,23 @@ func (o *GetTeamStatsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if qSort != "" {
 
 			if err := r.SetQueryParam("sort", qSort); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.StartDate != nil {
+
+		// query param start_date
+		var qrStartDate string
+
+		if o.StartDate != nil {
+			qrStartDate = *o.StartDate
+		}
+		qStartDate := qrStartDate
+		if qStartDate != "" {
+
+			if err := r.SetQueryParam("start_date", qStartDate); err != nil {
 				return err
 			}
 		}

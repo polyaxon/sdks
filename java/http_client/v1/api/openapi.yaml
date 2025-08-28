@@ -2183,6 +2183,175 @@ paths:
       tags:
       - QueuesV1
       x-accepts: application/json
+  /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats:
+    get:
+      operationId: GetQueueStats
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity name under namespace
+        explode: false
+        in: path
+        name: entity
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: SubEntity uuid
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Stats Mode.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats Kind.
+        explode: true
+        in: query
+        name: kind
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats aggregate.
+        explode: true
+        in: query
+        name: aggregate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats group.
+        explode: true
+        in: query
+        name: groupby
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats trunc.
+        explode: true
+        in: query
+        name: trunc
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Get queue stats
+      tags:
+      - QueuesV1
+      x-accepts: application/json
   /api/v1/orgs/{owner}/agents/{entity}/token:
     patch:
       operationId: PatchAgentToken
@@ -2851,7 +3020,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Uuid identifier of the sub-entity
+      - description: SubEntity uuid
         explode: false
         in: path
         name: uuid
@@ -2859,7 +3028,7 @@ paths:
         schema:
           type: string
         style: simple
-      - description: "Entity: project name, hub name, registry name, ..."
+      - description: Entity name under namespace.
         explode: true
         in: query
         name: entity
@@ -2867,12 +3036,118 @@ paths:
         schema:
           type: string
         style: form
+      - description: Pagination offset.
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Limit size.
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - description: Sort to order the search.
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Query filter the search.
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Filter by bookmarks.
+        explode: true
+        in: query
+        name: bookmarks
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - description: Stats Mode.
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats Kind.
+        explode: true
+        in: query
+        name: kind
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats aggregate.
+        explode: true
+        in: query
+        name: aggregate
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats group.
+        explode: true
+        in: query
+        name: groupby
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats trunc.
+        explode: true
+        in: query
+        name: trunc
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/v1Agent'
+                type: object
           description: A successful response.
         "204":
           content:
@@ -8950,6 +9225,30 @@ paths:
         schema:
           type: string
         style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -11246,6 +11545,30 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":
@@ -14393,6 +14716,30 @@ paths:
         schema:
           type: string
         style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -17212,6 +17559,30 @@ paths:
         required: false
         schema:
           type: string
+        style: form
+      - description: Stats start date.
+        explode: true
+        in: query
+        name: start_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats end date.
+        explode: true
+        in: query
+        name: end_date
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Stats boundary.
+        explode: true
+        in: query
+        name: boundary
+        required: false
+        schema:
+          type: boolean
         style: form
       responses:
         "200":

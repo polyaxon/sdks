@@ -549,6 +549,269 @@ public class QueuesV1Api {
         return localVarCall;
     }
     /**
+     * Build call for getQueueStats
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity name under namespace (required)
+     * @param uuid SubEntity uuid (required)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getQueueStatsCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats"
+            .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
+            .replace("{" + "entity" + "}", localVarApiClient.escapeString(entity.toString()))
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (bookmarks != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("bookmarks", bookmarks));
+        }
+
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
+        if (kind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
+        }
+
+        if (aggregate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("aggregate", aggregate));
+        }
+
+        if (groupby != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("groupby", groupby));
+        }
+
+        if (trunc != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("trunc", trunc));
+        }
+
+        if (startDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start_date", startDate));
+        }
+
+        if (endDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end_date", endDate));
+        }
+
+        if (boundary != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("boundary", boundary));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKey" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getQueueStatsValidateBeforeCall(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'owner' is set
+        if (owner == null) {
+            throw new ApiException("Missing the required parameter 'owner' when calling getQueueStats(Async)");
+        }
+
+        // verify the required parameter 'entity' is set
+        if (entity == null) {
+            throw new ApiException("Missing the required parameter 'entity' when calling getQueueStats(Async)");
+        }
+
+        // verify the required parameter 'uuid' is set
+        if (uuid == null) {
+            throw new ApiException("Missing the required parameter 'uuid' when calling getQueueStats(Async)");
+        }
+
+        return getQueueStatsCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
+
+    }
+
+    /**
+     * Get queue stats
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity name under namespace (required)
+     * @param uuid SubEntity uuid (required)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public Object getQueueStats(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        ApiResponse<Object> localVarResp = getQueueStatsWithHttpInfo(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get queue stats
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity name under namespace (required)
+     * @param uuid SubEntity uuid (required)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Object> getQueueStatsWithHttpInfo(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary) throws ApiException {
+        okhttp3.Call localVarCall = getQueueStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get queue stats (asynchronously)
+     *
+     * @param owner Owner of the namespace (required)
+     * @param entity Entity name under namespace (required)
+     * @param uuid SubEntity uuid (required)
+     * @param offset Pagination offset. (optional)
+     * @param limit Limit size. (optional)
+     * @param sort Sort to order the search. (optional)
+     * @param query Query filter the search. (optional)
+     * @param bookmarks Filter by bookmarks. (optional)
+     * @param mode Stats Mode. (optional)
+     * @param kind Stats Kind. (optional)
+     * @param aggregate Stats aggregate. (optional)
+     * @param groupby Stats group. (optional)
+     * @param trunc Stats trunc. (optional)
+     * @param startDate Stats start date. (optional)
+     * @param endDate Stats end date. (optional)
+     * @param boundary Stats boundary. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> A successful response. </td><td>  -  </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+        <tr><td> 403 </td><td> You don&#39;t have permission to access the resource. </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource does not exist. </td><td>  -  </td></tr>
+        <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getQueueStatsAsync(String owner, String entity, String uuid, Integer offset, Integer limit, String sort, String query, Boolean bookmarks, String mode, String kind, String aggregate, String groupby, String trunc, String startDate, String endDate, Boolean boundary, final ApiCallback<Object> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getQueueStatsValidateBeforeCall(owner, entity, uuid, offset, limit, sort, query, bookmarks, mode, kind, aggregate, groupby, trunc, startDate, endDate, boundary, _callback);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listOrganizationQueueNames
      * @param owner Owner of the namespace (required)
      * @param offset Pagination offset. (optional)

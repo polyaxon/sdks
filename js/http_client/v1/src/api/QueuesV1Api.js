@@ -198,6 +198,88 @@ export default class QueuesV1Api {
     }
 
     /**
+     * Callback function to receive the result of the getQueueStats operation.
+     * @callback module:api/QueuesV1Api~getQueueStatsCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Get queue stats
+     * @param {String} owner Owner of the namespace
+     * @param {String} entity Entity name under namespace
+     * @param {String} uuid SubEntity uuid
+     * @param {Object} opts Optional parameters
+     * @param {Number} [offset] Pagination offset.
+     * @param {Number} [limit] Limit size.
+     * @param {String} [sort] Sort to order the search.
+     * @param {String} [query] Query filter the search.
+     * @param {Boolean} [bookmarks] Filter by bookmarks.
+     * @param {String} [mode] Stats Mode.
+     * @param {String} [kind] Stats Kind.
+     * @param {String} [aggregate] Stats aggregate.
+     * @param {String} [groupby] Stats group.
+     * @param {String} [trunc] Stats trunc.
+     * @param {String} [start_date] Stats start date.
+     * @param {String} [end_date] Stats end date.
+     * @param {Boolean} [boundary] Stats boundary.
+     * @param {module:api/QueuesV1Api~getQueueStatsCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    getQueueStats(owner, entity, uuid, opts, callback) {
+      opts = opts || {};
+      let postBody = null;
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling getQueueStats");
+      }
+      // verify the required parameter 'entity' is set
+      if (entity === undefined || entity === null) {
+        throw new Error("Missing the required parameter 'entity' when calling getQueueStats");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling getQueueStats");
+      }
+
+      let pathParams = {
+        'owner': owner,
+        'entity': entity,
+        'uuid': uuid
+      };
+      let queryParams = {
+        'offset': opts['offset'],
+        'limit': opts['limit'],
+        'sort': opts['sort'],
+        'query': opts['query'],
+        'bookmarks': opts['bookmarks'],
+        'mode': opts['mode'],
+        'kind': opts['kind'],
+        'aggregate': opts['aggregate'],
+        'groupby': opts['groupby'],
+        'trunc': opts['trunc'],
+        'start_date': opts['start_date'],
+        'end_date': opts['end_date'],
+        'boundary': opts['boundary']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}/stats', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the listOrganizationQueueNames operation.
      * @callback module:api/QueuesV1Api~listOrganizationQueueNamesCallback
      * @param {String} error Error message, if any.
