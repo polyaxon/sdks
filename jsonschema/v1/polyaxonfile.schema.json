@@ -4287,6 +4287,13 @@
           "title": "Content of the agent config",
           "type": "string"
         },
+        "contributors": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Contributors",
+          "type": "array"
+        },
         "created_at": {
           "format": "date-time",
           "title": "Optional time when the entity was created",
@@ -9719,6 +9726,13 @@
           "format": "int32",
           "title": "The queue concurrency",
           "type": "integer"
+        },
+        "contributors": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Optional contributors",
+          "type": "array"
         },
         "created_at": {
           "format": "date-time",

@@ -162,6 +162,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property contributors (base name: "contributors")', function() {
+      // uncomment below and update the code to test the property contributors
+      //var instance = new PolyaxonSdk.V1Agent();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

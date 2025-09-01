@@ -20640,6 +20640,13 @@
         "stats": {
           "type": "object",
           "title": "Optional agent stats"
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Contributors"
         }
       },
       "title": "Agent specification"
@@ -25758,6 +25765,16 @@
           },
           "title": "Optional tags of this entity"
         },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional time when the entity was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional last time the entity was updated"
+        },
         "priority": {
           "type": "integer",
           "format": "int32",
@@ -25780,15 +25797,12 @@
           "type": "object",
           "title": "Optional queue stats"
         },
-        "created_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional time when the entity was created"
-        },
-        "updated_at": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Optional last time the entity was updated"
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Optional contributors"
         }
       },
       "title": "Queue specification"

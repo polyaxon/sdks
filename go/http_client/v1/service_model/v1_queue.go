@@ -25,6 +25,9 @@ type V1Queue struct {
 	// The queue concurrency
 	Concurrency int32 `json:"concurrency,omitempty"`
 
+	// Optional contributors
+	Contributors []interface{} `json:"contributors"`
+
 	// Optional time when the entity was created
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`

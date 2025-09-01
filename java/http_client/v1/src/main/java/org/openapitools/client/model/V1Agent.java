@@ -125,6 +125,10 @@ public class V1Agent {
   @SerializedName(SERIALIZED_NAME_STATS)
   private Object stats;
 
+  public static final String SERIALIZED_NAME_CONTRIBUTORS = "contributors";
+  @SerializedName(SERIALIZED_NAME_CONTRIBUTORS)
+  private List<Object> contributors;
+
   public V1Agent() {
   }
 
@@ -540,6 +544,36 @@ public class V1Agent {
   }
 
 
+  public V1Agent contributors(List<Object> contributors) {
+
+    this.contributors = contributors;
+    return this;
+  }
+
+  public V1Agent addContributorsItem(Object contributorsItem) {
+    if (this.contributors == null) {
+      this.contributors = new ArrayList<>();
+    }
+    this.contributors.add(contributorsItem);
+    return this;
+  }
+
+   /**
+   * Get contributors
+   * @return contributors
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getContributors() {
+    return contributors;
+  }
+
+
+  public void setContributors(List<Object> contributors) {
+    this.contributors = contributors;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -567,12 +601,13 @@ public class V1Agent {
         Objects.equals(this.isUiManaged, v1Agent.isUiManaged) &&
         Objects.equals(this.hostname, v1Agent.hostname) &&
         Objects.equals(this.settings, v1Agent.settings) &&
-        Objects.equals(this.stats, v1Agent.stats);
+        Objects.equals(this.stats, v1Agent.stats) &&
+        Objects.equals(this.contributors, v1Agent.contributors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings, stats);
+    return Objects.hash(uuid, name, description, tags, liveState, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings, stats, contributors);
   }
 
   @Override
@@ -597,6 +632,7 @@ public class V1Agent {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
+    sb.append("    contributors: ").append(toIndentedString(contributors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -637,6 +673,7 @@ public class V1Agent {
     openapiFields.add("hostname");
     openapiFields.add("settings");
     openapiFields.add("stats");
+    openapiFields.add("contributors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -700,6 +737,10 @@ public class V1Agent {
       }
       if ((jsonObj.get("hostname") != null && !jsonObj.get("hostname").isJsonNull()) && !jsonObj.get("hostname").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `hostname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hostname").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("contributors") != null && !jsonObj.get("contributors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contributors` to be an array in the JSON string but got `%s`", jsonObj.get("contributors").toString()));
       }
   }
 

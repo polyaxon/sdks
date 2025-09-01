@@ -71,6 +71,14 @@ public class V1Queue {
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags;
 
+  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+  @SerializedName(SERIALIZED_NAME_CREATED_AT)
+  private OffsetDateTime createdAt;
+
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private OffsetDateTime updatedAt;
+
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
   private Integer priority;
@@ -91,13 +99,9 @@ public class V1Queue {
   @SerializedName(SERIALIZED_NAME_STATS)
   private Object stats;
 
-  public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-  @SerializedName(SERIALIZED_NAME_CREATED_AT)
-  private OffsetDateTime createdAt;
-
-  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-  private OffsetDateTime updatedAt;
+  public static final String SERIALIZED_NAME_CONTRIBUTORS = "contributors";
+  @SerializedName(SERIALIZED_NAME_CONTRIBUTORS)
+  private List<Object> contributors;
 
   public V1Queue() {
   }
@@ -220,6 +224,50 @@ public class V1Queue {
   }
 
 
+  public V1Queue createdAt(OffsetDateTime createdAt) {
+
+    this.createdAt = createdAt;
+    return this;
+  }
+
+   /**
+   * Get createdAt
+   * @return createdAt
+  **/
+  @javax.annotation.Nullable
+
+  public OffsetDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+
+  public void setCreatedAt(OffsetDateTime createdAt) {
+    this.createdAt = createdAt;
+  }
+
+
+  public V1Queue updatedAt(OffsetDateTime updatedAt) {
+
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+
+  public OffsetDateTime getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(OffsetDateTime updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
   public V1Queue priority(Integer priority) {
 
     this.priority = priority;
@@ -330,47 +378,33 @@ public class V1Queue {
   }
 
 
-  public V1Queue createdAt(OffsetDateTime createdAt) {
+  public V1Queue contributors(List<Object> contributors) {
 
-    this.createdAt = createdAt;
+    this.contributors = contributors;
+    return this;
+  }
+
+  public V1Queue addContributorsItem(Object contributorsItem) {
+    if (this.contributors == null) {
+      this.contributors = new ArrayList<>();
+    }
+    this.contributors.add(contributorsItem);
     return this;
   }
 
    /**
-   * Get createdAt
-   * @return createdAt
+   * Get contributors
+   * @return contributors
   **/
   @javax.annotation.Nullable
 
-  public OffsetDateTime getCreatedAt() {
-    return createdAt;
+  public List<Object> getContributors() {
+    return contributors;
   }
 
 
-  public void setCreatedAt(OffsetDateTime createdAt) {
-    this.createdAt = createdAt;
-  }
-
-
-  public V1Queue updatedAt(OffsetDateTime updatedAt) {
-
-    this.updatedAt = updatedAt;
-    return this;
-  }
-
-   /**
-   * Get updatedAt
-   * @return updatedAt
-  **/
-  @javax.annotation.Nullable
-
-  public OffsetDateTime getUpdatedAt() {
-    return updatedAt;
-  }
-
-
-  public void setUpdatedAt(OffsetDateTime updatedAt) {
-    this.updatedAt = updatedAt;
+  public void setContributors(List<Object> contributors) {
+    this.contributors = contributors;
   }
 
 
@@ -389,18 +423,19 @@ public class V1Queue {
         Objects.equals(this.name, v1Queue.name) &&
         Objects.equals(this.description, v1Queue.description) &&
         Objects.equals(this.tags, v1Queue.tags) &&
+        Objects.equals(this.createdAt, v1Queue.createdAt) &&
+        Objects.equals(this.updatedAt, v1Queue.updatedAt) &&
         Objects.equals(this.priority, v1Queue.priority) &&
         Objects.equals(this.concurrency, v1Queue.concurrency) &&
         Objects.equals(this.resource, v1Queue.resource) &&
         Objects.equals(this.quota, v1Queue.quota) &&
         Objects.equals(this.stats, v1Queue.stats) &&
-        Objects.equals(this.createdAt, v1Queue.createdAt) &&
-        Objects.equals(this.updatedAt, v1Queue.updatedAt);
+        Objects.equals(this.contributors, v1Queue.contributors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, agent, name, description, tags, priority, concurrency, resource, quota, stats, createdAt, updatedAt);
+    return Objects.hash(uuid, agent, name, description, tags, createdAt, updatedAt, priority, concurrency, resource, quota, stats, contributors);
   }
 
   @Override
@@ -412,13 +447,14 @@ public class V1Queue {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    priority: ").append(toIndentedString(priority)).append("\n");
     sb.append("    concurrency: ").append(toIndentedString(concurrency)).append("\n");
     sb.append("    resource: ").append(toIndentedString(resource)).append("\n");
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
     sb.append("    stats: ").append(toIndentedString(stats)).append("\n");
-    sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+    sb.append("    contributors: ").append(toIndentedString(contributors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -446,13 +482,14 @@ public class V1Queue {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("tags");
+    openapiFields.add("created_at");
+    openapiFields.add("updated_at");
     openapiFields.add("priority");
     openapiFields.add("concurrency");
     openapiFields.add("resource");
     openapiFields.add("quota");
     openapiFields.add("stats");
-    openapiFields.add("created_at");
-    openapiFields.add("updated_at");
+    openapiFields.add("contributors");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -499,6 +536,10 @@ public class V1Queue {
       }
       if ((jsonObj.get("quota") != null && !jsonObj.get("quota").isJsonNull()) && !jsonObj.get("quota").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `quota` to be a primitive type in the JSON string but got `%s`", jsonObj.get("quota").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("contributors") != null && !jsonObj.get("contributors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `contributors` to be an array in the JSON string but got `%s`", jsonObj.get("contributors").toString()));
       }
   }
 

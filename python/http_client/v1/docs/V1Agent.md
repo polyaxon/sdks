@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **hostname** | **str** |  | [optional] 
 **settings** | **object** |  | [optional] 
 **stats** | **object** |  | [optional] 
+**contributors** | **List[object]** |  | [optional] 
 
 ## Example
 

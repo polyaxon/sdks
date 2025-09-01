@@ -62,6 +62,12 @@ class V1Queue {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('created_at')) {
+                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
+            }
+            if (data.hasOwnProperty('updated_at')) {
+                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            }
             if (data.hasOwnProperty('priority')) {
                 obj['priority'] = ApiClient.convertToType(data['priority'], 'Number');
             }
@@ -77,11 +83,8 @@ class V1Queue {
             if (data.hasOwnProperty('stats')) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], Object);
             }
-            if (data.hasOwnProperty('created_at')) {
-                obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
-            }
-            if (data.hasOwnProperty('updated_at')) {
-                obj['updated_at'] = ApiClient.convertToType(data['updated_at'], 'Date');
+            if (data.hasOwnProperty('contributors')) {
+                obj['contributors'] = ApiClient.convertToType(data['contributors'], [Object]);
             }
         }
         return obj;
@@ -121,6 +124,10 @@ class V1Queue {
         if (data['quota'] && !(typeof data['quota'] === 'string' || data['quota'] instanceof String)) {
             throw new Error("Expected the field `quota` to be a primitive type in the JSON string but got " + data['quota']);
         }
+        // ensure the json data is an array
+        if (!Array.isArray(data['contributors'])) {
+            throw new Error("Expected the field `contributors` to be an array in the JSON data but got " + data['contributors']);
+        }
 
         return true;
     }
@@ -156,6 +163,16 @@ V1Queue.prototype['description'] = undefined;
 V1Queue.prototype['tags'] = undefined;
 
 /**
+ * @member {Date} created_at
+ */
+V1Queue.prototype['created_at'] = undefined;
+
+/**
+ * @member {Date} updated_at
+ */
+V1Queue.prototype['updated_at'] = undefined;
+
+/**
  * @member {Number} priority
  */
 V1Queue.prototype['priority'] = undefined;
@@ -181,14 +198,9 @@ V1Queue.prototype['quota'] = undefined;
 V1Queue.prototype['stats'] = undefined;
 
 /**
- * @member {Date} created_at
+ * @member {Array.<Object>} contributors
  */
-V1Queue.prototype['created_at'] = undefined;
-
-/**
- * @member {Date} updated_at
- */
-V1Queue.prototype['updated_at'] = undefined;
+V1Queue.prototype['contributors'] = undefined;
 
 
 

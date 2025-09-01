@@ -81,6 +81,22 @@ public class V1QueueTest {
     }
 
     /**
+     * Test the property 'createdAt'
+     */
+    @Test
+    public void createdAtTest() {
+        // TODO: test createdAt
+    }
+
+    /**
+     * Test the property 'updatedAt'
+     */
+    @Test
+    public void updatedAtTest() {
+        // TODO: test updatedAt
+    }
+
+    /**
      * Test the property 'priority'
      */
     @Test
@@ -121,19 +137,11 @@ public class V1QueueTest {
     }
 
     /**
-     * Test the property 'createdAt'
+     * Test the property 'contributors'
      */
     @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
+    public void contributorsTest() {
+        // TODO: test contributors
     }
 
 }

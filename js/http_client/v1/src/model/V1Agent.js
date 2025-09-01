@@ -103,6 +103,9 @@ class V1Agent {
             if (data.hasOwnProperty('stats')) {
                 obj['stats'] = ApiClient.convertToType(data['stats'], Object);
             }
+            if (data.hasOwnProperty('contributors')) {
+                obj['contributors'] = ApiClient.convertToType(data['contributors'], [Object]);
+            }
         }
         return obj;
     }
@@ -154,6 +157,10 @@ class V1Agent {
         // ensure the json data is a string
         if (data['hostname'] && !(typeof data['hostname'] === 'string' || data['hostname'] instanceof String)) {
             throw new Error("Expected the field `hostname` to be a primitive type in the JSON string but got " + data['hostname']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['contributors'])) {
+            throw new Error("Expected the field `contributors` to be an array in the JSON data but got " + data['contributors']);
         }
 
         return true;
@@ -253,6 +260,11 @@ V1Agent.prototype['settings'] = undefined;
  * @member {Object} stats
  */
 V1Agent.prototype['stats'] = undefined;
+
+/**
+ * @member {Array.<Object>} contributors
+ */
+V1Agent.prototype['contributors'] = undefined;
 
 
 

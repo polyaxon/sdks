@@ -47,7 +47,8 @@ class V1Agent(BaseModel):
     hostname: Optional[StrictStr] = None
     settings: Optional[Dict[str, Any]] = None
     stats: Optional[Dict[str, Any]] = None
-    __properties = ["uuid", "name", "description", "tags", "live_state", "namespace", "version_api", "version", "content", "created_at", "updated_at", "status", "status_conditions", "is_replica", "is_ui_managed", "hostname", "settings", "stats"]
+    contributors: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["uuid", "name", "description", "tags", "live_state", "namespace", "version_api", "version", "content", "created_at", "updated_at", "status", "status_conditions", "is_replica", "is_ui_managed", "hostname", "settings", "stats", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -108,7 +109,8 @@ class V1Agent(BaseModel):
             "is_ui_managed": obj.get("is_ui_managed"),
             "hostname": obj.get("hostname"),
             "settings": obj.get("settings"),
-            "stats": obj.get("stats")
+            "stats": obj.get("stats"),
+            "contributors": obj.get("contributors")
         })
         return _obj
 

@@ -186,4 +186,12 @@ public class V1AgentTest {
         // TODO: test stats
     }
 
+    /**
+     * Test the property 'contributors'
+     */
+    @Test
+    public void contributorsTest() {
+        // TODO: test contributors
+    }
+
 }

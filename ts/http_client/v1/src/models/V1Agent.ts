@@ -140,6 +140,12 @@ export interface V1Agent {
      * @memberof V1Agent
      */
     stats?: object;
+    /**
+     *
+     * @type {Array<object>}
+     * @memberof V1Agent
+     */
+    contributors?: Array<object>;
 }
 
 /**
@@ -179,6 +185,7 @@ export function V1AgentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'hostname': !exists(json, 'hostname') ? undefined : json['hostname'],
         'settings': !exists(json, 'settings') ? undefined : json['settings'],
         'stats': !exists(json, 'stats') ? undefined : json['stats'],
+        'contributors': !exists(json, 'contributors') ? undefined : json['contributors'],
     };
 }
 
@@ -209,6 +216,7 @@ export function V1AgentToJSON(value?: V1Agent | null): any {
         'hostname': value.hostname,
         'settings': value.settings,
         'stats': value.stats,
+        'contributors': value.contributors,
     };
 }
 

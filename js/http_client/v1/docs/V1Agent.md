@@ -22,5 +22,6 @@ Name | Type | Description | Notes
 **hostname** | **String** |  | [optional] 
 **settings** | **Object** |  | [optional] 
 **stats** | **Object** |  | [optional] 
+**contributors** | **[Object]** |  | [optional] 
 
 

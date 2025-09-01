@@ -23,6 +23,9 @@ type V1Agent struct {
 	// Content of the agent config
 	Content string `json:"content,omitempty"`
 
+	// Contributors
+	Contributors []interface{} `json:"contributors"`
+
 	// Optional time when the entity was created
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`

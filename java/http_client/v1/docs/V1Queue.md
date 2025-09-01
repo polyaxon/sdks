@@ -12,13 +12,14 @@
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
+|**createdAt** | **OffsetDateTime** |  |  [optional] |
+|**updatedAt** | **OffsetDateTime** |  |  [optional] |
 |**priority** | **Integer** |  |  [optional] |
 |**concurrency** | **Integer** |  |  [optional] |
 |**resource** | **String** |  |  [optional] |
 |**quota** | **String** |  |  [optional] |
 |**stats** | **Object** |  |  [optional] |
-|**createdAt** | **OffsetDateTime** |  |  [optional] |
-|**updatedAt** | **OffsetDateTime** |  |  [optional] |
+|**contributors** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

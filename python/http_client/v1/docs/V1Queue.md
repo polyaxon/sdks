@@ -9,13 +9,14 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
+**created_at** | **datetime** |  | [optional] 
+**updated_at** | **datetime** |  | [optional] 
 **priority** | **int** |  | [optional] 
 **concurrency** | **int** |  | [optional] 
 **resource** | **str** |  | [optional] 
 **quota** | **str** |  | [optional] 
 **stats** | **object** |  | [optional] 
-**created_at** | **datetime** |  | [optional] 
-**updated_at** | **datetime** |  | [optional] 
+**contributors** | **List[object]** |  | [optional] 
 
 ## Example
 

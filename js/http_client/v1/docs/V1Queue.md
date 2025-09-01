@@ -9,12 +9,13 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **description** | **String** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
+**created_at** | **Date** |  | [optional] 
+**updated_at** | **Date** |  | [optional] 
 **priority** | **Number** |  | [optional] 
 **concurrency** | **Number** |  | [optional] 
 **resource** | **String** |  | [optional] 
 **quota** | **String** |  | [optional] 
 **stats** | **Object** |  | [optional] 
-**created_at** | **Date** |  | [optional] 
-**updated_at** | **Date** |  | [optional] 
+**contributors** | **[Object]** |  | [optional] 
 
 

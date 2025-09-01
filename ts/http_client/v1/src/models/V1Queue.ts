@@ -51,6 +51,18 @@ export interface V1Queue {
     tags?: Array<string>;
     /**
      *
+     * @type {Date}
+     * @memberof V1Queue
+     */
+    created_at?: Date;
+    /**
+     *
+     * @type {Date}
+     * @memberof V1Queue
+     */
+    updated_at?: Date;
+    /**
+     *
      * @type {number}
      * @memberof V1Queue
      */
@@ -81,16 +93,10 @@ export interface V1Queue {
     stats?: object;
     /**
      *
-     * @type {Date}
+     * @type {Array<object>}
      * @memberof V1Queue
      */
-    created_at?: Date;
-    /**
-     *
-     * @type {Date}
-     * @memberof V1Queue
-     */
-    updated_at?: Date;
+    contributors?: Array<object>;
 }
 
 /**
@@ -117,13 +123,14 @@ export function V1QueueFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
+        'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
+        'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
         'priority': !exists(json, 'priority') ? undefined : json['priority'],
         'concurrency': !exists(json, 'concurrency') ? undefined : json['concurrency'],
         'resource': !exists(json, 'resource') ? undefined : json['resource'],
         'quota': !exists(json, 'quota') ? undefined : json['quota'],
         'stats': !exists(json, 'stats') ? undefined : json['stats'],
-        'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
-        'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
+        'contributors': !exists(json, 'contributors') ? undefined : json['contributors'],
     };
 }
 
@@ -141,13 +148,14 @@ export function V1QueueToJSON(value?: V1Queue | null): any {
         'name': value.name,
         'description': value.description,
         'tags': value.tags,
+        'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
+        'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),
         'priority': value.priority,
         'concurrency': value.concurrency,
         'resource': value.resource,
         'quota': value.quota,
         'stats': value.stats,
-        'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
-        'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),
+        'contributors': value.contributors,
     };
 }
 

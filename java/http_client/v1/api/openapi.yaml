@@ -22476,6 +22476,9 @@ components:
         stats: "{}"
         name: name
         namespace: namespace
+        contributors:
+        - "{}"
+        - "{}"
         status_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -22556,6 +22559,12 @@ components:
           properties: {}
           title: Optional agent stats
           type: object
+        contributors:
+          items:
+            properties: {}
+            type: object
+          title: Contributors
+          type: array
       title: Agent specification
       type: object
     v1AgentReconcileBodyRequest:
@@ -29367,6 +29376,9 @@ components:
           stats: "{}"
           name: name
           namespace: namespace
+          contributors:
+          - "{}"
+          - "{}"
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -29401,6 +29413,9 @@ components:
           stats: "{}"
           name: name
           namespace: namespace
+          contributors:
+          - "{}"
+          - "{}"
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -30271,11 +30286,7 @@ components:
         count: 0
         results:
         - agent: agent
-          updated_at: 2000-01-23T04:56:07.000+00:00
           resource: resource
-          stats: "{}"
-          quota: quota
-          name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
           priority: 0
@@ -30284,12 +30295,15 @@ components:
           - tags
           - tags
           concurrency: 6
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          stats: "{}"
+          quota: quota
+          name: name
+          contributors:
+          - "{}"
+          - "{}"
         - agent: agent
-          updated_at: 2000-01-23T04:56:07.000+00:00
           resource: resource
-          stats: "{}"
-          quota: quota
-          name: name
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
           priority: 0
@@ -30298,6 +30312,13 @@ components:
           - tags
           - tags
           concurrency: 6
+          updated_at: 2000-01-23T04:56:07.000+00:00
+          stats: "{}"
+          quota: quota
+          name: name
+          contributors:
+          - "{}"
+          - "{}"
       properties:
         count:
           format: int32
@@ -35764,11 +35785,7 @@ components:
     v1Queue:
       example:
         agent: agent
-        updated_at: 2000-01-23T04:56:07.000+00:00
         resource: resource
-        stats: "{}"
-        quota: quota
-        name: name
         description: description
         created_at: 2000-01-23T04:56:07.000+00:00
         priority: 0
@@ -35777,6 +35794,13 @@ components:
         - tags
         - tags
         concurrency: 6
+        updated_at: 2000-01-23T04:56:07.000+00:00
+        stats: "{}"
+        quota: quota
+        name: name
+        contributors:
+        - "{}"
+        - "{}"
       properties:
         uuid:
           title: UUID
@@ -35795,6 +35819,14 @@ components:
             type: string
           title: Optional tags of this entity
           type: array
+        created_at:
+          format: date-time
+          title: Optional time when the entity was created
+          type: string
+        updated_at:
+          format: date-time
+          title: Optional last time the entity was updated
+          type: string
         priority:
           format: int32
           title: The queue priority
@@ -35813,14 +35845,12 @@ components:
           properties: {}
           title: Optional queue stats
           type: object
-        created_at:
-          format: date-time
-          title: Optional time when the entity was created
-          type: string
-        updated_at:
-          format: date-time
-          title: Optional last time the entity was updated
-          type: string
+        contributors:
+          items:
+            properties: {}
+            type: object
+          title: Optional contributors
+          type: array
       title: Queue specification
       type: object
     v1RandomSearch:

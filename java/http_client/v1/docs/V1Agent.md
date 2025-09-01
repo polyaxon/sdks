@@ -25,6 +25,7 @@
 |**hostname** | **String** |  |  [optional] |
 |**settings** | **Object** |  |  [optional] |
 |**stats** | **Object** |  |  [optional] |
+|**contributors** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

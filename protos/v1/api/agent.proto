@@ -65,6 +65,9 @@ message Agent {
 
     // Optional agent stats
     google.protobuf.Struct stats = 18;
+
+    // Contributors
+    repeated google.protobuf.Struct contributors = 19;
 }
 
 // Request data to create/update agents
@@ -143,27 +146,29 @@ message Queue {
     // Optional tags of this entity
     repeated string tags = 5;
 
-    // The queue priority
-    int32 priority = 6;
-
-    // The queue concurrency
-    int32 concurrency = 7;
-
-    // Optional queue resource
-    string resource = 8;
-
-    // Optional queue quota
-    string quota = 9;
-
-    // Optional queue stats
-    google.protobuf.Struct stats = 10;
-
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 11;
+    google.protobuf.Timestamp created_at = 6;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 12;
+    google.protobuf.Timestamp updated_at = 7;
 
+    // The queue priority
+    int32 priority = 8;
+
+    // The queue concurrency
+    int32 concurrency = 9;
+
+    // Optional queue resource
+    string resource = 10;
+
+    // Optional queue quota
+    string quota = 11;
+
+    // Optional queue stats
+    google.protobuf.Struct stats = 12;
+
+    // Optional contributors
+    repeated google.protobuf.Struct contributors = 13;
 }
 
  // Request data to create/update agents

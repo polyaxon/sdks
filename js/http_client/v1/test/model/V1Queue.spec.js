@@ -84,6 +84,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property created_at (base name: "created_at")', function() {
+      // uncomment below and update the code to test the property created_at
+      //var instance = new PolyaxonSdk.V1Queue();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property updated_at (base name: "updated_at")', function() {
+      // uncomment below and update the code to test the property updated_at
+      //var instance = new PolyaxonSdk.V1Queue();
+      //expect(instance).to.be();
+    });
+
     it('should have the property priority (base name: "priority")', function() {
       // uncomment below and update the code to test the property priority
       //var instance = new PolyaxonSdk.V1Queue();
@@ -114,14 +126,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property created_at (base name: "created_at")', function() {
-      // uncomment below and update the code to test the property created_at
-      //var instance = new PolyaxonSdk.V1Queue();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property updated_at (base name: "updated_at")', function() {
-      // uncomment below and update the code to test the property updated_at
+    it('should have the property contributors (base name: "contributors")', function() {
+      // uncomment below and update the code to test the property contributors
       //var instance = new PolyaxonSdk.V1Queue();
       //expect(instance).to.be();
     });

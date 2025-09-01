@@ -32,14 +32,15 @@ class V1Queue(BaseModel):
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
+    created_at: Optional[datetime] = None
+    updated_at: Optional[datetime] = None
     priority: Optional[StrictInt] = None
     concurrency: Optional[StrictInt] = None
     resource: Optional[StrictStr] = None
     quota: Optional[StrictStr] = None
     stats: Optional[Dict[str, Any]] = None
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-    __properties = ["uuid", "agent", "name", "description", "tags", "priority", "concurrency", "resource", "quota", "stats", "created_at", "updated_at"]
+    contributors: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["uuid", "agent", "name", "description", "tags", "created_at", "updated_at", "priority", "concurrency", "resource", "quota", "stats", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -81,13 +82,14 @@ class V1Queue(BaseModel):
             "name": obj.get("name"),
             "description": obj.get("description"),
             "tags": obj.get("tags"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at"),
             "priority": obj.get("priority"),
             "concurrency": obj.get("concurrency"),
             "resource": obj.get("resource"),
             "quota": obj.get("quota"),
             "stats": obj.get("stats"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at")
+            "contributors": obj.get("contributors")
         })
         return _obj
 
