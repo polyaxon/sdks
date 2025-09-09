@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -59,7 +59,7 @@ public class V1RunEdgesGraph {
   }
 
   public V1RunEdgesGraph edges(List<V1RunEdgeLineage> edges) {
-    
+
     this.edges = edges;
     return this;
   }

@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -18,21 +18,21 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1Optimization {
-    
+
         /**
          * value: "maximize"
          * @const
          */
         "maximize" = "maximize";
 
-    
+
         /**
          * value: "minimize"
          * @const
          */
         "minimize" = "minimize";
 
-    
+
 
     /**
     * Returns a <code>V1Optimization</code> enum value from a Javascript object name.

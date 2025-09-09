@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **live_state** | **int** |  | [optional] 
+**user** | **str** |  | [optional] 
 **namespace** | **str** |  | [optional] 
 **version_api** | **object** |  | [optional] 
 **version** | **str** |  | [optional] 

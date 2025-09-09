@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -71,7 +71,7 @@ public class V1ListSearchesResponse {
   }
 
   public V1ListSearchesResponse count(Integer count) {
-    
+
     this.count = count;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1ListSearchesResponse {
 
 
   public V1ListSearchesResponse results(List<V1Search> results) {
-    
+
     this.results = results;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1ListSearchesResponse {
 
 
   public V1ListSearchesResponse previous(String previous) {
-    
+
     this.previous = previous;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1ListSearchesResponse {
 
 
   public V1ListSearchesResponse next(String next) {
-    
+
     this.next = next;
     return this;
   }

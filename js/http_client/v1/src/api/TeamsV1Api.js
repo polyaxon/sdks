@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -36,7 +36,7 @@ import V1Uuids from '../model/V1Uuids';
 export default class TeamsV1Api {
 
     /**
-    * Constructs a new TeamsV1Api. 
+    * Constructs a new TeamsV1Api.
     * Polyaxon sdk
     * @alias module:api/TeamsV1Api
     * @class

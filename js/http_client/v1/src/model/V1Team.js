@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1Team {
      * Constructs a new <code>V1Team</code>.
      * @alias module:model/V1Team
      */
-    constructor() { 
-        
+    constructor() {
+
         V1Team.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1Team {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -56,6 +56,9 @@ class V1Team {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('projects')) {
                 obj['projects'] = ApiClient.convertToType(data['projects'], ['String']);
@@ -102,6 +105,10 @@ class V1Team {
         // ensure the json data is a string
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
+        }
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['projects'])) {
@@ -150,6 +157,11 @@ V1Team.prototype['owner'] = undefined;
  * @member {String} name
  */
 V1Team.prototype['name'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1Team.prototype['user'] = undefined;
 
 /**
  * @member {Array.<String>} projects

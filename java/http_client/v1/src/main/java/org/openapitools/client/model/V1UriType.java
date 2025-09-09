@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -64,7 +64,7 @@ public class V1UriType {
   }
 
   public V1UriType user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1UriType {
 
 
   public V1UriType password(String password) {
-    
+
     this.password = password;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1UriType {
 
 
   public V1UriType host(Boolean host) {
-    
+
     this.host = host;
     return this;
   }

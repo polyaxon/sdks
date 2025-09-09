@@ -33,11 +33,12 @@ class V1Dashboard(BaseModel):
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     live_state: Optional[StrictInt] = None
+    user: Optional[StrictStr] = None
     spec: Optional[V1DashboardSpec] = None
     org_level: Optional[StrictBool] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["uuid", "name", "description", "tags", "live_state", "spec", "org_level", "created_at", "updated_at"]
+    __properties = ["uuid", "name", "description", "tags", "live_state", "user", "spec", "org_level", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -82,6 +83,7 @@ class V1Dashboard(BaseModel):
             "description": obj.get("description"),
             "tags": obj.get("tags"),
             "live_state": obj.get("live_state"),
+            "user": obj.get("user"),
             "spec": V1DashboardSpec.from_dict(obj.get("spec")) if obj.get("spec") is not None else None,
             "org_level": obj.get("org_level"),
             "created_at": obj.get("created_at"),

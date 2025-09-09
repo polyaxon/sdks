@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -27,49 +27,49 @@ import {
 } from './V1Init';
 
 /**
- * 
+ *
  * @export
  * @interface V1DaskReplica
  */
 export interface V1DaskReplica {
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1DaskReplica
      */
     replicas?: number;
     /**
-     * 
+     *
      * @type {V1Environment}
      * @memberof V1DaskReplica
      */
     environment?: V1Environment;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1DaskReplica
      */
     connections?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1DaskReplica
      */
     volumes?: Array<object>;
     /**
-     * 
+     *
      * @type {Array<V1Init>}
      * @memberof V1DaskReplica
      */
     init?: Array<V1Init>;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1DaskReplica
      */
     sidecars?: Array<object>;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1DaskReplica
      */
@@ -94,7 +94,7 @@ export function V1DaskReplicaFromJSONTyped(json: any, ignoreDiscriminator: boole
         return json;
     }
     return {
-        
+
         'replicas': !exists(json, 'replicas') ? undefined : json['replicas'],
         'environment': !exists(json, 'environment') ? undefined : V1EnvironmentFromJSON(json['environment']),
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
@@ -113,7 +113,7 @@ export function V1DaskReplicaToJSON(value?: V1DaskReplica | null): any {
         return null;
     }
     return {
-        
+
         'replicas': value.replicas,
         'environment': V1EnvironmentToJSON(value.environment),
         'connections': value.connections,

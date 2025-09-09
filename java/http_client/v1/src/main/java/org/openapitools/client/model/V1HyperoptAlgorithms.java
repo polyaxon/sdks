@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -28,11 +28,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1HyperoptAlgorithms.Adapter.class)
 public enum V1HyperoptAlgorithms {
-  
+
   TPE("tpe"),
-  
+
   RAND("rand"),
-  
+
   ANNEAL("anneal");
 
   private String value;

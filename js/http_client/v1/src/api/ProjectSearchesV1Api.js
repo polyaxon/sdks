@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -25,7 +25,7 @@ import V1Search from '../model/V1Search';
 export default class ProjectSearchesV1Api {
 
     /**
-    * Constructs a new ProjectSearchesV1Api. 
+    * Constructs a new ProjectSearchesV1Api.
     * Polyaxon sdk
     * @alias module:api/ProjectSearchesV1Api
     * @class

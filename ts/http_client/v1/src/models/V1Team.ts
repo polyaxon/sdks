@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -21,73 +21,79 @@ import {
 } from './V1TeamSettings';
 
 /**
- * 
+ *
  * @export
  * @interface V1Team
  */
 export interface V1Team {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     owner?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     name?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Team
+     */
+    user?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     projects?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     component_hubs?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Team
      */
     model_registries?: Array<string>;
     /**
-     * 
+     *
      * @type {V1TeamSettings}
      * @memberof V1Team
      */
     settings?: V1TeamSettings;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     policy?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Team
      */
     role?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Team
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Team
      */
@@ -112,10 +118,11 @@ export function V1TeamFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'name': !exists(json, 'name') ? undefined : json['name'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
         'component_hubs': !exists(json, 'component_hubs') ? undefined : json['component_hubs'],
         'model_registries': !exists(json, 'model_registries') ? undefined : json['model_registries'],
@@ -135,10 +142,11 @@ export function V1TeamToJSON(value?: V1Team | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'owner': value.owner,
         'name': value.name,
+        'user': value.user,
         'projects': value.projects,
         'component_hubs': value.component_hubs,
         'model_registries': value.model_registries,

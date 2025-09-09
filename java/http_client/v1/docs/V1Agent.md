@@ -12,6 +12,7 @@
 |**description** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**namespace** | **String** |  |  [optional] |
 |**versionApi** | **Object** |  |  [optional] |
 |**version** | **String** |  |  [optional] |

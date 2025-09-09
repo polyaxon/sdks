@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **tags** | **[String]** |  | [optional] 
 **owner** | **String** |  | [optional] 
+**user** | **String** |  | [optional] 
 **project** | **String** |  | [optional] 
 **connection** | **String** |  | [optional] 
 **run** | **String** |  | [optional] 

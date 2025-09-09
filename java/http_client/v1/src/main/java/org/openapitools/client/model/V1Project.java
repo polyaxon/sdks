@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -59,6 +59,10 @@ public class V1Project {
   public static final String SERIALIZED_NAME_OWNER = "owner";
   @SerializedName(SERIALIZED_NAME_OWNER)
   private String owner;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -124,7 +128,7 @@ public class V1Project {
   }
 
   public V1Project uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -146,7 +150,7 @@ public class V1Project {
 
 
   public V1Project owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -167,8 +171,30 @@ public class V1Project {
   }
 
 
+  public V1Project user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Project name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -190,7 +216,7 @@ public class V1Project {
 
 
   public V1Project description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -212,7 +238,7 @@ public class V1Project {
 
 
   public V1Project tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -242,7 +268,7 @@ public class V1Project {
 
 
   public V1Project createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -264,7 +290,7 @@ public class V1Project {
 
 
   public V1Project updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -286,7 +312,7 @@ public class V1Project {
 
 
   public V1Project isPublic(Boolean isPublic) {
-    
+
     this.isPublic = isPublic;
     return this;
   }
@@ -308,7 +334,7 @@ public class V1Project {
 
 
   public V1Project bookmarked(Boolean bookmarked) {
-    
+
     this.bookmarked = bookmarked;
     return this;
   }
@@ -330,7 +356,7 @@ public class V1Project {
 
 
   public V1Project readme(String readme) {
-    
+
     this.readme = readme;
     return this;
   }
@@ -352,7 +378,7 @@ public class V1Project {
 
 
   public V1Project excludedFeatures(List<String> excludedFeatures) {
-    
+
     this.excludedFeatures = excludedFeatures;
     return this;
   }
@@ -382,7 +408,7 @@ public class V1Project {
 
 
   public V1Project excludedRuntimes(List<String> excludedRuntimes) {
-    
+
     this.excludedRuntimes = excludedRuntimes;
     return this;
   }
@@ -412,7 +438,7 @@ public class V1Project {
 
 
   public V1Project archivedDeletionInterval(Integer archivedDeletionInterval) {
-    
+
     this.archivedDeletionInterval = archivedDeletionInterval;
     return this;
   }
@@ -434,7 +460,7 @@ public class V1Project {
 
 
   public V1Project settings(V1ProjectSettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -456,7 +482,7 @@ public class V1Project {
 
 
   public V1Project role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -478,7 +504,7 @@ public class V1Project {
 
 
   public V1Project liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -500,7 +526,7 @@ public class V1Project {
 
 
   public V1Project contributors(List<Object> contributors) {
-    
+
     this.contributors = contributors;
     return this;
   }
@@ -541,6 +567,7 @@ public class V1Project {
     V1Project v1Project = (V1Project) o;
     return Objects.equals(this.uuid, v1Project.uuid) &&
         Objects.equals(this.owner, v1Project.owner) &&
+        Objects.equals(this.user, v1Project.user) &&
         Objects.equals(this.name, v1Project.name) &&
         Objects.equals(this.description, v1Project.description) &&
         Objects.equals(this.tags, v1Project.tags) &&
@@ -560,7 +587,7 @@ public class V1Project {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, excludedFeatures, excludedRuntimes, archivedDeletionInterval, settings, role, liveState, contributors);
+    return Objects.hash(uuid, owner, user, name, description, tags, createdAt, updatedAt, isPublic, bookmarked, readme, excludedFeatures, excludedRuntimes, archivedDeletionInterval, settings, role, liveState, contributors);
   }
 
   @Override
@@ -569,6 +596,7 @@ public class V1Project {
     sb.append("class V1Project {\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -608,6 +636,7 @@ public class V1Project {
     openapiFields = new HashSet<String>();
     openapiFields.add("uuid");
     openapiFields.add("owner");
+    openapiFields.add("user");
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("tags");
@@ -653,6 +682,9 @@ public class V1Project {
       }
       if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));

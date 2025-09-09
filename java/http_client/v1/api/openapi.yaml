@@ -22479,6 +22479,7 @@ components:
         contributors:
         - "{}"
         - "{}"
+        user: user
         status_conditions:
         - reason: reason
           last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -22514,6 +22515,9 @@ components:
           format: int32
           title: Current live state
           type: integer
+        user:
+          title: Optional name of user created this entity
+          type: string
         namespace:
           title: Namespace where the agent is deployed
           type: string
@@ -24083,6 +24087,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         live_state: 6
         uuid: uuid
+        user: user
         tags:
         - tags
         - tags
@@ -24095,6 +24100,9 @@ components:
           type: string
         agent:
           title: Agent
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         description:
           title: Optional description
@@ -26000,6 +26008,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         live_state: 6
         uuid: uuid
+        user: user
         spec:
           xaxis: xaxis
           sample_size: 7
@@ -26059,6 +26068,9 @@ components:
           format: int32
           title: Current live state
           type: integer
+        user:
+          title: Required name of user started this entity
+          type: string
         spec:
           $ref: '#/components/schemas/v1DashboardSpec'
         org_level:
@@ -29379,6 +29391,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -29416,6 +29429,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           status_conditions:
           - reason: reason
             last_update_time: 2000-01-23T04:56:07.000+00:00
@@ -29491,6 +29505,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           tags:
           - tags
           - tags
@@ -29502,6 +29517,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           tags:
           - tags
           - tags
@@ -29536,6 +29552,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           spec:
             xaxis: xaxis
             sample_size: 7
@@ -29583,6 +29600,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           spec:
             xaxis: xaxis
             sample_size: 7
@@ -29811,6 +29829,7 @@ components:
           - queues
           - queues
           name: name
+          user: user
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -29883,6 +29902,7 @@ components:
           - queues
           - queues
           name: name
+          user: user
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -29942,6 +29962,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           content: content
           tags:
           - tags
@@ -29971,6 +29992,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           content: content
           tags:
           - tags
@@ -30036,6 +30058,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           artifacts:
           - artifacts
           - artifacts
@@ -30076,6 +30099,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           artifacts:
           - artifacts
           - artifacts
@@ -30179,6 +30203,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -30258,6 +30283,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
           excluded_runtimes:
           - excluded_runtimes
           - excluded_runtimes
@@ -30302,6 +30328,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
         - agent: agent
           resource: resource
           description: description
@@ -30319,6 +30346,7 @@ components:
           contributors:
           - "{}"
           - "{}"
+          user: user
       properties:
         count:
           format: int32
@@ -31109,6 +31137,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           spec:
             heat: heat
             histograms: "{}"
@@ -31175,6 +31204,7 @@ components:
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
           uuid: uuid
+          user: user
           spec:
             heat: heat
             histograms: "{}"
@@ -31269,6 +31299,7 @@ components:
           - services
           - services
           uuid: uuid
+          user: user
           tags:
           - tags
           - tags
@@ -31284,6 +31315,7 @@ components:
           - services
           - services
           uuid: uuid
+          user: user
           tags:
           - tags
           - tags
@@ -31317,12 +31349,14 @@ components:
           icon: icon
           description: description
           uuid: uuid
+          user: user
         - color: color
           stats: "{}"
           name: name
           icon: icon
           description: description
           uuid: uuid
+          user: user
       properties:
         count:
           format: int32
@@ -31426,6 +31460,7 @@ components:
           - component_hubs
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
+          user: user
           policy: policy
         - owner: owner
           settings:
@@ -31470,6 +31505,7 @@ components:
           - component_hubs
           created_at: 2000-01-23T04:56:07.000+00:00
           uuid: uuid
+          user: user
           policy: policy
       properties:
         count:
@@ -34695,6 +34731,7 @@ components:
         - queues
         - queues
         name: name
+        user: user
         excluded_runtimes:
         - excluded_runtimes
         - excluded_runtimes
@@ -34717,6 +34754,9 @@ components:
           type: string
         description:
           title: Optional description
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         tags:
           items:
@@ -34882,6 +34922,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         live_state: 6
         uuid: uuid
+        user: user
         content: content
         tags:
         - tags
@@ -34895,6 +34936,9 @@ components:
           type: string
         description:
           title: Optional description
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         tags:
           items:
@@ -35031,6 +35075,7 @@ components:
         contributors:
         - "{}"
         - "{}"
+        user: user
         excluded_runtimes:
         - excluded_runtimes
         - excluded_runtimes
@@ -35040,6 +35085,9 @@ components:
           type: string
         owner:
           title: Owner/namespace where the project was created
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         name:
           title: Required name
@@ -35254,6 +35302,7 @@ components:
         contributors:
         - "{}"
         - "{}"
+        user: user
         artifacts:
         - artifacts
         - artifacts
@@ -35275,6 +35324,9 @@ components:
           type: array
         owner:
           title: Owner of this entity
+          type: string
+        user:
+          title: Required name of user started this entity
           type: string
         project:
           title: Project name
@@ -35801,6 +35853,7 @@ components:
         contributors:
         - "{}"
         - "{}"
+        user: user
       properties:
         uuid:
           title: UUID
@@ -35813,6 +35866,9 @@ components:
           type: string
         description:
           title: Optional description
+          type: string
+        user:
+          title: Required name of user started this entity
           type: string
         tags:
           items:
@@ -50907,6 +50963,7 @@ components:
         created_at: 2000-01-23T04:56:07.000+00:00
         live_state: 6
         uuid: uuid
+        user: user
         spec:
           heat: heat
           histograms: "{}"
@@ -50974,6 +51031,9 @@ components:
           type: string
         description:
           title: Optional description
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         tags:
           items:
@@ -51407,6 +51467,7 @@ components:
         - services
         - services
         uuid: uuid
+        user: user
         tags:
         - tags
         - tags
@@ -51419,6 +51480,9 @@ components:
           type: string
         description:
           title: Optional description
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         tags:
           items:
@@ -52330,12 +52394,16 @@ components:
         icon: icon
         description: description
         uuid: uuid
+        user: user
       properties:
         uuid:
           title: UUID
           type: string
         name:
           title: Tag name
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         color:
           title: Optional Tag color
@@ -52397,6 +52465,7 @@ components:
         - component_hubs
         created_at: 2000-01-23T04:56:07.000+00:00
         uuid: uuid
+        user: user
         policy: policy
       properties:
         uuid:
@@ -52407,6 +52476,9 @@ components:
           type: string
         name:
           title: Name
+          type: string
+        user:
+          title: Optional name of user created this entity
           type: string
         projects:
           items:

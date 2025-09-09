@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -14,85 +14,91 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Queue
  */
 export interface V1Queue {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     agent?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     description?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Queue
+     */
+    user?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Queue
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Queue
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Queue
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Queue
      */
     priority?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Queue
      */
     concurrency?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     resource?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Queue
      */
     quota?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Queue
      */
     stats?: object;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1Queue
      */
@@ -117,11 +123,12 @@ export function V1QueueFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'agent': !exists(json, 'agent') ? undefined : json['agent'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
@@ -142,11 +149,12 @@ export function V1QueueToJSON(value?: V1Queue | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'agent': value.agent,
         'name': value.name,
         'description': value.description,
+        'user': value.user,
         'tags': value.tags,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),

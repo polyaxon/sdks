@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -70,7 +70,7 @@ public class V1PaddleElasticPolic {
   }
 
   public V1PaddleElasticPolic minReplicas(Integer minReplicas) {
-    
+
     this.minReplicas = minReplicas;
     return this;
   }
@@ -92,7 +92,7 @@ public class V1PaddleElasticPolic {
 
 
   public V1PaddleElasticPolic maxReplicas(Integer maxReplicas) {
-    
+
     this.maxReplicas = maxReplicas;
     return this;
   }
@@ -114,7 +114,7 @@ public class V1PaddleElasticPolic {
 
 
   public V1PaddleElasticPolic maxRestarts(Integer maxRestarts) {
-    
+
     this.maxRestarts = maxRestarts;
     return this;
   }
@@ -136,7 +136,7 @@ public class V1PaddleElasticPolic {
 
 
   public V1PaddleElasticPolic metrics(List<Object> metrics) {
-    
+
     this.metrics = metrics;
     return this;
   }

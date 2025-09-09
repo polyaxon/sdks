@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1UserAccessData {
   }
 
   public V1UserAccessData username(String username) {
-    
+
     this.username = username;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1UserAccessData {
 
 
   public V1UserAccessData isSa(Boolean isSa) {
-    
+
     this.isSa = isSa;
     return this;
   }

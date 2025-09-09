@@ -14,17 +14,20 @@ message Tag {
   // Tag name
   string name = 2;
 
+  // Optional name of user created this entity
+  string user = 3;
+
   // Optional Tag color
-  string color = 3;
+  string color = 4;
 
   // Optional tag description
-  string description = 4;
+  string description = 5;
 
   // Optional tag icon
-  string icon = 5;
+  string icon = 6;
 
   // Optional tag stats
-  google.protobuf.Struct stats = 6;
+  google.protobuf.Struct stats = 7;
 }
 
 // Request data to create/update tag

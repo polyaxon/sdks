@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -132,7 +132,7 @@ public class V1HpParams {
   }
 
   public V1HpParams choice(V1HpChoice choice) {
-    
+
     this.choice = choice;
     return this;
   }
@@ -154,7 +154,7 @@ public class V1HpParams {
 
 
   public V1HpParams pchoice(V1HpPChoice pchoice) {
-    
+
     this.pchoice = pchoice;
     return this;
   }
@@ -176,7 +176,7 @@ public class V1HpParams {
 
 
   public V1HpParams range(V1HpRange range) {
-    
+
     this.range = range;
     return this;
   }
@@ -198,7 +198,7 @@ public class V1HpParams {
 
 
   public V1HpParams linspace(V1HpLinSpace linspace) {
-    
+
     this.linspace = linspace;
     return this;
   }
@@ -220,7 +220,7 @@ public class V1HpParams {
 
 
   public V1HpParams logspace(V1HpLogSpace logspace) {
-    
+
     this.logspace = logspace;
     return this;
   }
@@ -242,7 +242,7 @@ public class V1HpParams {
 
 
   public V1HpParams geomspace(V1HpGeomSpace geomspace) {
-    
+
     this.geomspace = geomspace;
     return this;
   }
@@ -264,7 +264,7 @@ public class V1HpParams {
 
 
   public V1HpParams uniform(V1HpUniform uniform) {
-    
+
     this.uniform = uniform;
     return this;
   }
@@ -286,7 +286,7 @@ public class V1HpParams {
 
 
   public V1HpParams quniform(V1HpQUniform quniform) {
-    
+
     this.quniform = quniform;
     return this;
   }
@@ -308,7 +308,7 @@ public class V1HpParams {
 
 
   public V1HpParams loguniform(V1HpLogUniform loguniform) {
-    
+
     this.loguniform = loguniform;
     return this;
   }
@@ -330,7 +330,7 @@ public class V1HpParams {
 
 
   public V1HpParams qloguniform(V1HpQLogUniform qloguniform) {
-    
+
     this.qloguniform = qloguniform;
     return this;
   }
@@ -352,7 +352,7 @@ public class V1HpParams {
 
 
   public V1HpParams normal(V1HpNormal normal) {
-    
+
     this.normal = normal;
     return this;
   }
@@ -374,7 +374,7 @@ public class V1HpParams {
 
 
   public V1HpParams qnormal(V1HpQNormal qnormal) {
-    
+
     this.qnormal = qnormal;
     return this;
   }
@@ -396,7 +396,7 @@ public class V1HpParams {
 
 
   public V1HpParams lognormal(V1HpLogNormal lognormal) {
-    
+
     this.lognormal = lognormal;
     return this;
   }
@@ -418,7 +418,7 @@ public class V1HpParams {
 
 
   public V1HpParams qlognormal(V1HpQLogNormal qlognormal) {
-    
+
     this.qlognormal = qlognormal;
     return this;
   }
@@ -440,7 +440,7 @@ public class V1HpParams {
 
 
   public V1HpParams daterange(V1HpDateRange daterange) {
-    
+
     this.daterange = daterange;
     return this;
   }
@@ -462,7 +462,7 @@ public class V1HpParams {
 
 
   public V1HpParams datetimerange(V1HpDateTimeRange datetimerange) {
-    
+
     this.datetimerange = datetimerange;
     return this;
   }

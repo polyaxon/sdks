@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -65,7 +65,7 @@ public class V1AgentStatusBodyRequest {
   }
 
   public V1AgentStatusBodyRequest owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -87,7 +87,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -109,7 +109,7 @@ public class V1AgentStatusBodyRequest {
 
 
   public V1AgentStatusBodyRequest condition(V1StatusCondition condition) {
-    
+
     this.condition = condition;
     return this;
   }

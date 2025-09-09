@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1Policy {
      * Constructs a new <code>V1Policy</code>.
      * @alias module:model/V1Policy
      */
-    constructor() { 
-        
+    constructor() {
+
         V1Policy.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1Policy {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -59,6 +59,9 @@ class V1Policy {
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
@@ -139,6 +142,10 @@ class V1Policy {
         // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
+        }
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['tags'])) {
@@ -234,6 +241,11 @@ V1Policy.prototype['name'] = undefined;
  * @member {String} description
  */
 V1Policy.prototype['description'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1Policy.prototype['user'] = undefined;
 
 /**
  * @member {Array.<String>} tags

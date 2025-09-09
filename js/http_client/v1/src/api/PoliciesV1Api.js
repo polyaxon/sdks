@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -25,7 +25,7 @@ import V1Policy from '../model/V1Policy';
 export default class PoliciesV1Api {
 
     /**
-    * Constructs a new PoliciesV1Api. 
+    * Constructs a new PoliciesV1Api.
     * Polyaxon sdk
     * @alias module:api/PoliciesV1Api
     * @class

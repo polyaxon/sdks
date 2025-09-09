@@ -57,6 +57,9 @@ type V1Queue struct {
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
+	// Required name of user started this entity
+	User string `json:"user,omitempty"`
+
 	// UUID
 	UUID string `json:"uuid,omitempty"`
 }

@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1ConnectionResponse {
      * Constructs a new <code>V1ConnectionResponse</code>.
      * @alias module:model/V1ConnectionResponse
      */
-    constructor() { 
-        
+    constructor() {
+
         V1ConnectionResponse.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1ConnectionResponse {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -56,6 +56,9 @@ class V1ConnectionResponse {
             }
             if (data.hasOwnProperty('agent')) {
                 obj['agent'] = ApiClient.convertToType(data['agent'], 'String');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('description')) {
                 obj['description'] = ApiClient.convertToType(data['description'], 'String');
@@ -98,6 +101,10 @@ class V1ConnectionResponse {
             throw new Error("Expected the field `agent` to be a primitive type in the JSON string but got " + data['agent']);
         }
         // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
         if (data['description'] && !(typeof data['description'] === 'string' || data['description'] instanceof String)) {
             throw new Error("Expected the field `description` to be a primitive type in the JSON string but got " + data['description']);
         }
@@ -128,6 +135,11 @@ V1ConnectionResponse.prototype['name'] = undefined;
  * @member {String} agent
  */
 V1ConnectionResponse.prototype['agent'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1ConnectionResponse.prototype['user'] = undefined;
 
 /**
  * @member {String} description

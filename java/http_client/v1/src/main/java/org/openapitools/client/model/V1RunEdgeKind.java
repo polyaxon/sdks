@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -28,23 +28,23 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1RunEdgeKind.Adapter.class)
 public enum V1RunEdgeKind {
-  
+
   ACTION("action"),
-  
+
   EVENT("event"),
-  
+
   HOOK("hook"),
-  
+
   DAG("dag"),
-  
+
   JOIN("join"),
-  
+
   RUN("run"),
-  
+
   TB("tb"),
-  
+
   BUILD("build"),
-  
+
   MANUAL("manual");
 
   private String value;

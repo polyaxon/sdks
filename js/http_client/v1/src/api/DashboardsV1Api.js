@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -25,7 +25,7 @@ import V1ListDashboardsResponse from '../model/V1ListDashboardsResponse';
 export default class DashboardsV1Api {
 
     /**
-    * Constructs a new DashboardsV1Api. 
+    * Constructs a new DashboardsV1Api.
     * Polyaxon sdk
     * @alias module:api/DashboardsV1Api
     * @class

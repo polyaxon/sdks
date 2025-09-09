@@ -31,13 +31,14 @@ class V1Preset(BaseModel):
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     live_state: Optional[StrictInt] = None
     content: Optional[StrictStr] = None
     settings: Optional[V1PresetSettings] = None
-    __properties = ["uuid", "name", "description", "tags", "created_at", "updated_at", "live_state", "content", "settings"]
+    __properties = ["uuid", "name", "description", "user", "tags", "created_at", "updated_at", "live_state", "content", "settings"]
 
     class Config:
         allow_population_by_field_name = True
@@ -80,6 +81,7 @@ class V1Preset(BaseModel):
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
             "description": obj.get("description"),
+            "user": obj.get("user"),
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),

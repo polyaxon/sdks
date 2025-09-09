@@ -25,17 +25,20 @@ message Dashboard {
     // Current live state
     int32 live_state = 5;
 
+    // Required name of user started this entity
+    string user = 6;
+
     // Optional dashboard specification
-    DashboardSpec spec = 6;
+    DashboardSpec spec = 7;
 
     // Optional dashboard level
-    bool org_level = 7;
+    bool org_level = 8;
 
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 8;
+    google.protobuf.Timestamp created_at = 9;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
 }
 
  // Request data to create/update dashboard

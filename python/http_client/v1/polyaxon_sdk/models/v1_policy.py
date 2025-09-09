@@ -32,6 +32,7 @@ class V1Policy(BaseModel):
     owner: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
@@ -50,7 +51,7 @@ class V1Policy(BaseModel):
     teams: Optional[conlist(StrictStr)] = None
     projects: Optional[conlist(StrictStr)] = None
     connected_projects: Optional[conlist(StrictStr)] = None
-    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "connected_projects"]
+    __properties = ["uuid", "owner", "name", "description", "user", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "connected_projects"]
 
     class Config:
         allow_population_by_field_name = True
@@ -98,6 +99,7 @@ class V1Policy(BaseModel):
             "owner": obj.get("owner"),
             "name": obj.get("name"),
             "description": obj.get("description"),
+            "user": obj.get("user"),
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),

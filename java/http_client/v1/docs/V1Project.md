@@ -9,6 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**uuid** | **String** |  |  [optional] |
 |**owner** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |

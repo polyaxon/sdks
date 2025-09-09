@@ -30,13 +30,14 @@ class V1ServiceAccount(BaseModel):
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     live_state: Optional[StrictInt] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     scopes: Optional[conlist(StrictStr)] = None
     services: Optional[conlist(StrictStr)] = None
-    __properties = ["uuid", "name", "description", "tags", "live_state", "created_at", "updated_at", "scopes", "services"]
+    __properties = ["uuid", "name", "description", "user", "tags", "live_state", "created_at", "updated_at", "scopes", "services"]
 
     class Config:
         allow_population_by_field_name = True
@@ -76,6 +77,7 @@ class V1ServiceAccount(BaseModel):
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
             "description": obj.get("description"),
+            "user": obj.get("user"),
             "tags": obj.get("tags"),
             "live_state": obj.get("live_state"),
             "created_at": obj.get("created_at"),

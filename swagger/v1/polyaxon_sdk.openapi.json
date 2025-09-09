@@ -27799,8 +27799,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -28075,8 +28075,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -28611,8 +28611,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -29481,8 +29481,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -29644,8 +29644,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -30052,8 +30052,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -30596,15 +30596,15 @@
       "MXJobMode" : {
         "title" : "- MXTrain: Train Mode, requires Server, Scheduler, Worker\n - MXTune: Tune Mode, requires Tuner",
         "type" : "string",
-        "enum" : [ "MXTrain", "MXTune" ],
-        "default" : "MXTrain"
+        "default" : "MXTrain",
+        "enum" : [ "MXTrain", "MXTune" ]
       },
       "SearchView" : {
         "title" : "Search view",
         "type" : "string",
         "description" : "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
-        "enum" : [ "any", "runs", "selection", "analytics", "components", "models", "artifacts", "projects" ],
-        "default" : "any"
+        "default" : "any",
+        "enum" : [ "any", "runs", "selection", "analytics", "components", "models", "artifacts", "projects" ]
       },
       "protobufAny" : {
         "type" : "object",
@@ -30625,8 +30625,8 @@
       "protobufNullValue" : {
         "type" : "string",
         "description" : "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value.",
-        "enum" : [ "NULL_VALUE" ],
-        "default" : "NULL_VALUE"
+        "default" : "NULL_VALUE",
+        "enum" : [ "NULL_VALUE" ]
       },
       "runtimeError" : {
         "type" : "object",
@@ -30719,6 +30719,10 @@
             "title" : "Current live state",
             "type" : "integer",
             "format" : "int32"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
+            "type" : "string"
           },
           "namespace" : {
             "title" : "Namespace where the agent is deployed",
@@ -30871,8 +30875,8 @@
         "title" : "Artifact kind",
         "type" : "string",
         "description" : "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - span: Trace/Span event\n - artifact: Generic artifact",
-        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ],
-        "default" : "model"
+        "default" : "model",
+        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
       },
       "v1ArtifactTree" : {
         "title" : "Artifact tree response",
@@ -31132,8 +31136,8 @@
       "v1CleanPodPolicy" : {
         "title" : "CleanPodPolicy",
         "type" : "string",
-        "enum" : [ "All", "Running", "None" ],
-        "default" : "All"
+        "default" : "All",
+        "enum" : [ "All", "Running", "None" ]
       },
       "v1Cloning" : {
         "type" : "object",
@@ -31153,8 +31157,8 @@
       },
       "v1CloningKind" : {
         "type" : "string",
-        "enum" : [ "copy", "restart", "cache" ],
-        "default" : "copy"
+        "default" : "copy",
+        "enum" : [ "copy", "restart", "cache" ]
       },
       "v1Compatibility" : {
         "type" : "object",
@@ -31412,8 +31416,8 @@
       "v1ConnectionKind" : {
         "title" : "Connection kinds",
         "type" : "string",
-        "enum" : [ "host_path", "volume_claim", "gcs", "s3", "wasb", "registry", "git", "aws", "gcp", "azure", "mysql", "postgres", "oracle", "vertica", "sqlite", "mssql", "redis", "presto", "mongo", "cassandra", "ftp", "grpc", "hdfs", "http", "pig_cli", "hive_cli", "hive_metastore", "hive_server2", "jdbc", "jenkins", "samba", "snowflake", "ssh", "cloudant", "databricks", "segment", "slack", "discord", "mattermost", "pagerduty", "hipchat", "webhook", "custom" ],
-        "default" : "host_path"
+        "default" : "host_path",
+        "enum" : [ "host_path", "volume_claim", "gcs", "s3", "wasb", "registry", "git", "aws", "gcp", "azure", "mysql", "postgres", "oracle", "vertica", "sqlite", "mssql", "redis", "presto", "mongo", "cassandra", "ftp", "grpc", "hdfs", "http", "pig_cli", "hive_cli", "hive_metastore", "hive_server2", "jdbc", "jenkins", "samba", "snowflake", "ssh", "cloudant", "databricks", "segment", "slack", "discord", "mattermost", "pagerduty", "hipchat", "webhook", "custom" ]
       },
       "v1ConnectionResource" : {
         "title" : "K8S resource schema validation",
@@ -31451,6 +31455,10 @@
           },
           "agent" : {
             "title" : "Agent",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
             "type" : "string"
           },
           "description" : {
@@ -31699,6 +31707,10 @@
             "title" : "Current live state",
             "type" : "integer",
             "format" : "int32"
+          },
+          "user" : {
+            "title" : "Required name of user started this entity",
+            "type" : "string"
           },
           "spec" : {
             "$ref" : "#/components/schemas/v1DashboardSpec"
@@ -32299,8 +32311,8 @@
         "title" : "Chart kind",
         "type" : "string",
         "description" : "- plotly: Plotly chart\n - bokeh: Bokeh chart\n - vega: Vega chart",
-        "enum" : [ "plotly", "bokeh", "vega" ],
-        "default" : "plotly"
+        "default" : "plotly",
+        "enum" : [ "plotly", "bokeh", "vega" ]
       },
       "v1EventConfusionMatrix" : {
         "title" : "Cofusion matrix spec definition",
@@ -32365,8 +32377,8 @@
         "title" : "Curve kind",
         "type" : "string",
         "description" : "- roc: ROC curve\n - pr: Precision Recall curve\n - custom: Custom curve",
-        "enum" : [ "roc", "pr", "custom" ],
-        "default" : "roc"
+        "default" : "roc",
+        "enum" : [ "roc", "pr", "custom" ]
       },
       "v1EventDataframe" : {
         "title" : "Dataframe spec definition",
@@ -32429,8 +32441,8 @@
       },
       "v1EventKind" : {
         "type" : "string",
-        "enum" : [ "run_status_created", "run_status_resuming", "run_status_compiled", "run_status_on_schedule", "run_status_queued", "run_status_scheduled", "run_status_starting", "run_status_running", "run_status_processing", "run_status_stopping", "run_status_failed", "run_status_stopped", "run_status_succeeded", "run_status_skipped", "run_status_warning", "run_status_unschedulable", "run_status_upstream_failed", "run_status_retrying", "run_status_unknown", "run_status_done", "run_approved_actor", "run_invalidated_actor", "run_new_artifacts", "connection_git_commit", "connection_dataset_version", "connection_registry_image", "alert_info", "alert_warning", "alert_critical", "model_version_new_metric", "project_custom_event", "org_custom_event" ],
-        "default" : "run_status_created"
+        "default" : "run_status_created",
+        "enum" : [ "run_status_created", "run_status_resuming", "run_status_compiled", "run_status_on_schedule", "run_status_queued", "run_status_scheduled", "run_status_starting", "run_status_running", "run_status_processing", "run_status_stopping", "run_status_failed", "run_status_stopped", "run_status_succeeded", "run_status_skipped", "run_status_warning", "run_status_unschedulable", "run_status_upstream_failed", "run_status_retrying", "run_status_unknown", "run_status_done", "run_approved_actor", "run_invalidated_actor", "run_new_artifacts", "connection_git_commit", "connection_dataset_version", "connection_registry_image", "alert_info", "alert_warning", "alert_critical", "model_version_new_metric", "project_custom_event", "org_custom_event" ]
       },
       "v1EventModel" : {
         "title" : "Model spec definition",
@@ -32520,8 +32532,8 @@
       "v1EventSpanKind" : {
         "title" : "Curve kind",
         "type" : "string",
-        "enum" : [ "llm", "chain", "agent", "tool", "embedding", "retriever" ],
-        "default" : "llm"
+        "default" : "llm",
+        "enum" : [ "llm", "chain", "agent", "tool", "embedding", "retriever" ]
       },
       "v1EventTrigger" : {
         "title" : "Event definition",
@@ -33263,8 +33275,8 @@
         "title" : "Hyperopt algorithms enum",
         "type" : "string",
         "description" : "- tpe: tpe algorithm\n - rand: random algorithm\n - anneal: anneal algorithm",
-        "enum" : [ "tpe", "rand", "anneal" ],
-        "default" : "tpe"
+        "default" : "tpe",
+        "enum" : [ "tpe", "rand", "anneal" ]
       },
       "v1IO" : {
         "title" : "Inputs/Outputs specification",
@@ -34361,8 +34373,8 @@
       },
       "v1ManagedBy" : {
         "type" : "string",
-        "enum" : [ "client", "cli", "agent" ],
-        "default" : "client"
+        "default" : "client",
+        "enum" : [ "client", "cli", "agent" ]
       },
       "v1Mapping" : {
         "title" : "Matrix based on map/array either specified manually by the user or passed from another step",
@@ -34425,8 +34437,8 @@
       },
       "v1MatrixKind" : {
         "type" : "string",
-        "enum" : [ "random", "grid", "hyperband", "bayes", "hyperopt", "iterative", "mapping" ],
-        "default" : "random"
+        "default" : "random",
+        "enum" : [ "random", "grid", "hyperband", "bayes", "hyperopt", "iterative", "mapping" ]
       },
       "v1MedianStoppingPolicy" : {
         "type" : "object",
@@ -34704,8 +34716,8 @@
         "title" : "Optimization enum for metrics",
         "type" : "string",
         "description" : "- maximize: Minimize a metric\n - minimize: Minimize a metric",
-        "enum" : [ "maximize", "minimize" ],
-        "default" : "maximize"
+        "default" : "maximize",
+        "enum" : [ "maximize", "minimize" ]
       },
       "v1OptimizationMetric" : {
         "title" : "OptimizationMetric specification",
@@ -34957,8 +34969,8 @@
         "title" : "PatchStrategy",
         "type" : "string",
         "description" : "- replace: Replaces the keys\n - isnull: Only set the keys if they do not exist or if they are null\n - post_merge: Merge the all keys and replace by new one\n - pre_merge: Merge the all keys and keep old ones",
-        "enum" : [ "replace", "isnull", "post_merge", "pre_merge" ],
-        "default" : "replace"
+        "default" : "replace",
+        "enum" : [ "replace", "isnull", "post_merge", "pre_merge" ]
       },
       "v1PathRef" : {
         "title" : "Path reference specification",
@@ -34993,8 +35005,8 @@
       },
       "v1PipelineKind" : {
         "type" : "string",
-        "enum" : [ "dag", "matrix" ],
-        "default" : "dag"
+        "default" : "dag",
+        "enum" : [ "dag", "matrix" ]
       },
       "v1Plugins" : {
         "title" : "Plugins specification",
@@ -35082,6 +35094,10 @@
           },
           "description" : {
             "title" : "Optional description",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
             "type" : "string"
           },
           "tags" : {
@@ -35269,6 +35285,10 @@
             "title" : "Optional description",
             "type" : "string"
           },
+          "user" : {
+            "title" : "Optional name of user created this entity",
+            "type" : "string"
+          },
           "tags" : {
             "title" : "Optional tags of this entity",
             "type" : "array",
@@ -35330,6 +35350,10 @@
           },
           "owner" : {
             "title" : "Owner/namespace where the project was created",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
             "type" : "string"
           },
           "name" : {
@@ -35521,6 +35545,10 @@
             "title" : "Owner of this entity",
             "type" : "string"
           },
+          "user" : {
+            "title" : "Required name of user started this entity",
+            "type" : "string"
+          },
           "project" : {
             "title" : "Project name",
             "type" : "string"
@@ -35596,8 +35624,8 @@
       },
       "v1ProjectVersionKind" : {
         "type" : "string",
-        "enum" : [ "component", "model", "artifact" ],
-        "default" : "component"
+        "default" : "component",
+        "enum" : [ "component", "model", "artifact" ]
       },
       "v1PytorchElasticPolicy" : {
         "type" : "object",
@@ -35703,6 +35731,10 @@
           },
           "description" : {
             "title" : "Optional description",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Required name of user started this entity",
             "type" : "string"
           },
           "tags" : {
@@ -35926,8 +35958,8 @@
         "title" : "ResourceTypes enum for optmiztion resources",
         "type" : "string",
         "description" : "- int: Int resource\n - float: Float resource",
-        "enum" : [ "int", "float" ],
-        "default" : "int"
+        "default" : "int",
+        "enum" : [ "int", "float" ]
       },
       "v1Run" : {
         "title" : "Run specification",
@@ -36201,8 +36233,8 @@
       },
       "v1RunEdgeKind" : {
         "type" : "string",
-        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build", "manual" ],
-        "default" : "action"
+        "default" : "action",
+        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build", "manual" ]
       },
       "v1RunEdgeLineage" : {
         "title" : "single run edge",
@@ -36238,13 +36270,13 @@
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "dag", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "mxjob", "xgbjob", "paddlejob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
-        "default" : "job"
+        "default" : "job",
+        "enum" : [ "job", "service", "dag", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "mxjob", "xgbjob", "paddlejob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ]
       },
       "v1RunPending" : {
         "type" : "string",
-        "enum" : [ "approval", "upload", "cache", "build" ],
-        "default" : "approval"
+        "default" : "approval",
+        "enum" : [ "approval", "upload", "cache", "build" ]
       },
       "v1RunReferenceCatalog" : {
         "title" : "Run Settings catalog specification",
@@ -36411,8 +36443,8 @@
       },
       "v1ScheduleKind" : {
         "type" : "string",
-        "enum" : [ "cron", "interval", "datetime" ],
-        "default" : "cron"
+        "default" : "cron",
+        "enum" : [ "cron", "interval", "datetime" ]
       },
       "v1SchedulingPolicy" : {
         "type" : "object",
@@ -36528,6 +36560,10 @@
           },
           "description" : {
             "title" : "Optional description",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
             "type" : "string"
           },
           "tags" : {
@@ -36779,6 +36815,10 @@
             "title" : "Optional description",
             "type" : "string"
           },
+          "user" : {
+            "title" : "Optional name of user created this entity",
+            "type" : "string"
+          },
           "tags" : {
             "title" : "Optional tags of this entity",
             "type" : "array",
@@ -36897,8 +36937,8 @@
       },
       "v1Stages" : {
         "type" : "string",
-        "enum" : [ "testing", "staging", "production", "disabled" ],
-        "default" : "testing"
+        "default" : "testing",
+        "enum" : [ "testing", "staging", "production", "disabled" ]
       },
       "v1Status" : {
         "title" : "Status specification",
@@ -36963,8 +37003,8 @@
       },
       "v1Statuses" : {
         "type" : "string",
-        "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-        "default" : "created"
+        "default" : "created",
+        "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
       },
       "v1TFJob" : {
         "title" : "TF Job specification",
@@ -37015,6 +37055,10 @@
             "title" : "Tag name",
             "type" : "string"
           },
+          "user" : {
+            "title" : "Optional name of user created this entity",
+            "type" : "string"
+          },
           "color" : {
             "title" : "Optional Tag color",
             "type" : "string"
@@ -37048,6 +37092,10 @@
           },
           "name" : {
             "title" : "Name",
+            "type" : "string"
+          },
+          "user" : {
+            "title" : "Optional name of user created this entity",
             "type" : "string"
           },
           "projects" : {
@@ -37320,8 +37368,8 @@
       "v1TriggerPolicy" : {
         "title" : "TriggerPolicy enum",
         "type" : "string",
-        "enum" : [ "all_succeeded", "all_failed", "all_done", "one_succeeded", "one_failed", "one_done" ],
-        "default" : "all_succeeded"
+        "default" : "all_succeeded",
+        "enum" : [ "all_succeeded", "all_failed", "all_done", "one_succeeded", "one_failed", "one_done" ]
       },
       "v1TruncationStoppingPolicy" : {
         "type" : "object",

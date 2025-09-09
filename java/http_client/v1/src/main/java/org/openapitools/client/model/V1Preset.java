@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -64,6 +64,10 @@ public class V1Preset {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags;
@@ -92,7 +96,7 @@ public class V1Preset {
   }
 
   public V1Preset uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -114,7 +118,7 @@ public class V1Preset {
 
 
   public V1Preset name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -136,7 +140,7 @@ public class V1Preset {
 
 
   public V1Preset description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -157,8 +161,30 @@ public class V1Preset {
   }
 
 
+  public V1Preset user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Preset tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -188,7 +214,7 @@ public class V1Preset {
 
 
   public V1Preset createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -210,7 +236,7 @@ public class V1Preset {
 
 
   public V1Preset updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -232,7 +258,7 @@ public class V1Preset {
 
 
   public V1Preset liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -254,7 +280,7 @@ public class V1Preset {
 
 
   public V1Preset content(String content) {
-    
+
     this.content = content;
     return this;
   }
@@ -276,7 +302,7 @@ public class V1Preset {
 
 
   public V1Preset settings(V1PresetSettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -310,6 +336,7 @@ public class V1Preset {
     return Objects.equals(this.uuid, v1Preset.uuid) &&
         Objects.equals(this.name, v1Preset.name) &&
         Objects.equals(this.description, v1Preset.description) &&
+        Objects.equals(this.user, v1Preset.user) &&
         Objects.equals(this.tags, v1Preset.tags) &&
         Objects.equals(this.createdAt, v1Preset.createdAt) &&
         Objects.equals(this.updatedAt, v1Preset.updatedAt) &&
@@ -320,7 +347,7 @@ public class V1Preset {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, createdAt, updatedAt, liveState, content, settings);
+    return Objects.hash(uuid, name, description, user, tags, createdAt, updatedAt, liveState, content, settings);
   }
 
   @Override
@@ -330,6 +357,7 @@ public class V1Preset {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -361,6 +389,7 @@ public class V1Preset {
     openapiFields.add("uuid");
     openapiFields.add("name");
     openapiFields.add("description");
+    openapiFields.add("user");
     openapiFields.add("tags");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -400,6 +429,9 @@ public class V1Preset {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **agent** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

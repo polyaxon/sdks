@@ -12,6 +12,7 @@
 |**description** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**owner** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**project** | **String** |  |  [optional] |
 |**connection** | **String** |  |  [optional] |
 |**run** | **String** |  |  [optional] |

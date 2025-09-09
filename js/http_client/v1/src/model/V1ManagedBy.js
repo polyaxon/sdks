@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -18,28 +18,28 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1ManagedBy {
-    
+
         /**
          * value: "client"
          * @const
          */
         "client" = "client";
 
-    
+
         /**
          * value: "cli"
          * @const
          */
         "cli" = "cli";
 
-    
+
         /**
          * value: "agent"
          * @const
          */
         "agent" = "agent";
 
-    
+
 
     /**
     * Returns a <code>V1ManagedBy</code> enum value from a Javascript object name.

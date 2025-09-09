@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | **str** |  | [optional] 
 **owner** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 

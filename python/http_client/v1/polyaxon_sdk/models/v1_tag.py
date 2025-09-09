@@ -29,11 +29,12 @@ class V1Tag(BaseModel):
     """
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     color: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     icon: Optional[StrictStr] = None
     stats: Optional[Dict[str, Any]] = None
-    __properties = ["uuid", "name", "color", "description", "icon", "stats"]
+    __properties = ["uuid", "name", "user", "color", "description", "icon", "stats"]
 
     class Config:
         allow_population_by_field_name = True
@@ -72,6 +73,7 @@ class V1Tag(BaseModel):
         _obj = V1Tag.parse_obj({
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
+            "user": obj.get("user"),
             "color": obj.get("color"),
             "description": obj.get("description"),
             "icon": obj.get("icon"),

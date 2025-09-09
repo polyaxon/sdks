@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -61,7 +61,7 @@ public class V1EventType {
   }
 
   public V1EventType name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -83,7 +83,7 @@ public class V1EventType {
 
 
   public V1EventType kind(V1ArtifactKind kind) {
-    
+
     this.kind = kind;
     return this;
   }

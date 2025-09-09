@@ -10,6 +10,7 @@
 |**uuid** | **String** |  |  [optional] |
 |**owner** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**projects** | **List&lt;String&gt;** |  |  [optional] |
 |**componentHubs** | **List&lt;String&gt;** |  |  [optional] |
 |**modelRegistries** | **List&lt;String&gt;** |  |  [optional] |

@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -80,6 +80,12 @@
 
     it('should have the property live_state (base name: "live_state")', function() {
       // uncomment below and update the code to test the property live_state
+      //var instance = new PolyaxonSdk.V1Dashboard();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property user (base name: "user")', function() {
+      // uncomment below and update the code to test the property user
       //var instance = new PolyaxonSdk.V1Dashboard();
       //expect(instance).to.be();
     });

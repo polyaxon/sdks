@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -24,8 +24,8 @@ class V1RunEdgesGraph {
      * Constructs a new <code>V1RunEdgesGraph</code>.
      * @alias module:model/V1RunEdgesGraph
      */
-    constructor() { 
-        
+    constructor() {
+
         V1RunEdgesGraph.initialize(this);
     }
 
@@ -34,7 +34,7 @@ class V1RunEdgesGraph {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

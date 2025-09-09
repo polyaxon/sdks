@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -72,6 +72,10 @@ public class V1Dashboard {
   @SerializedName(SERIALIZED_NAME_LIVE_STATE)
   private Integer liveState;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_SPEC = "spec";
   @SerializedName(SERIALIZED_NAME_SPEC)
   private V1DashboardSpec spec;
@@ -92,7 +96,7 @@ public class V1Dashboard {
   }
 
   public V1Dashboard uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -114,7 +118,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -136,7 +140,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -158,7 +162,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -188,7 +192,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -209,8 +213,30 @@ public class V1Dashboard {
   }
 
 
+  public V1Dashboard user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Dashboard spec(V1DashboardSpec spec) {
-    
+
     this.spec = spec;
     return this;
   }
@@ -232,7 +258,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard orgLevel(Boolean orgLevel) {
-    
+
     this.orgLevel = orgLevel;
     return this;
   }
@@ -254,7 +280,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -276,7 +302,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -312,6 +338,7 @@ public class V1Dashboard {
         Objects.equals(this.description, v1Dashboard.description) &&
         Objects.equals(this.tags, v1Dashboard.tags) &&
         Objects.equals(this.liveState, v1Dashboard.liveState) &&
+        Objects.equals(this.user, v1Dashboard.user) &&
         Objects.equals(this.spec, v1Dashboard.spec) &&
         Objects.equals(this.orgLevel, v1Dashboard.orgLevel) &&
         Objects.equals(this.createdAt, v1Dashboard.createdAt) &&
@@ -320,7 +347,7 @@ public class V1Dashboard {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, spec, orgLevel, createdAt, updatedAt);
+    return Objects.hash(uuid, name, description, tags, liveState, user, spec, orgLevel, createdAt, updatedAt);
   }
 
   @Override
@@ -332,6 +359,7 @@ public class V1Dashboard {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("    orgLevel: ").append(toIndentedString(orgLevel)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -363,6 +391,7 @@ public class V1Dashboard {
     openapiFields.add("description");
     openapiFields.add("tags");
     openapiFields.add("live_state");
+    openapiFields.add("user");
     openapiFields.add("spec");
     openapiFields.add("org_level");
     openapiFields.add("created_at");
@@ -404,6 +433,9 @@ public class V1Dashboard {
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // validate the optional field `spec`
       if (jsonObj.get("spec") != null && !jsonObj.get("spec").isJsonNull()) {

@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -78,7 +78,7 @@ export interface UpdateDashboardRequest {
 }
 
 /**
- * 
+ *
  */
 export class DashboardsV1Api extends runtime.BaseAPI {
 

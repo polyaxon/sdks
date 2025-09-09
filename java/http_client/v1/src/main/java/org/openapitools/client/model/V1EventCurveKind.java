@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -28,11 +28,11 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(V1EventCurveKind.Adapter.class)
 public enum V1EventCurveKind {
-  
+
   ROC("roc"),
-  
+
   PR("pr"),
-  
+
   CUSTOM("custom");
 
   private String value;

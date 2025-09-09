@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -27,8 +27,8 @@ class V1PytorchJob {
      * Constructs a new <code>V1PytorchJob</code>.
      * @alias module:model/V1PytorchJob
      */
-    constructor() { 
-        
+    constructor() {
+
         V1PytorchJob.initialize(this);
     }
 
@@ -37,7 +37,7 @@ class V1PytorchJob {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

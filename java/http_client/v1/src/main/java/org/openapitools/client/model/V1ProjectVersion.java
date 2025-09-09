@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -74,6 +74,10 @@ public class V1ProjectVersion {
   @SerializedName(SERIALIZED_NAME_OWNER)
   private String owner;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
   private String project;
@@ -138,7 +142,7 @@ public class V1ProjectVersion {
   }
 
   public V1ProjectVersion uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -160,7 +164,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -182,7 +186,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -204,7 +208,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -234,7 +238,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -255,8 +259,30 @@ public class V1ProjectVersion {
   }
 
 
+  public V1ProjectVersion user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1ProjectVersion project(String project) {
-    
+
     this.project = project;
     return this;
   }
@@ -278,7 +304,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion connection(String connection) {
-    
+
     this.connection = connection;
     return this;
   }
@@ -300,7 +326,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion run(String run) {
-    
+
     this.run = run;
     return this;
   }
@@ -322,7 +348,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion artifacts(List<String> artifacts) {
-    
+
     this.artifacts = artifacts;
     return this;
   }
@@ -352,7 +378,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion metaInfo(Object metaInfo) {
-    
+
     this.metaInfo = metaInfo;
     return this;
   }
@@ -374,7 +400,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -396,7 +422,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -418,7 +444,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion stage(V1Stages stage) {
-    
+
     this.stage = stage;
     return this;
   }
@@ -440,7 +466,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion kind(V1ProjectVersionKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -462,7 +488,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion stageConditions(List<V1StageCondition> stageConditions) {
-    
+
     this.stageConditions = stageConditions;
     return this;
   }
@@ -492,7 +518,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion content(String content) {
-    
+
     this.content = content;
     return this;
   }
@@ -514,7 +540,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion readme(String readme) {
-    
+
     this.readme = readme;
     return this;
   }
@@ -536,7 +562,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion state(String state) {
-    
+
     this.state = state;
     return this;
   }
@@ -558,7 +584,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -580,7 +606,7 @@ public class V1ProjectVersion {
 
 
   public V1ProjectVersion contributors(List<Object> contributors) {
-    
+
     this.contributors = contributors;
     return this;
   }
@@ -624,6 +650,7 @@ public class V1ProjectVersion {
         Objects.equals(this.description, v1ProjectVersion.description) &&
         Objects.equals(this.tags, v1ProjectVersion.tags) &&
         Objects.equals(this.owner, v1ProjectVersion.owner) &&
+        Objects.equals(this.user, v1ProjectVersion.user) &&
         Objects.equals(this.project, v1ProjectVersion.project) &&
         Objects.equals(this.connection, v1ProjectVersion.connection) &&
         Objects.equals(this.run, v1ProjectVersion.run) &&
@@ -643,7 +670,7 @@ public class V1ProjectVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, owner, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, readme, state, role, contributors);
+    return Objects.hash(uuid, name, description, tags, owner, user, project, connection, run, artifacts, metaInfo, createdAt, updatedAt, stage, kind, stageConditions, content, readme, state, role, contributors);
   }
 
   @Override
@@ -655,6 +682,7 @@ public class V1ProjectVersion {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    run: ").append(toIndentedString(run)).append("\n");
@@ -697,6 +725,7 @@ public class V1ProjectVersion {
     openapiFields.add("description");
     openapiFields.add("tags");
     openapiFields.add("owner");
+    openapiFields.add("user");
     openapiFields.add("project");
     openapiFields.add("connection");
     openapiFields.add("run");
@@ -752,6 +781,9 @@ public class V1ProjectVersion {
       }
       if ((jsonObj.get("owner") != null && !jsonObj.get("owner").isJsonNull()) && !jsonObj.get("owner").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `owner` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("project") != null && !jsonObj.get("project").isJsonNull()) && !jsonObj.get("project").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `project` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project").toString()));

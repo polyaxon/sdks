@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -64,6 +64,10 @@ public class V1Team {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_PROJECTS = "projects";
   @SerializedName(SERIALIZED_NAME_PROJECTS)
   private List<String> projects;
@@ -100,7 +104,7 @@ public class V1Team {
   }
 
   public V1Team uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -122,7 +126,7 @@ public class V1Team {
 
 
   public V1Team owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -144,7 +148,7 @@ public class V1Team {
 
 
   public V1Team name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -165,8 +169,30 @@ public class V1Team {
   }
 
 
+  public V1Team user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Team projects(List<String> projects) {
-    
+
     this.projects = projects;
     return this;
   }
@@ -196,7 +222,7 @@ public class V1Team {
 
 
   public V1Team componentHubs(List<String> componentHubs) {
-    
+
     this.componentHubs = componentHubs;
     return this;
   }
@@ -226,7 +252,7 @@ public class V1Team {
 
 
   public V1Team modelRegistries(List<String> modelRegistries) {
-    
+
     this.modelRegistries = modelRegistries;
     return this;
   }
@@ -256,7 +282,7 @@ public class V1Team {
 
 
   public V1Team settings(V1TeamSettings settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -278,7 +304,7 @@ public class V1Team {
 
 
   public V1Team policy(String policy) {
-    
+
     this.policy = policy;
     return this;
   }
@@ -300,7 +326,7 @@ public class V1Team {
 
 
   public V1Team role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -322,7 +348,7 @@ public class V1Team {
 
 
   public V1Team createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -344,7 +370,7 @@ public class V1Team {
 
 
   public V1Team updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -378,6 +404,7 @@ public class V1Team {
     return Objects.equals(this.uuid, v1Team.uuid) &&
         Objects.equals(this.owner, v1Team.owner) &&
         Objects.equals(this.name, v1Team.name) &&
+        Objects.equals(this.user, v1Team.user) &&
         Objects.equals(this.projects, v1Team.projects) &&
         Objects.equals(this.componentHubs, v1Team.componentHubs) &&
         Objects.equals(this.modelRegistries, v1Team.modelRegistries) &&
@@ -390,7 +417,7 @@ public class V1Team {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, projects, componentHubs, modelRegistries, settings, policy, role, createdAt, updatedAt);
+    return Objects.hash(uuid, owner, name, user, projects, componentHubs, modelRegistries, settings, policy, role, createdAt, updatedAt);
   }
 
   @Override
@@ -400,6 +427,7 @@ public class V1Team {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("    componentHubs: ").append(toIndentedString(componentHubs)).append("\n");
     sb.append("    modelRegistries: ").append(toIndentedString(modelRegistries)).append("\n");
@@ -433,6 +461,7 @@ public class V1Team {
     openapiFields.add("uuid");
     openapiFields.add("owner");
     openapiFields.add("name");
+    openapiFields.add("user");
     openapiFields.add("projects");
     openapiFields.add("component_hubs");
     openapiFields.add("model_registries");
@@ -474,6 +503,9 @@ public class V1Team {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("projects") != null && !jsonObj.get("projects").isJsonArray()) {

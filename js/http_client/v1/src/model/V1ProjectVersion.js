@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -26,8 +26,8 @@ class V1ProjectVersion {
      * Constructs a new <code>V1ProjectVersion</code>.
      * @alias module:model/V1ProjectVersion
      */
-    constructor() { 
-        
+    constructor() {
+
         V1ProjectVersion.initialize(this);
     }
 
@@ -36,7 +36,7 @@ class V1ProjectVersion {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -64,6 +64,9 @@ class V1ProjectVersion {
             }
             if (data.hasOwnProperty('owner')) {
                 obj['owner'] = ApiClient.convertToType(data['owner'], 'String');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('project')) {
                 obj['project'] = ApiClient.convertToType(data['project'], 'String');
@@ -139,6 +142,10 @@ class V1ProjectVersion {
         // ensure the json data is a string
         if (data['owner'] && !(typeof data['owner'] === 'string' || data['owner'] instanceof String)) {
             throw new Error("Expected the field `owner` to be a primitive type in the JSON string but got " + data['owner']);
+        }
+        // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
         }
         // ensure the json data is a string
         if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
@@ -219,6 +226,11 @@ V1ProjectVersion.prototype['tags'] = undefined;
  * @member {String} owner
  */
 V1ProjectVersion.prototype['owner'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1ProjectVersion.prototype['user'] = undefined;
 
 /**
  * @member {String} project

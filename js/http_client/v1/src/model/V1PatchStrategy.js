@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -18,35 +18,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1PatchStrategy {
-    
+
         /**
          * value: "replace"
          * @const
          */
         "replace" = "replace";
 
-    
+
         /**
          * value: "isnull"
          * @const
          */
         "isnull" = "isnull";
 
-    
+
         /**
          * value: "post_merge"
          * @const
          */
         "post_merge" = "post_merge";
 
-    
+
         /**
          * value: "pre_merge"
          * @const
          */
         "pre_merge" = "pre_merge";
 
-    
+
 
     /**
     * Returns a <code>V1PatchStrategy</code> enum value from a Javascript object name.

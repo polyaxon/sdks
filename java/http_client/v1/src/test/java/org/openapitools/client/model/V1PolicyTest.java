@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -71,6 +71,14 @@ public class V1PolicyTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'user'
+     */
+    @Test
+    public void userTest() {
+        // TODO: test user
     }
 
     /**

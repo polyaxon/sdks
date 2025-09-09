@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -56,7 +56,7 @@ public class V1MultiEventsResponse {
   }
 
   public V1MultiEventsResponse data(Object data) {
-    
+
     this.data = data;
     return this;
   }

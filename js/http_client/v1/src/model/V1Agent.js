@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -25,8 +25,8 @@ class V1Agent {
      * Constructs a new <code>V1Agent</code>.
      * @alias module:model/V1Agent
      */
-    constructor() { 
-        
+    constructor() {
+
         V1Agent.initialize(this);
     }
 
@@ -35,7 +35,7 @@ class V1Agent {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -63,6 +63,9 @@ class V1Agent {
             }
             if (data.hasOwnProperty('live_state')) {
                 obj['live_state'] = ApiClient.convertToType(data['live_state'], 'Number');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('namespace')) {
                 obj['namespace'] = ApiClient.convertToType(data['namespace'], 'String');
@@ -133,6 +136,10 @@ class V1Agent {
             throw new Error("Expected the field `tags` to be an array in the JSON data but got " + data['tags']);
         }
         // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
         if (data['namespace'] && !(typeof data['namespace'] === 'string' || data['namespace'] instanceof String)) {
             throw new Error("Expected the field `namespace` to be a primitive type in the JSON string but got " + data['namespace']);
         }
@@ -195,6 +202,11 @@ V1Agent.prototype['tags'] = undefined;
  * @member {Number} live_state
  */
 V1Agent.prototype['live_state'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1Agent.prototype['user'] = undefined;
 
 /**
  * @member {String} namespace

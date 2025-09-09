@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -65,6 +65,10 @@ public class V1Search {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags;
@@ -97,7 +101,7 @@ public class V1Search {
   }
 
   public V1Search uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -119,7 +123,7 @@ public class V1Search {
 
 
   public V1Search name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -141,7 +145,7 @@ public class V1Search {
 
 
   public V1Search description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -162,8 +166,30 @@ public class V1Search {
   }
 
 
+  public V1Search user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Search tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -193,7 +219,7 @@ public class V1Search {
 
 
   public V1Search liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -215,7 +241,7 @@ public class V1Search {
 
 
   public V1Search view(SearchView view) {
-    
+
     this.view = view;
     return this;
   }
@@ -237,7 +263,7 @@ public class V1Search {
 
 
   public V1Search spec(V1SearchSpec spec) {
-    
+
     this.spec = spec;
     return this;
   }
@@ -259,7 +285,7 @@ public class V1Search {
 
 
   public V1Search orgLevel(Boolean orgLevel) {
-    
+
     this.orgLevel = orgLevel;
     return this;
   }
@@ -281,7 +307,7 @@ public class V1Search {
 
 
   public V1Search createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -303,7 +329,7 @@ public class V1Search {
 
 
   public V1Search updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -337,6 +363,7 @@ public class V1Search {
     return Objects.equals(this.uuid, v1Search.uuid) &&
         Objects.equals(this.name, v1Search.name) &&
         Objects.equals(this.description, v1Search.description) &&
+        Objects.equals(this.user, v1Search.user) &&
         Objects.equals(this.tags, v1Search.tags) &&
         Objects.equals(this.liveState, v1Search.liveState) &&
         Objects.equals(this.view, v1Search.view) &&
@@ -348,7 +375,7 @@ public class V1Search {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, view, spec, orgLevel, createdAt, updatedAt);
+    return Objects.hash(uuid, name, description, user, tags, liveState, view, spec, orgLevel, createdAt, updatedAt);
   }
 
   @Override
@@ -358,6 +385,7 @@ public class V1Search {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
     sb.append("    view: ").append(toIndentedString(view)).append("\n");
@@ -390,6 +418,7 @@ public class V1Search {
     openapiFields.add("uuid");
     openapiFields.add("name");
     openapiFields.add("description");
+    openapiFields.add("user");
     openapiFields.add("tags");
     openapiFields.add("live_state");
     openapiFields.add("view");
@@ -430,6 +459,9 @@ public class V1Search {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

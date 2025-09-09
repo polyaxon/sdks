@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -56,6 +56,10 @@ public class V1Tag {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_COLOR = "color";
   @SerializedName(SERIALIZED_NAME_COLOR)
   private String color;
@@ -76,7 +80,7 @@ public class V1Tag {
   }
 
   public V1Tag uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -98,7 +102,7 @@ public class V1Tag {
 
 
   public V1Tag name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -119,8 +123,30 @@ public class V1Tag {
   }
 
 
+  public V1Tag user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Tag color(String color) {
-    
+
     this.color = color;
     return this;
   }
@@ -142,7 +168,7 @@ public class V1Tag {
 
 
   public V1Tag description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -164,7 +190,7 @@ public class V1Tag {
 
 
   public V1Tag icon(String icon) {
-    
+
     this.icon = icon;
     return this;
   }
@@ -186,7 +212,7 @@ public class V1Tag {
 
 
   public V1Tag stats(Object stats) {
-    
+
     this.stats = stats;
     return this;
   }
@@ -219,6 +245,7 @@ public class V1Tag {
     V1Tag v1Tag = (V1Tag) o;
     return Objects.equals(this.uuid, v1Tag.uuid) &&
         Objects.equals(this.name, v1Tag.name) &&
+        Objects.equals(this.user, v1Tag.user) &&
         Objects.equals(this.color, v1Tag.color) &&
         Objects.equals(this.description, v1Tag.description) &&
         Objects.equals(this.icon, v1Tag.icon) &&
@@ -227,7 +254,7 @@ public class V1Tag {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, color, description, icon, stats);
+    return Objects.hash(uuid, name, user, color, description, icon, stats);
   }
 
   @Override
@@ -236,6 +263,7 @@ public class V1Tag {
     sb.append("class V1Tag {\n");
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    icon: ").append(toIndentedString(icon)).append("\n");
@@ -264,6 +292,7 @@ public class V1Tag {
     openapiFields = new HashSet<String>();
     openapiFields.add("uuid");
     openapiFields.add("name");
+    openapiFields.add("user");
     openapiFields.add("color");
     openapiFields.add("description");
     openapiFields.add("icon");
@@ -298,6 +327,9 @@ public class V1Tag {
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("color") != null && !jsonObj.get("color").isJsonNull()) && !jsonObj.get("color").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `color` to be a primitive type in the JSON string but got `%s`", jsonObj.get("color").toString()));

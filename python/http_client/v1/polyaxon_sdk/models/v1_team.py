@@ -31,6 +31,7 @@ class V1Team(BaseModel):
     uuid: Optional[StrictStr] = None
     owner: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     projects: Optional[conlist(StrictStr)] = None
     component_hubs: Optional[conlist(StrictStr)] = None
     model_registries: Optional[conlist(StrictStr)] = None
@@ -39,7 +40,7 @@ class V1Team(BaseModel):
     role: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["uuid", "owner", "name", "projects", "component_hubs", "model_registries", "settings", "policy", "role", "created_at", "updated_at"]
+    __properties = ["uuid", "owner", "name", "user", "projects", "component_hubs", "model_registries", "settings", "policy", "role", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -82,6 +83,7 @@ class V1Team(BaseModel):
             "uuid": obj.get("uuid"),
             "owner": obj.get("owner"),
             "name": obj.get("name"),
+            "user": obj.get("user"),
             "projects": obj.get("projects"),
             "component_hubs": obj.get("component_hubs"),
             "model_registries": obj.get("model_registries"),

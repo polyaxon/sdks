@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -73,6 +73,10 @@ public class V1Agent {
   @SerializedName(SERIALIZED_NAME_LIVE_STATE)
   private Integer liveState;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
@@ -133,7 +137,7 @@ public class V1Agent {
   }
 
   public V1Agent uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -155,7 +159,7 @@ public class V1Agent {
 
 
   public V1Agent name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -177,7 +181,7 @@ public class V1Agent {
 
 
   public V1Agent description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -199,7 +203,7 @@ public class V1Agent {
 
 
   public V1Agent tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -229,7 +233,7 @@ public class V1Agent {
 
 
   public V1Agent liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -250,8 +254,30 @@ public class V1Agent {
   }
 
 
+  public V1Agent user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Agent namespace(String namespace) {
-    
+
     this.namespace = namespace;
     return this;
   }
@@ -273,7 +299,7 @@ public class V1Agent {
 
 
   public V1Agent versionApi(Object versionApi) {
-    
+
     this.versionApi = versionApi;
     return this;
   }
@@ -295,7 +321,7 @@ public class V1Agent {
 
 
   public V1Agent version(String version) {
-    
+
     this.version = version;
     return this;
   }
@@ -317,7 +343,7 @@ public class V1Agent {
 
 
   public V1Agent content(String content) {
-    
+
     this.content = content;
     return this;
   }
@@ -339,7 +365,7 @@ public class V1Agent {
 
 
   public V1Agent createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -361,7 +387,7 @@ public class V1Agent {
 
 
   public V1Agent updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -383,7 +409,7 @@ public class V1Agent {
 
 
   public V1Agent status(V1Statuses status) {
-    
+
     this.status = status;
     return this;
   }
@@ -405,7 +431,7 @@ public class V1Agent {
 
 
   public V1Agent statusConditions(List<V1StatusCondition> statusConditions) {
-    
+
     this.statusConditions = statusConditions;
     return this;
   }
@@ -435,7 +461,7 @@ public class V1Agent {
 
 
   public V1Agent isReplica(Boolean isReplica) {
-    
+
     this.isReplica = isReplica;
     return this;
   }
@@ -457,7 +483,7 @@ public class V1Agent {
 
 
   public V1Agent isUiManaged(Boolean isUiManaged) {
-    
+
     this.isUiManaged = isUiManaged;
     return this;
   }
@@ -479,7 +505,7 @@ public class V1Agent {
 
 
   public V1Agent hostname(String hostname) {
-    
+
     this.hostname = hostname;
     return this;
   }
@@ -501,7 +527,7 @@ public class V1Agent {
 
 
   public V1Agent settings(Object settings) {
-    
+
     this.settings = settings;
     return this;
   }
@@ -523,7 +549,7 @@ public class V1Agent {
 
 
   public V1Agent stats(Object stats) {
-    
+
     this.stats = stats;
     return this;
   }
@@ -545,7 +571,7 @@ public class V1Agent {
 
 
   public V1Agent contributors(List<Object> contributors) {
-    
+
     this.contributors = contributors;
     return this;
   }
@@ -589,6 +615,7 @@ public class V1Agent {
         Objects.equals(this.description, v1Agent.description) &&
         Objects.equals(this.tags, v1Agent.tags) &&
         Objects.equals(this.liveState, v1Agent.liveState) &&
+        Objects.equals(this.user, v1Agent.user) &&
         Objects.equals(this.namespace, v1Agent.namespace) &&
         Objects.equals(this.versionApi, v1Agent.versionApi) &&
         Objects.equals(this.version, v1Agent.version) &&
@@ -607,7 +634,7 @@ public class V1Agent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings, stats, contributors);
+    return Objects.hash(uuid, name, description, tags, liveState, user, namespace, versionApi, version, content, createdAt, updatedAt, status, statusConditions, isReplica, isUiManaged, hostname, settings, stats, contributors);
   }
 
   @Override
@@ -619,6 +646,7 @@ public class V1Agent {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    versionApi: ").append(toIndentedString(versionApi)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
@@ -660,6 +688,7 @@ public class V1Agent {
     openapiFields.add("description");
     openapiFields.add("tags");
     openapiFields.add("live_state");
+    openapiFields.add("user");
     openapiFields.add("namespace");
     openapiFields.add("version_api");
     openapiFields.add("version");
@@ -711,6 +740,9 @@ public class V1Agent {
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));

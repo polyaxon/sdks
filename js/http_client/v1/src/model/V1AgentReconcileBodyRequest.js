@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -23,8 +23,8 @@ class V1AgentReconcileBodyRequest {
      * Constructs a new <code>V1AgentReconcileBodyRequest</code>.
      * @alias module:model/V1AgentReconcileBodyRequest
      */
-    constructor() { 
-        
+    constructor() {
+
         V1AgentReconcileBodyRequest.initialize(this);
     }
 
@@ -33,7 +33,7 @@ class V1AgentReconcileBodyRequest {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

@@ -10,6 +10,7 @@
 |**uuid** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |

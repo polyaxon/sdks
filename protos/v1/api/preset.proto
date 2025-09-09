@@ -19,23 +19,26 @@ message Preset {
     // Optional description
     string description = 3;
 
+    // Optional name of user created this entity
+    string user = 4;
+
     // Optional tags of this entity
-    repeated string tags = 4;
+    repeated string tags = 5;
 
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 7;
+    google.protobuf.Timestamp created_at = 6;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 8;
+    google.protobuf.Timestamp updated_at = 7;
 
     // Current live state
-    int32 live_state = 9;
+    int32 live_state = 8;
 
     // The content of the preset
-    string content = 10;
+    string content = 9;
 
     // settings
-    PresetSettings settings = 11;
+    PresetSettings settings = 10;
 }
 
 // Preset Settings specification

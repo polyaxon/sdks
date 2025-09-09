@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -58,7 +58,7 @@ public class V1Uuids {
   }
 
   public V1Uuids uuids(List<String> uuids) {
-    
+
     this.uuids = uuids;
     return this;
   }

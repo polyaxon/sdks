@@ -31,13 +31,14 @@ class V1ConnectionResponse(BaseModel):
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     agent: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
     live_state: Optional[StrictInt] = None
     kind: Optional[V1ConnectionKind] = None
-    __properties = ["uuid", "name", "agent", "description", "tags", "created_at", "updated_at", "live_state", "kind"]
+    __properties = ["uuid", "name", "agent", "user", "description", "tags", "created_at", "updated_at", "live_state", "kind"]
 
     class Config:
         allow_population_by_field_name = True
@@ -77,6 +78,7 @@ class V1ConnectionResponse(BaseModel):
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
             "agent": obj.get("agent"),
+            "user": obj.get("user"),
             "description": obj.get("description"),
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),

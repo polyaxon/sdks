@@ -35,6 +35,7 @@ class V1ProjectVersion(BaseModel):
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     owner: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     project: Optional[StrictStr] = None
     connection: Optional[StrictStr] = None
     run: Optional[StrictStr] = None
@@ -50,7 +51,7 @@ class V1ProjectVersion(BaseModel):
     state: Optional[StrictStr] = None
     role: Optional[StrictStr] = None
     contributors: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["uuid", "name", "description", "tags", "owner", "project", "connection", "run", "artifacts", "meta_info", "created_at", "updated_at", "stage", "kind", "stage_conditions", "content", "readme", "state", "role", "contributors"]
+    __properties = ["uuid", "name", "description", "tags", "owner", "user", "project", "connection", "run", "artifacts", "meta_info", "created_at", "updated_at", "stage", "kind", "stage_conditions", "content", "readme", "state", "role", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -99,6 +100,7 @@ class V1ProjectVersion(BaseModel):
             "description": obj.get("description"),
             "tags": obj.get("tags"),
             "owner": obj.get("owner"),
+            "user": obj.get("user"),
             "project": obj.get("project"),
             "connection": obj.get("connection"),
             "run": obj.get("run"),

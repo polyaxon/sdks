@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -27,121 +27,127 @@ import {
 } from './V1Statuses';
 
 /**
- * 
+ *
  * @export
  * @interface V1Agent
  */
 export interface V1Agent {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Agent
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Agent
      */
     live_state?: number;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Agent
+     */
+    user?: string;
+    /**
+     *
      * @type {string}
      * @memberof V1Agent
      */
     namespace?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Agent
      */
     version_api?: object;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     version?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     content?: string;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Agent
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Agent
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {V1Statuses}
      * @memberof V1Agent
      */
     status?: V1Statuses;
     /**
-     * 
+     *
      * @type {Array<V1StatusCondition>}
      * @memberof V1Agent
      */
     status_conditions?: Array<V1StatusCondition>;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Agent
      */
     is_replica?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Agent
      */
     is_ui_managed?: boolean;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Agent
      */
     hostname?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Agent
      */
     settings?: object;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Agent
      */
     stats?: object;
     /**
-     * 
+     *
      * @type {Array<object>}
      * @memberof V1Agent
      */
@@ -166,12 +172,13 @@ export function V1AgentFromJSONTyped(json: any, ignoreDiscriminator: boolean): V
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
         'version_api': !exists(json, 'version_api') ? undefined : json['version_api'],
         'version': !exists(json, 'version') ? undefined : json['version'],
@@ -197,12 +204,13 @@ export function V1AgentToJSON(value?: V1Agent | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,
         'tags': value.tags,
         'live_state': value.live_state,
+        'user': value.user,
         'namespace': value.namespace,
         'version_api': value.version_api,
         'version': value.version,

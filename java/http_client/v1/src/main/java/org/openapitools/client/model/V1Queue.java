@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -67,6 +67,10 @@ public class V1Queue {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags;
@@ -107,7 +111,7 @@ public class V1Queue {
   }
 
   public V1Queue uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -129,7 +133,7 @@ public class V1Queue {
 
 
   public V1Queue agent(String agent) {
-    
+
     this.agent = agent;
     return this;
   }
@@ -151,7 +155,7 @@ public class V1Queue {
 
 
   public V1Queue name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -173,7 +177,7 @@ public class V1Queue {
 
 
   public V1Queue description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -194,8 +198,30 @@ public class V1Queue {
   }
 
 
+  public V1Queue user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Queue tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -225,7 +251,7 @@ public class V1Queue {
 
 
   public V1Queue createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -247,7 +273,7 @@ public class V1Queue {
 
 
   public V1Queue updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -269,7 +295,7 @@ public class V1Queue {
 
 
   public V1Queue priority(Integer priority) {
-    
+
     this.priority = priority;
     return this;
   }
@@ -291,7 +317,7 @@ public class V1Queue {
 
 
   public V1Queue concurrency(Integer concurrency) {
-    
+
     this.concurrency = concurrency;
     return this;
   }
@@ -313,7 +339,7 @@ public class V1Queue {
 
 
   public V1Queue resource(String resource) {
-    
+
     this.resource = resource;
     return this;
   }
@@ -335,7 +361,7 @@ public class V1Queue {
 
 
   public V1Queue quota(String quota) {
-    
+
     this.quota = quota;
     return this;
   }
@@ -357,7 +383,7 @@ public class V1Queue {
 
 
   public V1Queue stats(Object stats) {
-    
+
     this.stats = stats;
     return this;
   }
@@ -379,7 +405,7 @@ public class V1Queue {
 
 
   public V1Queue contributors(List<Object> contributors) {
-    
+
     this.contributors = contributors;
     return this;
   }
@@ -422,6 +448,7 @@ public class V1Queue {
         Objects.equals(this.agent, v1Queue.agent) &&
         Objects.equals(this.name, v1Queue.name) &&
         Objects.equals(this.description, v1Queue.description) &&
+        Objects.equals(this.user, v1Queue.user) &&
         Objects.equals(this.tags, v1Queue.tags) &&
         Objects.equals(this.createdAt, v1Queue.createdAt) &&
         Objects.equals(this.updatedAt, v1Queue.updatedAt) &&
@@ -435,7 +462,7 @@ public class V1Queue {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, agent, name, description, tags, createdAt, updatedAt, priority, concurrency, resource, quota, stats, contributors);
+    return Objects.hash(uuid, agent, name, description, user, tags, createdAt, updatedAt, priority, concurrency, resource, quota, stats, contributors);
   }
 
   @Override
@@ -446,6 +473,7 @@ public class V1Queue {
     sb.append("    agent: ").append(toIndentedString(agent)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -481,6 +509,7 @@ public class V1Queue {
     openapiFields.add("agent");
     openapiFields.add("name");
     openapiFields.add("description");
+    openapiFields.add("user");
     openapiFields.add("tags");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -526,6 +555,9 @@ public class V1Queue {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

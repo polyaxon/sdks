@@ -4359,6 +4359,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -5271,6 +5275,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -5514,6 +5522,10 @@
         "updated_at": {
           "format": "date-time",
           "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "user": {
+          "title": "Required name of user started this entity",
           "type": "string"
         },
         "uuid": {
@@ -9211,6 +9223,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "user_accesses": {
           "items": {
             "$ref": "#/definitions/v1UserAccess"
@@ -9314,6 +9330,10 @@
         "updated_at": {
           "format": "date-time",
           "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "user": {
+          "title": "Optional name of user created this entity",
           "type": "string"
         },
         "uuid": {
@@ -9424,6 +9444,10 @@
         "updated_at": {
           "format": "date-time",
           "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "user": {
+          "title": "Optional name of user created this entity",
           "type": "string"
         },
         "uuid": {
@@ -9610,6 +9634,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Required name of user started this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -9774,6 +9802,10 @@
         "updated_at": {
           "format": "date-time",
           "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "user": {
+          "title": "Required name of user started this entity",
           "type": "string"
         },
         "uuid": {
@@ -10635,6 +10667,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -10893,6 +10929,10 @@
           "title": "Optional last time the entity was updated",
           "type": "string"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -11142,6 +11182,10 @@
           "title": "Optional tag stats",
           "type": "object"
         },
+        "user": {
+          "title": "Optional name of user created this entity",
+          "type": "string"
+        },
         "uuid": {
           "title": "UUID",
           "type": "string"
@@ -11201,6 +11245,10 @@
         "updated_at": {
           "format": "date-time",
           "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "user": {
+          "title": "Optional name of user created this entity",
           "type": "string"
         },
         "uuid": {

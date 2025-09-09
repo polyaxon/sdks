@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -28,7 +28,7 @@ import com.google.gson.stream.JsonWriter;
  */
 @JsonAdapter(ProtobufNullValue.Adapter.class)
 public enum ProtobufNullValue {
-  
+
   NULL_VALUE("NULL_VALUE");
 
   private String value;

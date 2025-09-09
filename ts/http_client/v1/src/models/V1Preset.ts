@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -21,61 +21,67 @@ import {
 } from './V1PresetSettings';
 
 /**
- * 
+ *
  * @export
  * @interface V1Preset
  */
 export interface V1Preset {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Preset
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Preset
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Preset
      */
     description?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Preset
+     */
+    user?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Preset
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Preset
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Preset
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Preset
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Preset
      */
     content?: string;
     /**
-     * 
+     *
      * @type {V1PresetSettings}
      * @memberof V1Preset
      */
@@ -100,10 +106,11 @@ export function V1PresetFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
@@ -121,10 +128,11 @@ export function V1PresetToJSON(value?: V1Preset | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,
+        'user': value.user,
         'tags': value.tags,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),

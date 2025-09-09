@@ -34,6 +34,7 @@ class V1Agent(BaseModel):
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     live_state: Optional[StrictInt] = None
+    user: Optional[StrictStr] = None
     namespace: Optional[StrictStr] = None
     version_api: Optional[Dict[str, Any]] = None
     version: Optional[StrictStr] = None
@@ -48,7 +49,7 @@ class V1Agent(BaseModel):
     settings: Optional[Dict[str, Any]] = None
     stats: Optional[Dict[str, Any]] = None
     contributors: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["uuid", "name", "description", "tags", "live_state", "namespace", "version_api", "version", "content", "created_at", "updated_at", "status", "status_conditions", "is_replica", "is_ui_managed", "hostname", "settings", "stats", "contributors"]
+    __properties = ["uuid", "name", "description", "tags", "live_state", "user", "namespace", "version_api", "version", "content", "created_at", "updated_at", "status", "status_conditions", "is_replica", "is_ui_managed", "hostname", "settings", "stats", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -97,6 +98,7 @@ class V1Agent(BaseModel):
             "description": obj.get("description"),
             "tags": obj.get("tags"),
             "live_state": obj.get("live_state"),
+            "user": obj.get("user"),
             "namespace": obj.get("namespace"),
             "version_api": obj.get("version_api"),
             "version": obj.get("version"),

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1HostConnection {
   }
 
   public V1HostConnection url(String url) {
-    
+
     this.url = url;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1HostConnection {
 
 
   public V1HostConnection insecure(Boolean insecure) {
-    
+
     this.insecure = insecure;
     return this;
   }

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **uuid** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **agent** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 

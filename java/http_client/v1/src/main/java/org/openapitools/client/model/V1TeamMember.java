@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -77,7 +77,7 @@ public class V1TeamMember {
   }
 
   public V1TeamMember user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -99,7 +99,7 @@ public class V1TeamMember {
 
 
   public V1TeamMember userEmail(String userEmail) {
-    
+
     this.userEmail = userEmail;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1TeamMember {
 
 
   public V1TeamMember role(String role) {
-    
+
     this.role = role;
     return this;
   }
@@ -143,7 +143,7 @@ public class V1TeamMember {
 
 
   public V1TeamMember orgRole(String orgRole) {
-    
+
     this.orgRole = orgRole;
     return this;
   }
@@ -165,7 +165,7 @@ public class V1TeamMember {
 
 
   public V1TeamMember createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -187,7 +187,7 @@ public class V1TeamMember {
 
 
   public V1TeamMember updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }

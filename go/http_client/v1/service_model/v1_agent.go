@@ -70,6 +70,9 @@ type V1Agent struct {
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
+	// Optional name of user created this entity
+	User string `json:"user,omitempty"`
+
 	// UUID
 	UUID string `json:"uuid,omitempty"`
 

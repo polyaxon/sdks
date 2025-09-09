@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -64,6 +64,10 @@ public class V1ConnectionResponse {
   @SerializedName(SERIALIZED_NAME_AGENT)
   private String agent;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
@@ -92,7 +96,7 @@ public class V1ConnectionResponse {
   }
 
   public V1ConnectionResponse uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -114,7 +118,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -136,7 +140,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse agent(String agent) {
-    
+
     this.agent = agent;
     return this;
   }
@@ -157,8 +161,30 @@ public class V1ConnectionResponse {
   }
 
 
+  public V1ConnectionResponse user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1ConnectionResponse description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -180,7 +206,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -210,7 +236,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -232,7 +258,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -254,7 +280,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -276,7 +302,7 @@ public class V1ConnectionResponse {
 
 
   public V1ConnectionResponse kind(V1ConnectionKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -310,6 +336,7 @@ public class V1ConnectionResponse {
     return Objects.equals(this.uuid, v1ConnectionResponse.uuid) &&
         Objects.equals(this.name, v1ConnectionResponse.name) &&
         Objects.equals(this.agent, v1ConnectionResponse.agent) &&
+        Objects.equals(this.user, v1ConnectionResponse.user) &&
         Objects.equals(this.description, v1ConnectionResponse.description) &&
         Objects.equals(this.tags, v1ConnectionResponse.tags) &&
         Objects.equals(this.createdAt, v1ConnectionResponse.createdAt) &&
@@ -320,7 +347,7 @@ public class V1ConnectionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, agent, description, tags, createdAt, updatedAt, liveState, kind);
+    return Objects.hash(uuid, name, agent, user, description, tags, createdAt, updatedAt, liveState, kind);
   }
 
   @Override
@@ -330,6 +357,7 @@ public class V1ConnectionResponse {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    agent: ").append(toIndentedString(agent)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -361,6 +389,7 @@ public class V1ConnectionResponse {
     openapiFields.add("uuid");
     openapiFields.add("name");
     openapiFields.add("agent");
+    openapiFields.add("user");
     openapiFields.add("description");
     openapiFields.add("tags");
     openapiFields.add("created_at");
@@ -400,6 +429,9 @@ public class V1ConnectionResponse {
       }
       if ((jsonObj.get("agent") != null && !jsonObj.get("agent").isJsonNull()) && !jsonObj.get("agent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));

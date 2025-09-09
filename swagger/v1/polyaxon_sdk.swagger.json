@@ -20584,6 +20584,10 @@
           "format": "int32",
           "title": "Current live state"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "namespace": {
           "type": "string",
           "title": "Namespace where the agent is deployed"
@@ -21403,6 +21407,10 @@
           "type": "string",
           "title": "Agent"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "description": {
           "type": "string",
           "title": "Optional description"
@@ -21651,6 +21659,10 @@
           "type": "integer",
           "format": "int32",
           "title": "Current live state"
+        },
+        "user": {
+          "type": "string",
+          "title": "Required name of user started this entity"
         },
         "spec": {
           "$ref": "#/definitions/v1DashboardSpec",
@@ -25129,6 +25141,10 @@
           "type": "string",
           "title": "Optional description"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "tags": {
           "type": "array",
           "items": {
@@ -25314,6 +25330,10 @@
           "type": "string",
           "title": "Optional description"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "tags": {
           "type": "array",
           "items": {
@@ -25377,6 +25397,10 @@
         "owner": {
           "type": "string",
           "title": "Owner/namespace where the project was created"
+        },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
         },
         "name": {
           "type": "string",
@@ -25566,6 +25590,10 @@
         "owner": {
           "type": "string",
           "title": "Owner of this entity"
+        },
+        "user": {
+          "type": "string",
+          "title": "Required name of user started this entity"
         },
         "project": {
           "type": "string",
@@ -25757,6 +25785,10 @@
         "description": {
           "type": "string",
           "title": "Optional description"
+        },
+        "user": {
+          "type": "string",
+          "title": "Required name of user started this entity"
         },
         "tags": {
           "type": "array",
@@ -26625,6 +26657,10 @@
           "type": "string",
           "title": "Optional description"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "tags": {
           "type": "array",
           "items": {
@@ -26876,6 +26912,10 @@
         "description": {
           "type": "string",
           "title": "Optional description"
+        },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
         },
         "tags": {
           "type": "array",
@@ -27146,6 +27186,10 @@
           "type": "string",
           "title": "Tag name"
         },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
+        },
         "color": {
           "type": "string",
           "title": "Optional Tag color"
@@ -27179,6 +27223,10 @@
         "name": {
           "type": "string",
           "title": "Name"
+        },
+        "user": {
+          "type": "string",
+          "title": "Optional name of user created this entity"
         },
         "projects": {
           "type": "array",

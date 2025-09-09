@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -18,35 +18,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1RunPending {
-    
+
         /**
          * value: "approval"
          * @const
          */
         "approval" = "approval";
 
-    
+
         /**
          * value: "upload"
          * @const
          */
         "upload" = "upload";
 
-    
+
         /**
          * value: "cache"
          * @const
          */
         "cache" = "cache";
 
-    
+
         /**
          * value: "build"
          * @const
          */
         "build" = "build";
 
-    
+
 
     /**
     * Returns a <code>V1RunPending</code> enum value from a Javascript object name.

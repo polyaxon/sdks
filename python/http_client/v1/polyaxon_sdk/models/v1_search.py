@@ -32,6 +32,7 @@ class V1Search(BaseModel):
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
     live_state: Optional[StrictInt] = None
     view: Optional[SearchView] = None
@@ -39,7 +40,7 @@ class V1Search(BaseModel):
     org_level: Optional[StrictBool] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["uuid", "name", "description", "tags", "live_state", "view", "spec", "org_level", "created_at", "updated_at"]
+    __properties = ["uuid", "name", "description", "user", "tags", "live_state", "view", "spec", "org_level", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -82,6 +83,7 @@ class V1Search(BaseModel):
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
             "description": obj.get("description"),
+            "user": obj.get("user"),
             "tags": obj.get("tags"),
             "live_state": obj.get("live_state"),
             "view": obj.get("view"),

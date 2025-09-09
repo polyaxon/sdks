@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -18,49 +18,49 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1EventSpanKind {
-    
+
         /**
          * value: "llm"
          * @const
          */
         "llm" = "llm";
 
-    
+
         /**
          * value: "chain"
          * @const
          */
         "chain" = "chain";
 
-    
+
         /**
          * value: "agent"
          * @const
          */
         "agent" = "agent";
 
-    
+
         /**
          * value: "tool"
          * @const
          */
         "tool" = "tool";
 
-    
+
         /**
          * value: "embedding"
          * @const
          */
         "embedding" = "embedding";
 
-    
+
         /**
          * value: "retriever"
          * @const
          */
         "retriever" = "retriever";
 
-    
+
 
     /**
     * Returns a <code>V1EventSpanKind</code> enum value from a Javascript object name.

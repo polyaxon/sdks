@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -67,6 +67,10 @@ public class V1Policy {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
@@ -144,7 +148,7 @@ public class V1Policy {
   }
 
   public V1Policy uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -166,7 +170,7 @@ public class V1Policy {
 
 
   public V1Policy owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -188,7 +192,7 @@ public class V1Policy {
 
 
   public V1Policy name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -210,7 +214,7 @@ public class V1Policy {
 
 
   public V1Policy description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -231,8 +235,30 @@ public class V1Policy {
   }
 
 
+  public V1Policy user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1Policy tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -262,7 +288,7 @@ public class V1Policy {
 
 
   public V1Policy createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -284,7 +310,7 @@ public class V1Policy {
 
 
   public V1Policy updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -306,7 +332,7 @@ public class V1Policy {
 
 
   public V1Policy excludedFeatures(List<String> excludedFeatures) {
-    
+
     this.excludedFeatures = excludedFeatures;
     return this;
   }
@@ -336,7 +362,7 @@ public class V1Policy {
 
 
   public V1Policy excludedRuntimes(List<String> excludedRuntimes) {
-    
+
     this.excludedRuntimes = excludedRuntimes;
     return this;
   }
@@ -366,7 +392,7 @@ public class V1Policy {
 
 
   public V1Policy archivedDeletionInterval(Integer archivedDeletionInterval) {
-    
+
     this.archivedDeletionInterval = archivedDeletionInterval;
     return this;
   }
@@ -388,7 +414,7 @@ public class V1Policy {
 
 
   public V1Policy connections(List<String> connections) {
-    
+
     this.connections = connections;
     return this;
   }
@@ -418,7 +444,7 @@ public class V1Policy {
 
 
   public V1Policy defaultPresets(List<String> defaultPresets) {
-    
+
     this.defaultPresets = defaultPresets;
     return this;
   }
@@ -448,7 +474,7 @@ public class V1Policy {
 
 
   public V1Policy defaultPresetsOrdered(List<String> defaultPresetsOrdered) {
-    
+
     this.defaultPresetsOrdered = defaultPresetsOrdered;
     return this;
   }
@@ -478,7 +504,7 @@ public class V1Policy {
 
 
   public V1Policy presets(List<String> presets) {
-    
+
     this.presets = presets;
     return this;
   }
@@ -508,7 +534,7 @@ public class V1Policy {
 
 
   public V1Policy queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -530,7 +556,7 @@ public class V1Policy {
 
 
   public V1Policy queues(List<String> queues) {
-    
+
     this.queues = queues;
     return this;
   }
@@ -560,7 +586,7 @@ public class V1Policy {
 
 
   public V1Policy agents(List<String> agents) {
-    
+
     this.agents = agents;
     return this;
   }
@@ -590,7 +616,7 @@ public class V1Policy {
 
 
   public V1Policy namespaces(List<String> namespaces) {
-    
+
     this.namespaces = namespaces;
     return this;
   }
@@ -620,7 +646,7 @@ public class V1Policy {
 
 
   public V1Policy userAccesses(List<V1UserAccess> userAccesses) {
-    
+
     this.userAccesses = userAccesses;
     return this;
   }
@@ -650,7 +676,7 @@ public class V1Policy {
 
 
   public V1Policy teams(List<String> teams) {
-    
+
     this.teams = teams;
     return this;
   }
@@ -680,7 +706,7 @@ public class V1Policy {
 
 
   public V1Policy projects(List<String> projects) {
-    
+
     this.projects = projects;
     return this;
   }
@@ -710,7 +736,7 @@ public class V1Policy {
 
 
   public V1Policy connectedProjects(List<String> connectedProjects) {
-    
+
     this.connectedProjects = connectedProjects;
     return this;
   }
@@ -753,6 +779,7 @@ public class V1Policy {
         Objects.equals(this.owner, v1Policy.owner) &&
         Objects.equals(this.name, v1Policy.name) &&
         Objects.equals(this.description, v1Policy.description) &&
+        Objects.equals(this.user, v1Policy.user) &&
         Objects.equals(this.tags, v1Policy.tags) &&
         Objects.equals(this.createdAt, v1Policy.createdAt) &&
         Objects.equals(this.updatedAt, v1Policy.updatedAt) &&
@@ -775,7 +802,7 @@ public class V1Policy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, description, tags, createdAt, updatedAt, excludedFeatures, excludedRuntimes, archivedDeletionInterval, connections, defaultPresets, defaultPresetsOrdered, presets, queue, queues, agents, namespaces, userAccesses, teams, projects, connectedProjects);
+    return Objects.hash(uuid, owner, name, description, user, tags, createdAt, updatedAt, excludedFeatures, excludedRuntimes, archivedDeletionInterval, connections, defaultPresets, defaultPresetsOrdered, presets, queue, queues, agents, namespaces, userAccesses, teams, projects, connectedProjects);
   }
 
   @Override
@@ -786,6 +813,7 @@ public class V1Policy {
     sb.append("    owner: ").append(toIndentedString(owner)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -830,6 +858,7 @@ public class V1Policy {
     openapiFields.add("owner");
     openapiFields.add("name");
     openapiFields.add("description");
+    openapiFields.add("user");
     openapiFields.add("tags");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
@@ -884,6 +913,9 @@ public class V1Policy {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

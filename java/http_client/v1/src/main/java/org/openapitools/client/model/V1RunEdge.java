@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -77,7 +77,7 @@ public class V1RunEdge {
   }
 
   public V1RunEdge upstream(V1Run upstream) {
-    
+
     this.upstream = upstream;
     return this;
   }
@@ -99,7 +99,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge downstream(V1Run downstream) {
-    
+
     this.downstream = downstream;
     return this;
   }
@@ -121,7 +121,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge kind(V1RunEdgeKind kind) {
-    
+
     this.kind = kind;
     return this;
   }
@@ -143,7 +143,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge values(Object values) {
-    
+
     this.values = values;
     return this;
   }
@@ -165,7 +165,7 @@ public class V1RunEdge {
 
 
   public V1RunEdge statuses(List<V1Statuses> statuses) {
-    
+
     this.statuses = statuses;
     return this;
   }

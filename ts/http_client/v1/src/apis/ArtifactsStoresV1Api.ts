@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -24,7 +24,7 @@ export interface UploadArtifactRequest {
 }
 
 /**
- * 
+ *
  */
 export class ArtifactsStoresV1Api extends runtime.BaseAPI {
 

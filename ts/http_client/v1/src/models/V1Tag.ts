@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -14,43 +14,49 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1Tag
  */
 export interface V1Tag {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     name?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Tag
+     */
+    user?: string;
+    /**
+     *
      * @type {string}
      * @memberof V1Tag
      */
     color?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     description?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Tag
      */
     icon?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1Tag
      */
@@ -75,9 +81,10 @@ export function V1TagFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1T
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'color': !exists(json, 'color') ? undefined : json['color'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'icon': !exists(json, 'icon') ? undefined : json['icon'],
@@ -93,9 +100,10 @@ export function V1TagToJSON(value?: V1Tag | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
+        'user': value.user,
         'color': value.color,
         'description': value.description,
         'icon': value.icon,

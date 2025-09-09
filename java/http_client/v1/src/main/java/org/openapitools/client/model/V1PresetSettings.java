@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -63,7 +63,7 @@ public class V1PresetSettings {
   }
 
   public V1PresetSettings projects(List<V1SettingsCatalog> projects) {
-    
+
     this.projects = projects;
     return this;
   }
@@ -93,7 +93,7 @@ public class V1PresetSettings {
 
 
   public V1PresetSettings runs(List<V1SettingsCatalog> runs) {
-    
+
     this.runs = runs;
     return this;
   }

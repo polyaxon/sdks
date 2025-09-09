@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -56,7 +56,7 @@ public class V1UserEmail {
   }
 
   public V1UserEmail email(String email) {
-    
+
     this.email = email;
     return this;
   }

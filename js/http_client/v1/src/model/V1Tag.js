@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -23,8 +23,8 @@ class V1Tag {
      * Constructs a new <code>V1Tag</code>.
      * @alias module:model/V1Tag
      */
-    constructor() { 
-        
+    constructor() {
+
         V1Tag.initialize(this);
     }
 
@@ -33,7 +33,7 @@ class V1Tag {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**
@@ -52,6 +52,9 @@ class V1Tag {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('user')) {
+                obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
             if (data.hasOwnProperty('color')) {
                 obj['color'] = ApiClient.convertToType(data['color'], 'String');
@@ -84,6 +87,10 @@ class V1Tag {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
         // ensure the json data is a string
+        if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
+            throw new Error("Expected the field `user` to be a primitive type in the JSON string but got " + data['user']);
+        }
+        // ensure the json data is a string
         if (data['color'] && !(typeof data['color'] === 'string' || data['color'] instanceof String)) {
             throw new Error("Expected the field `color` to be a primitive type in the JSON string but got " + data['color']);
         }
@@ -113,6 +120,11 @@ V1Tag.prototype['uuid'] = undefined;
  * @member {String} name
  */
 V1Tag.prototype['name'] = undefined;
+
+/**
+ * @member {String} user
+ */
+V1Tag.prototype['user'] = undefined;
 
 /**
  * @member {String} color

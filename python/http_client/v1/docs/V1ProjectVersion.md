@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **owner** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 **project** | **str** |  | [optional] 
 **connection** | **str** |  | [optional] 
 **run** | **str** |  | [optional] 

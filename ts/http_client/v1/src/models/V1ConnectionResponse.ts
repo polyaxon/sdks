@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -21,61 +21,67 @@ import {
 } from './V1ConnectionKind';
 
 /**
- * 
+ *
  * @export
  * @interface V1ConnectionResponse
  */
 export interface V1ConnectionResponse {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     agent?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1ConnectionResponse
+     */
+    user?: string;
+    /**
+     *
      * @type {string}
      * @memberof V1ConnectionResponse
      */
     description?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1ConnectionResponse
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1ConnectionResponse
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1ConnectionResponse
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {V1ConnectionKind}
      * @memberof V1ConnectionResponse
      */
@@ -100,10 +106,11 @@ export function V1ConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'agent': !exists(json, 'agent') ? undefined : json['agent'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
@@ -121,10 +128,11 @@ export function V1ConnectionResponseToJSON(value?: V1ConnectionResponse | null):
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'agent': value.agent,
+        'user': value.user,
         'description': value.description,
         'tags': value.tags,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),

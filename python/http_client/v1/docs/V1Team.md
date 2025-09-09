@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **uuid** | **str** |  | [optional] 
 **owner** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
+**user** | **str** |  | [optional] 
 **projects** | **List[str]** |  | [optional] 
 **component_hubs** | **List[str]** |  | [optional] 
 **model_registries** | **List[str]** |  | [optional] 

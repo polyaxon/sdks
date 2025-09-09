@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -72,7 +72,7 @@ public class V1SchedulingPolicy {
   }
 
   public V1SchedulingPolicy minAvailable(Integer minAvailable) {
-    
+
     this.minAvailable = minAvailable;
     return this;
   }
@@ -94,7 +94,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -116,7 +116,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy minResources(Object minResources) {
-    
+
     this.minResources = minResources;
     return this;
   }
@@ -138,7 +138,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy priorityClass(String priorityClass) {
-    
+
     this.priorityClass = priorityClass;
     return this;
   }
@@ -160,7 +160,7 @@ public class V1SchedulingPolicy {
 
 
   public V1SchedulingPolicy scheduleTimeoutSeconds(Integer scheduleTimeoutSeconds) {
-    
+
     this.scheduleTimeoutSeconds = scheduleTimeoutSeconds;
     return this;
   }

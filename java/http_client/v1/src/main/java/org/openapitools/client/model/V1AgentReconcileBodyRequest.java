@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -64,7 +64,7 @@ public class V1AgentReconcileBodyRequest {
   }
 
   public V1AgentReconcileBodyRequest owner(String owner) {
-    
+
     this.owner = owner;
     return this;
   }
@@ -86,7 +86,7 @@ public class V1AgentReconcileBodyRequest {
 
 
   public V1AgentReconcileBodyRequest uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -108,7 +108,7 @@ public class V1AgentReconcileBodyRequest {
 
 
   public V1AgentReconcileBodyRequest reconcile(Object reconcile) {
-    
+
     this.reconcile = reconcile;
     return this;
   }

@@ -19,29 +19,32 @@ message Team {
   // Name
   string name = 3;
 
+  // Optional name of user created this entity
+  string user = 4;
+
   // projects
-  repeated string projects = 4;
+  repeated string projects = 5;
 
   // hubs
-  repeated string component_hubs = 5;
+  repeated string component_hubs = 6;
 
   // registries
-  repeated string model_registries = 6;
+  repeated string model_registries = 7;
 
   // settings
-  TeamSettings settings = 7;
+  TeamSettings settings = 8;
 
   // Attached policy
-  string policy = 8;
+  string policy = 9;
 
   // Current user's role in this (org/teams)/project
-  string role = 9;
+  string role = 10;
 
   // Optional time when the entity was created
-  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp created_at = 11;
 
   // Optional last time the entity was updated
-  google.protobuf.Timestamp updated_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
 }
 
  // Request data to update teams

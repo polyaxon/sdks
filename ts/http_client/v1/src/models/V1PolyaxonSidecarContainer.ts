@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -14,55 +14,55 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1PolyaxonSidecarContainer
  */
 export interface V1PolyaxonSidecarContainer {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonSidecarContainer
      */
     image?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonSidecarContainer
      */
     imageTag?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1PolyaxonSidecarContainer
      */
     imagePullPolicy?: string;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1PolyaxonSidecarContainer
      */
     sleepInterval?: number;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1PolyaxonSidecarContainer
      */
     syncInterval?: number;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1PolyaxonSidecarContainer
      */
     monitorLogs?: boolean;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1PolyaxonSidecarContainer
      */
     monitorSpec?: boolean;
     /**
-     * 
+     *
      * @type {object}
      * @memberof V1PolyaxonSidecarContainer
      */
@@ -87,7 +87,7 @@ export function V1PolyaxonSidecarContainerFromJSONTyped(json: any, ignoreDiscrim
         return json;
     }
     return {
-        
+
         'image': !exists(json, 'image') ? undefined : json['image'],
         'imageTag': !exists(json, 'imageTag') ? undefined : json['imageTag'],
         'imagePullPolicy': !exists(json, 'imagePullPolicy') ? undefined : json['imagePullPolicy'],
@@ -107,7 +107,7 @@ export function V1PolyaxonSidecarContainerToJSON(value?: V1PolyaxonSidecarContai
         return null;
     }
     return {
-        
+
         'image': value.image,
         'imageTag': value.imageTag,
         'imagePullPolicy': value.imagePullPolicy,

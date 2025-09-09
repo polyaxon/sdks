@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -79,7 +79,7 @@ public class V1UserAccess {
   }
 
   public V1UserAccess user(String user) {
-    
+
     this.user = user;
     return this;
   }
@@ -101,7 +101,7 @@ public class V1UserAccess {
 
 
   public V1UserAccess userData(V1UserAccessData userData) {
-    
+
     this.userData = userData;
     return this;
   }
@@ -123,7 +123,7 @@ public class V1UserAccess {
 
 
   public V1UserAccess queue(String queue) {
-    
+
     this.queue = queue;
     return this;
   }
@@ -145,7 +145,7 @@ public class V1UserAccess {
 
 
   public V1UserAccess defaultPresets(List<String> defaultPresets) {
-    
+
     this.defaultPresets = defaultPresets;
     return this;
   }
@@ -175,7 +175,7 @@ public class V1UserAccess {
 
 
   public V1UserAccess defaultPresetsOrdered(List<String> defaultPresetsOrdered) {
-    
+
     this.defaultPresetsOrdered = defaultPresetsOrdered;
     return this;
   }
@@ -205,7 +205,7 @@ public class V1UserAccess {
 
 
   public V1UserAccess namespace(String namespace) {
-    
+
     this.namespace = namespace;
     return this;
   }

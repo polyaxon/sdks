@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -21,139 +21,145 @@ import {
 } from './V1UserAccess';
 
 /**
- * 
+ *
  * @export
  * @interface V1Policy
  */
 export interface V1Policy {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Policy
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Policy
      */
     owner?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Policy
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Policy
      */
     description?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Policy
+     */
+    user?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Policy
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Policy
      */
     updated_at?: Date;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     excluded_features?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     excluded_runtimes?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Policy
      */
     archived_deletion_interval?: number;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     connections?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     default_presets?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     default_presets_ordered?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     presets?: Array<string>;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Policy
      */
     queue?: string;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     queues?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     agents?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     namespaces?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<V1UserAccess>}
      * @memberof V1Policy
      */
     user_accesses?: Array<V1UserAccess>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     teams?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
     projects?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof V1Policy
      */
@@ -178,11 +184,12 @@ export function V1PolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'created_at': !exists(json, 'created_at') ? undefined : (new Date(json['created_at'])),
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
@@ -212,11 +219,12 @@ export function V1PolicyToJSON(value?: V1Policy | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'owner': value.owner,
         'name': value.name,
         'description': value.description,
+        'user': value.user,
         'tags': value.tags,
         'created_at': value.created_at === undefined ? undefined : (value.created_at.toISOString()),
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),

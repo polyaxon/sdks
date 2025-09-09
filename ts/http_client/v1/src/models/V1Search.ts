@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -27,67 +27,73 @@ import {
 } from './V1SearchSpec';
 
 /**
- * 
+ *
  * @export
  * @interface V1Search
  */
 export interface V1Search {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Search
      */
     uuid?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Search
      */
     name?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1Search
      */
     description?: string;
     /**
-     * 
+     *
+     * @type {string}
+     * @memberof V1Search
+     */
+    user?: string;
+    /**
+     *
      * @type {Array<string>}
      * @memberof V1Search
      */
     tags?: Array<string>;
     /**
-     * 
+     *
      * @type {number}
      * @memberof V1Search
      */
     live_state?: number;
     /**
-     * 
+     *
      * @type {SearchView}
      * @memberof V1Search
      */
     view?: SearchView;
     /**
-     * 
+     *
      * @type {V1SearchSpec}
      * @memberof V1Search
      */
     spec?: V1SearchSpec;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1Search
      */
     org_level?: boolean;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Search
      */
     created_at?: Date;
     /**
-     * 
+     *
      * @type {Date}
      * @memberof V1Search
      */
@@ -112,10 +118,11 @@ export function V1SearchFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         return json;
     }
     return {
-        
+
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
+        'user': !exists(json, 'user') ? undefined : json['user'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
         'view': !exists(json, 'view') ? undefined : SearchViewFromJSON(json['view']),
@@ -134,10 +141,11 @@ export function V1SearchToJSON(value?: V1Search | null): any {
         return null;
     }
     return {
-        
+
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,
+        'user': value.user,
         'tags': value.tags,
         'live_state': value.live_state,
         'view': SearchViewToJSON(value.view),

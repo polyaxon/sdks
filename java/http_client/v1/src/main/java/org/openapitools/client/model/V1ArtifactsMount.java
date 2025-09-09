@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -62,7 +62,7 @@ public class V1ArtifactsMount {
   }
 
   public V1ArtifactsMount name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -84,7 +84,7 @@ public class V1ArtifactsMount {
 
 
   public V1ArtifactsMount paths(List<String> paths) {
-    
+
     this.paths = paths;
     return this;
   }

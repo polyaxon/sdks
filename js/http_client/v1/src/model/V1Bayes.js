@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -25,8 +25,8 @@ class V1Bayes {
      * Constructs a new <code>V1Bayes</code>.
      * @alias module:model/V1Bayes
      */
-    constructor() { 
-        
+    constructor() {
+
         V1Bayes.initialize(this);
     }
 
@@ -35,7 +35,7 @@ class V1Bayes {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj) {
     }
 
     /**

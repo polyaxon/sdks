@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -14,25 +14,25 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- * 
+ *
  * @export
  * @interface V1WasbType
  */
 export interface V1WasbType {
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1WasbType
      */
     container?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof V1WasbType
      */
     storageAccount?: string;
     /**
-     * 
+     *
      * @type {boolean}
      * @memberof V1WasbType
      */
@@ -57,7 +57,7 @@ export function V1WasbTypeFromJSONTyped(json: any, ignoreDiscriminator: boolean)
         return json;
     }
     return {
-        
+
         'container': !exists(json, 'container') ? undefined : json['container'],
         'storageAccount': !exists(json, 'storageAccount') ? undefined : json['storageAccount'],
         'path': !exists(json, 'path') ? undefined : json['path'],
@@ -72,7 +72,7 @@ export function V1WasbTypeToJSON(value?: V1WasbType | null): any {
         return null;
     }
     return {
-        
+
         'container': value.container,
         'storageAccount': value.storageAccount,
         'path': value.path,

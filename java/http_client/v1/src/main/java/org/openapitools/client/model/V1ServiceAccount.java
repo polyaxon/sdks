@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -63,6 +63,10 @@ public class V1ServiceAccount {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_USER = "user";
+  @SerializedName(SERIALIZED_NAME_USER)
+  private String user;
+
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private List<String> tags;
@@ -91,7 +95,7 @@ public class V1ServiceAccount {
   }
 
   public V1ServiceAccount uuid(String uuid) {
-    
+
     this.uuid = uuid;
     return this;
   }
@@ -113,7 +117,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount name(String name) {
-    
+
     this.name = name;
     return this;
   }
@@ -135,7 +139,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount description(String description) {
-    
+
     this.description = description;
     return this;
   }
@@ -156,8 +160,30 @@ public class V1ServiceAccount {
   }
 
 
+  public V1ServiceAccount user(String user) {
+
+    this.user = user;
+    return this;
+  }
+
+   /**
+   * Get user
+   * @return user
+  **/
+  @javax.annotation.Nullable
+
+  public String getUser() {
+    return user;
+  }
+
+
+  public void setUser(String user) {
+    this.user = user;
+  }
+
+
   public V1ServiceAccount tags(List<String> tags) {
-    
+
     this.tags = tags;
     return this;
   }
@@ -187,7 +213,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount liveState(Integer liveState) {
-    
+
     this.liveState = liveState;
     return this;
   }
@@ -209,7 +235,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount createdAt(OffsetDateTime createdAt) {
-    
+
     this.createdAt = createdAt;
     return this;
   }
@@ -231,7 +257,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount updatedAt(OffsetDateTime updatedAt) {
-    
+
     this.updatedAt = updatedAt;
     return this;
   }
@@ -253,7 +279,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount scopes(List<String> scopes) {
-    
+
     this.scopes = scopes;
     return this;
   }
@@ -283,7 +309,7 @@ public class V1ServiceAccount {
 
 
   public V1ServiceAccount services(List<String> services) {
-    
+
     this.services = services;
     return this;
   }
@@ -325,6 +351,7 @@ public class V1ServiceAccount {
     return Objects.equals(this.uuid, v1ServiceAccount.uuid) &&
         Objects.equals(this.name, v1ServiceAccount.name) &&
         Objects.equals(this.description, v1ServiceAccount.description) &&
+        Objects.equals(this.user, v1ServiceAccount.user) &&
         Objects.equals(this.tags, v1ServiceAccount.tags) &&
         Objects.equals(this.liveState, v1ServiceAccount.liveState) &&
         Objects.equals(this.createdAt, v1ServiceAccount.createdAt) &&
@@ -335,7 +362,7 @@ public class V1ServiceAccount {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, description, tags, liveState, createdAt, updatedAt, scopes, services);
+    return Objects.hash(uuid, name, description, user, tags, liveState, createdAt, updatedAt, scopes, services);
   }
 
   @Override
@@ -345,6 +372,7 @@ public class V1ServiceAccount {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -376,6 +404,7 @@ public class V1ServiceAccount {
     openapiFields.add("uuid");
     openapiFields.add("name");
     openapiFields.add("description");
+    openapiFields.add("user");
     openapiFields.add("tags");
     openapiFields.add("live_state");
     openapiFields.add("created_at");
@@ -415,6 +444,9 @@ public class V1ServiceAccount {
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonArray()) {

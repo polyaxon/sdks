@@ -30,6 +30,7 @@ class V1Project(BaseModel):
     """
     uuid: Optional[StrictStr] = None
     owner: Optional[StrictStr] = None
+    user: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
@@ -45,7 +46,7 @@ class V1Project(BaseModel):
     role: Optional[StrictStr] = None
     live_state: Optional[StrictInt] = None
     contributors: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["uuid", "owner", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "settings", "role", "live_state", "contributors"]
+    __properties = ["uuid", "owner", "user", "name", "description", "tags", "created_at", "updated_at", "is_public", "bookmarked", "readme", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "settings", "role", "live_state", "contributors"]
 
     class Config:
         allow_population_by_field_name = True
@@ -87,6 +88,7 @@ class V1Project(BaseModel):
         _obj = V1Project.parse_obj({
             "uuid": obj.get("uuid"),
             "owner": obj.get("owner"),
+            "user": obj.get("user"),
             "name": obj.get("name"),
             "description": obj.get("description"),
             "tags": obj.get("tags"),

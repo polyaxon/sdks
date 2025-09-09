@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -87,7 +87,7 @@ export interface UpdateTagRequest {
 }
 
 /**
- * 
+ *
  */
 export class TagsV1Api extends runtime.BaseAPI {
 

@@ -21,50 +21,53 @@ message Project {
     // Owner/namespace where the project was created
     string owner = 2;
 
+    // Optional name of user created this entity
+    string user = 3;
+
     // Required name
-    string name = 3;
+    string name = 4;
 
     // Optional description
-    string description = 4;
+    string description = 5;
 
     // Optional tags of this entity
-    repeated string tags = 5;
+    repeated string tags = 6;
 
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp created_at = 7;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp updated_at = 8;
 
     // Optional flag to tell if this project is public
-    bool is_public = 8;
+    bool is_public = 9;
 
     // Optional if this entity was bookmarked
-    bool bookmarked = 9;
+    bool bookmarked = 10;
 
     // Optional Markdown description/readme
-    string readme = 10;
+    string readme = 11;
 
     // Optional project excluded features
-    repeated string excluded_features = 11;
+    repeated string excluded_features = 12;
 
     // Optional project excluded runtimes
-    repeated string excluded_runtimes = 12;
+    repeated string excluded_runtimes = 13;
 
     // Optional project archived deletion interval
-    int32 archived_deletion_interval = 13;
+    int32 archived_deletion_interval = 14;
 
     // Optional project settings
-    ProjectSettings settings = 14;
+    ProjectSettings settings = 15;
 
     // Current user's role in this (org/teams)/project
-    string role = 15;
+    string role = 16;
 
     // Current live state
-    int32 live_state = 16;
+    int32 live_state = 17;
 
     // Contributors
-    repeated google.protobuf.Struct contributors = 17;
+    repeated google.protobuf.Struct contributors = 18;
 }
 
  // Request data to create/update project
@@ -178,50 +181,53 @@ message ProjectVersion {
   // Owner of this entity
   string owner = 5;
 
+  // Required name of user started this entity
+  string user = 6;
+
   // Project name
-  string project = 6;
+  string project = 7;
 
   // Connection name
-  string connection = 7;
+  string connection = 8;
 
   // Run lineage
-  string run = 8;
+  string run = 9;
 
   // Artifacts lineage
-  repeated string artifacts = 9;
+  repeated string artifacts = 10;
 
   // Extra information related to the run, lineage, artifacts, ...
-  google.protobuf.Struct meta_info = 10;
+  google.protobuf.Struct meta_info = 11;
 
   // Optional time when the entity was created
-  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp created_at = 12;
 
   // Optional last time the entity was updated
-  google.protobuf.Timestamp updated_at = 12;
+  google.protobuf.Timestamp updated_at = 13;
 
   // Optional latest stage of this entity
-  Stages stage = 13;
+  Stages stage = 14;
 
   // Optional kind to tell the kind of this version
-  Kind kind = 14;
+  Kind kind = 15;
 
   // The status conditions timeline
-  repeated StageCondition stage_conditions = 15;
+  repeated StageCondition stage_conditions = 16;
 
   // The metadata/content body
-  string content = 16;
+  string content = 17;
 
   // Optional Markdown description/readme
-  string readme = 17;
+  string readme = 18;
 
   // The version state read-only
-  string state = 18;
+  string state = 19;
 
   // Current user's role in this (org/teams)/hub/version
-  string role = 19;
+  string role = 20;
 
   // Contributors
-  repeated google.protobuf.Struct contributors = 20;
+  repeated google.protobuf.Struct contributors = 21;
 }
 
 

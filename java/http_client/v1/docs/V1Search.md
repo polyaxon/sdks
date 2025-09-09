@@ -10,6 +10,7 @@
 |**uuid** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
+|**user** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
 |**view** | **SearchView** |  |  [optional] |

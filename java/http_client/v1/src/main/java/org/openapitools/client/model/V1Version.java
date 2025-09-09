@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *    
+ *
  *
  * The version of the OpenAPI document: 2.10.0
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1Version {
   }
 
   public V1Version min(String min) {
-    
+
     this.min = min;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1Version {
 
 
   public V1Version latest(String latest) {
-    
+
     this.latest = latest;
     return this;
   }

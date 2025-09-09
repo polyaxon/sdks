@@ -19,23 +19,26 @@ message ConnectionResponse {
     // Agent
     string agent = 3;
 
+    // Optional name of user created this entity
+    string user = 4;
+
     // Optional description
-    string description = 4;
+    string description = 5;
 
     // Optional tags of this entity
-    repeated string tags = 5;
+    repeated string tags = 6;
 
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp created_at = 7;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp updated_at = 8;
 
     // Current live state
-    int32 live_state = 8;
+    int32 live_state = 9;
 
     // The connection kind
-    ConnectionKind kind = 9;
+    ConnectionKind kind = 10;
 }
 
  // Request data to create/update connection

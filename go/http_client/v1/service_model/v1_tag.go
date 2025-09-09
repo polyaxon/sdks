@@ -32,6 +32,9 @@ type V1Tag struct {
 	// Optional tag stats
 	Stats interface{} `json:"stats,omitempty"`
 
+	// Optional name of user created this entity
+	User string `json:"user,omitempty"`
+
 	// UUID
 	UUID string `json:"uuid,omitempty"`
 }
