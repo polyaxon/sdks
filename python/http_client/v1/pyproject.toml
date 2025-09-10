@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "polyaxon_sdk"
-version = "2.11.0"
+version = "2.11.1"
 description = "Polyaxon SDKs and REST API specification."
 authors = ["contact@polyaxon.com"]
 license = "NoLicense"
