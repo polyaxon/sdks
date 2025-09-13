@@ -26,13 +26,10 @@ from polyaxon_sdk.models.v1_dag import V1Dag
 from polyaxon_sdk.models.v1_dask_job import V1DaskJob
 from polyaxon_sdk.models.v1_job import V1Job
 from polyaxon_sdk.models.v1_mpi_job import V1MPIJob
-from polyaxon_sdk.models.v1_mx_job import V1MXJob
-from polyaxon_sdk.models.v1_paddle_job import V1PaddleJob
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob
 from polyaxon_sdk.models.v1_ray_job import V1RayJob
 from polyaxon_sdk.models.v1_service import V1Service
 from polyaxon_sdk.models.v1_tf_job import V1TFJob
-from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob
 
 class V1RunSchema(BaseModel):
     """
@@ -44,12 +41,9 @@ class V1RunSchema(BaseModel):
     tf_job: Optional[V1TFJob] = Field(None, alias="tfJob")
     pytorch_job: Optional[V1PytorchJob] = Field(None, alias="pytorchJob")
     mpi_job: Optional[V1MPIJob] = Field(None, alias="mpiJob")
-    mx_job: Optional[V1MXJob] = Field(None, alias="mxJob")
-    xgboost_job: Optional[V1XGBoostJob] = Field(None, alias="xgboostJob")
-    paddle_job: Optional[V1PaddleJob] = Field(None, alias="paddleJob")
     dask_job: Optional[V1DaskJob] = Field(None, alias="daskJob")
     ray_job: Optional[V1RayJob] = Field(None, alias="rayJob")
-    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "mxJob", "xgboostJob", "paddleJob", "daskJob", "rayJob"]
+    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "daskJob", "rayJob"]
 
     class Config:
         allow_population_by_field_name = True
@@ -92,15 +86,6 @@ class V1RunSchema(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of mpi_job
         if self.mpi_job:
             _dict['mpiJob'] = self.mpi_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of mx_job
-        if self.mx_job:
-            _dict['mxJob'] = self.mx_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of xgboost_job
-        if self.xgboost_job:
-            _dict['xgboostJob'] = self.xgboost_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of paddle_job
-        if self.paddle_job:
-            _dict['paddleJob'] = self.paddle_job.to_dict()
         # override the default output from pydantic by calling `to_dict()` of dask_job
         if self.dask_job:
             _dict['daskJob'] = self.dask_job.to_dict()
@@ -125,9 +110,6 @@ class V1RunSchema(BaseModel):
             "tf_job": V1TFJob.from_dict(obj.get("tfJob")) if obj.get("tfJob") is not None else None,
             "pytorch_job": V1PytorchJob.from_dict(obj.get("pytorchJob")) if obj.get("pytorchJob") is not None else None,
             "mpi_job": V1MPIJob.from_dict(obj.get("mpiJob")) if obj.get("mpiJob") is not None else None,
-            "mx_job": V1MXJob.from_dict(obj.get("mxJob")) if obj.get("mxJob") is not None else None,
-            "xgboost_job": V1XGBoostJob.from_dict(obj.get("xgboostJob")) if obj.get("xgboostJob") is not None else None,
-            "paddle_job": V1PaddleJob.from_dict(obj.get("paddleJob")) if obj.get("paddleJob") is not None else None,
             "dask_job": V1DaskJob.from_dict(obj.get("daskJob")) if obj.get("daskJob") is not None else None,
             "ray_job": V1RayJob.from_dict(obj.get("rayJob")) if obj.get("rayJob") is not None else None
         })

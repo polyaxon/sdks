@@ -430,7 +430,6 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PolyaxonSdk.AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
- - [PolyaxonSdk.MXJobMode](docs/MXJobMode.md)
  - [PolyaxonSdk.ProtobufAny](docs/ProtobufAny.md)
  - [PolyaxonSdk.ProtobufNullValue](docs/ProtobufNullValue.md)
  - [PolyaxonSdk.RuntimeError](docs/RuntimeError.md)
@@ -566,7 +565,6 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1LogHandler](docs/V1LogHandler.md)
  - [PolyaxonSdk.V1Logs](docs/V1Logs.md)
  - [PolyaxonSdk.V1MPIJob](docs/V1MPIJob.md)
- - [PolyaxonSdk.V1MXJob](docs/V1MXJob.md)
  - [PolyaxonSdk.V1ManagedBy](docs/V1ManagedBy.md)
  - [PolyaxonSdk.V1Mapping](docs/V1Mapping.md)
  - [PolyaxonSdk.V1Matrix](docs/V1Matrix.md)
@@ -582,8 +580,6 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1OptimizationResource](docs/V1OptimizationResource.md)
  - [PolyaxonSdk.V1Organization](docs/V1Organization.md)
  - [PolyaxonSdk.V1OrganizationMember](docs/V1OrganizationMember.md)
- - [PolyaxonSdk.V1PaddleElasticPolic](docs/V1PaddleElasticPolic.md)
- - [PolyaxonSdk.V1PaddleJob](docs/V1PaddleJob.md)
  - [PolyaxonSdk.V1Param](docs/V1Param.md)
  - [PolyaxonSdk.V1PasswordChange](docs/V1PasswordChange.md)
  - [PolyaxonSdk.V1PatchStrategy](docs/V1PatchStrategy.md)
@@ -663,7 +659,6 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1Validation](docs/V1Validation.md)
  - [PolyaxonSdk.V1Version](docs/V1Version.md)
  - [PolyaxonSdk.V1WasbType](docs/V1WasbType.md)
- - [PolyaxonSdk.V1XGBoostJob](docs/V1XGBoostJob.md)
 
 
 ## Documentation for Authorization

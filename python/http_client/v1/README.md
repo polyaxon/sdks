@@ -400,7 +400,6 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
- - [MXJobMode](docs/MXJobMode.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RuntimeError](docs/RuntimeError.md)
@@ -536,7 +535,6 @@ Class | Method | HTTP request | Description
  - [V1LogHandler](docs/V1LogHandler.md)
  - [V1Logs](docs/V1Logs.md)
  - [V1MPIJob](docs/V1MPIJob.md)
- - [V1MXJob](docs/V1MXJob.md)
  - [V1ManagedBy](docs/V1ManagedBy.md)
  - [V1Mapping](docs/V1Mapping.md)
  - [V1Matrix](docs/V1Matrix.md)
@@ -552,8 +550,6 @@ Class | Method | HTTP request | Description
  - [V1OptimizationResource](docs/V1OptimizationResource.md)
  - [V1Organization](docs/V1Organization.md)
  - [V1OrganizationMember](docs/V1OrganizationMember.md)
- - [V1PaddleElasticPolic](docs/V1PaddleElasticPolic.md)
- - [V1PaddleJob](docs/V1PaddleJob.md)
  - [V1Param](docs/V1Param.md)
  - [V1PasswordChange](docs/V1PasswordChange.md)
  - [V1PatchStrategy](docs/V1PatchStrategy.md)
@@ -633,7 +629,6 @@ Class | Method | HTTP request | Description
  - [V1Validation](docs/V1Validation.md)
  - [V1Version](docs/V1Version.md)
  - [V1WasbType](docs/V1WasbType.md)
- - [V1XGBoostJob](docs/V1XGBoostJob.md)
 
 
 ## Documentation For Authorization

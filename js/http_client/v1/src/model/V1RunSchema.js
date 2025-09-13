@@ -16,13 +16,10 @@ import V1Dag from './V1Dag';
 import V1DaskJob from './V1DaskJob';
 import V1Job from './V1Job';
 import V1MPIJob from './V1MPIJob';
-import V1MXJob from './V1MXJob';
-import V1PaddleJob from './V1PaddleJob';
 import V1PytorchJob from './V1PytorchJob';
 import V1RayJob from './V1RayJob';
 import V1Service from './V1Service';
 import V1TFJob from './V1TFJob';
-import V1XGBoostJob from './V1XGBoostJob';
 
 /**
  * The V1RunSchema model module.
@@ -76,15 +73,6 @@ class V1RunSchema {
             if (data.hasOwnProperty('mpiJob')) {
                 obj['mpiJob'] = V1MPIJob.constructFromObject(data['mpiJob']);
             }
-            if (data.hasOwnProperty('mxJob')) {
-                obj['mxJob'] = V1MXJob.constructFromObject(data['mxJob']);
-            }
-            if (data.hasOwnProperty('xgboostJob')) {
-                obj['xgboostJob'] = V1XGBoostJob.constructFromObject(data['xgboostJob']);
-            }
-            if (data.hasOwnProperty('paddleJob')) {
-                obj['paddleJob'] = V1PaddleJob.constructFromObject(data['paddleJob']);
-            }
             if (data.hasOwnProperty('daskJob')) {
                 obj['daskJob'] = V1DaskJob.constructFromObject(data['daskJob']);
             }
@@ -124,18 +112,6 @@ class V1RunSchema {
         // validate the optional field `mpiJob`
         if (data['mpiJob']) { // data not null
           V1MPIJob.validateJSON(data['mpiJob']);
-        }
-        // validate the optional field `mxJob`
-        if (data['mxJob']) { // data not null
-          V1MXJob.validateJSON(data['mxJob']);
-        }
-        // validate the optional field `xgboostJob`
-        if (data['xgboostJob']) { // data not null
-          V1XGBoostJob.validateJSON(data['xgboostJob']);
-        }
-        // validate the optional field `paddleJob`
-        if (data['paddleJob']) { // data not null
-          V1PaddleJob.validateJSON(data['paddleJob']);
         }
         // validate the optional field `daskJob`
         if (data['daskJob']) { // data not null
@@ -183,21 +159,6 @@ V1RunSchema.prototype['pytorchJob'] = undefined;
  * @member {module:model/V1MPIJob} mpiJob
  */
 V1RunSchema.prototype['mpiJob'] = undefined;
-
-/**
- * @member {module:model/V1MXJob} mxJob
- */
-V1RunSchema.prototype['mxJob'] = undefined;
-
-/**
- * @member {module:model/V1XGBoostJob} xgboostJob
- */
-V1RunSchema.prototype['xgboostJob'] = undefined;
-
-/**
- * @member {module:model/V1PaddleJob} paddleJob
- */
-V1RunSchema.prototype['paddleJob'] = undefined;
 
 /**
  * @member {module:model/V1DaskJob} daskJob

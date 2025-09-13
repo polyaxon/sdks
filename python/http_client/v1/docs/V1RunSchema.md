@@ -10,9 +10,6 @@ Name | Type | Description | Notes
 **tf_job** | [**V1TFJob**](V1TFJob.md) |  | [optional] 
 **pytorch_job** | [**V1PytorchJob**](V1PytorchJob.md) |  | [optional] 
 **mpi_job** | [**V1MPIJob**](V1MPIJob.md) |  | [optional] 
-**mx_job** | [**V1MXJob**](V1MXJob.md) |  | [optional] 
-**xgboost_job** | [**V1XGBoostJob**](V1XGBoostJob.md) |  | [optional] 
-**paddle_job** | [**V1PaddleJob**](V1PaddleJob.md) |  | [optional] 
 **dask_job** | [**V1DaskJob**](V1DaskJob.md) |  | [optional] 
 **ray_job** | [**V1RayJob**](V1RayJob.md) |  | [optional] 
 

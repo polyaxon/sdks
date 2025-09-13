@@ -16,7 +16,6 @@
 
 # import models into model package
 from polyaxon_sdk.models.agent_state_response_agent_state import AgentStateResponseAgentState
-from polyaxon_sdk.models.mx_job_mode import MXJobMode
 from polyaxon_sdk.models.protobuf_any import ProtobufAny
 from polyaxon_sdk.models.protobuf_null_value import ProtobufNullValue
 from polyaxon_sdk.models.runtime_error import RuntimeError
@@ -152,7 +151,6 @@ from polyaxon_sdk.models.v1_log import V1Log
 from polyaxon_sdk.models.v1_log_handler import V1LogHandler
 from polyaxon_sdk.models.v1_logs import V1Logs
 from polyaxon_sdk.models.v1_mpi_job import V1MPIJob
-from polyaxon_sdk.models.v1_mx_job import V1MXJob
 from polyaxon_sdk.models.v1_managed_by import V1ManagedBy
 from polyaxon_sdk.models.v1_mapping import V1Mapping
 from polyaxon_sdk.models.v1_matrix import V1Matrix
@@ -168,8 +166,6 @@ from polyaxon_sdk.models.v1_optimization_metric import V1OptimizationMetric
 from polyaxon_sdk.models.v1_optimization_resource import V1OptimizationResource
 from polyaxon_sdk.models.v1_organization import V1Organization
 from polyaxon_sdk.models.v1_organization_member import V1OrganizationMember
-from polyaxon_sdk.models.v1_paddle_elastic_polic import V1PaddleElasticPolic
-from polyaxon_sdk.models.v1_paddle_job import V1PaddleJob
 from polyaxon_sdk.models.v1_param import V1Param
 from polyaxon_sdk.models.v1_password_change import V1PasswordChange
 from polyaxon_sdk.models.v1_patch_strategy import V1PatchStrategy
@@ -249,4 +245,3 @@ from polyaxon_sdk.models.v1_uuids import V1Uuids
 from polyaxon_sdk.models.v1_validation import V1Validation
 from polyaxon_sdk.models.v1_version import V1Version
 from polyaxon_sdk.models.v1_wasb_type import V1WasbType
-from polyaxon_sdk.models.v1_xg_boost_job import V1XGBoostJob

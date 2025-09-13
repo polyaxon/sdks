@@ -14,7 +14,6 @@
 
 import ApiClient from './ApiClient';
 import AgentStateResponseAgentState from './model/AgentStateResponseAgentState';
-import MXJobMode from './model/MXJobMode';
 import ProtobufAny from './model/ProtobufAny';
 import ProtobufNullValue from './model/ProtobufNullValue';
 import RuntimeError from './model/RuntimeError';
@@ -150,7 +149,6 @@ import V1Log from './model/V1Log';
 import V1LogHandler from './model/V1LogHandler';
 import V1Logs from './model/V1Logs';
 import V1MPIJob from './model/V1MPIJob';
-import V1MXJob from './model/V1MXJob';
 import V1ManagedBy from './model/V1ManagedBy';
 import V1Mapping from './model/V1Mapping';
 import V1Matrix from './model/V1Matrix';
@@ -166,8 +164,6 @@ import V1OptimizationMetric from './model/V1OptimizationMetric';
 import V1OptimizationResource from './model/V1OptimizationResource';
 import V1Organization from './model/V1Organization';
 import V1OrganizationMember from './model/V1OrganizationMember';
-import V1PaddleElasticPolic from './model/V1PaddleElasticPolic';
-import V1PaddleJob from './model/V1PaddleJob';
 import V1Param from './model/V1Param';
 import V1PasswordChange from './model/V1PasswordChange';
 import V1PatchStrategy from './model/V1PatchStrategy';
@@ -247,7 +243,6 @@ import V1Uuids from './model/V1Uuids';
 import V1Validation from './model/V1Validation';
 import V1Version from './model/V1Version';
 import V1WasbType from './model/V1WasbType';
-import V1XGBoostJob from './model/V1XGBoostJob';
 import AgentsV1Api from './api/AgentsV1Api';
 import ArtifactsStoresV1Api from './api/ArtifactsStoresV1Api';
 import AuthV1Api from './api/AuthV1Api';
@@ -313,12 +308,6 @@ export {
      * @property {module:model/AgentStateResponseAgentState}
      */
     AgentStateResponseAgentState,
-
-    /**
-     * The MXJobMode model constructor.
-     * @property {module:model/MXJobMode}
-     */
-    MXJobMode,
 
     /**
      * The ProtobufAny model constructor.
@@ -1131,12 +1120,6 @@ export {
     V1MPIJob,
 
     /**
-     * The V1MXJob model constructor.
-     * @property {module:model/V1MXJob}
-     */
-    V1MXJob,
-
-    /**
      * The V1ManagedBy model constructor.
      * @property {module:model/V1ManagedBy}
      */
@@ -1225,18 +1208,6 @@ export {
      * @property {module:model/V1OrganizationMember}
      */
     V1OrganizationMember,
-
-    /**
-     * The V1PaddleElasticPolic model constructor.
-     * @property {module:model/V1PaddleElasticPolic}
-     */
-    V1PaddleElasticPolic,
-
-    /**
-     * The V1PaddleJob model constructor.
-     * @property {module:model/V1PaddleJob}
-     */
-    V1PaddleJob,
 
     /**
      * The V1Param model constructor.
@@ -1711,12 +1682,6 @@ export {
      * @property {module:model/V1WasbType}
      */
     V1WasbType,
-
-    /**
-     * The V1XGBoostJob model constructor.
-     * @property {module:model/V1XGBoostJob}
-     */
-    V1XGBoostJob,
 
     /**
     * The AgentsV1Api service constructor.

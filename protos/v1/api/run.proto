@@ -24,16 +24,13 @@ enum RunKind {
     mpijob = 5;
     tfjob = 6;
     pytorchjob = 7;
-    mxjob = 8;
-    xgbjob = 9;
-    paddlejob = 10;
-    matrix = 11;
-    schedule = 12;
-    tuner = 13;
-    watchdog = 14;
-    notifier = 15;
-    builder = 16;
-    cleaner = 17;
+    matrix = 8;
+    schedule = 9;
+    tuner = 10;
+    watchdog = 11;
+    notifier = 12;
+    builder = 13;
+    cleaner = 14;
 }
 
 enum RunPending {

@@ -23,13 +23,10 @@ import org.openapitools.client.model.V1Dag;
 import org.openapitools.client.model.V1DaskJob;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
-import org.openapitools.client.model.V1MXJob;
-import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1TFJob;
-import org.openapitools.client.model.V1XGBoostJob;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -94,30 +91,6 @@ public class V1RunSchemaTest {
     @Test
     public void mpiJobTest() {
         // TODO: test mpiJob
-    }
-
-    /**
-     * Test the property 'mxJob'
-     */
-    @Test
-    public void mxJobTest() {
-        // TODO: test mxJob
-    }
-
-    /**
-     * Test the property 'xgboostJob'
-     */
-    @Test
-    public void xgboostJobTest() {
-        // TODO: test xgboostJob
-    }
-
-    /**
-     * Test the property 'paddleJob'
-     */
-    @Test
-    public void paddleJobTest() {
-        // TODO: test paddleJob
     }
 
     /**

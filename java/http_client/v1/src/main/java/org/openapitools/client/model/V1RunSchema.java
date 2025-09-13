@@ -25,13 +25,10 @@ import org.openapitools.client.model.V1Dag;
 import org.openapitools.client.model.V1DaskJob;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
-import org.openapitools.client.model.V1MXJob;
-import org.openapitools.client.model.V1PaddleJob;
 import org.openapitools.client.model.V1PytorchJob;
 import org.openapitools.client.model.V1RayJob;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1TFJob;
-import org.openapitools.client.model.V1XGBoostJob;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -82,18 +79,6 @@ public class V1RunSchema {
   public static final String SERIALIZED_NAME_MPI_JOB = "mpiJob";
   @SerializedName(SERIALIZED_NAME_MPI_JOB)
   private V1MPIJob mpiJob;
-
-  public static final String SERIALIZED_NAME_MX_JOB = "mxJob";
-  @SerializedName(SERIALIZED_NAME_MX_JOB)
-  private V1MXJob mxJob;
-
-  public static final String SERIALIZED_NAME_XGBOOST_JOB = "xgboostJob";
-  @SerializedName(SERIALIZED_NAME_XGBOOST_JOB)
-  private V1XGBoostJob xgboostJob;
-
-  public static final String SERIALIZED_NAME_PADDLE_JOB = "paddleJob";
-  @SerializedName(SERIALIZED_NAME_PADDLE_JOB)
-  private V1PaddleJob paddleJob;
 
   public static final String SERIALIZED_NAME_DASK_JOB = "daskJob";
   @SerializedName(SERIALIZED_NAME_DASK_JOB)
@@ -238,72 +223,6 @@ public class V1RunSchema {
   }
 
 
-  public V1RunSchema mxJob(V1MXJob mxJob) {
-
-    this.mxJob = mxJob;
-    return this;
-  }
-
-   /**
-   * Get mxJob
-   * @return mxJob
-  **/
-  @javax.annotation.Nullable
-
-  public V1MXJob getMxJob() {
-    return mxJob;
-  }
-
-
-  public void setMxJob(V1MXJob mxJob) {
-    this.mxJob = mxJob;
-  }
-
-
-  public V1RunSchema xgboostJob(V1XGBoostJob xgboostJob) {
-
-    this.xgboostJob = xgboostJob;
-    return this;
-  }
-
-   /**
-   * Get xgboostJob
-   * @return xgboostJob
-  **/
-  @javax.annotation.Nullable
-
-  public V1XGBoostJob getXgboostJob() {
-    return xgboostJob;
-  }
-
-
-  public void setXgboostJob(V1XGBoostJob xgboostJob) {
-    this.xgboostJob = xgboostJob;
-  }
-
-
-  public V1RunSchema paddleJob(V1PaddleJob paddleJob) {
-
-    this.paddleJob = paddleJob;
-    return this;
-  }
-
-   /**
-   * Get paddleJob
-   * @return paddleJob
-  **/
-  @javax.annotation.Nullable
-
-  public V1PaddleJob getPaddleJob() {
-    return paddleJob;
-  }
-
-
-  public void setPaddleJob(V1PaddleJob paddleJob) {
-    this.paddleJob = paddleJob;
-  }
-
-
   public V1RunSchema daskJob(V1DaskJob daskJob) {
 
     this.daskJob = daskJob;
@@ -364,16 +283,13 @@ public class V1RunSchema {
         Objects.equals(this.tfJob, v1RunSchema.tfJob) &&
         Objects.equals(this.pytorchJob, v1RunSchema.pytorchJob) &&
         Objects.equals(this.mpiJob, v1RunSchema.mpiJob) &&
-        Objects.equals(this.mxJob, v1RunSchema.mxJob) &&
-        Objects.equals(this.xgboostJob, v1RunSchema.xgboostJob) &&
-        Objects.equals(this.paddleJob, v1RunSchema.paddleJob) &&
         Objects.equals(this.daskJob, v1RunSchema.daskJob) &&
         Objects.equals(this.rayJob, v1RunSchema.rayJob);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, mxJob, xgboostJob, paddleJob, daskJob, rayJob);
+    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, daskJob, rayJob);
   }
 
   @Override
@@ -386,9 +302,6 @@ public class V1RunSchema {
     sb.append("    tfJob: ").append(toIndentedString(tfJob)).append("\n");
     sb.append("    pytorchJob: ").append(toIndentedString(pytorchJob)).append("\n");
     sb.append("    mpiJob: ").append(toIndentedString(mpiJob)).append("\n");
-    sb.append("    mxJob: ").append(toIndentedString(mxJob)).append("\n");
-    sb.append("    xgboostJob: ").append(toIndentedString(xgboostJob)).append("\n");
-    sb.append("    paddleJob: ").append(toIndentedString(paddleJob)).append("\n");
     sb.append("    daskJob: ").append(toIndentedString(daskJob)).append("\n");
     sb.append("    rayJob: ").append(toIndentedString(rayJob)).append("\n");
     sb.append("}");
@@ -419,9 +332,6 @@ public class V1RunSchema {
     openapiFields.add("tfJob");
     openapiFields.add("pytorchJob");
     openapiFields.add("mpiJob");
-    openapiFields.add("mxJob");
-    openapiFields.add("xgboostJob");
-    openapiFields.add("paddleJob");
     openapiFields.add("daskJob");
     openapiFields.add("rayJob");
 
@@ -472,18 +382,6 @@ public class V1RunSchema {
       // validate the optional field `mpiJob`
       if (jsonObj.get("mpiJob") != null && !jsonObj.get("mpiJob").isJsonNull()) {
         V1MPIJob.validateJsonObject(jsonObj.getAsJsonObject("mpiJob"));
-      }
-      // validate the optional field `mxJob`
-      if (jsonObj.get("mxJob") != null && !jsonObj.get("mxJob").isJsonNull()) {
-        V1MXJob.validateJsonObject(jsonObj.getAsJsonObject("mxJob"));
-      }
-      // validate the optional field `xgboostJob`
-      if (jsonObj.get("xgboostJob") != null && !jsonObj.get("xgboostJob").isJsonNull()) {
-        V1XGBoostJob.validateJsonObject(jsonObj.getAsJsonObject("xgboostJob"));
-      }
-      // validate the optional field `paddleJob`
-      if (jsonObj.get("paddleJob") != null && !jsonObj.get("paddleJob").isJsonNull()) {
-        V1PaddleJob.validateJsonObject(jsonObj.getAsJsonObject("paddleJob"));
       }
       // validate the optional field `daskJob`
       if (jsonObj.get("daskJob") != null && !jsonObj.get("daskJob").isJsonNull()) {

@@ -30593,12 +30593,6 @@
           }
         }
       },
-      "MXJobMode" : {
-        "title" : "- MXTrain: Train Mode, requires Server, Scheduler, Worker\n - MXTune: Tune Mode, requires Tuner",
-        "type" : "string",
-        "enum" : [ "MXTrain", "MXTune" ],
-        "default" : "MXTrain"
-      },
       "SearchView" : {
         "title" : "Search view",
         "type" : "string",
@@ -34333,44 +34327,6 @@
           }
         }
       },
-      "v1MXJob" : {
-        "title" : "MXNet Job specification",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "title" : "Optional component kind, should be equal to 'mxjob'",
-            "type" : "string",
-            "default" : "mxjob"
-          },
-          "cleanPodPolicy" : {
-            "$ref" : "#/components/schemas/v1CleanPodPolicy"
-          },
-          "schedulingPolicy" : {
-            "$ref" : "#/components/schemas/v1SchedulingPolicy"
-          },
-          "mode" : {
-            "$ref" : "#/components/schemas/MXJobMode"
-          },
-          "scheduler" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "server" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "worker" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "tuner_tracker" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "tuner_server" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "tuner" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          }
-        }
-      },
       "v1ManagedBy" : {
         "type" : "string",
         "enum" : [ "client", "cli", "agent" ],
@@ -34862,57 +34818,6 @@
             "title" : "Optional last time the entity was updated",
             "type" : "string",
             "format" : "date-time"
-          }
-        }
-      },
-      "v1PaddleElasticPolic" : {
-        "title" : "Paddle elastic policy",
-        "type" : "object",
-        "properties" : {
-          "minReplicas" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "maxReplicas" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "maxRestarts" : {
-            "type" : "integer",
-            "format" : "int32"
-          },
-          "metrics" : {
-            "type" : "array",
-            "items" : {
-              "type" : "object",
-              "properties" : { }
-            }
-          }
-        }
-      },
-      "v1PaddleJob" : {
-        "title" : "Paddle Job specification",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "title" : "Optional component kind, should be equal to 'paddlejob'",
-            "type" : "string",
-            "default" : "paddlejob"
-          },
-          "cleanPodPolicy" : {
-            "$ref" : "#/components/schemas/v1CleanPodPolicy"
-          },
-          "schedulingPolicy" : {
-            "$ref" : "#/components/schemas/v1SchedulingPolicy"
-          },
-          "elasticPolicy" : {
-            "$ref" : "#/components/schemas/v1PaddleElasticPolic"
-          },
-          "master" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "worker" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
           }
         }
       },
@@ -36270,7 +36175,7 @@
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "dag", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "mxjob", "xgbjob", "paddlejob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
+        "enum" : [ "job", "service", "dag", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
         "default" : "job"
       },
       "v1RunPending" : {
@@ -36346,15 +36251,6 @@
           },
           "mpiJob" : {
             "$ref" : "#/components/schemas/v1MPIJob"
-          },
-          "mxJob" : {
-            "$ref" : "#/components/schemas/v1MXJob"
-          },
-          "xgboostJob" : {
-            "$ref" : "#/components/schemas/v1XGBoostJob"
-          },
-          "paddleJob" : {
-            "$ref" : "#/components/schemas/v1PaddleJob"
           },
           "daskJob" : {
             "$ref" : "#/components/schemas/v1DaskJob"
@@ -37736,29 +37632,6 @@
           "path" : {
             "title" : "Optional path",
             "type" : "boolean"
-          }
-        }
-      },
-      "v1XGBoostJob" : {
-        "title" : "XGBoost Job specification",
-        "type" : "object",
-        "properties" : {
-          "kind" : {
-            "title" : "Optional component kind, should be equal to 'xgboostjob'",
-            "type" : "string",
-            "default" : "xgboostjob"
-          },
-          "cleanPodPolicy" : {
-            "$ref" : "#/components/schemas/v1CleanPodPolicy"
-          },
-          "schedulingPolicy" : {
-            "$ref" : "#/components/schemas/v1SchedulingPolicy"
-          },
-          "master" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
-          },
-          "worker" : {
-            "$ref" : "#/components/schemas/v1KFReplica"
           }
         }
       },

@@ -42,27 +42,6 @@
         }
       }
     },
-    "v1MXJob": {
-      "properties": {
-        "kind": {
-          "default": "mxjob"
-        }
-      }
-    },
-    "v1XGBoostJob": {
-      "properties": {
-        "kind": {
-          "default": "xgboostjob"
-        }
-      }
-    },
-    "v1PaddleJob": {
-      "properties": {
-        "kind": {
-          "default": "paddlejob"
-        }
-      }
-    },
     "v1DaskJob": {
       "properties": {
         "kind": {

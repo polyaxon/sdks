@@ -47,15 +47,6 @@
       },
       "type": "object"
     },
-    "MXJobMode": {
-      "default": "MXTrain",
-      "enum": [
-        "MXTrain",
-        "MXTune"
-      ],
-      "title": "- MXTrain: Train Mode, requires Server, Scheduler, Worker\n - MXTune: Tune Mode, requires Tuner",
-      "type": "string"
-    },
     "SearchView": {
       "default": "any",
       "description": "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
@@ -4965,15 +4956,6 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
-            },
-            {
               "$ref": "#/definitions/v1RayJob"
             },
             {
@@ -5116,15 +5098,6 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
-            },
-            {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
             },
             {
               "$ref": "#/definitions/v1RayJob"
@@ -8240,53 +8213,6 @@
       "title": "MPI Job specification",
       "type": "object"
     },
-    "v1MXJob": {
-      "properties": {
-        "cleanPodPolicy": {
-          "$ref": "#/definitions/v1CleanPodPolicy",
-          "title": "optional clean pod policy section"
-        },
-        "kind": {
-          "default": "mxjob",
-          "title": "Optional component kind, should be equal to 'mxjob'",
-          "type": "string"
-        },
-        "mode": {
-          "$ref": "#/definitions/MXJobMode",
-          "description": "MXJob mode \"MXTrain\" and \"MXTune\"."
-        },
-        "scheduler": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Scheduler replicas definition"
-        },
-        "schedulingPolicy": {
-          "$ref": "#/definitions/v1SchedulingPolicy",
-          "title": "optional scheduling policy section"
-        },
-        "server": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Server replicas definition"
-        },
-        "tuner": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Tuner replicas definition"
-        },
-        "tuner_server": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "TunerServer replicas definition"
-        },
-        "tuner_tracker": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "TunerTracker replicas definition"
-        },
-        "worker": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Worker replicas definition"
-        }
-      },
-      "title": "MXNet Job specification",
-      "type": "object"
-    },
     "v1ManagedBy": {
       "default": "client",
       "enum": [
@@ -8608,15 +8534,6 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
-            },
-            {
               "$ref": "#/definitions/v1RayJob"
             },
             {
@@ -8873,61 +8790,6 @@
         }
       },
       "title": "Organization member specification",
-      "type": "object"
-    },
-    "v1PaddleElasticPolic": {
-      "properties": {
-        "maxReplicas": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "maxRestarts": {
-          "format": "int32",
-          "type": "integer"
-        },
-        "metrics": {
-          "items": {
-            "type": "object"
-          },
-          "type": "array"
-        },
-        "minReplicas": {
-          "format": "int32",
-          "type": "integer"
-        }
-      },
-      "title": "Paddle elastic policy",
-      "type": "object"
-    },
-    "v1PaddleJob": {
-      "properties": {
-        "cleanPodPolicy": {
-          "$ref": "#/definitions/v1CleanPodPolicy",
-          "title": "optional clean pod policy section"
-        },
-        "elasticPolicy": {
-          "$ref": "#/definitions/v1PaddleElasticPolic",
-          "title": "Optional elastic policy section"
-        },
-        "kind": {
-          "default": "paddlejob",
-          "title": "Optional component kind, should be equal to 'paddlejob'",
-          "type": "string"
-        },
-        "master": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Master replicas definition"
-        },
-        "schedulingPolicy": {
-          "$ref": "#/definitions/v1SchedulingPolicy",
-          "title": "optional scheduling policy section"
-        },
-        "worker": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Worker replicas definition"
-        }
-      },
-      "title": "Paddle Job specification",
       "type": "object"
     },
     "v1Param": {
@@ -10332,9 +10194,6 @@
         "mpijob",
         "tfjob",
         "pytorchjob",
-        "mxjob",
-        "xgbjob",
-        "paddlejob",
         "matrix",
         "schedule",
         "tuner",
@@ -10418,12 +10277,6 @@
         "mpiJob": {
           "$ref": "#/definitions/v1MPIJob"
         },
-        "mxJob": {
-          "$ref": "#/definitions/v1MXJob"
-        },
-        "paddleJob": {
-          "$ref": "#/definitions/v1PaddleJob"
-        },
         "pytorchJob": {
           "$ref": "#/definitions/v1PytorchJob"
         },
@@ -10435,9 +10288,6 @@
         },
         "tfJob": {
           "$ref": "#/definitions/v1TFJob"
-        },
-        "xgboostJob": {
-          "$ref": "#/definitions/v1XGBoostJob"
         }
       },
       "type": "object"
@@ -11858,33 +11708,6 @@
         }
       },
       "title": "Wasb type specification",
-      "type": "object"
-    },
-    "v1XGBoostJob": {
-      "properties": {
-        "cleanPodPolicy": {
-          "$ref": "#/definitions/v1CleanPodPolicy",
-          "title": "optional clean pod policy section"
-        },
-        "kind": {
-          "default": "xgboostjob",
-          "title": "Optional component kind, should be equal to 'xgboostjob'",
-          "type": "string"
-        },
-        "master": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Master replicas definition"
-        },
-        "schedulingPolicy": {
-          "$ref": "#/definitions/v1SchedulingPolicy",
-          "title": "optional scheduling policy section"
-        },
-        "worker": {
-          "$ref": "#/definitions/v1KFReplica",
-          "title": "Worker replicas definition"
-        }
-      },
-      "title": "XGBoost Job specification",
       "type": "object"
     }
   },

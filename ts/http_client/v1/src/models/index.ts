@@ -1,7 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AgentStateResponseAgentState';
-export * from './MXJobMode';
 export * from './ProtobufAny';
 export * from './ProtobufNullValue';
 export * from './RuntimeError';
@@ -137,7 +136,6 @@ export * from './V1Log';
 export * from './V1LogHandler';
 export * from './V1Logs';
 export * from './V1MPIJob';
-export * from './V1MXJob';
 export * from './V1ManagedBy';
 export * from './V1Mapping';
 export * from './V1Matrix';
@@ -153,8 +151,6 @@ export * from './V1OptimizationMetric';
 export * from './V1OptimizationResource';
 export * from './V1Organization';
 export * from './V1OrganizationMember';
-export * from './V1PaddleElasticPolic';
-export * from './V1PaddleJob';
 export * from './V1Param';
 export * from './V1PasswordChange';
 export * from './V1PatchStrategy';
@@ -234,4 +230,3 @@ export * from './V1Uuids';
 export * from './V1Validation';
 export * from './V1Version';
 export * from './V1WasbType';
-export * from './V1XGBoostJob';

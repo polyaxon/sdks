@@ -37,18 +37,6 @@ import {
     V1MPIJobFromJSONTyped,
     V1MPIJobToJSON,
 } from './V1MPIJob';
-import type { V1MXJob } from './V1MXJob';
-import {
-    V1MXJobFromJSON,
-    V1MXJobFromJSONTyped,
-    V1MXJobToJSON,
-} from './V1MXJob';
-import type { V1PaddleJob } from './V1PaddleJob';
-import {
-    V1PaddleJobFromJSON,
-    V1PaddleJobFromJSONTyped,
-    V1PaddleJobToJSON,
-} from './V1PaddleJob';
 import type { V1PytorchJob } from './V1PytorchJob';
 import {
     V1PytorchJobFromJSON,
@@ -73,12 +61,6 @@ import {
     V1TFJobFromJSONTyped,
     V1TFJobToJSON,
 } from './V1TFJob';
-import type { V1XGBoostJob } from './V1XGBoostJob';
-import {
-    V1XGBoostJobFromJSON,
-    V1XGBoostJobFromJSONTyped,
-    V1XGBoostJobToJSON,
-} from './V1XGBoostJob';
 
 /**
  *
@@ -124,24 +106,6 @@ export interface V1RunSchema {
     mpiJob?: V1MPIJob;
     /**
      *
-     * @type {V1MXJob}
-     * @memberof V1RunSchema
-     */
-    mxJob?: V1MXJob;
-    /**
-     *
-     * @type {V1XGBoostJob}
-     * @memberof V1RunSchema
-     */
-    xgboostJob?: V1XGBoostJob;
-    /**
-     *
-     * @type {V1PaddleJob}
-     * @memberof V1RunSchema
-     */
-    paddleJob?: V1PaddleJob;
-    /**
-     *
      * @type {V1DaskJob}
      * @memberof V1RunSchema
      */
@@ -179,9 +143,6 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'tfJob': !exists(json, 'tfJob') ? undefined : V1TFJobFromJSON(json['tfJob']),
         'pytorchJob': !exists(json, 'pytorchJob') ? undefined : V1PytorchJobFromJSON(json['pytorchJob']),
         'mpiJob': !exists(json, 'mpiJob') ? undefined : V1MPIJobFromJSON(json['mpiJob']),
-        'mxJob': !exists(json, 'mxJob') ? undefined : V1MXJobFromJSON(json['mxJob']),
-        'xgboostJob': !exists(json, 'xgboostJob') ? undefined : V1XGBoostJobFromJSON(json['xgboostJob']),
-        'paddleJob': !exists(json, 'paddleJob') ? undefined : V1PaddleJobFromJSON(json['paddleJob']),
         'daskJob': !exists(json, 'daskJob') ? undefined : V1DaskJobFromJSON(json['daskJob']),
         'rayJob': !exists(json, 'rayJob') ? undefined : V1RayJobFromJSON(json['rayJob']),
     };
@@ -202,9 +163,6 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         'tfJob': V1TFJobToJSON(value.tfJob),
         'pytorchJob': V1PytorchJobToJSON(value.pytorchJob),
         'mpiJob': V1MPIJobToJSON(value.mpiJob),
-        'mxJob': V1MXJobToJSON(value.mxJob),
-        'xgboostJob': V1XGBoostJobToJSON(value.xgboostJob),
-        'paddleJob': V1PaddleJobToJSON(value.paddleJob),
         'daskJob': V1DaskJobToJSON(value.daskJob),
         'rayJob': V1RayJobToJSON(value.rayJob),
     };

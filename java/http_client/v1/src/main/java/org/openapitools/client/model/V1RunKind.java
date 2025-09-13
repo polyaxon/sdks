@@ -45,12 +45,6 @@ public enum V1RunKind {
 
   PYTORCHJOB("pytorchjob"),
 
-  MXJOB("mxjob"),
-
-  XGBJOB("xgbjob"),
-
-  PADDLEJOB("paddlejob"),
-
   MATRIX("matrix"),
 
   SCHEDULE("schedule"),

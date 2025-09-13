@@ -216,15 +216,6 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
-            },
-            {
               "$ref": "#/definitions/v1RayJob"
             },
             {
@@ -255,15 +246,6 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
-            },
-            {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
             },
             {
               "$ref": "#/definitions/v1RayJob"
@@ -334,15 +316,6 @@
             },
             {
               "$ref": "#/definitions/v1PytorchJob"
-            },
-            {
-              "$ref": "#/definitions/v1PaddleJob"
-            },
-            {
-              "$ref": "#/definitions/v1MXJob"
-            },
-            {
-              "$ref": "#/definitions/v1XGBoostJob"
             },
             {
               "$ref": "#/definitions/v1RayJob"
