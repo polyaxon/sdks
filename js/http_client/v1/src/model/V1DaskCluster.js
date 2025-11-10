@@ -15,18 +15,18 @@ import ApiClient from '../ApiClient';
 import V1DaskReplica from './V1DaskReplica';
 
 /**
- * The V1DaskJob model module.
- * @module model/V1DaskJob
+ * The V1DaskCluster model module.
+ * @module model/V1DaskCluster
  * @version 2.11.1
  */
-class V1DaskJob {
+class V1DaskCluster {
     /**
-     * Constructs a new <code>V1DaskJob</code>.
-     * @alias module:model/V1DaskJob
+     * Constructs a new <code>V1DaskCluster</code>.
+     * @alias module:model/V1DaskCluster
      */
     constructor() {
 
-        V1DaskJob.initialize(this);
+        V1DaskCluster.initialize(this);
     }
 
     /**
@@ -38,21 +38,18 @@ class V1DaskJob {
     }
 
     /**
-     * Constructs a <code>V1DaskJob</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1DaskCluster</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1DaskJob} obj Optional instance to populate.
-     * @return {module:model/V1DaskJob} The populated <code>V1DaskJob</code> instance.
+     * @param {module:model/V1DaskCluster} obj Optional instance to populate.
+     * @return {module:model/V1DaskCluster} The populated <code>V1DaskCluster</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1DaskJob();
+            obj = obj || new V1DaskCluster();
 
             if (data.hasOwnProperty('kind')) {
                 obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
-            }
-            if (data.hasOwnProperty('job')) {
-                obj['job'] = V1DaskReplica.constructFromObject(data['job']);
             }
             if (data.hasOwnProperty('worker')) {
                 obj['worker'] = V1DaskReplica.constructFromObject(data['worker']);
@@ -65,18 +62,14 @@ class V1DaskJob {
     }
 
     /**
-     * Validates the JSON data with respect to <code>V1DaskJob</code>.
+     * Validates the JSON data with respect to <code>V1DaskCluster</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1DaskJob</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1DaskCluster</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
         if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
             throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
-        }
-        // validate the optional field `job`
-        if (data['job']) { // data not null
-          V1DaskReplica.validateJSON(data['job']);
         }
         // validate the optional field `worker`
         if (data['worker']) { // data not null
@@ -97,29 +90,24 @@ class V1DaskJob {
 
 /**
  * @member {String} kind
- * @default 'daskjob'
+ * @default 'daskcluster'
  */
-V1DaskJob.prototype['kind'] = 'daskjob';
-
-/**
- * @member {module:model/V1DaskReplica} job
- */
-V1DaskJob.prototype['job'] = undefined;
+V1DaskCluster.prototype['kind'] = 'daskcluster';
 
 /**
  * @member {module:model/V1DaskReplica} worker
  */
-V1DaskJob.prototype['worker'] = undefined;
+V1DaskCluster.prototype['worker'] = undefined;
 
 /**
  * @member {module:model/V1DaskReplica} scheduler
  */
-V1DaskJob.prototype['scheduler'] = undefined;
+V1DaskCluster.prototype['scheduler'] = undefined;
 
 
 
 
 
 
-export default V1DaskJob;
+export default V1DaskCluster;
 

@@ -14,10 +14,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1RayJob Ray specification
+// V1RayCluster Ray specification
 //
-// swagger:model v1RayJob
-type V1RayJob struct {
+// swagger:model v1RayCluster
+type V1RayCluster struct {
 
 	// Entrypoint of the ray application, e.g. python path/to/run.py
 	Entrypoint string `json:"entrypoint,omitempty"`
@@ -25,7 +25,7 @@ type V1RayJob struct {
 	// Ray head goupr section
 	Head *V1RayReplica `json:"head,omitempty"`
 
-	// Kind of runtime, should be equal to "rayjob"
+	// Kind of runtime, should be equal to "raycluster"
 	Kind *string `json:"kind,omitempty"`
 
 	// Optional metadata section
@@ -41,8 +41,8 @@ type V1RayJob struct {
 	Workers []*V1RayReplica `json:"workers"`
 }
 
-// Validate validates this v1 ray job
-func (m *V1RayJob) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 ray cluster
+func (m *V1RayCluster) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateHead(formats); err != nil {
@@ -59,7 +59,7 @@ func (m *V1RayJob) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RayJob) validateHead(formats strfmt.Registry) error {
+func (m *V1RayCluster) validateHead(formats strfmt.Registry) error {
 	if swag.IsZero(m.Head) { // not required
 		return nil
 	}
@@ -78,7 +78,7 @@ func (m *V1RayJob) validateHead(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RayJob) validateWorkers(formats strfmt.Registry) error {
+func (m *V1RayCluster) validateWorkers(formats strfmt.Registry) error {
 	if swag.IsZero(m.Workers) { // not required
 		return nil
 	}
@@ -104,8 +104,8 @@ func (m *V1RayJob) validateWorkers(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this v1 ray job based on the context it is used
-func (m *V1RayJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this v1 ray cluster based on the context it is used
+func (m *V1RayCluster) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.contextValidateHead(ctx, formats); err != nil {
@@ -122,7 +122,7 @@ func (m *V1RayJob) ContextValidate(ctx context.Context, formats strfmt.Registry)
 	return nil
 }
 
-func (m *V1RayJob) contextValidateHead(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RayCluster) contextValidateHead(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Head != nil {
 
@@ -143,7 +143,7 @@ func (m *V1RayJob) contextValidateHead(ctx context.Context, formats strfmt.Regis
 	return nil
 }
 
-func (m *V1RayJob) contextValidateWorkers(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RayCluster) contextValidateWorkers(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Workers); i++ {
 
@@ -169,7 +169,7 @@ func (m *V1RayJob) contextValidateWorkers(ctx context.Context, formats strfmt.Re
 }
 
 // MarshalBinary interface implementation
-func (m *V1RayJob) MarshalBinary() ([]byte, error) {
+func (m *V1RayCluster) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -177,8 +177,8 @@ func (m *V1RayJob) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1RayJob) UnmarshalBinary(b []byte) error {
-	var res V1RayJob
+func (m *V1RayCluster) UnmarshalBinary(b []byte) error {
+	var res V1RayCluster
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

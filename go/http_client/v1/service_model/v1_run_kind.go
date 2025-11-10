@@ -39,14 +39,17 @@ const (
 	// V1RunKindService captures enum value "service"
 	V1RunKindService V1RunKind = "service"
 
+	// V1RunKindCluster captures enum value "cluster"
+	V1RunKindCluster V1RunKind = "cluster"
+
 	// V1RunKindDag captures enum value "dag"
 	V1RunKindDag V1RunKind = "dag"
 
-	// V1RunKindDaskjob captures enum value "daskjob"
-	V1RunKindDaskjob V1RunKind = "daskjob"
+	// V1RunKindDaskcluster captures enum value "daskcluster"
+	V1RunKindDaskcluster V1RunKind = "daskcluster"
 
-	// V1RunKindRayjob captures enum value "rayjob"
-	V1RunKindRayjob V1RunKind = "rayjob"
+	// V1RunKindRaycluster captures enum value "raycluster"
+	V1RunKindRaycluster V1RunKind = "raycluster"
 
 	// V1RunKindMpijob captures enum value "mpijob"
 	V1RunKindMpijob V1RunKind = "mpijob"
@@ -84,7 +87,7 @@ var v1RunKindEnum []interface{}
 
 func init() {
 	var res []V1RunKind
-	if err := json.Unmarshal([]byte(`["job","service","dag","daskjob","rayjob","mpijob","tfjob","pytorchjob","matrix","schedule","tuner","watchdog","notifier","builder","cleaner"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["job","service","cluster","dag","daskcluster","raycluster","mpijob","tfjob","pytorchjob","matrix","schedule","tuner","watchdog","notifier","builder","cleaner"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

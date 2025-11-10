@@ -24,11 +24,11 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictStr, conlist
 from polyaxon_sdk.models.v1_ray_replica import V1RayReplica
 
-class V1RayJob(BaseModel):
+class V1RayCluster(BaseModel):
     """
-    V1RayJob
+    V1RayCluster
     """
-    kind: Optional[StrictStr] = 'rayjob'
+    kind: Optional[StrictStr] = 'raycluster'
     entrypoint: Optional[StrictStr] = None
     runtime_env: Optional[Dict[str, Any]] = Field(None, alias="runtimeEnv")
     metadata: Optional[Dict[str, StrictStr]] = None
@@ -50,8 +50,8 @@ class V1RayJob(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> V1RayJob:
-        """Create an instance of V1RayJob from a JSON string"""
+    def from_json(cls, json_str: str) -> V1RayCluster:
+        """Create an instance of V1RayCluster from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -73,16 +73,16 @@ class V1RayJob(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> V1RayJob:
-        """Create an instance of V1RayJob from a dict"""
+    def from_dict(cls, obj: dict) -> V1RayCluster:
+        """Create an instance of V1RayCluster from a dict"""
         if obj is None:
             return None
 
         if type(obj) is not dict:
-            return V1RayJob.parse_obj(obj)
+            return V1RayCluster.parse_obj(obj)
 
-        _obj = V1RayJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'rayjob',
+        _obj = V1RayCluster.parse_obj({
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'raycluster',
             "entrypoint": obj.get("entrypoint"),
             "runtime_env": obj.get("runtimeEnv"),
             "metadata": obj.get("metadata"),

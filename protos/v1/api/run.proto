@@ -18,19 +18,20 @@ option go_package = "v1/api";
 enum RunKind {
     job = 0;
     service = 1;
-    dag = 2;
-    daskjob = 3;
-    rayjob = 4;
-    mpijob = 5;
-    tfjob = 6;
-    pytorchjob = 7;
-    matrix = 8;
-    schedule = 9;
-    tuner = 10;
-    watchdog = 11;
-    notifier = 12;
-    builder = 13;
-    cleaner = 14;
+    cluster = 2;
+    dag = 3;
+    daskcluster = 4;
+    raycluster = 5;
+    mpijob = 6;
+    tfjob = 7;
+    pytorchjob = 8;
+    matrix = 9;
+    schedule = 10;
+    tuner = 11;
+    watchdog = 12;
+    notifier = 13;
+    builder = 14;
+    cleaner = 15;
 }
 
 enum RunPending {

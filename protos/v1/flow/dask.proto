@@ -35,12 +35,9 @@ message DaskReplica {
 
 
 // Dask specification
-message DaskJob {
-    // Optional component kind, should be equal to 'daskjob'
+message DaskCluster {
+    // Optional component kind, should be equal to 'daskcluster'
     string kind = 1;
-
-    // Job pod specification to execute
-    DaskReplica job = 2;
 
     // Worker pod specification
     DaskReplica worker = 3;

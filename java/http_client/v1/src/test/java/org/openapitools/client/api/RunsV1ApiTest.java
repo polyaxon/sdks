@@ -541,11 +541,12 @@ public class RunsV1ApiTest {
         String owner = null;
         String project = null;
         String uuid = null;
+        String kind = null;
         OffsetDateTime lastTime = null;
         String lastFile = null;
         Boolean force = null;
         String connection = null;
-        V1Logs response = api.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force, connection);
+        V1Logs response = api.getRunLogs(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection);
         // TODO: test validations
     }
 
@@ -574,13 +575,14 @@ public class RunsV1ApiTest {
         String owner = null;
         String project = null;
         String uuid = null;
+        String kind = null;
         String names = null;
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
         String connection = null;
         String status = null;
-        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+        V1EventsResponse response = api.getRunResources(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
         // TODO: test validations
     }
 
@@ -703,13 +705,14 @@ public class RunsV1ApiTest {
         String owner = null;
         String project = null;
         String uuid = null;
+        String kind = null;
         String names = null;
         Boolean tail = null;
         Boolean force = null;
         Integer sample = null;
         String connection = null;
         String status = null;
-        Object response = api.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+        Object response = api.inspectRun(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
         // TODO: test validations
     }
 

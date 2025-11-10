@@ -53,7 +53,7 @@ import V1Dag from './model/V1Dag';
 import V1DagRef from './model/V1DagRef';
 import V1Dashboard from './model/V1Dashboard';
 import V1DashboardSpec from './model/V1DashboardSpec';
-import V1DaskJob from './model/V1DaskJob';
+import V1DaskCluster from './model/V1DaskCluster';
 import V1DaskReplica from './model/V1DaskReplica';
 import V1DateTimeSchedule from './model/V1DateTimeSchedule';
 import V1DiffStoppingPolicy from './model/V1DiffStoppingPolicy';
@@ -184,7 +184,7 @@ import V1PytorchElasticPolicy from './model/V1PytorchElasticPolicy';
 import V1PytorchJob from './model/V1PytorchJob';
 import V1Queue from './model/V1Queue';
 import V1RandomSearch from './model/V1RandomSearch';
-import V1RayJob from './model/V1RayJob';
+import V1RayCluster from './model/V1RayCluster';
 import V1RayReplica from './model/V1RayReplica';
 import V1Reference from './model/V1Reference';
 import V1ResourceType from './model/V1ResourceType';
@@ -544,10 +544,10 @@ export {
     V1DashboardSpec,
 
     /**
-     * The V1DaskJob model constructor.
-     * @property {module:model/V1DaskJob}
+     * The V1DaskCluster model constructor.
+     * @property {module:model/V1DaskCluster}
      */
-    V1DaskJob,
+    V1DaskCluster,
 
     /**
      * The V1DaskReplica model constructor.
@@ -1330,10 +1330,10 @@ export {
     V1RandomSearch,
 
     /**
-     * The V1RayJob model constructor.
-     * @property {module:model/V1RayJob}
+     * The V1RayCluster model constructor.
+     * @property {module:model/V1RayCluster}
      */
-    V1RayJob,
+    V1RayCluster,
 
     /**
      * The V1RayReplica model constructor.

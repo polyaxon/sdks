@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **tf_job** | [**V1TFJob**](V1TFJob.md) |  | [optional] 
 **pytorch_job** | [**V1PytorchJob**](V1PytorchJob.md) |  | [optional] 
 **mpi_job** | [**V1MPIJob**](V1MPIJob.md) |  | [optional] 
-**dask_job** | [**V1DaskJob**](V1DaskJob.md) |  | [optional] 
-**ray_job** | [**V1RayJob**](V1RayJob.md) |  | [optional] 
+**daskcluster** | [**V1DaskCluster**](V1DaskCluster.md) |  | [optional] 
+**raycluster** | [**V1RayCluster**](V1RayCluster.md) |  | [optional] 
 
 ## Example
 

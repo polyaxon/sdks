@@ -23,67 +23,67 @@ import {
 /**
  *
  * @export
- * @interface V1RayJob
+ * @interface V1RayCluster
  */
-export interface V1RayJob {
+export interface V1RayCluster {
     /**
      *
      * @type {string}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     kind?: string;
     /**
      *
      * @type {string}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     entrypoint?: string;
     /**
      *
      * @type {object}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     runtimeEnv?: object;
     /**
      *
      * @type {{ [key: string]: string; }}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     metadata?: { [key: string]: string; };
     /**
      *
      * @type {string}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     rayVersion?: string;
     /**
      *
      * @type {V1RayReplica}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     head?: V1RayReplica;
     /**
      *
      * @type {Array<V1RayReplica>}
-     * @memberof V1RayJob
+     * @memberof V1RayCluster
      */
     workers?: Array<V1RayReplica>;
 }
 
 /**
- * Check if a given object implements the V1RayJob interface.
+ * Check if a given object implements the V1RayCluster interface.
  */
-export function instanceOfV1RayJob(value: object): boolean {
+export function instanceOfV1RayCluster(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function V1RayJobFromJSON(json: any): V1RayJob {
-    return V1RayJobFromJSONTyped(json, false);
+export function V1RayClusterFromJSON(json: any): V1RayCluster {
+    return V1RayClusterFromJSONTyped(json, false);
 }
 
-export function V1RayJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RayJob {
+export function V1RayClusterFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1RayCluster {
     if ((json === undefined) || (json === null)) {
         return json;
     }
@@ -99,7 +99,7 @@ export function V1RayJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
     };
 }
 
-export function V1RayJobToJSON(value?: V1RayJob | null): any {
+export function V1RayClusterToJSON(value?: V1RayCluster | null): any {
     if (value === undefined) {
         return undefined;
     }

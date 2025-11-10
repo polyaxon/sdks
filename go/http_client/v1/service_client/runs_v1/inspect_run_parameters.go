@@ -74,6 +74,12 @@ type InspectRunParams struct {
 	*/
 	Force *bool
 
+	/* Kind.
+
+	   The entity kind.
+	*/
+	Kind *string
+
 	/* Names.
 
 	   Names query param.
@@ -212,6 +218,17 @@ func (o *InspectRunParams) SetForce(force *bool) {
 	o.Force = force
 }
 
+// WithKind adds the kind to the inspect run params
+func (o *InspectRunParams) WithKind(kind *string) *InspectRunParams {
+	o.SetKind(kind)
+	return o
+}
+
+// SetKind adds the kind to the inspect run params
+func (o *InspectRunParams) SetKind(kind *string) {
+	o.Kind = kind
+}
+
 // WithNames adds the names to the inspect run params
 func (o *InspectRunParams) WithNames(names *string) *InspectRunParams {
 	o.SetNames(names)
@@ -337,6 +354,23 @@ func (o *InspectRunParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		if qForce != "" {
 
 			if err := r.SetQueryParam("force", qForce); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Kind != nil {
+
+		// query param kind
+		var qrKind string
+
+		if o.Kind != nil {
+			qrKind = *o.Kind
+		}
+		qKind := qrKind
+		if qKind != "" {
+
+			if err := r.SetQueryParam("kind", qKind); err != nil {
 				return err
 			}
 		}

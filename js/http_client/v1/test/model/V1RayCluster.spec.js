@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new PolyaxonSdk.V1RayJob();
+    instance = new PolyaxonSdk.V1RayCluster();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,52 +47,52 @@
       object[property] = value;
   }
 
-  describe('V1RayJob', function() {
-    it('should create an instance of V1RayJob', function() {
-      // uncomment below and update the code to test V1RayJob
-      //var instance = new PolyaxonSdk.V1RayJob();
-      //expect(instance).to.be.a(PolyaxonSdk.V1RayJob);
+  describe('V1RayCluster', function() {
+    it('should create an instance of V1RayCluster', function() {
+      // uncomment below and update the code to test V1RayCluster
+      //var instance = new PolyaxonSdk.V1RayCluster();
+      //expect(instance).to.be.a(PolyaxonSdk.V1RayCluster);
     });
 
     it('should have the property kind (base name: "kind")', function() {
       // uncomment below and update the code to test the property kind
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property entrypoint (base name: "entrypoint")', function() {
       // uncomment below and update the code to test the property entrypoint
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property runtimeEnv (base name: "runtimeEnv")', function() {
       // uncomment below and update the code to test the property runtimeEnv
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property metadata (base name: "metadata")', function() {
       // uncomment below and update the code to test the property metadata
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property rayVersion (base name: "rayVersion")', function() {
       // uncomment below and update the code to test the property rayVersion
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property head (base name: "head")', function() {
       // uncomment below and update the code to test the property head
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property workers (base name: "workers")', function() {
       // uncomment below and update the code to test the property workers
-      //var instance = new PolyaxonSdk.V1RayJob();
+      //var instance = new PolyaxonSdk.V1RayCluster();
       //expect(instance).to.be();
     });
 

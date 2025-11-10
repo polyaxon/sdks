@@ -13,11 +13,11 @@
 
 import ApiClient from '../ApiClient';
 import V1Dag from './V1Dag';
-import V1DaskJob from './V1DaskJob';
+import V1DaskCluster from './V1DaskCluster';
 import V1Job from './V1Job';
 import V1MPIJob from './V1MPIJob';
 import V1PytorchJob from './V1PytorchJob';
-import V1RayJob from './V1RayJob';
+import V1RayCluster from './V1RayCluster';
 import V1Service from './V1Service';
 import V1TFJob from './V1TFJob';
 
@@ -73,11 +73,11 @@ class V1RunSchema {
             if (data.hasOwnProperty('mpiJob')) {
                 obj['mpiJob'] = V1MPIJob.constructFromObject(data['mpiJob']);
             }
-            if (data.hasOwnProperty('daskJob')) {
-                obj['daskJob'] = V1DaskJob.constructFromObject(data['daskJob']);
+            if (data.hasOwnProperty('daskcluster')) {
+                obj['daskcluster'] = V1DaskCluster.constructFromObject(data['daskcluster']);
             }
-            if (data.hasOwnProperty('rayJob')) {
-                obj['rayJob'] = V1RayJob.constructFromObject(data['rayJob']);
+            if (data.hasOwnProperty('raycluster')) {
+                obj['raycluster'] = V1RayCluster.constructFromObject(data['raycluster']);
             }
         }
         return obj;
@@ -113,13 +113,13 @@ class V1RunSchema {
         if (data['mpiJob']) { // data not null
           V1MPIJob.validateJSON(data['mpiJob']);
         }
-        // validate the optional field `daskJob`
-        if (data['daskJob']) { // data not null
-          V1DaskJob.validateJSON(data['daskJob']);
+        // validate the optional field `daskcluster`
+        if (data['daskcluster']) { // data not null
+          V1DaskCluster.validateJSON(data['daskcluster']);
         }
-        // validate the optional field `rayJob`
-        if (data['rayJob']) { // data not null
-          V1RayJob.validateJSON(data['rayJob']);
+        // validate the optional field `raycluster`
+        if (data['raycluster']) { // data not null
+          V1RayCluster.validateJSON(data['raycluster']);
         }
 
         return true;
@@ -161,14 +161,14 @@ V1RunSchema.prototype['pytorchJob'] = undefined;
 V1RunSchema.prototype['mpiJob'] = undefined;
 
 /**
- * @member {module:model/V1DaskJob} daskJob
+ * @member {module:model/V1DaskCluster} daskcluster
  */
-V1RunSchema.prototype['daskJob'] = undefined;
+V1RunSchema.prototype['daskcluster'] = undefined;
 
 /**
- * @member {module:model/V1RayJob} rayJob
+ * @member {module:model/V1RayCluster} raycluster
  */
-V1RunSchema.prototype['rayJob'] = undefined;
+V1RunSchema.prototype['raycluster'] = undefined;
 
 
 

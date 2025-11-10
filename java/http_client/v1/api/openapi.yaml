@@ -21435,6 +21435,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The entity kind.
+        explode: true
+        in: query
+        name: kind
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Names query param.
         explode: true
         in: query
@@ -21576,6 +21584,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: Kind of the entity.
+        explode: true
+        in: query
+        name: kind
+        required: false
+        schema:
+          type: string
+        style: form
       - description: last time.
         explode: true
         in: query
@@ -21756,6 +21772,14 @@ paths:
         schema:
           type: string
         style: simple
+      - description: The entity kind.
+        explode: true
+        in: query
+        name: kind
+        required: false
+        schema:
+          type: string
+        style: form
       - description: Names query param.
         explode: true
         in: query
@@ -26141,7 +26165,7 @@ components:
           type: integer
       title: Dashboard spec definition
       type: object
-    v1DaskJob:
+    v1DaskCluster:
       example:
         scheduler:
           container: "{}"
@@ -26304,168 +26328,7 @@ components:
           connections:
           - connections
           - connections
-        kind: daskjob
-        job:
-          container: "{}"
-          init:
-          - modelRef: modelRef
-            container: "{}"
-            path: path
-            git:
-              flags:
-              - flags
-              - flags
-              url: url
-              revision: revision
-            file:
-              filename: filename
-              kind: kind
-              chmod: chmod
-              content: content
-            tensorboard:
-              port: 6
-              plugins: plugins
-              use_names: true
-              uuids:
-              - uuids
-              - uuids
-              path_prefix: path_prefix
-            artifactRef: artifactRef
-            paths:
-            - "{}"
-            - "{}"
-            dockerfile:
-              image: image
-              gid: 0
-              workdirPath: workdirPath
-              run:
-              - run
-              - run
-              env:
-                key: env
-              path:
-              - path
-              - path
-              uid: 7
-              filename: filename
-              workdir: workdir
-              shell: shell
-              post_run_copy:
-              - "{}"
-              - "{}"
-              langEnv: langEnv
-              copy:
-              - "{}"
-              - "{}"
-              username: 7
-            connection: connection
-            lineageRef: lineageRef
-            artifacts:
-              files:
-              - "{}"
-              - "{}"
-              dirs:
-              - "{}"
-              - "{}"
-              workers: 3
-          - modelRef: modelRef
-            container: "{}"
-            path: path
-            git:
-              flags:
-              - flags
-              - flags
-              url: url
-              revision: revision
-            file:
-              filename: filename
-              kind: kind
-              chmod: chmod
-              content: content
-            tensorboard:
-              port: 6
-              plugins: plugins
-              use_names: true
-              uuids:
-              - uuids
-              - uuids
-              path_prefix: path_prefix
-            artifactRef: artifactRef
-            paths:
-            - "{}"
-            - "{}"
-            dockerfile:
-              image: image
-              gid: 0
-              workdirPath: workdirPath
-              run:
-              - run
-              - run
-              env:
-                key: env
-              path:
-              - path
-              - path
-              uid: 7
-              filename: filename
-              workdir: workdir
-              shell: shell
-              post_run_copy:
-              - "{}"
-              - "{}"
-              langEnv: langEnv
-              copy:
-              - "{}"
-              - "{}"
-              username: 7
-            connection: connection
-            lineageRef: lineageRef
-            artifacts:
-              files:
-              - "{}"
-              - "{}"
-              dirs:
-              - "{}"
-              - "{}"
-              workers: 3
-          sidecars:
-          - null
-          - null
-          environment:
-            nodeName: nodeName
-            dnsPolicy: dnsPolicy
-            serviceAccountName: serviceAccountName
-            hostNetwork: true
-            dnsConfig: "{}"
-            imagePullSecrets:
-            - imagePullSecrets
-            - imagePullSecrets
-            priorityClassName: priorityClassName
-            annotations:
-              key: annotations
-            hostAliases:
-            - null
-            - null
-            securityContext: "{}"
-            priority: 3
-            restartPolicy: restartPolicy
-            labels:
-              key: labels
-            nodeSelector:
-              key: nodeSelector
-            tolerations:
-            - null
-            - null
-            schedulerName: schedulerName
-            affinity: "{}"
-            hostPID: hostPID
-          replicas: 3
-          volumes:
-          - null
-          - null
-          connections:
-          - connections
-          - connections
+        kind: daskcluster
         worker:
           container: "{}"
           init:
@@ -26629,11 +26492,9 @@ components:
           - connections
       properties:
         kind:
-          default: daskjob
-          title: "Optional component kind, should be equal to 'daskjob'"
+          default: daskcluster
+          title: "Optional component kind, should be equal to 'daskcluster'"
           type: string
-        job:
-          $ref: '#/components/schemas/v1DaskReplica'
         worker:
           $ref: '#/components/schemas/v1DaskReplica'
         scheduler:
@@ -34560,7 +34421,7 @@ components:
           type: array
       title: Matrix based on randomly generated search space
       type: object
-    v1RayJob:
+    v1RayCluster:
       example:
         rayVersion: rayVersion
         head:
@@ -34731,7 +34592,7 @@ components:
           - connections
         metadata:
           key: metadata
-        kind: rayjob
+        kind: raycluster
         entrypoint: entrypoint
         workers:
         - maxReplicas: 0
@@ -35067,8 +34928,8 @@ components:
         runtimeEnv: "{}"
       properties:
         kind:
-          default: rayjob
-          title: "Kind of runtime, should be equal to \"rayjob\""
+          default: raycluster
+          title: "Kind of runtime, should be equal to \"raycluster\""
           type: string
         entrypoint:
           title: "Entrypoint of the ray application, e.g. python path/to/run.py"
@@ -35919,9 +35780,10 @@ components:
       enum:
       - job
       - service
+      - cluster
       - dag
-      - daskjob
-      - rayjob
+      - daskcluster
+      - raycluster
       - mpijob
       - tfjob
       - pytorchjob
@@ -35994,7 +35856,7 @@ components:
       type: object
     v1RunSchema:
       example:
-        daskJob:
+        daskcluster:
           scheduler:
             container: "{}"
             init:
@@ -36156,168 +36018,7 @@ components:
             connections:
             - connections
             - connections
-          kind: daskjob
-          job:
-            container: "{}"
-            init:
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            sidecars:
-            - null
-            - null
-            environment:
-              nodeName: nodeName
-              dnsPolicy: dnsPolicy
-              serviceAccountName: serviceAccountName
-              hostNetwork: true
-              dnsConfig: "{}"
-              imagePullSecrets:
-              - imagePullSecrets
-              - imagePullSecrets
-              priorityClassName: priorityClassName
-              annotations:
-                key: annotations
-              hostAliases:
-              - null
-              - null
-              securityContext: "{}"
-              priority: 3
-              restartPolicy: restartPolicy
-              labels:
-                key: labels
-              nodeSelector:
-                key: nodeSelector
-              tolerations:
-              - null
-              - null
-              schedulerName: schedulerName
-              affinity: "{}"
-              hostPID: hostPID
-            replicas: 3
-            volumes:
-            - null
-            - null
-            connections:
-            - connections
-            - connections
+          kind: daskcluster
           worker:
             container: "{}"
             init:
@@ -36479,510 +36180,6 @@ components:
             connections:
             - connections
             - connections
-        rayJob:
-          rayVersion: rayVersion
-          head:
-            maxReplicas: 0
-            container: "{}"
-            init:
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            sidecars:
-            - null
-            - null
-            groupName: groupName
-            environment:
-              nodeName: nodeName
-              dnsPolicy: dnsPolicy
-              serviceAccountName: serviceAccountName
-              hostNetwork: true
-              dnsConfig: "{}"
-              imagePullSecrets:
-              - imagePullSecrets
-              - imagePullSecrets
-              priorityClassName: priorityClassName
-              annotations:
-                key: annotations
-              hostAliases:
-              - null
-              - null
-              securityContext: "{}"
-              priority: 3
-              restartPolicy: restartPolicy
-              labels:
-                key: labels
-              nodeSelector:
-                key: nodeSelector
-              tolerations:
-              - null
-              - null
-              schedulerName: schedulerName
-              affinity: "{}"
-              hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
-            volumes:
-            - null
-            - null
-            rayStartParams:
-              key: rayStartParams
-            connections:
-            - connections
-            - connections
-          metadata:
-            key: metadata
-          kind: rayjob
-          entrypoint: entrypoint
-          workers:
-          - maxReplicas: 0
-            container: "{}"
-            init:
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            sidecars:
-            - null
-            - null
-            groupName: groupName
-            environment:
-              nodeName: nodeName
-              dnsPolicy: dnsPolicy
-              serviceAccountName: serviceAccountName
-              hostNetwork: true
-              dnsConfig: "{}"
-              imagePullSecrets:
-              - imagePullSecrets
-              - imagePullSecrets
-              priorityClassName: priorityClassName
-              annotations:
-                key: annotations
-              hostAliases:
-              - null
-              - null
-              securityContext: "{}"
-              priority: 3
-              restartPolicy: restartPolicy
-              labels:
-                key: labels
-              nodeSelector:
-                key: nodeSelector
-              tolerations:
-              - null
-              - null
-              schedulerName: schedulerName
-              affinity: "{}"
-              hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
-            volumes:
-            - null
-            - null
-            rayStartParams:
-              key: rayStartParams
-            connections:
-            - connections
-            - connections
-          - maxReplicas: 0
-            container: "{}"
-            init:
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            - modelRef: modelRef
-              container: "{}"
-              path: path
-              git:
-                flags:
-                - flags
-                - flags
-                url: url
-                revision: revision
-              file:
-                filename: filename
-                kind: kind
-                chmod: chmod
-                content: content
-              tensorboard:
-                port: 6
-                plugins: plugins
-                use_names: true
-                uuids:
-                - uuids
-                - uuids
-                path_prefix: path_prefix
-              artifactRef: artifactRef
-              paths:
-              - "{}"
-              - "{}"
-              dockerfile:
-                image: image
-                gid: 0
-                workdirPath: workdirPath
-                run:
-                - run
-                - run
-                env:
-                  key: env
-                path:
-                - path
-                - path
-                uid: 7
-                filename: filename
-                workdir: workdir
-                shell: shell
-                post_run_copy:
-                - "{}"
-                - "{}"
-                langEnv: langEnv
-                copy:
-                - "{}"
-                - "{}"
-                username: 7
-              connection: connection
-              lineageRef: lineageRef
-              artifacts:
-                files:
-                - "{}"
-                - "{}"
-                dirs:
-                - "{}"
-                - "{}"
-                workers: 3
-            sidecars:
-            - null
-            - null
-            groupName: groupName
-            environment:
-              nodeName: nodeName
-              dnsPolicy: dnsPolicy
-              serviceAccountName: serviceAccountName
-              hostNetwork: true
-              dnsConfig: "{}"
-              imagePullSecrets:
-              - imagePullSecrets
-              - imagePullSecrets
-              priorityClassName: priorityClassName
-              annotations:
-                key: annotations
-              hostAliases:
-              - null
-              - null
-              securityContext: "{}"
-              priority: 3
-              restartPolicy: restartPolicy
-              labels:
-                key: labels
-              nodeSelector:
-                key: nodeSelector
-              tolerations:
-              - null
-              - null
-              schedulerName: schedulerName
-              affinity: "{}"
-              hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
-            volumes:
-            - null
-            - null
-            rayStartParams:
-              key: rayStartParams
-            connections:
-            - connections
-            - connections
-          runtimeEnv: "{}"
         service:
           container: "{}"
           init:
@@ -39831,6 +39028,510 @@ components:
             connections:
             - connections
             - connections
+        raycluster:
+          rayVersion: rayVersion
+          head:
+            maxReplicas: 0
+            container: "{}"
+            init:
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            sidecars:
+            - null
+            - null
+            groupName: groupName
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: "{}"
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: "{}"
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: "{}"
+              hostPID: hostPID
+            minReplicas: 8
+            replicas: 9
+            volumes:
+            - null
+            - null
+            rayStartParams:
+              key: rayStartParams
+            connections:
+            - connections
+            - connections
+          metadata:
+            key: metadata
+          kind: raycluster
+          entrypoint: entrypoint
+          workers:
+          - maxReplicas: 0
+            container: "{}"
+            init:
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            sidecars:
+            - null
+            - null
+            groupName: groupName
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: "{}"
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: "{}"
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: "{}"
+              hostPID: hostPID
+            minReplicas: 8
+            replicas: 9
+            volumes:
+            - null
+            - null
+            rayStartParams:
+              key: rayStartParams
+            connections:
+            - connections
+            - connections
+          - maxReplicas: 0
+            container: "{}"
+            init:
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            - modelRef: modelRef
+              container: "{}"
+              path: path
+              git:
+                flags:
+                - flags
+                - flags
+                url: url
+                revision: revision
+              file:
+                filename: filename
+                kind: kind
+                chmod: chmod
+                content: content
+              tensorboard:
+                port: 6
+                plugins: plugins
+                use_names: true
+                uuids:
+                - uuids
+                - uuids
+                path_prefix: path_prefix
+              artifactRef: artifactRef
+              paths:
+              - "{}"
+              - "{}"
+              dockerfile:
+                image: image
+                gid: 0
+                workdirPath: workdirPath
+                run:
+                - run
+                - run
+                env:
+                  key: env
+                path:
+                - path
+                - path
+                uid: 7
+                filename: filename
+                workdir: workdir
+                shell: shell
+                post_run_copy:
+                - "{}"
+                - "{}"
+                langEnv: langEnv
+                copy:
+                - "{}"
+                - "{}"
+                username: 7
+              connection: connection
+              lineageRef: lineageRef
+              artifacts:
+                files:
+                - "{}"
+                - "{}"
+                dirs:
+                - "{}"
+                - "{}"
+                workers: 3
+            sidecars:
+            - null
+            - null
+            groupName: groupName
+            environment:
+              nodeName: nodeName
+              dnsPolicy: dnsPolicy
+              serviceAccountName: serviceAccountName
+              hostNetwork: true
+              dnsConfig: "{}"
+              imagePullSecrets:
+              - imagePullSecrets
+              - imagePullSecrets
+              priorityClassName: priorityClassName
+              annotations:
+                key: annotations
+              hostAliases:
+              - null
+              - null
+              securityContext: "{}"
+              priority: 3
+              restartPolicy: restartPolicy
+              labels:
+                key: labels
+              nodeSelector:
+                key: nodeSelector
+              tolerations:
+              - null
+              - null
+              schedulerName: schedulerName
+              affinity: "{}"
+              hostPID: hostPID
+            minReplicas: 8
+            replicas: 9
+            volumes:
+            - null
+            - null
+            rayStartParams:
+              key: rayStartParams
+            connections:
+            - connections
+            - connections
+          runtimeEnv: "{}"
         job:
           container: "{}"
           init:
@@ -40337,10 +40038,10 @@ components:
           $ref: '#/components/schemas/v1PytorchJob'
         mpiJob:
           $ref: '#/components/schemas/v1MPIJob'
-        daskJob:
-          $ref: '#/components/schemas/v1DaskJob'
-        rayJob:
-          $ref: '#/components/schemas/v1RayJob'
+        daskcluster:
+          $ref: '#/components/schemas/v1DaskCluster'
+        raycluster:
+          $ref: '#/components/schemas/v1RayCluster'
       type: object
     v1RunSettings:
       example:
@@ -40523,7 +40224,7 @@ components:
           - items
           - items
         run:
-          daskJob:
+          daskcluster:
             scheduler:
               container: "{}"
               init:
@@ -40685,168 +40386,7 @@ components:
               connections:
               - connections
               - connections
-            kind: daskjob
-            job:
-              container: "{}"
-              init:
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              sidecars:
-              - null
-              - null
-              environment:
-                nodeName: nodeName
-                dnsPolicy: dnsPolicy
-                serviceAccountName: serviceAccountName
-                hostNetwork: true
-                dnsConfig: "{}"
-                imagePullSecrets:
-                - imagePullSecrets
-                - imagePullSecrets
-                priorityClassName: priorityClassName
-                annotations:
-                  key: annotations
-                hostAliases:
-                - null
-                - null
-                securityContext: "{}"
-                priority: 3
-                restartPolicy: restartPolicy
-                labels:
-                  key: labels
-                nodeSelector:
-                  key: nodeSelector
-                tolerations:
-                - null
-                - null
-                schedulerName: schedulerName
-                affinity: "{}"
-                hostPID: hostPID
-              replicas: 3
-              volumes:
-              - null
-              - null
-              connections:
-              - connections
-              - connections
+            kind: daskcluster
             worker:
               container: "{}"
               init:
@@ -41008,510 +40548,6 @@ components:
               connections:
               - connections
               - connections
-          rayJob:
-            rayVersion: rayVersion
-            head:
-              maxReplicas: 0
-              container: "{}"
-              init:
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              sidecars:
-              - null
-              - null
-              groupName: groupName
-              environment:
-                nodeName: nodeName
-                dnsPolicy: dnsPolicy
-                serviceAccountName: serviceAccountName
-                hostNetwork: true
-                dnsConfig: "{}"
-                imagePullSecrets:
-                - imagePullSecrets
-                - imagePullSecrets
-                priorityClassName: priorityClassName
-                annotations:
-                  key: annotations
-                hostAliases:
-                - null
-                - null
-                securityContext: "{}"
-                priority: 3
-                restartPolicy: restartPolicy
-                labels:
-                  key: labels
-                nodeSelector:
-                  key: nodeSelector
-                tolerations:
-                - null
-                - null
-                schedulerName: schedulerName
-                affinity: "{}"
-                hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
-              volumes:
-              - null
-              - null
-              rayStartParams:
-                key: rayStartParams
-              connections:
-              - connections
-              - connections
-            metadata:
-              key: metadata
-            kind: rayjob
-            entrypoint: entrypoint
-            workers:
-            - maxReplicas: 0
-              container: "{}"
-              init:
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              sidecars:
-              - null
-              - null
-              groupName: groupName
-              environment:
-                nodeName: nodeName
-                dnsPolicy: dnsPolicy
-                serviceAccountName: serviceAccountName
-                hostNetwork: true
-                dnsConfig: "{}"
-                imagePullSecrets:
-                - imagePullSecrets
-                - imagePullSecrets
-                priorityClassName: priorityClassName
-                annotations:
-                  key: annotations
-                hostAliases:
-                - null
-                - null
-                securityContext: "{}"
-                priority: 3
-                restartPolicy: restartPolicy
-                labels:
-                  key: labels
-                nodeSelector:
-                  key: nodeSelector
-                tolerations:
-                - null
-                - null
-                schedulerName: schedulerName
-                affinity: "{}"
-                hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
-              volumes:
-              - null
-              - null
-              rayStartParams:
-                key: rayStartParams
-              connections:
-              - connections
-              - connections
-            - maxReplicas: 0
-              container: "{}"
-              init:
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              - modelRef: modelRef
-                container: "{}"
-                path: path
-                git:
-                  flags:
-                  - flags
-                  - flags
-                  url: url
-                  revision: revision
-                file:
-                  filename: filename
-                  kind: kind
-                  chmod: chmod
-                  content: content
-                tensorboard:
-                  port: 6
-                  plugins: plugins
-                  use_names: true
-                  uuids:
-                  - uuids
-                  - uuids
-                  path_prefix: path_prefix
-                artifactRef: artifactRef
-                paths:
-                - "{}"
-                - "{}"
-                dockerfile:
-                  image: image
-                  gid: 0
-                  workdirPath: workdirPath
-                  run:
-                  - run
-                  - run
-                  env:
-                    key: env
-                  path:
-                  - path
-                  - path
-                  uid: 7
-                  filename: filename
-                  workdir: workdir
-                  shell: shell
-                  post_run_copy:
-                  - "{}"
-                  - "{}"
-                  langEnv: langEnv
-                  copy:
-                  - "{}"
-                  - "{}"
-                  username: 7
-                connection: connection
-                lineageRef: lineageRef
-                artifacts:
-                  files:
-                  - "{}"
-                  - "{}"
-                  dirs:
-                  - "{}"
-                  - "{}"
-                  workers: 3
-              sidecars:
-              - null
-              - null
-              groupName: groupName
-              environment:
-                nodeName: nodeName
-                dnsPolicy: dnsPolicy
-                serviceAccountName: serviceAccountName
-                hostNetwork: true
-                dnsConfig: "{}"
-                imagePullSecrets:
-                - imagePullSecrets
-                - imagePullSecrets
-                priorityClassName: priorityClassName
-                annotations:
-                  key: annotations
-                hostAliases:
-                - null
-                - null
-                securityContext: "{}"
-                priority: 3
-                restartPolicy: restartPolicy
-                labels:
-                  key: labels
-                nodeSelector:
-                  key: nodeSelector
-                tolerations:
-                - null
-                - null
-                schedulerName: schedulerName
-                affinity: "{}"
-                hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
-              volumes:
-              - null
-              - null
-              rayStartParams:
-                key: rayStartParams
-              connections:
-              - connections
-              - connections
-            runtimeEnv: "{}"
           service:
             container: "{}"
             init:
@@ -44360,6 +43396,510 @@ components:
               connections:
               - connections
               - connections
+          raycluster:
+            rayVersion: rayVersion
+            head:
+              maxReplicas: 0
+              container: "{}"
+              init:
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              groupName: groupName
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: "{}"
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: "{}"
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: "{}"
+                hostPID: hostPID
+              minReplicas: 8
+              replicas: 9
+              volumes:
+              - null
+              - null
+              rayStartParams:
+                key: rayStartParams
+              connections:
+              - connections
+              - connections
+            metadata:
+              key: metadata
+            kind: raycluster
+            entrypoint: entrypoint
+            workers:
+            - maxReplicas: 0
+              container: "{}"
+              init:
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              groupName: groupName
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: "{}"
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: "{}"
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: "{}"
+                hostPID: hostPID
+              minReplicas: 8
+              replicas: 9
+              volumes:
+              - null
+              - null
+              rayStartParams:
+                key: rayStartParams
+              connections:
+              - connections
+              - connections
+            - maxReplicas: 0
+              container: "{}"
+              init:
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              - modelRef: modelRef
+                container: "{}"
+                path: path
+                git:
+                  flags:
+                  - flags
+                  - flags
+                  url: url
+                  revision: revision
+                file:
+                  filename: filename
+                  kind: kind
+                  chmod: chmod
+                  content: content
+                tensorboard:
+                  port: 6
+                  plugins: plugins
+                  use_names: true
+                  uuids:
+                  - uuids
+                  - uuids
+                  path_prefix: path_prefix
+                artifactRef: artifactRef
+                paths:
+                - "{}"
+                - "{}"
+                dockerfile:
+                  image: image
+                  gid: 0
+                  workdirPath: workdirPath
+                  run:
+                  - run
+                  - run
+                  env:
+                    key: env
+                  path:
+                  - path
+                  - path
+                  uid: 7
+                  filename: filename
+                  workdir: workdir
+                  shell: shell
+                  post_run_copy:
+                  - "{}"
+                  - "{}"
+                  langEnv: langEnv
+                  copy:
+                  - "{}"
+                  - "{}"
+                  username: 7
+                connection: connection
+                lineageRef: lineageRef
+                artifacts:
+                  files:
+                  - "{}"
+                  - "{}"
+                  dirs:
+                  - "{}"
+                  - "{}"
+                  workers: 3
+              sidecars:
+              - null
+              - null
+              groupName: groupName
+              environment:
+                nodeName: nodeName
+                dnsPolicy: dnsPolicy
+                serviceAccountName: serviceAccountName
+                hostNetwork: true
+                dnsConfig: "{}"
+                imagePullSecrets:
+                - imagePullSecrets
+                - imagePullSecrets
+                priorityClassName: priorityClassName
+                annotations:
+                  key: annotations
+                hostAliases:
+                - null
+                - null
+                securityContext: "{}"
+                priority: 3
+                restartPolicy: restartPolicy
+                labels:
+                  key: labels
+                nodeSelector:
+                  key: nodeSelector
+                tolerations:
+                - null
+                - null
+                schedulerName: schedulerName
+                affinity: "{}"
+                hostPID: hostPID
+              minReplicas: 8
+              replicas: 9
+              volumes:
+              - null
+              - null
+              rayStartParams:
+                key: rayStartParams
+              connections:
+              - connections
+              - connections
+            runtimeEnv: "{}"
           job:
             container: "{}"
             init:

@@ -25,17 +25,17 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for V1DaskJob
+ * Model tests for V1DaskCluster
  */
-public class V1DaskJobTest {
-    private final V1DaskJob model = new V1DaskJob();
+public class V1DaskClusterTest {
+    private final V1DaskCluster model = new V1DaskCluster();
 
     /**
-     * Model tests for V1DaskJob
+     * Model tests for V1DaskCluster
      */
     @Test
-    public void testV1DaskJob() {
-        // TODO: test V1DaskJob
+    public void testV1DaskCluster() {
+        // TODO: test V1DaskCluster
     }
 
     /**
@@ -44,14 +44,6 @@ public class V1DaskJobTest {
     @Test
     public void kindTest() {
         // TODO: test kind
-    }
-
-    /**
-     * Test the property 'job'
-     */
-    @Test
-    public void jobTest() {
-        // TODO: test job
     }
 
     /**

@@ -90,14 +90,14 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property daskJob (base name: "daskJob")', function() {
-      // uncomment below and update the code to test the property daskJob
+    it('should have the property daskcluster (base name: "daskcluster")', function() {
+      // uncomment below and update the code to test the property daskcluster
       //var instance = new PolyaxonSdk.V1RunSchema();
       //expect(instance).to.be();
     });
 
-    it('should have the property rayJob (base name: "rayJob")', function() {
-      // uncomment below and update the code to test the property rayJob
+    it('should have the property raycluster (base name: "raycluster")', function() {
+      // uncomment below and update the code to test the property raycluster
       //var instance = new PolyaxonSdk.V1RunSchema();
       //expect(instance).to.be();
     });

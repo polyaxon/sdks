@@ -13,15 +13,12 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1DaskJob Dask specification
+// V1DaskCluster Dask specification
 //
-// swagger:model v1DaskJob
-type V1DaskJob struct {
+// swagger:model v1DaskCluster
+type V1DaskCluster struct {
 
-	// Job pod specification to execute
-	Job *V1DaskReplica `json:"job,omitempty"`
-
-	// Optional component kind, should be equal to 'daskjob'
+	// Optional component kind, should be equal to 'daskcluster'
 	Kind *string `json:"kind,omitempty"`
 
 	// Scheduler pod specification
@@ -31,13 +28,9 @@ type V1DaskJob struct {
 	Worker *V1DaskReplica `json:"worker,omitempty"`
 }
 
-// Validate validates this v1 dask job
-func (m *V1DaskJob) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 dask cluster
+func (m *V1DaskCluster) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateJob(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateScheduler(formats); err != nil {
 		res = append(res, err)
@@ -53,26 +46,7 @@ func (m *V1DaskJob) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1DaskJob) validateJob(formats strfmt.Registry) error {
-	if swag.IsZero(m.Job) { // not required
-		return nil
-	}
-
-	if m.Job != nil {
-		if err := m.Job.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("job")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("job")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1DaskJob) validateScheduler(formats strfmt.Registry) error {
+func (m *V1DaskCluster) validateScheduler(formats strfmt.Registry) error {
 	if swag.IsZero(m.Scheduler) { // not required
 		return nil
 	}
@@ -91,7 +65,7 @@ func (m *V1DaskJob) validateScheduler(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1DaskJob) validateWorker(formats strfmt.Registry) error {
+func (m *V1DaskCluster) validateWorker(formats strfmt.Registry) error {
 	if swag.IsZero(m.Worker) { // not required
 		return nil
 	}
@@ -110,13 +84,9 @@ func (m *V1DaskJob) validateWorker(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this v1 dask job based on the context it is used
-func (m *V1DaskJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this v1 dask cluster based on the context it is used
+func (m *V1DaskCluster) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateJob(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateScheduler(ctx, formats); err != nil {
 		res = append(res, err)
@@ -132,28 +102,7 @@ func (m *V1DaskJob) ContextValidate(ctx context.Context, formats strfmt.Registry
 	return nil
 }
 
-func (m *V1DaskJob) contextValidateJob(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Job != nil {
-
-		if swag.IsZero(m.Job) { // not required
-			return nil
-		}
-
-		if err := m.Job.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("job")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("job")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1DaskJob) contextValidateScheduler(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1DaskCluster) contextValidateScheduler(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Scheduler != nil {
 
@@ -174,7 +123,7 @@ func (m *V1DaskJob) contextValidateScheduler(ctx context.Context, formats strfmt
 	return nil
 }
 
-func (m *V1DaskJob) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1DaskCluster) contextValidateWorker(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Worker != nil {
 
@@ -196,7 +145,7 @@ func (m *V1DaskJob) contextValidateWorker(ctx context.Context, formats strfmt.Re
 }
 
 // MarshalBinary interface implementation
-func (m *V1DaskJob) MarshalBinary() ([]byte, error) {
+func (m *V1DaskCluster) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -204,8 +153,8 @@ func (m *V1DaskJob) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1DaskJob) UnmarshalBinary(b []byte) error {
-	var res V1DaskJob
+func (m *V1DaskCluster) UnmarshalBinary(b []byte) error {
+	var res V1DaskCluster
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

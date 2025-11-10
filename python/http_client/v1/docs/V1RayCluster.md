@@ -1,10 +1,10 @@
-# V1RayJob
+# V1RayCluster
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'rayjob']
+**kind** | **str** |  | [optional] [default to 'raycluster']
 **entrypoint** | **str** |  | [optional] 
 **runtime_env** | **object** |  | [optional] 
 **metadata** | **Dict[str, str]** |  | [optional] 
@@ -15,19 +15,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from polyaxon_sdk.models.v1_ray_job import V1RayJob
+from polyaxon_sdk.models.v1_ray_cluster import V1RayCluster
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of V1RayJob from a JSON string
-v1_ray_job_instance = V1RayJob.from_json(json)
+# create an instance of V1RayCluster from a JSON string
+v1_ray_cluster_instance = V1RayCluster.from_json(json)
 # print the JSON string representation of the object
-print V1RayJob.to_json()
+print V1RayCluster.to_json()
 
 # convert the object into a dict
-v1_ray_job_dict = v1_ray_job_instance.to_dict()
-# create an instance of V1RayJob from a dict
-v1_ray_job_form_dict = v1_ray_job.from_dict(v1_ray_job_dict)
+v1_ray_cluster_dict = v1_ray_cluster_instance.to_dict()
+# create an instance of V1RayCluster from a dict
+v1_ray_cluster_form_dict = v1_ray_cluster.from_dict(v1_ray_cluster_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

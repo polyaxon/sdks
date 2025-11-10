@@ -316,23 +316,26 @@ message RunResourcesRequest {
     // Uuid identifier of the entity
     string uuid = 4;
 
+    // The entity kind
+    string kind = 5;
+
     // Names query param
-    string names = 5;
+    string names = 6;
 
     // Query param flag to tail the values
-    bool tail = 6;
+    bool tail = 7;
 
     // Force query param
-    bool force = 7;
+    bool force = 8;
 
     // Sample query param
-    int32 sample = 8;
+    int32 sample = 9;
 
     // Connection to use
-    string connection = 9;
+    string connection = 10;
 
     // Optional status
-    Statuses status = 10;
+    Statuses status = 11;
 }
 
 // Request data to get run importance correlation

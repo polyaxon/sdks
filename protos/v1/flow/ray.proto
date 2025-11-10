@@ -43,8 +43,8 @@ message RayReplica {
 }
 
 // Ray specification
-message RayJob {
-    // Kind of runtime, should be equal to "rayjob"
+message RayCluster {
+    // Kind of runtime, should be equal to "raycluster"
     string kind = 1;
 
     // Entrypoint of the ray application, e.g. python path/to/run.py

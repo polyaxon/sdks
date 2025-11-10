@@ -24,15 +24,14 @@ from typing import Optional
 from pydantic import BaseModel, StrictStr
 from polyaxon_sdk.models.v1_dask_replica import V1DaskReplica
 
-class V1DaskJob(BaseModel):
+class V1DaskCluster(BaseModel):
     """
-    V1DaskJob
+    V1DaskCluster
     """
-    kind: Optional[StrictStr] = 'daskjob'
-    job: Optional[V1DaskReplica] = None
+    kind: Optional[StrictStr] = 'daskcluster'
     worker: Optional[V1DaskReplica] = None
     scheduler: Optional[V1DaskReplica] = None
-    __properties = ["kind", "job", "worker", "scheduler"]
+    __properties = ["kind", "worker", "scheduler"]
 
     class Config:
         allow_population_by_field_name = True
@@ -47,8 +46,8 @@ class V1DaskJob(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> V1DaskJob:
-        """Create an instance of V1DaskJob from a JSON string"""
+    def from_json(cls, json_str: str) -> V1DaskCluster:
+        """Create an instance of V1DaskCluster from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -57,9 +56,6 @@ class V1DaskJob(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
-        # override the default output from pydantic by calling `to_dict()` of job
-        if self.job:
-            _dict['job'] = self.job.to_dict()
         # override the default output from pydantic by calling `to_dict()` of worker
         if self.worker:
             _dict['worker'] = self.worker.to_dict()
@@ -69,17 +65,16 @@ class V1DaskJob(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> V1DaskJob:
-        """Create an instance of V1DaskJob from a dict"""
+    def from_dict(cls, obj: dict) -> V1DaskCluster:
+        """Create an instance of V1DaskCluster from a dict"""
         if obj is None:
             return None
 
         if type(obj) is not dict:
-            return V1DaskJob.parse_obj(obj)
+            return V1DaskCluster.parse_obj(obj)
 
-        _obj = V1DaskJob.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'daskjob',
-            "job": V1DaskReplica.from_dict(obj.get("job")) if obj.get("job") is not None else None,
+        _obj = V1DaskCluster.parse_obj({
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'daskcluster',
             "worker": V1DaskReplica.from_dict(obj.get("worker")) if obj.get("worker") is not None else None,
             "scheduler": V1DaskReplica.from_dict(obj.get("scheduler")) if obj.get("scheduler") is not None else None
         })

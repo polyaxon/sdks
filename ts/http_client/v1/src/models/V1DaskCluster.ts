@@ -23,62 +23,55 @@ import {
 /**
  *
  * @export
- * @interface V1DaskJob
+ * @interface V1DaskCluster
  */
-export interface V1DaskJob {
+export interface V1DaskCluster {
     /**
      *
      * @type {string}
-     * @memberof V1DaskJob
+     * @memberof V1DaskCluster
      */
     kind?: string;
     /**
      *
      * @type {V1DaskReplica}
-     * @memberof V1DaskJob
-     */
-    job?: V1DaskReplica;
-    /**
-     *
-     * @type {V1DaskReplica}
-     * @memberof V1DaskJob
+     * @memberof V1DaskCluster
      */
     worker?: V1DaskReplica;
     /**
      *
      * @type {V1DaskReplica}
-     * @memberof V1DaskJob
+     * @memberof V1DaskCluster
      */
     scheduler?: V1DaskReplica;
 }
 
 /**
- * Check if a given object implements the V1DaskJob interface.
+ * Check if a given object implements the V1DaskCluster interface.
  */
-export function instanceOfV1DaskJob(value: object): boolean {
+export function instanceOfV1DaskCluster(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function V1DaskJobFromJSON(json: any): V1DaskJob {
-    return V1DaskJobFromJSONTyped(json, false);
+export function V1DaskClusterFromJSON(json: any): V1DaskCluster {
+    return V1DaskClusterFromJSONTyped(json, false);
 }
 
-export function V1DaskJobFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DaskJob {
+export function V1DaskClusterFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1DaskCluster {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
 
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'job': !exists(json, 'job') ? undefined : V1DaskReplicaFromJSON(json['job']),
         'worker': !exists(json, 'worker') ? undefined : V1DaskReplicaFromJSON(json['worker']),
         'scheduler': !exists(json, 'scheduler') ? undefined : V1DaskReplicaFromJSON(json['scheduler']),
     };
 }
 
-export function V1DaskJobToJSON(value?: V1DaskJob | null): any {
+export function V1DaskClusterToJSON(value?: V1DaskCluster | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -88,7 +81,6 @@ export function V1DaskJobToJSON(value?: V1DaskJob | null): any {
     return {
 
         'kind': value.kind,
-        'job': V1DaskReplicaToJSON(value.job),
         'worker': V1DaskReplicaToJSON(value.worker),
         'scheduler': V1DaskReplicaToJSON(value.scheduler),
     };

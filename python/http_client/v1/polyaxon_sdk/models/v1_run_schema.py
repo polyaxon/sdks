@@ -23,11 +23,11 @@ import json
 from typing import Optional
 from pydantic import BaseModel, Field
 from polyaxon_sdk.models.v1_dag import V1Dag
-from polyaxon_sdk.models.v1_dask_job import V1DaskJob
+from polyaxon_sdk.models.v1_dask_cluster import V1DaskCluster
 from polyaxon_sdk.models.v1_job import V1Job
 from polyaxon_sdk.models.v1_mpi_job import V1MPIJob
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob
-from polyaxon_sdk.models.v1_ray_job import V1RayJob
+from polyaxon_sdk.models.v1_ray_cluster import V1RayCluster
 from polyaxon_sdk.models.v1_service import V1Service
 from polyaxon_sdk.models.v1_tf_job import V1TFJob
 
@@ -41,9 +41,9 @@ class V1RunSchema(BaseModel):
     tf_job: Optional[V1TFJob] = Field(None, alias="tfJob")
     pytorch_job: Optional[V1PytorchJob] = Field(None, alias="pytorchJob")
     mpi_job: Optional[V1MPIJob] = Field(None, alias="mpiJob")
-    dask_job: Optional[V1DaskJob] = Field(None, alias="daskJob")
-    ray_job: Optional[V1RayJob] = Field(None, alias="rayJob")
-    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "daskJob", "rayJob"]
+    daskcluster: Optional[V1DaskCluster] = None
+    raycluster: Optional[V1RayCluster] = None
+    __properties = ["job", "service", "dag", "tfJob", "pytorchJob", "mpiJob", "daskcluster", "raycluster"]
 
     class Config:
         allow_population_by_field_name = True
@@ -86,12 +86,12 @@ class V1RunSchema(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of mpi_job
         if self.mpi_job:
             _dict['mpiJob'] = self.mpi_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of dask_job
-        if self.dask_job:
-            _dict['daskJob'] = self.dask_job.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of ray_job
-        if self.ray_job:
-            _dict['rayJob'] = self.ray_job.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of daskcluster
+        if self.daskcluster:
+            _dict['daskcluster'] = self.daskcluster.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of raycluster
+        if self.raycluster:
+            _dict['raycluster'] = self.raycluster.to_dict()
         return _dict
 
     @classmethod
@@ -110,8 +110,8 @@ class V1RunSchema(BaseModel):
             "tf_job": V1TFJob.from_dict(obj.get("tfJob")) if obj.get("tfJob") is not None else None,
             "pytorch_job": V1PytorchJob.from_dict(obj.get("pytorchJob")) if obj.get("pytorchJob") is not None else None,
             "mpi_job": V1MPIJob.from_dict(obj.get("mpiJob")) if obj.get("mpiJob") is not None else None,
-            "dask_job": V1DaskJob.from_dict(obj.get("daskJob")) if obj.get("daskJob") is not None else None,
-            "ray_job": V1RayJob.from_dict(obj.get("rayJob")) if obj.get("rayJob") is not None else None
+            "daskcluster": V1DaskCluster.from_dict(obj.get("daskcluster")) if obj.get("daskcluster") is not None else None,
+            "raycluster": V1RayCluster.from_dict(obj.get("raycluster")) if obj.get("raycluster") is not None else None
         })
         return _obj
 

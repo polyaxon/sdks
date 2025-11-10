@@ -34,6 +34,13 @@ export default class V1RunKind {
 
 
         /**
+         * value: "cluster"
+         * @const
+         */
+        "cluster" = "cluster";
+
+
+        /**
          * value: "dag"
          * @const
          */
@@ -41,17 +48,17 @@ export default class V1RunKind {
 
 
         /**
-         * value: "daskjob"
+         * value: "daskcluster"
          * @const
          */
-        "daskjob" = "daskjob";
+        "daskcluster" = "daskcluster";
 
 
         /**
-         * value: "rayjob"
+         * value: "raycluster"
          * @const
          */
-        "rayjob" = "rayjob";
+        "raycluster" = "raycluster";
 
 
         /**

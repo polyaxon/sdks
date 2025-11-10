@@ -19722,6 +19722,13 @@
             "type": "string"
           },
           {
+            "name": "kind",
+            "description": "The entity kind.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "names",
             "description": "Names query param.",
             "in": "query",
@@ -19849,6 +19856,13 @@
             "description": "Uuid identifier of the entity",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Kind of the entity.",
+            "in": "query",
+            "required": false,
             "type": "string"
           },
           {
@@ -20013,6 +20027,13 @@
             "description": "Uuid identifier of the entity",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "The entity kind.",
+            "in": "query",
+            "required": false,
             "type": "string"
           },
           {
@@ -21712,17 +21733,13 @@
       },
       "title": "Dashboard spec definition"
     },
-    "v1DaskJob": {
+    "v1DaskCluster": {
       "type": "object",
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'daskjob'",
-          "default": "daskjob"
-        },
-        "job": {
-          "$ref": "#/definitions/v1DaskReplica",
-          "title": "Job pod specification to execute"
+          "title": "Optional component kind, should be equal to 'daskcluster'",
+          "default": "daskcluster"
         },
         "worker": {
           "$ref": "#/definitions/v1DaskReplica",
@@ -25768,13 +25785,13 @@
       },
       "title": "Matrix based on randomly generated search space"
     },
-    "v1RayJob": {
+    "v1RayCluster": {
       "type": "object",
       "properties": {
         "kind": {
           "type": "string",
-          "title": "Kind of runtime, should be equal to \"rayjob\"",
-          "default": "rayjob"
+          "title": "Kind of runtime, should be equal to \"raycluster\"",
+          "default": "raycluster"
         },
         "entrypoint": {
           "type": "string",
@@ -26230,9 +26247,10 @@
       "enum": [
         "job",
         "service",
+        "cluster",
         "dag",
-        "daskjob",
-        "rayjob",
+        "daskcluster",
+        "raycluster",
         "mpijob",
         "tfjob",
         "pytorchjob",
@@ -26326,11 +26344,11 @@
         "mpiJob": {
           "$ref": "#/definitions/v1MPIJob"
         },
-        "daskJob": {
-          "$ref": "#/definitions/v1DaskJob"
+        "daskcluster": {
+          "$ref": "#/definitions/v1DaskCluster"
         },
-        "rayJob": {
-          "$ref": "#/definitions/v1RayJob"
+        "raycluster": {
+          "$ref": "#/definitions/v1RayCluster"
         }
       }
     },

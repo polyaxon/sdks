@@ -19,7 +19,7 @@ message RunSchema {
         TFJob tfJob = 4;
         PytorchJob pytorchJob = 5;
         MPIJob mpiJob = 6;
-        DaskJob daskJob = 7;
-        RayJob rayJob = 8;
+        DaskCluster daskcluster = 7;
+        RayCluster raycluster = 8;
     }
 }

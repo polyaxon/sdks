@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new PolyaxonSdk.V1DaskJob();
+    instance = new PolyaxonSdk.V1DaskCluster();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,34 +47,28 @@
       object[property] = value;
   }
 
-  describe('V1DaskJob', function() {
-    it('should create an instance of V1DaskJob', function() {
-      // uncomment below and update the code to test V1DaskJob
-      //var instance = new PolyaxonSdk.V1DaskJob();
-      //expect(instance).to.be.a(PolyaxonSdk.V1DaskJob);
+  describe('V1DaskCluster', function() {
+    it('should create an instance of V1DaskCluster', function() {
+      // uncomment below and update the code to test V1DaskCluster
+      //var instance = new PolyaxonSdk.V1DaskCluster();
+      //expect(instance).to.be.a(PolyaxonSdk.V1DaskCluster);
     });
 
     it('should have the property kind (base name: "kind")', function() {
       // uncomment below and update the code to test the property kind
-      //var instance = new PolyaxonSdk.V1DaskJob();
-      //expect(instance).to.be();
-    });
-
-    it('should have the property job (base name: "job")', function() {
-      // uncomment below and update the code to test the property job
-      //var instance = new PolyaxonSdk.V1DaskJob();
+      //var instance = new PolyaxonSdk.V1DaskCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property worker (base name: "worker")', function() {
       // uncomment below and update the code to test the property worker
-      //var instance = new PolyaxonSdk.V1DaskJob();
+      //var instance = new PolyaxonSdk.V1DaskCluster();
       //expect(instance).to.be();
     });
 
     it('should have the property scheduler (base name: "scheduler")', function() {
       // uncomment below and update the code to test the property scheduler
-      //var instance = new PolyaxonSdk.V1DaskJob();
+      //var instance = new PolyaxonSdk.V1DaskCluster();
       //expect(instance).to.be();
     });
 

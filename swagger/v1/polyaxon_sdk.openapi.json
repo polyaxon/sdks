@@ -29585,6 +29585,16 @@
             "type" : "string"
           }
         }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "The entity kind.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
           "name" : "names",
           "in" : "query",
           "description" : "Names query param.",
@@ -29743,6 +29753,16 @@
           "required" : true,
           "style" : "simple",
           "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "Kind of the entity.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
           "schema" : {
             "type" : "string"
           }
@@ -29989,6 +30009,16 @@
           "required" : true,
           "style" : "simple",
           "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "The entity kind.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
           "schema" : {
             "type" : "string"
           }
@@ -31761,17 +31791,14 @@
           }
         }
       },
-      "v1DaskJob" : {
+      "v1DaskCluster" : {
         "title" : "Dask specification",
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Optional component kind, should be equal to 'daskjob'",
+            "title" : "Optional component kind, should be equal to 'daskcluster'",
             "type" : "string",
-            "default" : "daskjob"
-          },
-          "job" : {
-            "$ref" : "#/components/schemas/v1DaskReplica"
+            "default" : "daskcluster"
           },
           "worker" : {
             "$ref" : "#/components/schemas/v1DaskReplica"
@@ -35734,14 +35761,14 @@
           }
         }
       },
-      "v1RayJob" : {
+      "v1RayCluster" : {
         "title" : "Ray specification",
         "type" : "object",
         "properties" : {
           "kind" : {
-            "title" : "Kind of runtime, should be equal to \"rayjob\"",
+            "title" : "Kind of runtime, should be equal to \"raycluster\"",
             "type" : "string",
-            "default" : "rayjob"
+            "default" : "raycluster"
           },
           "entrypoint" : {
             "title" : "Entrypoint of the ray application, e.g. python path/to/run.py",
@@ -36175,7 +36202,7 @@
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "dag", "daskjob", "rayjob", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
+        "enum" : [ "job", "service", "cluster", "dag", "daskcluster", "raycluster", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
         "default" : "job"
       },
       "v1RunPending" : {
@@ -36252,11 +36279,11 @@
           "mpiJob" : {
             "$ref" : "#/components/schemas/v1MPIJob"
           },
-          "daskJob" : {
-            "$ref" : "#/components/schemas/v1DaskJob"
+          "daskcluster" : {
+            "$ref" : "#/components/schemas/v1DaskCluster"
           },
-          "rayJob" : {
-            "$ref" : "#/components/schemas/v1RayJob"
+          "raycluster" : {
+            "$ref" : "#/components/schemas/v1RayCluster"
           }
         }
       },

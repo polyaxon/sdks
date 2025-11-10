@@ -74,6 +74,12 @@ type GetRunLogsParams struct {
 	*/
 	Force *bool
 
+	/* Kind.
+
+	   Kind of the entity.
+	*/
+	Kind *string
+
 	/* LastFile.
 
 	   last file.
@@ -184,6 +190,17 @@ func (o *GetRunLogsParams) SetForce(force *bool) {
 	o.Force = force
 }
 
+// WithKind adds the kind to the get run logs params
+func (o *GetRunLogsParams) WithKind(kind *string) *GetRunLogsParams {
+	o.SetKind(kind)
+	return o
+}
+
+// SetKind adds the kind to the get run logs params
+func (o *GetRunLogsParams) SetKind(kind *string) {
+	o.Kind = kind
+}
+
 // WithLastFile adds the lastFile to the get run logs params
 func (o *GetRunLogsParams) WithLastFile(lastFile *string) *GetRunLogsParams {
 	o.SetLastFile(lastFile)
@@ -287,6 +304,23 @@ func (o *GetRunLogsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		if qForce != "" {
 
 			if err := r.SetQueryParam("force", qForce); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Kind != nil {
+
+		// query param kind
+		var qrKind string
+
+		if o.Kind != nil {
+			qrKind = *o.Kind
+		}
+		qKind := qrKind
+		if qKind != "" {
+
+			if err := r.SetQueryParam("kind", qKind); err != nil {
 				return err
 			}
 		}

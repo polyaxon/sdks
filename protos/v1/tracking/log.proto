@@ -52,17 +52,20 @@ message RunLogsRequest {
     // Uuid identifier of the entity
     string uuid = 4;
 
+    // Kind of the entity
+    string kind = 5;
+
     // last time
-    google.protobuf.Timestamp last_time = 5;
+    google.protobuf.Timestamp last_time = 6;
 
     // last file
-    string last_file = 6;
+    string last_file = 7;
 
     // Force query param
-    bool force = 7;
+    bool force = 8;
 
     // Connection to use
-    string connection = 8;
+    string connection = 9;
 }
 
 // Request collect logs for a run

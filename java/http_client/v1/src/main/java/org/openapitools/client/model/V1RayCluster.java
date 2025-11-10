@@ -49,13 +49,13 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * V1RayJob
+ * V1RayCluster
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class V1RayJob {
+public class V1RayCluster {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "rayjob";
+  private String kind = "raycluster";
 
   public static final String SERIALIZED_NAME_ENTRYPOINT = "entrypoint";
   @SerializedName(SERIALIZED_NAME_ENTRYPOINT)
@@ -81,10 +81,10 @@ public class V1RayJob {
   @SerializedName(SERIALIZED_NAME_WORKERS)
   private List<V1RayReplica> workers;
 
-  public V1RayJob() {
+  public V1RayCluster() {
   }
 
-  public V1RayJob kind(String kind) {
+  public V1RayCluster kind(String kind) {
 
     this.kind = kind;
     return this;
@@ -106,7 +106,7 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob entrypoint(String entrypoint) {
+  public V1RayCluster entrypoint(String entrypoint) {
 
     this.entrypoint = entrypoint;
     return this;
@@ -128,7 +128,7 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob runtimeEnv(Object runtimeEnv) {
+  public V1RayCluster runtimeEnv(Object runtimeEnv) {
 
     this.runtimeEnv = runtimeEnv;
     return this;
@@ -150,13 +150,13 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob metadata(Map<String, String> metadata) {
+  public V1RayCluster metadata(Map<String, String> metadata) {
 
     this.metadata = metadata;
     return this;
   }
 
-  public V1RayJob putMetadataItem(String key, String metadataItem) {
+  public V1RayCluster putMetadataItem(String key, String metadataItem) {
     if (this.metadata == null) {
       this.metadata = new HashMap<>();
     }
@@ -180,7 +180,7 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob rayVersion(String rayVersion) {
+  public V1RayCluster rayVersion(String rayVersion) {
 
     this.rayVersion = rayVersion;
     return this;
@@ -202,7 +202,7 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob head(V1RayReplica head) {
+  public V1RayCluster head(V1RayReplica head) {
 
     this.head = head;
     return this;
@@ -224,13 +224,13 @@ public class V1RayJob {
   }
 
 
-  public V1RayJob workers(List<V1RayReplica> workers) {
+  public V1RayCluster workers(List<V1RayReplica> workers) {
 
     this.workers = workers;
     return this;
   }
 
-  public V1RayJob addWorkersItem(V1RayReplica workersItem) {
+  public V1RayCluster addWorkersItem(V1RayReplica workersItem) {
     if (this.workers == null) {
       this.workers = new ArrayList<>();
     }
@@ -263,14 +263,14 @@ public class V1RayJob {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1RayJob v1RayJob = (V1RayJob) o;
-    return Objects.equals(this.kind, v1RayJob.kind) &&
-        Objects.equals(this.entrypoint, v1RayJob.entrypoint) &&
-        Objects.equals(this.runtimeEnv, v1RayJob.runtimeEnv) &&
-        Objects.equals(this.metadata, v1RayJob.metadata) &&
-        Objects.equals(this.rayVersion, v1RayJob.rayVersion) &&
-        Objects.equals(this.head, v1RayJob.head) &&
-        Objects.equals(this.workers, v1RayJob.workers);
+    V1RayCluster v1RayCluster = (V1RayCluster) o;
+    return Objects.equals(this.kind, v1RayCluster.kind) &&
+        Objects.equals(this.entrypoint, v1RayCluster.entrypoint) &&
+        Objects.equals(this.runtimeEnv, v1RayCluster.runtimeEnv) &&
+        Objects.equals(this.metadata, v1RayCluster.metadata) &&
+        Objects.equals(this.rayVersion, v1RayCluster.rayVersion) &&
+        Objects.equals(this.head, v1RayCluster.head) &&
+        Objects.equals(this.workers, v1RayCluster.workers);
   }
 
   @Override
@@ -281,7 +281,7 @@ public class V1RayJob {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1RayJob {\n");
+    sb.append("class V1RayCluster {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    entrypoint: ").append(toIndentedString(entrypoint)).append("\n");
     sb.append("    runtimeEnv: ").append(toIndentedString(runtimeEnv)).append("\n");
@@ -327,20 +327,20 @@ public class V1RayJob {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1RayJob
+  * @throws IOException if the JSON Object is invalid with respect to V1RayCluster
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!V1RayJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RayJob is not found in the empty JSON string", V1RayJob.openapiRequiredFields.toString()));
+        if (!V1RayCluster.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RayCluster is not found in the empty JSON string", V1RayCluster.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!V1RayJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RayJob` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!V1RayCluster.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RayCluster` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
@@ -376,22 +376,22 @@ public class V1RayJob {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!V1RayJob.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'V1RayJob' and its subtypes
+       if (!V1RayCluster.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1RayCluster' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<V1RayJob> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(V1RayJob.class));
+       final TypeAdapter<V1RayCluster> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1RayCluster.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<V1RayJob>() {
+       return (TypeAdapter<T>) new TypeAdapter<V1RayCluster>() {
            @Override
-           public void write(JsonWriter out, V1RayJob value) throws IOException {
+           public void write(JsonWriter out, V1RayCluster value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public V1RayJob read(JsonReader in) throws IOException {
+           public V1RayCluster read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -402,18 +402,18 @@ public class V1RayJob {
   }
 
  /**
-  * Create an instance of V1RayJob given an JSON string
+  * Create an instance of V1RayCluster given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of V1RayJob
-  * @throws IOException if the JSON string is invalid with respect to V1RayJob
+  * @return An instance of V1RayCluster
+  * @throws IOException if the JSON string is invalid with respect to V1RayCluster
   */
-  public static V1RayJob fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, V1RayJob.class);
+  public static V1RayCluster fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1RayCluster.class);
   }
 
  /**
-  * Convert an instance of V1RayJob to an JSON string
+  * Convert an instance of V1RayCluster to an JSON string
   *
   * @return JSON string
   */

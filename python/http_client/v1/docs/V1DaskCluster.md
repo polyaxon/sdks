@@ -1,30 +1,29 @@
-# V1DaskJob
+# V1DaskCluster
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'daskjob']
-**job** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
+**kind** | **str** |  | [optional] [default to 'daskcluster']
 **worker** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
 **scheduler** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
 
 ## Example
 
 ```python
-from polyaxon_sdk.models.v1_dask_job import V1DaskJob
+from polyaxon_sdk.models.v1_dask_cluster import V1DaskCluster
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of V1DaskJob from a JSON string
-v1_dask_job_instance = V1DaskJob.from_json(json)
+# create an instance of V1DaskCluster from a JSON string
+v1_dask_cluster_instance = V1DaskCluster.from_json(json)
 # print the JSON string representation of the object
-print V1DaskJob.to_json()
+print V1DaskCluster.to_json()
 
 # convert the object into a dict
-v1_dask_job_dict = v1_dask_job_instance.to_dict()
-# create an instance of V1DaskJob from a dict
-v1_dask_job_form_dict = v1_dask_job.from_dict(v1_dask_job_dict)
+v1_dask_cluster_dict = v1_dask_cluster_instance.to_dict()
+# create an instance of V1DaskCluster from a dict
+v1_dask_cluster_form_dict = v1_dask_cluster.from_dict(v1_dask_cluster_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

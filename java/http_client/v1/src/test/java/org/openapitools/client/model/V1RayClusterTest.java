@@ -29,17 +29,17 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for V1RayJob
+ * Model tests for V1RayCluster
  */
-public class V1RayJobTest {
-    private final V1RayJob model = new V1RayJob();
+public class V1RayClusterTest {
+    private final V1RayCluster model = new V1RayCluster();
 
     /**
-     * Model tests for V1RayJob
+     * Model tests for V1RayCluster
      */
     @Test
-    public void testV1RayJob() {
-        // TODO: test V1RayJob
+    public void testV1RayCluster() {
+        // TODO: test V1RayCluster
     }
 
     /**

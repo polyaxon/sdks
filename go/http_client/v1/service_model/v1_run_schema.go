@@ -21,8 +21,8 @@ type V1RunSchema struct {
 	// dag
 	Dag *V1Dag `json:"dag,omitempty"`
 
-	// dask job
-	DaskJob *V1DaskJob `json:"daskJob,omitempty"`
+	// daskcluster
+	Daskcluster *V1DaskCluster `json:"daskcluster,omitempty"`
 
 	// job
 	Job *V1Job `json:"job,omitempty"`
@@ -33,8 +33,8 @@ type V1RunSchema struct {
 	// pytorch job
 	PytorchJob *V1PytorchJob `json:"pytorchJob,omitempty"`
 
-	// ray job
-	RayJob *V1RayJob `json:"rayJob,omitempty"`
+	// raycluster
+	Raycluster *V1RayCluster `json:"raycluster,omitempty"`
 
 	// service
 	Service *V1Service `json:"service,omitempty"`
@@ -51,7 +51,7 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateDaskJob(formats); err != nil {
+	if err := m.validateDaskcluster(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -67,7 +67,7 @@ func (m *V1RunSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateRayJob(formats); err != nil {
+	if err := m.validateRaycluster(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -104,17 +104,17 @@ func (m *V1RunSchema) validateDag(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateDaskJob(formats strfmt.Registry) error {
-	if swag.IsZero(m.DaskJob) { // not required
+func (m *V1RunSchema) validateDaskcluster(formats strfmt.Registry) error {
+	if swag.IsZero(m.Daskcluster) { // not required
 		return nil
 	}
 
-	if m.DaskJob != nil {
-		if err := m.DaskJob.Validate(formats); err != nil {
+	if m.Daskcluster != nil {
+		if err := m.Daskcluster.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("daskJob")
+				return ve.ValidateName("daskcluster")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("daskJob")
+				return ce.ValidateName("daskcluster")
 			}
 			return err
 		}
@@ -180,17 +180,17 @@ func (m *V1RunSchema) validatePytorchJob(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1RunSchema) validateRayJob(formats strfmt.Registry) error {
-	if swag.IsZero(m.RayJob) { // not required
+func (m *V1RunSchema) validateRaycluster(formats strfmt.Registry) error {
+	if swag.IsZero(m.Raycluster) { // not required
 		return nil
 	}
 
-	if m.RayJob != nil {
-		if err := m.RayJob.Validate(formats); err != nil {
+	if m.Raycluster != nil {
+		if err := m.Raycluster.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("rayJob")
+				return ve.ValidateName("raycluster")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("rayJob")
+				return ce.ValidateName("raycluster")
 			}
 			return err
 		}
@@ -245,7 +245,7 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateDaskJob(ctx, formats); err != nil {
+	if err := m.contextValidateDaskcluster(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -261,7 +261,7 @@ func (m *V1RunSchema) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateRayJob(ctx, formats); err != nil {
+	if err := m.contextValidateRaycluster(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -300,19 +300,19 @@ func (m *V1RunSchema) contextValidateDag(ctx context.Context, formats strfmt.Reg
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateDaskJob(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSchema) contextValidateDaskcluster(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.DaskJob != nil {
+	if m.Daskcluster != nil {
 
-		if swag.IsZero(m.DaskJob) { // not required
+		if swag.IsZero(m.Daskcluster) { // not required
 			return nil
 		}
 
-		if err := m.DaskJob.ContextValidate(ctx, formats); err != nil {
+		if err := m.Daskcluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("daskJob")
+				return ve.ValidateName("daskcluster")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("daskJob")
+				return ce.ValidateName("daskcluster")
 			}
 			return err
 		}
@@ -384,19 +384,19 @@ func (m *V1RunSchema) contextValidatePytorchJob(ctx context.Context, formats str
 	return nil
 }
 
-func (m *V1RunSchema) contextValidateRayJob(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1RunSchema) contextValidateRaycluster(ctx context.Context, formats strfmt.Registry) error {
 
-	if m.RayJob != nil {
+	if m.Raycluster != nil {
 
-		if swag.IsZero(m.RayJob) { // not required
+		if swag.IsZero(m.Raycluster) { // not required
 			return nil
 		}
 
-		if err := m.RayJob.ContextValidate(ctx, formats); err != nil {
+		if err := m.Raycluster.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("rayJob")
+				return ve.ValidateName("raycluster")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("rayJob")
+				return ce.ValidateName("raycluster")
 			}
 			return err
 		}

@@ -336,6 +336,7 @@ export interface GetRunLogsRequest {
     owner: string;
     project: string;
     uuid: string;
+    kind?: string;
     lastTime?: Date;
     lastFile?: string;
     force?: boolean;
@@ -353,6 +354,7 @@ export interface GetRunResourcesRequest {
     owner: string;
     project: string;
     uuid: string;
+    kind?: string;
     names?: string;
     tail?: boolean;
     force?: boolean;
@@ -426,6 +428,7 @@ export interface InspectRunRequest {
     owner: string;
     project: string;
     uuid: string;
+    kind?: string;
     names?: string;
     tail?: boolean;
     force?: boolean;
@@ -2149,6 +2152,10 @@ export class RunsV1Api extends runtime.BaseAPI {
 
         const queryParameters: any = {};
 
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
+
         if (requestParameters.lastTime !== undefined) {
             queryParameters['last_time'] = (requestParameters.lastTime as any).toISOString();
         }
@@ -2252,6 +2259,10 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
 
         if (requestParameters.names !== undefined) {
             queryParameters['names'] = requestParameters.names;
@@ -2670,6 +2681,10 @@ export class RunsV1Api extends runtime.BaseAPI {
         }
 
         const queryParameters: any = {};
+
+        if (requestParameters.kind !== undefined) {
+            queryParameters['kind'] = requestParameters.kind;
+        }
 
         if (requestParameters.names !== undefined) {
             queryParameters['names'] = requestParameters.names;

@@ -42,17 +42,17 @@
         }
       }
     },
-    "v1DaskJob": {
+    "v1DaskCluster": {
       "properties": {
         "kind": {
-          "default": "daskjob"
+          "default": "daskcluster"
         }
       }
     },
-    "v1RayJob": {
+    "v1RayCluster": {
       "properties": {
         "kind": {
-          "default": "rayjob"
+          "default": "raycluster"
         }
       }
     }

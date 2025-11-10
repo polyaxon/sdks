@@ -7,11 +7,13 @@
 
 * `service` (value: `"service"`)
 
+* `cluster` (value: `"cluster"`)
+
 * `dag` (value: `"dag"`)
 
-* `daskjob` (value: `"daskjob"`)
+* `daskcluster` (value: `"daskcluster"`)
 
-* `rayjob` (value: `"rayjob"`)
+* `raycluster` (value: `"raycluster"`)
 
 * `mpijob` (value: `"mpijob"`)
 

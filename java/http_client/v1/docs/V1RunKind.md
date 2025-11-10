@@ -9,11 +9,13 @@
 
 * `SERVICE` (value: `"service"`)
 
+* `CLUSTER` (value: `"cluster"`)
+
 * `DAG` (value: `"dag"`)
 
-* `DASKJOB` (value: `"daskjob"`)
+* `DASKCLUSTER` (value: `"daskcluster"`)
 
-* `RAYJOB` (value: `"rayjob"`)
+* `RAYCLUSTER` (value: `"raycluster"`)
 
 * `MPIJOB` (value: `"mpijob"`)
 

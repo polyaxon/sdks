@@ -5238,6 +5238,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind Kind of the entity. (optional)
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
@@ -5255,7 +5256,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunLogsCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunLogsCall(String namespace, String owner, String project, String uuid, String kind, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5283,6 +5284,10 @@ public class RunsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (kind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
+        }
 
         if (lastTime != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("last_time", lastTime));
@@ -5320,7 +5325,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunLogsValidateBeforeCall(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunLogsValidateBeforeCall(String namespace, String owner, String project, String uuid, String kind, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getRunLogs(Async)");
@@ -5341,7 +5346,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunLogs(Async)");
         }
 
-        return getRunLogsCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, _callback);
+        return getRunLogsCall(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection, _callback);
 
     }
 
@@ -5352,6 +5357,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind Kind of the entity. (optional)
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
@@ -5368,8 +5374,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1Logs getRunLogs(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
-        ApiResponse<V1Logs> localVarResp = getRunLogsWithHttpInfo(namespace, owner, project, uuid, lastTime, lastFile, force, connection);
+    public V1Logs getRunLogs(String namespace, String owner, String project, String uuid, String kind, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
+        ApiResponse<V1Logs> localVarResp = getRunLogsWithHttpInfo(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection);
         return localVarResp.getData();
     }
 
@@ -5380,6 +5386,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind Kind of the entity. (optional)
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
@@ -5396,8 +5403,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1Logs> getRunLogsWithHttpInfo(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
-        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, null);
+    public ApiResponse<V1Logs> getRunLogsWithHttpInfo(String namespace, String owner, String project, String uuid, String kind, OffsetDateTime lastTime, String lastFile, Boolean force, String connection) throws ApiException {
+        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection, null);
         Type localVarReturnType = new TypeToken<V1Logs>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5409,6 +5416,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind Kind of the entity. (optional)
      * @param lastTime last time. (optional)
      * @param lastFile last file. (optional)
      * @param force Force query param. (optional)
@@ -5426,9 +5434,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunLogsAsync(String namespace, String owner, String project, String uuid, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback<V1Logs> _callback) throws ApiException {
+    public okhttp3.Call getRunLogsAsync(String namespace, String owner, String project, String uuid, String kind, OffsetDateTime lastTime, String lastFile, Boolean force, String connection, final ApiCallback<V1Logs> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, lastTime, lastFile, force, connection, _callback);
+        okhttp3.Call localVarCall = getRunLogsValidateBeforeCall(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection, _callback);
         Type localVarReturnType = new TypeToken<V1Logs>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5598,6 +5606,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -5617,7 +5626,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunResourcesCall(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRunResourcesCall(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5645,6 +5654,10 @@ public class RunsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (kind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
+        }
 
         if (names != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("names", names));
@@ -5690,7 +5703,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRunResourcesValidateBeforeCall(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRunResourcesValidateBeforeCall(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling getRunResources(Async)");
@@ -5711,7 +5724,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling getRunResources(Async)");
         }
 
-        return getRunResourcesCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, _callback);
+        return getRunResourcesCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, _callback);
 
     }
 
@@ -5722,6 +5735,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -5740,8 +5754,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public V1EventsResponse getRunResources(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        ApiResponse<V1EventsResponse> localVarResp = getRunResourcesWithHttpInfo(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+    public V1EventsResponse getRunResources(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        ApiResponse<V1EventsResponse> localVarResp = getRunResourcesWithHttpInfo(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
         return localVarResp.getData();
     }
 
@@ -5752,6 +5766,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -5770,8 +5785,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<V1EventsResponse> getRunResourcesWithHttpInfo(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        okhttp3.Call localVarCall = getRunResourcesValidateBeforeCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, null);
+    public ApiResponse<V1EventsResponse> getRunResourcesWithHttpInfo(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        okhttp3.Call localVarCall = getRunResourcesValidateBeforeCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, null);
         Type localVarReturnType = new TypeToken<V1EventsResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5783,6 +5798,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -5802,9 +5818,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRunResourcesAsync(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1EventsResponse> _callback) throws ApiException {
+    public okhttp3.Call getRunResourcesAsync(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback<V1EventsResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRunResourcesValidateBeforeCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, _callback);
+        okhttp3.Call localVarCall = getRunResourcesValidateBeforeCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, _callback);
         Type localVarReturnType = new TypeToken<V1EventsResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6959,6 +6975,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -6978,7 +6995,7 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call inspectRunCall(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call inspectRunCall(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -7006,6 +7023,10 @@ public class RunsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (kind != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("kind", kind));
+        }
 
         if (names != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("names", names));
@@ -7051,7 +7072,7 @@ public class RunsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call inspectRunValidateBeforeCall(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call inspectRunValidateBeforeCall(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling inspectRun(Async)");
@@ -7072,7 +7093,7 @@ public class RunsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling inspectRun(Async)");
         }
 
-        return inspectRunCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, _callback);
+        return inspectRunCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, _callback);
 
     }
 
@@ -7083,6 +7104,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -7101,8 +7123,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object inspectRun(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        ApiResponse<Object> localVarResp = inspectRunWithHttpInfo(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+    public Object inspectRun(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        ApiResponse<Object> localVarResp = inspectRunWithHttpInfo(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
         return localVarResp.getData();
     }
 
@@ -7113,6 +7135,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -7131,8 +7154,8 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> inspectRunWithHttpInfo(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
-        okhttp3.Call localVarCall = inspectRunValidateBeforeCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, null);
+    public ApiResponse<Object> inspectRunWithHttpInfo(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status) throws ApiException {
+        okhttp3.Call localVarCall = inspectRunValidateBeforeCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7144,6 +7167,7 @@ public class RunsV1Api {
      * @param owner Owner of the namespace (required)
      * @param project Project where the run will be assigned (required)
      * @param uuid Uuid identifier of the entity (required)
+     * @param kind The entity kind. (optional)
      * @param names Names query param. (optional)
      * @param tail Query param flag to tail the values. (optional)
      * @param force Force query param. (optional)
@@ -7163,9 +7187,9 @@ public class RunsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call inspectRunAsync(String namespace, String owner, String project, String uuid, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call inspectRunAsync(String namespace, String owner, String project, String uuid, String kind, String names, Boolean tail, Boolean force, Integer sample, String connection, String status, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = inspectRunValidateBeforeCall(namespace, owner, project, uuid, names, tail, force, sample, connection, status, _callback);
+        okhttp3.Call localVarCall = inspectRunValidateBeforeCall(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

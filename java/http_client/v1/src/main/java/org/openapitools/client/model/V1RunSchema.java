@@ -22,11 +22,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.openapitools.client.model.V1Dag;
-import org.openapitools.client.model.V1DaskJob;
+import org.openapitools.client.model.V1DaskCluster;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
 import org.openapitools.client.model.V1PytorchJob;
-import org.openapitools.client.model.V1RayJob;
+import org.openapitools.client.model.V1RayCluster;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1TFJob;
 
@@ -80,13 +80,13 @@ public class V1RunSchema {
   @SerializedName(SERIALIZED_NAME_MPI_JOB)
   private V1MPIJob mpiJob;
 
-  public static final String SERIALIZED_NAME_DASK_JOB = "daskJob";
-  @SerializedName(SERIALIZED_NAME_DASK_JOB)
-  private V1DaskJob daskJob;
+  public static final String SERIALIZED_NAME_DASKCLUSTER = "daskcluster";
+  @SerializedName(SERIALIZED_NAME_DASKCLUSTER)
+  private V1DaskCluster daskcluster;
 
-  public static final String SERIALIZED_NAME_RAY_JOB = "rayJob";
-  @SerializedName(SERIALIZED_NAME_RAY_JOB)
-  private V1RayJob rayJob;
+  public static final String SERIALIZED_NAME_RAYCLUSTER = "raycluster";
+  @SerializedName(SERIALIZED_NAME_RAYCLUSTER)
+  private V1RayCluster raycluster;
 
   public V1RunSchema() {
   }
@@ -223,47 +223,47 @@ public class V1RunSchema {
   }
 
 
-  public V1RunSchema daskJob(V1DaskJob daskJob) {
+  public V1RunSchema daskcluster(V1DaskCluster daskcluster) {
 
-    this.daskJob = daskJob;
+    this.daskcluster = daskcluster;
     return this;
   }
 
    /**
-   * Get daskJob
-   * @return daskJob
+   * Get daskcluster
+   * @return daskcluster
   **/
   @javax.annotation.Nullable
 
-  public V1DaskJob getDaskJob() {
-    return daskJob;
+  public V1DaskCluster getDaskcluster() {
+    return daskcluster;
   }
 
 
-  public void setDaskJob(V1DaskJob daskJob) {
-    this.daskJob = daskJob;
+  public void setDaskcluster(V1DaskCluster daskcluster) {
+    this.daskcluster = daskcluster;
   }
 
 
-  public V1RunSchema rayJob(V1RayJob rayJob) {
+  public V1RunSchema raycluster(V1RayCluster raycluster) {
 
-    this.rayJob = rayJob;
+    this.raycluster = raycluster;
     return this;
   }
 
    /**
-   * Get rayJob
-   * @return rayJob
+   * Get raycluster
+   * @return raycluster
   **/
   @javax.annotation.Nullable
 
-  public V1RayJob getRayJob() {
-    return rayJob;
+  public V1RayCluster getRaycluster() {
+    return raycluster;
   }
 
 
-  public void setRayJob(V1RayJob rayJob) {
-    this.rayJob = rayJob;
+  public void setRaycluster(V1RayCluster raycluster) {
+    this.raycluster = raycluster;
   }
 
 
@@ -283,13 +283,13 @@ public class V1RunSchema {
         Objects.equals(this.tfJob, v1RunSchema.tfJob) &&
         Objects.equals(this.pytorchJob, v1RunSchema.pytorchJob) &&
         Objects.equals(this.mpiJob, v1RunSchema.mpiJob) &&
-        Objects.equals(this.daskJob, v1RunSchema.daskJob) &&
-        Objects.equals(this.rayJob, v1RunSchema.rayJob);
+        Objects.equals(this.daskcluster, v1RunSchema.daskcluster) &&
+        Objects.equals(this.raycluster, v1RunSchema.raycluster);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, daskJob, rayJob);
+    return Objects.hash(job, service, dag, tfJob, pytorchJob, mpiJob, daskcluster, raycluster);
   }
 
   @Override
@@ -302,8 +302,8 @@ public class V1RunSchema {
     sb.append("    tfJob: ").append(toIndentedString(tfJob)).append("\n");
     sb.append("    pytorchJob: ").append(toIndentedString(pytorchJob)).append("\n");
     sb.append("    mpiJob: ").append(toIndentedString(mpiJob)).append("\n");
-    sb.append("    daskJob: ").append(toIndentedString(daskJob)).append("\n");
-    sb.append("    rayJob: ").append(toIndentedString(rayJob)).append("\n");
+    sb.append("    daskcluster: ").append(toIndentedString(daskcluster)).append("\n");
+    sb.append("    raycluster: ").append(toIndentedString(raycluster)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -332,8 +332,8 @@ public class V1RunSchema {
     openapiFields.add("tfJob");
     openapiFields.add("pytorchJob");
     openapiFields.add("mpiJob");
-    openapiFields.add("daskJob");
-    openapiFields.add("rayJob");
+    openapiFields.add("daskcluster");
+    openapiFields.add("raycluster");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -383,13 +383,13 @@ public class V1RunSchema {
       if (jsonObj.get("mpiJob") != null && !jsonObj.get("mpiJob").isJsonNull()) {
         V1MPIJob.validateJsonObject(jsonObj.getAsJsonObject("mpiJob"));
       }
-      // validate the optional field `daskJob`
-      if (jsonObj.get("daskJob") != null && !jsonObj.get("daskJob").isJsonNull()) {
-        V1DaskJob.validateJsonObject(jsonObj.getAsJsonObject("daskJob"));
+      // validate the optional field `daskcluster`
+      if (jsonObj.get("daskcluster") != null && !jsonObj.get("daskcluster").isJsonNull()) {
+        V1DaskCluster.validateJsonObject(jsonObj.getAsJsonObject("daskcluster"));
       }
-      // validate the optional field `rayJob`
-      if (jsonObj.get("rayJob") != null && !jsonObj.get("rayJob").isJsonNull()) {
-        V1RayJob.validateJsonObject(jsonObj.getAsJsonObject("rayJob"));
+      // validate the optional field `raycluster`
+      if (jsonObj.get("raycluster") != null && !jsonObj.get("raycluster").isJsonNull()) {
+        V1RayCluster.validateJsonObject(jsonObj.getAsJsonObject("raycluster"));
       }
   }
 

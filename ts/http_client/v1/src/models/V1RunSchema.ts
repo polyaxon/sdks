@@ -19,12 +19,12 @@ import {
     V1DagFromJSONTyped,
     V1DagToJSON,
 } from './V1Dag';
-import type { V1DaskJob } from './V1DaskJob';
+import type { V1DaskCluster } from './V1DaskCluster';
 import {
-    V1DaskJobFromJSON,
-    V1DaskJobFromJSONTyped,
-    V1DaskJobToJSON,
-} from './V1DaskJob';
+    V1DaskClusterFromJSON,
+    V1DaskClusterFromJSONTyped,
+    V1DaskClusterToJSON,
+} from './V1DaskCluster';
 import type { V1Job } from './V1Job';
 import {
     V1JobFromJSON,
@@ -43,12 +43,12 @@ import {
     V1PytorchJobFromJSONTyped,
     V1PytorchJobToJSON,
 } from './V1PytorchJob';
-import type { V1RayJob } from './V1RayJob';
+import type { V1RayCluster } from './V1RayCluster';
 import {
-    V1RayJobFromJSON,
-    V1RayJobFromJSONTyped,
-    V1RayJobToJSON,
-} from './V1RayJob';
+    V1RayClusterFromJSON,
+    V1RayClusterFromJSONTyped,
+    V1RayClusterToJSON,
+} from './V1RayCluster';
 import type { V1Service } from './V1Service';
 import {
     V1ServiceFromJSON,
@@ -106,16 +106,16 @@ export interface V1RunSchema {
     mpiJob?: V1MPIJob;
     /**
      *
-     * @type {V1DaskJob}
+     * @type {V1DaskCluster}
      * @memberof V1RunSchema
      */
-    daskJob?: V1DaskJob;
+    daskcluster?: V1DaskCluster;
     /**
      *
-     * @type {V1RayJob}
+     * @type {V1RayCluster}
      * @memberof V1RunSchema
      */
-    rayJob?: V1RayJob;
+    raycluster?: V1RayCluster;
 }
 
 /**
@@ -143,8 +143,8 @@ export function V1RunSchemaFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'tfJob': !exists(json, 'tfJob') ? undefined : V1TFJobFromJSON(json['tfJob']),
         'pytorchJob': !exists(json, 'pytorchJob') ? undefined : V1PytorchJobFromJSON(json['pytorchJob']),
         'mpiJob': !exists(json, 'mpiJob') ? undefined : V1MPIJobFromJSON(json['mpiJob']),
-        'daskJob': !exists(json, 'daskJob') ? undefined : V1DaskJobFromJSON(json['daskJob']),
-        'rayJob': !exists(json, 'rayJob') ? undefined : V1RayJobFromJSON(json['rayJob']),
+        'daskcluster': !exists(json, 'daskcluster') ? undefined : V1DaskClusterFromJSON(json['daskcluster']),
+        'raycluster': !exists(json, 'raycluster') ? undefined : V1RayClusterFromJSON(json['raycluster']),
     };
 }
 
@@ -163,8 +163,8 @@ export function V1RunSchemaToJSON(value?: V1RunSchema | null): any {
         'tfJob': V1TFJobToJSON(value.tfJob),
         'pytorchJob': V1PytorchJobToJSON(value.pytorchJob),
         'mpiJob': V1MPIJobToJSON(value.mpiJob),
-        'daskJob': V1DaskJobToJSON(value.daskJob),
-        'rayJob': V1RayJobToJSON(value.rayJob),
+        'daskcluster': V1DaskClusterToJSON(value.daskcluster),
+        'raycluster': V1RayClusterToJSON(value.raycluster),
     };
 }
 

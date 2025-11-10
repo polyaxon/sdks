@@ -1798,6 +1798,7 @@ let owner = "owner_example"; // String | Owner of the namespace
 let project = "project_example"; // String | Project where the run will be assigned
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
+  'kind': "kind_example", // String | Kind of the entity.
   'last_time': new Date("2013-10-20T19:20:30+01:00"), // Date | last time.
   'last_file': "last_file_example", // String | last file.
   'force': true, // Boolean | Force query param.
@@ -1821,6 +1822,7 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
+ **kind** | **String**| Kind of the entity. | [optional] 
  **last_time** | **Date**| last time. | [optional] 
  **last_file** | **String**| last file. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
@@ -1916,6 +1918,7 @@ let owner = "owner_example"; // String | Owner of the namespace
 let project = "project_example"; // String | Project where the run will be assigned
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
+  'kind': "kind_example", // String | The entity kind.
   'names': "names_example", // String | Names query param.
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
@@ -1941,6 +1944,7 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
+ **kind** | **String**| The entity kind. | [optional] 
  **names** | **String**| Names query param. | [optional] 
  **tail** | **Boolean**| Query param flag to tail the values. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 
@@ -2357,6 +2361,7 @@ let owner = "owner_example"; // String | Owner of the namespace
 let project = "project_example"; // String | Project where the run will be assigned
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
 let opts = {
+  'kind': "kind_example", // String | The entity kind.
   'names': "names_example", // String | Names query param.
   'tail': true, // Boolean | Query param flag to tail the values.
   'force': true, // Boolean | Force query param.
@@ -2382,6 +2387,7 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **project** | **String**| Project where the run will be assigned | 
  **uuid** | **String**| Uuid identifier of the entity | 
+ **kind** | **String**| The entity kind. | [optional] 
  **names** | **String**| Names query param. | [optional] 
  **tail** | **Boolean**| Query param flag to tail the values. | [optional] 
  **force** | **Boolean**| Force query param. | [optional] 

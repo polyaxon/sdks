@@ -204,7 +204,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -216,7 +216,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -236,7 +236,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -248,7 +248,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -306,7 +306,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -318,7 +318,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -407,7 +407,7 @@
         }
       }
     },
-    "v1DaskJob": {
+    "v1DaskCluster": {
       "properties": {
         "volumes": {
           "type": "array",

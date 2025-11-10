@@ -2370,7 +2370,7 @@ public class Example {
 
 <a name="getRunLogs"></a>
 # **getRunLogs**
-> V1Logs getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force, connection)
+> V1Logs getRunLogs(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection)
 
 Get run logs
 
@@ -2400,12 +2400,13 @@ public class Example {
     String owner = "owner_example"; // String | Owner of the namespace
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String kind = "kind_example"; // String | Kind of the entity.
     OffsetDateTime lastTime = OffsetDateTime.now(); // OffsetDateTime | last time.
     String lastFile = "lastFile_example"; // String | last file.
     Boolean force = true; // Boolean | Force query param.
     String connection = "connection_example"; // String | Connection to use.
     try {
-      V1Logs result = apiInstance.getRunLogs(namespace, owner, project, uuid, lastTime, lastFile, force, connection);
+      V1Logs result = apiInstance.getRunLogs(namespace, owner, project, uuid, kind, lastTime, lastFile, force, connection);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunLogs");
@@ -2426,6 +2427,7 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
+| **kind** | **String**| Kind of the entity. | [optional] |
 | **lastTime** | **OffsetDateTime**| last time. | [optional] |
 | **lastFile** | **String**| last file. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
@@ -2530,7 +2532,7 @@ public class Example {
 
 <a name="getRunResources"></a>
 # **getRunResources**
-> V1EventsResponse getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status)
+> V1EventsResponse getRunResources(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status)
 
 Get run resources events
 
@@ -2560,6 +2562,7 @@ public class Example {
     String owner = "owner_example"; // String | Owner of the namespace
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String kind = "kind_example"; // String | The entity kind.
     String names = "names_example"; // String | Names query param.
     Boolean tail = true; // Boolean | Query param flag to tail the values.
     Boolean force = true; // Boolean | Force query param.
@@ -2567,7 +2570,7 @@ public class Example {
     String connection = "connection_example"; // String | Connection to use.
     String status = "created"; // String | Optional status.
     try {
-      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+      V1EventsResponse result = apiInstance.getRunResources(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#getRunResources");
@@ -2588,6 +2591,7 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
+| **kind** | **String**| The entity kind. | [optional] |
 | **names** | **String**| Names query param. | [optional] |
 | **tail** | **Boolean**| Query param flag to tail the values. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |
@@ -3117,7 +3121,7 @@ public class Example {
 
 <a name="inspectRun"></a>
 # **inspectRun**
-> Object inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status)
+> Object inspectRun(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status)
 
 Inspect an active run full conditions
 
@@ -3147,6 +3151,7 @@ public class Example {
     String owner = "owner_example"; // String | Owner of the namespace
     String project = "project_example"; // String | Project where the run will be assigned
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String kind = "kind_example"; // String | The entity kind.
     String names = "names_example"; // String | Names query param.
     Boolean tail = true; // Boolean | Query param flag to tail the values.
     Boolean force = true; // Boolean | Force query param.
@@ -3154,7 +3159,7 @@ public class Example {
     String connection = "connection_example"; // String | Connection to use.
     String status = "created"; // String | Optional status.
     try {
-      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, names, tail, force, sample, connection, status);
+      Object result = apiInstance.inspectRun(namespace, owner, project, uuid, kind, names, tail, force, sample, connection, status);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling RunsV1Api#inspectRun");
@@ -3175,6 +3180,7 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **project** | **String**| Project where the run will be assigned | |
 | **uuid** | **String**| Uuid identifier of the entity | |
+| **kind** | **String**| The entity kind. | [optional] |
 | **names** | **String**| Names query param. | [optional] |
 | **tail** | **Boolean**| Query param flag to tail the values. | [optional] |
 | **force** | **Boolean**| Force query param. | [optional] |

@@ -32,9 +32,10 @@ class V1RunKind(str, Enum):
     """
     JOB = 'job'
     SERVICE = 'service'
+    CLUSTER = 'cluster'
     DAG = 'dag'
-    DASKJOB = 'daskjob'
-    RAYJOB = 'rayjob'
+    DASKCLUSTER = 'daskcluster'
+    RAYCLUSTER = 'raycluster'
     MPIJOB = 'mpijob'
     TFJOB = 'tfjob'
     PYTORCHJOB = 'pytorchjob'

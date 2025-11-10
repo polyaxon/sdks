@@ -4944,7 +4944,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -4956,7 +4956,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -5088,7 +5088,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -5100,7 +5100,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -5545,18 +5545,14 @@
       "title": "Dashboard spec definition",
       "type": "object"
     },
-    "v1DaskJob": {
+    "v1DaskCluster": {
       "properties": {
         "container": {
           "$ref": "#/definitions/io.k8s.api.core.v1.Container"
         },
-        "job": {
-          "$ref": "#/definitions/v1DaskReplica",
-          "title": "Job pod specification to execute"
-        },
         "kind": {
-          "default": "daskjob",
-          "title": "Optional component kind, should be equal to 'daskjob'",
+          "default": "daskcluster",
+          "title": "Optional component kind, should be equal to 'daskcluster'",
           "type": "string"
         },
         "scheduler": {
@@ -8522,7 +8518,7 @@
               "$ref": "#/definitions/v1Dag"
             },
             {
-              "$ref": "#/definitions/v1DaskJob"
+              "$ref": "#/definitions/v1DaskCluster"
             },
             {
               "$ref": "#/definitions/v1Job"
@@ -8534,7 +8530,7 @@
               "$ref": "#/definitions/v1PytorchJob"
             },
             {
-              "$ref": "#/definitions/v1RayJob"
+              "$ref": "#/definitions/v1RayCluster"
             },
             {
               "$ref": "#/definitions/v1Service"
@@ -9726,7 +9722,7 @@
       "title": "Matrix based on randomly generated search space",
       "type": "object"
     },
-    "v1RayJob": {
+    "v1RayCluster": {
       "properties": {
         "entrypoint": {
           "title": "Entrypoint of the ray application, e.g. python path/to/run.py",
@@ -9737,8 +9733,8 @@
           "title": "Ray head goupr section"
         },
         "kind": {
-          "default": "rayjob",
-          "title": "Kind of runtime, should be equal to \"rayjob\"",
+          "default": "raycluster",
+          "title": "Kind of runtime, should be equal to \"raycluster\"",
           "type": "string"
         },
         "metadata": {
@@ -10188,9 +10184,10 @@
       "enum": [
         "job",
         "service",
+        "cluster",
         "dag",
-        "daskjob",
-        "rayjob",
+        "daskcluster",
+        "raycluster",
         "mpijob",
         "tfjob",
         "pytorchjob",
@@ -10268,8 +10265,8 @@
         "dag": {
           "$ref": "#/definitions/v1Dag"
         },
-        "daskJob": {
-          "$ref": "#/definitions/v1DaskJob"
+        "daskcluster": {
+          "$ref": "#/definitions/v1DaskCluster"
         },
         "job": {
           "$ref": "#/definitions/v1Job"
@@ -10280,8 +10277,8 @@
         "pytorchJob": {
           "$ref": "#/definitions/v1PytorchJob"
         },
-        "rayJob": {
-          "$ref": "#/definitions/v1RayJob"
+        "raycluster": {
+          "$ref": "#/definitions/v1RayCluster"
         },
         "service": {
           "$ref": "#/definitions/v1Service"

@@ -55,7 +55,7 @@ from polyaxon_sdk.models.v1_dag import V1Dag
 from polyaxon_sdk.models.v1_dag_ref import V1DagRef
 from polyaxon_sdk.models.v1_dashboard import V1Dashboard
 from polyaxon_sdk.models.v1_dashboard_spec import V1DashboardSpec
-from polyaxon_sdk.models.v1_dask_job import V1DaskJob
+from polyaxon_sdk.models.v1_dask_cluster import V1DaskCluster
 from polyaxon_sdk.models.v1_dask_replica import V1DaskReplica
 from polyaxon_sdk.models.v1_date_time_schedule import V1DateTimeSchedule
 from polyaxon_sdk.models.v1_diff_stopping_policy import V1DiffStoppingPolicy
@@ -186,7 +186,7 @@ from polyaxon_sdk.models.v1_pytorch_elastic_policy import V1PytorchElasticPolicy
 from polyaxon_sdk.models.v1_pytorch_job import V1PytorchJob
 from polyaxon_sdk.models.v1_queue import V1Queue
 from polyaxon_sdk.models.v1_random_search import V1RandomSearch
-from polyaxon_sdk.models.v1_ray_job import V1RayJob
+from polyaxon_sdk.models.v1_ray_cluster import V1RayCluster
 from polyaxon_sdk.models.v1_ray_replica import V1RayReplica
 from polyaxon_sdk.models.v1_reference import V1Reference
 from polyaxon_sdk.models.v1_resource_type import V1ResourceType

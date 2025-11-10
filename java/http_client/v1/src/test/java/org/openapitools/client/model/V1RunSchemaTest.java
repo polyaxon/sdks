@@ -20,11 +20,11 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.openapitools.client.model.V1Dag;
-import org.openapitools.client.model.V1DaskJob;
+import org.openapitools.client.model.V1DaskCluster;
 import org.openapitools.client.model.V1Job;
 import org.openapitools.client.model.V1MPIJob;
 import org.openapitools.client.model.V1PytorchJob;
-import org.openapitools.client.model.V1RayJob;
+import org.openapitools.client.model.V1RayCluster;
 import org.openapitools.client.model.V1Service;
 import org.openapitools.client.model.V1TFJob;
 import org.junit.jupiter.api.Disabled;
@@ -94,19 +94,19 @@ public class V1RunSchemaTest {
     }
 
     /**
-     * Test the property 'daskJob'
+     * Test the property 'daskcluster'
      */
     @Test
-    public void daskJobTest() {
-        // TODO: test daskJob
+    public void daskclusterTest() {
+        // TODO: test daskcluster
     }
 
     /**
-     * Test the property 'rayJob'
+     * Test the property 'raycluster'
      */
     @Test
-    public void rayJobTest() {
-        // TODO: test rayJob
+    public void rayclusterTest() {
+        // TODO: test raycluster
     }
 
 }

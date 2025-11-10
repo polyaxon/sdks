@@ -1,10 +1,10 @@
-# PolyaxonSdk.V1RayJob
+# PolyaxonSdk.V1RayCluster
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **String** |  | [optional] [default to &#39;rayjob&#39;]
+**kind** | **String** |  | [optional] [default to &#39;raycluster&#39;]
 **entrypoint** | **String** |  | [optional] 
 **runtimeEnv** | **Object** |  | [optional] 
 **metadata** | **{String: String}** |  | [optional] 

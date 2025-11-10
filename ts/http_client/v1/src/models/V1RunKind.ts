@@ -20,9 +20,10 @@
 export const V1RunKind = {
     Job: 'job',
     Service: 'service',
+    Cluster: 'cluster',
     Dag: 'dag',
-    Daskjob: 'daskjob',
-    Rayjob: 'rayjob',
+    Daskcluster: 'daskcluster',
+    Raycluster: 'raycluster',
     Mpijob: 'mpijob',
     Tfjob: 'tfjob',
     Pytorchjob: 'pytorchjob',

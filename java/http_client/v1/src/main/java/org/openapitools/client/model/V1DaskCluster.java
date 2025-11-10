@@ -45,17 +45,13 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * V1DaskJob
+ * V1DaskCluster
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class V1DaskJob {
+public class V1DaskCluster {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "daskjob";
-
-  public static final String SERIALIZED_NAME_JOB = "job";
-  @SerializedName(SERIALIZED_NAME_JOB)
-  private V1DaskReplica job;
+  private String kind = "daskcluster";
 
   public static final String SERIALIZED_NAME_WORKER = "worker";
   @SerializedName(SERIALIZED_NAME_WORKER)
@@ -65,10 +61,10 @@ public class V1DaskJob {
   @SerializedName(SERIALIZED_NAME_SCHEDULER)
   private V1DaskReplica scheduler;
 
-  public V1DaskJob() {
+  public V1DaskCluster() {
   }
 
-  public V1DaskJob kind(String kind) {
+  public V1DaskCluster kind(String kind) {
 
     this.kind = kind;
     return this;
@@ -90,29 +86,7 @@ public class V1DaskJob {
   }
 
 
-  public V1DaskJob job(V1DaskReplica job) {
-
-    this.job = job;
-    return this;
-  }
-
-   /**
-   * Get job
-   * @return job
-  **/
-  @javax.annotation.Nullable
-
-  public V1DaskReplica getJob() {
-    return job;
-  }
-
-
-  public void setJob(V1DaskReplica job) {
-    this.job = job;
-  }
-
-
-  public V1DaskJob worker(V1DaskReplica worker) {
+  public V1DaskCluster worker(V1DaskReplica worker) {
 
     this.worker = worker;
     return this;
@@ -134,7 +108,7 @@ public class V1DaskJob {
   }
 
 
-  public V1DaskJob scheduler(V1DaskReplica scheduler) {
+  public V1DaskCluster scheduler(V1DaskReplica scheduler) {
 
     this.scheduler = scheduler;
     return this;
@@ -165,24 +139,22 @@ public class V1DaskJob {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1DaskJob v1DaskJob = (V1DaskJob) o;
-    return Objects.equals(this.kind, v1DaskJob.kind) &&
-        Objects.equals(this.job, v1DaskJob.job) &&
-        Objects.equals(this.worker, v1DaskJob.worker) &&
-        Objects.equals(this.scheduler, v1DaskJob.scheduler);
+    V1DaskCluster v1DaskCluster = (V1DaskCluster) o;
+    return Objects.equals(this.kind, v1DaskCluster.kind) &&
+        Objects.equals(this.worker, v1DaskCluster.worker) &&
+        Objects.equals(this.scheduler, v1DaskCluster.scheduler);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, job, worker, scheduler);
+    return Objects.hash(kind, worker, scheduler);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1DaskJob {\n");
+    sb.append("class V1DaskCluster {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    job: ").append(toIndentedString(job)).append("\n");
     sb.append("    worker: ").append(toIndentedString(worker)).append("\n");
     sb.append("    scheduler: ").append(toIndentedString(scheduler)).append("\n");
     sb.append("}");
@@ -208,7 +180,6 @@ public class V1DaskJob {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("kind");
-    openapiFields.add("job");
     openapiFields.add("worker");
     openapiFields.add("scheduler");
 
@@ -220,28 +191,24 @@ public class V1DaskJob {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1DaskJob
+  * @throws IOException if the JSON Object is invalid with respect to V1DaskCluster
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!V1DaskJob.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DaskJob is not found in the empty JSON string", V1DaskJob.openapiRequiredFields.toString()));
+        if (!V1DaskCluster.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DaskCluster is not found in the empty JSON string", V1DaskCluster.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!V1DaskJob.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DaskJob` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!V1DaskCluster.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DaskCluster` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
-      }
-      // validate the optional field `job`
-      if (jsonObj.get("job") != null && !jsonObj.get("job").isJsonNull()) {
-        V1DaskReplica.validateJsonObject(jsonObj.getAsJsonObject("job"));
       }
       // validate the optional field `worker`
       if (jsonObj.get("worker") != null && !jsonObj.get("worker").isJsonNull()) {
@@ -257,22 +224,22 @@ public class V1DaskJob {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!V1DaskJob.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'V1DaskJob' and its subtypes
+       if (!V1DaskCluster.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1DaskCluster' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<V1DaskJob> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(V1DaskJob.class));
+       final TypeAdapter<V1DaskCluster> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1DaskCluster.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<V1DaskJob>() {
+       return (TypeAdapter<T>) new TypeAdapter<V1DaskCluster>() {
            @Override
-           public void write(JsonWriter out, V1DaskJob value) throws IOException {
+           public void write(JsonWriter out, V1DaskCluster value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public V1DaskJob read(JsonReader in) throws IOException {
+           public V1DaskCluster read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -283,18 +250,18 @@ public class V1DaskJob {
   }
 
  /**
-  * Create an instance of V1DaskJob given an JSON string
+  * Create an instance of V1DaskCluster given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of V1DaskJob
-  * @throws IOException if the JSON string is invalid with respect to V1DaskJob
+  * @return An instance of V1DaskCluster
+  * @throws IOException if the JSON string is invalid with respect to V1DaskCluster
   */
-  public static V1DaskJob fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, V1DaskJob.class);
+  public static V1DaskCluster fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1DaskCluster.class);
   }
 
  /**
-  * Convert an instance of V1DaskJob to an JSON string
+  * Convert an instance of V1DaskCluster to an JSON string
   *
   * @return JSON string
   */

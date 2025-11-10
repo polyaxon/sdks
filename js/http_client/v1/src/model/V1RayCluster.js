@@ -15,18 +15,18 @@ import ApiClient from '../ApiClient';
 import V1RayReplica from './V1RayReplica';
 
 /**
- * The V1RayJob model module.
- * @module model/V1RayJob
+ * The V1RayCluster model module.
+ * @module model/V1RayCluster
  * @version 2.11.1
  */
-class V1RayJob {
+class V1RayCluster {
     /**
-     * Constructs a new <code>V1RayJob</code>.
-     * @alias module:model/V1RayJob
+     * Constructs a new <code>V1RayCluster</code>.
+     * @alias module:model/V1RayCluster
      */
     constructor() {
 
-        V1RayJob.initialize(this);
+        V1RayCluster.initialize(this);
     }
 
     /**
@@ -38,15 +38,15 @@ class V1RayJob {
     }
 
     /**
-     * Constructs a <code>V1RayJob</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1RayCluster</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1RayJob} obj Optional instance to populate.
-     * @return {module:model/V1RayJob} The populated <code>V1RayJob</code> instance.
+     * @param {module:model/V1RayCluster} obj Optional instance to populate.
+     * @return {module:model/V1RayCluster} The populated <code>V1RayCluster</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1RayJob();
+            obj = obj || new V1RayCluster();
 
             if (data.hasOwnProperty('kind')) {
                 obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
@@ -74,9 +74,9 @@ class V1RayJob {
     }
 
     /**
-     * Validates the JSON data with respect to <code>V1RayJob</code>.
+     * Validates the JSON data with respect to <code>V1RayCluster</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RayJob</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1RayCluster</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
@@ -116,44 +116,44 @@ class V1RayJob {
 
 /**
  * @member {String} kind
- * @default 'rayjob'
+ * @default 'raycluster'
  */
-V1RayJob.prototype['kind'] = 'rayjob';
+V1RayCluster.prototype['kind'] = 'raycluster';
 
 /**
  * @member {String} entrypoint
  */
-V1RayJob.prototype['entrypoint'] = undefined;
+V1RayCluster.prototype['entrypoint'] = undefined;
 
 /**
  * @member {Object} runtimeEnv
  */
-V1RayJob.prototype['runtimeEnv'] = undefined;
+V1RayCluster.prototype['runtimeEnv'] = undefined;
 
 /**
  * @member {Object.<String, String>} metadata
  */
-V1RayJob.prototype['metadata'] = undefined;
+V1RayCluster.prototype['metadata'] = undefined;
 
 /**
  * @member {String} rayVersion
  */
-V1RayJob.prototype['rayVersion'] = undefined;
+V1RayCluster.prototype['rayVersion'] = undefined;
 
 /**
  * @member {module:model/V1RayReplica} head
  */
-V1RayJob.prototype['head'] = undefined;
+V1RayCluster.prototype['head'] = undefined;
 
 /**
  * @member {Array.<module:model/V1RayReplica>} workers
  */
-V1RayJob.prototype['workers'] = undefined;
+V1RayCluster.prototype['workers'] = undefined;
 
 
 
 
 
 
-export default V1RayJob;
+export default V1RayCluster;
 

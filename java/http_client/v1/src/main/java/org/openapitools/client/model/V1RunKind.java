@@ -33,11 +33,13 @@ public enum V1RunKind {
 
   SERVICE("service"),
 
+  CLUSTER("cluster"),
+
   DAG("dag"),
 
-  DASKJOB("daskjob"),
+  DASKCLUSTER("daskcluster"),
 
-  RAYJOB("rayjob"),
+  RAYCLUSTER("raycluster"),
 
   MPIJOB("mpijob"),
 

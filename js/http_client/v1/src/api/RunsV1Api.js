@@ -1846,6 +1846,7 @@ export default class RunsV1Api {
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
+     * @param {String} [kind] Kind of the entity.
      * @param {Date} [last_time] last time.
      * @param {String} [last_file] last file.
      * @param {Boolean} [force] Force query param.
@@ -1880,6 +1881,7 @@ export default class RunsV1Api {
         'uuid': uuid
       };
       let queryParams = {
+        'kind': opts['kind'],
         'last_time': opts['last_time'],
         'last_file': opts['last_file'],
         'force': opts['force'],
@@ -1970,6 +1972,7 @@ export default class RunsV1Api {
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
+     * @param {String} [kind] The entity kind.
      * @param {String} [names] Names query param.
      * @param {Boolean} [tail] Query param flag to tail the values.
      * @param {Boolean} [force] Force query param.
@@ -2006,6 +2009,7 @@ export default class RunsV1Api {
         'uuid': uuid
       };
       let queryParams = {
+        'kind': opts['kind'],
         'names': opts['names'],
         'tail': opts['tail'],
         'force': opts['force'],
@@ -2418,6 +2422,7 @@ export default class RunsV1Api {
      * @param {String} project Project where the run will be assigned
      * @param {String} uuid Uuid identifier of the entity
      * @param {Object} opts Optional parameters
+     * @param {String} [kind] The entity kind.
      * @param {String} [names] Names query param.
      * @param {Boolean} [tail] Query param flag to tail the values.
      * @param {Boolean} [force] Force query param.
@@ -2454,6 +2459,7 @@ export default class RunsV1Api {
         'uuid': uuid
       };
       let queryParams = {
+        'kind': opts['kind'],
         'names': opts['names'],
         'tail': opts['tail'],
         'force': opts['force'],

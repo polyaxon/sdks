@@ -74,6 +74,12 @@ type GetRunResourcesParams struct {
 	*/
 	Force *bool
 
+	/* Kind.
+
+	   The entity kind.
+	*/
+	Kind *string
+
 	/* Names.
 
 	   Names query param.
@@ -212,6 +218,17 @@ func (o *GetRunResourcesParams) SetForce(force *bool) {
 	o.Force = force
 }
 
+// WithKind adds the kind to the get run resources params
+func (o *GetRunResourcesParams) WithKind(kind *string) *GetRunResourcesParams {
+	o.SetKind(kind)
+	return o
+}
+
+// SetKind adds the kind to the get run resources params
+func (o *GetRunResourcesParams) SetKind(kind *string) {
+	o.Kind = kind
+}
+
 // WithNames adds the names to the get run resources params
 func (o *GetRunResourcesParams) WithNames(names *string) *GetRunResourcesParams {
 	o.SetNames(names)
@@ -337,6 +354,23 @@ func (o *GetRunResourcesParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		if qForce != "" {
 
 			if err := r.SetQueryParam("force", qForce); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Kind != nil {
+
+		// query param kind
+		var qrKind string
+
+		if o.Kind != nil {
+			qrKind = *o.Kind
+		}
+		qKind := qrKind
+		if qKind != "" {
+
+			if err := r.SetQueryParam("kind", qKind); err != nil {
 				return err
 			}
 		}

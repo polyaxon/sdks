@@ -2530,7 +2530,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_logs**
-> V1Logs get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force, connection=connection)
+> V1Logs get_run_logs(namespace, owner, project, uuid, kind=kind, last_time=last_time, last_file=last_file, force=force, connection=connection)
 
 Get run logs
 
@@ -2569,6 +2569,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | Kind of the entity. (optional)
     last_time = '2013-10-20T19:20:30+01:00' # datetime | last time. (optional)
     last_file = 'last_file_example' # str | last file. (optional)
     force = True # bool | Force query param. (optional)
@@ -2576,7 +2577,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get run logs
-        api_response = api_instance.get_run_logs(namespace, owner, project, uuid, last_time=last_time, last_file=last_file, force=force, connection=connection)
+        api_response = api_instance.get_run_logs(namespace, owner, project, uuid, kind=kind, last_time=last_time, last_file=last_file, force=force, connection=connection)
         print("The response of RunsV1Api->get_run_logs:\n")
         pprint(api_response)
     except Exception as e:
@@ -2591,6 +2592,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
+ **kind** | **str**| Kind of the entity. | [optional] 
  **last_time** | **datetime**| last time. | [optional] 
  **last_file** | **str**| last file. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
@@ -2702,7 +2704,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_run_resources**
-> V1EventsResponse get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
+> V1EventsResponse get_run_resources(namespace, owner, project, uuid, kind=kind, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
 
 Get run resources events
 
@@ -2741,6 +2743,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | The entity kind. (optional)
     names = 'names_example' # str | Names query param. (optional)
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
@@ -2750,7 +2753,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Get run resources events
-        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
+        api_response = api_instance.get_run_resources(namespace, owner, project, uuid, kind=kind, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->get_run_resources:\n")
         pprint(api_response)
     except Exception as e:
@@ -2765,6 +2768,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
+ **kind** | **str**| The entity kind. | [optional] 
  **names** | **str**| Names query param. | [optional] 
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
@@ -3331,7 +3335,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **inspect_run**
-> object inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
+> object inspect_run(namespace, owner, project, uuid, kind=kind, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
 
 Inspect an active run full conditions
 
@@ -3370,6 +3374,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     project = 'project_example' # str | Project where the run will be assigned
     uuid = 'uuid_example' # str | Uuid identifier of the entity
+    kind = 'kind_example' # str | The entity kind. (optional)
     names = 'names_example' # str | Names query param. (optional)
     tail = True # bool | Query param flag to tail the values. (optional)
     force = True # bool | Force query param. (optional)
@@ -3379,7 +3384,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # Inspect an active run full conditions
-        api_response = api_instance.inspect_run(namespace, owner, project, uuid, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
+        api_response = api_instance.inspect_run(namespace, owner, project, uuid, kind=kind, names=names, tail=tail, force=force, sample=sample, connection=connection, status=status)
         print("The response of RunsV1Api->inspect_run:\n")
         pprint(api_response)
     except Exception as e:
@@ -3394,6 +3399,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **project** | **str**| Project where the run will be assigned | 
  **uuid** | **str**| Uuid identifier of the entity | 
+ **kind** | **str**| The entity kind. | [optional] 
  **names** | **str**| Names query param. | [optional] 
  **tail** | **bool**| Query param flag to tail the values. | [optional] 
  **force** | **bool**| Force query param. | [optional] 
