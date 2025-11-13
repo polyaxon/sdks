@@ -1,11 +1,10 @@
-FROM arm64v8/python:3.11.2-slim-buster
+FROM arm64v8/python:3.13-slim
 
 # This dockerfile is intended for dev only purposes
 LABEL maintainer="Polyaxon, Inc. <contact@polyaxon.com>"
 
 # build-essential for gcc
 # gpg for gosu
-# libpcre3 for uwsgi internal routing pcre
 # LibYAML by default to increase performance of pyyaml: add "libyaml-cpp-dev libyaml-dev"
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
   openssl \
@@ -15,7 +14,6 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
   curl \
   build-essential \
   gpg \
-  libpcre3 libpcre3-dev \
   && apt-get autoremove \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
@@ -54,7 +52,7 @@ RUN go get -u github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2
 RUN go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 RUN go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger
 RUN go get -u -a github.com/go-swagger/go-swagger/cmd/swagger
-RUN go install github.com/go-swagger/go-swagger/cmd/swagger@v0.30.5
+RUN CGO_ENABLED=0 go install github.com/go-swagger/go-swagger/cmd/swagger@v0.33.1
 
 # HTML openapi
 #RUN npm install -g bootprint
