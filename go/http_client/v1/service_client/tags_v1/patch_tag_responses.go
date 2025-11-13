@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchTagReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchTagOK()
@@ -104,11 +106,13 @@ func (o *PatchTagOK) Code() int {
 }
 
 func (o *PatchTagOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK %s", 200, payload)
 }
 
 func (o *PatchTagOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagOK %s", 200, payload)
 }
 
 func (o *PatchTagOK) GetPayload() *service_model.V1Tag {
@@ -120,7 +124,7 @@ func (o *PatchTagOK) readResponse(response runtime.ClientResponse, consumer runt
 	o.Payload = new(service_model.V1Tag)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchTagNoContent describes a response with status code 204, with default header
 No content.
 */
 type PatchTagNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch tag no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchTagNoContent) Code() int {
 }
 
 func (o *PatchTagNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent %s", 204, payload)
 }
 
 func (o *PatchTagNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNoContent %s", 204, payload)
 }
 
-func (o *PatchTagNoContent) GetPayload() interface{} {
+func (o *PatchTagNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTagNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchTagForbidden describes a response with status code 403, with default header
 You don't have permission to access the resource.
 */
 type PatchTagForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch tag forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchTagForbidden) Code() int {
 }
 
 func (o *PatchTagForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden %s", 403, payload)
 }
 
 func (o *PatchTagForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagForbidden %s", 403, payload)
 }
 
-func (o *PatchTagForbidden) GetPayload() interface{} {
+func (o *PatchTagForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTagForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchTagNotFound describes a response with status code 404, with default header 
 Resource does not exist.
 */
 type PatchTagNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch tag not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchTagNotFound) Code() int {
 }
 
 func (o *PatchTagNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound %s", 404, payload)
 }
 
 func (o *PatchTagNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] patchTagNotFound %s", 404, payload)
 }
 
-func (o *PatchTagNotFound) GetPayload() interface{} {
+func (o *PatchTagNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTagNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchTagDefault) Code() int {
 }
 
 func (o *PatchTagDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default %s", o._statusCode, payload)
 }
 
 func (o *PatchTagDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] PatchTag default %s", o._statusCode, payload)
 }
 
 func (o *PatchTagDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchTagDefault) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

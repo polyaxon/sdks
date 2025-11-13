@@ -6,6 +6,8 @@ package service_accounts_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteServiceAccountReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteServiceAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteServiceAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteServiceAccountOK()
@@ -103,11 +105,11 @@ func (o *DeleteServiceAccountOK) Code() int {
 }
 
 func (o *DeleteServiceAccountOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountOK", 200)
 }
 
 func (o *DeleteServiceAccountOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountOK", 200)
 }
 
 func (o *DeleteServiceAccountOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteServiceAccountNoContent describes a response with status code 204, with de
 No content.
 */
 type DeleteServiceAccountNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete service account no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteServiceAccountNoContent) Code() int {
 }
 
 func (o *DeleteServiceAccountNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNoContent %s", 204, payload)
 }
 
 func (o *DeleteServiceAccountNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNoContent %s", 204, payload)
 }
 
-func (o *DeleteServiceAccountNoContent) GetPayload() interface{} {
+func (o *DeleteServiceAccountNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteServiceAccountNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteServiceAccountForbidden describes a response with status code 403, with de
 You don't have permission to access the resource.
 */
 type DeleteServiceAccountForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete service account forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteServiceAccountForbidden) Code() int {
 }
 
 func (o *DeleteServiceAccountForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountForbidden %s", 403, payload)
 }
 
 func (o *DeleteServiceAccountForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountForbidden %s", 403, payload)
 }
 
-func (o *DeleteServiceAccountForbidden) GetPayload() interface{} {
+func (o *DeleteServiceAccountForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteServiceAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteServiceAccountNotFound describes a response with status code 404, with def
 Resource does not exist.
 */
 type DeleteServiceAccountNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete service account not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteServiceAccountNotFound) Code() int {
 }
 
 func (o *DeleteServiceAccountNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNotFound %s", 404, payload)
 }
 
 func (o *DeleteServiceAccountNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] deleteServiceAccountNotFound %s", 404, payload)
 }
 
-func (o *DeleteServiceAccountNotFound) GetPayload() interface{} {
+func (o *DeleteServiceAccountNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteServiceAccountNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteServiceAccountDefault) Code() int {
 }
 
 func (o *DeleteServiceAccountDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] DeleteServiceAccount default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] DeleteServiceAccount default %s", o._statusCode, payload)
 }
 
 func (o *DeleteServiceAccountDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] DeleteServiceAccount default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/sa/{uuid}][%d] DeleteServiceAccount default %s", o._statusCode, payload)
 }
 
 func (o *DeleteServiceAccountDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteServiceAccountDefault) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

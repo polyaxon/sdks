@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type RestoreRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *RestoreRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *RestoreRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewRestoreRunOK()
@@ -103,11 +105,11 @@ func (o *RestoreRunOK) Code() int {
 }
 
 func (o *RestoreRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK", 200)
 }
 
 func (o *RestoreRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunOK", 200)
 }
 
 func (o *RestoreRunOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ RestoreRunNoContent describes a response with status code 204, with default head
 No content.
 */
 type RestoreRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore run no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *RestoreRunNoContent) Code() int {
 }
 
 func (o *RestoreRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent %s", 204, payload)
 }
 
 func (o *RestoreRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNoContent %s", 204, payload)
 }
 
-func (o *RestoreRunNoContent) GetPayload() interface{} {
+func (o *RestoreRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ RestoreRunForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type RestoreRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore run forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *RestoreRunForbidden) Code() int {
 }
 
 func (o *RestoreRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden %s", 403, payload)
 }
 
 func (o *RestoreRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunForbidden %s", 403, payload)
 }
 
-func (o *RestoreRunForbidden) GetPayload() interface{} {
+func (o *RestoreRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ RestoreRunNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type RestoreRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore run not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *RestoreRunNotFound) Code() int {
 }
 
 func (o *RestoreRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound %s", 404, payload)
 }
 
 func (o *RestoreRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] restoreRunNotFound %s", 404, payload)
 }
 
-func (o *RestoreRunNotFound) GetPayload() interface{} {
+func (o *RestoreRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *RestoreRunDefault) Code() int {
 }
 
 func (o *RestoreRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default %s", o._statusCode, payload)
 }
 
 func (o *RestoreRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/restore][%d] RestoreRun default %s", o._statusCode, payload)
 }
 
 func (o *RestoreRunDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *RestoreRunDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ApproveOrganizationRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ApproveOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ApproveOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewApproveOrganizationRunsOK()
@@ -103,11 +105,11 @@ func (o *ApproveOrganizationRunsOK) Code() int {
 }
 
 func (o *ApproveOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK", 200)
 }
 
 func (o *ApproveOrganizationRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsOK", 200)
 }
 
 func (o *ApproveOrganizationRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ApproveOrganizationRunsNoContent describes a response with status code 204, with
 No content.
 */
 type ApproveOrganizationRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this approve organization runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ApproveOrganizationRunsNoContent) Code() int {
 }
 
 func (o *ApproveOrganizationRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *ApproveOrganizationRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNoContent %s", 204, payload)
 }
 
-func (o *ApproveOrganizationRunsNoContent) GetPayload() interface{} {
+func (o *ApproveOrganizationRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ApproveOrganizationRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ApproveOrganizationRunsForbidden describes a response with status code 403, with
 You don't have permission to access the resource.
 */
 type ApproveOrganizationRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this approve organization runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ApproveOrganizationRunsForbidden) Code() int {
 }
 
 func (o *ApproveOrganizationRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *ApproveOrganizationRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsForbidden %s", 403, payload)
 }
 
-func (o *ApproveOrganizationRunsForbidden) GetPayload() interface{} {
+func (o *ApproveOrganizationRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ApproveOrganizationRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ApproveOrganizationRunsNotFound describes a response with status code 404, with 
 Resource does not exist.
 */
 type ApproveOrganizationRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this approve organization runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ApproveOrganizationRunsNotFound) Code() int {
 }
 
 func (o *ApproveOrganizationRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *ApproveOrganizationRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] approveOrganizationRunsNotFound %s", 404, payload)
 }
 
-func (o *ApproveOrganizationRunsNotFound) GetPayload() interface{} {
+func (o *ApproveOrganizationRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ApproveOrganizationRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ApproveOrganizationRunsDefault) Code() int {
 }
 
 func (o *ApproveOrganizationRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *ApproveOrganizationRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/approve][%d] ApproveOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *ApproveOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ApproveOrganizationRunsDefault) readResponse(response runtime.ClientRes
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

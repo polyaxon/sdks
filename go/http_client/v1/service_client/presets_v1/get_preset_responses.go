@@ -6,6 +6,8 @@ package presets_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetPresetReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetPresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetPresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetPresetOK()
@@ -104,11 +106,13 @@ func (o *GetPresetOK) Code() int {
 }
 
 func (o *GetPresetOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK %s", 200, payload)
 }
 
 func (o *GetPresetOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetOK %s", 200, payload)
 }
 
 func (o *GetPresetOK) GetPayload() *service_model.V1Preset {
@@ -120,7 +124,7 @@ func (o *GetPresetOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1Preset)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetPresetNoContent describes a response with status code 204, with default heade
 No content.
 */
 type GetPresetNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get preset no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetPresetNoContent) Code() int {
 }
 
 func (o *GetPresetNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent %s", 204, payload)
 }
 
 func (o *GetPresetNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNoContent %s", 204, payload)
 }
 
-func (o *GetPresetNoContent) GetPayload() interface{} {
+func (o *GetPresetNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetPresetNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetPresetForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type GetPresetForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get preset forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetPresetForbidden) Code() int {
 }
 
 func (o *GetPresetForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden %s", 403, payload)
 }
 
 func (o *GetPresetForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetForbidden %s", 403, payload)
 }
 
-func (o *GetPresetForbidden) GetPayload() interface{} {
+func (o *GetPresetForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetPresetForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetPresetNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type GetPresetNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get preset not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetPresetNotFound) Code() int {
 }
 
 func (o *GetPresetNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound %s", 404, payload)
 }
 
 func (o *GetPresetNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] getPresetNotFound %s", 404, payload)
 }
 
-func (o *GetPresetNotFound) GetPayload() interface{} {
+func (o *GetPresetNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetPresetNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetPresetDefault) Code() int {
 }
 
 func (o *GetPresetDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default %s", o._statusCode, payload)
 }
 
 func (o *GetPresetDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/presets/{uuid}][%d] GetPreset default %s", o._statusCode, payload)
 }
 
 func (o *GetPresetDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetPresetDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

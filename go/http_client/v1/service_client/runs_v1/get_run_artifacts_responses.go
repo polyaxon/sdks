@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -19,7 +21,7 @@ type GetRunArtifactsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunArtifactsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunArtifactsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunArtifactsOK()
@@ -95,11 +97,13 @@ func (o *GetRunArtifactsOK) Code() int {
 }
 
 func (o *GetRunArtifactsOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsOK %s", 200, payload)
 }
 
 func (o *GetRunArtifactsOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsOK %s", 200, payload)
 }
 
 func (o *GetRunArtifactsOK) GetPayload() string {
@@ -109,7 +113,7 @@ func (o *GetRunArtifactsOK) GetPayload() string {
 func (o *GetRunArtifactsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -127,7 +131,7 @@ GetRunArtifactsNoContent describes a response with status code 204, with default
 No content.
 */
 type GetRunArtifactsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts no content response has a 2xx status code
@@ -161,21 +165,23 @@ func (o *GetRunArtifactsNoContent) Code() int {
 }
 
 func (o *GetRunArtifactsNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNoContent %s", 204, payload)
 }
 
 func (o *GetRunArtifactsNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNoContent %s", 204, payload)
 }
 
-func (o *GetRunArtifactsNoContent) GetPayload() interface{} {
+func (o *GetRunArtifactsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -193,7 +199,7 @@ GetRunArtifactsForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type GetRunArtifactsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts forbidden response has a 2xx status code
@@ -227,21 +233,23 @@ func (o *GetRunArtifactsForbidden) Code() int {
 }
 
 func (o *GetRunArtifactsForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsForbidden %s", 403, payload)
 }
 
 func (o *GetRunArtifactsForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsForbidden %s", 403, payload)
 }
 
-func (o *GetRunArtifactsForbidden) GetPayload() interface{} {
+func (o *GetRunArtifactsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -259,7 +267,7 @@ GetRunArtifactsNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type GetRunArtifactsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts not found response has a 2xx status code
@@ -293,21 +301,23 @@ func (o *GetRunArtifactsNotFound) Code() int {
 }
 
 func (o *GetRunArtifactsNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNotFound %s", 404, payload)
 }
 
 func (o *GetRunArtifactsNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] getRunArtifactsNotFound %s", 404, payload)
 }
 
-func (o *GetRunArtifactsNotFound) GetPayload() interface{} {
+func (o *GetRunArtifactsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -100,11 +101,15 @@ func (m *V1Search) validateSpec(formats strfmt.Registry) error {
 
 	if m.Spec != nil {
 		if err := m.Spec.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("spec")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("spec")
 			}
+
 			return err
 		}
 	}
@@ -131,11 +136,15 @@ func (m *V1Search) validateView(formats strfmt.Registry) error {
 
 	if m.View != nil {
 		if err := m.View.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("view")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("view")
 			}
+
 			return err
 		}
 	}
@@ -170,11 +179,15 @@ func (m *V1Search) contextValidateSpec(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Spec.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("spec")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("spec")
 			}
+
 			return err
 		}
 	}
@@ -191,11 +204,15 @@ func (m *V1Search) contextValidateView(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.View.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("view")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("view")
 			}
+
 			return err
 		}
 	}

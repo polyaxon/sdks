@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteRunsOK()
@@ -103,11 +105,11 @@ func (o *DeleteRunsOK) Code() int {
 }
 
 func (o *DeleteRunsOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK", 200)
 }
 
 func (o *DeleteRunsOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsOK", 200)
 }
 
 func (o *DeleteRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteRunsNoContent describes a response with status code 204, with default head
 No content.
 */
 type DeleteRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteRunsNoContent) Code() int {
 }
 
 func (o *DeleteRunsNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent %s", 204, payload)
 }
 
 func (o *DeleteRunsNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNoContent %s", 204, payload)
 }
 
-func (o *DeleteRunsNoContent) GetPayload() interface{} {
+func (o *DeleteRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteRunsForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type DeleteRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteRunsForbidden) Code() int {
 }
 
 func (o *DeleteRunsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden %s", 403, payload)
 }
 
 func (o *DeleteRunsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsForbidden %s", 403, payload)
 }
 
-func (o *DeleteRunsForbidden) GetPayload() interface{} {
+func (o *DeleteRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteRunsNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type DeleteRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteRunsNotFound) Code() int {
 }
 
 func (o *DeleteRunsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound %s", 404, payload)
 }
 
 func (o *DeleteRunsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] deleteRunsNotFound %s", 404, payload)
 }
 
-func (o *DeleteRunsNotFound) GetPayload() interface{} {
+func (o *DeleteRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteRunsDefault) Code() int {
 }
 
 func (o *DeleteRunsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunsDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/runs/delete][%d] DeleteRuns default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteRunsDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -35,7 +36,7 @@ type V1RayCluster struct {
 	RayVersion string `json:"rayVersion,omitempty"`
 
 	// Optional run environment section to install pip packages or expose env vars
-	RuntimeEnv interface{} `json:"runtimeEnv,omitempty"`
+	RuntimeEnv any `json:"runtimeEnv,omitempty"`
 
 	// Ray workers group section
 	Workers []*V1RayReplica `json:"workers"`
@@ -66,11 +67,15 @@ func (m *V1RayCluster) validateHead(formats strfmt.Registry) error {
 
 	if m.Head != nil {
 		if err := m.Head.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("head")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("head")
 			}
+
 			return err
 		}
 	}
@@ -90,11 +95,15 @@ func (m *V1RayCluster) validateWorkers(formats strfmt.Registry) error {
 
 		if m.Workers[i] != nil {
 			if err := m.Workers[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("workers" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("workers" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -131,11 +140,15 @@ func (m *V1RayCluster) contextValidateHead(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Head.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("head")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("head")
 			}
+
 			return err
 		}
 	}
@@ -154,11 +167,15 @@ func (m *V1RayCluster) contextValidateWorkers(ctx context.Context, formats strfm
 			}
 
 			if err := m.Workers[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("workers" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("workers" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

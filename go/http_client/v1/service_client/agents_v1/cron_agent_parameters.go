@@ -65,7 +65,7 @@ type CronAgentParams struct {
 
 	   Cron body
 	*/
-	Body interface{}
+	Body any
 
 	/* Owner.
 
@@ -127,13 +127,13 @@ func (o *CronAgentParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the cron agent params
-func (o *CronAgentParams) WithBody(body interface{}) *CronAgentParams {
+func (o *CronAgentParams) WithBody(body any) *CronAgentParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the cron agent params
-func (o *CronAgentParams) SetBody(body interface{}) {
+func (o *CronAgentParams) SetBody(body any) {
 	o.Body = body
 }
 

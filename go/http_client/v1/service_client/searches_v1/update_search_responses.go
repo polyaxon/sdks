@@ -6,6 +6,8 @@ package searches_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateSearchReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateSearchOK()
@@ -104,11 +106,13 @@ func (o *UpdateSearchOK) Code() int {
 }
 
 func (o *UpdateSearchOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchOK %s", 200, payload)
 }
 
 func (o *UpdateSearchOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchOK %s", 200, payload)
 }
 
 func (o *UpdateSearchOK) GetPayload() *service_model.V1Search {
@@ -120,7 +124,7 @@ func (o *UpdateSearchOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1Search)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateSearchNoContent describes a response with status code 204, with default he
 No content.
 */
 type UpdateSearchNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update search no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateSearchNoContent) Code() int {
 }
 
 func (o *UpdateSearchNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNoContent %s", 204, payload)
 }
 
 func (o *UpdateSearchNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNoContent %s", 204, payload)
 }
 
-func (o *UpdateSearchNoContent) GetPayload() interface{} {
+func (o *UpdateSearchNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateSearchNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateSearchForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type UpdateSearchForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update search forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateSearchForbidden) Code() int {
 }
 
 func (o *UpdateSearchForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchForbidden %s", 403, payload)
 }
 
 func (o *UpdateSearchForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchForbidden %s", 403, payload)
 }
 
-func (o *UpdateSearchForbidden) GetPayload() interface{} {
+func (o *UpdateSearchForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateSearchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateSearchNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type UpdateSearchNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update search not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateSearchNotFound) Code() int {
 }
 
 func (o *UpdateSearchNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNotFound %s", 404, payload)
 }
 
 func (o *UpdateSearchNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] updateSearchNotFound %s", 404, payload)
 }
 
-func (o *UpdateSearchNotFound) GetPayload() interface{} {
+func (o *UpdateSearchNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateSearchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateSearchDefault) Code() int {
 }
 
 func (o *UpdateSearchDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] UpdateSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] UpdateSearch default %s", o._statusCode, payload)
 }
 
 func (o *UpdateSearchDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] UpdateSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/searches/{search.uuid}][%d] UpdateSearch default %s", o._statusCode, payload)
 }
 
 func (o *UpdateSearchDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateSearchDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -80,11 +81,15 @@ func (m *V1Service) validateEnvironment(formats strfmt.Registry) error {
 
 	if m.Environment != nil {
 		if err := m.Environment.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("environment")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("environment")
 			}
+
 			return err
 		}
 	}
@@ -104,11 +109,15 @@ func (m *V1Service) validateInit(formats strfmt.Registry) error {
 
 		if m.Init[i] != nil {
 			if err := m.Init[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("init" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("init" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -145,11 +154,15 @@ func (m *V1Service) contextValidateEnvironment(ctx context.Context, formats strf
 		}
 
 		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("environment")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("environment")
 			}
+
 			return err
 		}
 	}
@@ -168,11 +181,15 @@ func (m *V1Service) contextValidateInit(ctx context.Context, formats strfmt.Regi
 			}
 
 			if err := m.Init[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("init" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("init" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

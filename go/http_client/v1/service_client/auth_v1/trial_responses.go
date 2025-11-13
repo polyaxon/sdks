@@ -6,6 +6,8 @@ package auth_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type TrialReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *TrialReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *TrialReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewTrialOK()
@@ -103,11 +105,11 @@ func (o *TrialOK) Code() int {
 }
 
 func (o *TrialOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialOK", 200)
 }
 
 func (o *TrialOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialOK", 200)
 }
 
 func (o *TrialOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ TrialNoContent describes a response with status code 204, with default header va
 No content.
 */
 type TrialNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this trial no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *TrialNoContent) Code() int {
 }
 
 func (o *TrialNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNoContent %s", 204, payload)
 }
 
 func (o *TrialNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNoContent %s", 204, payload)
 }
 
-func (o *TrialNoContent) GetPayload() interface{} {
+func (o *TrialNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TrialNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ TrialForbidden describes a response with status code 403, with default header va
 You don't have permission to access the resource.
 */
 type TrialForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this trial forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *TrialForbidden) Code() int {
 }
 
 func (o *TrialForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialForbidden %s", 403, payload)
 }
 
 func (o *TrialForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialForbidden %s", 403, payload)
 }
 
-func (o *TrialForbidden) GetPayload() interface{} {
+func (o *TrialForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TrialForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ TrialNotFound describes a response with status code 404, with default header val
 Resource does not exist.
 */
 type TrialNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this trial not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *TrialNotFound) Code() int {
 }
 
 func (o *TrialNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNotFound %s", 404, payload)
 }
 
 func (o *TrialNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] trialNotFound %s", 404, payload)
 }
 
-func (o *TrialNotFound) GetPayload() interface{} {
+func (o *TrialNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TrialNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *TrialDefault) Code() int {
 }
 
 func (o *TrialDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] Trial default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] Trial default %s", o._statusCode, payload)
 }
 
 func (o *TrialDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] Trial default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/trial][%d] Trial default %s", o._statusCode, payload)
 }
 
 func (o *TrialDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *TrialDefault) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

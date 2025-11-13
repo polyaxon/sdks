@@ -6,6 +6,8 @@ package schemas_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type NoOpReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *NoOpReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *NoOpReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewNoOpOK()
@@ -104,11 +106,13 @@ func (o *NoOpOK) Code() int {
 }
 
 func (o *NoOpOK) Error() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpOK %s", 200, payload)
 }
 
 func (o *NoOpOK) String() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpOK %s", 200, payload)
 }
 
 func (o *NoOpOK) GetPayload() *service_model.V1Schemas {
@@ -120,7 +124,7 @@ func (o *NoOpOK) readResponse(response runtime.ClientResponse, consumer runtime.
 	o.Payload = new(service_model.V1Schemas)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ NoOpNoContent describes a response with status code 204, with default header val
 No content.
 */
 type NoOpNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this no op no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *NoOpNoContent) Code() int {
 }
 
 func (o *NoOpNoContent) Error() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpNoContent %s", 204, payload)
 }
 
 func (o *NoOpNoContent) String() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpNoContent %s", 204, payload)
 }
 
-func (o *NoOpNoContent) GetPayload() interface{} {
+func (o *NoOpNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NoOpNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ NoOpForbidden describes a response with status code 403, with default header val
 You don't have permission to access the resource.
 */
 type NoOpForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this no op forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *NoOpForbidden) Code() int {
 }
 
 func (o *NoOpForbidden) Error() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpForbidden %s", 403, payload)
 }
 
 func (o *NoOpForbidden) String() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpForbidden %s", 403, payload)
 }
 
-func (o *NoOpForbidden) GetPayload() interface{} {
+func (o *NoOpForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NoOpForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ NoOpNotFound describes a response with status code 404, with default header valu
 Resource does not exist.
 */
 type NoOpNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this no op not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *NoOpNotFound) Code() int {
 }
 
 func (o *NoOpNotFound) Error() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpNotFound %s", 404, payload)
 }
 
 func (o *NoOpNotFound) String() string {
-	return fmt.Sprintf("[GET /schemas][%d] noOpNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] noOpNotFound %s", 404, payload)
 }
 
-func (o *NoOpNotFound) GetPayload() interface{} {
+func (o *NoOpNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NoOpNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *NoOpDefault) Code() int {
 }
 
 func (o *NoOpDefault) Error() string {
-	return fmt.Sprintf("[GET /schemas][%d] NoOp default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] NoOp default %s", o._statusCode, payload)
 }
 
 func (o *NoOpDefault) String() string {
-	return fmt.Sprintf("[GET /schemas][%d] NoOp default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /schemas][%d] NoOp default %s", o._statusCode, payload)
 }
 
 func (o *NoOpDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *NoOpDefault) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

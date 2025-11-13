@@ -27,7 +27,7 @@ type V1ListBookmarksResponse struct {
 	Previous string `json:"previous,omitempty"`
 
 	// List of all entities
-	Results []interface{} `json:"results"`
+	Results []any `json:"results"`
 }
 
 // Validate validates this v1 list bookmarks response

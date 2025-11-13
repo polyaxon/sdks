@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -30,7 +31,7 @@ type V1ProjectVersion struct {
 	Content string `json:"content,omitempty"`
 
 	// Contributors
-	Contributors []interface{} `json:"contributors"`
+	Contributors []any `json:"contributors"`
 
 	// Optional time when the entity was created
 	// Format: date-time
@@ -43,7 +44,7 @@ type V1ProjectVersion struct {
 	Kind *V1ProjectVersionKind `json:"kind,omitempty"`
 
 	// Extra information related to the run, lineage, artifacts, ...
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// Optional component name, should be a valid fully qualified value: name[:version]
 	Name string `json:"name,omitempty"`
@@ -135,11 +136,15 @@ func (m *V1ProjectVersion) validateKind(formats strfmt.Registry) error {
 
 	if m.Kind != nil {
 		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -154,11 +159,15 @@ func (m *V1ProjectVersion) validateStage(formats strfmt.Registry) error {
 
 	if m.Stage != nil {
 		if err := m.Stage.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("stage")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("stage")
 			}
+
 			return err
 		}
 	}
@@ -178,11 +187,15 @@ func (m *V1ProjectVersion) validateStageConditions(formats strfmt.Registry) erro
 
 		if m.StageConditions[i] != nil {
 			if err := m.StageConditions[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("stage_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("stage_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -235,11 +248,15 @@ func (m *V1ProjectVersion) contextValidateKind(ctx context.Context, formats strf
 		}
 
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -256,11 +273,15 @@ func (m *V1ProjectVersion) contextValidateStage(ctx context.Context, formats str
 		}
 
 		if err := m.Stage.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("stage")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("stage")
 			}
+
 			return err
 		}
 	}
@@ -279,11 +300,15 @@ func (m *V1ProjectVersion) contextValidateStageConditions(ctx context.Context, f
 			}
 
 			if err := m.StageConditions[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("stage_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("stage_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

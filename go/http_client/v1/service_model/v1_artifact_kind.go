@@ -161,7 +161,7 @@ const (
 )
 
 // for schema
-var v1ArtifactKindEnum []interface{}
+var v1ArtifactKindEnum []any
 
 func init() {
 	var res []V1ArtifactKind

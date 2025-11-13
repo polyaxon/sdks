@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -53,11 +54,15 @@ func (m *V1DaskCluster) validateScheduler(formats strfmt.Registry) error {
 
 	if m.Scheduler != nil {
 		if err := m.Scheduler.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("scheduler")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("scheduler")
 			}
+
 			return err
 		}
 	}
@@ -72,11 +77,15 @@ func (m *V1DaskCluster) validateWorker(formats strfmt.Registry) error {
 
 	if m.Worker != nil {
 		if err := m.Worker.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}
@@ -111,11 +120,15 @@ func (m *V1DaskCluster) contextValidateScheduler(ctx context.Context, formats st
 		}
 
 		if err := m.Scheduler.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("scheduler")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("scheduler")
 			}
+
 			return err
 		}
 	}
@@ -132,11 +145,15 @@ func (m *V1DaskCluster) contextValidateWorker(ctx context.Context, formats strfm
 		}
 
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}

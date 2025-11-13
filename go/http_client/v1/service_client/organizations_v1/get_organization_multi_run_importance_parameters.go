@@ -65,7 +65,7 @@ type GetOrganizationMultiRunImportanceParams struct {
 
 	   Params/Metrics data
 	*/
-	Body interface{}
+	Body any
 
 	/* Entity.
 
@@ -139,13 +139,13 @@ func (o *GetOrganizationMultiRunImportanceParams) SetHTTPClient(client *http.Cli
 }
 
 // WithBody adds the body to the get organization multi run importance params
-func (o *GetOrganizationMultiRunImportanceParams) WithBody(body interface{}) *GetOrganizationMultiRunImportanceParams {
+func (o *GetOrganizationMultiRunImportanceParams) WithBody(body any) *GetOrganizationMultiRunImportanceParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the get organization multi run importance params
-func (o *GetOrganizationMultiRunImportanceParams) SetBody(body interface{}) {
+func (o *GetOrganizationMultiRunImportanceParams) SetBody(body any) {
 	o.Body = body
 }
 

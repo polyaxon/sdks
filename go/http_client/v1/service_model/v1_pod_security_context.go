@@ -8,4 +8,4 @@ package service_model
 // V1PodSecurityContext Placeholder for PodSecurityContext
 //
 // swagger:model v1PodSecurityContext
-type V1PodSecurityContext interface{}
+type V1PodSecurityContext any

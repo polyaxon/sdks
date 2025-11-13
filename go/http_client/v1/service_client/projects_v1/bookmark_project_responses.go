@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type BookmarkProjectReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *BookmarkProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *BookmarkProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewBookmarkProjectOK()
@@ -103,11 +105,11 @@ func (o *BookmarkProjectOK) Code() int {
 }
 
 func (o *BookmarkProjectOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK", 200)
 }
 
 func (o *BookmarkProjectOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectOK", 200)
 }
 
 func (o *BookmarkProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ BookmarkProjectNoContent describes a response with status code 204, with default
 No content.
 */
 type BookmarkProjectNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this bookmark project no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *BookmarkProjectNoContent) Code() int {
 }
 
 func (o *BookmarkProjectNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent %s", 204, payload)
 }
 
 func (o *BookmarkProjectNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNoContent %s", 204, payload)
 }
 
-func (o *BookmarkProjectNoContent) GetPayload() interface{} {
+func (o *BookmarkProjectNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *BookmarkProjectNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ BookmarkProjectForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type BookmarkProjectForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this bookmark project forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *BookmarkProjectForbidden) Code() int {
 }
 
 func (o *BookmarkProjectForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden %s", 403, payload)
 }
 
 func (o *BookmarkProjectForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectForbidden %s", 403, payload)
 }
 
-func (o *BookmarkProjectForbidden) GetPayload() interface{} {
+func (o *BookmarkProjectForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *BookmarkProjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ BookmarkProjectNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type BookmarkProjectNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this bookmark project not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *BookmarkProjectNotFound) Code() int {
 }
 
 func (o *BookmarkProjectNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound %s", 404, payload)
 }
 
 func (o *BookmarkProjectNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] bookmarkProjectNotFound %s", 404, payload)
 }
 
-func (o *BookmarkProjectNotFound) GetPayload() interface{} {
+func (o *BookmarkProjectNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *BookmarkProjectNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *BookmarkProjectDefault) Code() int {
 }
 
 func (o *BookmarkProjectDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default %s", o._statusCode, payload)
 }
 
 func (o *BookmarkProjectDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/bookmark][%d] BookmarkProject default %s", o._statusCode, payload)
 }
 
 func (o *BookmarkProjectDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *BookmarkProjectDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package versions_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetInstallationReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetInstallationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetInstallationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetInstallationOK()
@@ -104,11 +106,13 @@ func (o *GetInstallationOK) Code() int {
 }
 
 func (o *GetInstallationOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK %s", 200, payload)
 }
 
 func (o *GetInstallationOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationOK %s", 200, payload)
 }
 
 func (o *GetInstallationOK) GetPayload() *service_model.V1Installation {
@@ -120,7 +124,7 @@ func (o *GetInstallationOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1Installation)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetInstallationNoContent describes a response with status code 204, with default
 No content.
 */
 type GetInstallationNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get installation no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetInstallationNoContent) Code() int {
 }
 
 func (o *GetInstallationNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent %s", 204, payload)
 }
 
 func (o *GetInstallationNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNoContent %s", 204, payload)
 }
 
-func (o *GetInstallationNoContent) GetPayload() interface{} {
+func (o *GetInstallationNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetInstallationNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetInstallationForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type GetInstallationForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get installation forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetInstallationForbidden) Code() int {
 }
 
 func (o *GetInstallationForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden %s", 403, payload)
 }
 
 func (o *GetInstallationForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationForbidden %s", 403, payload)
 }
 
-func (o *GetInstallationForbidden) GetPayload() interface{} {
+func (o *GetInstallationForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetInstallationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetInstallationNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type GetInstallationNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get installation not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetInstallationNotFound) Code() int {
 }
 
 func (o *GetInstallationNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound %s", 404, payload)
 }
 
 func (o *GetInstallationNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] getInstallationNotFound %s", 404, payload)
 }
 
-func (o *GetInstallationNotFound) GetPayload() interface{} {
+func (o *GetInstallationNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetInstallationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetInstallationDefault) Code() int {
 }
 
 func (o *GetInstallationDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default %s", o._statusCode, payload)
 }
 
 func (o *GetInstallationDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/installation][%d] GetInstallation default %s", o._statusCode, payload)
 }
 
 func (o *GetInstallationDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetInstallationDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

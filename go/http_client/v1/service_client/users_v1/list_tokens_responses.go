@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListTokensReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListTokensReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListTokensReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListTokensOK()
@@ -104,11 +106,13 @@ func (o *ListTokensOK) Code() int {
 }
 
 func (o *ListTokensOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK %s", 200, payload)
 }
 
 func (o *ListTokensOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensOK %s", 200, payload)
 }
 
 func (o *ListTokensOK) GetPayload() *service_model.V1ListTokenResponse {
@@ -120,7 +124,7 @@ func (o *ListTokensOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1ListTokenResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListTokensNoContent describes a response with status code 204, with default head
 No content.
 */
 type ListTokensNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list tokens no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListTokensNoContent) Code() int {
 }
 
 func (o *ListTokensNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent %s", 204, payload)
 }
 
 func (o *ListTokensNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNoContent %s", 204, payload)
 }
 
-func (o *ListTokensNoContent) GetPayload() interface{} {
+func (o *ListTokensNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListTokensNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListTokensForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type ListTokensForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list tokens forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListTokensForbidden) Code() int {
 }
 
 func (o *ListTokensForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden %s", 403, payload)
 }
 
 func (o *ListTokensForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensForbidden %s", 403, payload)
 }
 
-func (o *ListTokensForbidden) GetPayload() interface{} {
+func (o *ListTokensForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListTokensForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListTokensNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type ListTokensNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list tokens not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListTokensNotFound) Code() int {
 }
 
 func (o *ListTokensNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound %s", 404, payload)
 }
 
 func (o *ListTokensNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] listTokensNotFound %s", 404, payload)
 }
 
-func (o *ListTokensNotFound) GetPayload() interface{} {
+func (o *ListTokensNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListTokensNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListTokensDefault) Code() int {
 }
 
 func (o *ListTokensDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default %s", o._statusCode, payload)
 }
 
 func (o *ListTokensDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/tokens][%d] ListTokens default %s", o._statusCode, payload)
 }
 
 func (o *ListTokensDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListTokensDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

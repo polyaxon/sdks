@@ -7,12 +7,38 @@ package organizations_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new organizations v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new organizations v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new organizations v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -119,7 +145,7 @@ type ClientService interface {
 ApproveOrganizationRuns approves cross project runs selection
 */
 func (a *Client) ApproveOrganizationRuns(params *ApproveOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveOrganizationRunsOK, *ApproveOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewApproveOrganizationRunsParams()
 	}
@@ -139,18 +165,22 @@ func (a *Client) ApproveOrganizationRuns(params *ApproveOrganizationRunsParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ApproveOrganizationRunsOK:
 		return value, nil, nil
 	case *ApproveOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ApproveOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -159,7 +189,7 @@ func (a *Client) ApproveOrganizationRuns(params *ApproveOrganizationRunsParams, 
 ArchiveOrganizationRuns archives cross project runs selection
 */
 func (a *Client) ArchiveOrganizationRuns(params *ArchiveOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveOrganizationRunsOK, *ArchiveOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewArchiveOrganizationRunsParams()
 	}
@@ -179,18 +209,22 @@ func (a *Client) ArchiveOrganizationRuns(params *ArchiveOrganizationRunsParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ArchiveOrganizationRunsOK:
 		return value, nil, nil
 	case *ArchiveOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ArchiveOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -199,7 +233,7 @@ func (a *Client) ArchiveOrganizationRuns(params *ArchiveOrganizationRunsParams, 
 BookmarkOrganizationRuns bookmarks cross project runs selection
 */
 func (a *Client) BookmarkOrganizationRuns(params *BookmarkOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkOrganizationRunsOK, *BookmarkOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewBookmarkOrganizationRunsParams()
 	}
@@ -219,18 +253,22 @@ func (a *Client) BookmarkOrganizationRuns(params *BookmarkOrganizationRunsParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *BookmarkOrganizationRunsOK:
 		return value, nil, nil
 	case *BookmarkOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*BookmarkOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -239,7 +277,7 @@ func (a *Client) BookmarkOrganizationRuns(params *BookmarkOrganizationRunsParams
 CreateOrganization creates organization
 */
 func (a *Client) CreateOrganization(params *CreateOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateOrganizationOK, *CreateOrganizationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateOrganizationParams()
 	}
@@ -259,18 +297,22 @@ func (a *Client) CreateOrganization(params *CreateOrganizationParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateOrganizationOK:
 		return value, nil, nil
 	case *CreateOrganizationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateOrganizationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -279,7 +321,7 @@ func (a *Client) CreateOrganization(params *CreateOrganizationParams, authInfo r
 CreateOrganizationMember creates organization member
 */
 func (a *Client) CreateOrganizationMember(params *CreateOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateOrganizationMemberOK, *CreateOrganizationMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateOrganizationMemberParams()
 	}
@@ -299,18 +341,22 @@ func (a *Client) CreateOrganizationMember(params *CreateOrganizationMemberParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateOrganizationMemberOK:
 		return value, nil, nil
 	case *CreateOrganizationMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateOrganizationMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -319,7 +365,7 @@ func (a *Client) CreateOrganizationMember(params *CreateOrganizationMemberParams
 DeleteOrganization deletes organization
 */
 func (a *Client) DeleteOrganization(params *DeleteOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationOK, *DeleteOrganizationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteOrganizationParams()
 	}
@@ -339,18 +385,22 @@ func (a *Client) DeleteOrganization(params *DeleteOrganizationParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteOrganizationOK:
 		return value, nil, nil
 	case *DeleteOrganizationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteOrganizationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -359,7 +409,7 @@ func (a *Client) DeleteOrganization(params *DeleteOrganizationParams, authInfo r
 DeleteOrganizationInvitation deletes organization invitation details
 */
 func (a *Client) DeleteOrganizationInvitation(params *DeleteOrganizationInvitationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationInvitationOK, *DeleteOrganizationInvitationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteOrganizationInvitationParams()
 	}
@@ -379,18 +429,22 @@ func (a *Client) DeleteOrganizationInvitation(params *DeleteOrganizationInvitati
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteOrganizationInvitationOK:
 		return value, nil, nil
 	case *DeleteOrganizationInvitationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteOrganizationInvitationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -399,7 +453,7 @@ func (a *Client) DeleteOrganizationInvitation(params *DeleteOrganizationInvitati
 DeleteOrganizationMember deletes organization member details
 */
 func (a *Client) DeleteOrganizationMember(params *DeleteOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationMemberOK, *DeleteOrganizationMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteOrganizationMemberParams()
 	}
@@ -419,18 +473,22 @@ func (a *Client) DeleteOrganizationMember(params *DeleteOrganizationMemberParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteOrganizationMemberOK:
 		return value, nil, nil
 	case *DeleteOrganizationMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteOrganizationMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -439,7 +497,7 @@ func (a *Client) DeleteOrganizationMember(params *DeleteOrganizationMemberParams
 DeleteOrganizationRuns deletes cross project runs selection
 */
 func (a *Client) DeleteOrganizationRuns(params *DeleteOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteOrganizationRunsOK, *DeleteOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteOrganizationRunsParams()
 	}
@@ -459,18 +517,22 @@ func (a *Client) DeleteOrganizationRuns(params *DeleteOrganizationRunsParams, au
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteOrganizationRunsOK:
 		return value, nil, nil
 	case *DeleteOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -479,7 +541,7 @@ func (a *Client) DeleteOrganizationRuns(params *DeleteOrganizationRunsParams, au
 GetOrganization gets organization
 */
 func (a *Client) GetOrganization(params *GetOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationOK, *GetOrganizationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationParams()
 	}
@@ -499,18 +561,22 @@ func (a *Client) GetOrganization(params *GetOrganizationParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationOK:
 		return value, nil, nil
 	case *GetOrganizationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -519,7 +585,7 @@ func (a *Client) GetOrganization(params *GetOrganizationParams, authInfo runtime
 GetOrganizationActivities gets organization activities
 */
 func (a *Client) GetOrganizationActivities(params *GetOrganizationActivitiesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationActivitiesOK, *GetOrganizationActivitiesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationActivitiesParams()
 	}
@@ -539,18 +605,22 @@ func (a *Client) GetOrganizationActivities(params *GetOrganizationActivitiesPara
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationActivitiesOK:
 		return value, nil, nil
 	case *GetOrganizationActivitiesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationActivitiesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -559,7 +629,7 @@ func (a *Client) GetOrganizationActivities(params *GetOrganizationActivitiesPara
 GetOrganizationInvitation gets organization invitation details
 */
 func (a *Client) GetOrganizationInvitation(params *GetOrganizationInvitationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationInvitationOK, *GetOrganizationInvitationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationInvitationParams()
 	}
@@ -579,18 +649,22 @@ func (a *Client) GetOrganizationInvitation(params *GetOrganizationInvitationPara
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationInvitationOK:
 		return value, nil, nil
 	case *GetOrganizationInvitationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationInvitationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -599,7 +673,7 @@ func (a *Client) GetOrganizationInvitation(params *GetOrganizationInvitationPara
 GetOrganizationMember gets organization member details
 */
 func (a *Client) GetOrganizationMember(params *GetOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMemberOK, *GetOrganizationMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationMemberParams()
 	}
@@ -619,18 +693,22 @@ func (a *Client) GetOrganizationMember(params *GetOrganizationMemberParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationMemberOK:
 		return value, nil, nil
 	case *GetOrganizationMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -639,7 +717,7 @@ func (a *Client) GetOrganizationMember(params *GetOrganizationMemberParams, auth
 GetOrganizationMultiRunEvents gets multi runs events
 */
 func (a *Client) GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunEventsOK, *GetOrganizationMultiRunEventsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationMultiRunEventsParams()
 	}
@@ -659,18 +737,22 @@ func (a *Client) GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEv
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationMultiRunEventsOK:
 		return value, nil, nil
 	case *GetOrganizationMultiRunEventsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationMultiRunEventsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -679,7 +761,7 @@ func (a *Client) GetOrganizationMultiRunEvents(params *GetOrganizationMultiRunEv
 GetOrganizationMultiRunImportance gets multi run importance
 */
 func (a *Client) GetOrganizationMultiRunImportance(params *GetOrganizationMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationMultiRunImportanceOK, *GetOrganizationMultiRunImportanceNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationMultiRunImportanceParams()
 	}
@@ -699,18 +781,22 @@ func (a *Client) GetOrganizationMultiRunImportance(params *GetOrganizationMultiR
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationMultiRunImportanceOK:
 		return value, nil, nil
 	case *GetOrganizationMultiRunImportanceNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationMultiRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -719,7 +805,7 @@ func (a *Client) GetOrganizationMultiRunImportance(params *GetOrganizationMultiR
 GetOrganizationRun gets a run in an organization
 */
 func (a *Client) GetOrganizationRun(params *GetOrganizationRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunOK, *GetOrganizationRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationRunParams()
 	}
@@ -739,18 +825,22 @@ func (a *Client) GetOrganizationRun(params *GetOrganizationRunParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationRunOK:
 		return value, nil, nil
 	case *GetOrganizationRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -759,7 +849,7 @@ func (a *Client) GetOrganizationRun(params *GetOrganizationRunParams, authInfo r
 GetOrganizationRuns gets all runs in an organization
 */
 func (a *Client) GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsOK, *GetOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationRunsParams()
 	}
@@ -779,18 +869,22 @@ func (a *Client) GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationRunsOK:
 		return value, nil, nil
 	case *GetOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -799,7 +893,7 @@ func (a *Client) GetOrganizationRuns(params *GetOrganizationRunsParams, authInfo
 GetOrganizationRunsArtifactsLineage gets runs artifacts lineage
 */
 func (a *Client) GetOrganizationRunsArtifactsLineage(params *GetOrganizationRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationRunsArtifactsLineageOK, *GetOrganizationRunsArtifactsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationRunsArtifactsLineageParams()
 	}
@@ -819,18 +913,22 @@ func (a *Client) GetOrganizationRunsArtifactsLineage(params *GetOrganizationRuns
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationRunsArtifactsLineageOK:
 		return value, nil, nil
 	case *GetOrganizationRunsArtifactsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationRunsArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -839,7 +937,7 @@ func (a *Client) GetOrganizationRunsArtifactsLineage(params *GetOrganizationRuns
 GetOrganizationSettings gets organization settings
 */
 func (a *Client) GetOrganizationSettings(params *GetOrganizationSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationSettingsOK, *GetOrganizationSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationSettingsParams()
 	}
@@ -859,18 +957,22 @@ func (a *Client) GetOrganizationSettings(params *GetOrganizationSettingsParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationSettingsOK:
 		return value, nil, nil
 	case *GetOrganizationSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -879,7 +981,7 @@ func (a *Client) GetOrganizationSettings(params *GetOrganizationSettingsParams, 
 GetOrganizationStats gets organization stats
 */
 func (a *Client) GetOrganizationStats(params *GetOrganizationStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationStatsOK, *GetOrganizationStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationStatsParams()
 	}
@@ -899,18 +1001,22 @@ func (a *Client) GetOrganizationStats(params *GetOrganizationStatsParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationStatsOK:
 		return value, nil, nil
 	case *GetOrganizationStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -919,7 +1025,7 @@ func (a *Client) GetOrganizationStats(params *GetOrganizationStatsParams, authIn
 GetOrganizationVersions gets all runs in an organization
 */
 func (a *Client) GetOrganizationVersions(params *GetOrganizationVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetOrganizationVersionsOK, *GetOrganizationVersionsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetOrganizationVersionsParams()
 	}
@@ -939,18 +1045,22 @@ func (a *Client) GetOrganizationVersions(params *GetOrganizationVersionsParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetOrganizationVersionsOK:
 		return value, nil, nil
 	case *GetOrganizationVersionsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetOrganizationVersionsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -959,7 +1069,7 @@ func (a *Client) GetOrganizationVersions(params *GetOrganizationVersionsParams, 
 InvalidateOrganizationRuns invalidates cross project runs selection
 */
 func (a *Client) InvalidateOrganizationRuns(params *InvalidateOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateOrganizationRunsOK, *InvalidateOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInvalidateOrganizationRunsParams()
 	}
@@ -979,18 +1089,22 @@ func (a *Client) InvalidateOrganizationRuns(params *InvalidateOrganizationRunsPa
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InvalidateOrganizationRunsOK:
 		return value, nil, nil
 	case *InvalidateOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InvalidateOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -999,7 +1113,7 @@ func (a *Client) InvalidateOrganizationRuns(params *InvalidateOrganizationRunsPa
 ListOrganizationMemberNames gets organization member names
 */
 func (a *Client) ListOrganizationMemberNames(params *ListOrganizationMemberNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationMemberNamesOK, *ListOrganizationMemberNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationMemberNamesParams()
 	}
@@ -1019,18 +1133,22 @@ func (a *Client) ListOrganizationMemberNames(params *ListOrganizationMemberNames
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationMemberNamesOK:
 		return value, nil, nil
 	case *ListOrganizationMemberNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationMemberNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1039,7 +1157,7 @@ func (a *Client) ListOrganizationMemberNames(params *ListOrganizationMemberNames
 ListOrganizationMembers gets organization members
 */
 func (a *Client) ListOrganizationMembers(params *ListOrganizationMembersParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationMembersOK, *ListOrganizationMembersNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationMembersParams()
 	}
@@ -1059,18 +1177,22 @@ func (a *Client) ListOrganizationMembers(params *ListOrganizationMembersParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationMembersOK:
 		return value, nil, nil
 	case *ListOrganizationMembersNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationMembersDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1079,7 +1201,7 @@ func (a *Client) ListOrganizationMembers(params *ListOrganizationMembersParams, 
 ListOrganizationNames lists organizations names
 */
 func (a *Client) ListOrganizationNames(params *ListOrganizationNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationNamesOK, *ListOrganizationNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationNamesParams()
 	}
@@ -1099,18 +1221,22 @@ func (a *Client) ListOrganizationNames(params *ListOrganizationNamesParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationNamesOK:
 		return value, nil, nil
 	case *ListOrganizationNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1119,7 +1245,7 @@ func (a *Client) ListOrganizationNames(params *ListOrganizationNamesParams, auth
 ListOrganizations lists organizations
 */
 func (a *Client) ListOrganizations(params *ListOrganizationsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationsOK, *ListOrganizationsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationsParams()
 	}
@@ -1139,18 +1265,22 @@ func (a *Client) ListOrganizations(params *ListOrganizationsParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationsOK:
 		return value, nil, nil
 	case *ListOrganizationsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1159,7 +1289,7 @@ func (a *Client) ListOrganizations(params *ListOrganizationsParams, authInfo run
 OrganizationLicense organizations license
 */
 func (a *Client) OrganizationLicense(params *OrganizationLicenseParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*OrganizationLicenseOK, *OrganizationLicenseNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewOrganizationLicenseParams()
 	}
@@ -1179,18 +1309,22 @@ func (a *Client) OrganizationLicense(params *OrganizationLicenseParams, authInfo
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *OrganizationLicenseOK:
 		return value, nil, nil
 	case *OrganizationLicenseNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*OrganizationLicenseDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1199,7 +1333,7 @@ func (a *Client) OrganizationLicense(params *OrganizationLicenseParams, authInfo
 OrganizationPlan organizations plan
 */
 func (a *Client) OrganizationPlan(params *OrganizationPlanParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*OrganizationPlanOK, *OrganizationPlanNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewOrganizationPlanParams()
 	}
@@ -1219,18 +1353,22 @@ func (a *Client) OrganizationPlan(params *OrganizationPlanParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *OrganizationPlanOK:
 		return value, nil, nil
 	case *OrganizationPlanNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*OrganizationPlanDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1239,7 +1377,7 @@ func (a *Client) OrganizationPlan(params *OrganizationPlanParams, authInfo runti
 PatchOrganization patches organization
 */
 func (a *Client) PatchOrganization(params *PatchOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchOrganizationOK, *PatchOrganizationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchOrganizationParams()
 	}
@@ -1259,18 +1397,22 @@ func (a *Client) PatchOrganization(params *PatchOrganizationParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchOrganizationOK:
 		return value, nil, nil
 	case *PatchOrganizationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchOrganizationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1279,7 +1421,7 @@ func (a *Client) PatchOrganization(params *PatchOrganizationParams, authInfo run
 PatchOrganizationInvitation patches organization invitation
 */
 func (a *Client) PatchOrganizationInvitation(params *PatchOrganizationInvitationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchOrganizationInvitationOK, *PatchOrganizationInvitationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchOrganizationInvitationParams()
 	}
@@ -1299,18 +1441,22 @@ func (a *Client) PatchOrganizationInvitation(params *PatchOrganizationInvitation
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchOrganizationInvitationOK:
 		return value, nil, nil
 	case *PatchOrganizationInvitationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchOrganizationInvitationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1319,7 +1465,7 @@ func (a *Client) PatchOrganizationInvitation(params *PatchOrganizationInvitation
 PatchOrganizationMember patches organization member
 */
 func (a *Client) PatchOrganizationMember(params *PatchOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchOrganizationMemberOK, *PatchOrganizationMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchOrganizationMemberParams()
 	}
@@ -1339,18 +1485,22 @@ func (a *Client) PatchOrganizationMember(params *PatchOrganizationMemberParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchOrganizationMemberOK:
 		return value, nil, nil
 	case *PatchOrganizationMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchOrganizationMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1359,7 +1509,7 @@ func (a *Client) PatchOrganizationMember(params *PatchOrganizationMemberParams, 
 PatchOrganizationSettings patches oranization settings
 */
 func (a *Client) PatchOrganizationSettings(params *PatchOrganizationSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchOrganizationSettingsOK, *PatchOrganizationSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchOrganizationSettingsParams()
 	}
@@ -1379,18 +1529,22 @@ func (a *Client) PatchOrganizationSettings(params *PatchOrganizationSettingsPara
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchOrganizationSettingsOK:
 		return value, nil, nil
 	case *PatchOrganizationSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchOrganizationSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1399,7 +1553,7 @@ func (a *Client) PatchOrganizationSettings(params *PatchOrganizationSettingsPara
 ResendOrganizationInvitation resends organization invitation
 */
 func (a *Client) ResendOrganizationInvitation(params *ResendOrganizationInvitationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResendOrganizationInvitationOK, *ResendOrganizationInvitationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewResendOrganizationInvitationParams()
 	}
@@ -1419,18 +1573,22 @@ func (a *Client) ResendOrganizationInvitation(params *ResendOrganizationInvitati
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ResendOrganizationInvitationOK:
 		return value, nil, nil
 	case *ResendOrganizationInvitationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ResendOrganizationInvitationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1439,7 +1597,7 @@ func (a *Client) ResendOrganizationInvitation(params *ResendOrganizationInvitati
 RestoreOrganizationRuns restores cross project runs selection
 */
 func (a *Client) RestoreOrganizationRuns(params *RestoreOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreOrganizationRunsOK, *RestoreOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestoreOrganizationRunsParams()
 	}
@@ -1459,18 +1617,22 @@ func (a *Client) RestoreOrganizationRuns(params *RestoreOrganizationRunsParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestoreOrganizationRunsOK:
 		return value, nil, nil
 	case *RestoreOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestoreOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1479,7 +1641,7 @@ func (a *Client) RestoreOrganizationRuns(params *RestoreOrganizationRunsParams, 
 SkipOrganizationRuns skips cross project runs selection
 */
 func (a *Client) SkipOrganizationRuns(params *SkipOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipOrganizationRunsOK, *SkipOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSkipOrganizationRunsParams()
 	}
@@ -1499,18 +1661,22 @@ func (a *Client) SkipOrganizationRuns(params *SkipOrganizationRunsParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SkipOrganizationRunsOK:
 		return value, nil, nil
 	case *SkipOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SkipOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1519,7 +1685,7 @@ func (a *Client) SkipOrganizationRuns(params *SkipOrganizationRunsParams, authIn
 StopOrganizationRuns stops cross project runs selection
 */
 func (a *Client) StopOrganizationRuns(params *StopOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopOrganizationRunsOK, *StopOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewStopOrganizationRunsParams()
 	}
@@ -1539,18 +1705,22 @@ func (a *Client) StopOrganizationRuns(params *StopOrganizationRunsParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *StopOrganizationRunsOK:
 		return value, nil, nil
 	case *StopOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*StopOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1559,7 +1729,7 @@ func (a *Client) StopOrganizationRuns(params *StopOrganizationRunsParams, authIn
 TagOrganizationRuns tags cross project runs selection
 */
 func (a *Client) TagOrganizationRuns(params *TagOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TagOrganizationRunsOK, *TagOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTagOrganizationRunsParams()
 	}
@@ -1579,18 +1749,22 @@ func (a *Client) TagOrganizationRuns(params *TagOrganizationRunsParams, authInfo
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TagOrganizationRunsOK:
 		return value, nil, nil
 	case *TagOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TagOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1599,7 +1773,7 @@ func (a *Client) TagOrganizationRuns(params *TagOrganizationRunsParams, authInfo
 TransferOrganizationRuns transfers cross project runs selection to a new project
 */
 func (a *Client) TransferOrganizationRuns(params *TransferOrganizationRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferOrganizationRunsOK, *TransferOrganizationRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTransferOrganizationRunsParams()
 	}
@@ -1619,18 +1793,22 @@ func (a *Client) TransferOrganizationRuns(params *TransferOrganizationRunsParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TransferOrganizationRunsOK:
 		return value, nil, nil
 	case *TransferOrganizationRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TransferOrganizationRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1639,7 +1817,7 @@ func (a *Client) TransferOrganizationRuns(params *TransferOrganizationRunsParams
 UpdateOrganization updates organization
 */
 func (a *Client) UpdateOrganization(params *UpdateOrganizationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateOrganizationOK, *UpdateOrganizationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateOrganizationParams()
 	}
@@ -1659,18 +1837,22 @@ func (a *Client) UpdateOrganization(params *UpdateOrganizationParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateOrganizationOK:
 		return value, nil, nil
 	case *UpdateOrganizationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateOrganizationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1679,7 +1861,7 @@ func (a *Client) UpdateOrganization(params *UpdateOrganizationParams, authInfo r
 UpdateOrganizationInvitation updates organization invitation
 */
 func (a *Client) UpdateOrganizationInvitation(params *UpdateOrganizationInvitationParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateOrganizationInvitationOK, *UpdateOrganizationInvitationNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateOrganizationInvitationParams()
 	}
@@ -1699,18 +1881,22 @@ func (a *Client) UpdateOrganizationInvitation(params *UpdateOrganizationInvitati
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateOrganizationInvitationOK:
 		return value, nil, nil
 	case *UpdateOrganizationInvitationNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateOrganizationInvitationDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1719,7 +1905,7 @@ func (a *Client) UpdateOrganizationInvitation(params *UpdateOrganizationInvitati
 UpdateOrganizationMember updates organization member
 */
 func (a *Client) UpdateOrganizationMember(params *UpdateOrganizationMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateOrganizationMemberOK, *UpdateOrganizationMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateOrganizationMemberParams()
 	}
@@ -1739,18 +1925,22 @@ func (a *Client) UpdateOrganizationMember(params *UpdateOrganizationMemberParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateOrganizationMemberOK:
 		return value, nil, nil
 	case *UpdateOrganizationMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateOrganizationMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1759,7 +1949,7 @@ func (a *Client) UpdateOrganizationMember(params *UpdateOrganizationMemberParams
 UpdateOrganizationSettings updates organization settings
 */
 func (a *Client) UpdateOrganizationSettings(params *UpdateOrganizationSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateOrganizationSettingsOK, *UpdateOrganizationSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateOrganizationSettingsParams()
 	}
@@ -1779,18 +1969,22 @@ func (a *Client) UpdateOrganizationSettings(params *UpdateOrganizationSettingsPa
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateOrganizationSettingsOK:
 		return value, nil, nil
 	case *UpdateOrganizationSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateOrganizationSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1ScheduleKindEnum []interface{}
+var v1ScheduleKindEnum []any
 
 func init() {
 	var res []V1ScheduleKind

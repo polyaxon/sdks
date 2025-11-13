@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListVersionNamesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListVersionNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListVersionNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListVersionNamesOK()
@@ -104,11 +106,13 @@ func (o *ListVersionNamesOK) Code() int {
 }
 
 func (o *ListVersionNamesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK %s", 200, payload)
 }
 
 func (o *ListVersionNamesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesOK %s", 200, payload)
 }
 
 func (o *ListVersionNamesOK) GetPayload() *service_model.V1ListProjectVersionsResponse {
@@ -120,7 +124,7 @@ func (o *ListVersionNamesOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1ListProjectVersionsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListVersionNamesNoContent describes a response with status code 204, with defaul
 No content.
 */
 type ListVersionNamesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list version names no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListVersionNamesNoContent) Code() int {
 }
 
 func (o *ListVersionNamesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent %s", 204, payload)
 }
 
 func (o *ListVersionNamesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNoContent %s", 204, payload)
 }
 
-func (o *ListVersionNamesNoContent) GetPayload() interface{} {
+func (o *ListVersionNamesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListVersionNamesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListVersionNamesForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type ListVersionNamesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list version names forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListVersionNamesForbidden) Code() int {
 }
 
 func (o *ListVersionNamesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden %s", 403, payload)
 }
 
 func (o *ListVersionNamesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesForbidden %s", 403, payload)
 }
 
-func (o *ListVersionNamesForbidden) GetPayload() interface{} {
+func (o *ListVersionNamesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListVersionNamesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListVersionNamesNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type ListVersionNamesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list version names not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListVersionNamesNotFound) Code() int {
 }
 
 func (o *ListVersionNamesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound %s", 404, payload)
 }
 
 func (o *ListVersionNamesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] listVersionNamesNotFound %s", 404, payload)
 }
 
-func (o *ListVersionNamesNotFound) GetPayload() interface{} {
+func (o *ListVersionNamesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListVersionNamesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListVersionNamesDefault) Code() int {
 }
 
 func (o *ListVersionNamesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default %s", o._statusCode, payload)
 }
 
 func (o *ListVersionNamesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/versions/{kind}/names][%d] ListVersionNames default %s", o._statusCode, payload)
 }
 
 func (o *ListVersionNamesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListVersionNamesDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

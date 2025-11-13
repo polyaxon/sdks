@@ -18,7 +18,7 @@ import (
 type V1MultiEventsResponse struct {
 
 	// Events data
-	Data interface{} `json:"data,omitempty"`
+	Data any `json:"data,omitempty"`
 }
 
 // Validate validates this v1 multi events response

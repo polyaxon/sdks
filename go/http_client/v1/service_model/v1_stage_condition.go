@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -31,7 +32,7 @@ type V1StageCondition struct {
 	Message string `json:"message,omitempty"`
 
 	// Optional meta_info
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// Status reason
 	Reason string `json:"reason,omitempty"`
@@ -96,11 +97,15 @@ func (m *V1StageCondition) validateType(formats strfmt.Registry) error {
 
 	if m.Type != nil {
 		if err := m.Type.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("type")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("type")
 			}
+
 			return err
 		}
 	}
@@ -131,11 +136,15 @@ func (m *V1StageCondition) contextValidateType(ctx context.Context, formats strf
 		}
 
 		if err := m.Type.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("type")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("type")
 			}
+
 			return err
 		}
 	}

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -22,7 +23,7 @@ type V1Bayes struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// A list of Early stopping objects, accpets both metric and failure early stopping mechanisms
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Kind of matrix, should be equal to "bayes"
 	Kind *string `json:"kind,omitempty"`
@@ -37,7 +38,7 @@ type V1Bayes struct {
 	NumInitialRuns int32 `json:"numInitialRuns,omitempty"`
 
 	// Hyperparams/Space definition of params to traverse
-	Params map[string]interface{} `json:"params,omitempty"`
+	Params map[string]any `json:"params,omitempty"`
 
 	// Seed for the random generator
 	Seed int32 `json:"seed,omitempty"`
@@ -46,7 +47,7 @@ type V1Bayes struct {
 	Tuner *V1Tuner `json:"tuner,omitempty"`
 
 	// A utility function to use for the bayesian optimization
-	UtilityFunction interface{} `json:"utilityFunction,omitempty"`
+	UtilityFunction any `json:"utilityFunction,omitempty"`
 }
 
 // Validate validates this v1 bayes
@@ -74,11 +75,15 @@ func (m *V1Bayes) validateMetric(formats strfmt.Registry) error {
 
 	if m.Metric != nil {
 		if err := m.Metric.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -93,11 +98,15 @@ func (m *V1Bayes) validateTuner(formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
 		if err := m.Tuner.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}
@@ -132,11 +141,15 @@ func (m *V1Bayes) contextValidateMetric(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -153,11 +166,15 @@ func (m *V1Bayes) contextValidateTuner(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}

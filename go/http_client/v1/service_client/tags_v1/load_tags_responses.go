@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type LoadTagsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *LoadTagsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *LoadTagsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewLoadTagsOK()
@@ -70,7 +72,7 @@ LoadTagsOK describes a response with status code 200, with default header values
 A successful response.
 */
 type LoadTagsOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this load tags o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *LoadTagsOK) Code() int {
 }
 
 func (o *LoadTagsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK %s", 200, payload)
 }
 
 func (o *LoadTagsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsOK %s", 200, payload)
 }
 
-func (o *LoadTagsOK) GetPayload() interface{} {
+func (o *LoadTagsOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoadTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ LoadTagsNoContent describes a response with status code 204, with default header
 No content.
 */
 type LoadTagsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this load tags no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *LoadTagsNoContent) Code() int {
 }
 
 func (o *LoadTagsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent %s", 204, payload)
 }
 
 func (o *LoadTagsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNoContent %s", 204, payload)
 }
 
-func (o *LoadTagsNoContent) GetPayload() interface{} {
+func (o *LoadTagsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoadTagsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ LoadTagsForbidden describes a response with status code 403, with default header
 You don't have permission to access the resource.
 */
 type LoadTagsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this load tags forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *LoadTagsForbidden) Code() int {
 }
 
 func (o *LoadTagsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden %s", 403, payload)
 }
 
 func (o *LoadTagsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsForbidden %s", 403, payload)
 }
 
-func (o *LoadTagsForbidden) GetPayload() interface{} {
+func (o *LoadTagsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoadTagsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ LoadTagsNotFound describes a response with status code 404, with default header 
 Resource does not exist.
 */
 type LoadTagsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this load tags not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *LoadTagsNotFound) Code() int {
 }
 
 func (o *LoadTagsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound %s", 404, payload)
 }
 
 func (o *LoadTagsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] loadTagsNotFound %s", 404, payload)
 }
 
-func (o *LoadTagsNotFound) GetPayload() interface{} {
+func (o *LoadTagsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoadTagsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *LoadTagsDefault) Code() int {
 }
 
 func (o *LoadTagsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default %s", o._statusCode, payload)
 }
 
 func (o *LoadTagsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/tags/load][%d] LoadTags default %s", o._statusCode, payload)
 }
 
 func (o *LoadTagsDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *LoadTagsDefault) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

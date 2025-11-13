@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SkipOrganizationRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SkipOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SkipOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSkipOrganizationRunsOK()
@@ -103,11 +105,11 @@ func (o *SkipOrganizationRunsOK) Code() int {
 }
 
 func (o *SkipOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK", 200)
 }
 
 func (o *SkipOrganizationRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK", 200)
 }
 
 func (o *SkipOrganizationRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ SkipOrganizationRunsNoContent describes a response with status code 204, with de
 No content.
 */
 type SkipOrganizationRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this skip organization runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *SkipOrganizationRunsNoContent) Code() int {
 }
 
 func (o *SkipOrganizationRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *SkipOrganizationRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
 }
 
-func (o *SkipOrganizationRunsNoContent) GetPayload() interface{} {
+func (o *SkipOrganizationRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SkipOrganizationRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ SkipOrganizationRunsForbidden describes a response with status code 403, with de
 You don't have permission to access the resource.
 */
 type SkipOrganizationRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this skip organization runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *SkipOrganizationRunsForbidden) Code() int {
 }
 
 func (o *SkipOrganizationRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *SkipOrganizationRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
 }
 
-func (o *SkipOrganizationRunsForbidden) GetPayload() interface{} {
+func (o *SkipOrganizationRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SkipOrganizationRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ SkipOrganizationRunsNotFound describes a response with status code 404, with def
 Resource does not exist.
 */
 type SkipOrganizationRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this skip organization runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *SkipOrganizationRunsNotFound) Code() int {
 }
 
 func (o *SkipOrganizationRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *SkipOrganizationRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
 }
 
-func (o *SkipOrganizationRunsNotFound) GetPayload() interface{} {
+func (o *SkipOrganizationRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SkipOrganizationRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *SkipOrganizationRunsDefault) Code() int {
 }
 
 func (o *SkipOrganizationRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipOrganizationRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *SkipOrganizationRunsDefault) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

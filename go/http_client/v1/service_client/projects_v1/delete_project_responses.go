@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteProjectReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteProjectOK()
@@ -103,11 +105,11 @@ func (o *DeleteProjectOK) Code() int {
 }
 
 func (o *DeleteProjectOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectOK", 200)
 }
 
 func (o *DeleteProjectOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectOK", 200)
 }
 
 func (o *DeleteProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteProjectNoContent describes a response with status code 204, with default h
 No content.
 */
 type DeleteProjectNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteProjectNoContent) Code() int {
 }
 
 func (o *DeleteProjectNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNoContent %s", 204, payload)
 }
 
 func (o *DeleteProjectNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNoContent %s", 204, payload)
 }
 
-func (o *DeleteProjectNoContent) GetPayload() interface{} {
+func (o *DeleteProjectNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteProjectForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type DeleteProjectForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteProjectForbidden) Code() int {
 }
 
 func (o *DeleteProjectForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectForbidden %s", 403, payload)
 }
 
 func (o *DeleteProjectForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectForbidden %s", 403, payload)
 }
 
-func (o *DeleteProjectForbidden) GetPayload() interface{} {
+func (o *DeleteProjectForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteProjectNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type DeleteProjectNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteProjectNotFound) Code() int {
 }
 
 func (o *DeleteProjectNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNotFound %s", 404, payload)
 }
 
 func (o *DeleteProjectNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] deleteProjectNotFound %s", 404, payload)
 }
 
-func (o *DeleteProjectNotFound) GetPayload() interface{} {
+func (o *DeleteProjectNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteProjectDefault) Code() int {
 }
 
 func (o *DeleteProjectDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] DeleteProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] DeleteProject default %s", o._statusCode, payload)
 }
 
 func (o *DeleteProjectDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] DeleteProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}][%d] DeleteProject default %s", o._statusCode, payload)
 }
 
 func (o *DeleteProjectDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteProjectDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

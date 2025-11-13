@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchTeamMemberReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchTeamMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchTeamMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchTeamMemberOK()
@@ -104,11 +106,13 @@ func (o *PatchTeamMemberOK) Code() int {
 }
 
 func (o *PatchTeamMemberOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK %s", 200, payload)
 }
 
 func (o *PatchTeamMemberOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberOK %s", 200, payload)
 }
 
 func (o *PatchTeamMemberOK) GetPayload() *service_model.V1TeamMember {
@@ -120,7 +124,7 @@ func (o *PatchTeamMemberOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1TeamMember)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchTeamMemberNoContent describes a response with status code 204, with default
 No content.
 */
 type PatchTeamMemberNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch team member no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchTeamMemberNoContent) Code() int {
 }
 
 func (o *PatchTeamMemberNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent %s", 204, payload)
 }
 
 func (o *PatchTeamMemberNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNoContent %s", 204, payload)
 }
 
-func (o *PatchTeamMemberNoContent) GetPayload() interface{} {
+func (o *PatchTeamMemberNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTeamMemberNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchTeamMemberForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type PatchTeamMemberForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch team member forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchTeamMemberForbidden) Code() int {
 }
 
 func (o *PatchTeamMemberForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden %s", 403, payload)
 }
 
 func (o *PatchTeamMemberForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberForbidden %s", 403, payload)
 }
 
-func (o *PatchTeamMemberForbidden) GetPayload() interface{} {
+func (o *PatchTeamMemberForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTeamMemberForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchTeamMemberNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type PatchTeamMemberNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch team member not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchTeamMemberNotFound) Code() int {
 }
 
 func (o *PatchTeamMemberNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound %s", 404, payload)
 }
 
 func (o *PatchTeamMemberNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] patchTeamMemberNotFound %s", 404, payload)
 }
 
-func (o *PatchTeamMemberNotFound) GetPayload() interface{} {
+func (o *PatchTeamMemberNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTeamMemberNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchTeamMemberDefault) Code() int {
 }
 
 func (o *PatchTeamMemberDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default %s", o._statusCode, payload)
 }
 
 func (o *PatchTeamMemberDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] PatchTeamMember default %s", o._statusCode, payload)
 }
 
 func (o *PatchTeamMemberDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchTeamMemberDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

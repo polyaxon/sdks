@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateTeamMemberReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateTeamMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateTeamMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateTeamMemberOK()
@@ -104,11 +106,13 @@ func (o *UpdateTeamMemberOK) Code() int {
 }
 
 func (o *UpdateTeamMemberOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberOK %s", 200, payload)
 }
 
 func (o *UpdateTeamMemberOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberOK %s", 200, payload)
 }
 
 func (o *UpdateTeamMemberOK) GetPayload() *service_model.V1TeamMember {
@@ -120,7 +124,7 @@ func (o *UpdateTeamMemberOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1TeamMember)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateTeamMemberNoContent describes a response with status code 204, with defaul
 No content.
 */
 type UpdateTeamMemberNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update team member no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateTeamMemberNoContent) Code() int {
 }
 
 func (o *UpdateTeamMemberNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNoContent %s", 204, payload)
 }
 
 func (o *UpdateTeamMemberNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNoContent %s", 204, payload)
 }
 
-func (o *UpdateTeamMemberNoContent) GetPayload() interface{} {
+func (o *UpdateTeamMemberNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTeamMemberNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateTeamMemberForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type UpdateTeamMemberForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update team member forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateTeamMemberForbidden) Code() int {
 }
 
 func (o *UpdateTeamMemberForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberForbidden %s", 403, payload)
 }
 
 func (o *UpdateTeamMemberForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberForbidden %s", 403, payload)
 }
 
-func (o *UpdateTeamMemberForbidden) GetPayload() interface{} {
+func (o *UpdateTeamMemberForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTeamMemberForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateTeamMemberNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type UpdateTeamMemberNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update team member not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateTeamMemberNotFound) Code() int {
 }
 
 func (o *UpdateTeamMemberNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNotFound %s", 404, payload)
 }
 
 func (o *UpdateTeamMemberNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] updateTeamMemberNotFound %s", 404, payload)
 }
 
-func (o *UpdateTeamMemberNotFound) GetPayload() interface{} {
+func (o *UpdateTeamMemberNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTeamMemberNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateTeamMemberDefault) Code() int {
 }
 
 func (o *UpdateTeamMemberDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] UpdateTeamMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] UpdateTeamMember default %s", o._statusCode, payload)
 }
 
 func (o *UpdateTeamMemberDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] UpdateTeamMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/teams/{team}/members/{member.user}][%d] UpdateTeamMember default %s", o._statusCode, payload)
 }
 
 func (o *UpdateTeamMemberDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateTeamMemberDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

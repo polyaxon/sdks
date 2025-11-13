@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CollectAgentDataReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CollectAgentDataReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CollectAgentDataReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCollectAgentDataOK()
@@ -70,7 +72,7 @@ CollectAgentDataOK describes a response with status code 200, with default heade
 A successful response.
 */
 type CollectAgentDataOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect agent data o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *CollectAgentDataOK) Code() int {
 }
 
 func (o *CollectAgentDataOK) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataOK %s", 200, payload)
 }
 
 func (o *CollectAgentDataOK) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataOK %s", 200, payload)
 }
 
-func (o *CollectAgentDataOK) GetPayload() interface{} {
+func (o *CollectAgentDataOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectAgentDataOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ CollectAgentDataNoContent describes a response with status code 204, with defaul
 No content.
 */
 type CollectAgentDataNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect agent data no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *CollectAgentDataNoContent) Code() int {
 }
 
 func (o *CollectAgentDataNoContent) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNoContent %s", 204, payload)
 }
 
 func (o *CollectAgentDataNoContent) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNoContent %s", 204, payload)
 }
 
-func (o *CollectAgentDataNoContent) GetPayload() interface{} {
+func (o *CollectAgentDataNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectAgentDataNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ CollectAgentDataForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type CollectAgentDataForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect agent data forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *CollectAgentDataForbidden) Code() int {
 }
 
 func (o *CollectAgentDataForbidden) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataForbidden %s", 403, payload)
 }
 
 func (o *CollectAgentDataForbidden) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataForbidden %s", 403, payload)
 }
 
-func (o *CollectAgentDataForbidden) GetPayload() interface{} {
+func (o *CollectAgentDataForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectAgentDataForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ CollectAgentDataNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type CollectAgentDataNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect agent data not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *CollectAgentDataNotFound) Code() int {
 }
 
 func (o *CollectAgentDataNotFound) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNotFound %s", 404, payload)
 }
 
 func (o *CollectAgentDataNotFound) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] collectAgentDataNotFound %s", 404, payload)
 }
 
-func (o *CollectAgentDataNotFound) GetPayload() interface{} {
+func (o *CollectAgentDataNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectAgentDataNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *CollectAgentDataDefault) Code() int {
 }
 
 func (o *CollectAgentDataDefault) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] CollectAgentData default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] CollectAgentData default %s", o._statusCode, payload)
 }
 
 func (o *CollectAgentDataDefault) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] CollectAgentData default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/agents/{uuid}/collect][%d] CollectAgentData default %s", o._statusCode, payload)
 }
 
 func (o *CollectAgentDataDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *CollectAgentDataDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

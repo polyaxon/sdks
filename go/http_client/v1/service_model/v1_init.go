@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -49,7 +50,7 @@ type V1Init struct {
 	Path string `json:"path,omitempty"`
 
 	// Paths initializer
-	Paths []interface{} `json:"paths"`
+	Paths []any `json:"paths"`
 
 	// Tensorboard initializer
 	Tensorboard *V1TensorboardType `json:"tensorboard,omitempty"`
@@ -92,11 +93,15 @@ func (m *V1Init) validateArtifacts(formats strfmt.Registry) error {
 
 	if m.Artifacts != nil {
 		if err := m.Artifacts.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacts")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacts")
 			}
+
 			return err
 		}
 	}
@@ -111,11 +116,15 @@ func (m *V1Init) validateDockerfile(formats strfmt.Registry) error {
 
 	if m.Dockerfile != nil {
 		if err := m.Dockerfile.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("dockerfile")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("dockerfile")
 			}
+
 			return err
 		}
 	}
@@ -130,11 +139,15 @@ func (m *V1Init) validateFile(formats strfmt.Registry) error {
 
 	if m.File != nil {
 		if err := m.File.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("file")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("file")
 			}
+
 			return err
 		}
 	}
@@ -149,11 +162,15 @@ func (m *V1Init) validateGit(formats strfmt.Registry) error {
 
 	if m.Git != nil {
 		if err := m.Git.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("git")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("git")
 			}
+
 			return err
 		}
 	}
@@ -168,11 +185,15 @@ func (m *V1Init) validateTensorboard(formats strfmt.Registry) error {
 
 	if m.Tensorboard != nil {
 		if err := m.Tensorboard.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tensorboard")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tensorboard")
 			}
+
 			return err
 		}
 	}
@@ -219,11 +240,15 @@ func (m *V1Init) contextValidateArtifacts(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Artifacts.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacts")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacts")
 			}
+
 			return err
 		}
 	}
@@ -240,11 +265,15 @@ func (m *V1Init) contextValidateDockerfile(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Dockerfile.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("dockerfile")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("dockerfile")
 			}
+
 			return err
 		}
 	}
@@ -261,11 +290,15 @@ func (m *V1Init) contextValidateFile(ctx context.Context, formats strfmt.Registr
 		}
 
 		if err := m.File.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("file")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("file")
 			}
+
 			return err
 		}
 	}
@@ -282,11 +315,15 @@ func (m *V1Init) contextValidateGit(ctx context.Context, formats strfmt.Registry
 		}
 
 		if err := m.Git.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("git")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("git")
 			}
+
 			return err
 		}
 	}
@@ -303,11 +340,15 @@ func (m *V1Init) contextValidateTensorboard(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Tensorboard.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tensorboard")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tensorboard")
 			}
+
 			return err
 		}
 	}

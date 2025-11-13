@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -28,7 +29,7 @@ type V1ConnectionType struct {
 	Description string `json:"description,omitempty"`
 
 	// Environment variables
-	Env []interface{} `json:"env"`
+	Env []any `json:"env"`
 
 	// Connection kind
 	Kind *V1ConnectionKind `json:"kind,omitempty"`
@@ -37,7 +38,7 @@ type V1ConnectionType struct {
 	Name string `json:"name,omitempty"`
 
 	// The connection schema should be a valid ConnectionSchema
-	Schema interface{} `json:"schema,omitempty"`
+	Schema any `json:"schema,omitempty"`
 
 	// Secret resource schema
 	Secret *V1ConnectionResource `json:"secret,omitempty"`
@@ -75,11 +76,15 @@ func (m *V1ConnectionType) validateConfigMap(formats strfmt.Registry) error {
 
 	if m.ConfigMap != nil {
 		if err := m.ConfigMap.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("configMap")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("configMap")
 			}
+
 			return err
 		}
 	}
@@ -94,11 +99,15 @@ func (m *V1ConnectionType) validateKind(formats strfmt.Registry) error {
 
 	if m.Kind != nil {
 		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -113,11 +122,15 @@ func (m *V1ConnectionType) validateSecret(formats strfmt.Registry) error {
 
 	if m.Secret != nil {
 		if err := m.Secret.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("secret")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("secret")
 			}
+
 			return err
 		}
 	}
@@ -156,11 +169,15 @@ func (m *V1ConnectionType) contextValidateConfigMap(ctx context.Context, formats
 		}
 
 		if err := m.ConfigMap.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("configMap")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("configMap")
 			}
+
 			return err
 		}
 	}
@@ -177,11 +194,15 @@ func (m *V1ConnectionType) contextValidateKind(ctx context.Context, formats strf
 		}
 
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -198,11 +219,15 @@ func (m *V1ConnectionType) contextValidateSecret(ctx context.Context, formats st
 		}
 
 		if err := m.Secret.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("secret")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("secret")
 			}
+
 			return err
 		}
 	}

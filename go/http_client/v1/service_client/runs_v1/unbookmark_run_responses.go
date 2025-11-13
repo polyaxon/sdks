@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UnbookmarkRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UnbookmarkRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UnbookmarkRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUnbookmarkRunOK()
@@ -103,11 +105,11 @@ func (o *UnbookmarkRunOK) Code() int {
 }
 
 func (o *UnbookmarkRunOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunOK", 200)
 }
 
 func (o *UnbookmarkRunOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunOK", 200)
 }
 
 func (o *UnbookmarkRunOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ UnbookmarkRunNoContent describes a response with status code 204, with default h
 No content.
 */
 type UnbookmarkRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark run no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *UnbookmarkRunNoContent) Code() int {
 }
 
 func (o *UnbookmarkRunNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNoContent %s", 204, payload)
 }
 
 func (o *UnbookmarkRunNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNoContent %s", 204, payload)
 }
 
-func (o *UnbookmarkRunNoContent) GetPayload() interface{} {
+func (o *UnbookmarkRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ UnbookmarkRunForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type UnbookmarkRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark run forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *UnbookmarkRunForbidden) Code() int {
 }
 
 func (o *UnbookmarkRunForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunForbidden %s", 403, payload)
 }
 
 func (o *UnbookmarkRunForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunForbidden %s", 403, payload)
 }
 
-func (o *UnbookmarkRunForbidden) GetPayload() interface{} {
+func (o *UnbookmarkRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ UnbookmarkRunNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type UnbookmarkRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark run not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *UnbookmarkRunNotFound) Code() int {
 }
 
 func (o *UnbookmarkRunNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNotFound %s", 404, payload)
 }
 
 func (o *UnbookmarkRunNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] unbookmarkRunNotFound %s", 404, payload)
 }
 
-func (o *UnbookmarkRunNotFound) GetPayload() interface{} {
+func (o *UnbookmarkRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *UnbookmarkRunDefault) Code() int {
 }
 
 func (o *UnbookmarkRunDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] UnbookmarkRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] UnbookmarkRun default %s", o._statusCode, payload)
 }
 
 func (o *UnbookmarkRunDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] UnbookmarkRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/runs/{uuid}/unbookmark][%d] UnbookmarkRun default %s", o._statusCode, payload)
 }
 
 func (o *UnbookmarkRunDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *UnbookmarkRunDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

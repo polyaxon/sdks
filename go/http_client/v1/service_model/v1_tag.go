@@ -30,7 +30,7 @@ type V1Tag struct {
 	Name string `json:"name,omitempty"`
 
 	// Optional tag stats
-	Stats interface{} `json:"stats,omitempty"`
+	Stats any `json:"stats,omitempty"`
 
 	// Optional name of user created this entity
 	User string `json:"user,omitempty"`

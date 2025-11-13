@@ -7,12 +7,38 @@ package agents_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new agents v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new agents v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new agents v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -81,7 +107,7 @@ type ClientService interface {
 CollectAgentData collects agent
 */
 func (a *Client) CollectAgentData(params *CollectAgentDataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectAgentDataOK, *CollectAgentDataNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCollectAgentDataParams()
 	}
@@ -101,18 +127,22 @@ func (a *Client) CollectAgentData(params *CollectAgentDataParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CollectAgentDataOK:
 		return value, nil, nil
 	case *CollectAgentDataNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CollectAgentDataDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -121,7 +151,7 @@ func (a *Client) CollectAgentData(params *CollectAgentDataParams, authInfo runti
 CreateAgent creates agent
 */
 func (a *Client) CreateAgent(params *CreateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentOK, *CreateAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateAgentParams()
 	}
@@ -141,18 +171,22 @@ func (a *Client) CreateAgent(params *CreateAgentParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateAgentOK:
 		return value, nil, nil
 	case *CreateAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -161,7 +195,7 @@ func (a *Client) CreateAgent(params *CreateAgentParams, authInfo runtime.ClientA
 CreateAgentStatus creates new agent status
 */
 func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentStatusOK, *CreateAgentStatusNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateAgentStatusParams()
 	}
@@ -181,18 +215,22 @@ func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateAgentStatusOK:
 		return value, nil, nil
 	case *CreateAgentStatusNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateAgentStatusDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -201,7 +239,7 @@ func (a *Client) CreateAgentStatus(params *CreateAgentStatusParams, authInfo run
 CronAgent globals cron
 */
 func (a *Client) CronAgent(params *CronAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CronAgentOK, *CronAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCronAgentParams()
 	}
@@ -221,18 +259,22 @@ func (a *Client) CronAgent(params *CronAgentParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CronAgentOK:
 		return value, nil, nil
 	case *CronAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CronAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -241,7 +283,7 @@ func (a *Client) CronAgent(params *CronAgentParams, authInfo runtime.ClientAuthI
 DeleteAgent deletes agent
 */
 func (a *Client) DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteAgentOK, *DeleteAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteAgentParams()
 	}
@@ -261,18 +303,22 @@ func (a *Client) DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteAgentOK:
 		return value, nil, nil
 	case *DeleteAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -281,7 +327,7 @@ func (a *Client) DeleteAgent(params *DeleteAgentParams, authInfo runtime.ClientA
 GetAgent gets agent
 */
 func (a *Client) GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentOK, *GetAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentParams()
 	}
@@ -301,18 +347,22 @@ func (a *Client) GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentOK:
 		return value, nil, nil
 	case *GetAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -321,7 +371,7 @@ func (a *Client) GetAgent(params *GetAgentParams, authInfo runtime.ClientAuthInf
 GetAgentConfig gets agent config
 */
 func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentConfigOK, *GetAgentConfigNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentConfigParams()
 	}
@@ -341,18 +391,22 @@ func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentConfigOK:
 		return value, nil, nil
 	case *GetAgentConfigNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentConfigDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -361,7 +415,7 @@ func (a *Client) GetAgentConfig(params *GetAgentConfigParams, authInfo runtime.C
 GetAgentLogs gets run logs
 */
 func (a *Client) GetAgentLogs(params *GetAgentLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentLogsOK, *GetAgentLogsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentLogsParams()
 	}
@@ -381,18 +435,22 @@ func (a *Client) GetAgentLogs(params *GetAgentLogsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentLogsOK:
 		return value, nil, nil
 	case *GetAgentLogsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentLogsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -401,7 +459,7 @@ func (a *Client) GetAgentLogs(params *GetAgentLogsParams, authInfo runtime.Clien
 GetAgentState gets state queues runs
 */
 func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStateOK, *GetAgentStateNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentStateParams()
 	}
@@ -421,18 +479,22 @@ func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentStateOK:
 		return value, nil, nil
 	case *GetAgentStateNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentStateDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -441,7 +503,7 @@ func (a *Client) GetAgentState(params *GetAgentStateParams, authInfo runtime.Cli
 GetAgentStats gets agent stats
 */
 func (a *Client) GetAgentStats(params *GetAgentStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStatsOK, *GetAgentStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentStatsParams()
 	}
@@ -461,18 +523,22 @@ func (a *Client) GetAgentStats(params *GetAgentStatsParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentStatsOK:
 		return value, nil, nil
 	case *GetAgentStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -481,7 +547,7 @@ func (a *Client) GetAgentStats(params *GetAgentStatsParams, authInfo runtime.Cli
 GetAgentStatuses gets agent statuses
 */
 func (a *Client) GetAgentStatuses(params *GetAgentStatusesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentStatusesOK, *GetAgentStatusesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentStatusesParams()
 	}
@@ -501,18 +567,22 @@ func (a *Client) GetAgentStatuses(params *GetAgentStatusesParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentStatusesOK:
 		return value, nil, nil
 	case *GetAgentStatusesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentStatusesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -521,7 +591,7 @@ func (a *Client) GetAgentStatuses(params *GetAgentStatusesParams, authInfo runti
 GetAgentToken gets agent token
 */
 func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetAgentTokenOK, *GetAgentTokenNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetAgentTokenParams()
 	}
@@ -541,18 +611,22 @@ func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetAgentTokenOK:
 		return value, nil, nil
 	case *GetAgentTokenNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetAgentTokenDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -561,7 +635,7 @@ func (a *Client) GetAgentToken(params *GetAgentTokenParams, authInfo runtime.Cli
 GetGlobalState gets global state queues runs
 */
 func (a *Client) GetGlobalState(params *GetGlobalStateParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetGlobalStateOK, *GetGlobalStateNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetGlobalStateParams()
 	}
@@ -581,18 +655,22 @@ func (a *Client) GetGlobalState(params *GetGlobalStateParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetGlobalStateOK:
 		return value, nil, nil
 	case *GetGlobalStateNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetGlobalStateDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -601,7 +679,7 @@ func (a *Client) GetGlobalState(params *GetGlobalStateParams, authInfo runtime.C
 InspectAgent inspects an agent s service full conditions
 */
 func (a *Client) InspectAgent(params *InspectAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InspectAgentOK, *InspectAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInspectAgentParams()
 	}
@@ -621,18 +699,22 @@ func (a *Client) InspectAgent(params *InspectAgentParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InspectAgentOK:
 		return value, nil, nil
 	case *InspectAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InspectAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -641,7 +723,7 @@ func (a *Client) InspectAgent(params *InspectAgentParams, authInfo runtime.Clien
 ListAgentNames lists agents names
 */
 func (a *Client) ListAgentNames(params *ListAgentNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentNamesOK, *ListAgentNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListAgentNamesParams()
 	}
@@ -661,18 +743,22 @@ func (a *Client) ListAgentNames(params *ListAgentNamesParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListAgentNamesOK:
 		return value, nil, nil
 	case *ListAgentNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListAgentNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -681,7 +767,7 @@ func (a *Client) ListAgentNames(params *ListAgentNamesParams, authInfo runtime.C
 ListAgents lists agents
 */
 func (a *Client) ListAgents(params *ListAgentsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListAgentsOK, *ListAgentsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListAgentsParams()
 	}
@@ -701,18 +787,22 @@ func (a *Client) ListAgents(params *ListAgentsParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListAgentsOK:
 		return value, nil, nil
 	case *ListAgentsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListAgentsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -721,7 +811,7 @@ func (a *Client) ListAgents(params *ListAgentsParams, authInfo runtime.ClientAut
 PatchAgent patches agent
 */
 func (a *Client) PatchAgent(params *PatchAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchAgentOK, *PatchAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchAgentParams()
 	}
@@ -741,18 +831,22 @@ func (a *Client) PatchAgent(params *PatchAgentParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchAgentOK:
 		return value, nil, nil
 	case *PatchAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -761,7 +855,7 @@ func (a *Client) PatchAgent(params *PatchAgentParams, authInfo runtime.ClientAut
 PatchAgentToken patches agent token
 */
 func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchAgentTokenOK, *PatchAgentTokenNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchAgentTokenParams()
 	}
@@ -781,18 +875,22 @@ func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchAgentTokenOK:
 		return value, nil, nil
 	case *PatchAgentTokenNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchAgentTokenDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -801,7 +899,7 @@ func (a *Client) PatchAgentToken(params *PatchAgentTokenParams, authInfo runtime
 ReconcileAgent reconciles agent
 */
 func (a *Client) ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ReconcileAgentOK, *ReconcileAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewReconcileAgentParams()
 	}
@@ -821,18 +919,22 @@ func (a *Client) ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ReconcileAgentOK:
 		return value, nil, nil
 	case *ReconcileAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ReconcileAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -841,7 +943,7 @@ func (a *Client) ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.C
 SyncAgent syncs agent
 */
 func (a *Client) SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncAgentOK, *SyncAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSyncAgentParams()
 	}
@@ -861,18 +963,22 @@ func (a *Client) SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SyncAgentOK:
 		return value, nil, nil
 	case *SyncAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SyncAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -881,7 +987,7 @@ func (a *Client) SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthI
 UpdateAgent updates agent
 */
 func (a *Client) UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentOK, *UpdateAgentNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateAgentParams()
 	}
@@ -901,18 +1007,22 @@ func (a *Client) UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateAgentOK:
 		return value, nil, nil
 	case *UpdateAgentNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -921,7 +1031,7 @@ func (a *Client) UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientA
 UpdateAgentConfig updates agent config
 */
 func (a *Client) UpdateAgentConfig(params *UpdateAgentConfigParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentConfigOK, *UpdateAgentConfigNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateAgentConfigParams()
 	}
@@ -941,18 +1051,22 @@ func (a *Client) UpdateAgentConfig(params *UpdateAgentConfigParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateAgentConfigOK:
 		return value, nil, nil
 	case *UpdateAgentConfigNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateAgentConfigDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -961,7 +1075,7 @@ func (a *Client) UpdateAgentConfig(params *UpdateAgentConfigParams, authInfo run
 UpdateAgentToken updates agent token
 */
 func (a *Client) UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentTokenOK, *UpdateAgentTokenNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateAgentTokenParams()
 	}
@@ -981,18 +1095,22 @@ func (a *Client) UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateAgentTokenOK:
 		return value, nil, nil
 	case *UpdateAgentTokenNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateAgentTokenDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

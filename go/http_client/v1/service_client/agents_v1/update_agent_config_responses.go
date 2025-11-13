@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateAgentConfigReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateAgentConfigReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateAgentConfigReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateAgentConfigOK()
@@ -104,11 +106,13 @@ func (o *UpdateAgentConfigOK) Code() int {
 }
 
 func (o *UpdateAgentConfigOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigOK %s", 200, payload)
 }
 
 func (o *UpdateAgentConfigOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigOK %s", 200, payload)
 }
 
 func (o *UpdateAgentConfigOK) GetPayload() *service_model.V1Agent {
@@ -120,7 +124,7 @@ func (o *UpdateAgentConfigOK) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.V1Agent)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateAgentConfigNoContent describes a response with status code 204, with defau
 No content.
 */
 type UpdateAgentConfigNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update agent config no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateAgentConfigNoContent) Code() int {
 }
 
 func (o *UpdateAgentConfigNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNoContent %s", 204, payload)
 }
 
 func (o *UpdateAgentConfigNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNoContent %s", 204, payload)
 }
 
-func (o *UpdateAgentConfigNoContent) GetPayload() interface{} {
+func (o *UpdateAgentConfigNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateAgentConfigNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateAgentConfigForbidden describes a response with status code 403, with defau
 You don't have permission to access the resource.
 */
 type UpdateAgentConfigForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update agent config forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateAgentConfigForbidden) Code() int {
 }
 
 func (o *UpdateAgentConfigForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigForbidden %s", 403, payload)
 }
 
 func (o *UpdateAgentConfigForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigForbidden %s", 403, payload)
 }
 
-func (o *UpdateAgentConfigForbidden) GetPayload() interface{} {
+func (o *UpdateAgentConfigForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateAgentConfigForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateAgentConfigNotFound describes a response with status code 404, with defaul
 Resource does not exist.
 */
 type UpdateAgentConfigNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update agent config not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateAgentConfigNotFound) Code() int {
 }
 
 func (o *UpdateAgentConfigNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNotFound %s", 404, payload)
 }
 
 func (o *UpdateAgentConfigNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] updateAgentConfigNotFound %s", 404, payload)
 }
 
-func (o *UpdateAgentConfigNotFound) GetPayload() interface{} {
+func (o *UpdateAgentConfigNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateAgentConfigNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateAgentConfigDefault) Code() int {
 }
 
 func (o *UpdateAgentConfigDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] UpdateAgentConfig default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] UpdateAgentConfig default %s", o._statusCode, payload)
 }
 
 func (o *UpdateAgentConfigDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] UpdateAgentConfig default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/config][%d] UpdateAgentConfig default %s", o._statusCode, payload)
 }
 
 func (o *UpdateAgentConfigDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateAgentConfigDefault) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

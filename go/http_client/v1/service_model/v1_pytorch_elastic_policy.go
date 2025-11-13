@@ -25,7 +25,7 @@ type V1PytorchElasticPolicy struct {
 	// increased, and vice-versa.  See the individual metric source types for
 	// more information about how each type of metric must respond.
 	// If not set, the HPA will not be created.
-	Metrics []interface{} `json:"Metrics"`
+	Metrics []any `json:"Metrics"`
 
 	// upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas, defaults to null.
 	MaxReplicas int32 `json:"maxReplicas,omitempty"`
@@ -45,7 +45,7 @@ type V1PytorchElasticPolicy struct {
 	RdvzBackend string `json:"rdvzBackend,omitempty"`
 
 	// RDZVConf contains additional rendezvous configuration (<key1>=<value1>,<key2>=<value2>,...).
-	RdvzConf []interface{} `json:"rdvzConf"`
+	RdvzConf []any `json:"rdvzConf"`
 
 	// rdvz host
 	RdvzHost string `json:"rdvzHost,omitempty"`

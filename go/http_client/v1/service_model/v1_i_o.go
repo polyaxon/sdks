@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -43,7 +44,7 @@ type V1IO struct {
 	Name string `json:"name,omitempty"`
 
 	// (Deprecated) An optional field to provide possible values for validation
-	Options []interface{} `json:"options"`
+	Options []any `json:"options"`
 
 	// A flag to signal to Polyaxon that this io must be tranformed to the environment variable passed
 	ToEnv string `json:"toEnv,omitempty"`
@@ -58,7 +59,7 @@ type V1IO struct {
 	Validation *V1Validation `json:"validation,omitempty"`
 
 	// The value of the input/output should be compatible with the type
-	Value interface{} `json:"value,omitempty"`
+	Value any `json:"value,omitempty"`
 }
 
 // Validate validates this v1 i o
@@ -82,11 +83,15 @@ func (m *V1IO) validateValidation(formats strfmt.Registry) error {
 
 	if m.Validation != nil {
 		if err := m.Validation.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("validation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("validation")
 			}
+
 			return err
 		}
 	}
@@ -117,11 +122,15 @@ func (m *V1IO) contextValidateValidation(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.Validation.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("validation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("validation")
 			}
+
 			return err
 		}
 	}

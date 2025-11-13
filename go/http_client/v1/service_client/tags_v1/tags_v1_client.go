@@ -7,12 +7,38 @@ package tags_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new tags v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new tags v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new tags v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -51,7 +77,7 @@ type ClientService interface {
 CreateTag creates tag
 */
 func (a *Client) CreateTag(params *CreateTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTagOK, *CreateTagNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateTagParams()
 	}
@@ -71,18 +97,22 @@ func (a *Client) CreateTag(params *CreateTagParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateTagOK:
 		return value, nil, nil
 	case *CreateTagNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateTagDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -91,7 +121,7 @@ func (a *Client) CreateTag(params *CreateTagParams, authInfo runtime.ClientAuthI
 DeleteTag deletes tag
 */
 func (a *Client) DeleteTag(params *DeleteTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTagOK, *DeleteTagNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteTagParams()
 	}
@@ -111,18 +141,22 @@ func (a *Client) DeleteTag(params *DeleteTagParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteTagOK:
 		return value, nil, nil
 	case *DeleteTagNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteTagDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -131,7 +165,7 @@ func (a *Client) DeleteTag(params *DeleteTagParams, authInfo runtime.ClientAuthI
 GetTag gets tag
 */
 func (a *Client) GetTag(params *GetTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTagOK, *GetTagNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTagParams()
 	}
@@ -151,18 +185,22 @@ func (a *Client) GetTag(params *GetTagParams, authInfo runtime.ClientAuthInfoWri
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTagOK:
 		return value, nil, nil
 	case *GetTagNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTagDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -171,7 +209,7 @@ func (a *Client) GetTag(params *GetTagParams, authInfo runtime.ClientAuthInfoWri
 ListTags lists tags
 */
 func (a *Client) ListTags(params *ListTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTagsOK, *ListTagsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListTagsParams()
 	}
@@ -191,18 +229,22 @@ func (a *Client) ListTags(params *ListTagsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListTagsOK:
 		return value, nil, nil
 	case *ListTagsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListTagsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -211,7 +253,7 @@ func (a *Client) ListTags(params *ListTagsParams, authInfo runtime.ClientAuthInf
 LoadTags loads tags
 */
 func (a *Client) LoadTags(params *LoadTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*LoadTagsOK, *LoadTagsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewLoadTagsParams()
 	}
@@ -231,18 +273,22 @@ func (a *Client) LoadTags(params *LoadTagsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *LoadTagsOK:
 		return value, nil, nil
 	case *LoadTagsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*LoadTagsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -251,7 +297,7 @@ func (a *Client) LoadTags(params *LoadTagsParams, authInfo runtime.ClientAuthInf
 PatchTag patches tag
 */
 func (a *Client) PatchTag(params *PatchTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTagOK, *PatchTagNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchTagParams()
 	}
@@ -271,18 +317,22 @@ func (a *Client) PatchTag(params *PatchTagParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchTagOK:
 		return value, nil, nil
 	case *PatchTagNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchTagDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -291,7 +341,7 @@ func (a *Client) PatchTag(params *PatchTagParams, authInfo runtime.ClientAuthInf
 SyncTags syncs tags
 */
 func (a *Client) SyncTags(params *SyncTagsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncTagsOK, *SyncTagsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSyncTagsParams()
 	}
@@ -311,18 +361,22 @@ func (a *Client) SyncTags(params *SyncTagsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SyncTagsOK:
 		return value, nil, nil
 	case *SyncTagsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SyncTagsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -331,7 +385,7 @@ func (a *Client) SyncTags(params *SyncTagsParams, authInfo runtime.ClientAuthInf
 UpdateTag updates tag
 */
 func (a *Client) UpdateTag(params *UpdateTagParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTagOK, *UpdateTagNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateTagParams()
 	}
@@ -351,18 +405,22 @@ func (a *Client) UpdateTag(params *UpdateTagParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateTagOK:
 		return value, nil, nil
 	case *UpdateTagNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateTagDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

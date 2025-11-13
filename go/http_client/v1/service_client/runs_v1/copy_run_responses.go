@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CopyRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CopyRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CopyRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCopyRunOK()
@@ -104,11 +106,13 @@ func (o *CopyRunOK) Code() int {
 }
 
 func (o *CopyRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK %s", 200, payload)
 }
 
 func (o *CopyRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunOK %s", 200, payload)
 }
 
 func (o *CopyRunOK) GetPayload() *service_model.V1Run {
@@ -120,7 +124,7 @@ func (o *CopyRunOK) readResponse(response runtime.ClientResponse, consumer runti
 	o.Payload = new(service_model.V1Run)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CopyRunNoContent describes a response with status code 204, with default header 
 No content.
 */
 type CopyRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this copy run no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CopyRunNoContent) Code() int {
 }
 
 func (o *CopyRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent %s", 204, payload)
 }
 
 func (o *CopyRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNoContent %s", 204, payload)
 }
 
-func (o *CopyRunNoContent) GetPayload() interface{} {
+func (o *CopyRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CopyRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CopyRunForbidden describes a response with status code 403, with default header 
 You don't have permission to access the resource.
 */
 type CopyRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this copy run forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CopyRunForbidden) Code() int {
 }
 
 func (o *CopyRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden %s", 403, payload)
 }
 
 func (o *CopyRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunForbidden %s", 403, payload)
 }
 
-func (o *CopyRunForbidden) GetPayload() interface{} {
+func (o *CopyRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CopyRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CopyRunNotFound describes a response with status code 404, with default header v
 Resource does not exist.
 */
 type CopyRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this copy run not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CopyRunNotFound) Code() int {
 }
 
 func (o *CopyRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound %s", 404, payload)
 }
 
 func (o *CopyRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] copyRunNotFound %s", 404, payload)
 }
 
-func (o *CopyRunNotFound) GetPayload() interface{} {
+func (o *CopyRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CopyRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CopyRunDefault) Code() int {
 }
 
 func (o *CopyRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default %s", o._statusCode, payload)
 }
 
 func (o *CopyRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/copy][%d] CopyRun default %s", o._statusCode, payload)
 }
 
 func (o *CopyRunDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CopyRunDefault) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -37,7 +38,7 @@ type V1SearchSpec struct {
 	Heat string `json:"heat,omitempty"`
 
 	// Optional histograms specification
-	Histograms interface{} `json:"histograms,omitempty"`
+	Histograms any `json:"histograms,omitempty"`
 
 	// Search layout
 	Layout string `json:"layout,omitempty"`
@@ -58,7 +59,7 @@ type V1SearchSpec struct {
 	Sort string `json:"sort,omitempty"`
 
 	// Optional trends specification
-	Trends interface{} `json:"trends,omitempty"`
+	Trends any `json:"trends,omitempty"`
 }
 
 // Validate validates this v1 search spec
@@ -86,11 +87,15 @@ func (m *V1SearchSpec) validateAnalytics(formats strfmt.Registry) error {
 
 	if m.Analytics != nil {
 		if err := m.Analytics.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("analytics")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("analytics")
 			}
+
 			return err
 		}
 	}
@@ -105,11 +110,15 @@ func (m *V1SearchSpec) validateEvents(formats strfmt.Registry) error {
 
 	if m.Events != nil {
 		if err := m.Events.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("events")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("events")
 			}
+
 			return err
 		}
 	}
@@ -144,11 +153,15 @@ func (m *V1SearchSpec) contextValidateAnalytics(ctx context.Context, formats str
 		}
 
 		if err := m.Analytics.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("analytics")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("analytics")
 			}
+
 			return err
 		}
 	}
@@ -165,11 +178,15 @@ func (m *V1SearchSpec) contextValidateEvents(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Events.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("events")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("events")
 			}
+
 			return err
 		}
 	}

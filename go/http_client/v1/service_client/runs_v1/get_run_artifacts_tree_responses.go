@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunArtifactsTreeReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunArtifactsTreeReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunArtifactsTreeReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunArtifactsTreeOK()
@@ -104,11 +106,13 @@ func (o *GetRunArtifactsTreeOK) Code() int {
 }
 
 func (o *GetRunArtifactsTreeOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK %s", 200, payload)
 }
 
 func (o *GetRunArtifactsTreeOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeOK %s", 200, payload)
 }
 
 func (o *GetRunArtifactsTreeOK) GetPayload() *service_model.V1ArtifactTree {
@@ -120,7 +124,7 @@ func (o *GetRunArtifactsTreeOK) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.V1ArtifactTree)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunArtifactsTreeNoContent describes a response with status code 204, with def
 No content.
 */
 type GetRunArtifactsTreeNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts tree no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunArtifactsTreeNoContent) Code() int {
 }
 
 func (o *GetRunArtifactsTreeNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent %s", 204, payload)
 }
 
 func (o *GetRunArtifactsTreeNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNoContent %s", 204, payload)
 }
 
-func (o *GetRunArtifactsTreeNoContent) GetPayload() interface{} {
+func (o *GetRunArtifactsTreeNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsTreeNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunArtifactsTreeForbidden describes a response with status code 403, with def
 You don't have permission to access the resource.
 */
 type GetRunArtifactsTreeForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts tree forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunArtifactsTreeForbidden) Code() int {
 }
 
 func (o *GetRunArtifactsTreeForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden %s", 403, payload)
 }
 
 func (o *GetRunArtifactsTreeForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeForbidden %s", 403, payload)
 }
 
-func (o *GetRunArtifactsTreeForbidden) GetPayload() interface{} {
+func (o *GetRunArtifactsTreeForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsTreeForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunArtifactsTreeNotFound describes a response with status code 404, with defa
 Resource does not exist.
 */
 type GetRunArtifactsTreeNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run artifacts tree not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunArtifactsTreeNotFound) Code() int {
 }
 
 func (o *GetRunArtifactsTreeNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound %s", 404, payload)
 }
 
 func (o *GetRunArtifactsTreeNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] getRunArtifactsTreeNotFound %s", 404, payload)
 }
 
-func (o *GetRunArtifactsTreeNotFound) GetPayload() interface{} {
+func (o *GetRunArtifactsTreeNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunArtifactsTreeNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunArtifactsTreeDefault) Code() int {
 }
 
 func (o *GetRunArtifactsTreeDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default %s", o._statusCode, payload)
 }
 
 func (o *GetRunArtifactsTreeDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts/tree][%d] GetRunArtifactsTree default %s", o._statusCode, payload)
 }
 
 func (o *GetRunArtifactsTreeDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunArtifactsTreeDefault) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

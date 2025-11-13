@@ -8,4 +8,4 @@ package service_model
 // V1Container Placeholder for Container
 //
 // swagger:model v1Container
-type V1Container interface{}
+type V1Container any

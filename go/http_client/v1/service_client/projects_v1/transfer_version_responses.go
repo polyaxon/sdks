@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type TransferVersionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *TransferVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *TransferVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewTransferVersionOK()
@@ -103,11 +105,11 @@ func (o *TransferVersionOK) Code() int {
 }
 
 func (o *TransferVersionOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionOK", 200)
 }
 
 func (o *TransferVersionOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionOK", 200)
 }
 
 func (o *TransferVersionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ TransferVersionNoContent describes a response with status code 204, with default
 No content.
 */
 type TransferVersionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer version no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *TransferVersionNoContent) Code() int {
 }
 
 func (o *TransferVersionNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNoContent %s", 204, payload)
 }
 
 func (o *TransferVersionNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNoContent %s", 204, payload)
 }
 
-func (o *TransferVersionNoContent) GetPayload() interface{} {
+func (o *TransferVersionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferVersionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ TransferVersionForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type TransferVersionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer version forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *TransferVersionForbidden) Code() int {
 }
 
 func (o *TransferVersionForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionForbidden %s", 403, payload)
 }
 
 func (o *TransferVersionForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionForbidden %s", 403, payload)
 }
 
-func (o *TransferVersionForbidden) GetPayload() interface{} {
+func (o *TransferVersionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferVersionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ TransferVersionNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type TransferVersionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer version not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *TransferVersionNotFound) Code() int {
 }
 
 func (o *TransferVersionNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNotFound %s", 404, payload)
 }
 
 func (o *TransferVersionNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] transferVersionNotFound %s", 404, payload)
 }
 
-func (o *TransferVersionNotFound) GetPayload() interface{} {
+func (o *TransferVersionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferVersionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *TransferVersionDefault) Code() int {
 }
 
 func (o *TransferVersionDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] TransferVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] TransferVersion default %s", o._statusCode, payload)
 }
 
 func (o *TransferVersionDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] TransferVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}/transfer][%d] TransferVersion default %s", o._statusCode, payload)
 }
 
 func (o *TransferVersionDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *TransferVersionDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

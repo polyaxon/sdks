@@ -6,6 +6,8 @@ package service_accounts_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetServiceAccountReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetServiceAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetServiceAccountReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetServiceAccountOK()
@@ -104,11 +106,13 @@ func (o *GetServiceAccountOK) Code() int {
 }
 
 func (o *GetServiceAccountOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK %s", 200, payload)
 }
 
 func (o *GetServiceAccountOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountOK %s", 200, payload)
 }
 
 func (o *GetServiceAccountOK) GetPayload() *service_model.V1ServiceAccount {
@@ -120,7 +124,7 @@ func (o *GetServiceAccountOK) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.V1ServiceAccount)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetServiceAccountNoContent describes a response with status code 204, with defau
 No content.
 */
 type GetServiceAccountNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get service account no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetServiceAccountNoContent) Code() int {
 }
 
 func (o *GetServiceAccountNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent %s", 204, payload)
 }
 
 func (o *GetServiceAccountNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNoContent %s", 204, payload)
 }
 
-func (o *GetServiceAccountNoContent) GetPayload() interface{} {
+func (o *GetServiceAccountNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetServiceAccountNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetServiceAccountForbidden describes a response with status code 403, with defau
 You don't have permission to access the resource.
 */
 type GetServiceAccountForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get service account forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetServiceAccountForbidden) Code() int {
 }
 
 func (o *GetServiceAccountForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden %s", 403, payload)
 }
 
 func (o *GetServiceAccountForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountForbidden %s", 403, payload)
 }
 
-func (o *GetServiceAccountForbidden) GetPayload() interface{} {
+func (o *GetServiceAccountForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetServiceAccountForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetServiceAccountNotFound describes a response with status code 404, with defaul
 Resource does not exist.
 */
 type GetServiceAccountNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get service account not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetServiceAccountNotFound) Code() int {
 }
 
 func (o *GetServiceAccountNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound %s", 404, payload)
 }
 
 func (o *GetServiceAccountNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] getServiceAccountNotFound %s", 404, payload)
 }
 
-func (o *GetServiceAccountNotFound) GetPayload() interface{} {
+func (o *GetServiceAccountNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetServiceAccountNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetServiceAccountDefault) Code() int {
 }
 
 func (o *GetServiceAccountDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default %s", o._statusCode, payload)
 }
 
 func (o *GetServiceAccountDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/sa/{uuid}][%d] GetServiceAccount default %s", o._statusCode, payload)
 }
 
 func (o *GetServiceAccountDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetServiceAccountDefault) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

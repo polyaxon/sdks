@@ -21,7 +21,7 @@ type V1HpNormal struct {
 	Kind *string `json:"kind,omitempty"`
 
 	// Value
-	Value interface{} `json:"value,omitempty"`
+	Value any `json:"value,omitempty"`
 }
 
 // Validate validates this v1 hp normal

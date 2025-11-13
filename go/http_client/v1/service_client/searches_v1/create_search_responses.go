@@ -6,6 +6,8 @@ package searches_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateSearchReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateSearchOK()
@@ -104,11 +106,13 @@ func (o *CreateSearchOK) Code() int {
 }
 
 func (o *CreateSearchOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchOK %s", 200, payload)
 }
 
 func (o *CreateSearchOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchOK %s", 200, payload)
 }
 
 func (o *CreateSearchOK) GetPayload() *service_model.V1Search {
@@ -120,7 +124,7 @@ func (o *CreateSearchOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1Search)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateSearchNoContent describes a response with status code 204, with default he
 No content.
 */
 type CreateSearchNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create search no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateSearchNoContent) Code() int {
 }
 
 func (o *CreateSearchNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNoContent %s", 204, payload)
 }
 
 func (o *CreateSearchNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNoContent %s", 204, payload)
 }
 
-func (o *CreateSearchNoContent) GetPayload() interface{} {
+func (o *CreateSearchNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateSearchNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateSearchForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type CreateSearchForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create search forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateSearchForbidden) Code() int {
 }
 
 func (o *CreateSearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchForbidden %s", 403, payload)
 }
 
 func (o *CreateSearchForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchForbidden %s", 403, payload)
 }
 
-func (o *CreateSearchForbidden) GetPayload() interface{} {
+func (o *CreateSearchForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateSearchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateSearchNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type CreateSearchNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create search not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateSearchNotFound) Code() int {
 }
 
 func (o *CreateSearchNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNotFound %s", 404, payload)
 }
 
 func (o *CreateSearchNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] createSearchNotFound %s", 404, payload)
 }
 
-func (o *CreateSearchNotFound) GetPayload() interface{} {
+func (o *CreateSearchNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateSearchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateSearchDefault) Code() int {
 }
 
 func (o *CreateSearchDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] CreateSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] CreateSearch default %s", o._statusCode, payload)
 }
 
 func (o *CreateSearchDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] CreateSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/searches][%d] CreateSearch default %s", o._statusCode, payload)
 }
 
 func (o *CreateSearchDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateSearchDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunsArtifactsLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunsArtifactsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunsArtifactsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunsArtifactsLineageOK()
@@ -104,11 +106,13 @@ func (o *GetRunsArtifactsLineageOK) Code() int {
 }
 
 func (o *GetRunsArtifactsLineageOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageOK %s", 200, payload)
 }
 
 func (o *GetRunsArtifactsLineageOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageOK %s", 200, payload)
 }
 
 func (o *GetRunsArtifactsLineageOK) GetPayload() *service_model.V1ListRunArtifactsResponse {
@@ -120,7 +124,7 @@ func (o *GetRunsArtifactsLineageOK) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.V1ListRunArtifactsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunsArtifactsLineageNoContent describes a response with status code 204, with
 No content.
 */
 type GetRunsArtifactsLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get runs artifacts lineage no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunsArtifactsLineageNoContent) Code() int {
 }
 
 func (o *GetRunsArtifactsLineageNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNoContent %s", 204, payload)
 }
 
 func (o *GetRunsArtifactsLineageNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNoContent %s", 204, payload)
 }
 
-func (o *GetRunsArtifactsLineageNoContent) GetPayload() interface{} {
+func (o *GetRunsArtifactsLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunsArtifactsLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunsArtifactsLineageForbidden describes a response with status code 403, with
 You don't have permission to access the resource.
 */
 type GetRunsArtifactsLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get runs artifacts lineage forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunsArtifactsLineageForbidden) Code() int {
 }
 
 func (o *GetRunsArtifactsLineageForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageForbidden %s", 403, payload)
 }
 
 func (o *GetRunsArtifactsLineageForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageForbidden %s", 403, payload)
 }
 
-func (o *GetRunsArtifactsLineageForbidden) GetPayload() interface{} {
+func (o *GetRunsArtifactsLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunsArtifactsLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunsArtifactsLineageNotFound describes a response with status code 404, with 
 Resource does not exist.
 */
 type GetRunsArtifactsLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get runs artifacts lineage not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunsArtifactsLineageNotFound) Code() int {
 }
 
 func (o *GetRunsArtifactsLineageNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNotFound %s", 404, payload)
 }
 
 func (o *GetRunsArtifactsLineageNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] getRunsArtifactsLineageNotFound %s", 404, payload)
 }
 
-func (o *GetRunsArtifactsLineageNotFound) GetPayload() interface{} {
+func (o *GetRunsArtifactsLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunsArtifactsLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunsArtifactsLineageDefault) Code() int {
 }
 
 func (o *GetRunsArtifactsLineageDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] GetRunsArtifactsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] GetRunsArtifactsLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunsArtifactsLineageDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] GetRunsArtifactsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/runs/lineage/artifacts][%d] GetRunsArtifactsLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunsArtifactsLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunsArtifactsLineageDefault) readResponse(response runtime.ClientRes
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

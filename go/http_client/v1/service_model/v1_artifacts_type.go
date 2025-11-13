@@ -18,10 +18,10 @@ import (
 type V1ArtifactsType struct {
 
 	// Optional dirs to initialize
-	Dirs []interface{} `json:"dirs"`
+	Dirs []any `json:"dirs"`
 
 	// Optional files to initialize
-	Files []interface{} `json:"files"`
+	Files []any `json:"files"`
 
 	// Optional number of concurrent threads to use
 	Workers int32 `json:"workers,omitempty"`

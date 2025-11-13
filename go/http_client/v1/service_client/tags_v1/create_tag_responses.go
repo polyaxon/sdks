@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateTagReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateTagOK()
@@ -104,11 +106,13 @@ func (o *CreateTagOK) Code() int {
 }
 
 func (o *CreateTagOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK %s", 200, payload)
 }
 
 func (o *CreateTagOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagOK %s", 200, payload)
 }
 
 func (o *CreateTagOK) GetPayload() *service_model.V1Tag {
@@ -120,7 +124,7 @@ func (o *CreateTagOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1Tag)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateTagNoContent describes a response with status code 204, with default heade
 No content.
 */
 type CreateTagNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create tag no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateTagNoContent) Code() int {
 }
 
 func (o *CreateTagNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent %s", 204, payload)
 }
 
 func (o *CreateTagNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNoContent %s", 204, payload)
 }
 
-func (o *CreateTagNoContent) GetPayload() interface{} {
+func (o *CreateTagNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTagNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateTagForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type CreateTagForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create tag forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateTagForbidden) Code() int {
 }
 
 func (o *CreateTagForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden %s", 403, payload)
 }
 
 func (o *CreateTagForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagForbidden %s", 403, payload)
 }
 
-func (o *CreateTagForbidden) GetPayload() interface{} {
+func (o *CreateTagForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTagForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateTagNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type CreateTagNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create tag not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateTagNotFound) Code() int {
 }
 
 func (o *CreateTagNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound %s", 404, payload)
 }
 
 func (o *CreateTagNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] createTagNotFound %s", 404, payload)
 }
 
-func (o *CreateTagNotFound) GetPayload() interface{} {
+func (o *CreateTagNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTagNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateTagDefault) Code() int {
 }
 
 func (o *CreateTagDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default %s", o._statusCode, payload)
 }
 
 func (o *CreateTagDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags][%d] CreateTag default %s", o._statusCode, payload)
 }
 
 func (o *CreateTagDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateTagDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

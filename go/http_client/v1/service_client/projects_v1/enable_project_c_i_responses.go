@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type EnableProjectCIReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *EnableProjectCIReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *EnableProjectCIReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewEnableProjectCIOK()
@@ -103,11 +105,11 @@ func (o *EnableProjectCIOK) Code() int {
 }
 
 func (o *EnableProjectCIOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK", 200)
 }
 
 func (o *EnableProjectCIOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIOK", 200)
 }
 
 func (o *EnableProjectCIOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ EnableProjectCINoContent describes a response with status code 204, with default
 No content.
 */
 type EnableProjectCINoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this enable project c i no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *EnableProjectCINoContent) Code() int {
 }
 
 func (o *EnableProjectCINoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent %s", 204, payload)
 }
 
 func (o *EnableProjectCINoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINoContent %s", 204, payload)
 }
 
-func (o *EnableProjectCINoContent) GetPayload() interface{} {
+func (o *EnableProjectCINoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *EnableProjectCINoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ EnableProjectCIForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type EnableProjectCIForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this enable project c i forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *EnableProjectCIForbidden) Code() int {
 }
 
 func (o *EnableProjectCIForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden %s", 403, payload)
 }
 
 func (o *EnableProjectCIForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCIForbidden %s", 403, payload)
 }
 
-func (o *EnableProjectCIForbidden) GetPayload() interface{} {
+func (o *EnableProjectCIForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *EnableProjectCIForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ EnableProjectCINotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type EnableProjectCINotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this enable project c i not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *EnableProjectCINotFound) Code() int {
 }
 
 func (o *EnableProjectCINotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound %s", 404, payload)
 }
 
 func (o *EnableProjectCINotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] enableProjectCINotFound %s", 404, payload)
 }
 
-func (o *EnableProjectCINotFound) GetPayload() interface{} {
+func (o *EnableProjectCINotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *EnableProjectCINotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *EnableProjectCIDefault) Code() int {
 }
 
 func (o *EnableProjectCIDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default %s", o._statusCode, payload)
 }
 
 func (o *EnableProjectCIDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/ci][%d] EnableProjectCI default %s", o._statusCode, payload)
 }
 
 func (o *EnableProjectCIDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *EnableProjectCIDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

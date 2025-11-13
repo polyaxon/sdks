@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type StopRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *StopRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *StopRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewStopRunOK()
@@ -103,11 +105,11 @@ func (o *StopRunOK) Code() int {
 }
 
 func (o *StopRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK", 200)
 }
 
 func (o *StopRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunOK", 200)
 }
 
 func (o *StopRunOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ StopRunNoContent describes a response with status code 204, with default header 
 No content.
 */
 type StopRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop run no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *StopRunNoContent) Code() int {
 }
 
 func (o *StopRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent %s", 204, payload)
 }
 
 func (o *StopRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNoContent %s", 204, payload)
 }
 
-func (o *StopRunNoContent) GetPayload() interface{} {
+func (o *StopRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ StopRunForbidden describes a response with status code 403, with default header 
 You don't have permission to access the resource.
 */
 type StopRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop run forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *StopRunForbidden) Code() int {
 }
 
 func (o *StopRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden %s", 403, payload)
 }
 
 func (o *StopRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunForbidden %s", 403, payload)
 }
 
-func (o *StopRunForbidden) GetPayload() interface{} {
+func (o *StopRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ StopRunNotFound describes a response with status code 404, with default header v
 Resource does not exist.
 */
 type StopRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop run not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *StopRunNotFound) Code() int {
 }
 
 func (o *StopRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound %s", 404, payload)
 }
 
 func (o *StopRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] stopRunNotFound %s", 404, payload)
 }
 
-func (o *StopRunNotFound) GetPayload() interface{} {
+func (o *StopRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *StopRunDefault) Code() int {
 }
 
 func (o *StopRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default %s", o._statusCode, payload)
 }
 
 func (o *StopRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/stop][%d] StopRun default %s", o._statusCode, payload)
 }
 
 func (o *StopRunDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *StopRunDefault) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

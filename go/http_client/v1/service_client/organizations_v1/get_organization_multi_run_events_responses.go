@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetOrganizationMultiRunEventsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetOrganizationMultiRunEventsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetOrganizationMultiRunEventsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetOrganizationMultiRunEventsOK()
@@ -104,11 +106,13 @@ func (o *GetOrganizationMultiRunEventsOK) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK %s", 200, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsOK %s", 200, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -120,7 +124,7 @@ func (o *GetOrganizationMultiRunEventsOK) readResponse(response runtime.ClientRe
 	o.Payload = new(service_model.V1MultiEventsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetOrganizationMultiRunEventsNoContent describes a response with status code 204
 No content.
 */
 type GetOrganizationMultiRunEventsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization multi run events no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetOrganizationMultiRunEventsNoContent) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent %s", 204, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNoContent %s", 204, payload)
 }
 
-func (o *GetOrganizationMultiRunEventsNoContent) GetPayload() interface{} {
+func (o *GetOrganizationMultiRunEventsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationMultiRunEventsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetOrganizationMultiRunEventsForbidden describes a response with status code 403
 You don't have permission to access the resource.
 */
 type GetOrganizationMultiRunEventsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization multi run events forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetOrganizationMultiRunEventsForbidden) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden %s", 403, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsForbidden %s", 403, payload)
 }
 
-func (o *GetOrganizationMultiRunEventsForbidden) GetPayload() interface{} {
+func (o *GetOrganizationMultiRunEventsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationMultiRunEventsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetOrganizationMultiRunEventsNotFound describes a response with status code 404,
 Resource does not exist.
 */
 type GetOrganizationMultiRunEventsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization multi run events not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetOrganizationMultiRunEventsNotFound) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound %s", 404, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] getOrganizationMultiRunEventsNotFound %s", 404, payload)
 }
 
-func (o *GetOrganizationMultiRunEventsNotFound) GetPayload() interface{} {
+func (o *GetOrganizationMultiRunEventsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationMultiRunEventsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetOrganizationMultiRunEventsDefault) Code() int {
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/orgs/{owner}/runs/multi/events/{kind}][%d] GetOrganizationMultiRunEvents default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationMultiRunEventsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetOrganizationMultiRunEventsDefault) readResponse(response runtime.Cli
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

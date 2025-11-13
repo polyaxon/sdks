@@ -6,6 +6,8 @@ package policies_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeletePolicyReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeletePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeletePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeletePolicyOK()
@@ -103,11 +105,11 @@ func (o *DeletePolicyOK) Code() int {
 }
 
 func (o *DeletePolicyOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyOK", 200)
 }
 
 func (o *DeletePolicyOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyOK", 200)
 }
 
 func (o *DeletePolicyOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeletePolicyNoContent describes a response with status code 204, with default he
 No content.
 */
 type DeletePolicyNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete policy no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeletePolicyNoContent) Code() int {
 }
 
 func (o *DeletePolicyNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNoContent %s", 204, payload)
 }
 
 func (o *DeletePolicyNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNoContent %s", 204, payload)
 }
 
-func (o *DeletePolicyNoContent) GetPayload() interface{} {
+func (o *DeletePolicyNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePolicyNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeletePolicyForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type DeletePolicyForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete policy forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeletePolicyForbidden) Code() int {
 }
 
 func (o *DeletePolicyForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyForbidden %s", 403, payload)
 }
 
 func (o *DeletePolicyForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyForbidden %s", 403, payload)
 }
 
-func (o *DeletePolicyForbidden) GetPayload() interface{} {
+func (o *DeletePolicyForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePolicyForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeletePolicyNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type DeletePolicyNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete policy not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeletePolicyNotFound) Code() int {
 }
 
 func (o *DeletePolicyNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNotFound %s", 404, payload)
 }
 
 func (o *DeletePolicyNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] deletePolicyNotFound %s", 404, payload)
 }
 
-func (o *DeletePolicyNotFound) GetPayload() interface{} {
+func (o *DeletePolicyNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePolicyNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeletePolicyDefault) Code() int {
 }
 
 func (o *DeletePolicyDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] DeletePolicy default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] DeletePolicy default %s", o._statusCode, payload)
 }
 
 func (o *DeletePolicyDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] DeletePolicy default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/policies/{uuid}][%d] DeletePolicy default %s", o._statusCode, payload)
 }
 
 func (o *DeletePolicyDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeletePolicyDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

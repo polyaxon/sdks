@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type V1Status struct {
 
 	// Additional optional meta_info
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// The current status
 	Status *V1Statuses `json:"status,omitempty"`
@@ -57,11 +58,15 @@ func (m *V1Status) validateStatus(formats strfmt.Registry) error {
 
 	if m.Status != nil {
 		if err := m.Status.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -81,11 +86,15 @@ func (m *V1Status) validateStatusConditions(formats strfmt.Registry) error {
 
 		if m.StatusConditions[i] != nil {
 			if err := m.StatusConditions[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -122,11 +131,15 @@ func (m *V1Status) contextValidateStatus(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -145,11 +158,15 @@ func (m *V1Status) contextValidateStatusConditions(ctx context.Context, formats 
 			}
 
 			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

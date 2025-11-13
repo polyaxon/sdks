@@ -26,7 +26,7 @@ type V1Queue struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// Optional contributors
-	Contributors []interface{} `json:"contributors"`
+	Contributors []any `json:"contributors"`
 
 	// Optional time when the entity was created
 	// Format: date-time
@@ -48,7 +48,7 @@ type V1Queue struct {
 	Resource string `json:"resource,omitempty"`
 
 	// Optional queue stats
-	Stats interface{} `json:"stats,omitempty"`
+	Stats any `json:"stats,omitempty"`
 
 	// Optional tags of this entity
 	Tags []string `json:"tags"`

@@ -18,7 +18,7 @@ import (
 type V1ClaimConnection struct {
 
 	// kind
-	Kind interface{} `json:"kind,omitempty"`
+	Kind any `json:"kind,omitempty"`
 
 	// Mount path
 	MountPath string `json:"mountPath,omitempty"`

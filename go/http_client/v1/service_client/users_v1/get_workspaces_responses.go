@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetWorkspacesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetWorkspacesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetWorkspacesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetWorkspacesOK()
@@ -70,7 +72,7 @@ GetWorkspacesOK describes a response with status code 200, with default header v
 A successful response.
 */
 type GetWorkspacesOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get workspaces o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *GetWorkspacesOK) Code() int {
 }
 
 func (o *GetWorkspacesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesOK %s", 200, payload)
 }
 
 func (o *GetWorkspacesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesOK %s", 200, payload)
 }
 
-func (o *GetWorkspacesOK) GetPayload() interface{} {
+func (o *GetWorkspacesOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetWorkspacesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ GetWorkspacesNoContent describes a response with status code 204, with default h
 No content.
 */
 type GetWorkspacesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get workspaces no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *GetWorkspacesNoContent) Code() int {
 }
 
 func (o *GetWorkspacesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNoContent %s", 204, payload)
 }
 
 func (o *GetWorkspacesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNoContent %s", 204, payload)
 }
 
-func (o *GetWorkspacesNoContent) GetPayload() interface{} {
+func (o *GetWorkspacesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetWorkspacesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ GetWorkspacesForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type GetWorkspacesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get workspaces forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *GetWorkspacesForbidden) Code() int {
 }
 
 func (o *GetWorkspacesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesForbidden %s", 403, payload)
 }
 
 func (o *GetWorkspacesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesForbidden %s", 403, payload)
 }
 
-func (o *GetWorkspacesForbidden) GetPayload() interface{} {
+func (o *GetWorkspacesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetWorkspacesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ GetWorkspacesNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type GetWorkspacesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get workspaces not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *GetWorkspacesNotFound) Code() int {
 }
 
 func (o *GetWorkspacesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNotFound %s", 404, payload)
 }
 
 func (o *GetWorkspacesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] getWorkspacesNotFound %s", 404, payload)
 }
 
-func (o *GetWorkspacesNotFound) GetPayload() interface{} {
+func (o *GetWorkspacesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetWorkspacesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *GetWorkspacesDefault) Code() int {
 }
 
 func (o *GetWorkspacesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] GetWorkspaces default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] GetWorkspaces default %s", o._statusCode, payload)
 }
 
 func (o *GetWorkspacesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] GetWorkspaces default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/workspaces][%d] GetWorkspaces default %s", o._statusCode, payload)
 }
 
 func (o *GetWorkspacesDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *GetWorkspacesDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

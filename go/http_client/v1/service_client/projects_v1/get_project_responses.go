@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetProjectReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetProjectOK()
@@ -104,11 +106,13 @@ func (o *GetProjectOK) Code() int {
 }
 
 func (o *GetProjectOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectOK %s", 200, payload)
 }
 
 func (o *GetProjectOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectOK %s", 200, payload)
 }
 
 func (o *GetProjectOK) GetPayload() *service_model.V1Project {
@@ -120,7 +124,7 @@ func (o *GetProjectOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1Project)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetProjectNoContent describes a response with status code 204, with default head
 No content.
 */
 type GetProjectNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get project no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetProjectNoContent) Code() int {
 }
 
 func (o *GetProjectNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNoContent %s", 204, payload)
 }
 
 func (o *GetProjectNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNoContent %s", 204, payload)
 }
 
-func (o *GetProjectNoContent) GetPayload() interface{} {
+func (o *GetProjectNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetProjectNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetProjectForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type GetProjectForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get project forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetProjectForbidden) Code() int {
 }
 
 func (o *GetProjectForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectForbidden %s", 403, payload)
 }
 
 func (o *GetProjectForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectForbidden %s", 403, payload)
 }
 
-func (o *GetProjectForbidden) GetPayload() interface{} {
+func (o *GetProjectForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetProjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetProjectNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type GetProjectNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get project not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetProjectNotFound) Code() int {
 }
 
 func (o *GetProjectNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNotFound %s", 404, payload)
 }
 
 func (o *GetProjectNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] getProjectNotFound %s", 404, payload)
 }
 
-func (o *GetProjectNotFound) GetPayload() interface{} {
+func (o *GetProjectNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetProjectNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetProjectDefault) Code() int {
 }
 
 func (o *GetProjectDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] GetProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] GetProject default %s", o._statusCode, payload)
 }
 
 func (o *GetProjectDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] GetProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}][%d] GetProject default %s", o._statusCode, payload)
 }
 
 func (o *GetProjectDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetProjectDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -58,11 +59,15 @@ func (m *V1UserAccess) validateUserData(formats strfmt.Registry) error {
 
 	if m.UserData != nil {
 		if err := m.UserData.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("user_data")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("user_data")
 			}
+
 			return err
 		}
 	}
@@ -93,11 +98,15 @@ func (m *V1UserAccess) contextValidateUserData(ctx context.Context, formats strf
 		}
 
 		if err := m.UserData.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("user_data")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("user_data")
 			}
+
 			return err
 		}
 	}

@@ -45,7 +45,7 @@ const (
 )
 
 // for schema
-var v1EventCurveKindEnum []interface{}
+var v1EventCurveKindEnum []any
 
 func init() {
 	var res []V1EventCurveKind

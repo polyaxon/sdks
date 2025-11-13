@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ArchiveRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ArchiveRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ArchiveRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewArchiveRunsOK()
@@ -103,11 +105,11 @@ func (o *ArchiveRunsOK) Code() int {
 }
 
 func (o *ArchiveRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK", 200)
 }
 
 func (o *ArchiveRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsOK", 200)
 }
 
 func (o *ArchiveRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ArchiveRunsNoContent describes a response with status code 204, with default hea
 No content.
 */
 type ArchiveRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ArchiveRunsNoContent) Code() int {
 }
 
 func (o *ArchiveRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent %s", 204, payload)
 }
 
 func (o *ArchiveRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNoContent %s", 204, payload)
 }
 
-func (o *ArchiveRunsNoContent) GetPayload() interface{} {
+func (o *ArchiveRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ArchiveRunsForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type ArchiveRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ArchiveRunsForbidden) Code() int {
 }
 
 func (o *ArchiveRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden %s", 403, payload)
 }
 
 func (o *ArchiveRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsForbidden %s", 403, payload)
 }
 
-func (o *ArchiveRunsForbidden) GetPayload() interface{} {
+func (o *ArchiveRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ArchiveRunsNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type ArchiveRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ArchiveRunsNotFound) Code() int {
 }
 
 func (o *ArchiveRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound %s", 404, payload)
 }
 
 func (o *ArchiveRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] archiveRunsNotFound %s", 404, payload)
 }
 
-func (o *ArchiveRunsNotFound) GetPayload() interface{} {
+func (o *ArchiveRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ArchiveRunsDefault) Code() int {
 }
 
 func (o *ArchiveRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/archive][%d] ArchiveRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ArchiveRunsDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

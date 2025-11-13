@@ -44,7 +44,7 @@ const (
 )
 
 // for schema
-var v1RunPendingEnum []interface{}
+var v1RunPendingEnum []any
 
 func init() {
 	var res []V1RunPending

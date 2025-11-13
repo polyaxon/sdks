@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SyncAgentReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SyncAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SyncAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSyncAgentOK()
@@ -103,11 +105,11 @@ func (o *SyncAgentOK) Code() int {
 }
 
 func (o *SyncAgentOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK ", 200)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK", 200)
 }
 
 func (o *SyncAgentOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK ", 200)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentOK", 200)
 }
 
 func (o *SyncAgentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ SyncAgentNoContent describes a response with status code 204, with default heade
 No content.
 */
 type SyncAgentNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync agent no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *SyncAgentNoContent) Code() int {
 }
 
 func (o *SyncAgentNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent %s", 204, payload)
 }
 
 func (o *SyncAgentNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNoContent %s", 204, payload)
 }
 
-func (o *SyncAgentNoContent) GetPayload() interface{} {
+func (o *SyncAgentNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncAgentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ SyncAgentForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type SyncAgentForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync agent forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *SyncAgentForbidden) Code() int {
 }
 
 func (o *SyncAgentForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden %s", 403, payload)
 }
 
 func (o *SyncAgentForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentForbidden %s", 403, payload)
 }
 
-func (o *SyncAgentForbidden) GetPayload() interface{} {
+func (o *SyncAgentForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncAgentForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ SyncAgentNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type SyncAgentNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync agent not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *SyncAgentNotFound) Code() int {
 }
 
 func (o *SyncAgentNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound %s", 404, payload)
 }
 
 func (o *SyncAgentNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] syncAgentNotFound %s", 404, payload)
 }
 
-func (o *SyncAgentNotFound) GetPayload() interface{} {
+func (o *SyncAgentNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncAgentNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *SyncAgentDefault) Code() int {
 }
 
 func (o *SyncAgentDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default %s", o._statusCode, payload)
 }
 
 func (o *SyncAgentDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{agent.uuid}/sync][%d] SyncAgent default %s", o._statusCode, payload)
 }
 
 func (o *SyncAgentDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *SyncAgentDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

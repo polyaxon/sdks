@@ -7,12 +7,38 @@ package dashboards_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new dashboards v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new dashboards v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new dashboards v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -49,7 +75,7 @@ type ClientService interface {
 CreateDashboard creates dashboard
 */
 func (a *Client) CreateDashboard(params *CreateDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateDashboardOK, *CreateDashboardNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateDashboardParams()
 	}
@@ -69,18 +95,22 @@ func (a *Client) CreateDashboard(params *CreateDashboardParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateDashboardOK:
 		return value, nil, nil
 	case *CreateDashboardNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateDashboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -89,7 +119,7 @@ func (a *Client) CreateDashboard(params *CreateDashboardParams, authInfo runtime
 DeleteDashboard deletes dashboard
 */
 func (a *Client) DeleteDashboard(params *DeleteDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteDashboardOK, *DeleteDashboardNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteDashboardParams()
 	}
@@ -109,18 +139,22 @@ func (a *Client) DeleteDashboard(params *DeleteDashboardParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteDashboardOK:
 		return value, nil, nil
 	case *DeleteDashboardNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteDashboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -129,7 +163,7 @@ func (a *Client) DeleteDashboard(params *DeleteDashboardParams, authInfo runtime
 GetDashboard gets dashboard
 */
 func (a *Client) GetDashboard(params *GetDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetDashboardOK, *GetDashboardNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetDashboardParams()
 	}
@@ -149,18 +183,22 @@ func (a *Client) GetDashboard(params *GetDashboardParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetDashboardOK:
 		return value, nil, nil
 	case *GetDashboardNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetDashboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -169,7 +207,7 @@ func (a *Client) GetDashboard(params *GetDashboardParams, authInfo runtime.Clien
 ListDashboardNames lists dashboard names
 */
 func (a *Client) ListDashboardNames(params *ListDashboardNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListDashboardNamesOK, *ListDashboardNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListDashboardNamesParams()
 	}
@@ -189,18 +227,22 @@ func (a *Client) ListDashboardNames(params *ListDashboardNamesParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListDashboardNamesOK:
 		return value, nil, nil
 	case *ListDashboardNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListDashboardNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -209,7 +251,7 @@ func (a *Client) ListDashboardNames(params *ListDashboardNamesParams, authInfo r
 ListDashboards lists dashboards
 */
 func (a *Client) ListDashboards(params *ListDashboardsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListDashboardsOK, *ListDashboardsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListDashboardsParams()
 	}
@@ -229,18 +271,22 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListDashboardsOK:
 		return value, nil, nil
 	case *ListDashboardsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListDashboardsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -249,7 +295,7 @@ func (a *Client) ListDashboards(params *ListDashboardsParams, authInfo runtime.C
 PatchDashboard patches dashboard
 */
 func (a *Client) PatchDashboard(params *PatchDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchDashboardOK, *PatchDashboardNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchDashboardParams()
 	}
@@ -269,18 +315,22 @@ func (a *Client) PatchDashboard(params *PatchDashboardParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchDashboardOK:
 		return value, nil, nil
 	case *PatchDashboardNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchDashboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -289,7 +339,7 @@ func (a *Client) PatchDashboard(params *PatchDashboardParams, authInfo runtime.C
 UpdateDashboard updates dashboard
 */
 func (a *Client) UpdateDashboard(params *UpdateDashboardParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateDashboardOK, *UpdateDashboardNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateDashboardParams()
 	}
@@ -309,18 +359,22 @@ func (a *Client) UpdateDashboard(params *UpdateDashboardParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateDashboardOK:
 		return value, nil, nil
 	case *UpdateDashboardNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateDashboardDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

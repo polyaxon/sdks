@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -22,7 +23,7 @@ type V1Hyperband struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// A list of Early stopping objects, accpets both metric and failure early stopping mechanisms
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Eta
 	Eta int32 `json:"eta,omitempty"`
@@ -37,7 +38,7 @@ type V1Hyperband struct {
 	Metric *V1OptimizationMetric `json:"metric,omitempty"`
 
 	// Hyperparams/Space definition of params to traverse
-	Params map[string]interface{} `json:"params,omitempty"`
+	Params map[string]any `json:"params,omitempty"`
 
 	// Resource to optimize (should be an integer or a float)
 	Resource *V1OptimizationResource `json:"resource,omitempty"`
@@ -81,11 +82,15 @@ func (m *V1Hyperband) validateMetric(formats strfmt.Registry) error {
 
 	if m.Metric != nil {
 		if err := m.Metric.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -100,11 +105,15 @@ func (m *V1Hyperband) validateResource(formats strfmt.Registry) error {
 
 	if m.Resource != nil {
 		if err := m.Resource.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resource")
 			}
+
 			return err
 		}
 	}
@@ -119,11 +128,15 @@ func (m *V1Hyperband) validateTuner(formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
 		if err := m.Tuner.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}
@@ -162,11 +175,15 @@ func (m *V1Hyperband) contextValidateMetric(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -183,11 +200,15 @@ func (m *V1Hyperband) contextValidateResource(ctx context.Context, formats strfm
 		}
 
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resource")
 			}
+
 			return err
 		}
 	}
@@ -204,11 +225,15 @@ func (m *V1Hyperband) contextValidateTuner(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}

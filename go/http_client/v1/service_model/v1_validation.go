@@ -18,7 +18,7 @@ import (
 type V1Validation struct {
 
 	// Generic
-	Contains []interface{} `json:"contains"`
+	Contains []any `json:"contains"`
 
 	// contains keys
 	ContainsKeys []string `json:"containsKeys"`
@@ -30,7 +30,7 @@ type V1Validation struct {
 	Delay bool `json:"delay,omitempty"`
 
 	// excludes
-	Excludes []interface{} `json:"excludes"`
+	Excludes []any `json:"excludes"`
 
 	// excludes keys
 	ExcludesKeys []string `json:"excludesKeys"`
@@ -72,7 +72,7 @@ type V1Validation struct {
 	MultipleOf int32 `json:"multipleOf,omitempty"`
 
 	// options
-	Options []interface{} `json:"options"`
+	Options []any `json:"options"`
 
 	// String Constraints (these constraints are also applied item wise for lists and for dict values)
 	Regex string `json:"regex,omitempty"`

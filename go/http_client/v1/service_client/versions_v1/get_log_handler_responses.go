@@ -6,6 +6,8 @@ package versions_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetLogHandlerReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetLogHandlerReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetLogHandlerReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetLogHandlerOK()
@@ -104,11 +106,13 @@ func (o *GetLogHandlerOK) Code() int {
 }
 
 func (o *GetLogHandlerOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerOK %s", 200, payload)
 }
 
 func (o *GetLogHandlerOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerOK %s", 200, payload)
 }
 
 func (o *GetLogHandlerOK) GetPayload() *service_model.V1LogHandler {
@@ -120,7 +124,7 @@ func (o *GetLogHandlerOK) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.V1LogHandler)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetLogHandlerNoContent describes a response with status code 204, with default h
 No content.
 */
 type GetLogHandlerNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get log handler no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetLogHandlerNoContent) Code() int {
 }
 
 func (o *GetLogHandlerNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNoContent %s", 204, payload)
 }
 
 func (o *GetLogHandlerNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNoContent %s", 204, payload)
 }
 
-func (o *GetLogHandlerNoContent) GetPayload() interface{} {
+func (o *GetLogHandlerNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetLogHandlerNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetLogHandlerForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type GetLogHandlerForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get log handler forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetLogHandlerForbidden) Code() int {
 }
 
 func (o *GetLogHandlerForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerForbidden %s", 403, payload)
 }
 
 func (o *GetLogHandlerForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerForbidden %s", 403, payload)
 }
 
-func (o *GetLogHandlerForbidden) GetPayload() interface{} {
+func (o *GetLogHandlerForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetLogHandlerForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetLogHandlerNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type GetLogHandlerNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get log handler not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetLogHandlerNotFound) Code() int {
 }
 
 func (o *GetLogHandlerNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNotFound %s", 404, payload)
 }
 
 func (o *GetLogHandlerNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] getLogHandlerNotFound %s", 404, payload)
 }
 
-func (o *GetLogHandlerNotFound) GetPayload() interface{} {
+func (o *GetLogHandlerNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetLogHandlerNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetLogHandlerDefault) Code() int {
 }
 
 func (o *GetLogHandlerDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] GetLogHandler default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] GetLogHandler default %s", o._statusCode, payload)
 }
 
 func (o *GetLogHandlerDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/log_handler][%d] GetLogHandler default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/log_handler][%d] GetLogHandler default %s", o._statusCode, payload)
 }
 
 func (o *GetLogHandlerDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetLogHandlerDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

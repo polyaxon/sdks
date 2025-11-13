@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type OrganizationLicenseReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *OrganizationLicenseReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *OrganizationLicenseReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewOrganizationLicenseOK()
@@ -104,11 +106,13 @@ func (o *OrganizationLicenseOK) Code() int {
 }
 
 func (o *OrganizationLicenseOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseOK %s", 200, payload)
 }
 
 func (o *OrganizationLicenseOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseOK %s", 200, payload)
 }
 
 func (o *OrganizationLicenseOK) GetPayload() *service_model.V1Organization {
@@ -120,7 +124,7 @@ func (o *OrganizationLicenseOK) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.V1Organization)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ OrganizationLicenseNoContent describes a response with status code 204, with def
 No content.
 */
 type OrganizationLicenseNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this organization license no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *OrganizationLicenseNoContent) Code() int {
 }
 
 func (o *OrganizationLicenseNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNoContent %s", 204, payload)
 }
 
 func (o *OrganizationLicenseNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNoContent %s", 204, payload)
 }
 
-func (o *OrganizationLicenseNoContent) GetPayload() interface{} {
+func (o *OrganizationLicenseNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *OrganizationLicenseNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ OrganizationLicenseForbidden describes a response with status code 403, with def
 You don't have permission to access the resource.
 */
 type OrganizationLicenseForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this organization license forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *OrganizationLicenseForbidden) Code() int {
 }
 
 func (o *OrganizationLicenseForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseForbidden %s", 403, payload)
 }
 
 func (o *OrganizationLicenseForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseForbidden %s", 403, payload)
 }
 
-func (o *OrganizationLicenseForbidden) GetPayload() interface{} {
+func (o *OrganizationLicenseForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *OrganizationLicenseForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ OrganizationLicenseNotFound describes a response with status code 404, with defa
 Resource does not exist.
 */
 type OrganizationLicenseNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this organization license not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *OrganizationLicenseNotFound) Code() int {
 }
 
 func (o *OrganizationLicenseNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNotFound %s", 404, payload)
 }
 
 func (o *OrganizationLicenseNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] organizationLicenseNotFound %s", 404, payload)
 }
 
-func (o *OrganizationLicenseNotFound) GetPayload() interface{} {
+func (o *OrganizationLicenseNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *OrganizationLicenseNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *OrganizationLicenseDefault) Code() int {
 }
 
 func (o *OrganizationLicenseDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] OrganizationLicense default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] OrganizationLicense default %s", o._statusCode, payload)
 }
 
 func (o *OrganizationLicenseDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] OrganizationLicense default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/license][%d] OrganizationLicense default %s", o._statusCode, payload)
 }
 
 func (o *OrganizationLicenseDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *OrganizationLicenseDefault) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

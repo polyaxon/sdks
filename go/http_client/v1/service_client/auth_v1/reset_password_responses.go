@@ -6,6 +6,8 @@ package auth_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ResetPasswordReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ResetPasswordReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ResetPasswordReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewResetPasswordOK()
@@ -103,11 +105,11 @@ func (o *ResetPasswordOK) Code() int {
 }
 
 func (o *ResetPasswordOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK", 200)
 }
 
 func (o *ResetPasswordOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordOK", 200)
 }
 
 func (o *ResetPasswordOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ResetPasswordNoContent describes a response with status code 204, with default h
 No content.
 */
 type ResetPasswordNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reset password no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ResetPasswordNoContent) Code() int {
 }
 
 func (o *ResetPasswordNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent %s", 204, payload)
 }
 
 func (o *ResetPasswordNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNoContent %s", 204, payload)
 }
 
-func (o *ResetPasswordNoContent) GetPayload() interface{} {
+func (o *ResetPasswordNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ResetPasswordNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ResetPasswordForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type ResetPasswordForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reset password forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ResetPasswordForbidden) Code() int {
 }
 
 func (o *ResetPasswordForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden %s", 403, payload)
 }
 
 func (o *ResetPasswordForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordForbidden %s", 403, payload)
 }
 
-func (o *ResetPasswordForbidden) GetPayload() interface{} {
+func (o *ResetPasswordForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ResetPasswordForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ResetPasswordNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type ResetPasswordNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reset password not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ResetPasswordNotFound) Code() int {
 }
 
 func (o *ResetPasswordNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound %s", 404, payload)
 }
 
 func (o *ResetPasswordNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] resetPasswordNotFound %s", 404, payload)
 }
 
-func (o *ResetPasswordNotFound) GetPayload() interface{} {
+func (o *ResetPasswordNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ResetPasswordNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ResetPasswordDefault) Code() int {
 }
 
 func (o *ResetPasswordDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default %s", o._statusCode, payload)
 }
 
 func (o *ResetPasswordDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/reset-password][%d] ResetPassword default %s", o._statusCode, payload)
 }
 
 func (o *ResetPasswordDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ResetPasswordDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

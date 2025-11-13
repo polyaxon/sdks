@@ -21,7 +21,7 @@ type V1AgentReconcileBodyRequest struct {
 	Owner string `json:"owner,omitempty"`
 
 	// Reconcile reconcile
-	Reconcile interface{} `json:"reconcile,omitempty"`
+	Reconcile any `json:"reconcile,omitempty"`
 
 	// Uuid identifier of the entity
 	UUID string `json:"uuid,omitempty"`

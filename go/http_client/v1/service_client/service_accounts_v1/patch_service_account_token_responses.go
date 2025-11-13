@@ -6,6 +6,8 @@ package service_accounts_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchServiceAccountTokenReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchServiceAccountTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchServiceAccountTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchServiceAccountTokenOK()
@@ -104,11 +106,13 @@ func (o *PatchServiceAccountTokenOK) Code() int {
 }
 
 func (o *PatchServiceAccountTokenOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenOK %s", 200, payload)
 }
 
 func (o *PatchServiceAccountTokenOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenOK %s", 200, payload)
 }
 
 func (o *PatchServiceAccountTokenOK) GetPayload() *service_model.V1Token {
@@ -120,7 +124,7 @@ func (o *PatchServiceAccountTokenOK) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.V1Token)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchServiceAccountTokenNoContent describes a response with status code 204, wit
 No content.
 */
 type PatchServiceAccountTokenNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch service account token no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchServiceAccountTokenNoContent) Code() int {
 }
 
 func (o *PatchServiceAccountTokenNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNoContent %s", 204, payload)
 }
 
 func (o *PatchServiceAccountTokenNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNoContent %s", 204, payload)
 }
 
-func (o *PatchServiceAccountTokenNoContent) GetPayload() interface{} {
+func (o *PatchServiceAccountTokenNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchServiceAccountTokenNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchServiceAccountTokenForbidden describes a response with status code 403, wit
 You don't have permission to access the resource.
 */
 type PatchServiceAccountTokenForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch service account token forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchServiceAccountTokenForbidden) Code() int {
 }
 
 func (o *PatchServiceAccountTokenForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenForbidden %s", 403, payload)
 }
 
 func (o *PatchServiceAccountTokenForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenForbidden %s", 403, payload)
 }
 
-func (o *PatchServiceAccountTokenForbidden) GetPayload() interface{} {
+func (o *PatchServiceAccountTokenForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchServiceAccountTokenForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchServiceAccountTokenNotFound describes a response with status code 404, with
 Resource does not exist.
 */
 type PatchServiceAccountTokenNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch service account token not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchServiceAccountTokenNotFound) Code() int {
 }
 
 func (o *PatchServiceAccountTokenNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNotFound %s", 404, payload)
 }
 
 func (o *PatchServiceAccountTokenNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] patchServiceAccountTokenNotFound %s", 404, payload)
 }
 
-func (o *PatchServiceAccountTokenNotFound) GetPayload() interface{} {
+func (o *PatchServiceAccountTokenNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchServiceAccountTokenNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchServiceAccountTokenDefault) Code() int {
 }
 
 func (o *PatchServiceAccountTokenDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] PatchServiceAccountToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] PatchServiceAccountToken default %s", o._statusCode, payload)
 }
 
 func (o *PatchServiceAccountTokenDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] PatchServiceAccountToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}][%d] PatchServiceAccountToken default %s", o._statusCode, payload)
 }
 
 func (o *PatchServiceAccountTokenDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchServiceAccountTokenDefault) readResponse(response runtime.ClientRe
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

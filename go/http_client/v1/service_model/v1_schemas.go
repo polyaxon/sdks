@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -204,11 +205,15 @@ func (m *V1Schemas) validateArtifacs(formats strfmt.Registry) error {
 
 	if m.Artifacs != nil {
 		if err := m.Artifacs.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacs")
 			}
+
 			return err
 		}
 	}
@@ -223,11 +228,15 @@ func (m *V1Schemas) validateArtifactsMount(formats strfmt.Registry) error {
 
 	if m.ArtifactsMount != nil {
 		if err := m.ArtifactsMount.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifactsMount")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifactsMount")
 			}
+
 			return err
 		}
 	}
@@ -242,11 +251,15 @@ func (m *V1Schemas) validateAuth(formats strfmt.Registry) error {
 
 	if m.Auth != nil {
 		if err := m.Auth.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("auth")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("auth")
 			}
+
 			return err
 		}
 	}
@@ -261,11 +274,15 @@ func (m *V1Schemas) validateCompiledOperation(formats strfmt.Registry) error {
 
 	if m.CompiledOperation != nil {
 		if err := m.CompiledOperation.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("compiledOperation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("compiledOperation")
 			}
+
 			return err
 		}
 	}
@@ -280,11 +297,15 @@ func (m *V1Schemas) validateConnection(formats strfmt.Registry) error {
 
 	if m.Connection != nil {
 		if err := m.Connection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("connection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("connection")
 			}
+
 			return err
 		}
 	}
@@ -299,11 +320,15 @@ func (m *V1Schemas) validateConnectionSchema(formats strfmt.Registry) error {
 
 	if m.ConnectionSchema != nil {
 		if err := m.ConnectionSchema.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("connectionSchema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("connectionSchema")
 			}
+
 			return err
 		}
 	}
@@ -318,11 +343,15 @@ func (m *V1Schemas) validateEarlyStopping(formats strfmt.Registry) error {
 
 	if m.EarlyStopping != nil {
 		if err := m.EarlyStopping.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("earlyStopping")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("earlyStopping")
 			}
+
 			return err
 		}
 	}
@@ -337,11 +366,15 @@ func (m *V1Schemas) validateEvent(formats strfmt.Registry) error {
 
 	if m.Event != nil {
 		if err := m.Event.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("event")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("event")
 			}
+
 			return err
 		}
 	}
@@ -356,11 +389,15 @@ func (m *V1Schemas) validateEventType(formats strfmt.Registry) error {
 
 	if m.EventType != nil {
 		if err := m.EventType.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("eventType")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("eventType")
 			}
+
 			return err
 		}
 	}
@@ -375,11 +412,15 @@ func (m *V1Schemas) validateGcs(formats strfmt.Registry) error {
 
 	if m.Gcs != nil {
 		if err := m.Gcs.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("gcs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("gcs")
 			}
+
 			return err
 		}
 	}
@@ -394,11 +435,15 @@ func (m *V1Schemas) validateHpParams(formats strfmt.Registry) error {
 
 	if m.HpParams != nil {
 		if err := m.HpParams.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hpParams")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hpParams")
 			}
+
 			return err
 		}
 	}
@@ -413,11 +458,15 @@ func (m *V1Schemas) validateMatrix(formats strfmt.Registry) error {
 
 	if m.Matrix != nil {
 		if err := m.Matrix.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("matrix")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("matrix")
 			}
+
 			return err
 		}
 	}
@@ -432,11 +481,15 @@ func (m *V1Schemas) validateMatrixKind(formats strfmt.Registry) error {
 
 	if m.MatrixKind != nil {
 		if err := m.MatrixKind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("matrixKind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("matrixKind")
 			}
+
 			return err
 		}
 	}
@@ -451,11 +504,15 @@ func (m *V1Schemas) validateOperation(formats strfmt.Registry) error {
 
 	if m.Operation != nil {
 		if err := m.Operation.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("operation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("operation")
 			}
+
 			return err
 		}
 	}
@@ -470,11 +527,15 @@ func (m *V1Schemas) validatePolyaxonInitContainer(formats strfmt.Registry) error
 
 	if m.PolyaxonInitContainer != nil {
 		if err := m.PolyaxonInitContainer.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("polyaxonInitContainer")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("polyaxonInitContainer")
 			}
+
 			return err
 		}
 	}
@@ -489,11 +550,15 @@ func (m *V1Schemas) validatePolyaxonSidecarContainer(formats strfmt.Registry) er
 
 	if m.PolyaxonSidecarContainer != nil {
 		if err := m.PolyaxonSidecarContainer.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("polyaxonSidecarContainer")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("polyaxonSidecarContainer")
 			}
+
 			return err
 		}
 	}
@@ -508,11 +573,15 @@ func (m *V1Schemas) validateReference(formats strfmt.Registry) error {
 
 	if m.Reference != nil {
 		if err := m.Reference.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("reference")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("reference")
 			}
+
 			return err
 		}
 	}
@@ -527,11 +596,15 @@ func (m *V1Schemas) validateResource(formats strfmt.Registry) error {
 
 	if m.Resource != nil {
 		if err := m.Resource.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resource")
 			}
+
 			return err
 		}
 	}
@@ -546,11 +619,15 @@ func (m *V1Schemas) validateRun(formats strfmt.Registry) error {
 
 	if m.Run != nil {
 		if err := m.Run.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("run")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("run")
 			}
+
 			return err
 		}
 	}
@@ -565,11 +642,15 @@ func (m *V1Schemas) validateS3(formats strfmt.Registry) error {
 
 	if m.S3 != nil {
 		if err := m.S3.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("s3")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("s3")
 			}
+
 			return err
 		}
 	}
@@ -584,11 +665,15 @@ func (m *V1Schemas) validateSchedule(formats strfmt.Registry) error {
 
 	if m.Schedule != nil {
 		if err := m.Schedule.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedule")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedule")
 			}
+
 			return err
 		}
 	}
@@ -603,11 +688,15 @@ func (m *V1Schemas) validateScheduleKind(formats strfmt.Registry) error {
 
 	if m.ScheduleKind != nil {
 		if err := m.ScheduleKind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("scheduleKind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("scheduleKind")
 			}
+
 			return err
 		}
 	}
@@ -622,11 +711,15 @@ func (m *V1Schemas) validateURI(formats strfmt.Registry) error {
 
 	if m.URI != nil {
 		if err := m.URI.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("uri")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("uri")
 			}
+
 			return err
 		}
 	}
@@ -641,11 +734,15 @@ func (m *V1Schemas) validateWasb(formats strfmt.Registry) error {
 
 	if m.Wasb != nil {
 		if err := m.Wasb.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("wasb")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("wasb")
 			}
+
 			return err
 		}
 	}
@@ -768,11 +865,15 @@ func (m *V1Schemas) contextValidateArtifacs(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Artifacs.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacs")
 			}
+
 			return err
 		}
 	}
@@ -789,11 +890,15 @@ func (m *V1Schemas) contextValidateArtifactsMount(ctx context.Context, formats s
 		}
 
 		if err := m.ArtifactsMount.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifactsMount")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifactsMount")
 			}
+
 			return err
 		}
 	}
@@ -810,11 +915,15 @@ func (m *V1Schemas) contextValidateAuth(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Auth.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("auth")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("auth")
 			}
+
 			return err
 		}
 	}
@@ -831,11 +940,15 @@ func (m *V1Schemas) contextValidateCompiledOperation(ctx context.Context, format
 		}
 
 		if err := m.CompiledOperation.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("compiledOperation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("compiledOperation")
 			}
+
 			return err
 		}
 	}
@@ -852,11 +965,15 @@ func (m *V1Schemas) contextValidateConnection(ctx context.Context, formats strfm
 		}
 
 		if err := m.Connection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("connection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("connection")
 			}
+
 			return err
 		}
 	}
@@ -873,11 +990,15 @@ func (m *V1Schemas) contextValidateConnectionSchema(ctx context.Context, formats
 		}
 
 		if err := m.ConnectionSchema.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("connectionSchema")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("connectionSchema")
 			}
+
 			return err
 		}
 	}
@@ -894,11 +1015,15 @@ func (m *V1Schemas) contextValidateEarlyStopping(ctx context.Context, formats st
 		}
 
 		if err := m.EarlyStopping.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("earlyStopping")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("earlyStopping")
 			}
+
 			return err
 		}
 	}
@@ -915,11 +1040,15 @@ func (m *V1Schemas) contextValidateEvent(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.Event.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("event")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("event")
 			}
+
 			return err
 		}
 	}
@@ -936,11 +1065,15 @@ func (m *V1Schemas) contextValidateEventType(ctx context.Context, formats strfmt
 		}
 
 		if err := m.EventType.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("eventType")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("eventType")
 			}
+
 			return err
 		}
 	}
@@ -957,11 +1090,15 @@ func (m *V1Schemas) contextValidateGcs(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Gcs.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("gcs")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("gcs")
 			}
+
 			return err
 		}
 	}
@@ -978,11 +1115,15 @@ func (m *V1Schemas) contextValidateHpParams(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.HpParams.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hpParams")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hpParams")
 			}
+
 			return err
 		}
 	}
@@ -999,11 +1140,15 @@ func (m *V1Schemas) contextValidateMatrix(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Matrix.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("matrix")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("matrix")
 			}
+
 			return err
 		}
 	}
@@ -1020,11 +1165,15 @@ func (m *V1Schemas) contextValidateMatrixKind(ctx context.Context, formats strfm
 		}
 
 		if err := m.MatrixKind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("matrixKind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("matrixKind")
 			}
+
 			return err
 		}
 	}
@@ -1041,11 +1190,15 @@ func (m *V1Schemas) contextValidateOperation(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Operation.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("operation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("operation")
 			}
+
 			return err
 		}
 	}
@@ -1062,11 +1215,15 @@ func (m *V1Schemas) contextValidatePolyaxonInitContainer(ctx context.Context, fo
 		}
 
 		if err := m.PolyaxonInitContainer.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("polyaxonInitContainer")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("polyaxonInitContainer")
 			}
+
 			return err
 		}
 	}
@@ -1083,11 +1240,15 @@ func (m *V1Schemas) contextValidatePolyaxonSidecarContainer(ctx context.Context,
 		}
 
 		if err := m.PolyaxonSidecarContainer.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("polyaxonSidecarContainer")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("polyaxonSidecarContainer")
 			}
+
 			return err
 		}
 	}
@@ -1104,11 +1265,15 @@ func (m *V1Schemas) contextValidateReference(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Reference.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("reference")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("reference")
 			}
+
 			return err
 		}
 	}
@@ -1125,11 +1290,15 @@ func (m *V1Schemas) contextValidateResource(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Resource.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resource")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resource")
 			}
+
 			return err
 		}
 	}
@@ -1146,11 +1315,15 @@ func (m *V1Schemas) contextValidateRun(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Run.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("run")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("run")
 			}
+
 			return err
 		}
 	}
@@ -1167,11 +1340,15 @@ func (m *V1Schemas) contextValidateS3(ctx context.Context, formats strfmt.Regist
 		}
 
 		if err := m.S3.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("s3")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("s3")
 			}
+
 			return err
 		}
 	}
@@ -1188,11 +1365,15 @@ func (m *V1Schemas) contextValidateSchedule(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedule")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedule")
 			}
+
 			return err
 		}
 	}
@@ -1209,11 +1390,15 @@ func (m *V1Schemas) contextValidateScheduleKind(ctx context.Context, formats str
 		}
 
 		if err := m.ScheduleKind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("scheduleKind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("scheduleKind")
 			}
+
 			return err
 		}
 	}
@@ -1230,11 +1415,15 @@ func (m *V1Schemas) contextValidateURI(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.URI.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("uri")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("uri")
 			}
+
 			return err
 		}
 	}
@@ -1251,11 +1440,15 @@ func (m *V1Schemas) contextValidateWasb(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Wasb.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("wasb")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("wasb")
 			}
+
 			return err
 		}
 	}

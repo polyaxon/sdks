@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateVersionStageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateVersionStageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateVersionStageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateVersionStageOK()
@@ -104,11 +106,13 @@ func (o *CreateVersionStageOK) Code() int {
 }
 
 func (o *CreateVersionStageOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK %s", 200, payload)
 }
 
 func (o *CreateVersionStageOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageOK %s", 200, payload)
 }
 
 func (o *CreateVersionStageOK) GetPayload() *service_model.V1Stage {
@@ -120,7 +124,7 @@ func (o *CreateVersionStageOK) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.V1Stage)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateVersionStageNoContent describes a response with status code 204, with defa
 No content.
 */
 type CreateVersionStageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version stage no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateVersionStageNoContent) Code() int {
 }
 
 func (o *CreateVersionStageNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent %s", 204, payload)
 }
 
 func (o *CreateVersionStageNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNoContent %s", 204, payload)
 }
 
-func (o *CreateVersionStageNoContent) GetPayload() interface{} {
+func (o *CreateVersionStageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionStageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateVersionStageForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type CreateVersionStageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version stage forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateVersionStageForbidden) Code() int {
 }
 
 func (o *CreateVersionStageForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden %s", 403, payload)
 }
 
 func (o *CreateVersionStageForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageForbidden %s", 403, payload)
 }
 
-func (o *CreateVersionStageForbidden) GetPayload() interface{} {
+func (o *CreateVersionStageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionStageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateVersionStageNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type CreateVersionStageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version stage not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateVersionStageNotFound) Code() int {
 }
 
 func (o *CreateVersionStageNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound %s", 404, payload)
 }
 
 func (o *CreateVersionStageNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] createVersionStageNotFound %s", 404, payload)
 }
 
-func (o *CreateVersionStageNotFound) GetPayload() interface{} {
+func (o *CreateVersionStageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionStageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateVersionStageDefault) Code() int {
 }
 
 func (o *CreateVersionStageDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default %s", o._statusCode, payload)
 }
 
 func (o *CreateVersionStageDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/versions/{kind}/{name}/stages][%d] CreateVersionStage default %s", o._statusCode, payload)
 }
 
 func (o *CreateVersionStageDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateVersionStageDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

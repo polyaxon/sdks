@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -30,7 +31,7 @@ type V1MetricEarlyStopping struct {
 
 	// Policy to use, should be one of the stopping policies:
 	// MedianStoppingPolicy, AverageStoppingPolicy, TruncationStoppingPolicy
-	Policy interface{} `json:"policy,omitempty"`
+	Policy any `json:"policy,omitempty"`
 
 	// Metric value to use for the condition.
 	Value string `json:"value,omitempty"`
@@ -57,11 +58,15 @@ func (m *V1MetricEarlyStopping) validateOptimization(formats strfmt.Registry) er
 
 	if m.Optimization != nil {
 		if err := m.Optimization.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("optimization")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("optimization")
 			}
+
 			return err
 		}
 	}
@@ -92,11 +97,15 @@ func (m *V1MetricEarlyStopping) contextValidateOptimization(ctx context.Context,
 		}
 
 		if err := m.Optimization.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("optimization")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("optimization")
 			}
+
 			return err
 		}
 	}

@@ -7,12 +7,38 @@ package queues_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new queues v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new queues v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new queues v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -55,7 +81,7 @@ type ClientService interface {
 CreateQueue creates queue
 */
 func (a *Client) CreateQueue(params *CreateQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateQueueOK, *CreateQueueNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateQueueParams()
 	}
@@ -75,18 +101,22 @@ func (a *Client) CreateQueue(params *CreateQueueParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateQueueOK:
 		return value, nil, nil
 	case *CreateQueueNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateQueueDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -95,7 +125,7 @@ func (a *Client) CreateQueue(params *CreateQueueParams, authInfo runtime.ClientA
 DeleteQueue deletes queue
 */
 func (a *Client) DeleteQueue(params *DeleteQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteQueueOK, *DeleteQueueNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteQueueParams()
 	}
@@ -115,18 +145,22 @@ func (a *Client) DeleteQueue(params *DeleteQueueParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteQueueOK:
 		return value, nil, nil
 	case *DeleteQueueNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteQueueDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -135,7 +169,7 @@ func (a *Client) DeleteQueue(params *DeleteQueueParams, authInfo runtime.ClientA
 GetQueue gets queue
 */
 func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueOK, *GetQueueNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetQueueParams()
 	}
@@ -155,18 +189,22 @@ func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetQueueOK:
 		return value, nil, nil
 	case *GetQueueNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetQueueDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -175,7 +213,7 @@ func (a *Client) GetQueue(params *GetQueueParams, authInfo runtime.ClientAuthInf
 GetQueueStats gets queue stats
 */
 func (a *Client) GetQueueStats(params *GetQueueStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetQueueStatsOK, *GetQueueStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetQueueStatsParams()
 	}
@@ -195,18 +233,22 @@ func (a *Client) GetQueueStats(params *GetQueueStatsParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetQueueStatsOK:
 		return value, nil, nil
 	case *GetQueueStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetQueueStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -215,7 +257,7 @@ func (a *Client) GetQueueStats(params *GetQueueStatsParams, authInfo runtime.Cli
 ListOrganizationQueueNames lists organization level queues names
 */
 func (a *Client) ListOrganizationQueueNames(params *ListOrganizationQueueNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueueNamesOK, *ListOrganizationQueueNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationQueueNamesParams()
 	}
@@ -235,18 +277,22 @@ func (a *Client) ListOrganizationQueueNames(params *ListOrganizationQueueNamesPa
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationQueueNamesOK:
 		return value, nil, nil
 	case *ListOrganizationQueueNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationQueueNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -255,7 +301,7 @@ func (a *Client) ListOrganizationQueueNames(params *ListOrganizationQueueNamesPa
 ListOrganizationQueues lists organization level queues
 */
 func (a *Client) ListOrganizationQueues(params *ListOrganizationQueuesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListOrganizationQueuesOK, *ListOrganizationQueuesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListOrganizationQueuesParams()
 	}
@@ -275,18 +321,22 @@ func (a *Client) ListOrganizationQueues(params *ListOrganizationQueuesParams, au
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListOrganizationQueuesOK:
 		return value, nil, nil
 	case *ListOrganizationQueuesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListOrganizationQueuesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -295,7 +345,7 @@ func (a *Client) ListOrganizationQueues(params *ListOrganizationQueuesParams, au
 ListQueueNames lists queues names
 */
 func (a *Client) ListQueueNames(params *ListQueueNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListQueueNamesOK, *ListQueueNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListQueueNamesParams()
 	}
@@ -315,18 +365,22 @@ func (a *Client) ListQueueNames(params *ListQueueNamesParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListQueueNamesOK:
 		return value, nil, nil
 	case *ListQueueNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListQueueNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -335,7 +389,7 @@ func (a *Client) ListQueueNames(params *ListQueueNamesParams, authInfo runtime.C
 ListQueues lists queues
 */
 func (a *Client) ListQueues(params *ListQueuesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListQueuesOK, *ListQueuesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListQueuesParams()
 	}
@@ -355,18 +409,22 @@ func (a *Client) ListQueues(params *ListQueuesParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListQueuesOK:
 		return value, nil, nil
 	case *ListQueuesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListQueuesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -375,7 +433,7 @@ func (a *Client) ListQueues(params *ListQueuesParams, authInfo runtime.ClientAut
 PatchQueue patches queue
 */
 func (a *Client) PatchQueue(params *PatchQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchQueueOK, *PatchQueueNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchQueueParams()
 	}
@@ -395,18 +453,22 @@ func (a *Client) PatchQueue(params *PatchQueueParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchQueueOK:
 		return value, nil, nil
 	case *PatchQueueNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchQueueDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -415,7 +477,7 @@ func (a *Client) PatchQueue(params *PatchQueueParams, authInfo runtime.ClientAut
 UpdateQueue updates queue
 */
 func (a *Client) UpdateQueue(params *UpdateQueueParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateQueueOK, *UpdateQueueNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateQueueParams()
 	}
@@ -435,18 +497,22 @@ func (a *Client) UpdateQueue(params *UpdateQueueParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateQueueOK:
 		return value, nil, nil
 	case *UpdateQueueNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateQueueDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -64,11 +65,15 @@ func (m *V1Compatibility) validateAgent(formats strfmt.Registry) error {
 
 	if m.Agent != nil {
 		if err := m.Agent.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("agent")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("agent")
 			}
+
 			return err
 		}
 	}
@@ -83,11 +88,15 @@ func (m *V1Compatibility) validateCli(formats strfmt.Registry) error {
 
 	if m.Cli != nil {
 		if err := m.Cli.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cli")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cli")
 			}
+
 			return err
 		}
 	}
@@ -102,11 +111,15 @@ func (m *V1Compatibility) validatePlatform(formats strfmt.Registry) error {
 
 	if m.Platform != nil {
 		if err := m.Platform.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("platform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("platform")
 			}
+
 			return err
 		}
 	}
@@ -121,11 +134,15 @@ func (m *V1Compatibility) validateUI(formats strfmt.Registry) error {
 
 	if m.UI != nil {
 		if err := m.UI.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("ui")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("ui")
 			}
+
 			return err
 		}
 	}
@@ -168,11 +185,15 @@ func (m *V1Compatibility) contextValidateAgent(ctx context.Context, formats strf
 		}
 
 		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("agent")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("agent")
 			}
+
 			return err
 		}
 	}
@@ -189,11 +210,15 @@ func (m *V1Compatibility) contextValidateCli(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Cli.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cli")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cli")
 			}
+
 			return err
 		}
 	}
@@ -210,11 +235,15 @@ func (m *V1Compatibility) contextValidatePlatform(ctx context.Context, formats s
 		}
 
 		if err := m.Platform.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("platform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("platform")
 			}
+
 			return err
 		}
 	}
@@ -231,11 +260,15 @@ func (m *V1Compatibility) contextValidateUI(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.UI.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("ui")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("ui")
 			}
+
 			return err
 		}
 	}

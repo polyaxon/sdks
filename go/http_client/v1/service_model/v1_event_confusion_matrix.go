@@ -18,13 +18,13 @@ import (
 type V1EventConfusionMatrix struct {
 
 	// X
-	X []interface{} `json:"x"`
+	X []any `json:"x"`
 
 	// Y
-	Y []interface{} `json:"y"`
+	Y []any `json:"y"`
 
 	// Z
-	Z []interface{} `json:"z"`
+	Z []any `json:"z"`
 }
 
 // Validate validates this v1 event confusion matrix

@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunConnectionsLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunConnectionsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunConnectionsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunConnectionsLineageOK()
@@ -104,11 +106,13 @@ func (o *GetRunConnectionsLineageOK) Code() int {
 }
 
 func (o *GetRunConnectionsLineageOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageOK %s", 200, payload)
 }
 
 func (o *GetRunConnectionsLineageOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageOK %s", 200, payload)
 }
 
 func (o *GetRunConnectionsLineageOK) GetPayload() *service_model.V1ListRunConnectionsResponse {
@@ -120,7 +124,7 @@ func (o *GetRunConnectionsLineageOK) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.V1ListRunConnectionsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunConnectionsLineageNoContent describes a response with status code 204, wit
 No content.
 */
 type GetRunConnectionsLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run connections lineage no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunConnectionsLineageNoContent) Code() int {
 }
 
 func (o *GetRunConnectionsLineageNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNoContent %s", 204, payload)
 }
 
 func (o *GetRunConnectionsLineageNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNoContent %s", 204, payload)
 }
 
-func (o *GetRunConnectionsLineageNoContent) GetPayload() interface{} {
+func (o *GetRunConnectionsLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunConnectionsLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunConnectionsLineageForbidden describes a response with status code 403, wit
 You don't have permission to access the resource.
 */
 type GetRunConnectionsLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run connections lineage forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunConnectionsLineageForbidden) Code() int {
 }
 
 func (o *GetRunConnectionsLineageForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageForbidden %s", 403, payload)
 }
 
 func (o *GetRunConnectionsLineageForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageForbidden %s", 403, payload)
 }
 
-func (o *GetRunConnectionsLineageForbidden) GetPayload() interface{} {
+func (o *GetRunConnectionsLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunConnectionsLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunConnectionsLineageNotFound describes a response with status code 404, with
 Resource does not exist.
 */
 type GetRunConnectionsLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run connections lineage not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunConnectionsLineageNotFound) Code() int {
 }
 
 func (o *GetRunConnectionsLineageNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNotFound %s", 404, payload)
 }
 
 func (o *GetRunConnectionsLineageNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] getRunConnectionsLineageNotFound %s", 404, payload)
 }
 
-func (o *GetRunConnectionsLineageNotFound) GetPayload() interface{} {
+func (o *GetRunConnectionsLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunConnectionsLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunConnectionsLineageDefault) Code() int {
 }
 
 func (o *GetRunConnectionsLineageDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] GetRunConnectionsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] GetRunConnectionsLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunConnectionsLineageDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] GetRunConnectionsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/connections][%d] GetRunConnectionsLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunConnectionsLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunConnectionsLineageDefault) readResponse(response runtime.ClientRe
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

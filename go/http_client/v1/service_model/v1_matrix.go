@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -85,11 +86,15 @@ func (m *V1Matrix) validateBayes(formats strfmt.Registry) error {
 
 	if m.Bayes != nil {
 		if err := m.Bayes.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("bayes")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("bayes")
 			}
+
 			return err
 		}
 	}
@@ -104,11 +109,15 @@ func (m *V1Matrix) validateGrid(formats strfmt.Registry) error {
 
 	if m.Grid != nil {
 		if err := m.Grid.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("grid")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("grid")
 			}
+
 			return err
 		}
 	}
@@ -123,11 +132,15 @@ func (m *V1Matrix) validateHyperband(formats strfmt.Registry) error {
 
 	if m.Hyperband != nil {
 		if err := m.Hyperband.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hyperband")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hyperband")
 			}
+
 			return err
 		}
 	}
@@ -142,11 +155,15 @@ func (m *V1Matrix) validateHyperopt(formats strfmt.Registry) error {
 
 	if m.Hyperopt != nil {
 		if err := m.Hyperopt.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hyperopt")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hyperopt")
 			}
+
 			return err
 		}
 	}
@@ -161,11 +178,15 @@ func (m *V1Matrix) validateIterative(formats strfmt.Registry) error {
 
 	if m.Iterative != nil {
 		if err := m.Iterative.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("iterative")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("iterative")
 			}
+
 			return err
 		}
 	}
@@ -180,11 +201,15 @@ func (m *V1Matrix) validateMapping(formats strfmt.Registry) error {
 
 	if m.Mapping != nil {
 		if err := m.Mapping.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("mapping")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("mapping")
 			}
+
 			return err
 		}
 	}
@@ -199,11 +224,15 @@ func (m *V1Matrix) validateRandom(formats strfmt.Registry) error {
 
 	if m.Random != nil {
 		if err := m.Random.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("random")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("random")
 			}
+
 			return err
 		}
 	}
@@ -258,11 +287,15 @@ func (m *V1Matrix) contextValidateBayes(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Bayes.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("bayes")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("bayes")
 			}
+
 			return err
 		}
 	}
@@ -279,11 +312,15 @@ func (m *V1Matrix) contextValidateGrid(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Grid.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("grid")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("grid")
 			}
+
 			return err
 		}
 	}
@@ -300,11 +337,15 @@ func (m *V1Matrix) contextValidateHyperband(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Hyperband.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hyperband")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hyperband")
 			}
+
 			return err
 		}
 	}
@@ -321,11 +362,15 @@ func (m *V1Matrix) contextValidateHyperopt(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Hyperopt.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hyperopt")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hyperopt")
 			}
+
 			return err
 		}
 	}
@@ -342,11 +387,15 @@ func (m *V1Matrix) contextValidateIterative(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Iterative.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("iterative")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("iterative")
 			}
+
 			return err
 		}
 	}
@@ -363,11 +412,15 @@ func (m *V1Matrix) contextValidateMapping(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Mapping.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("mapping")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("mapping")
 			}
+
 			return err
 		}
 	}
@@ -384,11 +437,15 @@ func (m *V1Matrix) contextValidateRandom(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.Random.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("random")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("random")
 			}
+
 			return err
 		}
 	}

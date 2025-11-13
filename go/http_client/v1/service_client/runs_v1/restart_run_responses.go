@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type RestartRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *RestartRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *RestartRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewRestartRunOK()
@@ -104,11 +106,13 @@ func (o *RestartRunOK) Code() int {
 }
 
 func (o *RestartRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK %s", 200, payload)
 }
 
 func (o *RestartRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunOK %s", 200, payload)
 }
 
 func (o *RestartRunOK) GetPayload() *service_model.V1Run {
@@ -120,7 +124,7 @@ func (o *RestartRunOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1Run)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ RestartRunNoContent describes a response with status code 204, with default head
 No content.
 */
 type RestartRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restart run no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *RestartRunNoContent) Code() int {
 }
 
 func (o *RestartRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent %s", 204, payload)
 }
 
 func (o *RestartRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNoContent %s", 204, payload)
 }
 
-func (o *RestartRunNoContent) GetPayload() interface{} {
+func (o *RestartRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestartRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ RestartRunForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type RestartRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restart run forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *RestartRunForbidden) Code() int {
 }
 
 func (o *RestartRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden %s", 403, payload)
 }
 
 func (o *RestartRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunForbidden %s", 403, payload)
 }
 
-func (o *RestartRunForbidden) GetPayload() interface{} {
+func (o *RestartRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestartRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ RestartRunNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type RestartRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restart run not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *RestartRunNotFound) Code() int {
 }
 
 func (o *RestartRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound %s", 404, payload)
 }
 
 func (o *RestartRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] restartRunNotFound %s", 404, payload)
 }
 
-func (o *RestartRunNotFound) GetPayload() interface{} {
+func (o *RestartRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestartRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *RestartRunDefault) Code() int {
 }
 
 func (o *RestartRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default %s", o._statusCode, payload)
 }
 
 func (o *RestartRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{run.uuid}/restart][%d] RestartRun default %s", o._statusCode, payload)
 }
 
 func (o *RestartRunDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *RestartRunDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

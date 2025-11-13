@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchVersionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchVersionOK()
@@ -104,11 +106,13 @@ func (o *PatchVersionOK) Code() int {
 }
 
 func (o *PatchVersionOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK %s", 200, payload)
 }
 
 func (o *PatchVersionOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionOK %s", 200, payload)
 }
 
 func (o *PatchVersionOK) GetPayload() *service_model.V1ProjectVersion {
@@ -120,7 +124,7 @@ func (o *PatchVersionOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1ProjectVersion)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchVersionNoContent describes a response with status code 204, with default he
 No content.
 */
 type PatchVersionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch version no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchVersionNoContent) Code() int {
 }
 
 func (o *PatchVersionNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent %s", 204, payload)
 }
 
 func (o *PatchVersionNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNoContent %s", 204, payload)
 }
 
-func (o *PatchVersionNoContent) GetPayload() interface{} {
+func (o *PatchVersionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchVersionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchVersionForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type PatchVersionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch version forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchVersionForbidden) Code() int {
 }
 
 func (o *PatchVersionForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden %s", 403, payload)
 }
 
 func (o *PatchVersionForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionForbidden %s", 403, payload)
 }
 
-func (o *PatchVersionForbidden) GetPayload() interface{} {
+func (o *PatchVersionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchVersionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchVersionNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type PatchVersionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch version not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchVersionNotFound) Code() int {
 }
 
 func (o *PatchVersionNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound %s", 404, payload)
 }
 
 func (o *PatchVersionNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] patchVersionNotFound %s", 404, payload)
 }
 
-func (o *PatchVersionNotFound) GetPayload() interface{} {
+func (o *PatchVersionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchVersionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchVersionDefault) Code() int {
 }
 
 func (o *PatchVersionDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default %s", o._statusCode, payload)
 }
 
 func (o *PatchVersionDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] PatchVersion default %s", o._statusCode, payload)
 }
 
 func (o *PatchVersionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchVersionDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

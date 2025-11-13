@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateRunArtifactsLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateRunArtifactsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateRunArtifactsLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateRunArtifactsLineageOK()
@@ -103,11 +105,11 @@ func (o *CreateRunArtifactsLineageOK) Code() int {
 }
 
 func (o *CreateRunArtifactsLineageOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK", 200)
 }
 
 func (o *CreateRunArtifactsLineageOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageOK", 200)
 }
 
 func (o *CreateRunArtifactsLineageOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ CreateRunArtifactsLineageNoContent describes a response with status code 204, wi
 No content.
 */
 type CreateRunArtifactsLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run artifacts lineage no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *CreateRunArtifactsLineageNoContent) Code() int {
 }
 
 func (o *CreateRunArtifactsLineageNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent %s", 204, payload)
 }
 
 func (o *CreateRunArtifactsLineageNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNoContent %s", 204, payload)
 }
 
-func (o *CreateRunArtifactsLineageNoContent) GetPayload() interface{} {
+func (o *CreateRunArtifactsLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunArtifactsLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ CreateRunArtifactsLineageForbidden describes a response with status code 403, wi
 You don't have permission to access the resource.
 */
 type CreateRunArtifactsLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run artifacts lineage forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *CreateRunArtifactsLineageForbidden) Code() int {
 }
 
 func (o *CreateRunArtifactsLineageForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden %s", 403, payload)
 }
 
 func (o *CreateRunArtifactsLineageForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageForbidden %s", 403, payload)
 }
 
-func (o *CreateRunArtifactsLineageForbidden) GetPayload() interface{} {
+func (o *CreateRunArtifactsLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunArtifactsLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ CreateRunArtifactsLineageNotFound describes a response with status code 404, wit
 Resource does not exist.
 */
 type CreateRunArtifactsLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run artifacts lineage not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *CreateRunArtifactsLineageNotFound) Code() int {
 }
 
 func (o *CreateRunArtifactsLineageNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound %s", 404, payload)
 }
 
 func (o *CreateRunArtifactsLineageNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] createRunArtifactsLineageNotFound %s", 404, payload)
 }
 
-func (o *CreateRunArtifactsLineageNotFound) GetPayload() interface{} {
+func (o *CreateRunArtifactsLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunArtifactsLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *CreateRunArtifactsLineageDefault) Code() int {
 }
 
 func (o *CreateRunArtifactsLineageDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default %s", o._statusCode, payload)
 }
 
 func (o *CreateRunArtifactsLineageDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts][%d] CreateRunArtifactsLineage default %s", o._statusCode, payload)
 }
 
 func (o *CreateRunArtifactsLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *CreateRunArtifactsLineageDefault) readResponse(response runtime.ClientR
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

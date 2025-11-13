@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetOrganizationInvitationReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetOrganizationInvitationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetOrganizationInvitationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetOrganizationInvitationOK()
@@ -104,11 +106,13 @@ func (o *GetOrganizationInvitationOK) Code() int {
 }
 
 func (o *GetOrganizationInvitationOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationOK %s", 200, payload)
 }
 
 func (o *GetOrganizationInvitationOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationOK %s", 200, payload)
 }
 
 func (o *GetOrganizationInvitationOK) GetPayload() *service_model.V1OrganizationMember {
@@ -120,7 +124,7 @@ func (o *GetOrganizationInvitationOK) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.V1OrganizationMember)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetOrganizationInvitationNoContent describes a response with status code 204, wi
 No content.
 */
 type GetOrganizationInvitationNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization invitation no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetOrganizationInvitationNoContent) Code() int {
 }
 
 func (o *GetOrganizationInvitationNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNoContent %s", 204, payload)
 }
 
 func (o *GetOrganizationInvitationNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNoContent %s", 204, payload)
 }
 
-func (o *GetOrganizationInvitationNoContent) GetPayload() interface{} {
+func (o *GetOrganizationInvitationNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationInvitationNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetOrganizationInvitationForbidden describes a response with status code 403, wi
 You don't have permission to access the resource.
 */
 type GetOrganizationInvitationForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization invitation forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetOrganizationInvitationForbidden) Code() int {
 }
 
 func (o *GetOrganizationInvitationForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationForbidden %s", 403, payload)
 }
 
 func (o *GetOrganizationInvitationForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationForbidden %s", 403, payload)
 }
 
-func (o *GetOrganizationInvitationForbidden) GetPayload() interface{} {
+func (o *GetOrganizationInvitationForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationInvitationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetOrganizationInvitationNotFound describes a response with status code 404, wit
 Resource does not exist.
 */
 type GetOrganizationInvitationNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization invitation not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetOrganizationInvitationNotFound) Code() int {
 }
 
 func (o *GetOrganizationInvitationNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNotFound %s", 404, payload)
 }
 
 func (o *GetOrganizationInvitationNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] getOrganizationInvitationNotFound %s", 404, payload)
 }
 
-func (o *GetOrganizationInvitationNotFound) GetPayload() interface{} {
+func (o *GetOrganizationInvitationNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationInvitationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetOrganizationInvitationDefault) Code() int {
 }
 
 func (o *GetOrganizationInvitationDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] GetOrganizationInvitation default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] GetOrganizationInvitation default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationInvitationDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] GetOrganizationInvitation default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/invitations][%d] GetOrganizationInvitation default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationInvitationDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetOrganizationInvitationDefault) readResponse(response runtime.ClientR
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

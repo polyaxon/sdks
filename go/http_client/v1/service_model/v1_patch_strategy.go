@@ -49,7 +49,7 @@ const (
 )
 
 // for schema
-var v1PatchStrategyEnum []interface{}
+var v1PatchStrategyEnum []any
 
 func init() {
 	var res []V1PatchStrategy

@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateTagReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateTagOK()
@@ -104,11 +106,13 @@ func (o *UpdateTagOK) Code() int {
 }
 
 func (o *UpdateTagOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK %s", 200, payload)
 }
 
 func (o *UpdateTagOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagOK %s", 200, payload)
 }
 
 func (o *UpdateTagOK) GetPayload() *service_model.V1Tag {
@@ -120,7 +124,7 @@ func (o *UpdateTagOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1Tag)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateTagNoContent describes a response with status code 204, with default heade
 No content.
 */
 type UpdateTagNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update tag no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateTagNoContent) Code() int {
 }
 
 func (o *UpdateTagNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent %s", 204, payload)
 }
 
 func (o *UpdateTagNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNoContent %s", 204, payload)
 }
 
-func (o *UpdateTagNoContent) GetPayload() interface{} {
+func (o *UpdateTagNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTagNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateTagForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type UpdateTagForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update tag forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateTagForbidden) Code() int {
 }
 
 func (o *UpdateTagForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden %s", 403, payload)
 }
 
 func (o *UpdateTagForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagForbidden %s", 403, payload)
 }
 
-func (o *UpdateTagForbidden) GetPayload() interface{} {
+func (o *UpdateTagForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTagForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateTagNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type UpdateTagNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update tag not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateTagNotFound) Code() int {
 }
 
 func (o *UpdateTagNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound %s", 404, payload)
 }
 
 func (o *UpdateTagNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] updateTagNotFound %s", 404, payload)
 }
 
-func (o *UpdateTagNotFound) GetPayload() interface{} {
+func (o *UpdateTagNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateTagNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateTagDefault) Code() int {
 }
 
 func (o *UpdateTagDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default %s", o._statusCode, payload)
 }
 
 func (o *UpdateTagDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/tags/{tag.uuid}][%d] UpdateTag default %s", o._statusCode, payload)
 }
 
 func (o *UpdateTagDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateTagDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

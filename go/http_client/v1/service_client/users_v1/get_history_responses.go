@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetHistoryReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetHistoryReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetHistoryReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetHistoryOK()
@@ -104,11 +106,13 @@ func (o *GetHistoryOK) Code() int {
 }
 
 func (o *GetHistoryOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK %s", 200, payload)
 }
 
 func (o *GetHistoryOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryOK %s", 200, payload)
 }
 
 func (o *GetHistoryOK) GetPayload() *service_model.V1ListActivitiesResponse {
@@ -120,7 +124,7 @@ func (o *GetHistoryOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1ListActivitiesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetHistoryNoContent describes a response with status code 204, with default head
 No content.
 */
 type GetHistoryNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get history no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetHistoryNoContent) Code() int {
 }
 
 func (o *GetHistoryNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent %s", 204, payload)
 }
 
 func (o *GetHistoryNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNoContent %s", 204, payload)
 }
 
-func (o *GetHistoryNoContent) GetPayload() interface{} {
+func (o *GetHistoryNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetHistoryNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetHistoryForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type GetHistoryForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get history forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetHistoryForbidden) Code() int {
 }
 
 func (o *GetHistoryForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden %s", 403, payload)
 }
 
 func (o *GetHistoryForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryForbidden %s", 403, payload)
 }
 
-func (o *GetHistoryForbidden) GetPayload() interface{} {
+func (o *GetHistoryForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetHistoryForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetHistoryNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type GetHistoryNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get history not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetHistoryNotFound) Code() int {
 }
 
 func (o *GetHistoryNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound %s", 404, payload)
 }
 
 func (o *GetHistoryNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] getHistoryNotFound %s", 404, payload)
 }
 
-func (o *GetHistoryNotFound) GetPayload() interface{} {
+func (o *GetHistoryNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetHistoryNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetHistoryDefault) Code() int {
 }
 
 func (o *GetHistoryDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default %s", o._statusCode, payload)
 }
 
 func (o *GetHistoryDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/history][%d] GetHistory default %s", o._statusCode, payload)
 }
 
 func (o *GetHistoryDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetHistoryDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

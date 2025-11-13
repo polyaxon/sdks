@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type RestoreOrganizationRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *RestoreOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *RestoreOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewRestoreOrganizationRunsOK()
@@ -103,11 +105,11 @@ func (o *RestoreOrganizationRunsOK) Code() int {
 }
 
 func (o *RestoreOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsOK", 200)
 }
 
 func (o *RestoreOrganizationRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsOK", 200)
 }
 
 func (o *RestoreOrganizationRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ RestoreOrganizationRunsNoContent describes a response with status code 204, with
 No content.
 */
 type RestoreOrganizationRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore organization runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *RestoreOrganizationRunsNoContent) Code() int {
 }
 
 func (o *RestoreOrganizationRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *RestoreOrganizationRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNoContent %s", 204, payload)
 }
 
-func (o *RestoreOrganizationRunsNoContent) GetPayload() interface{} {
+func (o *RestoreOrganizationRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreOrganizationRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ RestoreOrganizationRunsForbidden describes a response with status code 403, with
 You don't have permission to access the resource.
 */
 type RestoreOrganizationRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore organization runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *RestoreOrganizationRunsForbidden) Code() int {
 }
 
 func (o *RestoreOrganizationRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *RestoreOrganizationRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsForbidden %s", 403, payload)
 }
 
-func (o *RestoreOrganizationRunsForbidden) GetPayload() interface{} {
+func (o *RestoreOrganizationRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreOrganizationRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ RestoreOrganizationRunsNotFound describes a response with status code 404, with 
 Resource does not exist.
 */
 type RestoreOrganizationRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore organization runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *RestoreOrganizationRunsNotFound) Code() int {
 }
 
 func (o *RestoreOrganizationRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *RestoreOrganizationRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] restoreOrganizationRunsNotFound %s", 404, payload)
 }
 
-func (o *RestoreOrganizationRunsNotFound) GetPayload() interface{} {
+func (o *RestoreOrganizationRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreOrganizationRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *RestoreOrganizationRunsDefault) Code() int {
 }
 
 func (o *RestoreOrganizationRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] RestoreOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] RestoreOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *RestoreOrganizationRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] RestoreOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/restore][%d] RestoreOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *RestoreOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *RestoreOrganizationRunsDefault) readResponse(response runtime.ClientRes
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateOrganizationMemberReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateOrganizationMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateOrganizationMemberReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateOrganizationMemberOK()
@@ -104,11 +106,13 @@ func (o *CreateOrganizationMemberOK) Code() int {
 }
 
 func (o *CreateOrganizationMemberOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK %s", 200, payload)
 }
 
 func (o *CreateOrganizationMemberOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberOK %s", 200, payload)
 }
 
 func (o *CreateOrganizationMemberOK) GetPayload() *service_model.V1OrganizationMember {
@@ -120,7 +124,7 @@ func (o *CreateOrganizationMemberOK) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.V1OrganizationMember)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateOrganizationMemberNoContent describes a response with status code 204, wit
 No content.
 */
 type CreateOrganizationMemberNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create organization member no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateOrganizationMemberNoContent) Code() int {
 }
 
 func (o *CreateOrganizationMemberNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent %s", 204, payload)
 }
 
 func (o *CreateOrganizationMemberNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNoContent %s", 204, payload)
 }
 
-func (o *CreateOrganizationMemberNoContent) GetPayload() interface{} {
+func (o *CreateOrganizationMemberNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateOrganizationMemberNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateOrganizationMemberForbidden describes a response with status code 403, wit
 You don't have permission to access the resource.
 */
 type CreateOrganizationMemberForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create organization member forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateOrganizationMemberForbidden) Code() int {
 }
 
 func (o *CreateOrganizationMemberForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden %s", 403, payload)
 }
 
 func (o *CreateOrganizationMemberForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberForbidden %s", 403, payload)
 }
 
-func (o *CreateOrganizationMemberForbidden) GetPayload() interface{} {
+func (o *CreateOrganizationMemberForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateOrganizationMemberForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateOrganizationMemberNotFound describes a response with status code 404, with
 Resource does not exist.
 */
 type CreateOrganizationMemberNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create organization member not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateOrganizationMemberNotFound) Code() int {
 }
 
 func (o *CreateOrganizationMemberNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound %s", 404, payload)
 }
 
 func (o *CreateOrganizationMemberNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] createOrganizationMemberNotFound %s", 404, payload)
 }
 
-func (o *CreateOrganizationMemberNotFound) GetPayload() interface{} {
+func (o *CreateOrganizationMemberNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateOrganizationMemberNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateOrganizationMemberDefault) Code() int {
 }
 
 func (o *CreateOrganizationMemberDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default %s", o._statusCode, payload)
 }
 
 func (o *CreateOrganizationMemberDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/members][%d] CreateOrganizationMember default %s", o._statusCode, payload)
 }
 
 func (o *CreateOrganizationMemberDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateOrganizationMemberDefault) readResponse(response runtime.ClientRe
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

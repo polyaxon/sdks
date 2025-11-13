@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunResourcesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunResourcesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunResourcesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunResourcesOK()
@@ -104,11 +106,13 @@ func (o *GetRunResourcesOK) Code() int {
 }
 
 func (o *GetRunResourcesOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK %s", 200, payload)
 }
 
 func (o *GetRunResourcesOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesOK %s", 200, payload)
 }
 
 func (o *GetRunResourcesOK) GetPayload() *service_model.V1EventsResponse {
@@ -120,7 +124,7 @@ func (o *GetRunResourcesOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1EventsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunResourcesNoContent describes a response with status code 204, with default
 No content.
 */
 type GetRunResourcesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run resources no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunResourcesNoContent) Code() int {
 }
 
 func (o *GetRunResourcesNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent %s", 204, payload)
 }
 
 func (o *GetRunResourcesNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNoContent %s", 204, payload)
 }
 
-func (o *GetRunResourcesNoContent) GetPayload() interface{} {
+func (o *GetRunResourcesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunResourcesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunResourcesForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type GetRunResourcesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run resources forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunResourcesForbidden) Code() int {
 }
 
 func (o *GetRunResourcesForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden %s", 403, payload)
 }
 
 func (o *GetRunResourcesForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesForbidden %s", 403, payload)
 }
 
-func (o *GetRunResourcesForbidden) GetPayload() interface{} {
+func (o *GetRunResourcesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunResourcesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunResourcesNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type GetRunResourcesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run resources not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunResourcesNotFound) Code() int {
 }
 
 func (o *GetRunResourcesNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound %s", 404, payload)
 }
 
 func (o *GetRunResourcesNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] getRunResourcesNotFound %s", 404, payload)
 }
 
-func (o *GetRunResourcesNotFound) GetPayload() interface{} {
+func (o *GetRunResourcesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunResourcesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunResourcesDefault) Code() int {
 }
 
 func (o *GetRunResourcesDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default %s", o._statusCode, payload)
 }
 
 func (o *GetRunResourcesDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/resources][%d] GetRunResources default %s", o._statusCode, payload)
 }
 
 func (o *GetRunResourcesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunResourcesDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package auth_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type LoginReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *LoginReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *LoginReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewLoginOK()
@@ -104,11 +106,13 @@ func (o *LoginOK) Code() int {
 }
 
 func (o *LoginOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginOK %s", 200, payload)
 }
 
 func (o *LoginOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginOK %s", 200, payload)
 }
 
 func (o *LoginOK) GetPayload() *service_model.V1Auth {
@@ -120,7 +124,7 @@ func (o *LoginOK) readResponse(response runtime.ClientResponse, consumer runtime
 	o.Payload = new(service_model.V1Auth)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ LoginNoContent describes a response with status code 204, with default header va
 No content.
 */
 type LoginNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this login no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *LoginNoContent) Code() int {
 }
 
 func (o *LoginNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNoContent %s", 204, payload)
 }
 
 func (o *LoginNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNoContent %s", 204, payload)
 }
 
-func (o *LoginNoContent) GetPayload() interface{} {
+func (o *LoginNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoginNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ LoginForbidden describes a response with status code 403, with default header va
 You don't have permission to access the resource.
 */
 type LoginForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this login forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *LoginForbidden) Code() int {
 }
 
 func (o *LoginForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginForbidden %s", 403, payload)
 }
 
 func (o *LoginForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginForbidden %s", 403, payload)
 }
 
-func (o *LoginForbidden) GetPayload() interface{} {
+func (o *LoginForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoginForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ LoginNotFound describes a response with status code 404, with default header val
 Resource does not exist.
 */
 type LoginNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this login not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *LoginNotFound) Code() int {
 }
 
 func (o *LoginNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNotFound %s", 404, payload)
 }
 
 func (o *LoginNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] loginNotFound %s", 404, payload)
 }
 
-func (o *LoginNotFound) GetPayload() interface{} {
+func (o *LoginNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *LoginNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *LoginDefault) Code() int {
 }
 
 func (o *LoginDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] Login default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] Login default %s", o._statusCode, payload)
 }
 
 func (o *LoginDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/token][%d] Login default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/token][%d] Login default %s", o._statusCode, payload)
 }
 
 func (o *LoginDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *LoginDefault) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

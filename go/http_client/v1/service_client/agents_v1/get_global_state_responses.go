@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetGlobalStateReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetGlobalStateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetGlobalStateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetGlobalStateOK()
@@ -104,11 +106,13 @@ func (o *GetGlobalStateOK) Code() int {
 }
 
 func (o *GetGlobalStateOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateOK %s", 200, payload)
 }
 
 func (o *GetGlobalStateOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateOK %s", 200, payload)
 }
 
 func (o *GetGlobalStateOK) GetPayload() *service_model.V1AgentStateResponse {
@@ -120,7 +124,7 @@ func (o *GetGlobalStateOK) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.V1AgentStateResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetGlobalStateNoContent describes a response with status code 204, with default 
 No content.
 */
 type GetGlobalStateNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get global state no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetGlobalStateNoContent) Code() int {
 }
 
 func (o *GetGlobalStateNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNoContent %s", 204, payload)
 }
 
 func (o *GetGlobalStateNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNoContent %s", 204, payload)
 }
 
-func (o *GetGlobalStateNoContent) GetPayload() interface{} {
+func (o *GetGlobalStateNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetGlobalStateNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetGlobalStateForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type GetGlobalStateForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get global state forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetGlobalStateForbidden) Code() int {
 }
 
 func (o *GetGlobalStateForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateForbidden %s", 403, payload)
 }
 
 func (o *GetGlobalStateForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateForbidden %s", 403, payload)
 }
 
-func (o *GetGlobalStateForbidden) GetPayload() interface{} {
+func (o *GetGlobalStateForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetGlobalStateForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetGlobalStateNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type GetGlobalStateNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get global state not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetGlobalStateNotFound) Code() int {
 }
 
 func (o *GetGlobalStateNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNotFound %s", 404, payload)
 }
 
 func (o *GetGlobalStateNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] getGlobalStateNotFound %s", 404, payload)
 }
 
-func (o *GetGlobalStateNotFound) GetPayload() interface{} {
+func (o *GetGlobalStateNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetGlobalStateNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetGlobalStateDefault) Code() int {
 }
 
 func (o *GetGlobalStateDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] GetGlobalState default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] GetGlobalState default %s", o._statusCode, payload)
 }
 
 func (o *GetGlobalStateDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] GetGlobalState default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/state][%d] GetGlobalState default %s", o._statusCode, payload)
 }
 
 func (o *GetGlobalStateDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetGlobalStateDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

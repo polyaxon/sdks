@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -19,7 +21,7 @@ type UploadRunLogsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UploadRunLogsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UploadRunLogsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUploadRunLogsOK()
@@ -94,11 +96,11 @@ func (o *UploadRunLogsOK) Code() int {
 }
 
 func (o *UploadRunLogsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK", 200)
 }
 
 func (o *UploadRunLogsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsOK", 200)
 }
 
 func (o *UploadRunLogsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -117,7 +119,7 @@ UploadRunLogsNoContent describes a response with status code 204, with default h
 No content.
 */
 type UploadRunLogsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload run logs no content response has a 2xx status code
@@ -151,21 +153,23 @@ func (o *UploadRunLogsNoContent) Code() int {
 }
 
 func (o *UploadRunLogsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent %s", 204, payload)
 }
 
 func (o *UploadRunLogsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNoContent %s", 204, payload)
 }
 
-func (o *UploadRunLogsNoContent) GetPayload() interface{} {
+func (o *UploadRunLogsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadRunLogsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -183,7 +187,7 @@ UploadRunLogsForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type UploadRunLogsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload run logs forbidden response has a 2xx status code
@@ -217,21 +221,23 @@ func (o *UploadRunLogsForbidden) Code() int {
 }
 
 func (o *UploadRunLogsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden %s", 403, payload)
 }
 
 func (o *UploadRunLogsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsForbidden %s", 403, payload)
 }
 
-func (o *UploadRunLogsForbidden) GetPayload() interface{} {
+func (o *UploadRunLogsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadRunLogsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -249,7 +255,7 @@ UploadRunLogsNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type UploadRunLogsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload run logs not found response has a 2xx status code
@@ -283,21 +289,23 @@ func (o *UploadRunLogsNotFound) Code() int {
 }
 
 func (o *UploadRunLogsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound %s", 404, payload)
 }
 
 func (o *UploadRunLogsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/logs/upload][%d] uploadRunLogsNotFound %s", 404, payload)
 }
 
-func (o *UploadRunLogsNotFound) GetPayload() interface{} {
+func (o *UploadRunLogsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadRunLogsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

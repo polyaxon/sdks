@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunNamespaceReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunNamespaceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunNamespaceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunNamespaceOK()
@@ -104,11 +106,13 @@ func (o *GetRunNamespaceOK) Code() int {
 }
 
 func (o *GetRunNamespaceOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceOK %s", 200, payload)
 }
 
 func (o *GetRunNamespaceOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceOK %s", 200, payload)
 }
 
 func (o *GetRunNamespaceOK) GetPayload() *service_model.V1RunSettings {
@@ -120,7 +124,7 @@ func (o *GetRunNamespaceOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1RunSettings)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunNamespaceNoContent describes a response with status code 204, with default
 No content.
 */
 type GetRunNamespaceNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run namespace no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunNamespaceNoContent) Code() int {
 }
 
 func (o *GetRunNamespaceNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNoContent %s", 204, payload)
 }
 
 func (o *GetRunNamespaceNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNoContent %s", 204, payload)
 }
 
-func (o *GetRunNamespaceNoContent) GetPayload() interface{} {
+func (o *GetRunNamespaceNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunNamespaceNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunNamespaceForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type GetRunNamespaceForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run namespace forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunNamespaceForbidden) Code() int {
 }
 
 func (o *GetRunNamespaceForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceForbidden %s", 403, payload)
 }
 
 func (o *GetRunNamespaceForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceForbidden %s", 403, payload)
 }
 
-func (o *GetRunNamespaceForbidden) GetPayload() interface{} {
+func (o *GetRunNamespaceForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunNamespaceForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunNamespaceNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type GetRunNamespaceNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run namespace not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunNamespaceNotFound) Code() int {
 }
 
 func (o *GetRunNamespaceNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNotFound %s", 404, payload)
 }
 
 func (o *GetRunNamespaceNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] getRunNamespaceNotFound %s", 404, payload)
 }
 
-func (o *GetRunNamespaceNotFound) GetPayload() interface{} {
+func (o *GetRunNamespaceNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunNamespaceNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunNamespaceDefault) Code() int {
 }
 
 func (o *GetRunNamespaceDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] GetRunNamespace default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] GetRunNamespace default %s", o._statusCode, payload)
 }
 
 func (o *GetRunNamespaceDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] GetRunNamespace default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/namespace][%d] GetRunNamespace default %s", o._statusCode, payload)
 }
 
 func (o *GetRunNamespaceDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunNamespaceDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

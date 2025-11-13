@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,7 +20,7 @@ import (
 type V1AgentStateResponse struct {
 
 	// compatible updates
-	CompatibleUpdates interface{} `json:"compatible_updates,omitempty"`
+	CompatibleUpdates any `json:"compatible_updates,omitempty"`
 
 	// live state
 	LiveState int32 `json:"live_state,omitempty"`
@@ -56,11 +57,15 @@ func (m *V1AgentStateResponse) validateState(formats strfmt.Registry) error {
 
 	if m.State != nil {
 		if err := m.State.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("state")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("state")
 			}
+
 			return err
 		}
 	}
@@ -75,11 +80,15 @@ func (m *V1AgentStateResponse) validateStatus(formats strfmt.Registry) error {
 
 	if m.Status != nil {
 		if err := m.Status.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -114,11 +123,15 @@ func (m *V1AgentStateResponse) contextValidateState(ctx context.Context, formats
 		}
 
 		if err := m.State.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("state")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("state")
 			}
+
 			return err
 		}
 	}
@@ -135,11 +148,15 @@ func (m *V1AgentStateResponse) contextValidateStatus(ctx context.Context, format
 		}
 
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}

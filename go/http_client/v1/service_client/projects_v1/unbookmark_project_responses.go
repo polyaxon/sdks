@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UnbookmarkProjectReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UnbookmarkProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UnbookmarkProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUnbookmarkProjectOK()
@@ -103,11 +105,11 @@ func (o *UnbookmarkProjectOK) Code() int {
 }
 
 func (o *UnbookmarkProjectOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK", 200)
 }
 
 func (o *UnbookmarkProjectOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectOK", 200)
 }
 
 func (o *UnbookmarkProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ UnbookmarkProjectNoContent describes a response with status code 204, with defau
 No content.
 */
 type UnbookmarkProjectNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark project no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *UnbookmarkProjectNoContent) Code() int {
 }
 
 func (o *UnbookmarkProjectNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent %s", 204, payload)
 }
 
 func (o *UnbookmarkProjectNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNoContent %s", 204, payload)
 }
 
-func (o *UnbookmarkProjectNoContent) GetPayload() interface{} {
+func (o *UnbookmarkProjectNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkProjectNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ UnbookmarkProjectForbidden describes a response with status code 403, with defau
 You don't have permission to access the resource.
 */
 type UnbookmarkProjectForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark project forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *UnbookmarkProjectForbidden) Code() int {
 }
 
 func (o *UnbookmarkProjectForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden %s", 403, payload)
 }
 
 func (o *UnbookmarkProjectForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectForbidden %s", 403, payload)
 }
 
-func (o *UnbookmarkProjectForbidden) GetPayload() interface{} {
+func (o *UnbookmarkProjectForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkProjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ UnbookmarkProjectNotFound describes a response with status code 404, with defaul
 Resource does not exist.
 */
 type UnbookmarkProjectNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this unbookmark project not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *UnbookmarkProjectNotFound) Code() int {
 }
 
 func (o *UnbookmarkProjectNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound %s", 404, payload)
 }
 
 func (o *UnbookmarkProjectNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] unbookmarkProjectNotFound %s", 404, payload)
 }
 
-func (o *UnbookmarkProjectNotFound) GetPayload() interface{} {
+func (o *UnbookmarkProjectNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UnbookmarkProjectNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *UnbookmarkProjectDefault) Code() int {
 }
 
 func (o *UnbookmarkProjectDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default %s", o._statusCode, payload)
 }
 
 func (o *UnbookmarkProjectDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/unbookmark][%d] UnbookmarkProject default %s", o._statusCode, payload)
 }
 
 func (o *UnbookmarkProjectDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *UnbookmarkProjectDefault) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

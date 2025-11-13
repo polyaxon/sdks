@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new projects v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new projects v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new projects v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,32 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -101,7 +151,7 @@ type ClientService interface {
 ArchiveProject archives project
 */
 func (a *Client) ArchiveProject(params *ArchiveProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveProjectOK, *ArchiveProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewArchiveProjectParams()
 	}
@@ -121,18 +171,22 @@ func (a *Client) ArchiveProject(params *ArchiveProjectParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ArchiveProjectOK:
 		return value, nil, nil
 	case *ArchiveProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ArchiveProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -141,7 +195,7 @@ func (a *Client) ArchiveProject(params *ArchiveProjectParams, authInfo runtime.C
 BookmarkProject bookmarks project
 */
 func (a *Client) BookmarkProject(params *BookmarkProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkProjectOK, *BookmarkProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewBookmarkProjectParams()
 	}
@@ -161,18 +215,22 @@ func (a *Client) BookmarkProject(params *BookmarkProjectParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *BookmarkProjectOK:
 		return value, nil, nil
 	case *BookmarkProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*BookmarkProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -181,7 +239,7 @@ func (a *Client) BookmarkProject(params *BookmarkProjectParams, authInfo runtime
 CreateProject creates new project
 */
 func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateProjectOK, *CreateProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateProjectParams()
 	}
@@ -201,18 +259,22 @@ func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateProjectOK:
 		return value, nil, nil
 	case *CreateProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -221,7 +283,7 @@ func (a *Client) CreateProject(params *CreateProjectParams, authInfo runtime.Cli
 CreateTeamProject creates new project via team space
 */
 func (a *Client) CreateTeamProject(params *CreateTeamProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamProjectOK, *CreateTeamProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateTeamProjectParams()
 	}
@@ -241,18 +303,22 @@ func (a *Client) CreateTeamProject(params *CreateTeamProjectParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateTeamProjectOK:
 		return value, nil, nil
 	case *CreateTeamProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateTeamProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -261,7 +327,7 @@ func (a *Client) CreateTeamProject(params *CreateTeamProjectParams, authInfo run
 CreateVersion creates version
 */
 func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionOK, *CreateVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateVersionParams()
 	}
@@ -281,18 +347,22 @@ func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateVersionOK:
 		return value, nil, nil
 	case *CreateVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -301,7 +371,7 @@ func (a *Client) CreateVersion(params *CreateVersionParams, authInfo runtime.Cli
 CreateVersionStage creates new artifact version stage
 */
 func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateVersionStageOK, *CreateVersionStageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateVersionStageParams()
 	}
@@ -321,18 +391,22 @@ func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateVersionStageOK:
 		return value, nil, nil
 	case *CreateVersionStageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateVersionStageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -341,7 +415,7 @@ func (a *Client) CreateVersionStage(params *CreateVersionStageParams, authInfo r
 DeleteProject deletes project
 */
 func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteProjectOK, *DeleteProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteProjectParams()
 	}
@@ -361,18 +435,22 @@ func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteProjectOK:
 		return value, nil, nil
 	case *DeleteProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -381,7 +459,7 @@ func (a *Client) DeleteProject(params *DeleteProjectParams, authInfo runtime.Cli
 DeleteVersion deletes version
 */
 func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteVersionOK, *DeleteVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteVersionParams()
 	}
@@ -401,18 +479,22 @@ func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteVersionOK:
 		return value, nil, nil
 	case *DeleteVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -421,7 +503,7 @@ func (a *Client) DeleteVersion(params *DeleteVersionParams, authInfo runtime.Cli
 DisableProjectCI disbales project c i
 */
 func (a *Client) DisableProjectCI(params *DisableProjectCIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DisableProjectCIOK, *DisableProjectCINoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDisableProjectCIParams()
 	}
@@ -441,18 +523,22 @@ func (a *Client) DisableProjectCI(params *DisableProjectCIParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DisableProjectCIOK:
 		return value, nil, nil
 	case *DisableProjectCINoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DisableProjectCIDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -461,7 +547,7 @@ func (a *Client) DisableProjectCI(params *DisableProjectCIParams, authInfo runti
 EnableProjectCI enables project c i
 */
 func (a *Client) EnableProjectCI(params *EnableProjectCIParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*EnableProjectCIOK, *EnableProjectCINoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewEnableProjectCIParams()
 	}
@@ -481,18 +567,22 @@ func (a *Client) EnableProjectCI(params *EnableProjectCIParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *EnableProjectCIOK:
 		return value, nil, nil
 	case *EnableProjectCINoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*EnableProjectCIDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -501,7 +591,7 @@ func (a *Client) EnableProjectCI(params *EnableProjectCIParams, authInfo runtime
 GetProject gets project
 */
 func (a *Client) GetProject(params *GetProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectOK, *GetProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetProjectParams()
 	}
@@ -521,18 +611,22 @@ func (a *Client) GetProject(params *GetProjectParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetProjectOK:
 		return value, nil, nil
 	case *GetProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -541,7 +635,7 @@ func (a *Client) GetProject(params *GetProjectParams, authInfo runtime.ClientAut
 GetProjectActivities gets project activities
 */
 func (a *Client) GetProjectActivities(params *GetProjectActivitiesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectActivitiesOK, *GetProjectActivitiesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetProjectActivitiesParams()
 	}
@@ -561,18 +655,22 @@ func (a *Client) GetProjectActivities(params *GetProjectActivitiesParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetProjectActivitiesOK:
 		return value, nil, nil
 	case *GetProjectActivitiesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetProjectActivitiesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -581,7 +679,7 @@ func (a *Client) GetProjectActivities(params *GetProjectActivitiesParams, authIn
 GetProjectSettings gets project settings
 */
 func (a *Client) GetProjectSettings(params *GetProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectSettingsOK, *GetProjectSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetProjectSettingsParams()
 	}
@@ -601,18 +699,22 @@ func (a *Client) GetProjectSettings(params *GetProjectSettingsParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetProjectSettingsOK:
 		return value, nil, nil
 	case *GetProjectSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetProjectSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -621,7 +723,7 @@ func (a *Client) GetProjectSettings(params *GetProjectSettingsParams, authInfo r
 GetProjectStats gets project stats
 */
 func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetProjectStatsOK, *GetProjectStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetProjectStatsParams()
 	}
@@ -641,18 +743,22 @@ func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetProjectStatsOK:
 		return value, nil, nil
 	case *GetProjectStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetProjectStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -661,7 +767,7 @@ func (a *Client) GetProjectStats(params *GetProjectStatsParams, authInfo runtime
 GetVersion gets version
 */
 func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionOK, *GetVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetVersionParams()
 	}
@@ -681,18 +787,22 @@ func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetVersionOK:
 		return value, nil, nil
 	case *GetVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -701,7 +811,7 @@ func (a *Client) GetVersion(params *GetVersionParams, authInfo runtime.ClientAut
 GetVersionStages gets version stages
 */
 func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetVersionStagesOK, *GetVersionStagesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetVersionStagesParams()
 	}
@@ -721,18 +831,22 @@ func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetVersionStagesOK:
 		return value, nil, nil
 	case *GetVersionStagesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetVersionStagesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -741,7 +855,7 @@ func (a *Client) GetVersionStages(params *GetVersionStagesParams, authInfo runti
 ListArchivedProjects lists archived projects for user
 */
 func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedProjectsOK, *ListArchivedProjectsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListArchivedProjectsParams()
 	}
@@ -761,18 +875,22 @@ func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListArchivedProjectsOK:
 		return value, nil, nil
 	case *ListArchivedProjectsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListArchivedProjectsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -781,7 +899,7 @@ func (a *Client) ListArchivedProjects(params *ListArchivedProjectsParams, authIn
 ListBookmarkedProjects lists bookmarked projects for user
 */
 func (a *Client) ListBookmarkedProjects(params *ListBookmarkedProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListBookmarkedProjectsOK, *ListBookmarkedProjectsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListBookmarkedProjectsParams()
 	}
@@ -801,18 +919,22 @@ func (a *Client) ListBookmarkedProjects(params *ListBookmarkedProjectsParams, au
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListBookmarkedProjectsOK:
 		return value, nil, nil
 	case *ListBookmarkedProjectsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListBookmarkedProjectsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -821,7 +943,7 @@ func (a *Client) ListBookmarkedProjects(params *ListBookmarkedProjectsParams, au
 ListProjectNames lists project names
 */
 func (a *Client) ListProjectNames(params *ListProjectNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectNamesOK, *ListProjectNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListProjectNamesParams()
 	}
@@ -841,18 +963,22 @@ func (a *Client) ListProjectNames(params *ListProjectNamesParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListProjectNamesOK:
 		return value, nil, nil
 	case *ListProjectNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListProjectNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -861,7 +987,7 @@ func (a *Client) ListProjectNames(params *ListProjectNamesParams, authInfo runti
 ListProjects lists projects
 */
 func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListProjectsOK, *ListProjectsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListProjectsParams()
 	}
@@ -881,18 +1007,22 @@ func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListProjectsOK:
 		return value, nil, nil
 	case *ListProjectsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListProjectsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -901,7 +1031,7 @@ func (a *Client) ListProjects(params *ListProjectsParams, authInfo runtime.Clien
 ListVersionNames lists versions names
 */
 func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionNamesOK, *ListVersionNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListVersionNamesParams()
 	}
@@ -921,18 +1051,22 @@ func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListVersionNamesOK:
 		return value, nil, nil
 	case *ListVersionNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListVersionNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -941,7 +1075,7 @@ func (a *Client) ListVersionNames(params *ListVersionNamesParams, authInfo runti
 ListVersions lists versions
 */
 func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListVersionsOK, *ListVersionsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListVersionsParams()
 	}
@@ -961,18 +1095,22 @@ func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListVersionsOK:
 		return value, nil, nil
 	case *ListVersionsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListVersionsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -981,7 +1119,7 @@ func (a *Client) ListVersions(params *ListVersionsParams, authInfo runtime.Clien
 PatchProject patches project
 */
 func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectOK, *PatchProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchProjectParams()
 	}
@@ -1001,18 +1139,22 @@ func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchProjectOK:
 		return value, nil, nil
 	case *PatchProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1021,7 +1163,7 @@ func (a *Client) PatchProject(params *PatchProjectParams, authInfo runtime.Clien
 PatchProjectSettings patches project settings
 */
 func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchProjectSettingsOK, *PatchProjectSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchProjectSettingsParams()
 	}
@@ -1041,18 +1183,22 @@ func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authIn
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchProjectSettingsOK:
 		return value, nil, nil
 	case *PatchProjectSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchProjectSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1061,7 +1207,7 @@ func (a *Client) PatchProjectSettings(params *PatchProjectSettingsParams, authIn
 PatchVersion patches version
 */
 func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchVersionOK, *PatchVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchVersionParams()
 	}
@@ -1081,18 +1227,22 @@ func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchVersionOK:
 		return value, nil, nil
 	case *PatchVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1101,7 +1251,7 @@ func (a *Client) PatchVersion(params *PatchVersionParams, authInfo runtime.Clien
 RestoreProject restores project
 */
 func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreProjectOK, *RestoreProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestoreProjectParams()
 	}
@@ -1121,18 +1271,22 @@ func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestoreProjectOK:
 		return value, nil, nil
 	case *RestoreProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestoreProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1141,7 +1295,7 @@ func (a *Client) RestoreProject(params *RestoreProjectParams, authInfo runtime.C
 TransferVersion transfers version
 */
 func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferVersionOK, *TransferVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTransferVersionParams()
 	}
@@ -1161,18 +1315,22 @@ func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TransferVersionOK:
 		return value, nil, nil
 	case *TransferVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TransferVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1181,7 +1339,7 @@ func (a *Client) TransferVersion(params *TransferVersionParams, authInfo runtime
 UnbookmarkProject unbookmarks project
 */
 func (a *Client) UnbookmarkProject(params *UnbookmarkProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UnbookmarkProjectOK, *UnbookmarkProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUnbookmarkProjectParams()
 	}
@@ -1201,18 +1359,22 @@ func (a *Client) UnbookmarkProject(params *UnbookmarkProjectParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UnbookmarkProjectOK:
 		return value, nil, nil
 	case *UnbookmarkProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UnbookmarkProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1221,7 +1383,7 @@ func (a *Client) UnbookmarkProject(params *UnbookmarkProjectParams, authInfo run
 UpdateProject updates project
 */
 func (a *Client) UpdateProject(params *UpdateProjectParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectOK, *UpdateProjectNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateProjectParams()
 	}
@@ -1241,18 +1403,22 @@ func (a *Client) UpdateProject(params *UpdateProjectParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateProjectOK:
 		return value, nil, nil
 	case *UpdateProjectNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateProjectDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1261,7 +1427,7 @@ func (a *Client) UpdateProject(params *UpdateProjectParams, authInfo runtime.Cli
 UpdateProjectSettings updates project settings
 */
 func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateProjectSettingsOK, *UpdateProjectSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateProjectSettingsParams()
 	}
@@ -1281,18 +1447,22 @@ func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateProjectSettingsOK:
 		return value, nil, nil
 	case *UpdateProjectSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateProjectSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1301,7 +1471,7 @@ func (a *Client) UpdateProjectSettings(params *UpdateProjectSettingsParams, auth
 UpdateVersion updates version
 */
 func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateVersionOK, *UpdateVersionNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateVersionParams()
 	}
@@ -1321,18 +1491,22 @@ func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateVersionOK:
 		return value, nil, nil
 	case *UpdateVersionNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateVersionDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1341,7 +1515,7 @@ func (a *Client) UpdateVersion(params *UpdateVersionParams, authInfo runtime.Cli
 UploadProjectArtifact uploads artifact to a store via project access
 */
 func (a *Client) UploadProjectArtifact(params *UploadProjectArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadProjectArtifactOK, *UploadProjectArtifactNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUploadProjectArtifactParams()
 	}
@@ -1361,18 +1535,22 @@ func (a *Client) UploadProjectArtifact(params *UploadProjectArtifactParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UploadProjectArtifactOK:
 		return value, nil, nil
 	case *UploadProjectArtifactNoContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+
+	// no default response is defined.
+	//
+	// safeguard: normally, in the absence of a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for projects_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }

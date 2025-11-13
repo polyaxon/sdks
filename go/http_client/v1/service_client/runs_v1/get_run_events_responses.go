@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunEventsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunEventsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunEventsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunEventsOK()
@@ -104,11 +106,13 @@ func (o *GetRunEventsOK) Code() int {
 }
 
 func (o *GetRunEventsOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsOK %s", 200, payload)
 }
 
 func (o *GetRunEventsOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsOK %s", 200, payload)
 }
 
 func (o *GetRunEventsOK) GetPayload() *service_model.V1EventsResponse {
@@ -120,7 +124,7 @@ func (o *GetRunEventsOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1EventsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunEventsNoContent describes a response with status code 204, with default he
 No content.
 */
 type GetRunEventsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run events no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunEventsNoContent) Code() int {
 }
 
 func (o *GetRunEventsNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNoContent %s", 204, payload)
 }
 
 func (o *GetRunEventsNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNoContent %s", 204, payload)
 }
 
-func (o *GetRunEventsNoContent) GetPayload() interface{} {
+func (o *GetRunEventsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunEventsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunEventsForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type GetRunEventsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run events forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunEventsForbidden) Code() int {
 }
 
 func (o *GetRunEventsForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsForbidden %s", 403, payload)
 }
 
 func (o *GetRunEventsForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsForbidden %s", 403, payload)
 }
 
-func (o *GetRunEventsForbidden) GetPayload() interface{} {
+func (o *GetRunEventsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunEventsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunEventsNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type GetRunEventsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run events not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunEventsNotFound) Code() int {
 }
 
 func (o *GetRunEventsNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNotFound %s", 404, payload)
 }
 
 func (o *GetRunEventsNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] getRunEventsNotFound %s", 404, payload)
 }
 
-func (o *GetRunEventsNotFound) GetPayload() interface{} {
+func (o *GetRunEventsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunEventsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunEventsDefault) Code() int {
 }
 
 func (o *GetRunEventsDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] GetRunEvents default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] GetRunEvents default %s", o._statusCode, payload)
 }
 
 func (o *GetRunEventsDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] GetRunEvents default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/events/{kind}][%d] GetRunEvents default %s", o._statusCode, payload)
 }
 
 func (o *GetRunEventsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunEventsDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

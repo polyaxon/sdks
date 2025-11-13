@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchConnectionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchConnectionOK()
@@ -104,11 +106,13 @@ func (o *PatchConnectionOK) Code() int {
 }
 
 func (o *PatchConnectionOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK %s", 200, payload)
 }
 
 func (o *PatchConnectionOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionOK %s", 200, payload)
 }
 
 func (o *PatchConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
@@ -120,7 +124,7 @@ func (o *PatchConnectionOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1ConnectionResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchConnectionNoContent describes a response with status code 204, with default
 No content.
 */
 type PatchConnectionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch connection no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchConnectionNoContent) Code() int {
 }
 
 func (o *PatchConnectionNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent %s", 204, payload)
 }
 
 func (o *PatchConnectionNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNoContent %s", 204, payload)
 }
 
-func (o *PatchConnectionNoContent) GetPayload() interface{} {
+func (o *PatchConnectionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchConnectionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchConnectionForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type PatchConnectionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch connection forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchConnectionForbidden) Code() int {
 }
 
 func (o *PatchConnectionForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden %s", 403, payload)
 }
 
 func (o *PatchConnectionForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionForbidden %s", 403, payload)
 }
 
-func (o *PatchConnectionForbidden) GetPayload() interface{} {
+func (o *PatchConnectionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchConnectionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchConnectionNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type PatchConnectionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch connection not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchConnectionNotFound) Code() int {
 }
 
 func (o *PatchConnectionNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound %s", 404, payload)
 }
 
 func (o *PatchConnectionNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] patchConnectionNotFound %s", 404, payload)
 }
 
-func (o *PatchConnectionNotFound) GetPayload() interface{} {
+func (o *PatchConnectionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchConnectionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchConnectionDefault) Code() int {
 }
 
 func (o *PatchConnectionDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default %s", o._statusCode, payload)
 }
 
 func (o *PatchConnectionDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] PatchConnection default %s", o._statusCode, payload)
 }
 
 func (o *PatchConnectionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchConnectionDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type TagTeamRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *TagTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *TagTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewTagTeamRunsOK()
@@ -103,11 +105,11 @@ func (o *TagTeamRunsOK) Code() int {
 }
 
 func (o *TagTeamRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsOK", 200)
 }
 
 func (o *TagTeamRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsOK", 200)
 }
 
 func (o *TagTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ TagTeamRunsNoContent describes a response with status code 204, with default hea
 No content.
 */
 type TagTeamRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this tag team runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *TagTeamRunsNoContent) Code() int {
 }
 
 func (o *TagTeamRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *TagTeamRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNoContent %s", 204, payload)
 }
 
-func (o *TagTeamRunsNoContent) GetPayload() interface{} {
+func (o *TagTeamRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TagTeamRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ TagTeamRunsForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type TagTeamRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this tag team runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *TagTeamRunsForbidden) Code() int {
 }
 
 func (o *TagTeamRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *TagTeamRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsForbidden %s", 403, payload)
 }
 
-func (o *TagTeamRunsForbidden) GetPayload() interface{} {
+func (o *TagTeamRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TagTeamRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ TagTeamRunsNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type TagTeamRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this tag team runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *TagTeamRunsNotFound) Code() int {
 }
 
 func (o *TagTeamRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *TagTeamRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] tagTeamRunsNotFound %s", 404, payload)
 }
 
-func (o *TagTeamRunsNotFound) GetPayload() interface{} {
+func (o *TagTeamRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TagTeamRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *TagTeamRunsDefault) Code() int {
 }
 
 func (o *TagTeamRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] TagTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] TagTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *TagTeamRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] TagTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/tag][%d] TagTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *TagTeamRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *TagTeamRunsDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

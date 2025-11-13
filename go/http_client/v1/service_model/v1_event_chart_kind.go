@@ -45,7 +45,7 @@ const (
 )
 
 // for schema
-var v1EventChartKindEnum []interface{}
+var v1EventChartKindEnum []any
 
 func init() {
 	var res []V1EventChartKind

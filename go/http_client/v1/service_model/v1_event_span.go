@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -28,19 +29,19 @@ type V1EventSpan struct {
 	FinishedAt strfmt.DateTime `json:"finished_at,omitempty"`
 
 	// Inputs
-	Inputs interface{} `json:"inputs,omitempty"`
+	Inputs any `json:"inputs,omitempty"`
 
 	// Span kind
 	Kind *V1EventSpanKind `json:"kind,omitempty"`
 
 	// Metadata
-	Metadata interface{} `json:"metadata,omitempty"`
+	Metadata any `json:"metadata,omitempty"`
 
 	// Name
 	Name string `json:"name,omitempty"`
 
 	// Outputs
-	Outputs interface{} `json:"outputs,omitempty"`
+	Outputs any `json:"outputs,omitempty"`
 
 	// Start time
 	// Format: date-time
@@ -105,11 +106,15 @@ func (m *V1EventSpan) validateChildren(formats strfmt.Registry) error {
 
 		if m.Children[i] != nil {
 			if err := m.Children[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("children" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("children" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -138,11 +143,15 @@ func (m *V1EventSpan) validateKind(formats strfmt.Registry) error {
 
 	if m.Kind != nil {
 		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -169,11 +178,15 @@ func (m *V1EventSpan) validateStatus(formats strfmt.Registry) error {
 
 	if m.Status != nil {
 		if err := m.Status.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -193,11 +206,15 @@ func (m *V1EventSpan) validateStatusConditions(formats strfmt.Registry) error {
 
 		if m.StatusConditions[i] != nil {
 			if err := m.StatusConditions[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -244,11 +261,15 @@ func (m *V1EventSpan) contextValidateChildren(ctx context.Context, formats strfm
 			}
 
 			if err := m.Children[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("children" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("children" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -267,11 +288,15 @@ func (m *V1EventSpan) contextValidateKind(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -288,11 +313,15 @@ func (m *V1EventSpan) contextValidateStatus(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -311,11 +340,15 @@ func (m *V1EventSpan) contextValidateStatusConditions(ctx context.Context, forma
 			}
 
 			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

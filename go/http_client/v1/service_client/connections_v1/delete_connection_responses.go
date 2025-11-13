@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteConnectionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteConnectionOK()
@@ -103,11 +105,11 @@ func (o *DeleteConnectionOK) Code() int {
 }
 
 func (o *DeleteConnectionOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionOK", 200)
 }
 
 func (o *DeleteConnectionOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionOK", 200)
 }
 
 func (o *DeleteConnectionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteConnectionNoContent describes a response with status code 204, with defaul
 No content.
 */
 type DeleteConnectionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete connection no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteConnectionNoContent) Code() int {
 }
 
 func (o *DeleteConnectionNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNoContent %s", 204, payload)
 }
 
 func (o *DeleteConnectionNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNoContent %s", 204, payload)
 }
 
-func (o *DeleteConnectionNoContent) GetPayload() interface{} {
+func (o *DeleteConnectionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteConnectionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteConnectionForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type DeleteConnectionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete connection forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteConnectionForbidden) Code() int {
 }
 
 func (o *DeleteConnectionForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionForbidden %s", 403, payload)
 }
 
 func (o *DeleteConnectionForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionForbidden %s", 403, payload)
 }
 
-func (o *DeleteConnectionForbidden) GetPayload() interface{} {
+func (o *DeleteConnectionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteConnectionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteConnectionNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type DeleteConnectionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete connection not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteConnectionNotFound) Code() int {
 }
 
 func (o *DeleteConnectionNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNotFound %s", 404, payload)
 }
 
 func (o *DeleteConnectionNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] deleteConnectionNotFound %s", 404, payload)
 }
 
-func (o *DeleteConnectionNotFound) GetPayload() interface{} {
+func (o *DeleteConnectionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteConnectionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteConnectionDefault) Code() int {
 }
 
 func (o *DeleteConnectionDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] DeleteConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] DeleteConnection default %s", o._statusCode, payload)
 }
 
 func (o *DeleteConnectionDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] DeleteConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/connections/{uuid}][%d] DeleteConnection default %s", o._statusCode, payload)
 }
 
 func (o *DeleteConnectionDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteConnectionDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

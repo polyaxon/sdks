@@ -8,4 +8,4 @@ package service_model
 // V1Toleration Placeholder for Toleration
 //
 // swagger:model v1Toleration
-type V1Toleration interface{}
+type V1Toleration any

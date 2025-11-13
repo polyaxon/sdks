@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SetRunEdgesLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SetRunEdgesLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SetRunEdgesLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSetRunEdgesLineageOK()
@@ -103,11 +105,11 @@ func (o *SetRunEdgesLineageOK) Code() int {
 }
 
 func (o *SetRunEdgesLineageOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageOK", 200)
 }
 
 func (o *SetRunEdgesLineageOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageOK", 200)
 }
 
 func (o *SetRunEdgesLineageOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ SetRunEdgesLineageNoContent describes a response with status code 204, with defa
 No content.
 */
 type SetRunEdgesLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this set run edges lineage no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *SetRunEdgesLineageNoContent) Code() int {
 }
 
 func (o *SetRunEdgesLineageNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNoContent %s", 204, payload)
 }
 
 func (o *SetRunEdgesLineageNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNoContent %s", 204, payload)
 }
 
-func (o *SetRunEdgesLineageNoContent) GetPayload() interface{} {
+func (o *SetRunEdgesLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SetRunEdgesLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ SetRunEdgesLineageForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type SetRunEdgesLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this set run edges lineage forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *SetRunEdgesLineageForbidden) Code() int {
 }
 
 func (o *SetRunEdgesLineageForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageForbidden %s", 403, payload)
 }
 
 func (o *SetRunEdgesLineageForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageForbidden %s", 403, payload)
 }
 
-func (o *SetRunEdgesLineageForbidden) GetPayload() interface{} {
+func (o *SetRunEdgesLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SetRunEdgesLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ SetRunEdgesLineageNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type SetRunEdgesLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this set run edges lineage not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *SetRunEdgesLineageNotFound) Code() int {
 }
 
 func (o *SetRunEdgesLineageNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNotFound %s", 404, payload)
 }
 
 func (o *SetRunEdgesLineageNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] setRunEdgesLineageNotFound %s", 404, payload)
 }
 
-func (o *SetRunEdgesLineageNotFound) GetPayload() interface{} {
+func (o *SetRunEdgesLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SetRunEdgesLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *SetRunEdgesLineageDefault) Code() int {
 }
 
 func (o *SetRunEdgesLineageDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] SetRunEdgesLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] SetRunEdgesLineage default %s", o._statusCode, payload)
 }
 
 func (o *SetRunEdgesLineageDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] SetRunEdgesLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/{uuid}/lineage/edges][%d] SetRunEdgesLineage default %s", o._statusCode, payload)
 }
 
 func (o *SetRunEdgesLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *SetRunEdgesLineageDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

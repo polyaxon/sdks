@@ -161,7 +161,7 @@ const (
 )
 
 // for schema
-var v1ConnectionKindEnum []interface{}
+var v1ConnectionKindEnum []any
 
 func init() {
 	var res []V1ConnectionKind

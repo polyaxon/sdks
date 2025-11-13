@@ -83,7 +83,7 @@ const (
 )
 
 // for schema
-var v1RunKindEnum []interface{}
+var v1RunKindEnum []any
 
 func init() {
 	var res []V1RunKind

@@ -6,6 +6,8 @@ package policies_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdatePolicyReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdatePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdatePolicyReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdatePolicyOK()
@@ -104,11 +106,13 @@ func (o *UpdatePolicyOK) Code() int {
 }
 
 func (o *UpdatePolicyOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyOK %s", 200, payload)
 }
 
 func (o *UpdatePolicyOK) GetPayload() *service_model.V1Policy {
@@ -120,7 +124,7 @@ func (o *UpdatePolicyOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1Policy)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdatePolicyNoContent describes a response with status code 204, with default he
 No content.
 */
 type UpdatePolicyNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update policy no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdatePolicyNoContent) Code() int {
 }
 
 func (o *UpdatePolicyNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNoContent %s", 204, payload)
 }
 
 func (o *UpdatePolicyNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNoContent %s", 204, payload)
 }
 
-func (o *UpdatePolicyNoContent) GetPayload() interface{} {
+func (o *UpdatePolicyNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePolicyNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdatePolicyForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type UpdatePolicyForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update policy forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdatePolicyForbidden) Code() int {
 }
 
 func (o *UpdatePolicyForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyForbidden %s", 403, payload)
 }
 
 func (o *UpdatePolicyForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyForbidden %s", 403, payload)
 }
 
-func (o *UpdatePolicyForbidden) GetPayload() interface{} {
+func (o *UpdatePolicyForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePolicyForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdatePolicyNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type UpdatePolicyNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update policy not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdatePolicyNotFound) Code() int {
 }
 
 func (o *UpdatePolicyNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNotFound %s", 404, payload)
 }
 
 func (o *UpdatePolicyNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] updatePolicyNotFound %s", 404, payload)
 }
 
-func (o *UpdatePolicyNotFound) GetPayload() interface{} {
+func (o *UpdatePolicyNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePolicyNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdatePolicyDefault) Code() int {
 }
 
 func (o *UpdatePolicyDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] UpdatePolicy default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] UpdatePolicy default %s", o._statusCode, payload)
 }
 
 func (o *UpdatePolicyDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] UpdatePolicy default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/policies/{policy.uuid}][%d] UpdatePolicy default %s", o._statusCode, payload)
 }
 
 func (o *UpdatePolicyDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdatePolicyDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

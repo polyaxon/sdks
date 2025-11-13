@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateVersionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateVersionOK()
@@ -104,11 +106,13 @@ func (o *UpdateVersionOK) Code() int {
 }
 
 func (o *UpdateVersionOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionOK %s", 200, payload)
 }
 
 func (o *UpdateVersionOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionOK %s", 200, payload)
 }
 
 func (o *UpdateVersionOK) GetPayload() *service_model.V1ProjectVersion {
@@ -120,7 +124,7 @@ func (o *UpdateVersionOK) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.V1ProjectVersion)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateVersionNoContent describes a response with status code 204, with default h
 No content.
 */
 type UpdateVersionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update version no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateVersionNoContent) Code() int {
 }
 
 func (o *UpdateVersionNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNoContent %s", 204, payload)
 }
 
 func (o *UpdateVersionNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNoContent %s", 204, payload)
 }
 
-func (o *UpdateVersionNoContent) GetPayload() interface{} {
+func (o *UpdateVersionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateVersionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateVersionForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type UpdateVersionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update version forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateVersionForbidden) Code() int {
 }
 
 func (o *UpdateVersionForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionForbidden %s", 403, payload)
 }
 
 func (o *UpdateVersionForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionForbidden %s", 403, payload)
 }
 
-func (o *UpdateVersionForbidden) GetPayload() interface{} {
+func (o *UpdateVersionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateVersionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateVersionNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type UpdateVersionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update version not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateVersionNotFound) Code() int {
 }
 
 func (o *UpdateVersionNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNotFound %s", 404, payload)
 }
 
 func (o *UpdateVersionNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] updateVersionNotFound %s", 404, payload)
 }
 
-func (o *UpdateVersionNotFound) GetPayload() interface{} {
+func (o *UpdateVersionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateVersionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateVersionDefault) Code() int {
 }
 
 func (o *UpdateVersionDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] UpdateVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] UpdateVersion default %s", o._statusCode, payload)
 }
 
 func (o *UpdateVersionDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] UpdateVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/{owner}/{project}/versions/{version.kind}/{version.name}][%d] UpdateVersion default %s", o._statusCode, payload)
 }
 
 func (o *UpdateVersionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateVersionDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

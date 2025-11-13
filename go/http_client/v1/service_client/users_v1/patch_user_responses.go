@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchUserReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchUserReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchUserReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchUserOK()
@@ -104,11 +106,13 @@ func (o *PatchUserOK) Code() int {
 }
 
 func (o *PatchUserOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK %s", 200, payload)
 }
 
 func (o *PatchUserOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserOK %s", 200, payload)
 }
 
 func (o *PatchUserOK) GetPayload() *service_model.V1User {
@@ -120,7 +124,7 @@ func (o *PatchUserOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1User)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchUserNoContent describes a response with status code 204, with default heade
 No content.
 */
 type PatchUserNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch user no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchUserNoContent) Code() int {
 }
 
 func (o *PatchUserNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent %s", 204, payload)
 }
 
 func (o *PatchUserNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNoContent %s", 204, payload)
 }
 
-func (o *PatchUserNoContent) GetPayload() interface{} {
+func (o *PatchUserNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchUserNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchUserForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type PatchUserForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch user forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchUserForbidden) Code() int {
 }
 
 func (o *PatchUserForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden %s", 403, payload)
 }
 
 func (o *PatchUserForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserForbidden %s", 403, payload)
 }
 
-func (o *PatchUserForbidden) GetPayload() interface{} {
+func (o *PatchUserForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchUserForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchUserNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type PatchUserNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch user not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchUserNotFound) Code() int {
 }
 
 func (o *PatchUserNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound %s", 404, payload)
 }
 
 func (o *PatchUserNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] patchUserNotFound %s", 404, payload)
 }
 
-func (o *PatchUserNotFound) GetPayload() interface{} {
+func (o *PatchUserNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchUserNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchUserDefault) Code() int {
 }
 
 func (o *PatchUserDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default %s", o._statusCode, payload)
 }
 
 func (o *PatchUserDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users][%d] PatchUser default %s", o._statusCode, payload)
 }
 
 func (o *PatchUserDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchUserDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

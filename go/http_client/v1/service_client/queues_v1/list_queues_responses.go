@@ -6,6 +6,8 @@ package queues_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListQueuesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListQueuesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListQueuesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListQueuesOK()
@@ -104,11 +106,13 @@ func (o *ListQueuesOK) Code() int {
 }
 
 func (o *ListQueuesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesOK %s", 200, payload)
 }
 
 func (o *ListQueuesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesOK %s", 200, payload)
 }
 
 func (o *ListQueuesOK) GetPayload() *service_model.V1ListQueuesResponse {
@@ -120,7 +124,7 @@ func (o *ListQueuesOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1ListQueuesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListQueuesNoContent describes a response with status code 204, with default head
 No content.
 */
 type ListQueuesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list queues no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListQueuesNoContent) Code() int {
 }
 
 func (o *ListQueuesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNoContent %s", 204, payload)
 }
 
 func (o *ListQueuesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNoContent %s", 204, payload)
 }
 
-func (o *ListQueuesNoContent) GetPayload() interface{} {
+func (o *ListQueuesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListQueuesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListQueuesForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type ListQueuesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list queues forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListQueuesForbidden) Code() int {
 }
 
 func (o *ListQueuesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesForbidden %s", 403, payload)
 }
 
 func (o *ListQueuesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesForbidden %s", 403, payload)
 }
 
-func (o *ListQueuesForbidden) GetPayload() interface{} {
+func (o *ListQueuesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListQueuesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListQueuesNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type ListQueuesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list queues not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListQueuesNotFound) Code() int {
 }
 
 func (o *ListQueuesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNotFound %s", 404, payload)
 }
 
 func (o *ListQueuesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] listQueuesNotFound %s", 404, payload)
 }
 
-func (o *ListQueuesNotFound) GetPayload() interface{} {
+func (o *ListQueuesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListQueuesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListQueuesDefault) Code() int {
 }
 
 func (o *ListQueuesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] ListQueues default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] ListQueues default %s", o._statusCode, payload)
 }
 
 func (o *ListQueuesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] ListQueues default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{name}/queues][%d] ListQueues default %s", o._statusCode, payload)
 }
 
 func (o *ListQueuesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListQueuesDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

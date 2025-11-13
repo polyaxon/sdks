@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -71,11 +72,15 @@ func (m *V1ConnectionSchema) validateBucketConnection(formats strfmt.Registry) e
 
 	if m.BucketConnection != nil {
 		if err := m.BucketConnection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("bucketConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("bucketConnection")
 			}
+
 			return err
 		}
 	}
@@ -90,11 +95,15 @@ func (m *V1ConnectionSchema) validateClaimConnection(formats strfmt.Registry) er
 
 	if m.ClaimConnection != nil {
 		if err := m.ClaimConnection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("claimConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("claimConnection")
 			}
+
 			return err
 		}
 	}
@@ -109,11 +118,15 @@ func (m *V1ConnectionSchema) validateGitConnection(formats strfmt.Registry) erro
 
 	if m.GitConnection != nil {
 		if err := m.GitConnection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("gitConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("gitConnection")
 			}
+
 			return err
 		}
 	}
@@ -128,11 +141,15 @@ func (m *V1ConnectionSchema) validateHostConnection(formats strfmt.Registry) err
 
 	if m.HostConnection != nil {
 		if err := m.HostConnection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hostConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hostConnection")
 			}
+
 			return err
 		}
 	}
@@ -147,11 +164,15 @@ func (m *V1ConnectionSchema) validateHostPathConnection(formats strfmt.Registry)
 
 	if m.HostPathConnection != nil {
 		if err := m.HostPathConnection.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hostPathConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hostPathConnection")
 			}
+
 			return err
 		}
 	}
@@ -198,11 +219,15 @@ func (m *V1ConnectionSchema) contextValidateBucketConnection(ctx context.Context
 		}
 
 		if err := m.BucketConnection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("bucketConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("bucketConnection")
 			}
+
 			return err
 		}
 	}
@@ -219,11 +244,15 @@ func (m *V1ConnectionSchema) contextValidateClaimConnection(ctx context.Context,
 		}
 
 		if err := m.ClaimConnection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("claimConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("claimConnection")
 			}
+
 			return err
 		}
 	}
@@ -240,11 +269,15 @@ func (m *V1ConnectionSchema) contextValidateGitConnection(ctx context.Context, f
 		}
 
 		if err := m.GitConnection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("gitConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("gitConnection")
 			}
+
 			return err
 		}
 	}
@@ -261,11 +294,15 @@ func (m *V1ConnectionSchema) contextValidateHostConnection(ctx context.Context, 
 		}
 
 		if err := m.HostConnection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hostConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hostConnection")
 			}
+
 			return err
 		}
 	}
@@ -282,11 +319,15 @@ func (m *V1ConnectionSchema) contextValidateHostPathConnection(ctx context.Conte
 		}
 
 		if err := m.HostPathConnection.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hostPathConnection")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hostPathConnection")
 			}
+
 			return err
 		}
 	}

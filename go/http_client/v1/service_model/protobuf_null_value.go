@@ -40,7 +40,7 @@ const (
 )
 
 // for schema
-var protobufNullValueEnum []interface{}
+var protobufNullValueEnum []any
 
 func init() {
 	var res []ProtobufNullValue

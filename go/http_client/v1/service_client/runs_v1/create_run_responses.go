@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateRunOK()
@@ -104,11 +106,13 @@ func (o *CreateRunOK) Code() int {
 }
 
 func (o *CreateRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK %s", 200, payload)
 }
 
 func (o *CreateRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunOK %s", 200, payload)
 }
 
 func (o *CreateRunOK) GetPayload() *service_model.V1Run {
@@ -120,7 +124,7 @@ func (o *CreateRunOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1Run)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateRunNoContent describes a response with status code 204, with default heade
 No content.
 */
 type CreateRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateRunNoContent) Code() int {
 }
 
 func (o *CreateRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent %s", 204, payload)
 }
 
 func (o *CreateRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNoContent %s", 204, payload)
 }
 
-func (o *CreateRunNoContent) GetPayload() interface{} {
+func (o *CreateRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateRunForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type CreateRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateRunForbidden) Code() int {
 }
 
 func (o *CreateRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden %s", 403, payload)
 }
 
 func (o *CreateRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunForbidden %s", 403, payload)
 }
 
-func (o *CreateRunForbidden) GetPayload() interface{} {
+func (o *CreateRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateRunNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type CreateRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create run not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateRunNotFound) Code() int {
 }
 
 func (o *CreateRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound %s", 404, payload)
 }
 
 func (o *CreateRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] createRunNotFound %s", 404, payload)
 }
 
-func (o *CreateRunNotFound) GetPayload() interface{} {
+func (o *CreateRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateRunDefault) Code() int {
 }
 
 func (o *CreateRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default %s", o._statusCode, payload)
 }
 
 func (o *CreateRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs][%d] CreateRun default %s", o._statusCode, payload)
 }
 
 func (o *CreateRunDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateRunDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

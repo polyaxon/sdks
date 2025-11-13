@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SyncRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SyncRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SyncRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSyncRunOK()
@@ -103,11 +105,11 @@ func (o *SyncRunOK) Code() int {
 }
 
 func (o *SyncRunOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK", 200)
 }
 
 func (o *SyncRunOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunOK", 200)
 }
 
 func (o *SyncRunOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ SyncRunNoContent describes a response with status code 204, with default header 
 No content.
 */
 type SyncRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync run no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *SyncRunNoContent) Code() int {
 }
 
 func (o *SyncRunNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent %s", 204, payload)
 }
 
 func (o *SyncRunNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNoContent %s", 204, payload)
 }
 
-func (o *SyncRunNoContent) GetPayload() interface{} {
+func (o *SyncRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ SyncRunForbidden describes a response with status code 403, with default header 
 You don't have permission to access the resource.
 */
 type SyncRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync run forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *SyncRunForbidden) Code() int {
 }
 
 func (o *SyncRunForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden %s", 403, payload)
 }
 
 func (o *SyncRunForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunForbidden %s", 403, payload)
 }
 
-func (o *SyncRunForbidden) GetPayload() interface{} {
+func (o *SyncRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ SyncRunNotFound describes a response with status code 404, with default header v
 Resource does not exist.
 */
 type SyncRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync run not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *SyncRunNotFound) Code() int {
 }
 
 func (o *SyncRunNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound %s", 404, payload)
 }
 
 func (o *SyncRunNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] syncRunNotFound %s", 404, payload)
 }
 
-func (o *SyncRunNotFound) GetPayload() interface{} {
+func (o *SyncRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *SyncRunDefault) Code() int {
 }
 
 func (o *SyncRunDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default %s", o._statusCode, payload)
 }
 
 func (o *SyncRunDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/runs/sync][%d] SyncRun default %s", o._statusCode, payload)
 }
 
 func (o *SyncRunDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *SyncRunDefault) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

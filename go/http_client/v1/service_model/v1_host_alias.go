@@ -8,4 +8,4 @@ package service_model
 // V1HostAlias Placeholder for HostAlias
 //
 // swagger:model v1HostAlias
-type V1HostAlias interface{}
+type V1HostAlias any

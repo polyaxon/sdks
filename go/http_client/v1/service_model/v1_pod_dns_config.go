@@ -8,4 +8,4 @@ package service_model
 // V1PodDNSConfig Placeholder for PodDNSConfig
 //
 // swagger:model v1PodDNSConfig
-type V1PodDNSConfig interface{}
+type V1PodDNSConfig any

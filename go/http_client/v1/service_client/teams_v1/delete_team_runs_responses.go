@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteTeamRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteTeamRunsOK()
@@ -103,11 +105,11 @@ func (o *DeleteTeamRunsOK) Code() int {
 }
 
 func (o *DeleteTeamRunsOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsOK", 200)
 }
 
 func (o *DeleteTeamRunsOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsOK", 200)
 }
 
 func (o *DeleteTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteTeamRunsNoContent describes a response with status code 204, with default 
 No content.
 */
 type DeleteTeamRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete team runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteTeamRunsNoContent) Code() int {
 }
 
 func (o *DeleteTeamRunsNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *DeleteTeamRunsNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNoContent %s", 204, payload)
 }
 
-func (o *DeleteTeamRunsNoContent) GetPayload() interface{} {
+func (o *DeleteTeamRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTeamRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteTeamRunsForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type DeleteTeamRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete team runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteTeamRunsForbidden) Code() int {
 }
 
 func (o *DeleteTeamRunsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *DeleteTeamRunsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsForbidden %s", 403, payload)
 }
 
-func (o *DeleteTeamRunsForbidden) GetPayload() interface{} {
+func (o *DeleteTeamRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTeamRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteTeamRunsNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type DeleteTeamRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete team runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteTeamRunsNotFound) Code() int {
 }
 
 func (o *DeleteTeamRunsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *DeleteTeamRunsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] deleteTeamRunsNotFound %s", 404, payload)
 }
 
-func (o *DeleteTeamRunsNotFound) GetPayload() interface{} {
+func (o *DeleteTeamRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTeamRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteTeamRunsDefault) Code() int {
 }
 
 func (o *DeleteTeamRunsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] DeleteTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] DeleteTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTeamRunsDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] DeleteTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/teams/{name}/runs/delete][%d] DeleteTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTeamRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteTeamRunsDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

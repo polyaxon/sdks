@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetOrganizationReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetOrganizationOK()
@@ -104,11 +106,13 @@ func (o *GetOrganizationOK) Code() int {
 }
 
 func (o *GetOrganizationOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationOK %s", 200, payload)
 }
 
 func (o *GetOrganizationOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationOK %s", 200, payload)
 }
 
 func (o *GetOrganizationOK) GetPayload() *service_model.V1Organization {
@@ -120,7 +124,7 @@ func (o *GetOrganizationOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1Organization)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetOrganizationNoContent describes a response with status code 204, with default
 No content.
 */
 type GetOrganizationNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetOrganizationNoContent) Code() int {
 }
 
 func (o *GetOrganizationNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNoContent %s", 204, payload)
 }
 
 func (o *GetOrganizationNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNoContent %s", 204, payload)
 }
 
-func (o *GetOrganizationNoContent) GetPayload() interface{} {
+func (o *GetOrganizationNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetOrganizationForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type GetOrganizationForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetOrganizationForbidden) Code() int {
 }
 
 func (o *GetOrganizationForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationForbidden %s", 403, payload)
 }
 
 func (o *GetOrganizationForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationForbidden %s", 403, payload)
 }
 
-func (o *GetOrganizationForbidden) GetPayload() interface{} {
+func (o *GetOrganizationForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetOrganizationNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type GetOrganizationNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetOrganizationNotFound) Code() int {
 }
 
 func (o *GetOrganizationNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNotFound %s", 404, payload)
 }
 
 func (o *GetOrganizationNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] getOrganizationNotFound %s", 404, payload)
 }
 
-func (o *GetOrganizationNotFound) GetPayload() interface{} {
+func (o *GetOrganizationNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetOrganizationDefault) Code() int {
 }
 
 func (o *GetOrganizationDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] GetOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] GetOrganization default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] GetOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}][%d] GetOrganization default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetOrganizationDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type StopTeamRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *StopTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *StopTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewStopTeamRunsOK()
@@ -103,11 +105,11 @@ func (o *StopTeamRunsOK) Code() int {
 }
 
 func (o *StopTeamRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsOK", 200)
 }
 
 func (o *StopTeamRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsOK", 200)
 }
 
 func (o *StopTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ StopTeamRunsNoContent describes a response with status code 204, with default he
 No content.
 */
 type StopTeamRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop team runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *StopTeamRunsNoContent) Code() int {
 }
 
 func (o *StopTeamRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *StopTeamRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNoContent %s", 204, payload)
 }
 
-func (o *StopTeamRunsNoContent) GetPayload() interface{} {
+func (o *StopTeamRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopTeamRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ StopTeamRunsForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type StopTeamRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop team runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *StopTeamRunsForbidden) Code() int {
 }
 
 func (o *StopTeamRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *StopTeamRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsForbidden %s", 403, payload)
 }
 
-func (o *StopTeamRunsForbidden) GetPayload() interface{} {
+func (o *StopTeamRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopTeamRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ StopTeamRunsNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type StopTeamRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this stop team runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *StopTeamRunsNotFound) Code() int {
 }
 
 func (o *StopTeamRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *StopTeamRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] stopTeamRunsNotFound %s", 404, payload)
 }
 
-func (o *StopTeamRunsNotFound) GetPayload() interface{} {
+func (o *StopTeamRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *StopTeamRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *StopTeamRunsDefault) Code() int {
 }
 
 func (o *StopTeamRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] StopTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] StopTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *StopTeamRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] StopTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/stop][%d] StopTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *StopTeamRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *StopTeamRunsDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

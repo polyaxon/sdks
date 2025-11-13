@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteRunArtifactLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteRunArtifactLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteRunArtifactLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteRunArtifactLineageOK()
@@ -103,11 +105,11 @@ func (o *DeleteRunArtifactLineageOK) Code() int {
 }
 
 func (o *DeleteRunArtifactLineageOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageOK", 200)
 }
 
 func (o *DeleteRunArtifactLineageOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageOK", 200)
 }
 
 func (o *DeleteRunArtifactLineageOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteRunArtifactLineageNoContent describes a response with status code 204, wit
 No content.
 */
 type DeleteRunArtifactLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifact lineage no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteRunArtifactLineageNoContent) Code() int {
 }
 
 func (o *DeleteRunArtifactLineageNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNoContent %s", 204, payload)
 }
 
 func (o *DeleteRunArtifactLineageNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNoContent %s", 204, payload)
 }
 
-func (o *DeleteRunArtifactLineageNoContent) GetPayload() interface{} {
+func (o *DeleteRunArtifactLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteRunArtifactLineageForbidden describes a response with status code 403, wit
 You don't have permission to access the resource.
 */
 type DeleteRunArtifactLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifact lineage forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteRunArtifactLineageForbidden) Code() int {
 }
 
 func (o *DeleteRunArtifactLineageForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageForbidden %s", 403, payload)
 }
 
 func (o *DeleteRunArtifactLineageForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageForbidden %s", 403, payload)
 }
 
-func (o *DeleteRunArtifactLineageForbidden) GetPayload() interface{} {
+func (o *DeleteRunArtifactLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteRunArtifactLineageNotFound describes a response with status code 404, with
 Resource does not exist.
 */
 type DeleteRunArtifactLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifact lineage not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteRunArtifactLineageNotFound) Code() int {
 }
 
 func (o *DeleteRunArtifactLineageNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNotFound %s", 404, payload)
 }
 
 func (o *DeleteRunArtifactLineageNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] deleteRunArtifactLineageNotFound %s", 404, payload)
 }
 
-func (o *DeleteRunArtifactLineageNotFound) GetPayload() interface{} {
+func (o *DeleteRunArtifactLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteRunArtifactLineageDefault) Code() int {
 }
 
 func (o *DeleteRunArtifactLineageDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] DeleteRunArtifactLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] DeleteRunArtifactLineage default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunArtifactLineageDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] DeleteRunArtifactLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{project}/runs/{uuid}/lineage/artifacts/{name}][%d] DeleteRunArtifactLineage default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunArtifactLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteRunArtifactLineageDefault) readResponse(response runtime.ClientRe
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

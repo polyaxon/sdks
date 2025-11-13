@@ -33,7 +33,7 @@ type V1Param struct {
 	ToInit bool `json:"toInit,omitempty"`
 
 	// The value to pass, if no ref or search is passed then it corresponds to a literal value
-	Value interface{} `json:"value,omitempty"`
+	Value any `json:"value,omitempty"`
 }
 
 // Validate validates this v1 param

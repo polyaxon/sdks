@@ -50,7 +50,7 @@ const (
 )
 
 // for schema
-var v1TriggerPolicyEnum []interface{}
+var v1TriggerPolicyEnum []any
 
 func init() {
 	var res []V1TriggerPolicy

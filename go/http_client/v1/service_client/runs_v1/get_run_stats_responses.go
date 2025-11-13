@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunStatsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunStatsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunStatsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunStatsOK()
@@ -70,7 +72,7 @@ GetRunStatsOK describes a response with status code 200, with default header val
 A successful response.
 */
 type GetRunStatsOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run stats o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *GetRunStatsOK) Code() int {
 }
 
 func (o *GetRunStatsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsOK %s", 200, payload)
 }
 
 func (o *GetRunStatsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsOK %s", 200, payload)
 }
 
-func (o *GetRunStatsOK) GetPayload() interface{} {
+func (o *GetRunStatsOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunStatsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ GetRunStatsNoContent describes a response with status code 204, with default hea
 No content.
 */
 type GetRunStatsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run stats no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *GetRunStatsNoContent) Code() int {
 }
 
 func (o *GetRunStatsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNoContent %s", 204, payload)
 }
 
 func (o *GetRunStatsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNoContent %s", 204, payload)
 }
 
-func (o *GetRunStatsNoContent) GetPayload() interface{} {
+func (o *GetRunStatsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunStatsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ GetRunStatsForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type GetRunStatsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run stats forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *GetRunStatsForbidden) Code() int {
 }
 
 func (o *GetRunStatsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsForbidden %s", 403, payload)
 }
 
 func (o *GetRunStatsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsForbidden %s", 403, payload)
 }
 
-func (o *GetRunStatsForbidden) GetPayload() interface{} {
+func (o *GetRunStatsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunStatsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ GetRunStatsNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type GetRunStatsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run stats not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *GetRunStatsNotFound) Code() int {
 }
 
 func (o *GetRunStatsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNotFound %s", 404, payload)
 }
 
 func (o *GetRunStatsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] getRunStatsNotFound %s", 404, payload)
 }
 
-func (o *GetRunStatsNotFound) GetPayload() interface{} {
+func (o *GetRunStatsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunStatsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *GetRunStatsDefault) Code() int {
 }
 
 func (o *GetRunStatsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] GetRunStats default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] GetRunStats default %s", o._statusCode, payload)
 }
 
 func (o *GetRunStatsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] GetRunStats default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/stats][%d] GetRunStats default %s", o._statusCode, payload)
 }
 
 func (o *GetRunStatsDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *GetRunStatsDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package auth_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SignupReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SignupReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SignupReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSignupOK()
@@ -104,11 +106,13 @@ func (o *SignupOK) Code() int {
 }
 
 func (o *SignupOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK %s", 200, payload)
 }
 
 func (o *SignupOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupOK %s", 200, payload)
 }
 
 func (o *SignupOK) GetPayload() *service_model.V1Auth {
@@ -120,7 +124,7 @@ func (o *SignupOK) readResponse(response runtime.ClientResponse, consumer runtim
 	o.Payload = new(service_model.V1Auth)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ SignupNoContent describes a response with status code 204, with default header v
 No content.
 */
 type SignupNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this signup no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *SignupNoContent) Code() int {
 }
 
 func (o *SignupNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent %s", 204, payload)
 }
 
 func (o *SignupNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNoContent %s", 204, payload)
 }
 
-func (o *SignupNoContent) GetPayload() interface{} {
+func (o *SignupNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SignupNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ SignupForbidden describes a response with status code 403, with default header v
 You don't have permission to access the resource.
 */
 type SignupForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this signup forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *SignupForbidden) Code() int {
 }
 
 func (o *SignupForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden %s", 403, payload)
 }
 
 func (o *SignupForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupForbidden %s", 403, payload)
 }
 
-func (o *SignupForbidden) GetPayload() interface{} {
+func (o *SignupForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SignupForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ SignupNotFound describes a response with status code 404, with default header va
 Resource does not exist.
 */
 type SignupNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this signup not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *SignupNotFound) Code() int {
 }
 
 func (o *SignupNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound %s", 404, payload)
 }
 
 func (o *SignupNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] signupNotFound %s", 404, payload)
 }
 
-func (o *SignupNotFound) GetPayload() interface{} {
+func (o *SignupNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SignupNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *SignupDefault) Code() int {
 }
 
 func (o *SignupDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default %s", o._statusCode, payload)
 }
 
 func (o *SignupDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/signup][%d] Signup default %s", o._statusCode, payload)
 }
 
 func (o *SignupDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *SignupDefault) readResponse(response runtime.ClientResponse, consumer r
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

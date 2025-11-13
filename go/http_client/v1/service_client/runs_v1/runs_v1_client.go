@@ -9,12 +9,38 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new runs v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new runs v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new runs v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -25,8 +51,32 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
+
+// This client is generated with a few options you might find useful for your swagger spec.
+//
+// Feel free to add you own set of options.
+
+// WithContentType allows the client to force the Content-Type header
+// to negotiate a specific Consumer from the server.
+//
+// You may use this option to set arbitrary extensions to your MIME media type.
+func WithContentType(mime string) ClientOption {
+	return func(r *runtime.ClientOperation) {
+		r.ConsumesMediaTypes = []string{mime}
+	}
+}
+
+// WithContentTypeApplicationJSON sets the Content-Type header to "application/json".
+func WithContentTypeApplicationJSON(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"application/json"}
+}
+
+// WithContentTypeMultipartFormData sets the Content-Type header to "multipart/form-data".
+func WithContentTypeMultipartFormData(r *runtime.ClientOperation) {
+	r.ConsumesMediaTypes = []string{"multipart/form-data"}
+}
 
 // ClientService is the interface for Client methods
 type ClientService interface {
@@ -163,7 +213,7 @@ type ClientService interface {
 ApproveRun approves run
 */
 func (a *Client) ApproveRun(params *ApproveRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveRunOK, *ApproveRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewApproveRunParams()
 	}
@@ -183,18 +233,22 @@ func (a *Client) ApproveRun(params *ApproveRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ApproveRunOK:
 		return value, nil, nil
 	case *ApproveRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ApproveRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -203,7 +257,7 @@ func (a *Client) ApproveRun(params *ApproveRunParams, authInfo runtime.ClientAut
 ApproveRuns approves runs
 */
 func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveRunsOK, *ApproveRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewApproveRunsParams()
 	}
@@ -223,18 +277,22 @@ func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ApproveRunsOK:
 		return value, nil, nil
 	case *ApproveRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ApproveRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -243,7 +301,7 @@ func (a *Client) ApproveRuns(params *ApproveRunsParams, authInfo runtime.ClientA
 ArchiveRun archives run
 */
 func (a *Client) ArchiveRun(params *ArchiveRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveRunOK, *ArchiveRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewArchiveRunParams()
 	}
@@ -263,18 +321,22 @@ func (a *Client) ArchiveRun(params *ArchiveRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ArchiveRunOK:
 		return value, nil, nil
 	case *ArchiveRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ArchiveRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -283,7 +345,7 @@ func (a *Client) ArchiveRun(params *ArchiveRunParams, authInfo runtime.ClientAut
 ArchiveRuns archives runs
 */
 func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveRunsOK, *ArchiveRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewArchiveRunsParams()
 	}
@@ -303,18 +365,22 @@ func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ArchiveRunsOK:
 		return value, nil, nil
 	case *ArchiveRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ArchiveRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -323,7 +389,7 @@ func (a *Client) ArchiveRuns(params *ArchiveRunsParams, authInfo runtime.ClientA
 BookmarkRun bookmarks run
 */
 func (a *Client) BookmarkRun(params *BookmarkRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkRunOK, *BookmarkRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewBookmarkRunParams()
 	}
@@ -343,18 +409,22 @@ func (a *Client) BookmarkRun(params *BookmarkRunParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *BookmarkRunOK:
 		return value, nil, nil
 	case *BookmarkRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*BookmarkRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -363,7 +433,7 @@ func (a *Client) BookmarkRun(params *BookmarkRunParams, authInfo runtime.ClientA
 BookmarkRuns bookmarks runs
 */
 func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkRunsOK, *BookmarkRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewBookmarkRunsParams()
 	}
@@ -383,18 +453,22 @@ func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *BookmarkRunsOK:
 		return value, nil, nil
 	case *BookmarkRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*BookmarkRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -403,7 +477,7 @@ func (a *Client) BookmarkRuns(params *BookmarkRunsParams, authInfo runtime.Clien
 CollectRunLogs internals API to collect run logs
 */
 func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectRunLogsOK, *CollectRunLogsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCollectRunLogsParams()
 	}
@@ -423,18 +497,22 @@ func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CollectRunLogsOK:
 		return value, nil, nil
 	case *CollectRunLogsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CollectRunLogsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -443,7 +521,7 @@ func (a *Client) CollectRunLogs(params *CollectRunLogsParams, authInfo runtime.C
 CopyRun restarts run with copy
 */
 func (a *Client) CopyRun(params *CopyRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CopyRunOK, *CopyRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCopyRunParams()
 	}
@@ -463,18 +541,22 @@ func (a *Client) CopyRun(params *CopyRunParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CopyRunOK:
 		return value, nil, nil
 	case *CopyRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CopyRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -483,7 +565,7 @@ func (a *Client) CopyRun(params *CopyRunParams, authInfo runtime.ClientAuthInfoW
 CreateRun creates new run
 */
 func (a *Client) CreateRun(params *CreateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunOK, *CreateRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateRunParams()
 	}
@@ -503,18 +585,22 @@ func (a *Client) CreateRun(params *CreateRunParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateRunOK:
 		return value, nil, nil
 	case *CreateRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -523,7 +609,7 @@ func (a *Client) CreateRun(params *CreateRunParams, authInfo runtime.ClientAuthI
 CreateRunArtifactsLineage creates bulk run artifacts lineage
 */
 func (a *Client) CreateRunArtifactsLineage(params *CreateRunArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunArtifactsLineageOK, *CreateRunArtifactsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateRunArtifactsLineageParams()
 	}
@@ -543,18 +629,22 @@ func (a *Client) CreateRunArtifactsLineage(params *CreateRunArtifactsLineagePara
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateRunArtifactsLineageOK:
 		return value, nil, nil
 	case *CreateRunArtifactsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateRunArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -563,7 +653,7 @@ func (a *Client) CreateRunArtifactsLineage(params *CreateRunArtifactsLineagePara
 CreateRunStatus creates new run status
 */
 func (a *Client) CreateRunStatus(params *CreateRunStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateRunStatusOK, *CreateRunStatusNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateRunStatusParams()
 	}
@@ -583,18 +673,22 @@ func (a *Client) CreateRunStatus(params *CreateRunStatusParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateRunStatusOK:
 		return value, nil, nil
 	case *CreateRunStatusNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateRunStatusDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -603,7 +697,7 @@ func (a *Client) CreateRunStatus(params *CreateRunStatusParams, authInfo runtime
 DeleteRun deletes run
 */
 func (a *Client) DeleteRun(params *DeleteRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunOK, *DeleteRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteRunParams()
 	}
@@ -623,18 +717,22 @@ func (a *Client) DeleteRun(params *DeleteRunParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteRunOK:
 		return value, nil, nil
 	case *DeleteRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -643,7 +741,7 @@ func (a *Client) DeleteRun(params *DeleteRunParams, authInfo runtime.ClientAuthI
 DeleteRunArtifact deletes run artifact
 */
 func (a *Client) DeleteRunArtifact(params *DeleteRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactOK, *DeleteRunArtifactNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteRunArtifactParams()
 	}
@@ -663,18 +761,22 @@ func (a *Client) DeleteRunArtifact(params *DeleteRunArtifactParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteRunArtifactOK:
 		return value, nil, nil
 	case *DeleteRunArtifactNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteRunArtifactDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -683,7 +785,7 @@ func (a *Client) DeleteRunArtifact(params *DeleteRunArtifactParams, authInfo run
 DeleteRunArtifactLineage deletes run artifact lineage
 */
 func (a *Client) DeleteRunArtifactLineage(params *DeleteRunArtifactLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactLineageOK, *DeleteRunArtifactLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteRunArtifactLineageParams()
 	}
@@ -703,18 +805,22 @@ func (a *Client) DeleteRunArtifactLineage(params *DeleteRunArtifactLineageParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteRunArtifactLineageOK:
 		return value, nil, nil
 	case *DeleteRunArtifactLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteRunArtifactLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -723,7 +829,7 @@ func (a *Client) DeleteRunArtifactLineage(params *DeleteRunArtifactLineageParams
 DeleteRunArtifacts deletes run artifacts
 */
 func (a *Client) DeleteRunArtifacts(params *DeleteRunArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunArtifactsOK, *DeleteRunArtifactsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteRunArtifactsParams()
 	}
@@ -743,18 +849,22 @@ func (a *Client) DeleteRunArtifacts(params *DeleteRunArtifactsParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteRunArtifactsOK:
 		return value, nil, nil
 	case *DeleteRunArtifactsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteRunArtifactsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -763,7 +873,7 @@ func (a *Client) DeleteRunArtifacts(params *DeleteRunArtifactsParams, authInfo r
 DeleteRuns deletes runs
 */
 func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteRunsOK, *DeleteRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteRunsParams()
 	}
@@ -783,18 +893,22 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteRunsOK:
 		return value, nil, nil
 	case *DeleteRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -803,7 +917,7 @@ func (a *Client) DeleteRuns(params *DeleteRunsParams, authInfo runtime.ClientAut
 GetMultiRunEvents gets multi runs events
 */
 func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetMultiRunEventsOK, *GetMultiRunEventsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetMultiRunEventsParams()
 	}
@@ -823,18 +937,22 @@ func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetMultiRunEventsOK:
 		return value, nil, nil
 	case *GetMultiRunEventsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetMultiRunEventsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -843,7 +961,7 @@ func (a *Client) GetMultiRunEvents(params *GetMultiRunEventsParams, authInfo run
 GetMultiRunImportance gets multi run importance
 */
 func (a *Client) GetMultiRunImportance(params *GetMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetMultiRunImportanceOK, *GetMultiRunImportanceNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetMultiRunImportanceParams()
 	}
@@ -863,18 +981,22 @@ func (a *Client) GetMultiRunImportance(params *GetMultiRunImportanceParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetMultiRunImportanceOK:
 		return value, nil, nil
 	case *GetMultiRunImportanceNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetMultiRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -883,7 +1005,7 @@ func (a *Client) GetMultiRunImportance(params *GetMultiRunImportanceParams, auth
 GetRun gets run
 */
 func (a *Client) GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunOK, *GetRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunParams()
 	}
@@ -903,18 +1025,22 @@ func (a *Client) GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWri
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunOK:
 		return value, nil, nil
 	case *GetRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -923,7 +1049,7 @@ func (a *Client) GetRun(params *GetRunParams, authInfo runtime.ClientAuthInfoWri
 GetRunArtifact gets run artifact
 */
 func (a *Client) GetRunArtifact(params *GetRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactOK, *GetRunArtifactNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactParams()
 	}
@@ -943,18 +1069,22 @@ func (a *Client) GetRunArtifact(params *GetRunArtifactParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactOK:
 		return value, nil, nil
 	case *GetRunArtifactNoContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+
+	// no default response is defined.
+	//
+	// safeguard: normally, in the absence of a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for runs_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
@@ -963,7 +1093,7 @@ func (a *Client) GetRunArtifact(params *GetRunArtifactParams, authInfo runtime.C
 GetRunArtifactLineage gets run artifacts lineage
 */
 func (a *Client) GetRunArtifactLineage(params *GetRunArtifactLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactLineageOK, *GetRunArtifactLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactLineageParams()
 	}
@@ -983,18 +1113,22 @@ func (a *Client) GetRunArtifactLineage(params *GetRunArtifactLineageParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactLineageOK:
 		return value, nil, nil
 	case *GetRunArtifactLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunArtifactLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1003,7 +1137,7 @@ func (a *Client) GetRunArtifactLineage(params *GetRunArtifactLineageParams, auth
 GetRunArtifacts gets run artifacts
 */
 func (a *Client) GetRunArtifacts(params *GetRunArtifactsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsOK, *GetRunArtifactsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactsParams()
 	}
@@ -1023,18 +1157,22 @@ func (a *Client) GetRunArtifacts(params *GetRunArtifactsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactsOK:
 		return value, nil, nil
 	case *GetRunArtifactsNoContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+
+	// no default response is defined.
+	//
+	// safeguard: normally, in the absence of a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for runs_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
@@ -1043,7 +1181,7 @@ func (a *Client) GetRunArtifacts(params *GetRunArtifactsParams, authInfo runtime
 GetRunArtifactsLineage gets run artifacts lineage
 */
 func (a *Client) GetRunArtifactsLineage(params *GetRunArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsLineageOK, *GetRunArtifactsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactsLineageParams()
 	}
@@ -1063,18 +1201,22 @@ func (a *Client) GetRunArtifactsLineage(params *GetRunArtifactsLineageParams, au
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactsLineageOK:
 		return value, nil, nil
 	case *GetRunArtifactsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1083,7 +1225,7 @@ func (a *Client) GetRunArtifactsLineage(params *GetRunArtifactsLineageParams, au
 GetRunArtifactsLineageNames gets run artifacts lineage names
 */
 func (a *Client) GetRunArtifactsLineageNames(params *GetRunArtifactsLineageNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsLineageNamesOK, *GetRunArtifactsLineageNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactsLineageNamesParams()
 	}
@@ -1103,18 +1245,22 @@ func (a *Client) GetRunArtifactsLineageNames(params *GetRunArtifactsLineageNames
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactsLineageNamesOK:
 		return value, nil, nil
 	case *GetRunArtifactsLineageNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunArtifactsLineageNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1123,7 +1269,7 @@ func (a *Client) GetRunArtifactsLineageNames(params *GetRunArtifactsLineageNames
 GetRunArtifactsTree gets run artifacts tree
 */
 func (a *Client) GetRunArtifactsTree(params *GetRunArtifactsTreeParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunArtifactsTreeOK, *GetRunArtifactsTreeNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunArtifactsTreeParams()
 	}
@@ -1143,18 +1289,22 @@ func (a *Client) GetRunArtifactsTree(params *GetRunArtifactsTreeParams, authInfo
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunArtifactsTreeOK:
 		return value, nil, nil
 	case *GetRunArtifactsTreeNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunArtifactsTreeDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1163,7 +1313,7 @@ func (a *Client) GetRunArtifactsTree(params *GetRunArtifactsTreeParams, authInfo
 GetRunClonesLineage gets run clones lineage
 */
 func (a *Client) GetRunClonesLineage(params *GetRunClonesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunClonesLineageOK, *GetRunClonesLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunClonesLineageParams()
 	}
@@ -1183,18 +1333,22 @@ func (a *Client) GetRunClonesLineage(params *GetRunClonesLineageParams, authInfo
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunClonesLineageOK:
 		return value, nil, nil
 	case *GetRunClonesLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunClonesLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1203,7 +1357,7 @@ func (a *Client) GetRunClonesLineage(params *GetRunClonesLineageParams, authInfo
 GetRunConnectionsLineage gets run connections lineage
 */
 func (a *Client) GetRunConnectionsLineage(params *GetRunConnectionsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunConnectionsLineageOK, *GetRunConnectionsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunConnectionsLineageParams()
 	}
@@ -1223,18 +1377,22 @@ func (a *Client) GetRunConnectionsLineage(params *GetRunConnectionsLineageParams
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunConnectionsLineageOK:
 		return value, nil, nil
 	case *GetRunConnectionsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunConnectionsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1243,7 +1401,7 @@ func (a *Client) GetRunConnectionsLineage(params *GetRunConnectionsLineageParams
 GetRunDownstreamLineage gets run downstream lineage
 */
 func (a *Client) GetRunDownstreamLineage(params *GetRunDownstreamLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunDownstreamLineageOK, *GetRunDownstreamLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunDownstreamLineageParams()
 	}
@@ -1263,18 +1421,22 @@ func (a *Client) GetRunDownstreamLineage(params *GetRunDownstreamLineageParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunDownstreamLineageOK:
 		return value, nil, nil
 	case *GetRunDownstreamLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunDownstreamLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1283,7 +1445,7 @@ func (a *Client) GetRunDownstreamLineage(params *GetRunDownstreamLineageParams, 
 GetRunEvents gets run events
 */
 func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunEventsOK, *GetRunEventsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunEventsParams()
 	}
@@ -1303,18 +1465,22 @@ func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunEventsOK:
 		return value, nil, nil
 	case *GetRunEventsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunEventsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1323,7 +1489,7 @@ func (a *Client) GetRunEvents(params *GetRunEventsParams, authInfo runtime.Clien
 GetRunLogs gets run logs
 */
 func (a *Client) GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunLogsOK, *GetRunLogsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunLogsParams()
 	}
@@ -1343,18 +1509,22 @@ func (a *Client) GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunLogsOK:
 		return value, nil, nil
 	case *GetRunLogsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunLogsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1363,7 +1533,7 @@ func (a *Client) GetRunLogs(params *GetRunLogsParams, authInfo runtime.ClientAut
 GetRunNamespace gets run namespace
 */
 func (a *Client) GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunNamespaceOK, *GetRunNamespaceNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunNamespaceParams()
 	}
@@ -1383,18 +1553,22 @@ func (a *Client) GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunNamespaceOK:
 		return value, nil, nil
 	case *GetRunNamespaceNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunNamespaceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1403,7 +1577,7 @@ func (a *Client) GetRunNamespace(params *GetRunNamespaceParams, authInfo runtime
 GetRunResources gets run resources events
 */
 func (a *Client) GetRunResources(params *GetRunResourcesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunResourcesOK, *GetRunResourcesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunResourcesParams()
 	}
@@ -1423,18 +1597,22 @@ func (a *Client) GetRunResources(params *GetRunResourcesParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunResourcesOK:
 		return value, nil, nil
 	case *GetRunResourcesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunResourcesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1443,7 +1621,7 @@ func (a *Client) GetRunResources(params *GetRunResourcesParams, authInfo runtime
 GetRunSettings gets run settings
 */
 func (a *Client) GetRunSettings(params *GetRunSettingsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunSettingsOK, *GetRunSettingsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunSettingsParams()
 	}
@@ -1463,18 +1641,22 @@ func (a *Client) GetRunSettings(params *GetRunSettingsParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunSettingsOK:
 		return value, nil, nil
 	case *GetRunSettingsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunSettingsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1483,7 +1665,7 @@ func (a *Client) GetRunSettings(params *GetRunSettingsParams, authInfo runtime.C
 GetRunStats gets run stats
 */
 func (a *Client) GetRunStats(params *GetRunStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunStatsOK, *GetRunStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunStatsParams()
 	}
@@ -1503,18 +1685,22 @@ func (a *Client) GetRunStats(params *GetRunStatsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunStatsOK:
 		return value, nil, nil
 	case *GetRunStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1523,7 +1709,7 @@ func (a *Client) GetRunStats(params *GetRunStatsParams, authInfo runtime.ClientA
 GetRunStatuses gets run statuses
 */
 func (a *Client) GetRunStatuses(params *GetRunStatusesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunStatusesOK, *GetRunStatusesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunStatusesParams()
 	}
@@ -1543,18 +1729,22 @@ func (a *Client) GetRunStatuses(params *GetRunStatusesParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunStatusesOK:
 		return value, nil, nil
 	case *GetRunStatusesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunStatusesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1563,7 +1753,7 @@ func (a *Client) GetRunStatuses(params *GetRunStatusesParams, authInfo runtime.C
 GetRunUpstreamLineage gets run upstream lineage
 */
 func (a *Client) GetRunUpstreamLineage(params *GetRunUpstreamLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunUpstreamLineageOK, *GetRunUpstreamLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunUpstreamLineageParams()
 	}
@@ -1583,18 +1773,22 @@ func (a *Client) GetRunUpstreamLineage(params *GetRunUpstreamLineageParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunUpstreamLineageOK:
 		return value, nil, nil
 	case *GetRunUpstreamLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunUpstreamLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1603,7 +1797,7 @@ func (a *Client) GetRunUpstreamLineage(params *GetRunUpstreamLineageParams, auth
 GetRunsArtifactsLineage gets runs artifacts lineage
 */
 func (a *Client) GetRunsArtifactsLineage(params *GetRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetRunsArtifactsLineageOK, *GetRunsArtifactsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetRunsArtifactsLineageParams()
 	}
@@ -1623,18 +1817,22 @@ func (a *Client) GetRunsArtifactsLineage(params *GetRunsArtifactsLineageParams, 
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetRunsArtifactsLineageOK:
 		return value, nil, nil
 	case *GetRunsArtifactsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetRunsArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1643,7 +1841,7 @@ func (a *Client) GetRunsArtifactsLineage(params *GetRunsArtifactsLineageParams, 
 ImpersonateToken impersonates run token
 */
 func (a *Client) ImpersonateToken(params *ImpersonateTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ImpersonateTokenOK, *ImpersonateTokenNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewImpersonateTokenParams()
 	}
@@ -1663,18 +1861,22 @@ func (a *Client) ImpersonateToken(params *ImpersonateTokenParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ImpersonateTokenOK:
 		return value, nil, nil
 	case *ImpersonateTokenNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ImpersonateTokenDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1683,7 +1885,7 @@ func (a *Client) ImpersonateToken(params *ImpersonateTokenParams, authInfo runti
 InspectRun inspects an active run full conditions
 */
 func (a *Client) InspectRun(params *InspectRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InspectRunOK, *InspectRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInspectRunParams()
 	}
@@ -1703,18 +1905,22 @@ func (a *Client) InspectRun(params *InspectRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InspectRunOK:
 		return value, nil, nil
 	case *InspectRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InspectRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1723,7 +1929,7 @@ func (a *Client) InspectRun(params *InspectRunParams, authInfo runtime.ClientAut
 InvalidateRun invalidates run
 */
 func (a *Client) InvalidateRun(params *InvalidateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateRunOK, *InvalidateRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInvalidateRunParams()
 	}
@@ -1743,18 +1949,22 @@ func (a *Client) InvalidateRun(params *InvalidateRunParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InvalidateRunOK:
 		return value, nil, nil
 	case *InvalidateRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InvalidateRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1763,7 +1973,7 @@ func (a *Client) InvalidateRun(params *InvalidateRunParams, authInfo runtime.Cli
 InvalidateRuns invalidates runs
 */
 func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateRunsOK, *InvalidateRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInvalidateRunsParams()
 	}
@@ -1783,18 +1993,22 @@ func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InvalidateRunsOK:
 		return value, nil, nil
 	case *InvalidateRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InvalidateRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1803,7 +2017,7 @@ func (a *Client) InvalidateRuns(params *InvalidateRunsParams, authInfo runtime.C
 ListArchivedRuns lists archived runs for user
 */
 func (a *Client) ListArchivedRuns(params *ListArchivedRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListArchivedRunsOK, *ListArchivedRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListArchivedRunsParams()
 	}
@@ -1823,18 +2037,22 @@ func (a *Client) ListArchivedRuns(params *ListArchivedRunsParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListArchivedRunsOK:
 		return value, nil, nil
 	case *ListArchivedRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListArchivedRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1843,7 +2061,7 @@ func (a *Client) ListArchivedRuns(params *ListArchivedRunsParams, authInfo runti
 ListBookmarkedRuns lists bookmarked runs for user
 */
 func (a *Client) ListBookmarkedRuns(params *ListBookmarkedRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListBookmarkedRunsOK, *ListBookmarkedRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListBookmarkedRunsParams()
 	}
@@ -1863,18 +2081,22 @@ func (a *Client) ListBookmarkedRuns(params *ListBookmarkedRunsParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListBookmarkedRunsOK:
 		return value, nil, nil
 	case *ListBookmarkedRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListBookmarkedRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1883,7 +2105,7 @@ func (a *Client) ListBookmarkedRuns(params *ListBookmarkedRunsParams, authInfo r
 ListRuns lists runs
 */
 func (a *Client) ListRuns(params *ListRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListRunsOK, *ListRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListRunsParams()
 	}
@@ -1903,18 +2125,22 @@ func (a *Client) ListRuns(params *ListRunsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListRunsOK:
 		return value, nil, nil
 	case *ListRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1923,7 +2149,7 @@ func (a *Client) ListRuns(params *ListRunsParams, authInfo runtime.ClientAuthInf
 NotifyRunStatus notifies run status
 */
 func (a *Client) NotifyRunStatus(params *NotifyRunStatusParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*NotifyRunStatusOK, *NotifyRunStatusNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewNotifyRunStatusParams()
 	}
@@ -1943,18 +2169,22 @@ func (a *Client) NotifyRunStatus(params *NotifyRunStatusParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *NotifyRunStatusOK:
 		return value, nil, nil
 	case *NotifyRunStatusNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*NotifyRunStatusDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1963,7 +2193,7 @@ func (a *Client) NotifyRunStatus(params *NotifyRunStatusParams, authInfo runtime
 PatchRun patches run
 */
 func (a *Client) PatchRun(params *PatchRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchRunOK, *PatchRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchRunParams()
 	}
@@ -1983,18 +2213,22 @@ func (a *Client) PatchRun(params *PatchRunParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchRunOK:
 		return value, nil, nil
 	case *PatchRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2003,7 +2237,7 @@ func (a *Client) PatchRun(params *PatchRunParams, authInfo runtime.ClientAuthInf
 RestartRun restarts run
 */
 func (a *Client) RestartRun(params *RestartRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestartRunOK, *RestartRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestartRunParams()
 	}
@@ -2023,18 +2257,22 @@ func (a *Client) RestartRun(params *RestartRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestartRunOK:
 		return value, nil, nil
 	case *RestartRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestartRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2043,7 +2281,7 @@ func (a *Client) RestartRun(params *RestartRunParams, authInfo runtime.ClientAut
 RestoreRun restores run
 */
 func (a *Client) RestoreRun(params *RestoreRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreRunOK, *RestoreRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestoreRunParams()
 	}
@@ -2063,18 +2301,22 @@ func (a *Client) RestoreRun(params *RestoreRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestoreRunOK:
 		return value, nil, nil
 	case *RestoreRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestoreRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2083,7 +2325,7 @@ func (a *Client) RestoreRun(params *RestoreRunParams, authInfo runtime.ClientAut
 RestoreRuns restores runs
 */
 func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreRunsOK, *RestoreRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestoreRunsParams()
 	}
@@ -2103,18 +2345,22 @@ func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestoreRunsOK:
 		return value, nil, nil
 	case *RestoreRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestoreRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2123,7 +2369,7 @@ func (a *Client) RestoreRuns(params *RestoreRunsParams, authInfo runtime.ClientA
 ResumeRun resumes run
 */
 func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ResumeRunOK, *ResumeRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewResumeRunParams()
 	}
@@ -2143,18 +2389,22 @@ func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ResumeRunOK:
 		return value, nil, nil
 	case *ResumeRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ResumeRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2163,7 +2413,7 @@ func (a *Client) ResumeRun(params *ResumeRunParams, authInfo runtime.ClientAuthI
 SetRunEdgesLineage sets run edges graph lineage
 */
 func (a *Client) SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SetRunEdgesLineageOK, *SetRunEdgesLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSetRunEdgesLineageParams()
 	}
@@ -2183,18 +2433,22 @@ func (a *Client) SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SetRunEdgesLineageOK:
 		return value, nil, nil
 	case *SetRunEdgesLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SetRunEdgesLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2203,7 +2457,7 @@ func (a *Client) SetRunEdgesLineage(params *SetRunEdgesLineageParams, authInfo r
 SkipRun skips run
 */
 func (a *Client) SkipRun(params *SkipRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunOK, *SkipRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSkipRunParams()
 	}
@@ -2223,18 +2477,22 @@ func (a *Client) SkipRun(params *SkipRunParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SkipRunOK:
 		return value, nil, nil
 	case *SkipRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SkipRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2243,7 +2501,7 @@ func (a *Client) SkipRun(params *SkipRunParams, authInfo runtime.ClientAuthInfoW
 SkipRuns skips runs
 */
 func (a *Client) SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipRunsOK, *SkipRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSkipRunsParams()
 	}
@@ -2263,18 +2521,22 @@ func (a *Client) SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SkipRunsOK:
 		return value, nil, nil
 	case *SkipRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SkipRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2283,7 +2545,7 @@ func (a *Client) SkipRuns(params *SkipRunsParams, authInfo runtime.ClientAuthInf
 StopRun stops run
 */
 func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunOK, *StopRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewStopRunParams()
 	}
@@ -2303,18 +2565,22 @@ func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *StopRunOK:
 		return value, nil, nil
 	case *StopRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*StopRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2323,7 +2589,7 @@ func (a *Client) StopRun(params *StopRunParams, authInfo runtime.ClientAuthInfoW
 StopRuns stops runs
 */
 func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopRunsOK, *StopRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewStopRunsParams()
 	}
@@ -2343,18 +2609,22 @@ func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInf
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *StopRunsOK:
 		return value, nil, nil
 	case *StopRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*StopRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2363,7 +2633,7 @@ func (a *Client) StopRuns(params *StopRunsParams, authInfo runtime.ClientAuthInf
 SyncRun syncs offline run
 */
 func (a *Client) SyncRun(params *SyncRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncRunOK, *SyncRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSyncRunParams()
 	}
@@ -2383,18 +2653,22 @@ func (a *Client) SyncRun(params *SyncRunParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SyncRunOK:
 		return value, nil, nil
 	case *SyncRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SyncRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2403,7 +2677,7 @@ func (a *Client) SyncRun(params *SyncRunParams, authInfo runtime.ClientAuthInfoW
 TagRuns tags runs
 */
 func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TagRunsOK, *TagRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTagRunsParams()
 	}
@@ -2423,18 +2697,22 @@ func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TagRunsOK:
 		return value, nil, nil
 	case *TagRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TagRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2443,7 +2721,7 @@ func (a *Client) TagRuns(params *TagRunsParams, authInfo runtime.ClientAuthInfoW
 TransferRun transfers run
 */
 func (a *Client) TransferRun(params *TransferRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferRunOK, *TransferRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTransferRunParams()
 	}
@@ -2463,18 +2741,22 @@ func (a *Client) TransferRun(params *TransferRunParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TransferRunOK:
 		return value, nil, nil
 	case *TransferRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TransferRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2483,7 +2765,7 @@ func (a *Client) TransferRun(params *TransferRunParams, authInfo runtime.ClientA
 TransferRuns transfers runs
 */
 func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferRunsOK, *TransferRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTransferRunsParams()
 	}
@@ -2503,18 +2785,22 @@ func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TransferRunsOK:
 		return value, nil, nil
 	case *TransferRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TransferRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2523,7 +2809,7 @@ func (a *Client) TransferRuns(params *TransferRunsParams, authInfo runtime.Clien
 UnbookmarkRun unbookmarks run
 */
 func (a *Client) UnbookmarkRun(params *UnbookmarkRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UnbookmarkRunOK, *UnbookmarkRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUnbookmarkRunParams()
 	}
@@ -2543,18 +2829,22 @@ func (a *Client) UnbookmarkRun(params *UnbookmarkRunParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UnbookmarkRunOK:
 		return value, nil, nil
 	case *UnbookmarkRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UnbookmarkRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2563,7 +2853,7 @@ func (a *Client) UnbookmarkRun(params *UnbookmarkRunParams, authInfo runtime.Cli
 UpdateRun updates run
 */
 func (a *Client) UpdateRun(params *UpdateRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateRunOK, *UpdateRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateRunParams()
 	}
@@ -2583,18 +2873,22 @@ func (a *Client) UpdateRun(params *UpdateRunParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateRunOK:
 		return value, nil, nil
 	case *UpdateRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -2603,7 +2897,7 @@ func (a *Client) UpdateRun(params *UpdateRunParams, authInfo runtime.ClientAuthI
 UploadRunArtifact uploads an artifact file to a store via run access
 */
 func (a *Client) UploadRunArtifact(params *UploadRunArtifactParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadRunArtifactOK, *UploadRunArtifactNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUploadRunArtifactParams()
 	}
@@ -2623,18 +2917,22 @@ func (a *Client) UploadRunArtifact(params *UploadRunArtifactParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UploadRunArtifactOK:
 		return value, nil, nil
 	case *UploadRunArtifactNoContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+
+	// no default response is defined.
+	//
+	// safeguard: normally, in the absence of a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for runs_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
@@ -2643,7 +2941,7 @@ func (a *Client) UploadRunArtifact(params *UploadRunArtifactParams, authInfo run
 UploadRunLogs uploads a logs file to a store via run access
 */
 func (a *Client) UploadRunLogs(params *UploadRunLogsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UploadRunLogsOK, *UploadRunLogsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUploadRunLogsParams()
 	}
@@ -2663,18 +2961,22 @@ func (a *Client) UploadRunLogs(params *UploadRunLogsParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UploadRunLogsOK:
 		return value, nil, nil
 	case *UploadRunLogsNoContent:
 		return nil, value, nil
 	}
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+
+	// no default response is defined.
+	//
+	// safeguard: normally, in the absence of a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for runs_v1: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }

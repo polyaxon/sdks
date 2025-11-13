@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetOrganizationActivitiesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetOrganizationActivitiesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetOrganizationActivitiesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetOrganizationActivitiesOK()
@@ -104,11 +106,13 @@ func (o *GetOrganizationActivitiesOK) Code() int {
 }
 
 func (o *GetOrganizationActivitiesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK %s", 200, payload)
 }
 
 func (o *GetOrganizationActivitiesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesOK %s", 200, payload)
 }
 
 func (o *GetOrganizationActivitiesOK) GetPayload() *service_model.V1ListActivitiesResponse {
@@ -120,7 +124,7 @@ func (o *GetOrganizationActivitiesOK) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.V1ListActivitiesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetOrganizationActivitiesNoContent describes a response with status code 204, wi
 No content.
 */
 type GetOrganizationActivitiesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization activities no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetOrganizationActivitiesNoContent) Code() int {
 }
 
 func (o *GetOrganizationActivitiesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent %s", 204, payload)
 }
 
 func (o *GetOrganizationActivitiesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNoContent %s", 204, payload)
 }
 
-func (o *GetOrganizationActivitiesNoContent) GetPayload() interface{} {
+func (o *GetOrganizationActivitiesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationActivitiesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetOrganizationActivitiesForbidden describes a response with status code 403, wi
 You don't have permission to access the resource.
 */
 type GetOrganizationActivitiesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization activities forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetOrganizationActivitiesForbidden) Code() int {
 }
 
 func (o *GetOrganizationActivitiesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden %s", 403, payload)
 }
 
 func (o *GetOrganizationActivitiesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesForbidden %s", 403, payload)
 }
 
-func (o *GetOrganizationActivitiesForbidden) GetPayload() interface{} {
+func (o *GetOrganizationActivitiesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationActivitiesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetOrganizationActivitiesNotFound describes a response with status code 404, wit
 Resource does not exist.
 */
 type GetOrganizationActivitiesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get organization activities not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetOrganizationActivitiesNotFound) Code() int {
 }
 
 func (o *GetOrganizationActivitiesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound %s", 404, payload)
 }
 
 func (o *GetOrganizationActivitiesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] getOrganizationActivitiesNotFound %s", 404, payload)
 }
 
-func (o *GetOrganizationActivitiesNotFound) GetPayload() interface{} {
+func (o *GetOrganizationActivitiesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetOrganizationActivitiesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetOrganizationActivitiesDefault) Code() int {
 }
 
 func (o *GetOrganizationActivitiesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationActivitiesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/activities][%d] GetOrganizationActivities default %s", o._statusCode, payload)
 }
 
 func (o *GetOrganizationActivitiesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetOrganizationActivitiesDefault) readResponse(response runtime.ClientR
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

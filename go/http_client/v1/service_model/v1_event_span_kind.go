@@ -50,7 +50,7 @@ const (
 )
 
 // for schema
-var v1EventSpanKindEnum []interface{}
+var v1EventSpanKindEnum []any
 
 func init() {
 	var res []V1EventSpanKind

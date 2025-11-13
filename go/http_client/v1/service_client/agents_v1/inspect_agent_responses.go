@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type InspectAgentReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *InspectAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *InspectAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewInspectAgentOK()
@@ -70,7 +72,7 @@ InspectAgentOK describes a response with status code 200, with default header va
 A successful response.
 */
 type InspectAgentOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect agent o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *InspectAgentOK) Code() int {
 }
 
 func (o *InspectAgentOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentOK %s", 200, payload)
 }
 
 func (o *InspectAgentOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentOK %s", 200, payload)
 }
 
-func (o *InspectAgentOK) GetPayload() interface{} {
+func (o *InspectAgentOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectAgentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ InspectAgentNoContent describes a response with status code 204, with default he
 No content.
 */
 type InspectAgentNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect agent no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *InspectAgentNoContent) Code() int {
 }
 
 func (o *InspectAgentNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNoContent %s", 204, payload)
 }
 
 func (o *InspectAgentNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNoContent %s", 204, payload)
 }
 
-func (o *InspectAgentNoContent) GetPayload() interface{} {
+func (o *InspectAgentNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectAgentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ InspectAgentForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type InspectAgentForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect agent forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *InspectAgentForbidden) Code() int {
 }
 
 func (o *InspectAgentForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentForbidden %s", 403, payload)
 }
 
 func (o *InspectAgentForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentForbidden %s", 403, payload)
 }
 
-func (o *InspectAgentForbidden) GetPayload() interface{} {
+func (o *InspectAgentForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectAgentForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ InspectAgentNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type InspectAgentNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect agent not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *InspectAgentNotFound) Code() int {
 }
 
 func (o *InspectAgentNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNotFound %s", 404, payload)
 }
 
 func (o *InspectAgentNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] inspectAgentNotFound %s", 404, payload)
 }
 
-func (o *InspectAgentNotFound) GetPayload() interface{} {
+func (o *InspectAgentNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectAgentNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *InspectAgentDefault) Code() int {
 }
 
 func (o *InspectAgentDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] InspectAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] InspectAgent default %s", o._statusCode, payload)
 }
 
 func (o *InspectAgentDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] InspectAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect][%d] InspectAgent default %s", o._statusCode, payload)
 }
 
 func (o *InspectAgentDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *InspectAgentDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

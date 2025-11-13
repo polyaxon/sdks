@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -31,7 +32,7 @@ type V1OperationBody struct {
 	ManagedBy *V1ManagedBy `json:"managed_by,omitempty"`
 
 	// Meta
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// Optional
 	Name string `json:"name,omitempty"`
@@ -68,11 +69,15 @@ func (m *V1OperationBody) validateManagedBy(formats strfmt.Registry) error {
 
 	if m.ManagedBy != nil {
 		if err := m.ManagedBy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("managed_by")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("managed_by")
 			}
+
 			return err
 		}
 	}
@@ -87,11 +92,15 @@ func (m *V1OperationBody) validatePending(formats strfmt.Registry) error {
 
 	if m.Pending != nil {
 		if err := m.Pending.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pending")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pending")
 			}
+
 			return err
 		}
 	}
@@ -126,11 +135,15 @@ func (m *V1OperationBody) contextValidateManagedBy(ctx context.Context, formats 
 		}
 
 		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("managed_by")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("managed_by")
 			}
+
 			return err
 		}
 	}
@@ -147,11 +160,15 @@ func (m *V1OperationBody) contextValidatePending(ctx context.Context, formats st
 		}
 
 		if err := m.Pending.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pending")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pending")
 			}
+
 			return err
 		}
 	}

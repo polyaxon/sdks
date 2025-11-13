@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateConnectionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateConnectionOK()
@@ -104,11 +106,13 @@ func (o *CreateConnectionOK) Code() int {
 }
 
 func (o *CreateConnectionOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionOK %s", 200, payload)
 }
 
 func (o *CreateConnectionOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionOK %s", 200, payload)
 }
 
 func (o *CreateConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
@@ -120,7 +124,7 @@ func (o *CreateConnectionOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1ConnectionResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateConnectionNoContent describes a response with status code 204, with defaul
 No content.
 */
 type CreateConnectionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create connection no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateConnectionNoContent) Code() int {
 }
 
 func (o *CreateConnectionNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNoContent %s", 204, payload)
 }
 
 func (o *CreateConnectionNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNoContent %s", 204, payload)
 }
 
-func (o *CreateConnectionNoContent) GetPayload() interface{} {
+func (o *CreateConnectionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateConnectionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateConnectionForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type CreateConnectionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create connection forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateConnectionForbidden) Code() int {
 }
 
 func (o *CreateConnectionForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionForbidden %s", 403, payload)
 }
 
 func (o *CreateConnectionForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionForbidden %s", 403, payload)
 }
 
-func (o *CreateConnectionForbidden) GetPayload() interface{} {
+func (o *CreateConnectionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateConnectionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateConnectionNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type CreateConnectionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create connection not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateConnectionNotFound) Code() int {
 }
 
 func (o *CreateConnectionNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNotFound %s", 404, payload)
 }
 
 func (o *CreateConnectionNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] createConnectionNotFound %s", 404, payload)
 }
 
-func (o *CreateConnectionNotFound) GetPayload() interface{} {
+func (o *CreateConnectionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateConnectionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateConnectionDefault) Code() int {
 }
 
 func (o *CreateConnectionDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] CreateConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] CreateConnection default %s", o._statusCode, payload)
 }
 
 func (o *CreateConnectionDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] CreateConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/connections][%d] CreateConnection default %s", o._statusCode, payload)
 }
 
 func (o *CreateConnectionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateConnectionDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunUpstreamLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunUpstreamLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunUpstreamLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunUpstreamLineageOK()
@@ -104,11 +106,13 @@ func (o *GetRunUpstreamLineageOK) Code() int {
 }
 
 func (o *GetRunUpstreamLineageOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageOK %s", 200, payload)
 }
 
 func (o *GetRunUpstreamLineageOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageOK %s", 200, payload)
 }
 
 func (o *GetRunUpstreamLineageOK) GetPayload() *service_model.V1ListRunEdgesResponse {
@@ -120,7 +124,7 @@ func (o *GetRunUpstreamLineageOK) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.V1ListRunEdgesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunUpstreamLineageNoContent describes a response with status code 204, with d
 No content.
 */
 type GetRunUpstreamLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run upstream lineage no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunUpstreamLineageNoContent) Code() int {
 }
 
 func (o *GetRunUpstreamLineageNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNoContent %s", 204, payload)
 }
 
 func (o *GetRunUpstreamLineageNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNoContent %s", 204, payload)
 }
 
-func (o *GetRunUpstreamLineageNoContent) GetPayload() interface{} {
+func (o *GetRunUpstreamLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunUpstreamLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunUpstreamLineageForbidden describes a response with status code 403, with d
 You don't have permission to access the resource.
 */
 type GetRunUpstreamLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run upstream lineage forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunUpstreamLineageForbidden) Code() int {
 }
 
 func (o *GetRunUpstreamLineageForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageForbidden %s", 403, payload)
 }
 
 func (o *GetRunUpstreamLineageForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageForbidden %s", 403, payload)
 }
 
-func (o *GetRunUpstreamLineageForbidden) GetPayload() interface{} {
+func (o *GetRunUpstreamLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunUpstreamLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunUpstreamLineageNotFound describes a response with status code 404, with de
 Resource does not exist.
 */
 type GetRunUpstreamLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run upstream lineage not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunUpstreamLineageNotFound) Code() int {
 }
 
 func (o *GetRunUpstreamLineageNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNotFound %s", 404, payload)
 }
 
 func (o *GetRunUpstreamLineageNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] getRunUpstreamLineageNotFound %s", 404, payload)
 }
 
-func (o *GetRunUpstreamLineageNotFound) GetPayload() interface{} {
+func (o *GetRunUpstreamLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunUpstreamLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunUpstreamLineageDefault) Code() int {
 }
 
 func (o *GetRunUpstreamLineageDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] GetRunUpstreamLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] GetRunUpstreamLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunUpstreamLineageDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] GetRunUpstreamLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/upstream][%d] GetRunUpstreamLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunUpstreamLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunUpstreamLineageDefault) readResponse(response runtime.ClientRespo
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

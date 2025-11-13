@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListConnectionNamesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListConnectionNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListConnectionNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListConnectionNamesOK()
@@ -104,11 +106,13 @@ func (o *ListConnectionNamesOK) Code() int {
 }
 
 func (o *ListConnectionNamesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesOK %s", 200, payload)
 }
 
 func (o *ListConnectionNamesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesOK %s", 200, payload)
 }
 
 func (o *ListConnectionNamesOK) GetPayload() *service_model.V1ListConnectionsResponse {
@@ -120,7 +124,7 @@ func (o *ListConnectionNamesOK) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.V1ListConnectionsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListConnectionNamesNoContent describes a response with status code 204, with def
 No content.
 */
 type ListConnectionNamesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list connection names no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListConnectionNamesNoContent) Code() int {
 }
 
 func (o *ListConnectionNamesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNoContent %s", 204, payload)
 }
 
 func (o *ListConnectionNamesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNoContent %s", 204, payload)
 }
 
-func (o *ListConnectionNamesNoContent) GetPayload() interface{} {
+func (o *ListConnectionNamesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListConnectionNamesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListConnectionNamesForbidden describes a response with status code 403, with def
 You don't have permission to access the resource.
 */
 type ListConnectionNamesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list connection names forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListConnectionNamesForbidden) Code() int {
 }
 
 func (o *ListConnectionNamesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesForbidden %s", 403, payload)
 }
 
 func (o *ListConnectionNamesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesForbidden %s", 403, payload)
 }
 
-func (o *ListConnectionNamesForbidden) GetPayload() interface{} {
+func (o *ListConnectionNamesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListConnectionNamesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListConnectionNamesNotFound describes a response with status code 404, with defa
 Resource does not exist.
 */
 type ListConnectionNamesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list connection names not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListConnectionNamesNotFound) Code() int {
 }
 
 func (o *ListConnectionNamesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNotFound %s", 404, payload)
 }
 
 func (o *ListConnectionNamesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] listConnectionNamesNotFound %s", 404, payload)
 }
 
-func (o *ListConnectionNamesNotFound) GetPayload() interface{} {
+func (o *ListConnectionNamesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListConnectionNamesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListConnectionNamesDefault) Code() int {
 }
 
 func (o *ListConnectionNamesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] ListConnectionNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] ListConnectionNames default %s", o._statusCode, payload)
 }
 
 func (o *ListConnectionNamesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] ListConnectionNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/names][%d] ListConnectionNames default %s", o._statusCode, payload)
 }
 
 func (o *ListConnectionNamesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListConnectionNamesDefault) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

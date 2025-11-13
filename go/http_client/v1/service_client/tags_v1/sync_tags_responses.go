@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type SyncTagsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *SyncTagsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *SyncTagsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewSyncTagsOK()
@@ -103,11 +105,11 @@ func (o *SyncTagsOK) Code() int {
 }
 
 func (o *SyncTagsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK", 200)
 }
 
 func (o *SyncTagsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsOK", 200)
 }
 
 func (o *SyncTagsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ SyncTagsNoContent describes a response with status code 204, with default header
 No content.
 */
 type SyncTagsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync tags no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *SyncTagsNoContent) Code() int {
 }
 
 func (o *SyncTagsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent %s", 204, payload)
 }
 
 func (o *SyncTagsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNoContent %s", 204, payload)
 }
 
-func (o *SyncTagsNoContent) GetPayload() interface{} {
+func (o *SyncTagsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncTagsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ SyncTagsForbidden describes a response with status code 403, with default header
 You don't have permission to access the resource.
 */
 type SyncTagsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync tags forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *SyncTagsForbidden) Code() int {
 }
 
 func (o *SyncTagsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden %s", 403, payload)
 }
 
 func (o *SyncTagsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsForbidden %s", 403, payload)
 }
 
-func (o *SyncTagsForbidden) GetPayload() interface{} {
+func (o *SyncTagsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncTagsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ SyncTagsNotFound describes a response with status code 404, with default header 
 Resource does not exist.
 */
 type SyncTagsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this sync tags not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *SyncTagsNotFound) Code() int {
 }
 
 func (o *SyncTagsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound %s", 404, payload)
 }
 
 func (o *SyncTagsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] syncTagsNotFound %s", 404, payload)
 }
 
-func (o *SyncTagsNotFound) GetPayload() interface{} {
+func (o *SyncTagsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *SyncTagsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *SyncTagsDefault) Code() int {
 }
 
 func (o *SyncTagsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default %s", o._statusCode, payload)
 }
 
 func (o *SyncTagsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/tags/sync][%d] SyncTags default %s", o._statusCode, payload)
 }
 
 func (o *SyncTagsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *SyncTagsDefault) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

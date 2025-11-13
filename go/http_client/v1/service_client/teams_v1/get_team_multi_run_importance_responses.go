@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetTeamMultiRunImportanceReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetTeamMultiRunImportanceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetTeamMultiRunImportanceReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetTeamMultiRunImportanceOK()
@@ -104,11 +106,13 @@ func (o *GetTeamMultiRunImportanceOK) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceOK) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK %s", 200, payload)
 }
 
 func (o *GetTeamMultiRunImportanceOK) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceOK %s", 200, payload)
 }
 
 func (o *GetTeamMultiRunImportanceOK) GetPayload() *service_model.V1MultiEventsResponse {
@@ -120,7 +124,7 @@ func (o *GetTeamMultiRunImportanceOK) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.V1MultiEventsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetTeamMultiRunImportanceNoContent describes a response with status code 204, wi
 No content.
 */
 type GetTeamMultiRunImportanceNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get team multi run importance no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetTeamMultiRunImportanceNoContent) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent %s", 204, payload)
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNoContent %s", 204, payload)
 }
 
-func (o *GetTeamMultiRunImportanceNoContent) GetPayload() interface{} {
+func (o *GetTeamMultiRunImportanceNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetTeamMultiRunImportanceNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetTeamMultiRunImportanceForbidden describes a response with status code 403, wi
 You don't have permission to access the resource.
 */
 type GetTeamMultiRunImportanceForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get team multi run importance forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetTeamMultiRunImportanceForbidden) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden %s", 403, payload)
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceForbidden %s", 403, payload)
 }
 
-func (o *GetTeamMultiRunImportanceForbidden) GetPayload() interface{} {
+func (o *GetTeamMultiRunImportanceForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetTeamMultiRunImportanceForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetTeamMultiRunImportanceNotFound describes a response with status code 404, wit
 Resource does not exist.
 */
 type GetTeamMultiRunImportanceNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get team multi run importance not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetTeamMultiRunImportanceNotFound) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound %s", 404, payload)
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] getTeamMultiRunImportanceNotFound %s", 404, payload)
 }
 
-func (o *GetTeamMultiRunImportanceNotFound) GetPayload() interface{} {
+func (o *GetTeamMultiRunImportanceNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetTeamMultiRunImportanceNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetTeamMultiRunImportanceDefault) Code() int {
 }
 
 func (o *GetTeamMultiRunImportanceDefault) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default %s", o._statusCode, payload)
 }
 
 func (o *GetTeamMultiRunImportanceDefault) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/orgs/{owner}/teams/{entity}/runs/multi/importance][%d] GetTeamMultiRunImportance default %s", o._statusCode, payload)
 }
 
 func (o *GetTeamMultiRunImportanceDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetTeamMultiRunImportanceDefault) readResponse(response runtime.ClientR
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

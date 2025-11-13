@@ -6,6 +6,8 @@ package versions_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetCompatibilityReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetCompatibilityReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetCompatibilityReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetCompatibilityOK()
@@ -104,11 +106,13 @@ func (o *GetCompatibilityOK) Code() int {
 }
 
 func (o *GetCompatibilityOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK %s", 200, payload)
 }
 
 func (o *GetCompatibilityOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityOK %s", 200, payload)
 }
 
 func (o *GetCompatibilityOK) GetPayload() *service_model.V1Compatibility {
@@ -120,7 +124,7 @@ func (o *GetCompatibilityOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1Compatibility)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetCompatibilityNoContent describes a response with status code 204, with defaul
 No content.
 */
 type GetCompatibilityNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get compatibility no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetCompatibilityNoContent) Code() int {
 }
 
 func (o *GetCompatibilityNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent %s", 204, payload)
 }
 
 func (o *GetCompatibilityNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNoContent %s", 204, payload)
 }
 
-func (o *GetCompatibilityNoContent) GetPayload() interface{} {
+func (o *GetCompatibilityNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetCompatibilityNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetCompatibilityForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type GetCompatibilityForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get compatibility forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetCompatibilityForbidden) Code() int {
 }
 
 func (o *GetCompatibilityForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden %s", 403, payload)
 }
 
 func (o *GetCompatibilityForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityForbidden %s", 403, payload)
 }
 
-func (o *GetCompatibilityForbidden) GetPayload() interface{} {
+func (o *GetCompatibilityForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetCompatibilityForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetCompatibilityNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type GetCompatibilityNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get compatibility not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetCompatibilityNotFound) Code() int {
 }
 
 func (o *GetCompatibilityNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound %s", 404, payload)
 }
 
 func (o *GetCompatibilityNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] getCompatibilityNotFound %s", 404, payload)
 }
 
-func (o *GetCompatibilityNotFound) GetPayload() interface{} {
+func (o *GetCompatibilityNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetCompatibilityNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetCompatibilityDefault) Code() int {
 }
 
 func (o *GetCompatibilityDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default %s", o._statusCode, payload)
 }
 
 func (o *GetCompatibilityDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/compatibility/{uuid}/{version}/{service}][%d] GetCompatibility default %s", o._statusCode, payload)
 }
 
 func (o *GetCompatibilityDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetCompatibilityDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

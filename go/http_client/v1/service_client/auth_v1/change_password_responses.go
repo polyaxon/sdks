@@ -6,6 +6,8 @@ package auth_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ChangePasswordReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ChangePasswordReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ChangePasswordReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewChangePasswordOK()
@@ -103,11 +105,11 @@ func (o *ChangePasswordOK) Code() int {
 }
 
 func (o *ChangePasswordOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK", 200)
 }
 
 func (o *ChangePasswordOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordOK", 200)
 }
 
 func (o *ChangePasswordOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ChangePasswordNoContent describes a response with status code 204, with default 
 No content.
 */
 type ChangePasswordNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this change password no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ChangePasswordNoContent) Code() int {
 }
 
 func (o *ChangePasswordNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent %s", 204, payload)
 }
 
 func (o *ChangePasswordNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNoContent %s", 204, payload)
 }
 
-func (o *ChangePasswordNoContent) GetPayload() interface{} {
+func (o *ChangePasswordNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ChangePasswordNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ChangePasswordForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type ChangePasswordForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this change password forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ChangePasswordForbidden) Code() int {
 }
 
 func (o *ChangePasswordForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden %s", 403, payload)
 }
 
 func (o *ChangePasswordForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordForbidden %s", 403, payload)
 }
 
-func (o *ChangePasswordForbidden) GetPayload() interface{} {
+func (o *ChangePasswordForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ChangePasswordForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ChangePasswordNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type ChangePasswordNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this change password not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ChangePasswordNotFound) Code() int {
 }
 
 func (o *ChangePasswordNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound %s", 404, payload)
 }
 
 func (o *ChangePasswordNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] changePasswordNotFound %s", 404, payload)
 }
 
-func (o *ChangePasswordNotFound) GetPayload() interface{} {
+func (o *ChangePasswordNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ChangePasswordNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ChangePasswordDefault) Code() int {
 }
 
 func (o *ChangePasswordDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default %s", o._statusCode, payload)
 }
 
 func (o *ChangePasswordDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/auth/change-password][%d] ChangePassword default %s", o._statusCode, payload)
 }
 
 func (o *ChangePasswordDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ChangePasswordDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -25,7 +26,7 @@ type V1Hyperopt struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// A list of Early stopping objects, accepts both metric and failure early stopping mechanisms
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Kind of matrix, should be equal to "hyperopt"
 	Kind *string `json:"kind,omitempty"`
@@ -40,7 +41,7 @@ type V1Hyperopt struct {
 	NumRuns int32 `json:"numRuns,omitempty"`
 
 	// Hyperparams/Space definition of params to traverse
-	Params map[string]interface{} `json:"params,omitempty"`
+	Params map[string]any `json:"params,omitempty"`
 
 	// Seed for the random generator
 	Seed int32 `json:"seed,omitempty"`
@@ -78,11 +79,15 @@ func (m *V1Hyperopt) validateAlgorithm(formats strfmt.Registry) error {
 
 	if m.Algorithm != nil {
 		if err := m.Algorithm.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("algorithm")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("algorithm")
 			}
+
 			return err
 		}
 	}
@@ -97,11 +102,15 @@ func (m *V1Hyperopt) validateMetric(formats strfmt.Registry) error {
 
 	if m.Metric != nil {
 		if err := m.Metric.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -116,11 +125,15 @@ func (m *V1Hyperopt) validateTuner(formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
 		if err := m.Tuner.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}
@@ -159,11 +172,15 @@ func (m *V1Hyperopt) contextValidateAlgorithm(ctx context.Context, formats strfm
 		}
 
 		if err := m.Algorithm.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("algorithm")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("algorithm")
 			}
+
 			return err
 		}
 	}
@@ -180,11 +197,15 @@ func (m *V1Hyperopt) contextValidateMetric(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -201,11 +222,15 @@ func (m *V1Hyperopt) contextValidateTuner(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Tuner.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("tuner")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("tuner")
 			}
+
 			return err
 		}
 	}

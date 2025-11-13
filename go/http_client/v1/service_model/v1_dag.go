@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -29,7 +30,7 @@ type V1Dag struct {
 	Connections []string `json:"connections"`
 
 	// Optional component tags
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Optional environment section
 	Environment *V1Environment `json:"environment,omitempty"`
@@ -78,11 +79,15 @@ func (m *V1Dag) validateComponents(formats strfmt.Registry) error {
 
 		if m.Components[i] != nil {
 			if err := m.Components[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("components" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("components" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -99,11 +104,15 @@ func (m *V1Dag) validateEnvironment(formats strfmt.Registry) error {
 
 	if m.Environment != nil {
 		if err := m.Environment.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("environment")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("environment")
 			}
+
 			return err
 		}
 	}
@@ -123,11 +132,15 @@ func (m *V1Dag) validateOperations(formats strfmt.Registry) error {
 
 		if m.Operations[i] != nil {
 			if err := m.Operations[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("operations" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("operations" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -170,11 +183,15 @@ func (m *V1Dag) contextValidateComponents(ctx context.Context, formats strfmt.Re
 			}
 
 			if err := m.Components[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("components" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("components" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -193,11 +210,15 @@ func (m *V1Dag) contextValidateEnvironment(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("environment")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("environment")
 			}
+
 			return err
 		}
 	}
@@ -216,11 +237,15 @@ func (m *V1Dag) contextValidateOperations(ctx context.Context, formats strfmt.Re
 			}
 
 			if err := m.Operations[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("operations" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("operations" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

@@ -6,6 +6,8 @@ package presets_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreatePresetReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreatePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreatePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreatePresetOK()
@@ -104,11 +106,13 @@ func (o *CreatePresetOK) Code() int {
 }
 
 func (o *CreatePresetOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK %s", 200, payload)
 }
 
 func (o *CreatePresetOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetOK %s", 200, payload)
 }
 
 func (o *CreatePresetOK) GetPayload() *service_model.V1Preset {
@@ -120,7 +124,7 @@ func (o *CreatePresetOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1Preset)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreatePresetNoContent describes a response with status code 204, with default he
 No content.
 */
 type CreatePresetNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create preset no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreatePresetNoContent) Code() int {
 }
 
 func (o *CreatePresetNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent %s", 204, payload)
 }
 
 func (o *CreatePresetNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNoContent %s", 204, payload)
 }
 
-func (o *CreatePresetNoContent) GetPayload() interface{} {
+func (o *CreatePresetNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreatePresetNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreatePresetForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type CreatePresetForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create preset forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreatePresetForbidden) Code() int {
 }
 
 func (o *CreatePresetForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden %s", 403, payload)
 }
 
 func (o *CreatePresetForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetForbidden %s", 403, payload)
 }
 
-func (o *CreatePresetForbidden) GetPayload() interface{} {
+func (o *CreatePresetForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreatePresetForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreatePresetNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type CreatePresetNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create preset not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreatePresetNotFound) Code() int {
 }
 
 func (o *CreatePresetNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound %s", 404, payload)
 }
 
 func (o *CreatePresetNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] createPresetNotFound %s", 404, payload)
 }
 
-func (o *CreatePresetNotFound) GetPayload() interface{} {
+func (o *CreatePresetNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreatePresetNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreatePresetDefault) Code() int {
 }
 
 func (o *CreatePresetDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default %s", o._statusCode, payload)
 }
 
 func (o *CreatePresetDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/presets][%d] CreatePreset default %s", o._statusCode, payload)
 }
 
 func (o *CreatePresetDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreatePresetDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

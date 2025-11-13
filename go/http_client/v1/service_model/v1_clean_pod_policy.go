@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1CleanPodPolicyEnum []interface{}
+var v1CleanPodPolicyEnum []any
 
 func init() {
 	var res []V1CleanPodPolicy

@@ -24,7 +24,7 @@ type V1EventModel struct {
 	Path string `json:"path,omitempty"`
 
 	// Model spec (a dictionnary defnining the requirement for the model)
-	Spec interface{} `json:"spec,omitempty"`
+	Spec any `json:"spec,omitempty"`
 }
 
 // Validate validates this v1 event model

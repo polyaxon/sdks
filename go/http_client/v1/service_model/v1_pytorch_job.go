@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -77,11 +78,15 @@ func (m *V1PytorchJob) validateCleanPodPolicy(formats strfmt.Registry) error {
 
 	if m.CleanPodPolicy != nil {
 		if err := m.CleanPodPolicy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cleanPodPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cleanPodPolicy")
 			}
+
 			return err
 		}
 	}
@@ -96,11 +101,15 @@ func (m *V1PytorchJob) validateElasticPolicy(formats strfmt.Registry) error {
 
 	if m.ElasticPolicy != nil {
 		if err := m.ElasticPolicy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("elasticPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("elasticPolicy")
 			}
+
 			return err
 		}
 	}
@@ -115,11 +124,15 @@ func (m *V1PytorchJob) validateMaster(formats strfmt.Registry) error {
 
 	if m.Master != nil {
 		if err := m.Master.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("master")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("master")
 			}
+
 			return err
 		}
 	}
@@ -134,11 +147,15 @@ func (m *V1PytorchJob) validateSchedulingPolicy(formats strfmt.Registry) error {
 
 	if m.SchedulingPolicy != nil {
 		if err := m.SchedulingPolicy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedulingPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedulingPolicy")
 			}
+
 			return err
 		}
 	}
@@ -153,11 +170,15 @@ func (m *V1PytorchJob) validateWorker(formats strfmt.Registry) error {
 
 	if m.Worker != nil {
 		if err := m.Worker.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}
@@ -204,11 +225,15 @@ func (m *V1PytorchJob) contextValidateCleanPodPolicy(ctx context.Context, format
 		}
 
 		if err := m.CleanPodPolicy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cleanPodPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cleanPodPolicy")
 			}
+
 			return err
 		}
 	}
@@ -225,11 +250,15 @@ func (m *V1PytorchJob) contextValidateElasticPolicy(ctx context.Context, formats
 		}
 
 		if err := m.ElasticPolicy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("elasticPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("elasticPolicy")
 			}
+
 			return err
 		}
 	}
@@ -246,11 +275,15 @@ func (m *V1PytorchJob) contextValidateMaster(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Master.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("master")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("master")
 			}
+
 			return err
 		}
 	}
@@ -267,11 +300,15 @@ func (m *V1PytorchJob) contextValidateSchedulingPolicy(ctx context.Context, form
 		}
 
 		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedulingPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedulingPolicy")
 			}
+
 			return err
 		}
 	}
@@ -288,11 +325,15 @@ func (m *V1PytorchJob) contextValidateWorker(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}

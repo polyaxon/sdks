@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -64,11 +65,15 @@ func (m *V1Reference) validateDagRef(formats strfmt.Registry) error {
 
 	if m.DagRef != nil {
 		if err := m.DagRef.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("dagRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("dagRef")
 			}
+
 			return err
 		}
 	}
@@ -83,11 +88,15 @@ func (m *V1Reference) validateHubRef(formats strfmt.Registry) error {
 
 	if m.HubRef != nil {
 		if err := m.HubRef.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hubRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hubRef")
 			}
+
 			return err
 		}
 	}
@@ -102,11 +111,15 @@ func (m *V1Reference) validatePathRef(formats strfmt.Registry) error {
 
 	if m.PathRef != nil {
 		if err := m.PathRef.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pathRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pathRef")
 			}
+
 			return err
 		}
 	}
@@ -121,11 +134,15 @@ func (m *V1Reference) validateURLRef(formats strfmt.Registry) error {
 
 	if m.URLRef != nil {
 		if err := m.URLRef.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("urlRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("urlRef")
 			}
+
 			return err
 		}
 	}
@@ -168,11 +185,15 @@ func (m *V1Reference) contextValidateDagRef(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.DagRef.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("dagRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("dagRef")
 			}
+
 			return err
 		}
 	}
@@ -189,11 +210,15 @@ func (m *V1Reference) contextValidateHubRef(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.HubRef.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("hubRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("hubRef")
 			}
+
 			return err
 		}
 	}
@@ -210,11 +235,15 @@ func (m *V1Reference) contextValidatePathRef(ctx context.Context, formats strfmt
 		}
 
 		if err := m.PathRef.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pathRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pathRef")
 			}
+
 			return err
 		}
 	}
@@ -231,11 +260,15 @@ func (m *V1Reference) contextValidateURLRef(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.URLRef.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("urlRef")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("urlRef")
 			}
+
 			return err
 		}
 	}

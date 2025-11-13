@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1ProjectVersionKindEnum []interface{}
+var v1ProjectVersionKindEnum []any
 
 func init() {
 	var res []V1ProjectVersionKind

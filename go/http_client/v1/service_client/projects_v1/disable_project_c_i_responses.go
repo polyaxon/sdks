@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DisableProjectCIReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DisableProjectCIReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DisableProjectCIReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDisableProjectCIOK()
@@ -103,11 +105,11 @@ func (o *DisableProjectCIOK) Code() int {
 }
 
 func (o *DisableProjectCIOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK", 200)
 }
 
 func (o *DisableProjectCIOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIOK", 200)
 }
 
 func (o *DisableProjectCIOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DisableProjectCINoContent describes a response with status code 204, with defaul
 No content.
 */
 type DisableProjectCINoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this disable project c i no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DisableProjectCINoContent) Code() int {
 }
 
 func (o *DisableProjectCINoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent %s", 204, payload)
 }
 
 func (o *DisableProjectCINoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINoContent %s", 204, payload)
 }
 
-func (o *DisableProjectCINoContent) GetPayload() interface{} {
+func (o *DisableProjectCINoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DisableProjectCINoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DisableProjectCIForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type DisableProjectCIForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this disable project c i forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DisableProjectCIForbidden) Code() int {
 }
 
 func (o *DisableProjectCIForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden %s", 403, payload)
 }
 
 func (o *DisableProjectCIForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCIForbidden %s", 403, payload)
 }
 
-func (o *DisableProjectCIForbidden) GetPayload() interface{} {
+func (o *DisableProjectCIForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DisableProjectCIForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DisableProjectCINotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type DisableProjectCINotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this disable project c i not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DisableProjectCINotFound) Code() int {
 }
 
 func (o *DisableProjectCINotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound %s", 404, payload)
 }
 
 func (o *DisableProjectCINotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] disableProjectCINotFound %s", 404, payload)
 }
 
-func (o *DisableProjectCINotFound) GetPayload() interface{} {
+func (o *DisableProjectCINotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DisableProjectCINotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DisableProjectCIDefault) Code() int {
 }
 
 func (o *DisableProjectCIDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default %s", o._statusCode, payload)
 }
 
 func (o *DisableProjectCIDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{name}/ci][%d] DisableProjectCI default %s", o._statusCode, payload)
 }
 
 func (o *DisableProjectCIDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DisableProjectCIDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

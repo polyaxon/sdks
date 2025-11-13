@@ -92,7 +92,7 @@ const (
 )
 
 // for schema
-var v1StatusesEnum []interface{}
+var v1StatusesEnum []any
 
 func init() {
 	var res []V1Statuses

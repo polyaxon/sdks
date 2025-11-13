@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CronAgentReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CronAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CronAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCronAgentOK()
@@ -104,11 +106,13 @@ func (o *CronAgentOK) Code() int {
 }
 
 func (o *CronAgentOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK %s", 200, payload)
 }
 
 func (o *CronAgentOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentOK %s", 200, payload)
 }
 
 func (o *CronAgentOK) GetPayload() *service_model.V1AgentStateResponse {
@@ -120,7 +124,7 @@ func (o *CronAgentOK) readResponse(response runtime.ClientResponse, consumer run
 	o.Payload = new(service_model.V1AgentStateResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CronAgentNoContent describes a response with status code 204, with default heade
 No content.
 */
 type CronAgentNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this cron agent no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CronAgentNoContent) Code() int {
 }
 
 func (o *CronAgentNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNoContent %s", 204, payload)
 }
 
 func (o *CronAgentNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNoContent %s", 204, payload)
 }
 
-func (o *CronAgentNoContent) GetPayload() interface{} {
+func (o *CronAgentNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CronAgentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CronAgentForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type CronAgentForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this cron agent forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CronAgentForbidden) Code() int {
 }
 
 func (o *CronAgentForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentForbidden %s", 403, payload)
 }
 
 func (o *CronAgentForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentForbidden %s", 403, payload)
 }
 
-func (o *CronAgentForbidden) GetPayload() interface{} {
+func (o *CronAgentForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CronAgentForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CronAgentNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type CronAgentNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this cron agent not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CronAgentNotFound) Code() int {
 }
 
 func (o *CronAgentNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNotFound %s", 404, payload)
 }
 
 func (o *CronAgentNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] cronAgentNotFound %s", 404, payload)
 }
 
-func (o *CronAgentNotFound) GetPayload() interface{} {
+func (o *CronAgentNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CronAgentNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CronAgentDefault) Code() int {
 }
 
 func (o *CronAgentDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] CronAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] CronAgent default %s", o._statusCode, payload)
 }
 
 func (o *CronAgentDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] CronAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/cron][%d] CronAgent default %s", o._statusCode, payload)
 }
 
 func (o *CronAgentDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CronAgentDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

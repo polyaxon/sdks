@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListBookmarkedProjectsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListBookmarkedProjectsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListBookmarkedProjectsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListBookmarkedProjectsOK()
@@ -104,11 +106,13 @@ func (o *ListBookmarkedProjectsOK) Code() int {
 }
 
 func (o *ListBookmarkedProjectsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK %s", 200, payload)
 }
 
 func (o *ListBookmarkedProjectsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsOK %s", 200, payload)
 }
 
 func (o *ListBookmarkedProjectsOK) GetPayload() *service_model.V1ListBookmarksResponse {
@@ -120,7 +124,7 @@ func (o *ListBookmarkedProjectsOK) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.V1ListBookmarksResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListBookmarkedProjectsNoContent describes a response with status code 204, with 
 No content.
 */
 type ListBookmarkedProjectsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked projects no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListBookmarkedProjectsNoContent) Code() int {
 }
 
 func (o *ListBookmarkedProjectsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent %s", 204, payload)
 }
 
 func (o *ListBookmarkedProjectsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNoContent %s", 204, payload)
 }
 
-func (o *ListBookmarkedProjectsNoContent) GetPayload() interface{} {
+func (o *ListBookmarkedProjectsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedProjectsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListBookmarkedProjectsForbidden describes a response with status code 403, with 
 You don't have permission to access the resource.
 */
 type ListBookmarkedProjectsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked projects forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListBookmarkedProjectsForbidden) Code() int {
 }
 
 func (o *ListBookmarkedProjectsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListBookmarkedProjectsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsForbidden %s", 403, payload)
 }
 
-func (o *ListBookmarkedProjectsForbidden) GetPayload() interface{} {
+func (o *ListBookmarkedProjectsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedProjectsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListBookmarkedProjectsNotFound describes a response with status code 404, with d
 Resource does not exist.
 */
 type ListBookmarkedProjectsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked projects not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListBookmarkedProjectsNotFound) Code() int {
 }
 
 func (o *ListBookmarkedProjectsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListBookmarkedProjectsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] listBookmarkedProjectsNotFound %s", 404, payload)
 }
 
-func (o *ListBookmarkedProjectsNotFound) GetPayload() interface{} {
+func (o *ListBookmarkedProjectsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedProjectsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListBookmarkedProjectsDefault) Code() int {
 }
 
 func (o *ListBookmarkedProjectsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListBookmarkedProjectsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/projects][%d] ListBookmarkedProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListBookmarkedProjectsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListBookmarkedProjectsDefault) readResponse(response runtime.ClientResp
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

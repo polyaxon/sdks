@@ -6,6 +6,8 @@ package artifacts_stores_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -19,7 +21,7 @@ type UploadArtifactReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UploadArtifactReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UploadArtifactReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUploadArtifactOK()
@@ -94,11 +96,11 @@ func (o *UploadArtifactOK) Code() int {
 }
 
 func (o *UploadArtifactOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactOK", 200)
 }
 
 func (o *UploadArtifactOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactOK", 200)
 }
 
 func (o *UploadArtifactOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -117,7 +119,7 @@ UploadArtifactNoContent describes a response with status code 204, with default 
 No content.
 */
 type UploadArtifactNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload artifact no content response has a 2xx status code
@@ -151,21 +153,23 @@ func (o *UploadArtifactNoContent) Code() int {
 }
 
 func (o *UploadArtifactNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNoContent %s", 204, payload)
 }
 
 func (o *UploadArtifactNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNoContent %s", 204, payload)
 }
 
-func (o *UploadArtifactNoContent) GetPayload() interface{} {
+func (o *UploadArtifactNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadArtifactNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -183,7 +187,7 @@ UploadArtifactForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type UploadArtifactForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload artifact forbidden response has a 2xx status code
@@ -217,21 +221,23 @@ func (o *UploadArtifactForbidden) Code() int {
 }
 
 func (o *UploadArtifactForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactForbidden %s", 403, payload)
 }
 
 func (o *UploadArtifactForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactForbidden %s", 403, payload)
 }
 
-func (o *UploadArtifactForbidden) GetPayload() interface{} {
+func (o *UploadArtifactForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadArtifactForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -249,7 +255,7 @@ UploadArtifactNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type UploadArtifactNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload artifact not found response has a 2xx status code
@@ -283,21 +289,23 @@ func (o *UploadArtifactNotFound) Code() int {
 }
 
 func (o *UploadArtifactNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNotFound %s", 404, payload)
 }
 
 func (o *UploadArtifactNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/catalogs/{owner}/artifacts/{uuid}/upload][%d] uploadArtifactNotFound %s", 404, payload)
 }
 
-func (o *UploadArtifactNotFound) GetPayload() interface{} {
+func (o *UploadArtifactNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadArtifactNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

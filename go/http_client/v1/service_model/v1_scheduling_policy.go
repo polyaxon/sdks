@@ -21,7 +21,7 @@ type V1SchedulingPolicy struct {
 	MinAvailable int32 `json:"minAvailable,omitempty"`
 
 	// min resources
-	MinResources interface{} `json:"minResources,omitempty"`
+	MinResources any `json:"minResources,omitempty"`
 
 	// priority class
 	PriorityClass string `json:"priorityClass,omitempty"`

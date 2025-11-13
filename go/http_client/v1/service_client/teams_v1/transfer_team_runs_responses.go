@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type TransferTeamRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *TransferTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *TransferTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewTransferTeamRunsOK()
@@ -103,11 +105,11 @@ func (o *TransferTeamRunsOK) Code() int {
 }
 
 func (o *TransferTeamRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsOK", 200)
 }
 
 func (o *TransferTeamRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsOK", 200)
 }
 
 func (o *TransferTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ TransferTeamRunsNoContent describes a response with status code 204, with defaul
 No content.
 */
 type TransferTeamRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer team runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *TransferTeamRunsNoContent) Code() int {
 }
 
 func (o *TransferTeamRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *TransferTeamRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNoContent %s", 204, payload)
 }
 
-func (o *TransferTeamRunsNoContent) GetPayload() interface{} {
+func (o *TransferTeamRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferTeamRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ TransferTeamRunsForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type TransferTeamRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer team runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *TransferTeamRunsForbidden) Code() int {
 }
 
 func (o *TransferTeamRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *TransferTeamRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsForbidden %s", 403, payload)
 }
 
-func (o *TransferTeamRunsForbidden) GetPayload() interface{} {
+func (o *TransferTeamRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferTeamRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ TransferTeamRunsNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type TransferTeamRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this transfer team runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *TransferTeamRunsNotFound) Code() int {
 }
 
 func (o *TransferTeamRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *TransferTeamRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] transferTeamRunsNotFound %s", 404, payload)
 }
 
-func (o *TransferTeamRunsNotFound) GetPayload() interface{} {
+func (o *TransferTeamRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *TransferTeamRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *TransferTeamRunsDefault) Code() int {
 }
 
 func (o *TransferTeamRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] TransferTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] TransferTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *TransferTeamRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] TransferTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/transfer][%d] TransferTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *TransferTeamRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *TransferTeamRunsDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

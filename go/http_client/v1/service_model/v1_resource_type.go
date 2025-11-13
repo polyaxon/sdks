@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1ResourceTypeEnum []interface{}
+var v1ResourceTypeEnum []any
 
 func init() {
 	var res []V1ResourceType

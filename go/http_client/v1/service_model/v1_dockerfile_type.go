@@ -18,7 +18,7 @@ import (
 type V1DockerfileType struct {
 
 	// An optional list of strings or tuples for copying paths, translate to a COPY statements, if string is passed the path is copy to the workdir
-	Copy []interface{} `json:"copy"`
+	Copy []any `json:"copy"`
 
 	// An optional list of tuples(key, value) for defining env vars, translate to an ENV statements
 	Env map[string]string `json:"env,omitempty"`
@@ -39,7 +39,7 @@ type V1DockerfileType struct {
 	Path []string `json:"path"`
 
 	// An optional list of strings or tuples for copying paths post run commands to leverage the cache, translate to a COPY statements, if string is passed the path is copy to the workdir
-	PostRunCopy []interface{} `json:"post_run_copy"`
+	PostRunCopy []any `json:"post_run_copy"`
 
 	// An optional list of strings for executing Run commands, translate to a RUN statements
 	Run []string `json:"run"`

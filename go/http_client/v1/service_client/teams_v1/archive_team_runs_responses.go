@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ArchiveTeamRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ArchiveTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ArchiveTeamRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewArchiveTeamRunsOK()
@@ -103,11 +105,11 @@ func (o *ArchiveTeamRunsOK) Code() int {
 }
 
 func (o *ArchiveTeamRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsOK", 200)
 }
 
 func (o *ArchiveTeamRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsOK", 200)
 }
 
 func (o *ArchiveTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ArchiveTeamRunsNoContent describes a response with status code 204, with default
 No content.
 */
 type ArchiveTeamRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive team runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ArchiveTeamRunsNoContent) Code() int {
 }
 
 func (o *ArchiveTeamRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *ArchiveTeamRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNoContent %s", 204, payload)
 }
 
-func (o *ArchiveTeamRunsNoContent) GetPayload() interface{} {
+func (o *ArchiveTeamRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveTeamRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ArchiveTeamRunsForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type ArchiveTeamRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive team runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ArchiveTeamRunsForbidden) Code() int {
 }
 
 func (o *ArchiveTeamRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *ArchiveTeamRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsForbidden %s", 403, payload)
 }
 
-func (o *ArchiveTeamRunsForbidden) GetPayload() interface{} {
+func (o *ArchiveTeamRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveTeamRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ArchiveTeamRunsNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type ArchiveTeamRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive team runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ArchiveTeamRunsNotFound) Code() int {
 }
 
 func (o *ArchiveTeamRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *ArchiveTeamRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] archiveTeamRunsNotFound %s", 404, payload)
 }
 
-func (o *ArchiveTeamRunsNotFound) GetPayload() interface{} {
+func (o *ArchiveTeamRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveTeamRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ArchiveTeamRunsDefault) Code() int {
 }
 
 func (o *ArchiveTeamRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] ArchiveTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] ArchiveTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveTeamRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] ArchiveTeamRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/archive][%d] ArchiveTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveTeamRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ArchiveTeamRunsDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

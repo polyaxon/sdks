@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateOrganizationReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateOrganizationOK()
@@ -104,11 +106,13 @@ func (o *UpdateOrganizationOK) Code() int {
 }
 
 func (o *UpdateOrganizationOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK %s", 200, payload)
 }
 
 func (o *UpdateOrganizationOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationOK %s", 200, payload)
 }
 
 func (o *UpdateOrganizationOK) GetPayload() *service_model.V1Organization {
@@ -120,7 +124,7 @@ func (o *UpdateOrganizationOK) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.V1Organization)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateOrganizationNoContent describes a response with status code 204, with defa
 No content.
 */
 type UpdateOrganizationNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update organization no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateOrganizationNoContent) Code() int {
 }
 
 func (o *UpdateOrganizationNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent %s", 204, payload)
 }
 
 func (o *UpdateOrganizationNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNoContent %s", 204, payload)
 }
 
-func (o *UpdateOrganizationNoContent) GetPayload() interface{} {
+func (o *UpdateOrganizationNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateOrganizationNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateOrganizationForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type UpdateOrganizationForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update organization forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateOrganizationForbidden) Code() int {
 }
 
 func (o *UpdateOrganizationForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden %s", 403, payload)
 }
 
 func (o *UpdateOrganizationForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationForbidden %s", 403, payload)
 }
 
-func (o *UpdateOrganizationForbidden) GetPayload() interface{} {
+func (o *UpdateOrganizationForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateOrganizationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateOrganizationNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type UpdateOrganizationNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update organization not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateOrganizationNotFound) Code() int {
 }
 
 func (o *UpdateOrganizationNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound %s", 404, payload)
 }
 
 func (o *UpdateOrganizationNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] updateOrganizationNotFound %s", 404, payload)
 }
 
-func (o *UpdateOrganizationNotFound) GetPayload() interface{} {
+func (o *UpdateOrganizationNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateOrganizationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateOrganizationDefault) Code() int {
 }
 
 func (o *UpdateOrganizationDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default %s", o._statusCode, payload)
 }
 
 func (o *UpdateOrganizationDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}][%d] UpdateOrganization default %s", o._statusCode, payload)
 }
 
 func (o *UpdateOrganizationDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateOrganizationDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

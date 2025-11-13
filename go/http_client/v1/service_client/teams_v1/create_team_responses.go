@@ -6,6 +6,8 @@ package teams_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateTeamReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateTeamReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateTeamReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateTeamOK()
@@ -104,11 +106,13 @@ func (o *CreateTeamOK) Code() int {
 }
 
 func (o *CreateTeamOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK %s", 200, payload)
 }
 
 func (o *CreateTeamOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamOK %s", 200, payload)
 }
 
 func (o *CreateTeamOK) GetPayload() *service_model.V1Team {
@@ -120,7 +124,7 @@ func (o *CreateTeamOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1Team)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateTeamNoContent describes a response with status code 204, with default head
 No content.
 */
 type CreateTeamNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create team no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateTeamNoContent) Code() int {
 }
 
 func (o *CreateTeamNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent %s", 204, payload)
 }
 
 func (o *CreateTeamNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNoContent %s", 204, payload)
 }
 
-func (o *CreateTeamNoContent) GetPayload() interface{} {
+func (o *CreateTeamNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTeamNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateTeamForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type CreateTeamForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create team forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateTeamForbidden) Code() int {
 }
 
 func (o *CreateTeamForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden %s", 403, payload)
 }
 
 func (o *CreateTeamForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamForbidden %s", 403, payload)
 }
 
-func (o *CreateTeamForbidden) GetPayload() interface{} {
+func (o *CreateTeamForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTeamForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateTeamNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type CreateTeamNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create team not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateTeamNotFound) Code() int {
 }
 
 func (o *CreateTeamNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound %s", 404, payload)
 }
 
 func (o *CreateTeamNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] createTeamNotFound %s", 404, payload)
 }
 
-func (o *CreateTeamNotFound) GetPayload() interface{} {
+func (o *CreateTeamNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateTeamNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateTeamDefault) Code() int {
 }
 
 func (o *CreateTeamDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default %s", o._statusCode, payload)
 }
 
 func (o *CreateTeamDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams][%d] CreateTeam default %s", o._statusCode, payload)
 }
 
 func (o *CreateTeamDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateTeamDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

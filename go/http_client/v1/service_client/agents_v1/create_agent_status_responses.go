@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateAgentStatusReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateAgentStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateAgentStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateAgentStatusOK()
@@ -104,11 +106,13 @@ func (o *CreateAgentStatusOK) Code() int {
 }
 
 func (o *CreateAgentStatusOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK %s", 200, payload)
 }
 
 func (o *CreateAgentStatusOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusOK %s", 200, payload)
 }
 
 func (o *CreateAgentStatusOK) GetPayload() *service_model.V1Status {
@@ -120,7 +124,7 @@ func (o *CreateAgentStatusOK) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.V1Status)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateAgentStatusNoContent describes a response with status code 204, with defau
 No content.
 */
 type CreateAgentStatusNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create agent status no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateAgentStatusNoContent) Code() int {
 }
 
 func (o *CreateAgentStatusNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent %s", 204, payload)
 }
 
 func (o *CreateAgentStatusNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNoContent %s", 204, payload)
 }
 
-func (o *CreateAgentStatusNoContent) GetPayload() interface{} {
+func (o *CreateAgentStatusNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateAgentStatusNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateAgentStatusForbidden describes a response with status code 403, with defau
 You don't have permission to access the resource.
 */
 type CreateAgentStatusForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create agent status forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateAgentStatusForbidden) Code() int {
 }
 
 func (o *CreateAgentStatusForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden %s", 403, payload)
 }
 
 func (o *CreateAgentStatusForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusForbidden %s", 403, payload)
 }
 
-func (o *CreateAgentStatusForbidden) GetPayload() interface{} {
+func (o *CreateAgentStatusForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateAgentStatusForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateAgentStatusNotFound describes a response with status code 404, with defaul
 Resource does not exist.
 */
 type CreateAgentStatusNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create agent status not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateAgentStatusNotFound) Code() int {
 }
 
 func (o *CreateAgentStatusNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound %s", 404, payload)
 }
 
 func (o *CreateAgentStatusNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] createAgentStatusNotFound %s", 404, payload)
 }
 
-func (o *CreateAgentStatusNotFound) GetPayload() interface{} {
+func (o *CreateAgentStatusNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateAgentStatusNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateAgentStatusDefault) Code() int {
 }
 
 func (o *CreateAgentStatusDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default %s", o._statusCode, payload)
 }
 
 func (o *CreateAgentStatusDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/agents/{uuid}/statuses][%d] CreateAgentStatus default %s", o._statusCode, payload)
 }
 
 func (o *CreateAgentStatusDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateAgentStatusDefault) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package project_searches_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PromoteProjectSearchReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PromoteProjectSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PromoteProjectSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPromoteProjectSearchOK()
@@ -103,11 +105,11 @@ func (o *PromoteProjectSearchOK) Code() int {
 }
 
 func (o *PromoteProjectSearchOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK", 200)
 }
 
 func (o *PromoteProjectSearchOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchOK", 200)
 }
 
 func (o *PromoteProjectSearchOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ PromoteProjectSearchNoContent describes a response with status code 204, with de
 No content.
 */
 type PromoteProjectSearchNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project search no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *PromoteProjectSearchNoContent) Code() int {
 }
 
 func (o *PromoteProjectSearchNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent %s", 204, payload)
 }
 
 func (o *PromoteProjectSearchNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNoContent %s", 204, payload)
 }
 
-func (o *PromoteProjectSearchNoContent) GetPayload() interface{} {
+func (o *PromoteProjectSearchNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectSearchNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ PromoteProjectSearchForbidden describes a response with status code 403, with de
 You don't have permission to access the resource.
 */
 type PromoteProjectSearchForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project search forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *PromoteProjectSearchForbidden) Code() int {
 }
 
 func (o *PromoteProjectSearchForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden %s", 403, payload)
 }
 
 func (o *PromoteProjectSearchForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchForbidden %s", 403, payload)
 }
 
-func (o *PromoteProjectSearchForbidden) GetPayload() interface{} {
+func (o *PromoteProjectSearchForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectSearchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ PromoteProjectSearchNotFound describes a response with status code 404, with def
 Resource does not exist.
 */
 type PromoteProjectSearchNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project search not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *PromoteProjectSearchNotFound) Code() int {
 }
 
 func (o *PromoteProjectSearchNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound %s", 404, payload)
 }
 
 func (o *PromoteProjectSearchNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] promoteProjectSearchNotFound %s", 404, payload)
 }
 
-func (o *PromoteProjectSearchNotFound) GetPayload() interface{} {
+func (o *PromoteProjectSearchNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectSearchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *PromoteProjectSearchDefault) Code() int {
 }
 
 func (o *PromoteProjectSearchDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default %s", o._statusCode, payload)
 }
 
 func (o *PromoteProjectSearchDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/searches/{uuid}/promote][%d] PromoteProjectSearch default %s", o._statusCode, payload)
 }
 
 func (o *PromoteProjectSearchDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *PromoteProjectSearchDefault) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

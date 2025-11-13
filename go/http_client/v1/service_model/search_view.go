@@ -65,7 +65,7 @@ const (
 )
 
 // for schema
-var searchViewEnum []interface{}
+var searchViewEnum []any
 
 func init() {
 	var res []SearchView

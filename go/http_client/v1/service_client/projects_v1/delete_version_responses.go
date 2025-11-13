@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteVersionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteVersionOK()
@@ -103,11 +105,11 @@ func (o *DeleteVersionOK) Code() int {
 }
 
 func (o *DeleteVersionOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK", 200)
 }
 
 func (o *DeleteVersionOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionOK", 200)
 }
 
 func (o *DeleteVersionOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteVersionNoContent describes a response with status code 204, with default h
 No content.
 */
 type DeleteVersionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete version no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteVersionNoContent) Code() int {
 }
 
 func (o *DeleteVersionNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent %s", 204, payload)
 }
 
 func (o *DeleteVersionNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNoContent %s", 204, payload)
 }
 
-func (o *DeleteVersionNoContent) GetPayload() interface{} {
+func (o *DeleteVersionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteVersionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteVersionForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type DeleteVersionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete version forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteVersionForbidden) Code() int {
 }
 
 func (o *DeleteVersionForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden %s", 403, payload)
 }
 
 func (o *DeleteVersionForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionForbidden %s", 403, payload)
 }
 
-func (o *DeleteVersionForbidden) GetPayload() interface{} {
+func (o *DeleteVersionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteVersionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteVersionNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type DeleteVersionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete version not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteVersionNotFound) Code() int {
 }
 
 func (o *DeleteVersionNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound %s", 404, payload)
 }
 
 func (o *DeleteVersionNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] deleteVersionNotFound %s", 404, payload)
 }
 
-func (o *DeleteVersionNotFound) GetPayload() interface{} {
+func (o *DeleteVersionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteVersionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteVersionDefault) Code() int {
 }
 
 func (o *DeleteVersionDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default %s", o._statusCode, payload)
 }
 
 func (o *DeleteVersionDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/versions/{kind}/{name}][%d] DeleteVersion default %s", o._statusCode, payload)
 }
 
 func (o *DeleteVersionDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteVersionDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

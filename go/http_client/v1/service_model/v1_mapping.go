@@ -21,13 +21,13 @@ type V1Mapping struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// A list of Early stopping objects, accpets both metric and failure early stopping mechanisms
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Kind of matrix, should be equal to "mapping"
 	Kind *string `json:"kind,omitempty"`
 
 	// The mapping values
-	Values []interface{} `json:"values"`
+	Values []any `json:"values"`
 }
 
 // Validate validates this v1 mapping

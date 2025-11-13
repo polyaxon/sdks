@@ -6,6 +6,8 @@ package queues_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetQueueReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetQueueOK()
@@ -104,11 +106,13 @@ func (o *GetQueueOK) Code() int {
 }
 
 func (o *GetQueueOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK %s", 200, payload)
 }
 
 func (o *GetQueueOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueOK %s", 200, payload)
 }
 
 func (o *GetQueueOK) GetPayload() *service_model.V1Queue {
@@ -120,7 +124,7 @@ func (o *GetQueueOK) readResponse(response runtime.ClientResponse, consumer runt
 	o.Payload = new(service_model.V1Queue)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetQueueNoContent describes a response with status code 204, with default header
 No content.
 */
 type GetQueueNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get queue no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetQueueNoContent) Code() int {
 }
 
 func (o *GetQueueNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent %s", 204, payload)
 }
 
 func (o *GetQueueNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNoContent %s", 204, payload)
 }
 
-func (o *GetQueueNoContent) GetPayload() interface{} {
+func (o *GetQueueNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetQueueNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetQueueForbidden describes a response with status code 403, with default header
 You don't have permission to access the resource.
 */
 type GetQueueForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get queue forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetQueueForbidden) Code() int {
 }
 
 func (o *GetQueueForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden %s", 403, payload)
 }
 
 func (o *GetQueueForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueForbidden %s", 403, payload)
 }
 
-func (o *GetQueueForbidden) GetPayload() interface{} {
+func (o *GetQueueForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetQueueForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetQueueNotFound describes a response with status code 404, with default header 
 Resource does not exist.
 */
 type GetQueueNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get queue not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetQueueNotFound) Code() int {
 }
 
 func (o *GetQueueNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound %s", 404, payload)
 }
 
 func (o *GetQueueNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] getQueueNotFound %s", 404, payload)
 }
 
-func (o *GetQueueNotFound) GetPayload() interface{} {
+func (o *GetQueueNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetQueueNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetQueueDefault) Code() int {
 }
 
 func (o *GetQueueDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default %s", o._statusCode, payload)
 }
 
 func (o *GetQueueDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] GetQueue default %s", o._statusCode, payload)
 }
 
 func (o *GetQueueDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetQueueDefault) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetSuggestionsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetSuggestionsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetSuggestionsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetSuggestionsOK()
@@ -70,7 +72,7 @@ GetSuggestionsOK describes a response with status code 200, with default header 
 A successful response.
 */
 type GetSuggestionsOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get suggestions o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *GetSuggestionsOK) Code() int {
 }
 
 func (o *GetSuggestionsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK %s", 200, payload)
 }
 
 func (o *GetSuggestionsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsOK %s", 200, payload)
 }
 
-func (o *GetSuggestionsOK) GetPayload() interface{} {
+func (o *GetSuggestionsOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetSuggestionsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ GetSuggestionsNoContent describes a response with status code 204, with default 
 No content.
 */
 type GetSuggestionsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get suggestions no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *GetSuggestionsNoContent) Code() int {
 }
 
 func (o *GetSuggestionsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent %s", 204, payload)
 }
 
 func (o *GetSuggestionsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNoContent %s", 204, payload)
 }
 
-func (o *GetSuggestionsNoContent) GetPayload() interface{} {
+func (o *GetSuggestionsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetSuggestionsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ GetSuggestionsForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type GetSuggestionsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get suggestions forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *GetSuggestionsForbidden) Code() int {
 }
 
 func (o *GetSuggestionsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden %s", 403, payload)
 }
 
 func (o *GetSuggestionsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsForbidden %s", 403, payload)
 }
 
-func (o *GetSuggestionsForbidden) GetPayload() interface{} {
+func (o *GetSuggestionsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetSuggestionsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ GetSuggestionsNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type GetSuggestionsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get suggestions not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *GetSuggestionsNotFound) Code() int {
 }
 
 func (o *GetSuggestionsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound %s", 404, payload)
 }
 
 func (o *GetSuggestionsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] getSuggestionsNotFound %s", 404, payload)
 }
 
-func (o *GetSuggestionsNotFound) GetPayload() interface{} {
+func (o *GetSuggestionsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetSuggestionsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *GetSuggestionsDefault) Code() int {
 }
 
 func (o *GetSuggestionsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default %s", o._statusCode, payload)
 }
 
 func (o *GetSuggestionsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/users/suggestions][%d] GetSuggestions default %s", o._statusCode, payload)
 }
 
 func (o *GetSuggestionsDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *GetSuggestionsDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

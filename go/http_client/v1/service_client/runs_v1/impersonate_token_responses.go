@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ImpersonateTokenReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ImpersonateTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ImpersonateTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewImpersonateTokenOK()
@@ -104,11 +106,13 @@ func (o *ImpersonateTokenOK) Code() int {
 }
 
 func (o *ImpersonateTokenOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK %s", 200, payload)
 }
 
 func (o *ImpersonateTokenOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenOK %s", 200, payload)
 }
 
 func (o *ImpersonateTokenOK) GetPayload() *service_model.V1Auth {
@@ -120,7 +124,7 @@ func (o *ImpersonateTokenOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1Auth)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ImpersonateTokenNoContent describes a response with status code 204, with defaul
 No content.
 */
 type ImpersonateTokenNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this impersonate token no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ImpersonateTokenNoContent) Code() int {
 }
 
 func (o *ImpersonateTokenNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent %s", 204, payload)
 }
 
 func (o *ImpersonateTokenNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNoContent %s", 204, payload)
 }
 
-func (o *ImpersonateTokenNoContent) GetPayload() interface{} {
+func (o *ImpersonateTokenNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ImpersonateTokenNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ImpersonateTokenForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type ImpersonateTokenForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this impersonate token forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ImpersonateTokenForbidden) Code() int {
 }
 
 func (o *ImpersonateTokenForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden %s", 403, payload)
 }
 
 func (o *ImpersonateTokenForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenForbidden %s", 403, payload)
 }
 
-func (o *ImpersonateTokenForbidden) GetPayload() interface{} {
+func (o *ImpersonateTokenForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ImpersonateTokenForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ImpersonateTokenNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type ImpersonateTokenNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this impersonate token not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ImpersonateTokenNotFound) Code() int {
 }
 
 func (o *ImpersonateTokenNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound %s", 404, payload)
 }
 
 func (o *ImpersonateTokenNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] impersonateTokenNotFound %s", 404, payload)
 }
 
-func (o *ImpersonateTokenNotFound) GetPayload() interface{} {
+func (o *ImpersonateTokenNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ImpersonateTokenNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ImpersonateTokenDefault) Code() int {
 }
 
 func (o *ImpersonateTokenDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default %s", o._statusCode, payload)
 }
 
 func (o *ImpersonateTokenDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/runs/{uuid}/impersonate][%d] ImpersonateToken default %s", o._statusCode, payload)
 }
 
 func (o *ImpersonateTokenDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ImpersonateTokenDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

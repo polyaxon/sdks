@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -19,7 +21,7 @@ type UploadProjectArtifactReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UploadProjectArtifactReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UploadProjectArtifactReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUploadProjectArtifactOK()
@@ -94,11 +96,11 @@ func (o *UploadProjectArtifactOK) Code() int {
 }
 
 func (o *UploadProjectArtifactOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK", 200)
 }
 
 func (o *UploadProjectArtifactOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactOK", 200)
 }
 
 func (o *UploadProjectArtifactOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -117,7 +119,7 @@ UploadProjectArtifactNoContent describes a response with status code 204, with d
 No content.
 */
 type UploadProjectArtifactNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload project artifact no content response has a 2xx status code
@@ -151,21 +153,23 @@ func (o *UploadProjectArtifactNoContent) Code() int {
 }
 
 func (o *UploadProjectArtifactNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent %s", 204, payload)
 }
 
 func (o *UploadProjectArtifactNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNoContent %s", 204, payload)
 }
 
-func (o *UploadProjectArtifactNoContent) GetPayload() interface{} {
+func (o *UploadProjectArtifactNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadProjectArtifactNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -183,7 +187,7 @@ UploadProjectArtifactForbidden describes a response with status code 403, with d
 You don't have permission to access the resource.
 */
 type UploadProjectArtifactForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload project artifact forbidden response has a 2xx status code
@@ -217,21 +221,23 @@ func (o *UploadProjectArtifactForbidden) Code() int {
 }
 
 func (o *UploadProjectArtifactForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden %s", 403, payload)
 }
 
 func (o *UploadProjectArtifactForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactForbidden %s", 403, payload)
 }
 
-func (o *UploadProjectArtifactForbidden) GetPayload() interface{} {
+func (o *UploadProjectArtifactForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadProjectArtifactForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -249,7 +255,7 @@ UploadProjectArtifactNotFound describes a response with status code 404, with de
 Resource does not exist.
 */
 type UploadProjectArtifactNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this upload project artifact not found response has a 2xx status code
@@ -283,21 +289,23 @@ func (o *UploadProjectArtifactNotFound) Code() int {
 }
 
 func (o *UploadProjectArtifactNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound %s", 404, payload)
 }
 
 func (o *UploadProjectArtifactNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/artifacts/{uuid}/upload][%d] uploadProjectArtifactNotFound %s", 404, payload)
 }
 
-func (o *UploadProjectArtifactNotFound) GetPayload() interface{} {
+func (o *UploadProjectArtifactNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UploadProjectArtifactNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

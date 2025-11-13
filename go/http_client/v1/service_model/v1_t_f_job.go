@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -87,11 +88,15 @@ func (m *V1TFJob) validateChief(formats strfmt.Registry) error {
 
 	if m.Chief != nil {
 		if err := m.Chief.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("chief")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("chief")
 			}
+
 			return err
 		}
 	}
@@ -106,11 +111,15 @@ func (m *V1TFJob) validateCleanPodPolicy(formats strfmt.Registry) error {
 
 	if m.CleanPodPolicy != nil {
 		if err := m.CleanPodPolicy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cleanPodPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cleanPodPolicy")
 			}
+
 			return err
 		}
 	}
@@ -125,11 +134,15 @@ func (m *V1TFJob) validateEvaluator(formats strfmt.Registry) error {
 
 	if m.Evaluator != nil {
 		if err := m.Evaluator.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("evaluator")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("evaluator")
 			}
+
 			return err
 		}
 	}
@@ -144,11 +157,15 @@ func (m *V1TFJob) validatePs(formats strfmt.Registry) error {
 
 	if m.Ps != nil {
 		if err := m.Ps.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("ps")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("ps")
 			}
+
 			return err
 		}
 	}
@@ -163,11 +180,15 @@ func (m *V1TFJob) validateSchedulingPolicy(formats strfmt.Registry) error {
 
 	if m.SchedulingPolicy != nil {
 		if err := m.SchedulingPolicy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedulingPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedulingPolicy")
 			}
+
 			return err
 		}
 	}
@@ -182,11 +203,15 @@ func (m *V1TFJob) validateWorker(formats strfmt.Registry) error {
 
 	if m.Worker != nil {
 		if err := m.Worker.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}
@@ -237,11 +262,15 @@ func (m *V1TFJob) contextValidateChief(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Chief.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("chief")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("chief")
 			}
+
 			return err
 		}
 	}
@@ -258,11 +287,15 @@ func (m *V1TFJob) contextValidateCleanPodPolicy(ctx context.Context, formats str
 		}
 
 		if err := m.CleanPodPolicy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cleanPodPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cleanPodPolicy")
 			}
+
 			return err
 		}
 	}
@@ -279,11 +312,15 @@ func (m *V1TFJob) contextValidateEvaluator(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Evaluator.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("evaluator")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("evaluator")
 			}
+
 			return err
 		}
 	}
@@ -300,11 +337,15 @@ func (m *V1TFJob) contextValidatePs(ctx context.Context, formats strfmt.Registry
 		}
 
 		if err := m.Ps.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("ps")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("ps")
 			}
+
 			return err
 		}
 	}
@@ -321,11 +362,15 @@ func (m *V1TFJob) contextValidateSchedulingPolicy(ctx context.Context, formats s
 		}
 
 		if err := m.SchedulingPolicy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("schedulingPolicy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("schedulingPolicy")
 			}
+
 			return err
 		}
 	}
@@ -342,11 +387,15 @@ func (m *V1TFJob) contextValidateWorker(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Worker.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("worker")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("worker")
 			}
+
 			return err
 		}
 	}

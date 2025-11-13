@@ -128,7 +128,7 @@ const (
 )
 
 // for schema
-var v1EventKindEnum []interface{}
+var v1EventKindEnum []any
 
 func init() {
 	var res []V1EventKind

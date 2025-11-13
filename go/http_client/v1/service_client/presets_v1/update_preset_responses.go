@@ -6,6 +6,8 @@ package presets_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdatePresetReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdatePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdatePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdatePresetOK()
@@ -104,11 +106,13 @@ func (o *UpdatePresetOK) Code() int {
 }
 
 func (o *UpdatePresetOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK %s", 200, payload)
 }
 
 func (o *UpdatePresetOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetOK %s", 200, payload)
 }
 
 func (o *UpdatePresetOK) GetPayload() *service_model.V1Preset {
@@ -120,7 +124,7 @@ func (o *UpdatePresetOK) readResponse(response runtime.ClientResponse, consumer 
 	o.Payload = new(service_model.V1Preset)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdatePresetNoContent describes a response with status code 204, with default he
 No content.
 */
 type UpdatePresetNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update preset no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdatePresetNoContent) Code() int {
 }
 
 func (o *UpdatePresetNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent %s", 204, payload)
 }
 
 func (o *UpdatePresetNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNoContent %s", 204, payload)
 }
 
-func (o *UpdatePresetNoContent) GetPayload() interface{} {
+func (o *UpdatePresetNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePresetNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdatePresetForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type UpdatePresetForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update preset forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdatePresetForbidden) Code() int {
 }
 
 func (o *UpdatePresetForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden %s", 403, payload)
 }
 
 func (o *UpdatePresetForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetForbidden %s", 403, payload)
 }
 
-func (o *UpdatePresetForbidden) GetPayload() interface{} {
+func (o *UpdatePresetForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePresetForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdatePresetNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type UpdatePresetNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update preset not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdatePresetNotFound) Code() int {
 }
 
 func (o *UpdatePresetNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound %s", 404, payload)
 }
 
 func (o *UpdatePresetNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] updatePresetNotFound %s", 404, payload)
 }
 
-func (o *UpdatePresetNotFound) GetPayload() interface{} {
+func (o *UpdatePresetNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdatePresetNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdatePresetDefault) Code() int {
 }
 
 func (o *UpdatePresetDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default %s", o._statusCode, payload)
 }
 
 func (o *UpdatePresetDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/presets/{preset.uuid}][%d] UpdatePreset default %s", o._statusCode, payload)
 }
 
 func (o *UpdatePresetDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdatePresetDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

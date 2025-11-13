@@ -21,7 +21,7 @@ type V1HostPathConnection struct {
 	HostPath string `json:"hostPath,omitempty"`
 
 	// kind
-	Kind interface{} `json:"kind,omitempty"`
+	Kind any `json:"kind,omitempty"`
 
 	// Mount path
 	MountPath string `json:"mountPath,omitempty"`

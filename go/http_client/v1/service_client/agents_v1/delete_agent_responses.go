@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteAgentReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteAgentOK()
@@ -103,11 +105,11 @@ func (o *DeleteAgentOK) Code() int {
 }
 
 func (o *DeleteAgentOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK", 200)
 }
 
 func (o *DeleteAgentOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentOK", 200)
 }
 
 func (o *DeleteAgentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteAgentNoContent describes a response with status code 204, with default hea
 No content.
 */
 type DeleteAgentNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete agent no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteAgentNoContent) Code() int {
 }
 
 func (o *DeleteAgentNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent %s", 204, payload)
 }
 
 func (o *DeleteAgentNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNoContent %s", 204, payload)
 }
 
-func (o *DeleteAgentNoContent) GetPayload() interface{} {
+func (o *DeleteAgentNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteAgentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteAgentForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type DeleteAgentForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete agent forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteAgentForbidden) Code() int {
 }
 
 func (o *DeleteAgentForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden %s", 403, payload)
 }
 
 func (o *DeleteAgentForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentForbidden %s", 403, payload)
 }
 
-func (o *DeleteAgentForbidden) GetPayload() interface{} {
+func (o *DeleteAgentForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteAgentForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteAgentNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type DeleteAgentNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete agent not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteAgentNotFound) Code() int {
 }
 
 func (o *DeleteAgentNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound %s", 404, payload)
 }
 
 func (o *DeleteAgentNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] deleteAgentNotFound %s", 404, payload)
 }
 
-func (o *DeleteAgentNotFound) GetPayload() interface{} {
+func (o *DeleteAgentNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteAgentNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteAgentDefault) Code() int {
 }
 
 func (o *DeleteAgentDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default %s", o._statusCode, payload)
 }
 
 func (o *DeleteAgentDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{uuid}][%d] DeleteAgent default %s", o._statusCode, payload)
 }
 
 func (o *DeleteAgentDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteAgentDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

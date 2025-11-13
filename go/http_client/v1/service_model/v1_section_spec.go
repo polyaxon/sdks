@@ -51,7 +51,7 @@ type V1SectionSpec struct {
 	Step int32 `json:"step,omitempty"`
 
 	// Section's widgets
-	Widgets []interface{} `json:"widgets"`
+	Widgets []any `json:"widgets"`
 
 	// xaxis
 	Xaxis string `json:"xaxis,omitempty"`

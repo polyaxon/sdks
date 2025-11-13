@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -148,11 +149,15 @@ func (m *V1HpParams) validateChoice(formats strfmt.Registry) error {
 
 	if m.Choice != nil {
 		if err := m.Choice.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("choice")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("choice")
 			}
+
 			return err
 		}
 	}
@@ -167,11 +172,15 @@ func (m *V1HpParams) validateDaterange(formats strfmt.Registry) error {
 
 	if m.Daterange != nil {
 		if err := m.Daterange.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("daterange")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("daterange")
 			}
+
 			return err
 		}
 	}
@@ -186,11 +195,15 @@ func (m *V1HpParams) validateDatetimerange(formats strfmt.Registry) error {
 
 	if m.Datetimerange != nil {
 		if err := m.Datetimerange.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("datetimerange")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("datetimerange")
 			}
+
 			return err
 		}
 	}
@@ -205,11 +218,15 @@ func (m *V1HpParams) validateGeomspace(formats strfmt.Registry) error {
 
 	if m.Geomspace != nil {
 		if err := m.Geomspace.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("geomspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("geomspace")
 			}
+
 			return err
 		}
 	}
@@ -224,11 +241,15 @@ func (m *V1HpParams) validateLinspace(formats strfmt.Registry) error {
 
 	if m.Linspace != nil {
 		if err := m.Linspace.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("linspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("linspace")
 			}
+
 			return err
 		}
 	}
@@ -243,11 +264,15 @@ func (m *V1HpParams) validateLognormal(formats strfmt.Registry) error {
 
 	if m.Lognormal != nil {
 		if err := m.Lognormal.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("lognormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("lognormal")
 			}
+
 			return err
 		}
 	}
@@ -262,11 +287,15 @@ func (m *V1HpParams) validateLogspace(formats strfmt.Registry) error {
 
 	if m.Logspace != nil {
 		if err := m.Logspace.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("logspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("logspace")
 			}
+
 			return err
 		}
 	}
@@ -281,11 +310,15 @@ func (m *V1HpParams) validateLoguniform(formats strfmt.Registry) error {
 
 	if m.Loguniform != nil {
 		if err := m.Loguniform.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("loguniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("loguniform")
 			}
+
 			return err
 		}
 	}
@@ -300,11 +333,15 @@ func (m *V1HpParams) validateNormal(formats strfmt.Registry) error {
 
 	if m.Normal != nil {
 		if err := m.Normal.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("normal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("normal")
 			}
+
 			return err
 		}
 	}
@@ -319,11 +356,15 @@ func (m *V1HpParams) validatePchoice(formats strfmt.Registry) error {
 
 	if m.Pchoice != nil {
 		if err := m.Pchoice.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pchoice")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pchoice")
 			}
+
 			return err
 		}
 	}
@@ -338,11 +379,15 @@ func (m *V1HpParams) validateQlognormal(formats strfmt.Registry) error {
 
 	if m.Qlognormal != nil {
 		if err := m.Qlognormal.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qlognormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qlognormal")
 			}
+
 			return err
 		}
 	}
@@ -357,11 +402,15 @@ func (m *V1HpParams) validateQloguniform(formats strfmt.Registry) error {
 
 	if m.Qloguniform != nil {
 		if err := m.Qloguniform.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qloguniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qloguniform")
 			}
+
 			return err
 		}
 	}
@@ -376,11 +425,15 @@ func (m *V1HpParams) validateQnormal(formats strfmt.Registry) error {
 
 	if m.Qnormal != nil {
 		if err := m.Qnormal.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qnormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qnormal")
 			}
+
 			return err
 		}
 	}
@@ -395,11 +448,15 @@ func (m *V1HpParams) validateQuniform(formats strfmt.Registry) error {
 
 	if m.Quniform != nil {
 		if err := m.Quniform.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("quniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("quniform")
 			}
+
 			return err
 		}
 	}
@@ -414,11 +471,15 @@ func (m *V1HpParams) validateRange(formats strfmt.Registry) error {
 
 	if m.Range != nil {
 		if err := m.Range.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("range")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("range")
 			}
+
 			return err
 		}
 	}
@@ -433,11 +494,15 @@ func (m *V1HpParams) validateUniform(formats strfmt.Registry) error {
 
 	if m.Uniform != nil {
 		if err := m.Uniform.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("uniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("uniform")
 			}
+
 			return err
 		}
 	}
@@ -528,11 +593,15 @@ func (m *V1HpParams) contextValidateChoice(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Choice.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("choice")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("choice")
 			}
+
 			return err
 		}
 	}
@@ -549,11 +618,15 @@ func (m *V1HpParams) contextValidateDaterange(ctx context.Context, formats strfm
 		}
 
 		if err := m.Daterange.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("daterange")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("daterange")
 			}
+
 			return err
 		}
 	}
@@ -570,11 +643,15 @@ func (m *V1HpParams) contextValidateDatetimerange(ctx context.Context, formats s
 		}
 
 		if err := m.Datetimerange.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("datetimerange")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("datetimerange")
 			}
+
 			return err
 		}
 	}
@@ -591,11 +668,15 @@ func (m *V1HpParams) contextValidateGeomspace(ctx context.Context, formats strfm
 		}
 
 		if err := m.Geomspace.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("geomspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("geomspace")
 			}
+
 			return err
 		}
 	}
@@ -612,11 +693,15 @@ func (m *V1HpParams) contextValidateLinspace(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Linspace.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("linspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("linspace")
 			}
+
 			return err
 		}
 	}
@@ -633,11 +718,15 @@ func (m *V1HpParams) contextValidateLognormal(ctx context.Context, formats strfm
 		}
 
 		if err := m.Lognormal.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("lognormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("lognormal")
 			}
+
 			return err
 		}
 	}
@@ -654,11 +743,15 @@ func (m *V1HpParams) contextValidateLogspace(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Logspace.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("logspace")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("logspace")
 			}
+
 			return err
 		}
 	}
@@ -675,11 +768,15 @@ func (m *V1HpParams) contextValidateLoguniform(ctx context.Context, formats strf
 		}
 
 		if err := m.Loguniform.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("loguniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("loguniform")
 			}
+
 			return err
 		}
 	}
@@ -696,11 +793,15 @@ func (m *V1HpParams) contextValidateNormal(ctx context.Context, formats strfmt.R
 		}
 
 		if err := m.Normal.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("normal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("normal")
 			}
+
 			return err
 		}
 	}
@@ -717,11 +818,15 @@ func (m *V1HpParams) contextValidatePchoice(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Pchoice.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pchoice")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pchoice")
 			}
+
 			return err
 		}
 	}
@@ -738,11 +843,15 @@ func (m *V1HpParams) contextValidateQlognormal(ctx context.Context, formats strf
 		}
 
 		if err := m.Qlognormal.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qlognormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qlognormal")
 			}
+
 			return err
 		}
 	}
@@ -759,11 +868,15 @@ func (m *V1HpParams) contextValidateQloguniform(ctx context.Context, formats str
 		}
 
 		if err := m.Qloguniform.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qloguniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qloguniform")
 			}
+
 			return err
 		}
 	}
@@ -780,11 +893,15 @@ func (m *V1HpParams) contextValidateQnormal(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Qnormal.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("qnormal")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("qnormal")
 			}
+
 			return err
 		}
 	}
@@ -801,11 +918,15 @@ func (m *V1HpParams) contextValidateQuniform(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Quniform.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("quniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("quniform")
 			}
+
 			return err
 		}
 	}
@@ -822,11 +943,15 @@ func (m *V1HpParams) contextValidateRange(ctx context.Context, formats strfmt.Re
 		}
 
 		if err := m.Range.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("range")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("range")
 			}
+
 			return err
 		}
 	}
@@ -843,11 +968,15 @@ func (m *V1HpParams) contextValidateUniform(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Uniform.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("uniform")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("uniform")
 			}
+
 			return err
 		}
 	}

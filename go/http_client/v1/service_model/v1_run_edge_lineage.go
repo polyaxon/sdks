@@ -24,7 +24,7 @@ type V1RunEdgeLineage struct {
 	UUID string `json:"uuid,omitempty"`
 
 	// Optional edge values
-	Values interface{} `json:"values,omitempty"`
+	Values any `json:"values,omitempty"`
 }
 
 // Validate validates this v1 run edge lineage

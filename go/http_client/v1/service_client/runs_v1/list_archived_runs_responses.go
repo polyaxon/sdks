@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListArchivedRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListArchivedRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListArchivedRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListArchivedRunsOK()
@@ -104,11 +106,13 @@ func (o *ListArchivedRunsOK) Code() int {
 }
 
 func (o *ListArchivedRunsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK %s", 200, payload)
 }
 
 func (o *ListArchivedRunsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsOK %s", 200, payload)
 }
 
 func (o *ListArchivedRunsOK) GetPayload() *service_model.V1ListRunsResponse {
@@ -120,7 +124,7 @@ func (o *ListArchivedRunsOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1ListRunsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListArchivedRunsNoContent describes a response with status code 204, with defaul
 No content.
 */
 type ListArchivedRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived runs no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListArchivedRunsNoContent) Code() int {
 }
 
 func (o *ListArchivedRunsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent %s", 204, payload)
 }
 
 func (o *ListArchivedRunsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNoContent %s", 204, payload)
 }
 
-func (o *ListArchivedRunsNoContent) GetPayload() interface{} {
+func (o *ListArchivedRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListArchivedRunsForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type ListArchivedRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived runs forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListArchivedRunsForbidden) Code() int {
 }
 
 func (o *ListArchivedRunsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden %s", 403, payload)
 }
 
 func (o *ListArchivedRunsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsForbidden %s", 403, payload)
 }
 
-func (o *ListArchivedRunsForbidden) GetPayload() interface{} {
+func (o *ListArchivedRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListArchivedRunsNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type ListArchivedRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived runs not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListArchivedRunsNotFound) Code() int {
 }
 
 func (o *ListArchivedRunsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound %s", 404, payload)
 }
 
 func (o *ListArchivedRunsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] listArchivedRunsNotFound %s", 404, payload)
 }
 
-func (o *ListArchivedRunsNotFound) GetPayload() interface{} {
+func (o *ListArchivedRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListArchivedRunsDefault) Code() int {
 }
 
 func (o *ListArchivedRunsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default %s", o._statusCode, payload)
 }
 
 func (o *ListArchivedRunsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/runs][%d] ListArchivedRuns default %s", o._statusCode, payload)
 }
 
 func (o *ListArchivedRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListArchivedRunsDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

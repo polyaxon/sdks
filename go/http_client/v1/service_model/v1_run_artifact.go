@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -28,7 +29,7 @@ type V1RunArtifact struct {
 	Kind *V1ArtifactKind `json:"kind,omitempty"`
 
 	// Optional meta information
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// Artifact name
 	Name string `json:"name,omitempty"`
@@ -43,7 +44,7 @@ type V1RunArtifact struct {
 	State string `json:"state,omitempty"`
 
 	// Artifact schema
-	Summary interface{} `json:"summary,omitempty"`
+	Summary any `json:"summary,omitempty"`
 }
 
 // Validate validates this v1 run artifact
@@ -67,11 +68,15 @@ func (m *V1RunArtifact) validateKind(formats strfmt.Registry) error {
 
 	if m.Kind != nil {
 		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -102,11 +107,15 @@ func (m *V1RunArtifact) contextValidateKind(ctx context.Context, formats strfmt.
 		}
 
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}

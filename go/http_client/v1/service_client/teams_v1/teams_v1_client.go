@@ -7,12 +7,38 @@ package teams_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new teams v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new teams v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new teams v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -97,7 +123,7 @@ type ClientService interface {
 ApproveTeamRuns approves cross project runs selection
 */
 func (a *Client) ApproveTeamRuns(params *ApproveTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ApproveTeamRunsOK, *ApproveTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewApproveTeamRunsParams()
 	}
@@ -117,18 +143,22 @@ func (a *Client) ApproveTeamRuns(params *ApproveTeamRunsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ApproveTeamRunsOK:
 		return value, nil, nil
 	case *ApproveTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ApproveTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -137,7 +167,7 @@ func (a *Client) ApproveTeamRuns(params *ApproveTeamRunsParams, authInfo runtime
 ArchiveTeamRuns archives cross project runs selection
 */
 func (a *Client) ArchiveTeamRuns(params *ArchiveTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ArchiveTeamRunsOK, *ArchiveTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewArchiveTeamRunsParams()
 	}
@@ -157,18 +187,22 @@ func (a *Client) ArchiveTeamRuns(params *ArchiveTeamRunsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ArchiveTeamRunsOK:
 		return value, nil, nil
 	case *ArchiveTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ArchiveTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -177,7 +211,7 @@ func (a *Client) ArchiveTeamRuns(params *ArchiveTeamRunsParams, authInfo runtime
 BookmarkTeamRuns bookmarks cross project runs selection
 */
 func (a *Client) BookmarkTeamRuns(params *BookmarkTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*BookmarkTeamRunsOK, *BookmarkTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewBookmarkTeamRunsParams()
 	}
@@ -197,18 +231,22 @@ func (a *Client) BookmarkTeamRuns(params *BookmarkTeamRunsParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *BookmarkTeamRunsOK:
 		return value, nil, nil
 	case *BookmarkTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*BookmarkTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -217,7 +255,7 @@ func (a *Client) BookmarkTeamRuns(params *BookmarkTeamRunsParams, authInfo runti
 CreateTeam creates team
 */
 func (a *Client) CreateTeam(params *CreateTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamOK, *CreateTeamNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateTeamParams()
 	}
@@ -237,18 +275,22 @@ func (a *Client) CreateTeam(params *CreateTeamParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateTeamOK:
 		return value, nil, nil
 	case *CreateTeamNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateTeamDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -257,7 +299,7 @@ func (a *Client) CreateTeam(params *CreateTeamParams, authInfo runtime.ClientAut
 CreateTeamMember creates team member
 */
 func (a *Client) CreateTeamMember(params *CreateTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateTeamMemberOK, *CreateTeamMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateTeamMemberParams()
 	}
@@ -277,18 +319,22 @@ func (a *Client) CreateTeamMember(params *CreateTeamMemberParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateTeamMemberOK:
 		return value, nil, nil
 	case *CreateTeamMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateTeamMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -297,7 +343,7 @@ func (a *Client) CreateTeamMember(params *CreateTeamMemberParams, authInfo runti
 DeleteTeam deletes team
 */
 func (a *Client) DeleteTeam(params *DeleteTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTeamOK, *DeleteTeamNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteTeamParams()
 	}
@@ -317,18 +363,22 @@ func (a *Client) DeleteTeam(params *DeleteTeamParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteTeamOK:
 		return value, nil, nil
 	case *DeleteTeamNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteTeamDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -337,7 +387,7 @@ func (a *Client) DeleteTeam(params *DeleteTeamParams, authInfo runtime.ClientAut
 DeleteTeamMember deletes team member details
 */
 func (a *Client) DeleteTeamMember(params *DeleteTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTeamMemberOK, *DeleteTeamMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteTeamMemberParams()
 	}
@@ -357,18 +407,22 @@ func (a *Client) DeleteTeamMember(params *DeleteTeamMemberParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteTeamMemberOK:
 		return value, nil, nil
 	case *DeleteTeamMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteTeamMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -377,7 +431,7 @@ func (a *Client) DeleteTeamMember(params *DeleteTeamMemberParams, authInfo runti
 DeleteTeamRuns deletes cross project runs selection
 */
 func (a *Client) DeleteTeamRuns(params *DeleteTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteTeamRunsOK, *DeleteTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteTeamRunsParams()
 	}
@@ -397,18 +451,22 @@ func (a *Client) DeleteTeamRuns(params *DeleteTeamRunsParams, authInfo runtime.C
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteTeamRunsOK:
 		return value, nil, nil
 	case *DeleteTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -417,7 +475,7 @@ func (a *Client) DeleteTeamRuns(params *DeleteTeamRunsParams, authInfo runtime.C
 GetTeam gets team
 */
 func (a *Client) GetTeam(params *GetTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamOK, *GetTeamNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamParams()
 	}
@@ -437,18 +495,22 @@ func (a *Client) GetTeam(params *GetTeamParams, authInfo runtime.ClientAuthInfoW
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamOK:
 		return value, nil, nil
 	case *GetTeamNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -457,7 +519,7 @@ func (a *Client) GetTeam(params *GetTeamParams, authInfo runtime.ClientAuthInfoW
 GetTeamActivities gets organization activities
 */
 func (a *Client) GetTeamActivities(params *GetTeamActivitiesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamActivitiesOK, *GetTeamActivitiesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamActivitiesParams()
 	}
@@ -477,18 +539,22 @@ func (a *Client) GetTeamActivities(params *GetTeamActivitiesParams, authInfo run
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamActivitiesOK:
 		return value, nil, nil
 	case *GetTeamActivitiesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamActivitiesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -497,7 +563,7 @@ func (a *Client) GetTeamActivities(params *GetTeamActivitiesParams, authInfo run
 GetTeamMember gets team member details
 */
 func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMemberOK, *GetTeamMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamMemberParams()
 	}
@@ -517,18 +583,22 @@ func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamMemberOK:
 		return value, nil, nil
 	case *GetTeamMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -537,7 +607,7 @@ func (a *Client) GetTeamMember(params *GetTeamMemberParams, authInfo runtime.Cli
 GetTeamMultiRunEvents gets multi runs events
 */
 func (a *Client) GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunEventsOK, *GetTeamMultiRunEventsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamMultiRunEventsParams()
 	}
@@ -557,18 +627,22 @@ func (a *Client) GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, auth
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamMultiRunEventsOK:
 		return value, nil, nil
 	case *GetTeamMultiRunEventsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamMultiRunEventsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -577,7 +651,7 @@ func (a *Client) GetTeamMultiRunEvents(params *GetTeamMultiRunEventsParams, auth
 GetTeamMultiRunImportance gets multi run importance
 */
 func (a *Client) GetTeamMultiRunImportance(params *GetTeamMultiRunImportanceParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamMultiRunImportanceOK, *GetTeamMultiRunImportanceNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamMultiRunImportanceParams()
 	}
@@ -597,18 +671,22 @@ func (a *Client) GetTeamMultiRunImportance(params *GetTeamMultiRunImportancePara
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamMultiRunImportanceOK:
 		return value, nil, nil
 	case *GetTeamMultiRunImportanceNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamMultiRunImportanceDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -617,7 +695,7 @@ func (a *Client) GetTeamMultiRunImportance(params *GetTeamMultiRunImportancePara
 GetTeamRun gets a run in a team
 */
 func (a *Client) GetTeamRun(params *GetTeamRunParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunOK, *GetTeamRunNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamRunParams()
 	}
@@ -637,18 +715,22 @@ func (a *Client) GetTeamRun(params *GetTeamRunParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamRunOK:
 		return value, nil, nil
 	case *GetTeamRunNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamRunDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -657,7 +739,7 @@ func (a *Client) GetTeamRun(params *GetTeamRunParams, authInfo runtime.ClientAut
 GetTeamRuns gets all runs in a team
 */
 func (a *Client) GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsOK, *GetTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamRunsParams()
 	}
@@ -677,18 +759,22 @@ func (a *Client) GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamRunsOK:
 		return value, nil, nil
 	case *GetTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -697,7 +783,7 @@ func (a *Client) GetTeamRuns(params *GetTeamRunsParams, authInfo runtime.ClientA
 GetTeamRunsArtifactsLineage gets runs artifacts lineage
 */
 func (a *Client) GetTeamRunsArtifactsLineage(params *GetTeamRunsArtifactsLineageParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamRunsArtifactsLineageOK, *GetTeamRunsArtifactsLineageNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamRunsArtifactsLineageParams()
 	}
@@ -717,18 +803,22 @@ func (a *Client) GetTeamRunsArtifactsLineage(params *GetTeamRunsArtifactsLineage
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamRunsArtifactsLineageOK:
 		return value, nil, nil
 	case *GetTeamRunsArtifactsLineageNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamRunsArtifactsLineageDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -737,7 +827,7 @@ func (a *Client) GetTeamRunsArtifactsLineage(params *GetTeamRunsArtifactsLineage
 GetTeamStats gets team stats
 */
 func (a *Client) GetTeamStats(params *GetTeamStatsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamStatsOK, *GetTeamStatsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamStatsParams()
 	}
@@ -757,18 +847,22 @@ func (a *Client) GetTeamStats(params *GetTeamStatsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamStatsOK:
 		return value, nil, nil
 	case *GetTeamStatsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamStatsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -777,7 +871,7 @@ func (a *Client) GetTeamStats(params *GetTeamStatsParams, authInfo runtime.Clien
 GetTeamVersions gets all runs in a team
 */
 func (a *Client) GetTeamVersions(params *GetTeamVersionsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetTeamVersionsOK, *GetTeamVersionsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetTeamVersionsParams()
 	}
@@ -797,18 +891,22 @@ func (a *Client) GetTeamVersions(params *GetTeamVersionsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetTeamVersionsOK:
 		return value, nil, nil
 	case *GetTeamVersionsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetTeamVersionsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -817,7 +915,7 @@ func (a *Client) GetTeamVersions(params *GetTeamVersionsParams, authInfo runtime
 InvalidateTeamRuns invalidates cross project runs selection
 */
 func (a *Client) InvalidateTeamRuns(params *InvalidateTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*InvalidateTeamRunsOK, *InvalidateTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewInvalidateTeamRunsParams()
 	}
@@ -837,18 +935,22 @@ func (a *Client) InvalidateTeamRuns(params *InvalidateTeamRunsParams, authInfo r
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *InvalidateTeamRunsOK:
 		return value, nil, nil
 	case *InvalidateTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*InvalidateTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -857,7 +959,7 @@ func (a *Client) InvalidateTeamRuns(params *InvalidateTeamRunsParams, authInfo r
 ListTeamMembers gets team members
 */
 func (a *Client) ListTeamMembers(params *ListTeamMembersParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamMembersOK, *ListTeamMembersNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListTeamMembersParams()
 	}
@@ -877,18 +979,22 @@ func (a *Client) ListTeamMembers(params *ListTeamMembersParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListTeamMembersOK:
 		return value, nil, nil
 	case *ListTeamMembersNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListTeamMembersDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -897,7 +1003,7 @@ func (a *Client) ListTeamMembers(params *ListTeamMembersParams, authInfo runtime
 ListTeamNames lists teams names
 */
 func (a *Client) ListTeamNames(params *ListTeamNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamNamesOK, *ListTeamNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListTeamNamesParams()
 	}
@@ -917,18 +1023,22 @@ func (a *Client) ListTeamNames(params *ListTeamNamesParams, authInfo runtime.Cli
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListTeamNamesOK:
 		return value, nil, nil
 	case *ListTeamNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListTeamNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -937,7 +1047,7 @@ func (a *Client) ListTeamNames(params *ListTeamNamesParams, authInfo runtime.Cli
 ListTeams lists teams
 */
 func (a *Client) ListTeams(params *ListTeamsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListTeamsOK, *ListTeamsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListTeamsParams()
 	}
@@ -957,18 +1067,22 @@ func (a *Client) ListTeams(params *ListTeamsParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListTeamsOK:
 		return value, nil, nil
 	case *ListTeamsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListTeamsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -977,7 +1091,7 @@ func (a *Client) ListTeams(params *ListTeamsParams, authInfo runtime.ClientAuthI
 PatchTeam patches team
 */
 func (a *Client) PatchTeam(params *PatchTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTeamOK, *PatchTeamNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchTeamParams()
 	}
@@ -997,18 +1111,22 @@ func (a *Client) PatchTeam(params *PatchTeamParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchTeamOK:
 		return value, nil, nil
 	case *PatchTeamNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchTeamDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1017,7 +1135,7 @@ func (a *Client) PatchTeam(params *PatchTeamParams, authInfo runtime.ClientAuthI
 PatchTeamMember patches team member
 */
 func (a *Client) PatchTeamMember(params *PatchTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchTeamMemberOK, *PatchTeamMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchTeamMemberParams()
 	}
@@ -1037,18 +1155,22 @@ func (a *Client) PatchTeamMember(params *PatchTeamMemberParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchTeamMemberOK:
 		return value, nil, nil
 	case *PatchTeamMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchTeamMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1057,7 +1179,7 @@ func (a *Client) PatchTeamMember(params *PatchTeamMemberParams, authInfo runtime
 RestoreTeamRuns restores cross project runs selection
 */
 func (a *Client) RestoreTeamRuns(params *RestoreTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestoreTeamRunsOK, *RestoreTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewRestoreTeamRunsParams()
 	}
@@ -1077,18 +1199,22 @@ func (a *Client) RestoreTeamRuns(params *RestoreTeamRunsParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *RestoreTeamRunsOK:
 		return value, nil, nil
 	case *RestoreTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*RestoreTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1097,7 +1223,7 @@ func (a *Client) RestoreTeamRuns(params *RestoreTeamRunsParams, authInfo runtime
 SkipTeamRuns skips cross project runs selection
 */
 func (a *Client) SkipTeamRuns(params *SkipTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SkipTeamRunsOK, *SkipTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewSkipTeamRunsParams()
 	}
@@ -1117,18 +1243,22 @@ func (a *Client) SkipTeamRuns(params *SkipTeamRunsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *SkipTeamRunsOK:
 		return value, nil, nil
 	case *SkipTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*SkipTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1137,7 +1267,7 @@ func (a *Client) SkipTeamRuns(params *SkipTeamRunsParams, authInfo runtime.Clien
 StopTeamRuns stops cross project runs selection
 */
 func (a *Client) StopTeamRuns(params *StopTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*StopTeamRunsOK, *StopTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewStopTeamRunsParams()
 	}
@@ -1157,18 +1287,22 @@ func (a *Client) StopTeamRuns(params *StopTeamRunsParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *StopTeamRunsOK:
 		return value, nil, nil
 	case *StopTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*StopTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1177,7 +1311,7 @@ func (a *Client) StopTeamRuns(params *StopTeamRunsParams, authInfo runtime.Clien
 TagTeamRuns tags cross project runs selection
 */
 func (a *Client) TagTeamRuns(params *TagTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TagTeamRunsOK, *TagTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTagTeamRunsParams()
 	}
@@ -1197,18 +1331,22 @@ func (a *Client) TagTeamRuns(params *TagTeamRunsParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TagTeamRunsOK:
 		return value, nil, nil
 	case *TagTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TagTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1217,7 +1355,7 @@ func (a *Client) TagTeamRuns(params *TagTeamRunsParams, authInfo runtime.ClientA
 TransferTeamRuns transfers cross project runs selection to a new project
 */
 func (a *Client) TransferTeamRuns(params *TransferTeamRunsParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*TransferTeamRunsOK, *TransferTeamRunsNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewTransferTeamRunsParams()
 	}
@@ -1237,18 +1375,22 @@ func (a *Client) TransferTeamRuns(params *TransferTeamRunsParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *TransferTeamRunsOK:
 		return value, nil, nil
 	case *TransferTeamRunsNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*TransferTeamRunsDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1257,7 +1399,7 @@ func (a *Client) TransferTeamRuns(params *TransferTeamRunsParams, authInfo runti
 UpdateTeam updates team
 */
 func (a *Client) UpdateTeam(params *UpdateTeamParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTeamOK, *UpdateTeamNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateTeamParams()
 	}
@@ -1277,18 +1419,22 @@ func (a *Client) UpdateTeam(params *UpdateTeamParams, authInfo runtime.ClientAut
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateTeamOK:
 		return value, nil, nil
 	case *UpdateTeamNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateTeamDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -1297,7 +1443,7 @@ func (a *Client) UpdateTeam(params *UpdateTeamParams, authInfo runtime.ClientAut
 UpdateTeamMember updates team member
 */
 func (a *Client) UpdateTeamMember(params *UpdateTeamMemberParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateTeamMemberOK, *UpdateTeamMemberNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateTeamMemberParams()
 	}
@@ -1317,18 +1463,22 @@ func (a *Client) UpdateTeamMember(params *UpdateTeamMemberParams, authInfo runti
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateTeamMemberOK:
 		return value, nil, nil
 	case *UpdateTeamMemberNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateTeamMemberDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

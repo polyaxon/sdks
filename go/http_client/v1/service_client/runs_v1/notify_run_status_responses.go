@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type NotifyRunStatusReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *NotifyRunStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *NotifyRunStatusReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewNotifyRunStatusOK()
@@ -103,11 +105,11 @@ func (o *NotifyRunStatusOK) Code() int {
 }
 
 func (o *NotifyRunStatusOK) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK ", 200)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK", 200)
 }
 
 func (o *NotifyRunStatusOK) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK ", 200)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusOK", 200)
 }
 
 func (o *NotifyRunStatusOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ NotifyRunStatusNoContent describes a response with status code 204, with default
 No content.
 */
 type NotifyRunStatusNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this notify run status no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *NotifyRunStatusNoContent) Code() int {
 }
 
 func (o *NotifyRunStatusNoContent) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent %s", 204, payload)
 }
 
 func (o *NotifyRunStatusNoContent) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNoContent %s", 204, payload)
 }
 
-func (o *NotifyRunStatusNoContent) GetPayload() interface{} {
+func (o *NotifyRunStatusNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NotifyRunStatusNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ NotifyRunStatusForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type NotifyRunStatusForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this notify run status forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *NotifyRunStatusForbidden) Code() int {
 }
 
 func (o *NotifyRunStatusForbidden) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden %s", 403, payload)
 }
 
 func (o *NotifyRunStatusForbidden) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusForbidden %s", 403, payload)
 }
 
-func (o *NotifyRunStatusForbidden) GetPayload() interface{} {
+func (o *NotifyRunStatusForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NotifyRunStatusForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ NotifyRunStatusNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type NotifyRunStatusNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this notify run status not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *NotifyRunStatusNotFound) Code() int {
 }
 
 func (o *NotifyRunStatusNotFound) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound %s", 404, payload)
 }
 
 func (o *NotifyRunStatusNotFound) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] notifyRunStatusNotFound %s", 404, payload)
 }
 
-func (o *NotifyRunStatusNotFound) GetPayload() interface{} {
+func (o *NotifyRunStatusNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *NotifyRunStatusNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *NotifyRunStatusDefault) Code() int {
 }
 
 func (o *NotifyRunStatusDefault) Error() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default %s", o._statusCode, payload)
 }
 
 func (o *NotifyRunStatusDefault) String() string {
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/notify][%d] NotifyRunStatus default %s", o._statusCode, payload)
 }
 
 func (o *NotifyRunStatusDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *NotifyRunStatusDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchProjectSettingsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchProjectSettingsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchProjectSettingsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchProjectSettingsOK()
@@ -104,11 +106,13 @@ func (o *PatchProjectSettingsOK) Code() int {
 }
 
 func (o *PatchProjectSettingsOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK %s", 200, payload)
 }
 
 func (o *PatchProjectSettingsOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsOK %s", 200, payload)
 }
 
 func (o *PatchProjectSettingsOK) GetPayload() *service_model.V1ProjectSettings {
@@ -120,7 +124,7 @@ func (o *PatchProjectSettingsOK) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.V1ProjectSettings)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchProjectSettingsNoContent describes a response with status code 204, with de
 No content.
 */
 type PatchProjectSettingsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project settings no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchProjectSettingsNoContent) Code() int {
 }
 
 func (o *PatchProjectSettingsNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent %s", 204, payload)
 }
 
 func (o *PatchProjectSettingsNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNoContent %s", 204, payload)
 }
 
-func (o *PatchProjectSettingsNoContent) GetPayload() interface{} {
+func (o *PatchProjectSettingsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSettingsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchProjectSettingsForbidden describes a response with status code 403, with de
 You don't have permission to access the resource.
 */
 type PatchProjectSettingsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project settings forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchProjectSettingsForbidden) Code() int {
 }
 
 func (o *PatchProjectSettingsForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden %s", 403, payload)
 }
 
 func (o *PatchProjectSettingsForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsForbidden %s", 403, payload)
 }
 
-func (o *PatchProjectSettingsForbidden) GetPayload() interface{} {
+func (o *PatchProjectSettingsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSettingsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchProjectSettingsNotFound describes a response with status code 404, with def
 Resource does not exist.
 */
 type PatchProjectSettingsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project settings not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchProjectSettingsNotFound) Code() int {
 }
 
 func (o *PatchProjectSettingsNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound %s", 404, payload)
 }
 
 func (o *PatchProjectSettingsNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] patchProjectSettingsNotFound %s", 404, payload)
 }
 
-func (o *PatchProjectSettingsNotFound) GetPayload() interface{} {
+func (o *PatchProjectSettingsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSettingsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchProjectSettingsDefault) Code() int {
 }
 
 func (o *PatchProjectSettingsDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectSettingsDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/settings][%d] PatchProjectSettings default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectSettingsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchProjectSettingsDefault) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

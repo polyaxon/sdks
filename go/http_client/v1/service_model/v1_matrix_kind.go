@@ -53,7 +53,7 @@ const (
 )
 
 // for schema
-var v1MatrixKindEnum []interface{}
+var v1MatrixKindEnum []any
 
 func init() {
 	var res []V1MatrixKind

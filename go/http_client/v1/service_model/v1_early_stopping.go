@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -71,11 +72,15 @@ func (m *V1EarlyStopping) validateDiff(formats strfmt.Registry) error {
 
 	if m.Diff != nil {
 		if err := m.Diff.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("diff")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("diff")
 			}
+
 			return err
 		}
 	}
@@ -90,11 +95,15 @@ func (m *V1EarlyStopping) validateFailure(formats strfmt.Registry) error {
 
 	if m.Failure != nil {
 		if err := m.Failure.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("failure")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("failure")
 			}
+
 			return err
 		}
 	}
@@ -109,11 +118,15 @@ func (m *V1EarlyStopping) validateMedian(formats strfmt.Registry) error {
 
 	if m.Median != nil {
 		if err := m.Median.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("median")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("median")
 			}
+
 			return err
 		}
 	}
@@ -128,11 +141,15 @@ func (m *V1EarlyStopping) validateMetric(formats strfmt.Registry) error {
 
 	if m.Metric != nil {
 		if err := m.Metric.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -147,11 +164,15 @@ func (m *V1EarlyStopping) validateTruncation(formats strfmt.Registry) error {
 
 	if m.Truncation != nil {
 		if err := m.Truncation.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("truncation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("truncation")
 			}
+
 			return err
 		}
 	}
@@ -198,11 +219,15 @@ func (m *V1EarlyStopping) contextValidateDiff(ctx context.Context, formats strfm
 		}
 
 		if err := m.Diff.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("diff")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("diff")
 			}
+
 			return err
 		}
 	}
@@ -219,11 +244,15 @@ func (m *V1EarlyStopping) contextValidateFailure(ctx context.Context, formats st
 		}
 
 		if err := m.Failure.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("failure")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("failure")
 			}
+
 			return err
 		}
 	}
@@ -240,11 +269,15 @@ func (m *V1EarlyStopping) contextValidateMedian(ctx context.Context, formats str
 		}
 
 		if err := m.Median.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("median")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("median")
 			}
+
 			return err
 		}
 	}
@@ -261,11 +294,15 @@ func (m *V1EarlyStopping) contextValidateMetric(ctx context.Context, formats str
 		}
 
 		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("metric")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("metric")
 			}
+
 			return err
 		}
 	}
@@ -282,11 +319,15 @@ func (m *V1EarlyStopping) contextValidateTruncation(ctx context.Context, formats
 		}
 
 		if err := m.Truncation.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("truncation")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("truncation")
 			}
+
 			return err
 		}
 	}

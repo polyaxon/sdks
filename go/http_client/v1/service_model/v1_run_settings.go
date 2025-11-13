@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -29,10 +30,10 @@ type V1RunSettings struct {
 	ArtifactsStore *V1SettingsCatalog `json:"artifacts_store,omitempty"`
 
 	// Build reference, if it exists
-	Build interface{} `json:"build,omitempty"`
+	Build any `json:"build,omitempty"`
 
 	// Component reference
-	Component interface{} `json:"component,omitempty"`
+	Component any `json:"component,omitempty"`
 
 	// Model version references
 	Models []*V1RunReferenceCatalog `json:"models"`
@@ -44,7 +45,7 @@ type V1RunSettings struct {
 	Queue *V1SettingsCatalog `json:"queue,omitempty"`
 
 	// Latest Tensorboard reference, if it exists
-	Tensorboard interface{} `json:"tensorboard,omitempty"`
+	Tensorboard any `json:"tensorboard,omitempty"`
 }
 
 // Validate validates this v1 run settings
@@ -84,11 +85,15 @@ func (m *V1RunSettings) validateAgent(formats strfmt.Registry) error {
 
 	if m.Agent != nil {
 		if err := m.Agent.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("agent")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("agent")
 			}
+
 			return err
 		}
 	}
@@ -108,11 +113,15 @@ func (m *V1RunSettings) validateArtifacts(formats strfmt.Registry) error {
 
 		if m.Artifacts[i] != nil {
 			if err := m.Artifacts[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("artifacts" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -129,11 +138,15 @@ func (m *V1RunSettings) validateArtifactsStore(formats strfmt.Registry) error {
 
 	if m.ArtifactsStore != nil {
 		if err := m.ArtifactsStore.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacts_store")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacts_store")
 			}
+
 			return err
 		}
 	}
@@ -153,11 +166,15 @@ func (m *V1RunSettings) validateModels(formats strfmt.Registry) error {
 
 		if m.Models[i] != nil {
 			if err := m.Models[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("models" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("models" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -174,11 +191,15 @@ func (m *V1RunSettings) validateQueue(formats strfmt.Registry) error {
 
 	if m.Queue != nil {
 		if err := m.Queue.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queue")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queue")
 			}
+
 			return err
 		}
 	}
@@ -225,11 +246,15 @@ func (m *V1RunSettings) contextValidateAgent(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("agent")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("agent")
 			}
+
 			return err
 		}
 	}
@@ -248,11 +273,15 @@ func (m *V1RunSettings) contextValidateArtifacts(ctx context.Context, formats st
 			}
 
 			if err := m.Artifacts[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("artifacts" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("artifacts" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -271,11 +300,15 @@ func (m *V1RunSettings) contextValidateArtifactsStore(ctx context.Context, forma
 		}
 
 		if err := m.ArtifactsStore.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("artifacts_store")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("artifacts_store")
 			}
+
 			return err
 		}
 	}
@@ -294,11 +327,15 @@ func (m *V1RunSettings) contextValidateModels(ctx context.Context, formats strfm
 			}
 
 			if err := m.Models[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("models" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("models" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -317,11 +354,15 @@ func (m *V1RunSettings) contextValidateQueue(ctx context.Context, formats strfmt
 		}
 
 		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("queue")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("queue")
 			}
+
 			return err
 		}
 	}

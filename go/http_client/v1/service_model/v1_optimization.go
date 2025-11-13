@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1OptimizationEnum []interface{}
+var v1OptimizationEnum []any
 
 func init() {
 	var res []V1Optimization

@@ -6,6 +6,8 @@ package queues_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateQueueReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateQueueOK()
@@ -104,11 +106,13 @@ func (o *UpdateQueueOK) Code() int {
 }
 
 func (o *UpdateQueueOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK %s", 200, payload)
 }
 
 func (o *UpdateQueueOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueOK %s", 200, payload)
 }
 
 func (o *UpdateQueueOK) GetPayload() *service_model.V1Queue {
@@ -120,7 +124,7 @@ func (o *UpdateQueueOK) readResponse(response runtime.ClientResponse, consumer r
 	o.Payload = new(service_model.V1Queue)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateQueueNoContent describes a response with status code 204, with default hea
 No content.
 */
 type UpdateQueueNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update queue no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateQueueNoContent) Code() int {
 }
 
 func (o *UpdateQueueNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent %s", 204, payload)
 }
 
 func (o *UpdateQueueNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNoContent %s", 204, payload)
 }
 
-func (o *UpdateQueueNoContent) GetPayload() interface{} {
+func (o *UpdateQueueNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateQueueNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateQueueForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type UpdateQueueForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update queue forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateQueueForbidden) Code() int {
 }
 
 func (o *UpdateQueueForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden %s", 403, payload)
 }
 
 func (o *UpdateQueueForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueForbidden %s", 403, payload)
 }
 
-func (o *UpdateQueueForbidden) GetPayload() interface{} {
+func (o *UpdateQueueForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateQueueForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateQueueNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type UpdateQueueNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update queue not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateQueueNotFound) Code() int {
 }
 
 func (o *UpdateQueueNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound %s", 404, payload)
 }
 
 func (o *UpdateQueueNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] updateQueueNotFound %s", 404, payload)
 }
 
-func (o *UpdateQueueNotFound) GetPayload() interface{} {
+func (o *UpdateQueueNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateQueueNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateQueueDefault) Code() int {
 }
 
 func (o *UpdateQueueDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default %s", o._statusCode, payload)
 }
 
 func (o *UpdateQueueDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}][%d] UpdateQueue default %s", o._statusCode, payload)
 }
 
 func (o *UpdateQueueDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateQueueDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateVersionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateVersionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateVersionOK()
@@ -104,11 +106,13 @@ func (o *CreateVersionOK) Code() int {
 }
 
 func (o *CreateVersionOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK %s", 200, payload)
 }
 
 func (o *CreateVersionOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionOK %s", 200, payload)
 }
 
 func (o *CreateVersionOK) GetPayload() *service_model.V1ProjectVersion {
@@ -120,7 +124,7 @@ func (o *CreateVersionOK) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.V1ProjectVersion)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateVersionNoContent describes a response with status code 204, with default h
 No content.
 */
 type CreateVersionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateVersionNoContent) Code() int {
 }
 
 func (o *CreateVersionNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent %s", 204, payload)
 }
 
 func (o *CreateVersionNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNoContent %s", 204, payload)
 }
 
-func (o *CreateVersionNoContent) GetPayload() interface{} {
+func (o *CreateVersionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateVersionForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type CreateVersionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateVersionForbidden) Code() int {
 }
 
 func (o *CreateVersionForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden %s", 403, payload)
 }
 
 func (o *CreateVersionForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionForbidden %s", 403, payload)
 }
 
-func (o *CreateVersionForbidden) GetPayload() interface{} {
+func (o *CreateVersionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateVersionNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type CreateVersionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create version not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateVersionNotFound) Code() int {
 }
 
 func (o *CreateVersionNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound %s", 404, payload)
 }
 
 func (o *CreateVersionNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] createVersionNotFound %s", 404, payload)
 }
 
-func (o *CreateVersionNotFound) GetPayload() interface{} {
+func (o *CreateVersionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateVersionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateVersionDefault) Code() int {
 }
 
 func (o *CreateVersionDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default %s", o._statusCode, payload)
 }
 
 func (o *CreateVersionDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{project}/versions/{version.kind}][%d] CreateVersion default %s", o._statusCode, payload)
 }
 
 func (o *CreateVersionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateVersionDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

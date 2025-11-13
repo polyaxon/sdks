@@ -44,7 +44,7 @@ const (
 )
 
 // for schema
-var v1StagesEnum []interface{}
+var v1StagesEnum []any
 
 func init() {
 	var res []V1Stages

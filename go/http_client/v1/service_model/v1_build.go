@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -44,7 +45,7 @@ type V1Build struct {
 	Queue string `json:"queue,omitempty"`
 
 	// Optional a run section to override the content of the run in the template
-	RunPatch interface{} `json:"runPatch,omitempty"`
+	RunPatch any `json:"runPatch,omitempty"`
 }
 
 // Validate validates this v1 build
@@ -76,11 +77,15 @@ func (m *V1Build) validateCache(formats strfmt.Registry) error {
 
 	if m.Cache != nil {
 		if err := m.Cache.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cache")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cache")
 			}
+
 			return err
 		}
 	}
@@ -100,11 +105,15 @@ func (m *V1Build) validateParams(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Params[k]; ok {
 			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("params" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("params" + "." + k)
 				}
+
 				return err
 			}
 		}
@@ -121,11 +130,15 @@ func (m *V1Build) validatePatchStrategy(formats strfmt.Registry) error {
 
 	if m.PatchStrategy != nil {
 		if err := m.PatchStrategy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("patchStrategy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("patchStrategy")
 			}
+
 			return err
 		}
 	}
@@ -164,11 +177,15 @@ func (m *V1Build) contextValidateCache(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Cache.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("cache")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("cache")
 			}
+
 			return err
 		}
 	}
@@ -200,11 +217,15 @@ func (m *V1Build) contextValidatePatchStrategy(ctx context.Context, formats strf
 		}
 
 		if err := m.PatchStrategy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("patchStrategy")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("patchStrategy")
 			}
+
 			return err
 		}
 	}

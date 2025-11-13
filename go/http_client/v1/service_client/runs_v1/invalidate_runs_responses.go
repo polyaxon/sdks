@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type InvalidateRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *InvalidateRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *InvalidateRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewInvalidateRunsOK()
@@ -103,11 +105,11 @@ func (o *InvalidateRunsOK) Code() int {
 }
 
 func (o *InvalidateRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK", 200)
 }
 
 func (o *InvalidateRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsOK", 200)
 }
 
 func (o *InvalidateRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ InvalidateRunsNoContent describes a response with status code 204, with default 
 No content.
 */
 type InvalidateRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this invalidate runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *InvalidateRunsNoContent) Code() int {
 }
 
 func (o *InvalidateRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent %s", 204, payload)
 }
 
 func (o *InvalidateRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNoContent %s", 204, payload)
 }
 
-func (o *InvalidateRunsNoContent) GetPayload() interface{} {
+func (o *InvalidateRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InvalidateRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ InvalidateRunsForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type InvalidateRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this invalidate runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *InvalidateRunsForbidden) Code() int {
 }
 
 func (o *InvalidateRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden %s", 403, payload)
 }
 
 func (o *InvalidateRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsForbidden %s", 403, payload)
 }
 
-func (o *InvalidateRunsForbidden) GetPayload() interface{} {
+func (o *InvalidateRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InvalidateRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ InvalidateRunsNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type InvalidateRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this invalidate runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *InvalidateRunsNotFound) Code() int {
 }
 
 func (o *InvalidateRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound %s", 404, payload)
 }
 
 func (o *InvalidateRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] invalidateRunsNotFound %s", 404, payload)
 }
 
-func (o *InvalidateRunsNotFound) GetPayload() interface{} {
+func (o *InvalidateRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InvalidateRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *InvalidateRunsDefault) Code() int {
 }
 
 func (o *InvalidateRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default %s", o._statusCode, payload)
 }
 
 func (o *InvalidateRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/runs/invalidate][%d] InvalidateRuns default %s", o._statusCode, payload)
 }
 
 func (o *InvalidateRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *InvalidateRunsDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type RestoreProjectReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *RestoreProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *RestoreProjectReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewRestoreProjectOK()
@@ -103,11 +105,11 @@ func (o *RestoreProjectOK) Code() int {
 }
 
 func (o *RestoreProjectOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK", 200)
 }
 
 func (o *RestoreProjectOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectOK", 200)
 }
 
 func (o *RestoreProjectOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ RestoreProjectNoContent describes a response with status code 204, with default 
 No content.
 */
 type RestoreProjectNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore project no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *RestoreProjectNoContent) Code() int {
 }
 
 func (o *RestoreProjectNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent %s", 204, payload)
 }
 
 func (o *RestoreProjectNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNoContent %s", 204, payload)
 }
 
-func (o *RestoreProjectNoContent) GetPayload() interface{} {
+func (o *RestoreProjectNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreProjectNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ RestoreProjectForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type RestoreProjectForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore project forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *RestoreProjectForbidden) Code() int {
 }
 
 func (o *RestoreProjectForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden %s", 403, payload)
 }
 
 func (o *RestoreProjectForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectForbidden %s", 403, payload)
 }
 
-func (o *RestoreProjectForbidden) GetPayload() interface{} {
+func (o *RestoreProjectForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreProjectForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ RestoreProjectNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type RestoreProjectNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this restore project not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *RestoreProjectNotFound) Code() int {
 }
 
 func (o *RestoreProjectNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound %s", 404, payload)
 }
 
 func (o *RestoreProjectNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] restoreProjectNotFound %s", 404, payload)
 }
 
-func (o *RestoreProjectNotFound) GetPayload() interface{} {
+func (o *RestoreProjectNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *RestoreProjectNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *RestoreProjectDefault) Code() int {
 }
 
 func (o *RestoreProjectDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default %s", o._statusCode, payload)
 }
 
 func (o *RestoreProjectDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{name}/restore][%d] RestoreProject default %s", o._statusCode, payload)
 }
 
 func (o *RestoreProjectDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *RestoreProjectDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

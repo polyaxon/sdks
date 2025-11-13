@@ -6,6 +6,8 @@ package project_dashboards_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteProjectDashboardReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteProjectDashboardOK()
@@ -103,11 +105,11 @@ func (o *DeleteProjectDashboardOK) Code() int {
 }
 
 func (o *DeleteProjectDashboardOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK", 200)
 }
 
 func (o *DeleteProjectDashboardOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardOK", 200)
 }
 
 func (o *DeleteProjectDashboardOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteProjectDashboardNoContent describes a response with status code 204, with 
 No content.
 */
 type DeleteProjectDashboardNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project dashboard no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteProjectDashboardNoContent) Code() int {
 }
 
 func (o *DeleteProjectDashboardNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent %s", 204, payload)
 }
 
 func (o *DeleteProjectDashboardNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNoContent %s", 204, payload)
 }
 
-func (o *DeleteProjectDashboardNoContent) GetPayload() interface{} {
+func (o *DeleteProjectDashboardNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectDashboardNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteProjectDashboardForbidden describes a response with status code 403, with 
 You don't have permission to access the resource.
 */
 type DeleteProjectDashboardForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project dashboard forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteProjectDashboardForbidden) Code() int {
 }
 
 func (o *DeleteProjectDashboardForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden %s", 403, payload)
 }
 
 func (o *DeleteProjectDashboardForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardForbidden %s", 403, payload)
 }
 
-func (o *DeleteProjectDashboardForbidden) GetPayload() interface{} {
+func (o *DeleteProjectDashboardForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectDashboardForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteProjectDashboardNotFound describes a response with status code 404, with d
 Resource does not exist.
 */
 type DeleteProjectDashboardNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete project dashboard not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteProjectDashboardNotFound) Code() int {
 }
 
 func (o *DeleteProjectDashboardNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound %s", 404, payload)
 }
 
 func (o *DeleteProjectDashboardNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] deleteProjectDashboardNotFound %s", 404, payload)
 }
 
-func (o *DeleteProjectDashboardNotFound) GetPayload() interface{} {
+func (o *DeleteProjectDashboardNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteProjectDashboardNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteProjectDashboardDefault) Code() int {
 }
 
 func (o *DeleteProjectDashboardDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *DeleteProjectDashboardDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/{owner}/{entity}/dashboards/{uuid}][%d] DeleteProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *DeleteProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteProjectDashboardDefault) readResponse(response runtime.ClientResp
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

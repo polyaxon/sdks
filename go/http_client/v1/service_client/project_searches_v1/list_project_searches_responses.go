@@ -6,6 +6,8 @@ package project_searches_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListProjectSearchesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListProjectSearchesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListProjectSearchesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListProjectSearchesOK()
@@ -104,11 +106,13 @@ func (o *ListProjectSearchesOK) Code() int {
 }
 
 func (o *ListProjectSearchesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesOK %s", 200, payload)
 }
 
 func (o *ListProjectSearchesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesOK %s", 200, payload)
 }
 
 func (o *ListProjectSearchesOK) GetPayload() *service_model.V1ListSearchesResponse {
@@ -120,7 +124,7 @@ func (o *ListProjectSearchesOK) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.V1ListSearchesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListProjectSearchesNoContent describes a response with status code 204, with def
 No content.
 */
 type ListProjectSearchesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list project searches no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListProjectSearchesNoContent) Code() int {
 }
 
 func (o *ListProjectSearchesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNoContent %s", 204, payload)
 }
 
 func (o *ListProjectSearchesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNoContent %s", 204, payload)
 }
 
-func (o *ListProjectSearchesNoContent) GetPayload() interface{} {
+func (o *ListProjectSearchesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListProjectSearchesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListProjectSearchesForbidden describes a response with status code 403, with def
 You don't have permission to access the resource.
 */
 type ListProjectSearchesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list project searches forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListProjectSearchesForbidden) Code() int {
 }
 
 func (o *ListProjectSearchesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesForbidden %s", 403, payload)
 }
 
 func (o *ListProjectSearchesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesForbidden %s", 403, payload)
 }
 
-func (o *ListProjectSearchesForbidden) GetPayload() interface{} {
+func (o *ListProjectSearchesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListProjectSearchesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListProjectSearchesNotFound describes a response with status code 404, with defa
 Resource does not exist.
 */
 type ListProjectSearchesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list project searches not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListProjectSearchesNotFound) Code() int {
 }
 
 func (o *ListProjectSearchesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNotFound %s", 404, payload)
 }
 
 func (o *ListProjectSearchesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] listProjectSearchesNotFound %s", 404, payload)
 }
 
-func (o *ListProjectSearchesNotFound) GetPayload() interface{} {
+func (o *ListProjectSearchesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListProjectSearchesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListProjectSearchesDefault) Code() int {
 }
 
 func (o *ListProjectSearchesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] ListProjectSearches default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] ListProjectSearches default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectSearchesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] ListProjectSearches default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{name}/searches][%d] ListProjectSearches default %s", o._statusCode, payload)
 }
 
 func (o *ListProjectSearchesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListProjectSearchesDefault) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

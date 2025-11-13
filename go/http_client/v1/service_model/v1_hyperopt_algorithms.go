@@ -45,7 +45,7 @@ const (
 )
 
 // for schema
-var v1HyperoptAlgorithmsEnum []interface{}
+var v1HyperoptAlgorithmsEnum []any
 
 func init() {
 	var res []V1HyperoptAlgorithms

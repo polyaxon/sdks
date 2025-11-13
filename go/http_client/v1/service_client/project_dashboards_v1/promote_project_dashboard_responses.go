@@ -6,6 +6,8 @@ package project_dashboards_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PromoteProjectDashboardReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PromoteProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PromoteProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPromoteProjectDashboardOK()
@@ -103,11 +105,11 @@ func (o *PromoteProjectDashboardOK) Code() int {
 }
 
 func (o *PromoteProjectDashboardOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK", 200)
 }
 
 func (o *PromoteProjectDashboardOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardOK", 200)
 }
 
 func (o *PromoteProjectDashboardOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ PromoteProjectDashboardNoContent describes a response with status code 204, with
 No content.
 */
 type PromoteProjectDashboardNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project dashboard no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *PromoteProjectDashboardNoContent) Code() int {
 }
 
 func (o *PromoteProjectDashboardNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent %s", 204, payload)
 }
 
 func (o *PromoteProjectDashboardNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNoContent %s", 204, payload)
 }
 
-func (o *PromoteProjectDashboardNoContent) GetPayload() interface{} {
+func (o *PromoteProjectDashboardNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectDashboardNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ PromoteProjectDashboardForbidden describes a response with status code 403, with
 You don't have permission to access the resource.
 */
 type PromoteProjectDashboardForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project dashboard forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *PromoteProjectDashboardForbidden) Code() int {
 }
 
 func (o *PromoteProjectDashboardForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden %s", 403, payload)
 }
 
 func (o *PromoteProjectDashboardForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardForbidden %s", 403, payload)
 }
 
-func (o *PromoteProjectDashboardForbidden) GetPayload() interface{} {
+func (o *PromoteProjectDashboardForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectDashboardForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ PromoteProjectDashboardNotFound describes a response with status code 404, with 
 Resource does not exist.
 */
 type PromoteProjectDashboardNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this promote project dashboard not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *PromoteProjectDashboardNotFound) Code() int {
 }
 
 func (o *PromoteProjectDashboardNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound %s", 404, payload)
 }
 
 func (o *PromoteProjectDashboardNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] promoteProjectDashboardNotFound %s", 404, payload)
 }
 
-func (o *PromoteProjectDashboardNotFound) GetPayload() interface{} {
+func (o *PromoteProjectDashboardNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PromoteProjectDashboardNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *PromoteProjectDashboardDefault) Code() int {
 }
 
 func (o *PromoteProjectDashboardDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *PromoteProjectDashboardDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/{owner}/{entity}/dashboards/{uuid}/promote][%d] PromoteProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *PromoteProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *PromoteProjectDashboardDefault) readResponse(response runtime.ClientRes
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

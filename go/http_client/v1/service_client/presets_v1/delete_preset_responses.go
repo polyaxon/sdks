@@ -6,6 +6,8 @@ package presets_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeletePresetReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeletePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeletePresetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeletePresetOK()
@@ -103,11 +105,11 @@ func (o *DeletePresetOK) Code() int {
 }
 
 func (o *DeletePresetOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK", 200)
 }
 
 func (o *DeletePresetOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetOK", 200)
 }
 
 func (o *DeletePresetOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeletePresetNoContent describes a response with status code 204, with default he
 No content.
 */
 type DeletePresetNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete preset no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeletePresetNoContent) Code() int {
 }
 
 func (o *DeletePresetNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent %s", 204, payload)
 }
 
 func (o *DeletePresetNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNoContent %s", 204, payload)
 }
 
-func (o *DeletePresetNoContent) GetPayload() interface{} {
+func (o *DeletePresetNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePresetNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeletePresetForbidden describes a response with status code 403, with default he
 You don't have permission to access the resource.
 */
 type DeletePresetForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete preset forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeletePresetForbidden) Code() int {
 }
 
 func (o *DeletePresetForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden %s", 403, payload)
 }
 
 func (o *DeletePresetForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetForbidden %s", 403, payload)
 }
 
-func (o *DeletePresetForbidden) GetPayload() interface{} {
+func (o *DeletePresetForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePresetForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeletePresetNotFound describes a response with status code 404, with default hea
 Resource does not exist.
 */
 type DeletePresetNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete preset not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeletePresetNotFound) Code() int {
 }
 
 func (o *DeletePresetNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound %s", 404, payload)
 }
 
 func (o *DeletePresetNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] deletePresetNotFound %s", 404, payload)
 }
 
-func (o *DeletePresetNotFound) GetPayload() interface{} {
+func (o *DeletePresetNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeletePresetNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeletePresetDefault) Code() int {
 }
 
 func (o *DeletePresetDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default %s", o._statusCode, payload)
 }
 
 func (o *DeletePresetDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/presets/{uuid}][%d] DeletePreset default %s", o._statusCode, payload)
 }
 
 func (o *DeletePresetDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeletePresetDefault) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

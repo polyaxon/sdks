@@ -18,34 +18,34 @@ import (
 type AgentStateResponseAgentState struct {
 
 	// List of apply runs
-	Apply interface{} `json:"apply,omitempty"`
+	Apply any `json:"apply,omitempty"`
 
 	// List of run checks
-	Checks interface{} `json:"checks,omitempty"`
+	Checks any `json:"checks,omitempty"`
 
 	// List of deleting runs
-	Deleting interface{} `json:"deleting,omitempty"`
+	Deleting any `json:"deleting,omitempty"`
 
 	// A flag to tell the agent that the queues are still full
 	Full bool `json:"full,omitempty"`
 
 	// List of hooks runs
-	Hooks interface{} `json:"hooks,omitempty"`
+	Hooks any `json:"hooks,omitempty"`
 
 	// List of queued runs
-	Queued interface{} `json:"queued,omitempty"`
+	Queued any `json:"queued,omitempty"`
 
 	// List of schdules runs
-	Schedules interface{} `json:"schedules,omitempty"`
+	Schedules any `json:"schedules,omitempty"`
 
 	// List of stopping runs
-	Stopping interface{} `json:"stopping,omitempty"`
+	Stopping any `json:"stopping,omitempty"`
 
 	// List of tuners runs
-	Tuners interface{} `json:"tuners,omitempty"`
+	Tuners any `json:"tuners,omitempty"`
 
 	// List of watchdogs runs
-	Watchdogs interface{} `json:"watchdogs,omitempty"`
+	Watchdogs any `json:"watchdogs,omitempty"`
 }
 
 // Validate validates this agent state response agent state

@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type UpdateConnectionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *UpdateConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *UpdateConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewUpdateConnectionOK()
@@ -104,11 +106,13 @@ func (o *UpdateConnectionOK) Code() int {
 }
 
 func (o *UpdateConnectionOK) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK %s", 200, payload)
 }
 
 func (o *UpdateConnectionOK) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionOK %s", 200, payload)
 }
 
 func (o *UpdateConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
@@ -120,7 +124,7 @@ func (o *UpdateConnectionOK) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.V1ConnectionResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ UpdateConnectionNoContent describes a response with status code 204, with defaul
 No content.
 */
 type UpdateConnectionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update connection no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *UpdateConnectionNoContent) Code() int {
 }
 
 func (o *UpdateConnectionNoContent) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent %s", 204, payload)
 }
 
 func (o *UpdateConnectionNoContent) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNoContent %s", 204, payload)
 }
 
-func (o *UpdateConnectionNoContent) GetPayload() interface{} {
+func (o *UpdateConnectionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateConnectionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ UpdateConnectionForbidden describes a response with status code 403, with defaul
 You don't have permission to access the resource.
 */
 type UpdateConnectionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update connection forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *UpdateConnectionForbidden) Code() int {
 }
 
 func (o *UpdateConnectionForbidden) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden %s", 403, payload)
 }
 
 func (o *UpdateConnectionForbidden) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionForbidden %s", 403, payload)
 }
 
-func (o *UpdateConnectionForbidden) GetPayload() interface{} {
+func (o *UpdateConnectionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateConnectionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ UpdateConnectionNotFound describes a response with status code 404, with default
 Resource does not exist.
 */
 type UpdateConnectionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this update connection not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *UpdateConnectionNotFound) Code() int {
 }
 
 func (o *UpdateConnectionNotFound) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound %s", 404, payload)
 }
 
 func (o *UpdateConnectionNotFound) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] updateConnectionNotFound %s", 404, payload)
 }
 
-func (o *UpdateConnectionNotFound) GetPayload() interface{} {
+func (o *UpdateConnectionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *UpdateConnectionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *UpdateConnectionDefault) Code() int {
 }
 
 func (o *UpdateConnectionDefault) Error() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default %s", o._statusCode, payload)
 }
 
 func (o *UpdateConnectionDefault) String() string {
-	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PUT /api/v1/orgs/{owner}/connections/{connection.uuid}][%d] UpdateConnection default %s", o._statusCode, payload)
 }
 
 func (o *UpdateConnectionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *UpdateConnectionDefault) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

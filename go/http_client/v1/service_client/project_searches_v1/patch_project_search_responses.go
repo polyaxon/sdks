@@ -6,6 +6,8 @@ package project_searches_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchProjectSearchReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchProjectSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchProjectSearchReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchProjectSearchOK()
@@ -104,11 +106,13 @@ func (o *PatchProjectSearchOK) Code() int {
 }
 
 func (o *PatchProjectSearchOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchOK %s", 200, payload)
 }
 
 func (o *PatchProjectSearchOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchOK %s", 200, payload)
 }
 
 func (o *PatchProjectSearchOK) GetPayload() *service_model.V1Search {
@@ -120,7 +124,7 @@ func (o *PatchProjectSearchOK) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.V1Search)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchProjectSearchNoContent describes a response with status code 204, with defa
 No content.
 */
 type PatchProjectSearchNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project search no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchProjectSearchNoContent) Code() int {
 }
 
 func (o *PatchProjectSearchNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNoContent %s", 204, payload)
 }
 
 func (o *PatchProjectSearchNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNoContent %s", 204, payload)
 }
 
-func (o *PatchProjectSearchNoContent) GetPayload() interface{} {
+func (o *PatchProjectSearchNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSearchNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchProjectSearchForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type PatchProjectSearchForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project search forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchProjectSearchForbidden) Code() int {
 }
 
 func (o *PatchProjectSearchForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchForbidden %s", 403, payload)
 }
 
 func (o *PatchProjectSearchForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchForbidden %s", 403, payload)
 }
 
-func (o *PatchProjectSearchForbidden) GetPayload() interface{} {
+func (o *PatchProjectSearchForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSearchForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchProjectSearchNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type PatchProjectSearchNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project search not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchProjectSearchNotFound) Code() int {
 }
 
 func (o *PatchProjectSearchNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNotFound %s", 404, payload)
 }
 
 func (o *PatchProjectSearchNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] patchProjectSearchNotFound %s", 404, payload)
 }
 
-func (o *PatchProjectSearchNotFound) GetPayload() interface{} {
+func (o *PatchProjectSearchNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectSearchNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchProjectSearchDefault) Code() int {
 }
 
 func (o *PatchProjectSearchDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] PatchProjectSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] PatchProjectSearch default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectSearchDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] PatchProjectSearch default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/searches/{search.uuid}][%d] PatchProjectSearch default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectSearchDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchProjectSearchDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

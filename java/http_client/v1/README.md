@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.11.1
+- API version: 2.12.0-rc2
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.11.1</version>
+  <version>2.12.0-rc2</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.11.1"
+     implementation "org.openapitools:openapi-java-client:2.12.0-rc2"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.11.1.jar`
+* `target/openapi-java-client-2.12.0-rc2.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

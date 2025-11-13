@@ -18,7 +18,7 @@ import (
 type V1EventsResponse struct {
 
 	// Events data
-	Data []interface{} `json:"data"`
+	Data []any `json:"data"`
 }
 
 // Validate validates this v1 events response

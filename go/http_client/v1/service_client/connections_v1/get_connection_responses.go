@@ -6,6 +6,8 @@ package connections_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetConnectionReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetConnectionReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetConnectionOK()
@@ -104,11 +106,13 @@ func (o *GetConnectionOK) Code() int {
 }
 
 func (o *GetConnectionOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK %s", 200, payload)
 }
 
 func (o *GetConnectionOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionOK %s", 200, payload)
 }
 
 func (o *GetConnectionOK) GetPayload() *service_model.V1ConnectionResponse {
@@ -120,7 +124,7 @@ func (o *GetConnectionOK) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.V1ConnectionResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetConnectionNoContent describes a response with status code 204, with default h
 No content.
 */
 type GetConnectionNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get connection no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetConnectionNoContent) Code() int {
 }
 
 func (o *GetConnectionNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent %s", 204, payload)
 }
 
 func (o *GetConnectionNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNoContent %s", 204, payload)
 }
 
-func (o *GetConnectionNoContent) GetPayload() interface{} {
+func (o *GetConnectionNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetConnectionNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetConnectionForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type GetConnectionForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get connection forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetConnectionForbidden) Code() int {
 }
 
 func (o *GetConnectionForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden %s", 403, payload)
 }
 
 func (o *GetConnectionForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionForbidden %s", 403, payload)
 }
 
-func (o *GetConnectionForbidden) GetPayload() interface{} {
+func (o *GetConnectionForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetConnectionForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetConnectionNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type GetConnectionNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get connection not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetConnectionNotFound) Code() int {
 }
 
 func (o *GetConnectionNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound %s", 404, payload)
 }
 
 func (o *GetConnectionNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] getConnectionNotFound %s", 404, payload)
 }
 
-func (o *GetConnectionNotFound) GetPayload() interface{} {
+func (o *GetConnectionNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetConnectionNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetConnectionDefault) Code() int {
 }
 
 func (o *GetConnectionDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default %s", o._statusCode, payload)
 }
 
 func (o *GetConnectionDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/connections/{uuid}][%d] GetConnection default %s", o._statusCode, payload)
 }
 
 func (o *GetConnectionDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetConnectionDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

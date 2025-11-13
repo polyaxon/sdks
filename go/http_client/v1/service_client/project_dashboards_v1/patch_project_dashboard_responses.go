@@ -6,6 +6,8 @@ package project_dashboards_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchProjectDashboardReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchProjectDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchProjectDashboardOK()
@@ -104,11 +106,13 @@ func (o *PatchProjectDashboardOK) Code() int {
 }
 
 func (o *PatchProjectDashboardOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK %s", 200, payload)
 }
 
 func (o *PatchProjectDashboardOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardOK %s", 200, payload)
 }
 
 func (o *PatchProjectDashboardOK) GetPayload() *service_model.V1Dashboard {
@@ -120,7 +124,7 @@ func (o *PatchProjectDashboardOK) readResponse(response runtime.ClientResponse, 
 	o.Payload = new(service_model.V1Dashboard)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchProjectDashboardNoContent describes a response with status code 204, with d
 No content.
 */
 type PatchProjectDashboardNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project dashboard no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchProjectDashboardNoContent) Code() int {
 }
 
 func (o *PatchProjectDashboardNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent %s", 204, payload)
 }
 
 func (o *PatchProjectDashboardNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNoContent %s", 204, payload)
 }
 
-func (o *PatchProjectDashboardNoContent) GetPayload() interface{} {
+func (o *PatchProjectDashboardNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectDashboardNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchProjectDashboardForbidden describes a response with status code 403, with d
 You don't have permission to access the resource.
 */
 type PatchProjectDashboardForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project dashboard forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchProjectDashboardForbidden) Code() int {
 }
 
 func (o *PatchProjectDashboardForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden %s", 403, payload)
 }
 
 func (o *PatchProjectDashboardForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardForbidden %s", 403, payload)
 }
 
-func (o *PatchProjectDashboardForbidden) GetPayload() interface{} {
+func (o *PatchProjectDashboardForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectDashboardForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchProjectDashboardNotFound describes a response with status code 404, with de
 Resource does not exist.
 */
 type PatchProjectDashboardNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch project dashboard not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchProjectDashboardNotFound) Code() int {
 }
 
 func (o *PatchProjectDashboardNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound %s", 404, payload)
 }
 
 func (o *PatchProjectDashboardNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] patchProjectDashboardNotFound %s", 404, payload)
 }
 
-func (o *PatchProjectDashboardNotFound) GetPayload() interface{} {
+func (o *PatchProjectDashboardNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchProjectDashboardNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchProjectDashboardDefault) Code() int {
 }
 
 func (o *PatchProjectDashboardDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectDashboardDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/{owner}/{project}/dashboards/{dashboard.uuid}][%d] PatchProjectDashboard default %s", o._statusCode, payload)
 }
 
 func (o *PatchProjectDashboardDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchProjectDashboardDefault) readResponse(response runtime.ClientRespo
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package tags_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteTagReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteTagReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteTagOK()
@@ -103,11 +105,11 @@ func (o *DeleteTagOK) Code() int {
 }
 
 func (o *DeleteTagOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK", 200)
 }
 
 func (o *DeleteTagOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagOK", 200)
 }
 
 func (o *DeleteTagOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteTagNoContent describes a response with status code 204, with default heade
 No content.
 */
 type DeleteTagNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete tag no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteTagNoContent) Code() int {
 }
 
 func (o *DeleteTagNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent %s", 204, payload)
 }
 
 func (o *DeleteTagNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNoContent %s", 204, payload)
 }
 
-func (o *DeleteTagNoContent) GetPayload() interface{} {
+func (o *DeleteTagNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTagNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteTagForbidden describes a response with status code 403, with default heade
 You don't have permission to access the resource.
 */
 type DeleteTagForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete tag forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteTagForbidden) Code() int {
 }
 
 func (o *DeleteTagForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden %s", 403, payload)
 }
 
 func (o *DeleteTagForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagForbidden %s", 403, payload)
 }
 
-func (o *DeleteTagForbidden) GetPayload() interface{} {
+func (o *DeleteTagForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTagForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteTagNotFound describes a response with status code 404, with default header
 Resource does not exist.
 */
 type DeleteTagNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete tag not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteTagNotFound) Code() int {
 }
 
 func (o *DeleteTagNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound %s", 404, payload)
 }
 
 func (o *DeleteTagNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] deleteTagNotFound %s", 404, payload)
 }
 
-func (o *DeleteTagNotFound) GetPayload() interface{} {
+func (o *DeleteTagNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTagNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteTagDefault) Code() int {
 }
 
 func (o *DeleteTagDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTagDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/tags/{uuid}][%d] DeleteTag default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTagDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteTagDefault) readResponse(response runtime.ClientResponse, consume
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

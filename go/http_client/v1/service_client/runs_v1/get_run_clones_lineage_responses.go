@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetRunClonesLineageReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetRunClonesLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetRunClonesLineageReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetRunClonesLineageOK()
@@ -104,11 +106,13 @@ func (o *GetRunClonesLineageOK) Code() int {
 }
 
 func (o *GetRunClonesLineageOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK %s", 200, payload)
 }
 
 func (o *GetRunClonesLineageOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageOK %s", 200, payload)
 }
 
 func (o *GetRunClonesLineageOK) GetPayload() *service_model.V1ListRunsResponse {
@@ -120,7 +124,7 @@ func (o *GetRunClonesLineageOK) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.V1ListRunsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetRunClonesLineageNoContent describes a response with status code 204, with def
 No content.
 */
 type GetRunClonesLineageNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run clones lineage no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetRunClonesLineageNoContent) Code() int {
 }
 
 func (o *GetRunClonesLineageNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent %s", 204, payload)
 }
 
 func (o *GetRunClonesLineageNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNoContent %s", 204, payload)
 }
 
-func (o *GetRunClonesLineageNoContent) GetPayload() interface{} {
+func (o *GetRunClonesLineageNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunClonesLineageNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetRunClonesLineageForbidden describes a response with status code 403, with def
 You don't have permission to access the resource.
 */
 type GetRunClonesLineageForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run clones lineage forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetRunClonesLineageForbidden) Code() int {
 }
 
 func (o *GetRunClonesLineageForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden %s", 403, payload)
 }
 
 func (o *GetRunClonesLineageForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageForbidden %s", 403, payload)
 }
 
-func (o *GetRunClonesLineageForbidden) GetPayload() interface{} {
+func (o *GetRunClonesLineageForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunClonesLineageForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetRunClonesLineageNotFound describes a response with status code 404, with defa
 Resource does not exist.
 */
 type GetRunClonesLineageNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get run clones lineage not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetRunClonesLineageNotFound) Code() int {
 }
 
 func (o *GetRunClonesLineageNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound %s", 404, payload)
 }
 
 func (o *GetRunClonesLineageNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] getRunClonesLineageNotFound %s", 404, payload)
 }
 
-func (o *GetRunClonesLineageNotFound) GetPayload() interface{} {
+func (o *GetRunClonesLineageNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetRunClonesLineageNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetRunClonesLineageDefault) Code() int {
 }
 
 func (o *GetRunClonesLineageDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunClonesLineageDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/{owner}/{entity}/runs/{uuid}/lineage/clones][%d] GetRunClonesLineage default %s", o._statusCode, payload)
 }
 
 func (o *GetRunClonesLineageDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetRunClonesLineageDefault) readResponse(response runtime.ClientRespons
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

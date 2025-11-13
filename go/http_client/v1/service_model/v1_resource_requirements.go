@@ -8,4 +8,4 @@ package service_model
 // V1ResourceRequirements Placeholder Resource Requirements
 //
 // swagger:model v1ResourceRequirements
-type V1ResourceRequirements interface{}
+type V1ResourceRequirements any

@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchOrganizationReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchOrganizationReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchOrganizationOK()
@@ -104,11 +106,13 @@ func (o *PatchOrganizationOK) Code() int {
 }
 
 func (o *PatchOrganizationOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationOK %s", 200, payload)
 }
 
 func (o *PatchOrganizationOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationOK %s", 200, payload)
 }
 
 func (o *PatchOrganizationOK) GetPayload() *service_model.V1Organization {
@@ -120,7 +124,7 @@ func (o *PatchOrganizationOK) readResponse(response runtime.ClientResponse, cons
 	o.Payload = new(service_model.V1Organization)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchOrganizationNoContent describes a response with status code 204, with defau
 No content.
 */
 type PatchOrganizationNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch organization no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchOrganizationNoContent) Code() int {
 }
 
 func (o *PatchOrganizationNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNoContent %s", 204, payload)
 }
 
 func (o *PatchOrganizationNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNoContent %s", 204, payload)
 }
 
-func (o *PatchOrganizationNoContent) GetPayload() interface{} {
+func (o *PatchOrganizationNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchOrganizationNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchOrganizationForbidden describes a response with status code 403, with defau
 You don't have permission to access the resource.
 */
 type PatchOrganizationForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch organization forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchOrganizationForbidden) Code() int {
 }
 
 func (o *PatchOrganizationForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationForbidden %s", 403, payload)
 }
 
 func (o *PatchOrganizationForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationForbidden %s", 403, payload)
 }
 
-func (o *PatchOrganizationForbidden) GetPayload() interface{} {
+func (o *PatchOrganizationForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchOrganizationForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchOrganizationNotFound describes a response with status code 404, with defaul
 Resource does not exist.
 */
 type PatchOrganizationNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch organization not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchOrganizationNotFound) Code() int {
 }
 
 func (o *PatchOrganizationNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNotFound %s", 404, payload)
 }
 
 func (o *PatchOrganizationNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] patchOrganizationNotFound %s", 404, payload)
 }
 
-func (o *PatchOrganizationNotFound) GetPayload() interface{} {
+func (o *PatchOrganizationNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchOrganizationNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchOrganizationDefault) Code() int {
 }
 
 func (o *PatchOrganizationDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] PatchOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] PatchOrganization default %s", o._statusCode, payload)
 }
 
 func (o *PatchOrganizationDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] PatchOrganization default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}][%d] PatchOrganization default %s", o._statusCode, payload)
 }
 
 func (o *PatchOrganizationDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchOrganizationDefault) readResponse(response runtime.ClientResponse,
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

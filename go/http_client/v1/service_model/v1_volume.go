@@ -8,4 +8,4 @@ package service_model
 // V1Volume Placeholder for Volume
 //
 // swagger:model v1Volume
-type V1Volume interface{}
+type V1Volume any

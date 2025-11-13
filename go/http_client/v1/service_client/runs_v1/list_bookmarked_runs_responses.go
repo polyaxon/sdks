@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListBookmarkedRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListBookmarkedRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListBookmarkedRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListBookmarkedRunsOK()
@@ -104,11 +106,13 @@ func (o *ListBookmarkedRunsOK) Code() int {
 }
 
 func (o *ListBookmarkedRunsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK %s", 200, payload)
 }
 
 func (o *ListBookmarkedRunsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsOK %s", 200, payload)
 }
 
 func (o *ListBookmarkedRunsOK) GetPayload() *service_model.V1ListBookmarksResponse {
@@ -120,7 +124,7 @@ func (o *ListBookmarkedRunsOK) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.V1ListBookmarksResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListBookmarkedRunsNoContent describes a response with status code 204, with defa
 No content.
 */
 type ListBookmarkedRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked runs no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListBookmarkedRunsNoContent) Code() int {
 }
 
 func (o *ListBookmarkedRunsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent %s", 204, payload)
 }
 
 func (o *ListBookmarkedRunsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNoContent %s", 204, payload)
 }
 
-func (o *ListBookmarkedRunsNoContent) GetPayload() interface{} {
+func (o *ListBookmarkedRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListBookmarkedRunsForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type ListBookmarkedRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked runs forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListBookmarkedRunsForbidden) Code() int {
 }
 
 func (o *ListBookmarkedRunsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden %s", 403, payload)
 }
 
 func (o *ListBookmarkedRunsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsForbidden %s", 403, payload)
 }
 
-func (o *ListBookmarkedRunsForbidden) GetPayload() interface{} {
+func (o *ListBookmarkedRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListBookmarkedRunsNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type ListBookmarkedRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list bookmarked runs not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListBookmarkedRunsNotFound) Code() int {
 }
 
 func (o *ListBookmarkedRunsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound %s", 404, payload)
 }
 
 func (o *ListBookmarkedRunsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] listBookmarkedRunsNotFound %s", 404, payload)
 }
 
-func (o *ListBookmarkedRunsNotFound) GetPayload() interface{} {
+func (o *ListBookmarkedRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListBookmarkedRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListBookmarkedRunsDefault) Code() int {
 }
 
 func (o *ListBookmarkedRunsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default %s", o._statusCode, payload)
 }
 
 func (o *ListBookmarkedRunsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/bookmarks/{user}/runs][%d] ListBookmarkedRuns default %s", o._statusCode, payload)
 }
 
 func (o *ListBookmarkedRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListBookmarkedRunsDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteTokenReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteTokenOK()
@@ -103,11 +105,11 @@ func (o *DeleteTokenOK) Code() int {
 }
 
 func (o *DeleteTokenOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK", 200)
 }
 
 func (o *DeleteTokenOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenOK", 200)
 }
 
 func (o *DeleteTokenOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteTokenNoContent describes a response with status code 204, with default hea
 No content.
 */
 type DeleteTokenNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete token no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteTokenNoContent) Code() int {
 }
 
 func (o *DeleteTokenNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent %s", 204, payload)
 }
 
 func (o *DeleteTokenNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNoContent %s", 204, payload)
 }
 
-func (o *DeleteTokenNoContent) GetPayload() interface{} {
+func (o *DeleteTokenNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTokenNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteTokenForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type DeleteTokenForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete token forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteTokenForbidden) Code() int {
 }
 
 func (o *DeleteTokenForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden %s", 403, payload)
 }
 
 func (o *DeleteTokenForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenForbidden %s", 403, payload)
 }
 
-func (o *DeleteTokenForbidden) GetPayload() interface{} {
+func (o *DeleteTokenForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTokenForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteTokenNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type DeleteTokenNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete token not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteTokenNotFound) Code() int {
 }
 
 func (o *DeleteTokenNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound %s", 404, payload)
 }
 
 func (o *DeleteTokenNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] deleteTokenNotFound %s", 404, payload)
 }
 
-func (o *DeleteTokenNotFound) GetPayload() interface{} {
+func (o *DeleteTokenNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteTokenNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteTokenDefault) Code() int {
 }
 
 func (o *DeleteTokenDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTokenDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/users/tokens/{uuid}][%d] DeleteToken default %s", o._statusCode, payload)
 }
 
 func (o *DeleteTokenDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteTokenDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

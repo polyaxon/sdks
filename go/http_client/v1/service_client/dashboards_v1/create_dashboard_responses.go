@@ -6,6 +6,8 @@ package dashboards_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CreateDashboardReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CreateDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CreateDashboardReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCreateDashboardOK()
@@ -104,11 +106,13 @@ func (o *CreateDashboardOK) Code() int {
 }
 
 func (o *CreateDashboardOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardOK %s", 200, payload)
 }
 
 func (o *CreateDashboardOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardOK %s", 200, payload)
 }
 
 func (o *CreateDashboardOK) GetPayload() *service_model.V1Dashboard {
@@ -120,7 +124,7 @@ func (o *CreateDashboardOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1Dashboard)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ CreateDashboardNoContent describes a response with status code 204, with default
 No content.
 */
 type CreateDashboardNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create dashboard no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *CreateDashboardNoContent) Code() int {
 }
 
 func (o *CreateDashboardNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNoContent %s", 204, payload)
 }
 
 func (o *CreateDashboardNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNoContent %s", 204, payload)
 }
 
-func (o *CreateDashboardNoContent) GetPayload() interface{} {
+func (o *CreateDashboardNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateDashboardNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ CreateDashboardForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type CreateDashboardForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create dashboard forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *CreateDashboardForbidden) Code() int {
 }
 
 func (o *CreateDashboardForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardForbidden %s", 403, payload)
 }
 
 func (o *CreateDashboardForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardForbidden %s", 403, payload)
 }
 
-func (o *CreateDashboardForbidden) GetPayload() interface{} {
+func (o *CreateDashboardForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateDashboardForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ CreateDashboardNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type CreateDashboardNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this create dashboard not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *CreateDashboardNotFound) Code() int {
 }
 
 func (o *CreateDashboardNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNotFound %s", 404, payload)
 }
 
 func (o *CreateDashboardNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] createDashboardNotFound %s", 404, payload)
 }
 
-func (o *CreateDashboardNotFound) GetPayload() interface{} {
+func (o *CreateDashboardNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CreateDashboardNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *CreateDashboardDefault) Code() int {
 }
 
 func (o *CreateDashboardDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] CreateDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] CreateDashboard default %s", o._statusCode, payload)
 }
 
 func (o *CreateDashboardDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] CreateDashboard default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/dashboards][%d] CreateDashboard default %s", o._statusCode, payload)
 }
 
 func (o *CreateDashboardDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *CreateDashboardDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1ManagedByEnum []interface{}
+var v1ManagedByEnum []any
 
 func init() {
 	var res []V1ManagedBy

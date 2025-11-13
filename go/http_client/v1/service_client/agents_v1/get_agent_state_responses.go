@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type GetAgentStateReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *GetAgentStateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *GetAgentStateReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewGetAgentStateOK()
@@ -104,11 +106,13 @@ func (o *GetAgentStateOK) Code() int {
 }
 
 func (o *GetAgentStateOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateOK %s", 200, payload)
 }
 
 func (o *GetAgentStateOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateOK %s", 200, payload)
 }
 
 func (o *GetAgentStateOK) GetPayload() *service_model.V1AgentStateResponse {
@@ -120,7 +124,7 @@ func (o *GetAgentStateOK) readResponse(response runtime.ClientResponse, consumer
 	o.Payload = new(service_model.V1AgentStateResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ GetAgentStateNoContent describes a response with status code 204, with default h
 No content.
 */
 type GetAgentStateNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get agent state no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *GetAgentStateNoContent) Code() int {
 }
 
 func (o *GetAgentStateNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNoContent %s", 204, payload)
 }
 
 func (o *GetAgentStateNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNoContent %s", 204, payload)
 }
 
-func (o *GetAgentStateNoContent) GetPayload() interface{} {
+func (o *GetAgentStateNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetAgentStateNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ GetAgentStateForbidden describes a response with status code 403, with default h
 You don't have permission to access the resource.
 */
 type GetAgentStateForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get agent state forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *GetAgentStateForbidden) Code() int {
 }
 
 func (o *GetAgentStateForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateForbidden %s", 403, payload)
 }
 
 func (o *GetAgentStateForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateForbidden %s", 403, payload)
 }
 
-func (o *GetAgentStateForbidden) GetPayload() interface{} {
+func (o *GetAgentStateForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetAgentStateForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ GetAgentStateNotFound describes a response with status code 404, with default he
 Resource does not exist.
 */
 type GetAgentStateNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this get agent state not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *GetAgentStateNotFound) Code() int {
 }
 
 func (o *GetAgentStateNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNotFound %s", 404, payload)
 }
 
 func (o *GetAgentStateNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] getAgentStateNotFound %s", 404, payload)
 }
 
-func (o *GetAgentStateNotFound) GetPayload() interface{} {
+func (o *GetAgentStateNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *GetAgentStateNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *GetAgentStateDefault) Code() int {
 }
 
 func (o *GetAgentStateDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] GetAgentState default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] GetAgentState default %s", o._statusCode, payload)
 }
 
 func (o *GetAgentStateDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] GetAgentState default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/agents/{uuid}/state][%d] GetAgentState default %s", o._statusCode, payload)
 }
 
 func (o *GetAgentStateDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *GetAgentStateDefault) readResponse(response runtime.ClientResponse, con
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

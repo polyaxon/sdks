@@ -6,6 +6,8 @@ package users_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type PatchTokenReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *PatchTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *PatchTokenReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewPatchTokenOK()
@@ -104,11 +106,13 @@ func (o *PatchTokenOK) Code() int {
 }
 
 func (o *PatchTokenOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenOK %s", 200, payload)
 }
 
 func (o *PatchTokenOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenOK %s", 200, payload)
 }
 
 func (o *PatchTokenOK) GetPayload() *service_model.V1Token {
@@ -120,7 +124,7 @@ func (o *PatchTokenOK) readResponse(response runtime.ClientResponse, consumer ru
 	o.Payload = new(service_model.V1Token)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ PatchTokenNoContent describes a response with status code 204, with default head
 No content.
 */
 type PatchTokenNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch token no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *PatchTokenNoContent) Code() int {
 }
 
 func (o *PatchTokenNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNoContent %s", 204, payload)
 }
 
 func (o *PatchTokenNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNoContent %s", 204, payload)
 }
 
-func (o *PatchTokenNoContent) GetPayload() interface{} {
+func (o *PatchTokenNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTokenNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ PatchTokenForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type PatchTokenForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch token forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *PatchTokenForbidden) Code() int {
 }
 
 func (o *PatchTokenForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenForbidden %s", 403, payload)
 }
 
 func (o *PatchTokenForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenForbidden %s", 403, payload)
 }
 
-func (o *PatchTokenForbidden) GetPayload() interface{} {
+func (o *PatchTokenForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTokenForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ PatchTokenNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type PatchTokenNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this patch token not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *PatchTokenNotFound) Code() int {
 }
 
 func (o *PatchTokenNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNotFound %s", 404, payload)
 }
 
 func (o *PatchTokenNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] patchTokenNotFound %s", 404, payload)
 }
 
-func (o *PatchTokenNotFound) GetPayload() interface{} {
+func (o *PatchTokenNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *PatchTokenNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *PatchTokenDefault) Code() int {
 }
 
 func (o *PatchTokenDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] PatchToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] PatchToken default %s", o._statusCode, payload)
 }
 
 func (o *PatchTokenDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] PatchToken default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/users/tokens/{token.uuid}][%d] PatchToken default %s", o._statusCode, payload)
 }
 
 func (o *PatchTokenDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *PatchTokenDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

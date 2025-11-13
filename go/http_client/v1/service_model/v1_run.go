@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -27,7 +28,7 @@ type V1Run struct {
 	Content string `json:"content,omitempty"`
 
 	// Contributors
-	Contributors []interface{} `json:"contributors"`
+	Contributors []any `json:"contributors"`
 
 	// Optional time when the entity was created
 	// Format: date-time
@@ -44,10 +45,10 @@ type V1Run struct {
 	FinishedAt strfmt.DateTime `json:"finished_at,omitempty"`
 
 	// Optional graph definition
-	Graph interface{} `json:"graph,omitempty"`
+	Graph any `json:"graph,omitempty"`
 
 	// Optional inputs of this entity
-	Inputs interface{} `json:"inputs,omitempty"`
+	Inputs any `json:"inputs,omitempty"`
 
 	// Deprecated flag that was replaced by "pending", and it will be completely dropped after v1.15
 	IsApproved bool `json:"is_approved,omitempty"`
@@ -68,7 +69,7 @@ type V1Run struct {
 	Merge bool `json:"merge,omitempty"`
 
 	// Optional run meta info
-	MetaInfo interface{} `json:"meta_info,omitempty"`
+	MetaInfo any `json:"meta_info,omitempty"`
 
 	// Optional name
 	Name string `json:"name,omitempty"`
@@ -77,7 +78,7 @@ type V1Run struct {
 	Original *V1Cloning `json:"original,omitempty"`
 
 	// Optional outputs of this entity
-	Outputs interface{} `json:"outputs,omitempty"`
+	Outputs any `json:"outputs,omitempty"`
 
 	// Required name of owner of this entity
 	Owner string `json:"owner,omitempty"`
@@ -241,11 +242,15 @@ func (m *V1Run) validateKind(formats strfmt.Registry) error {
 
 	if m.Kind != nil {
 		if err := m.Kind.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -260,11 +265,15 @@ func (m *V1Run) validateManagedBy(formats strfmt.Registry) error {
 
 	if m.ManagedBy != nil {
 		if err := m.ManagedBy.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("managed_by")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("managed_by")
 			}
+
 			return err
 		}
 	}
@@ -279,11 +288,15 @@ func (m *V1Run) validateOriginal(formats strfmt.Registry) error {
 
 	if m.Original != nil {
 		if err := m.Original.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("original")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("original")
 			}
+
 			return err
 		}
 	}
@@ -298,11 +311,15 @@ func (m *V1Run) validatePending(formats strfmt.Registry) error {
 
 	if m.Pending != nil {
 		if err := m.Pending.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pending")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pending")
 			}
+
 			return err
 		}
 	}
@@ -317,11 +334,15 @@ func (m *V1Run) validatePipeline(formats strfmt.Registry) error {
 
 	if m.Pipeline != nil {
 		if err := m.Pipeline.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pipeline")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pipeline")
 			}
+
 			return err
 		}
 	}
@@ -336,11 +357,15 @@ func (m *V1Run) validateResources(formats strfmt.Registry) error {
 
 	if m.Resources != nil {
 		if err := m.Resources.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resources")
 			}
+
 			return err
 		}
 	}
@@ -355,11 +380,15 @@ func (m *V1Run) validateRuntime(formats strfmt.Registry) error {
 
 	if m.Runtime != nil {
 		if err := m.Runtime.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("runtime")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("runtime")
 			}
+
 			return err
 		}
 	}
@@ -386,11 +415,15 @@ func (m *V1Run) validateSettings(formats strfmt.Registry) error {
 
 	if m.Settings != nil {
 		if err := m.Settings.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("settings")
 			}
+
 			return err
 		}
 	}
@@ -417,11 +450,15 @@ func (m *V1Run) validateStatus(formats strfmt.Registry) error {
 
 	if m.Status != nil {
 		if err := m.Status.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -441,11 +478,15 @@ func (m *V1Run) validateStatusConditions(formats strfmt.Registry) error {
 
 		if m.StatusConditions[i] != nil {
 			if err := m.StatusConditions[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -526,11 +567,15 @@ func (m *V1Run) contextValidateKind(ctx context.Context, formats strfmt.Registry
 		}
 
 		if err := m.Kind.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("kind")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("kind")
 			}
+
 			return err
 		}
 	}
@@ -547,11 +592,15 @@ func (m *V1Run) contextValidateManagedBy(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.ManagedBy.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("managed_by")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("managed_by")
 			}
+
 			return err
 		}
 	}
@@ -568,11 +617,15 @@ func (m *V1Run) contextValidateOriginal(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Original.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("original")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("original")
 			}
+
 			return err
 		}
 	}
@@ -589,11 +642,15 @@ func (m *V1Run) contextValidatePending(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Pending.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pending")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pending")
 			}
+
 			return err
 		}
 	}
@@ -610,11 +667,15 @@ func (m *V1Run) contextValidatePipeline(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Pipeline.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("pipeline")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("pipeline")
 			}
+
 			return err
 		}
 	}
@@ -631,11 +692,15 @@ func (m *V1Run) contextValidateResources(ctx context.Context, formats strfmt.Reg
 		}
 
 		if err := m.Resources.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("resources")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("resources")
 			}
+
 			return err
 		}
 	}
@@ -652,11 +717,15 @@ func (m *V1Run) contextValidateRuntime(ctx context.Context, formats strfmt.Regis
 		}
 
 		if err := m.Runtime.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("runtime")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("runtime")
 			}
+
 			return err
 		}
 	}
@@ -673,11 +742,15 @@ func (m *V1Run) contextValidateSettings(ctx context.Context, formats strfmt.Regi
 		}
 
 		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("settings")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("settings")
 			}
+
 			return err
 		}
 	}
@@ -694,11 +767,15 @@ func (m *V1Run) contextValidateStatus(ctx context.Context, formats strfmt.Regist
 		}
 
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
 				return ve.ValidateName("status")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
 				return ce.ValidateName("status")
 			}
+
 			return err
 		}
 	}
@@ -717,11 +794,15 @@ func (m *V1Run) contextValidateStatusConditions(ctx context.Context, formats str
 			}
 
 			if err := m.StatusConditions[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("status_conditions" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("status_conditions" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

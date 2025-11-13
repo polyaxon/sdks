@@ -7,12 +7,38 @@ package searches_v1
 
 import (
 	"github.com/go-openapi/runtime"
+	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new searches v1 API client.
 func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
+}
+
+// New creates a new searches v1 API client with basic auth credentials.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - user: user for basic authentication header.
+// - password: password for basic authentication header.
+func NewClientWithBasicAuth(host, basePath, scheme, user, password string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BasicAuth(user, password)
+	return &Client{transport: transport, formats: strfmt.Default}
+}
+
+// New creates a new searches v1 API client with a bearer token for authentication.
+// It takes the following parameters:
+// - host: http host (github.com).
+// - basePath: any base path for the API client ("/v1", "/v3").
+// - scheme: http scheme ("http", "https").
+// - bearerToken: bearer token for Bearer authentication header.
+func NewClientWithBearerToken(host, basePath, scheme, bearerToken string) ClientService {
+	transport := httptransport.New(host, basePath, []string{scheme})
+	transport.DefaultAuthentication = httptransport.BearerToken(bearerToken)
+	return &Client{transport: transport, formats: strfmt.Default}
 }
 
 /*
@@ -23,7 +49,7 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-// ClientOption is the option for Client methods
+// ClientOption may be used to customize the behavior of Client methods.
 type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
@@ -49,7 +75,7 @@ type ClientService interface {
 CreateSearch creates search
 */
 func (a *Client) CreateSearch(params *CreateSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateSearchOK, *CreateSearchNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewCreateSearchParams()
 	}
@@ -69,18 +95,22 @@ func (a *Client) CreateSearch(params *CreateSearchParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *CreateSearchOK:
 		return value, nil, nil
 	case *CreateSearchNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*CreateSearchDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -89,7 +119,7 @@ func (a *Client) CreateSearch(params *CreateSearchParams, authInfo runtime.Clien
 DeleteSearch deletes search
 */
 func (a *Client) DeleteSearch(params *DeleteSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*DeleteSearchOK, *DeleteSearchNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewDeleteSearchParams()
 	}
@@ -109,18 +139,22 @@ func (a *Client) DeleteSearch(params *DeleteSearchParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *DeleteSearchOK:
 		return value, nil, nil
 	case *DeleteSearchNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*DeleteSearchDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -129,7 +163,7 @@ func (a *Client) DeleteSearch(params *DeleteSearchParams, authInfo runtime.Clien
 GetSearch gets search
 */
 func (a *Client) GetSearch(params *GetSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*GetSearchOK, *GetSearchNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewGetSearchParams()
 	}
@@ -149,18 +183,22 @@ func (a *Client) GetSearch(params *GetSearchParams, authInfo runtime.ClientAuthI
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *GetSearchOK:
 		return value, nil, nil
 	case *GetSearchNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*GetSearchDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -169,7 +207,7 @@ func (a *Client) GetSearch(params *GetSearchParams, authInfo runtime.ClientAuthI
 ListSearchNames lists search names
 */
 func (a *Client) ListSearchNames(params *ListSearchNamesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListSearchNamesOK, *ListSearchNamesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListSearchNamesParams()
 	}
@@ -189,18 +227,22 @@ func (a *Client) ListSearchNames(params *ListSearchNamesParams, authInfo runtime
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListSearchNamesOK:
 		return value, nil, nil
 	case *ListSearchNamesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListSearchNamesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -209,7 +251,7 @@ func (a *Client) ListSearchNames(params *ListSearchNamesParams, authInfo runtime
 ListSearches lists searches
 */
 func (a *Client) ListSearches(params *ListSearchesParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ListSearchesOK, *ListSearchesNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewListSearchesParams()
 	}
@@ -229,18 +271,22 @@ func (a *Client) ListSearches(params *ListSearchesParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *ListSearchesOK:
 		return value, nil, nil
 	case *ListSearchesNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ListSearchesDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -249,7 +295,7 @@ func (a *Client) ListSearches(params *ListSearchesParams, authInfo runtime.Clien
 PatchSearch patches search
 */
 func (a *Client) PatchSearch(params *PatchSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*PatchSearchOK, *PatchSearchNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewPatchSearchParams()
 	}
@@ -269,18 +315,22 @@ func (a *Client) PatchSearch(params *PatchSearchParams, authInfo runtime.ClientA
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *PatchSearchOK:
 		return value, nil, nil
 	case *PatchSearchNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*PatchSearchDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
@@ -289,7 +339,7 @@ func (a *Client) PatchSearch(params *PatchSearchParams, authInfo runtime.ClientA
 UpdateSearch updates search
 */
 func (a *Client) UpdateSearch(params *UpdateSearchParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateSearchOK, *UpdateSearchNoContent, error) {
-	// TODO: Validate the params before sending
+	// NOTE: parameters are not validated before sending
 	if params == nil {
 		params = NewUpdateSearchParams()
 	}
@@ -309,18 +359,22 @@ func (a *Client) UpdateSearch(params *UpdateSearchParams, authInfo runtime.Clien
 	for _, opt := range opts {
 		opt(op)
 	}
-
 	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, nil, err
 	}
+
+	// several success responses have to be checked
 	switch value := result.(type) {
 	case *UpdateSearchOK:
 		return value, nil, nil
 	case *UpdateSearchNoContent:
 		return nil, value, nil
 	}
-	// unexpected success response
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*UpdateSearchDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }

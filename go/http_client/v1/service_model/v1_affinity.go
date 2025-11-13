@@ -8,4 +8,4 @@ package service_model
 // V1Affinity Placeholder for Affinity
 //
 // swagger:model v1Affinity
-type V1Affinity interface{}
+type V1Affinity any

@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteRunArtifactsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteRunArtifactsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteRunArtifactsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteRunArtifactsOK()
@@ -103,11 +105,11 @@ func (o *DeleteRunArtifactsOK) Code() int {
 }
 
 func (o *DeleteRunArtifactsOK) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsOK ", 200)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsOK", 200)
 }
 
 func (o *DeleteRunArtifactsOK) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsOK ", 200)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsOK", 200)
 }
 
 func (o *DeleteRunArtifactsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteRunArtifactsNoContent describes a response with status code 204, with defa
 No content.
 */
 type DeleteRunArtifactsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifacts no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteRunArtifactsNoContent) Code() int {
 }
 
 func (o *DeleteRunArtifactsNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNoContent %s", 204, payload)
 }
 
 func (o *DeleteRunArtifactsNoContent) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNoContent %s", 204, payload)
 }
 
-func (o *DeleteRunArtifactsNoContent) GetPayload() interface{} {
+func (o *DeleteRunArtifactsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteRunArtifactsForbidden describes a response with status code 403, with defa
 You don't have permission to access the resource.
 */
 type DeleteRunArtifactsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifacts forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteRunArtifactsForbidden) Code() int {
 }
 
 func (o *DeleteRunArtifactsForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsForbidden %s", 403, payload)
 }
 
 func (o *DeleteRunArtifactsForbidden) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsForbidden %s", 403, payload)
 }
 
-func (o *DeleteRunArtifactsForbidden) GetPayload() interface{} {
+func (o *DeleteRunArtifactsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteRunArtifactsNotFound describes a response with status code 404, with defau
 Resource does not exist.
 */
 type DeleteRunArtifactsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete run artifacts not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteRunArtifactsNotFound) Code() int {
 }
 
 func (o *DeleteRunArtifactsNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNotFound %s", 404, payload)
 }
 
 func (o *DeleteRunArtifactsNotFound) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] deleteRunArtifactsNotFound %s", 404, payload)
 }
 
-func (o *DeleteRunArtifactsNotFound) GetPayload() interface{} {
+func (o *DeleteRunArtifactsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteRunArtifactsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteRunArtifactsDefault) Code() int {
 }
 
 func (o *DeleteRunArtifactsDefault) Error() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] DeleteRunArtifacts default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] DeleteRunArtifacts default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunArtifactsDefault) String() string {
-	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] DeleteRunArtifacts default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/artifacts][%d] DeleteRunArtifacts default %s", o._statusCode, payload)
 }
 
 func (o *DeleteRunArtifactsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteRunArtifactsDefault) readResponse(response runtime.ClientResponse
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

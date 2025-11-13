@@ -6,6 +6,8 @@ package projects_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListArchivedProjectsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListArchivedProjectsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListArchivedProjectsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListArchivedProjectsOK()
@@ -104,11 +106,13 @@ func (o *ListArchivedProjectsOK) Code() int {
 }
 
 func (o *ListArchivedProjectsOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK %s", 200, payload)
 }
 
 func (o *ListArchivedProjectsOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsOK %s", 200, payload)
 }
 
 func (o *ListArchivedProjectsOK) GetPayload() *service_model.V1ListProjectsResponse {
@@ -120,7 +124,7 @@ func (o *ListArchivedProjectsOK) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.V1ListProjectsResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListArchivedProjectsNoContent describes a response with status code 204, with de
 No content.
 */
 type ListArchivedProjectsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived projects no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListArchivedProjectsNoContent) Code() int {
 }
 
 func (o *ListArchivedProjectsNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent %s", 204, payload)
 }
 
 func (o *ListArchivedProjectsNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNoContent %s", 204, payload)
 }
 
-func (o *ListArchivedProjectsNoContent) GetPayload() interface{} {
+func (o *ListArchivedProjectsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedProjectsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListArchivedProjectsForbidden describes a response with status code 403, with de
 You don't have permission to access the resource.
 */
 type ListArchivedProjectsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived projects forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListArchivedProjectsForbidden) Code() int {
 }
 
 func (o *ListArchivedProjectsForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden %s", 403, payload)
 }
 
 func (o *ListArchivedProjectsForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsForbidden %s", 403, payload)
 }
 
-func (o *ListArchivedProjectsForbidden) GetPayload() interface{} {
+func (o *ListArchivedProjectsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedProjectsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListArchivedProjectsNotFound describes a response with status code 404, with def
 Resource does not exist.
 */
 type ListArchivedProjectsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list archived projects not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListArchivedProjectsNotFound) Code() int {
 }
 
 func (o *ListArchivedProjectsNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound %s", 404, payload)
 }
 
 func (o *ListArchivedProjectsNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] listArchivedProjectsNotFound %s", 404, payload)
 }
 
-func (o *ListArchivedProjectsNotFound) GetPayload() interface{} {
+func (o *ListArchivedProjectsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListArchivedProjectsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListArchivedProjectsDefault) Code() int {
 }
 
 func (o *ListArchivedProjectsDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListArchivedProjectsDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/archives/{user}/projects][%d] ListArchivedProjects default %s", o._statusCode, payload)
 }
 
 func (o *ListArchivedProjectsDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListArchivedProjectsDefault) readResponse(response runtime.ClientRespon
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package organizations_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ArchiveOrganizationRunsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ArchiveOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ArchiveOrganizationRunsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewArchiveOrganizationRunsOK()
@@ -103,11 +105,11 @@ func (o *ArchiveOrganizationRunsOK) Code() int {
 }
 
 func (o *ArchiveOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsOK", 200)
 }
 
 func (o *ArchiveOrganizationRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsOK ", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsOK", 200)
 }
 
 func (o *ArchiveOrganizationRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ ArchiveOrganizationRunsNoContent describes a response with status code 204, with
 No content.
 */
 type ArchiveOrganizationRunsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive organization runs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *ArchiveOrganizationRunsNoContent) Code() int {
 }
 
 func (o *ArchiveOrganizationRunsNoContent) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *ArchiveOrganizationRunsNoContent) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNoContent %s", 204, payload)
 }
 
-func (o *ArchiveOrganizationRunsNoContent) GetPayload() interface{} {
+func (o *ArchiveOrganizationRunsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveOrganizationRunsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ ArchiveOrganizationRunsForbidden describes a response with status code 403, with
 You don't have permission to access the resource.
 */
 type ArchiveOrganizationRunsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive organization runs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *ArchiveOrganizationRunsForbidden) Code() int {
 }
 
 func (o *ArchiveOrganizationRunsForbidden) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *ArchiveOrganizationRunsForbidden) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsForbidden %s", 403, payload)
 }
 
-func (o *ArchiveOrganizationRunsForbidden) GetPayload() interface{} {
+func (o *ArchiveOrganizationRunsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveOrganizationRunsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ ArchiveOrganizationRunsNotFound describes a response with status code 404, with 
 Resource does not exist.
 */
 type ArchiveOrganizationRunsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this archive organization runs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *ArchiveOrganizationRunsNotFound) Code() int {
 }
 
 func (o *ArchiveOrganizationRunsNotFound) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *ArchiveOrganizationRunsNotFound) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] archiveOrganizationRunsNotFound %s", 404, payload)
 }
 
-func (o *ArchiveOrganizationRunsNotFound) GetPayload() interface{} {
+func (o *ArchiveOrganizationRunsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ArchiveOrganizationRunsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *ArchiveOrganizationRunsDefault) Code() int {
 }
 
 func (o *ArchiveOrganizationRunsDefault) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] ArchiveOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] ArchiveOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveOrganizationRunsDefault) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] ArchiveOrganizationRuns default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/archive][%d] ArchiveOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *ArchiveOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *ArchiveOrganizationRunsDefault) readResponse(response runtime.ClientRes
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

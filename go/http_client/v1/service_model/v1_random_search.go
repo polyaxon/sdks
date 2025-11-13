@@ -21,7 +21,7 @@ type V1RandomSearch struct {
 	Concurrency int32 `json:"concurrency,omitempty"`
 
 	// A list of Early stoppings, accpets both metric and failure early stopping mechanisms
-	EarlyStopping []interface{} `json:"earlyStopping"`
+	EarlyStopping []any `json:"earlyStopping"`
 
 	// Kind of matrix, should be equal to "random"
 	Kind *string `json:"kind,omitempty"`
@@ -30,7 +30,7 @@ type V1RandomSearch struct {
 	NumRuns int32 `json:"numRuns,omitempty"`
 
 	// Hyperparams/Space definition of params to traverse
-	Params map[string]interface{} `json:"params,omitempty"`
+	Params map[string]any `json:"params,omitempty"`
 
 	// Seed for the random generator
 	Seed int32 `json:"seed,omitempty"`

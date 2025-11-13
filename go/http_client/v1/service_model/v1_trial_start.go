@@ -18,7 +18,7 @@ import (
 type V1TrialStart struct {
 
 	// Details
-	Details interface{} `json:"details,omitempty"`
+	Details any `json:"details,omitempty"`
 
 	// Email
 	Email string `json:"email,omitempty"`

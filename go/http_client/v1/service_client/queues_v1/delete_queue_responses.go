@@ -6,6 +6,8 @@ package queues_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type DeleteQueueReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *DeleteQueueReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewDeleteQueueOK()
@@ -103,11 +105,11 @@ func (o *DeleteQueueOK) Code() int {
 }
 
 func (o *DeleteQueueOK) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueOK", 200)
 }
 
 func (o *DeleteQueueOK) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueOK ", 200)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueOK", 200)
 }
 
 func (o *DeleteQueueOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ DeleteQueueNoContent describes a response with status code 204, with default hea
 No content.
 */
 type DeleteQueueNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete queue no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *DeleteQueueNoContent) Code() int {
 }
 
 func (o *DeleteQueueNoContent) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNoContent %s", 204, payload)
 }
 
 func (o *DeleteQueueNoContent) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNoContent %s", 204, payload)
 }
 
-func (o *DeleteQueueNoContent) GetPayload() interface{} {
+func (o *DeleteQueueNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteQueueNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ DeleteQueueForbidden describes a response with status code 403, with default hea
 You don't have permission to access the resource.
 */
 type DeleteQueueForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete queue forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *DeleteQueueForbidden) Code() int {
 }
 
 func (o *DeleteQueueForbidden) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueForbidden %s", 403, payload)
 }
 
 func (o *DeleteQueueForbidden) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueForbidden %s", 403, payload)
 }
 
-func (o *DeleteQueueForbidden) GetPayload() interface{} {
+func (o *DeleteQueueForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteQueueForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ DeleteQueueNotFound describes a response with status code 404, with default head
 Resource does not exist.
 */
 type DeleteQueueNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this delete queue not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *DeleteQueueNotFound) Code() int {
 }
 
 func (o *DeleteQueueNotFound) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNotFound %s", 404, payload)
 }
 
 func (o *DeleteQueueNotFound) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] deleteQueueNotFound %s", 404, payload)
 }
 
-func (o *DeleteQueueNotFound) GetPayload() interface{} {
+func (o *DeleteQueueNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *DeleteQueueNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *DeleteQueueDefault) Code() int {
 }
 
 func (o *DeleteQueueDefault) Error() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] DeleteQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] DeleteQueue default %s", o._statusCode, payload)
 }
 
 func (o *DeleteQueueDefault) String() string {
-	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] DeleteQueue default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[DELETE /api/v1/orgs/{owner}/agents/{entity}/queues/{uuid}][%d] DeleteQueue default %s", o._statusCode, payload)
 }
 
 func (o *DeleteQueueDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *DeleteQueueDefault) readResponse(response runtime.ClientResponse, consu
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

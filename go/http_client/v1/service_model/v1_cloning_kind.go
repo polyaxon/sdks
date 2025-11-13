@@ -41,7 +41,7 @@ const (
 )
 
 // for schema
-var v1CloningKindEnum []interface{}
+var v1CloningKindEnum []any
 
 func init() {
 	var res []V1CloningKind

@@ -6,6 +6,8 @@ package agents_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ReconcileAgentReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ReconcileAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ReconcileAgentReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewReconcileAgentOK()
@@ -70,7 +72,7 @@ ReconcileAgentOK describes a response with status code 200, with default header 
 A successful response.
 */
 type ReconcileAgentOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reconcile agent o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *ReconcileAgentOK) Code() int {
 }
 
 func (o *ReconcileAgentOK) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentOK %s", 200, payload)
 }
 
 func (o *ReconcileAgentOK) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentOK %s", 200, payload)
 }
 
-func (o *ReconcileAgentOK) GetPayload() interface{} {
+func (o *ReconcileAgentOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ReconcileAgentOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ ReconcileAgentNoContent describes a response with status code 204, with default 
 No content.
 */
 type ReconcileAgentNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reconcile agent no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *ReconcileAgentNoContent) Code() int {
 }
 
 func (o *ReconcileAgentNoContent) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNoContent %s", 204, payload)
 }
 
 func (o *ReconcileAgentNoContent) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNoContent %s", 204, payload)
 }
 
-func (o *ReconcileAgentNoContent) GetPayload() interface{} {
+func (o *ReconcileAgentNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ReconcileAgentNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ ReconcileAgentForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type ReconcileAgentForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reconcile agent forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *ReconcileAgentForbidden) Code() int {
 }
 
 func (o *ReconcileAgentForbidden) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentForbidden %s", 403, payload)
 }
 
 func (o *ReconcileAgentForbidden) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentForbidden %s", 403, payload)
 }
 
-func (o *ReconcileAgentForbidden) GetPayload() interface{} {
+func (o *ReconcileAgentForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ReconcileAgentForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ ReconcileAgentNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type ReconcileAgentNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this reconcile agent not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *ReconcileAgentNotFound) Code() int {
 }
 
 func (o *ReconcileAgentNotFound) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNotFound %s", 404, payload)
 }
 
 func (o *ReconcileAgentNotFound) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] reconcileAgentNotFound %s", 404, payload)
 }
 
-func (o *ReconcileAgentNotFound) GetPayload() interface{} {
+func (o *ReconcileAgentNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ReconcileAgentNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *ReconcileAgentDefault) Code() int {
 }
 
 func (o *ReconcileAgentDefault) Error() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] ReconcileAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] ReconcileAgent default %s", o._statusCode, payload)
 }
 
 func (o *ReconcileAgentDefault) String() string {
-	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] ReconcileAgent default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[PATCH /api/v1/orgs/{owner}/agents/{uuid}/reconcile][%d] ReconcileAgent default %s", o._statusCode, payload)
 }
 
 func (o *ReconcileAgentDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *ReconcileAgentDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type InspectRunReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *InspectRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *InspectRunReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewInspectRunOK()
@@ -70,7 +72,7 @@ InspectRunOK describes a response with status code 200, with default header valu
 A successful response.
 */
 type InspectRunOK struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect run o k response has a 2xx status code
@@ -104,21 +106,23 @@ func (o *InspectRunOK) Code() int {
 }
 
 func (o *InspectRunOK) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunOK %s", 200, payload)
 }
 
 func (o *InspectRunOK) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunOK %s", 200, payload)
 }
 
-func (o *InspectRunOK) GetPayload() interface{} {
+func (o *InspectRunOK) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectRunOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -136,7 +140,7 @@ InspectRunNoContent describes a response with status code 204, with default head
 No content.
 */
 type InspectRunNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect run no content response has a 2xx status code
@@ -170,21 +174,23 @@ func (o *InspectRunNoContent) Code() int {
 }
 
 func (o *InspectRunNoContent) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNoContent %s", 204, payload)
 }
 
 func (o *InspectRunNoContent) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNoContent %s", 204, payload)
 }
 
-func (o *InspectRunNoContent) GetPayload() interface{} {
+func (o *InspectRunNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectRunNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -202,7 +208,7 @@ InspectRunForbidden describes a response with status code 403, with default head
 You don't have permission to access the resource.
 */
 type InspectRunForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect run forbidden response has a 2xx status code
@@ -236,21 +242,23 @@ func (o *InspectRunForbidden) Code() int {
 }
 
 func (o *InspectRunForbidden) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunForbidden %s", 403, payload)
 }
 
 func (o *InspectRunForbidden) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunForbidden %s", 403, payload)
 }
 
-func (o *InspectRunForbidden) GetPayload() interface{} {
+func (o *InspectRunForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectRunForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -268,7 +276,7 @@ InspectRunNotFound describes a response with status code 404, with default heade
 Resource does not exist.
 */
 type InspectRunNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this inspect run not found response has a 2xx status code
@@ -302,21 +310,23 @@ func (o *InspectRunNotFound) Code() int {
 }
 
 func (o *InspectRunNotFound) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNotFound %s", 404, payload)
 }
 
 func (o *InspectRunNotFound) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] inspectRunNotFound %s", 404, payload)
 }
 
-func (o *InspectRunNotFound) GetPayload() interface{} {
+func (o *InspectRunNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *InspectRunNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -372,11 +382,13 @@ func (o *InspectRunDefault) Code() int {
 }
 
 func (o *InspectRunDefault) Error() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] InspectRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] InspectRun default %s", o._statusCode, payload)
 }
 
 func (o *InspectRunDefault) String() string {
-	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] InspectRun default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /streams/v1/{namespace}/{owner}/{project}/runs/{uuid}/k8s_inspect][%d] InspectRun default %s", o._statusCode, payload)
 }
 
 func (o *InspectRunDefault) GetPayload() *service_model.RuntimeError {
@@ -388,7 +400,7 @@ func (o *InspectRunDefault) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

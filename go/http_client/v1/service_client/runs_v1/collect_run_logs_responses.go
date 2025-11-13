@@ -6,6 +6,8 @@ package runs_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type CollectRunLogsReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *CollectRunLogsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *CollectRunLogsReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewCollectRunLogsOK()
@@ -103,11 +105,11 @@ func (o *CollectRunLogsOK) Code() int {
 }
 
 func (o *CollectRunLogsOK) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK", 200)
 }
 
 func (o *CollectRunLogsOK) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK ", 200)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsOK", 200)
 }
 
 func (o *CollectRunLogsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -126,7 +128,7 @@ CollectRunLogsNoContent describes a response with status code 204, with default 
 No content.
 */
 type CollectRunLogsNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect run logs no content response has a 2xx status code
@@ -160,21 +162,23 @@ func (o *CollectRunLogsNoContent) Code() int {
 }
 
 func (o *CollectRunLogsNoContent) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent %s", 204, payload)
 }
 
 func (o *CollectRunLogsNoContent) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNoContent %s", 204, payload)
 }
 
-func (o *CollectRunLogsNoContent) GetPayload() interface{} {
+func (o *CollectRunLogsNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectRunLogsNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -192,7 +196,7 @@ CollectRunLogsForbidden describes a response with status code 403, with default 
 You don't have permission to access the resource.
 */
 type CollectRunLogsForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect run logs forbidden response has a 2xx status code
@@ -226,21 +230,23 @@ func (o *CollectRunLogsForbidden) Code() int {
 }
 
 func (o *CollectRunLogsForbidden) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden %s", 403, payload)
 }
 
 func (o *CollectRunLogsForbidden) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsForbidden %s", 403, payload)
 }
 
-func (o *CollectRunLogsForbidden) GetPayload() interface{} {
+func (o *CollectRunLogsForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectRunLogsForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -258,7 +264,7 @@ CollectRunLogsNotFound describes a response with status code 404, with default h
 Resource does not exist.
 */
 type CollectRunLogsNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this collect run logs not found response has a 2xx status code
@@ -292,21 +298,23 @@ func (o *CollectRunLogsNotFound) Code() int {
 }
 
 func (o *CollectRunLogsNotFound) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound %s", 404, payload)
 }
 
 func (o *CollectRunLogsNotFound) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] collectRunLogsNotFound %s", 404, payload)
 }
 
-func (o *CollectRunLogsNotFound) GetPayload() interface{} {
+func (o *CollectRunLogsNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *CollectRunLogsNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -362,11 +370,13 @@ func (o *CollectRunLogsDefault) Code() int {
 }
 
 func (o *CollectRunLogsDefault) Error() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default %s", o._statusCode, payload)
 }
 
 func (o *CollectRunLogsDefault) String() string {
-	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[POST /internal/v1/{namespace}/{owner}/{project}/runs/{uuid}/{kind}/logs][%d] CollectRunLogs default %s", o._statusCode, payload)
 }
 
 func (o *CollectRunLogsDefault) GetPayload() *service_model.RuntimeError {
@@ -378,7 +388,7 @@ func (o *CollectRunLogsDefault) readResponse(response runtime.ClientResponse, co
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

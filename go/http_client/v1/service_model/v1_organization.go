@@ -23,7 +23,7 @@ type V1Organization struct {
 	ArchivedDeletionInterval int32 `json:"archived_deletion_interval,omitempty"`
 
 	// Auth Settings
-	Auth interface{} `json:"auth,omitempty"`
+	Auth any `json:"auth,omitempty"`
 
 	// Optional time when the entity was created
 	// Format: date-time
@@ -48,7 +48,7 @@ type V1Organization struct {
 	Name string `json:"name,omitempty"`
 
 	// Plan settings
-	Plan interface{} `json:"plan,omitempty"`
+	Plan any `json:"plan,omitempty"`
 
 	// Default queue
 	Queue string `json:"queue,omitempty"`
@@ -65,7 +65,7 @@ type V1Organization struct {
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
 	// Usage info
-	Usage interface{} `json:"usage,omitempty"`
+	Usage any `json:"usage,omitempty"`
 
 	// User
 	User string `json:"user,omitempty"`

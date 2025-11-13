@@ -7,6 +7,7 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -63,11 +64,15 @@ func (m *V1TeamSettings) validateHubs(formats strfmt.Registry) error {
 
 		if m.Hubs[i] != nil {
 			if err := m.Hubs[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("hubs" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("hubs" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -89,11 +94,15 @@ func (m *V1TeamSettings) validateProjects(formats strfmt.Registry) error {
 
 		if m.Projects[i] != nil {
 			if err := m.Projects[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("projects" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("projects" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -115,11 +124,15 @@ func (m *V1TeamSettings) validateRegistries(formats strfmt.Registry) error {
 
 		if m.Registries[i] != nil {
 			if err := m.Registries[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("registries" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("registries" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -162,11 +175,15 @@ func (m *V1TeamSettings) contextValidateHubs(ctx context.Context, formats strfmt
 			}
 
 			if err := m.Hubs[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("hubs" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("hubs" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -187,11 +204,15 @@ func (m *V1TeamSettings) contextValidateProjects(ctx context.Context, formats st
 			}
 
 			if err := m.Projects[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("projects" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("projects" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}
@@ -212,11 +233,15 @@ func (m *V1TeamSettings) contextValidateRegistries(ctx context.Context, formats 
 			}
 
 			if err := m.Registries[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
 					return ve.ValidateName("registries" + "." + strconv.Itoa(i))
-				} else if ce, ok := err.(*errors.CompositeError); ok {
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
 					return ce.ValidateName("registries" + "." + strconv.Itoa(i))
 				}
+
 				return err
 			}
 		}

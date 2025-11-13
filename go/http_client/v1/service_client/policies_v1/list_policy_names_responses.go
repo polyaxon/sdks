@@ -6,6 +6,8 @@ package policies_v1
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"encoding/json"
+	stderrors "errors"
 	"fmt"
 	"io"
 
@@ -21,7 +23,7 @@ type ListPolicyNamesReader struct {
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ListPolicyNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ListPolicyNamesReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 	switch response.Code() {
 	case 200:
 		result := NewListPolicyNamesOK()
@@ -104,11 +106,13 @@ func (o *ListPolicyNamesOK) Code() int {
 }
 
 func (o *ListPolicyNamesOK) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesOK %s", 200, payload)
 }
 
 func (o *ListPolicyNamesOK) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesOK  %+v", 200, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesOK %s", 200, payload)
 }
 
 func (o *ListPolicyNamesOK) GetPayload() *service_model.V1ListPoliciesResponse {
@@ -120,7 +124,7 @@ func (o *ListPolicyNamesOK) readResponse(response runtime.ClientResponse, consum
 	o.Payload = new(service_model.V1ListPoliciesResponse)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -138,7 +142,7 @@ ListPolicyNamesNoContent describes a response with status code 204, with default
 No content.
 */
 type ListPolicyNamesNoContent struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list policy names no content response has a 2xx status code
@@ -172,21 +176,23 @@ func (o *ListPolicyNamesNoContent) Code() int {
 }
 
 func (o *ListPolicyNamesNoContent) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNoContent %s", 204, payload)
 }
 
 func (o *ListPolicyNamesNoContent) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNoContent  %+v", 204, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNoContent %s", 204, payload)
 }
 
-func (o *ListPolicyNamesNoContent) GetPayload() interface{} {
+func (o *ListPolicyNamesNoContent) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListPolicyNamesNoContent) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -204,7 +210,7 @@ ListPolicyNamesForbidden describes a response with status code 403, with default
 You don't have permission to access the resource.
 */
 type ListPolicyNamesForbidden struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list policy names forbidden response has a 2xx status code
@@ -238,21 +244,23 @@ func (o *ListPolicyNamesForbidden) Code() int {
 }
 
 func (o *ListPolicyNamesForbidden) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesForbidden %s", 403, payload)
 }
 
 func (o *ListPolicyNamesForbidden) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesForbidden  %+v", 403, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesForbidden %s", 403, payload)
 }
 
-func (o *ListPolicyNamesForbidden) GetPayload() interface{} {
+func (o *ListPolicyNamesForbidden) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListPolicyNamesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -270,7 +278,7 @@ ListPolicyNamesNotFound describes a response with status code 404, with default 
 Resource does not exist.
 */
 type ListPolicyNamesNotFound struct {
-	Payload interface{}
+	Payload any
 }
 
 // IsSuccess returns true when this list policy names not found response has a 2xx status code
@@ -304,21 +312,23 @@ func (o *ListPolicyNamesNotFound) Code() int {
 }
 
 func (o *ListPolicyNamesNotFound) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNotFound %s", 404, payload)
 }
 
 func (o *ListPolicyNamesNotFound) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNotFound  %+v", 404, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] listPolicyNamesNotFound %s", 404, payload)
 }
 
-func (o *ListPolicyNamesNotFound) GetPayload() interface{} {
+func (o *ListPolicyNamesNotFound) GetPayload() any {
 	return o.Payload
 }
 
 func (o *ListPolicyNamesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// response payload
-	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 
@@ -374,11 +384,13 @@ func (o *ListPolicyNamesDefault) Code() int {
 }
 
 func (o *ListPolicyNamesDefault) Error() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] ListPolicyNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] ListPolicyNames default %s", o._statusCode, payload)
 }
 
 func (o *ListPolicyNamesDefault) String() string {
-	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] ListPolicyNames default  %+v", o._statusCode, o.Payload)
+	payload, _ := json.Marshal(o.Payload)
+	return fmt.Sprintf("[GET /api/v1/orgs/{owner}/policies/names][%d] ListPolicyNames default %s", o._statusCode, payload)
 }
 
 func (o *ListPolicyNamesDefault) GetPayload() *service_model.RuntimeError {
@@ -390,7 +402,7 @@ func (o *ListPolicyNamesDefault) readResponse(response runtime.ClientResponse, c
 	o.Payload = new(service_model.RuntimeError)
 
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && !stderrors.Is(err, io.EOF) {
 		return err
 	}
 

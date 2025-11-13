@@ -18,7 +18,7 @@ import (
 type V1AverageStoppingPolicy struct {
 
 	// kind
-	Kind interface{} `json:"kind,omitempty"`
+	Kind any `json:"kind,omitempty"`
 }
 
 // Validate validates this v1 average stopping policy

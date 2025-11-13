@@ -38,7 +38,7 @@ const (
 )
 
 // for schema
-var v1PipelineKindEnum []interface{}
+var v1PipelineKindEnum []any
 
 func init() {
 	var res []V1PipelineKind
