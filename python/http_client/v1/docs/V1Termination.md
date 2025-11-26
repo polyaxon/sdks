@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **max_retries** | **int** |  | [optional] 
 **ttl** | **int** |  | [optional] 
 **timeout** | **int** |  | [optional] 
+**culling** | [**V1Culling**](V1Culling.md) |  | [optional] 
+**probe** | [**V1ActivityProbe**](V1ActivityProbe.md) |  | [optional] 
 
 ## Example
 

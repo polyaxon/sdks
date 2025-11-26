@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.12.0-rc2
+- API version: 2.12.0-rc5
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.12.0-rc2</version>
+  <version>2.12.0-rc5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.12.0-rc2"
+     implementation "org.openapitools:openapi-java-client:2.12.0-rc5"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.12.0-rc2.jar`
+* `target/openapi-java-client-2.12.0-rc5.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -429,6 +429,9 @@ Class | Method | HTTP request | Description
  - [RuntimeError](docs/RuntimeError.md)
  - [SearchView](docs/SearchView.md)
  - [V1Activity](docs/V1Activity.md)
+ - [V1ActivityProbe](docs/V1ActivityProbe.md)
+ - [V1ActivityProbeExec](docs/V1ActivityProbeExec.md)
+ - [V1ActivityProbeHttp](docs/V1ActivityProbeHttp.md)
  - [V1Agent](docs/V1Agent.md)
  - [V1AgentReconcileBodyRequest](docs/V1AgentReconcileBodyRequest.md)
  - [V1AgentStateResponse](docs/V1AgentStateResponse.md)
@@ -459,6 +462,7 @@ Class | Method | HTTP request | Description
  - [V1ConnectionType](docs/V1ConnectionType.md)
  - [V1Credentials](docs/V1Credentials.md)
  - [V1CronSchedule](docs/V1CronSchedule.md)
+ - [V1Culling](docs/V1Culling.md)
  - [V1Dag](docs/V1Dag.md)
  - [V1DagRef](docs/V1DagRef.md)
  - [V1Dashboard](docs/V1Dashboard.md)

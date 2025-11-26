@@ -7,7 +7,9 @@ package service_model
 
 import (
 	"context"
+	stderrors "errors"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -17,8 +19,14 @@ import (
 // swagger:model v1Termination
 type V1Termination struct {
 
+	// Culling configuration
+	Culling *V1Culling `json:"culling,omitempty"`
+
 	// Max retries for a specific run
 	MaxRetries int32 `json:"maxRetries,omitempty"`
+
+	// Activity probe configuration
+	Probe *V1ActivityProbe `json:"probe,omitempty"`
 
 	// A timeout in seconds
 	Timeout int32 `json:"timeout,omitempty"`
@@ -29,11 +37,133 @@ type V1Termination struct {
 
 // Validate validates this v1 termination
 func (m *V1Termination) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateCulling(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProbe(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this v1 termination based on context it is used
+func (m *V1Termination) validateCulling(formats strfmt.Registry) error {
+	if swag.IsZero(m.Culling) { // not required
+		return nil
+	}
+
+	if m.Culling != nil {
+		if err := m.Culling.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("culling")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("culling")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Termination) validateProbe(formats strfmt.Registry) error {
+	if swag.IsZero(m.Probe) { // not required
+		return nil
+	}
+
+	if m.Probe != nil {
+		if err := m.Probe.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("probe")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("probe")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this v1 termination based on the context it is used
 func (m *V1Termination) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCulling(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProbe(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *V1Termination) contextValidateCulling(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Culling != nil {
+
+		if swag.IsZero(m.Culling) { // not required
+			return nil
+		}
+
+		if err := m.Culling.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("culling")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("culling")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Termination) contextValidateProbe(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Probe != nil {
+
+		if swag.IsZero(m.Probe) { // not required
+			return nil
+		}
+
+		if err := m.Probe.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("probe")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("probe")
+			}
+
+			return err
+		}
+	}
+
 	return nil
 }
 

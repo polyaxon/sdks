@@ -4268,6 +4268,48 @@
       "title": "Activity specification",
       "type": "object"
     },
+    "v1ActivityProbe": {
+      "properties": {
+        "exec": {
+          "$ref": "#/definitions/v1ActivityProbeExec",
+          "title": "Exec probe"
+        },
+        "http": {
+          "$ref": "#/definitions/v1ActivityProbeHttp",
+          "title": "Http probe"
+        }
+      },
+      "title": "ActivityProbe specification",
+      "type": "object"
+    },
+    "v1ActivityProbeExec": {
+      "properties": {
+        "command": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Command to execute",
+          "type": "array"
+        }
+      },
+      "title": "ActivityProbeExec specification",
+      "type": "object"
+    },
+    "v1ActivityProbeHttp": {
+      "properties": {
+        "path": {
+          "title": "Path to access on the HTTP server",
+          "type": "string"
+        },
+        "port": {
+          "format": "int32",
+          "title": "Port to access on the HTTP server",
+          "type": "integer"
+        }
+      },
+      "title": "ActivityProbeHttp specification",
+      "type": "object"
+    },
     "v1Affinity": {
       "title": "Placeholder for Affinity",
       "type": "object"
@@ -5377,6 +5419,17 @@
         }
       },
       "title": "Cron schedule specification",
+      "type": "object"
+    },
+    "v1Culling": {
+      "properties": {
+        "timeout": {
+          "format": "int32",
+          "title": "Timeout in seconds",
+          "type": "integer"
+        }
+      },
+      "title": "Culling specification",
       "type": "object"
     },
     "v1Dag": {
@@ -11218,10 +11271,18 @@
     "v1Termination": {
       "description": "Termination specification, it defines how to handle failures, job runtime, and cleanup policy.",
       "properties": {
+        "culling": {
+          "$ref": "#/definitions/v1Culling",
+          "title": "Culling configuration"
+        },
         "maxRetries": {
           "format": "int32",
           "title": "Max retries for a specific run",
           "type": "integer"
+        },
+        "probe": {
+          "$ref": "#/definitions/v1ActivityProbe",
+          "title": "Activity probe configuration"
         },
         "timeout": {
           "format": "int32",

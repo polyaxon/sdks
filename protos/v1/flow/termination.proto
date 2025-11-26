@@ -14,4 +14,40 @@ message Termination {
 
     // A timeout in seconds
     int32 timeout = 3;
+
+    // Culling configuration
+    Culling culling = 4;
+
+    // Activity probe configuration
+    ActivityProbe probe = 5;
+}
+
+// Culling specification
+message Culling {
+    // Timeout in seconds
+    int32 timeout = 1;
+}
+
+// ActivityProbe specification
+message ActivityProbe {
+    // Exec probe
+    ActivityProbeExec exec = 1;
+
+    // Http probe
+    ActivityProbeHttp http = 2;
+}
+
+// ActivityProbeExec specification
+message ActivityProbeExec {
+    // Command to execute
+    repeated string command = 1;
+}
+
+// ActivityProbeHttp specification
+message ActivityProbeHttp {
+    // Path to access on the HTTP server
+    string path = 1;
+
+    // Port to access on the HTTP server
+    int32 port = 2;
 }

@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.12.0-rc2"
+    "version" : "2.12.0-rc5"
   },
   "servers" : [ {
     "url" : "/"
@@ -30712,6 +30712,46 @@
           }
         }
       },
+      "v1ActivityProbe" : {
+        "title" : "ActivityProbe specification",
+        "type" : "object",
+        "properties" : {
+          "exec" : {
+            "$ref" : "#/components/schemas/v1ActivityProbeExec"
+          },
+          "http" : {
+            "$ref" : "#/components/schemas/v1ActivityProbeHttp"
+          }
+        }
+      },
+      "v1ActivityProbeExec" : {
+        "title" : "ActivityProbeExec specification",
+        "type" : "object",
+        "properties" : {
+          "command" : {
+            "title" : "Command to execute",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          }
+        }
+      },
+      "v1ActivityProbeHttp" : {
+        "title" : "ActivityProbeHttp specification",
+        "type" : "object",
+        "properties" : {
+          "path" : {
+            "title" : "Path to access on the HTTP server",
+            "type" : "string"
+          },
+          "port" : {
+            "title" : "Port to access on the HTTP server",
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "v1Affinity" : {
         "title" : "Placeholder for Affinity",
         "type" : "object"
@@ -31631,6 +31671,17 @@
           "dependsOnPast" : {
             "title" : "A flag to set a dependency on past executions",
             "type" : "boolean"
+          }
+        }
+      },
+      "v1Culling" : {
+        "title" : "Culling specification",
+        "type" : "object",
+        "properties" : {
+          "timeout" : {
+            "title" : "Timeout in seconds",
+            "type" : "integer",
+            "format" : "int32"
           }
         }
       },
@@ -37191,6 +37242,12 @@
             "title" : "A timeout in seconds",
             "type" : "integer",
             "format" : "int32"
+          },
+          "culling" : {
+            "$ref" : "#/components/schemas/v1Culling"
+          },
+          "probe" : {
+            "$ref" : "#/components/schemas/v1ActivityProbe"
           }
         },
         "description" : "Termination specification, it defines how to handle failures, job runtime, and cleanup policy."

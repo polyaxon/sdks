@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.12.0-rc2
+  version: 2.12.0-rc5
 servers:
 - url: /
 security:
@@ -22468,6 +22468,49 @@ components:
           type: string
       title: Activity specification
       type: object
+    v1ActivityProbe:
+      example:
+        http:
+          path: path
+          port: 3
+        exec:
+          command:
+          - command
+          - command
+      properties:
+        exec:
+          $ref: '#/components/schemas/v1ActivityProbeExec'
+        http:
+          $ref: '#/components/schemas/v1ActivityProbeHttp'
+      title: ActivityProbe specification
+      type: object
+    v1ActivityProbeExec:
+      example:
+        command:
+        - command
+        - command
+      properties:
+        command:
+          items:
+            type: string
+          title: Command to execute
+          type: array
+      title: ActivityProbeExec specification
+      type: object
+    v1ActivityProbeHttp:
+      example:
+        path: path
+        port: 3
+      properties:
+        path:
+          title: Path to access on the HTTP server
+          type: string
+        port:
+          format: int32
+          title: Port to access on the HTTP server
+          type: integer
+      title: ActivityProbeHttp specification
+      type: object
     v1Affinity:
       title: Placeholder for Affinity
       type: object
@@ -23082,9 +23125,9 @@ components:
         joins:
           key:
             ref: ref
-            offset: 0
+            offset: 4
             query: query
-            limit: 4
+            limit: 6
             sort: sort
             params:
               key:
@@ -23111,37 +23154,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         - delayValidation: true
           toEnv: toEnv
           description: description
@@ -23159,37 +23202,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         plugins:
           mountArtifactsStore: true
           syncStatuses: true
@@ -23202,11 +23245,11 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 5
+            sleepInterval: 4
             monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 3
+            syncInterval: 0
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
@@ -23238,37 +23281,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         - delayValidation: true
           toEnv: toEnv
           description: description
@@ -23286,37 +23329,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         description: description
         run: "{}"
         contexts:
@@ -23337,37 +23380,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         - delayValidation: true
           toEnv: toEnv
           description: description
@@ -23385,37 +23428,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         matrix: "{}"
         isApproved: true
         hooks:
@@ -23466,8 +23509,18 @@ components:
           - null
         termination:
           maxRetries: 3
+          culling:
+            timeout: 5
           ttl: 3
           timeout: 7
+          probe:
+            http:
+              path: path
+              port: 3
+            exec:
+              command:
+              - command
+              - command
         cache:
           disable: true
           io:
@@ -23477,10 +23530,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 5.3124895
+        cost: 7.6068635
         kind: kind
         trigger: null
-        version: 5.299144
+        version: 8.378238
         tags:
         - tags
         - tags
@@ -23632,8 +23685,18 @@ components:
       example:
         termination:
           maxRetries: 3
+          culling:
+            timeout: 5
           ttl: 3
           timeout: 7
+          probe:
+            http:
+              path: path
+              port: 3
+            exec:
+              command:
+              - command
+              - command
         outputs:
         - delayValidation: true
           toEnv: toEnv
@@ -23652,37 +23715,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         - delayValidation: true
           toEnv: toEnv
           description: description
@@ -23700,37 +23763,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         template:
           description: description
           fields:
@@ -23746,7 +23809,7 @@ components:
           sections:
           - sections
           - sections
-        cost: 4.459605
+        cost: 0.43431398
         kind: kind
         plugins:
           mountArtifactsStore: true
@@ -23760,11 +23823,11 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 5
+            sleepInterval: 4
             monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 3
+            syncInterval: 0
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
@@ -23796,37 +23859,37 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         - delayValidation: true
           toEnv: toEnv
           description: description
@@ -23844,40 +23907,40 @@ components:
           value: "{}"
           validation:
             multipleOf: 0
-            maxItems: 8
+            maxItems: 3
             excludes:
             - "{}"
             - "{}"
             keys:
             - keys
             - keys
-            minLength: 5
-            lt: 7
-            maxDigits: 0
+            minLength: 6
+            lt: 0
+            maxDigits: 5
             containsKeys:
             - containsKeys
             - containsKeys
-            gt: 1
-            minItems: 6
+            gt: 7
+            minItems: 4
             regex: regex
             contains:
             - "{}"
             - "{}"
             delay: true
-            decimalPlaces: 7
+            decimalPlaces: 4
             excludesKeys:
             - excludesKeys
             - excludesKeys
-            minDigits: 9
+            minDigits: 7
             options:
             - "{}"
             - "{}"
             le: 9
-            ge: 4
-            maxLength: 4
+            ge: 9
+            maxLength: 8
         description: description
         run: "{}"
-        version: 4.2587733
+        version: 4.678948
         tags:
         - tags
         - tags
@@ -24073,7 +24136,7 @@ components:
     v1ConnectionResource:
       example:
         mountPath: mountPath
-        defaultMode: 3
+        defaultMode: 5
         name: name
         items:
         - items
@@ -24184,7 +24247,7 @@ components:
         kind: null
         configMap:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 5
           name: name
           items:
           - items
@@ -24195,7 +24258,7 @@ components:
           key: annotations
         secret:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 5
           name: name
           items:
           - items
@@ -24253,7 +24316,7 @@ components:
       example:
         cron: cron
         dependsOnPast: true
-        maxRuns: 8
+        maxRuns: 3
         kind: cron
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
@@ -24282,13 +24345,33 @@ components:
           type: boolean
       title: Cron schedule specification
       type: object
+    v1Culling:
+      example:
+        timeout: 5
+      properties:
+        timeout:
+          format: int32
+          title: Timeout in seconds
+          type: integer
+      title: Culling specification
+      type: object
     v1Dag:
       example:
         components:
         - termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           outputs:
           - delayValidation: true
             toEnv: toEnv
@@ -24307,37 +24390,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -24355,37 +24438,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           template:
             description: description
             fields:
@@ -24401,7 +24484,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
+          cost: 0.43431398
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -24415,11 +24498,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -24451,37 +24534,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -24499,40 +24582,40 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           description: description
           run: "{}"
-          version: 4.2587733
+          version: 4.678948
           tags:
           - tags
           - tags
@@ -24609,8 +24692,18 @@ components:
           queue: queue
         - termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           outputs:
           - delayValidation: true
             toEnv: toEnv
@@ -24629,37 +24722,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -24677,37 +24770,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           template:
             description: description
             fields:
@@ -24723,7 +24816,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
+          cost: 0.43431398
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -24737,11 +24830,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -24773,37 +24866,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -24821,40 +24914,40 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           description: description
           run: "{}"
-          version: 4.2587733
+          version: 4.678948
           tags:
           - tags
           - tags
@@ -24961,9 +25054,9 @@ components:
         - joins:
             key:
               ref: ref
-              offset: 0
+              offset: 4
               query: query
-              limit: 4
+              limit: 6
               sort: sort
               params:
                 key:
@@ -24991,11 +25084,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -25061,8 +25154,18 @@ components:
             - null
           termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           cache:
             disable: true
             io:
@@ -25072,7 +25175,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 1.0414449
           kind: kind
           isPreset: true
           trigger: null
@@ -25095,8 +25198,18 @@ components:
           component:
             termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             outputs:
             - delayValidation: true
               toEnv: toEnv
@@ -25115,37 +25228,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -25163,37 +25276,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             template:
               description: description
               fields:
@@ -25209,7 +25322,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
+            cost: 0.43431398
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -25223,11 +25336,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -25259,37 +25372,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -25307,40 +25420,40 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             description: description
             run: "{}"
-            version: 4.2587733
+            version: 4.678948
             tags:
             - tags
             - tags
@@ -25457,9 +25570,9 @@ components:
         - joins:
             key:
               ref: ref
-              offset: 0
+              offset: 4
               query: query
-              limit: 4
+              limit: 6
               sort: sort
               params:
                 key:
@@ -25487,11 +25600,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -25557,8 +25670,18 @@ components:
             - null
           termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           cache:
             disable: true
             io:
@@ -25568,7 +25691,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 1.0414449
           kind: kind
           isPreset: true
           trigger: null
@@ -25591,8 +25714,18 @@ components:
           component:
             termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             outputs:
             - delayValidation: true
               toEnv: toEnv
@@ -25611,37 +25744,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -25659,37 +25792,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             template:
               description: description
               fields:
@@ -25705,7 +25838,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
+            cost: 0.43431398
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -25719,11 +25852,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -25755,37 +25888,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -25803,40 +25936,40 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             description: description
             run: "{}"
-            version: 4.2587733
+            version: 4.678948
             tags:
             - tags
             - tags
@@ -25960,7 +26093,7 @@ components:
         connections:
         - connections
         - connections
-        concurrency: 3
+        concurrency: 2
       properties:
         kind:
           default: dag
@@ -26321,7 +26454,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 8
           volumes:
           - null
           - null
@@ -26483,7 +26616,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 3
+          replicas: 8
           volumes:
           - null
           - null
@@ -26656,7 +26789,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 3
+        replicas: 8
         volumes:
         - null
         - null
@@ -27094,45 +27227,45 @@ components:
         image:
           path: path
           colorspace: 3
-          width: 0
-          height: 7
+          width: 2
+          height: 3
         curve:
           annotation: annotation
           kind: null
           x:
-          - 2.7977867
-          - 2.7977867
+          - 0.5891909
+          - 0.5891909
           "y":
-          - 9.386525
-          - 9.386525
+          - 2.535259
+          - 2.535259
         video:
           path: path
           content_type: content_type
-          colorspace: 4
-          width: 7
-          height: 0
+          colorspace: 9
+          width: 2
+          height: 4
         histogram:
           counts:
-          - 3.804112695731078
-          - 3.804112695731078
+          - 4.518309517874243
+          - 4.518309517874243
           values:
-          - 2.380090174313445
-          - 2.380090174313445
+          - 8.675064425986758
+          - 8.675064425986758
         artifact:
           path: path
           kind: null
-        metric: 5.877125
-        step: 9
+        metric: 0.47684023
+        step: 7
         html: html
         model:
           path: path
           framework: framework
           spec: "{}"
         audio:
-          num_channels: 4
+          num_channels: 0
           path: path
-          length_frames: 0
-          sample_rate: 8.675064
+          length_frames: 7
+          sample_rate: 0.4833313
           content_type: content_type
         text: text
         dataframe:
@@ -27237,10 +27370,10 @@ components:
       type: object
     v1EventAudio:
       example:
-        num_channels: 4
+        num_channels: 0
         path: path
-        length_frames: 0
-        sample_rate: 8.675064
+        length_frames: 7
+        sample_rate: 0.4833313
         content_type: content_type
       properties:
         sample_rate:
@@ -27325,11 +27458,11 @@ components:
         annotation: annotation
         kind: null
         x:
-        - 2.7977867
-        - 2.7977867
+        - 0.5891909
+        - 0.5891909
         "y":
-        - 9.386525
-        - 9.386525
+        - 2.535259
+        - 2.535259
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -27378,11 +27511,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 3.804112695731078
-        - 3.804112695731078
+        - 4.518309517874243
+        - 4.518309517874243
         values:
-        - 2.380090174313445
-        - 2.380090174313445
+        - 8.675064425986758
+        - 8.675064425986758
       properties:
         values:
           items:
@@ -27400,8 +27533,8 @@ components:
       example:
         path: path
         colorspace: 3
-        width: 0
-        height: 7
+        width: 2
+        height: 3
       properties:
         height:
           description: Height of the image.
@@ -27605,9 +27738,9 @@ components:
       example:
         path: path
         content_type: content_type
-        colorspace: 4
-        width: 7
-        height: 0
+        colorspace: 9
+        width: 2
+        height: 4
       properties:
         height:
           description: Height of the video.
@@ -28404,37 +28537,37 @@ components:
         value: "{}"
         validation:
           multipleOf: 0
-          maxItems: 8
+          maxItems: 3
           excludes:
           - "{}"
           - "{}"
           keys:
           - keys
           - keys
-          minLength: 5
-          lt: 7
-          maxDigits: 0
+          minLength: 6
+          lt: 0
+          maxDigits: 5
           containsKeys:
           - containsKeys
           - containsKeys
-          gt: 1
-          minItems: 6
+          gt: 7
+          minItems: 4
           regex: regex
           contains:
           - "{}"
           - "{}"
           delay: true
-          decimalPlaces: 7
+          decimalPlaces: 4
           excludesKeys:
           - excludesKeys
           - excludesKeys
-          minDigits: 9
+          minDigits: 7
           options:
           - "{}"
           - "{}"
           le: 9
-          ge: 4
-          maxLength: 4
+          ge: 9
+          maxLength: 8
       properties:
         name:
           title: Name for the input/output
@@ -28628,11 +28761,11 @@ components:
     v1IntervalSchedule:
       example:
         dependsOnPast: true
-        maxRuns: 7
+        maxRuns: 3
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 3
+        frequency: 9
       properties:
         kind:
           default: interval
@@ -28917,9 +29050,9 @@ components:
     v1Join:
       example:
         ref: ref
-        offset: 0
+        offset: 4
         query: query
-        limit: 4
+        limit: 6
         sort: sort
         params:
           key:
@@ -29137,7 +29270,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 1
+        replicas: 6
         volumes:
         - null
         - null
@@ -31506,7 +31639,7 @@ components:
     v1MPIJob:
       example:
         cleanPodPolicy: null
-        slotsPerWorker: 1
+        slotsPerWorker: 9
         kind: mpijob
         worker:
           container: "{}"
@@ -31662,7 +31795,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -31670,9 +31803,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 0
+          minAvailable: 1
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 2
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         launcher:
@@ -31829,7 +31962,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -32164,9 +32297,9 @@ components:
         joins:
           key:
             ref: ref
-            offset: 0
+            offset: 4
             query: query
-            limit: 4
+            limit: 6
             sort: sort
             params:
               key:
@@ -32194,11 +32327,11 @@ components:
           logLevel: logLevel
           autoResume: true
           sidecar:
-            sleepInterval: 5
+            sleepInterval: 4
             monitorSpec: true
             image: image
             imagePullPolicy: imagePullPolicy
-            syncInterval: 3
+            syncInterval: 0
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
@@ -32264,8 +32397,18 @@ components:
           - null
         termination:
           maxRetries: 3
+          culling:
+            timeout: 5
           ttl: 3
           timeout: 7
+          probe:
+            http:
+              path: path
+              port: 3
+            exec:
+              command:
+              - command
+              - command
         cache:
           disable: true
           io:
@@ -32275,7 +32418,7 @@ components:
           sections:
           - sections
           - sections
-        cost: 6.628464
+        cost: 1.0414449
         kind: kind
         isPreset: true
         trigger: null
@@ -32298,8 +32441,18 @@ components:
         component:
           termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           outputs:
           - delayValidation: true
             toEnv: toEnv
@@ -32318,37 +32471,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -32366,37 +32519,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           template:
             description: description
             fields:
@@ -32412,7 +32565,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
+          cost: 0.43431398
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -32426,11 +32579,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -32462,37 +32615,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -32510,40 +32663,40 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           description: description
           run: "{}"
-          version: 4.2587733
+          version: 4.678948
           tags:
           - tags
           - tags
@@ -33064,11 +33217,11 @@ components:
         logLevel: logLevel
         autoResume: true
         sidecar:
-          sleepInterval: 5
+          sleepInterval: 4
           monitorSpec: true
           image: image
           imagePullPolicy: imagePullPolicy
-          syncInterval: 3
+          syncInterval: 0
           resources: "{}"
           monitorLogs: true
           imageTag: imageTag
@@ -33334,11 +33487,11 @@ components:
       type: object
     v1PolyaxonSidecarContainer:
       example:
-        sleepInterval: 5
+        sleepInterval: 4
         monitorSpec: true
         image: image
         imagePullPolicy: imagePullPolicy
-        syncInterval: 3
+        syncInterval: 0
         resources: "{}"
         monitorLogs: true
         imageTag: imageTag
@@ -33862,21 +34015,21 @@ components:
       type: string
     v1PytorchElasticPolicy:
       example:
-        maxReplicas: 6
+        maxReplicas: 8
         rdvzId: rdvzId
         rdvzConf:
         - "{}"
         - "{}"
-        nProcPerNode: 8
+        nProcPerNode: 1
         Metrics:
         - "{}"
         - "{}"
-        minReplicas: 8
-        maxRestarts: 9
+        minReplicas: 4
+        maxRestarts: 3
         rdvzHost: rdvzHost
         rdvzBackend: rdvzBackend
         standalone: true
-        rdvzPort: 4
+        rdvzPort: 9
       properties:
         minReplicas:
           description: minReplicas is the lower limit for the number of replicas to
@@ -33940,21 +34093,21 @@ components:
         cleanPodPolicy: null
         nProcPerNode: nProcPerNode
         elasticPolicy:
-          maxReplicas: 6
+          maxReplicas: 8
           rdvzId: rdvzId
           rdvzConf:
           - "{}"
           - "{}"
-          nProcPerNode: 8
+          nProcPerNode: 1
           Metrics:
           - "{}"
           - "{}"
-          minReplicas: 8
-          maxRestarts: 9
+          minReplicas: 4
+          maxRestarts: 3
           rdvzHost: rdvzHost
           rdvzBackend: rdvzBackend
           standalone: true
-          rdvzPort: 4
+          rdvzPort: 9
         kind: pytorchjob
         worker:
           container: "{}"
@@ -34110,7 +34263,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -34118,9 +34271,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 0
+          minAvailable: 1
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 2
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         master:
@@ -34277,7 +34430,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -34425,7 +34578,7 @@ components:
       example:
         rayVersion: rayVersion
         head:
-          maxReplicas: 0
+          maxReplicas: 5
           container: "{}"
           init:
           - modelRef: modelRef
@@ -34580,8 +34733,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 9
+          minReplicas: 5
+          replicas: 0
           volumes:
           - null
           - null
@@ -34595,7 +34748,7 @@ components:
         kind: raycluster
         entrypoint: entrypoint
         workers:
-        - maxReplicas: 0
+        - maxReplicas: 5
           container: "{}"
           init:
           - modelRef: modelRef
@@ -34750,8 +34903,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 9
+          minReplicas: 5
+          replicas: 0
           volumes:
           - null
           - null
@@ -34760,7 +34913,7 @@ components:
           connections:
           - connections
           - connections
-        - maxReplicas: 0
+        - maxReplicas: 5
           container: "{}"
           init:
           - modelRef: modelRef
@@ -34915,8 +35068,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 8
-          replicas: 9
+          minReplicas: 5
+          replicas: 0
           volumes:
           - null
           - null
@@ -34958,7 +35111,7 @@ components:
       type: object
     v1RayReplica:
       example:
-        maxReplicas: 0
+        maxReplicas: 5
         container: "{}"
         init:
         - modelRef: modelRef
@@ -35113,8 +35266,8 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        minReplicas: 8
-        replicas: 9
+        minReplicas: 5
+        replicas: 0
         volumes:
         - null
         - null
@@ -36011,7 +36164,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 8
             volumes:
             - null
             - null
@@ -36173,7 +36326,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 3
+            replicas: 8
             volumes:
             - null
             - null
@@ -36504,7 +36657,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -36666,7 +36819,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -36827,7 +36980,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -36835,9 +36988,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 0
+            minAvailable: 1
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 2
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           successPolicy: successPolicy
@@ -36995,7 +37148,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -37006,8 +37159,18 @@ components:
           components:
           - termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             outputs:
             - delayValidation: true
               toEnv: toEnv
@@ -37026,37 +37189,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -37074,37 +37237,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             template:
               description: description
               fields:
@@ -37120,7 +37283,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
+            cost: 0.43431398
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -37134,11 +37297,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -37170,37 +37333,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -37218,40 +37381,40 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             description: description
             run: "{}"
-            version: 4.2587733
+            version: 4.678948
             tags:
             - tags
             - tags
@@ -37328,8 +37491,18 @@ components:
             queue: queue
           - termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             outputs:
             - delayValidation: true
               toEnv: toEnv
@@ -37348,37 +37521,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -37396,37 +37569,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             template:
               description: description
               fields:
@@ -37442,7 +37615,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
+            cost: 0.43431398
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -37456,11 +37629,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -37492,37 +37665,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -37540,40 +37713,40 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             description: description
             run: "{}"
-            version: 4.2587733
+            version: 4.678948
             tags:
             - tags
             - tags
@@ -37680,9 +37853,9 @@ components:
           - joins:
               key:
                 ref: ref
-                offset: 0
+                offset: 4
                 query: query
-                limit: 4
+                limit: 6
                 sort: sort
                 params:
                   key:
@@ -37710,11 +37883,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -37780,8 +37953,18 @@ components:
               - null
             termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             cache:
               disable: true
               io:
@@ -37791,7 +37974,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 1.0414449
             kind: kind
             isPreset: true
             trigger: null
@@ -37814,8 +37997,18 @@ components:
             component:
               termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               outputs:
               - delayValidation: true
                 toEnv: toEnv
@@ -37834,37 +38027,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -37882,37 +38075,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               template:
                 description: description
                 fields:
@@ -37928,7 +38121,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
+              cost: 0.43431398
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -37942,11 +38135,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -37978,37 +38171,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -38026,40 +38219,40 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               description: description
               run: "{}"
-              version: 4.2587733
+              version: 4.678948
               tags:
               - tags
               - tags
@@ -38176,9 +38369,9 @@ components:
           - joins:
               key:
                 ref: ref
-                offset: 0
+                offset: 4
                 query: query
-                limit: 4
+                limit: 6
                 sort: sort
                 params:
                   key:
@@ -38206,11 +38399,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -38276,8 +38469,18 @@ components:
               - null
             termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             cache:
               disable: true
               io:
@@ -38287,7 +38490,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 6.628464
+            cost: 1.0414449
             kind: kind
             isPreset: true
             trigger: null
@@ -38310,8 +38513,18 @@ components:
             component:
               termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               outputs:
               - delayValidation: true
                 toEnv: toEnv
@@ -38330,37 +38543,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -38378,37 +38591,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               template:
                 description: description
                 fields:
@@ -38424,7 +38637,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
+              cost: 0.43431398
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -38438,11 +38651,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -38474,37 +38687,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -38522,40 +38735,40 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               description: description
               run: "{}"
-              version: 4.2587733
+              version: 4.678948
               tags:
               - tags
               - tags
@@ -38679,26 +38892,26 @@ components:
           connections:
           - connections
           - connections
-          concurrency: 3
+          concurrency: 2
         pytorchJob:
           cleanPodPolicy: null
           nProcPerNode: nProcPerNode
           elasticPolicy:
-            maxReplicas: 6
+            maxReplicas: 8
             rdvzId: rdvzId
             rdvzConf:
             - "{}"
             - "{}"
-            nProcPerNode: 8
+            nProcPerNode: 1
             Metrics:
             - "{}"
             - "{}"
-            minReplicas: 8
-            maxRestarts: 9
+            minReplicas: 4
+            maxRestarts: 3
             rdvzHost: rdvzHost
             rdvzBackend: rdvzBackend
             standalone: true
-            rdvzPort: 4
+            rdvzPort: 9
           kind: pytorchjob
           worker:
             container: "{}"
@@ -38854,7 +39067,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -38862,9 +39075,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 0
+            minAvailable: 1
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 2
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           master:
@@ -39021,7 +39234,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -39031,7 +39244,7 @@ components:
         raycluster:
           rayVersion: rayVersion
           head:
-            maxReplicas: 0
+            maxReplicas: 5
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39186,8 +39399,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
+            minReplicas: 5
+            replicas: 0
             volumes:
             - null
             - null
@@ -39201,7 +39414,7 @@ components:
           kind: raycluster
           entrypoint: entrypoint
           workers:
-          - maxReplicas: 0
+          - maxReplicas: 5
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39356,8 +39569,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
+            minReplicas: 5
+            replicas: 0
             volumes:
             - null
             - null
@@ -39366,7 +39579,7 @@ components:
             connections:
             - connections
             - connections
-          - maxReplicas: 0
+          - maxReplicas: 5
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39521,8 +39734,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 8
-            replicas: 9
+            minReplicas: 5
+            replicas: 0
             volumes:
             - null
             - null
@@ -39695,7 +39908,7 @@ components:
           - connections
         mpiJob:
           cleanPodPolicy: null
-          slotsPerWorker: 1
+          slotsPerWorker: 9
           kind: mpijob
           worker:
             container: "{}"
@@ -39851,7 +40064,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -39859,9 +40072,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 0
+            minAvailable: 1
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 2
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           launcher:
@@ -40018,7 +40231,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 1
+            replicas: 6
             volumes:
             - null
             - null
@@ -40134,7 +40347,7 @@ components:
         cron:
           cron: cron
           dependsOnPast: true
-          maxRuns: 8
+          maxRuns: 3
           kind: cron
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
@@ -40143,11 +40356,11 @@ components:
           startAt: 2000-01-23T04:56:07.000+00:00
         interval:
           dependsOnPast: true
-          maxRuns: 7
+          maxRuns: 3
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 3
+          frequency: 9
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -40166,9 +40379,9 @@ components:
       type: string
     v1SchedulingPolicy:
       example:
-        minAvailable: 0
+        minAvailable: 1
         priorityClass: priorityClass
-        scheduleTimeoutSeconds: 2
+        scheduleTimeoutSeconds: 8
         minResources: "{}"
         queue: queue
       properties:
@@ -40218,7 +40431,7 @@ components:
           user: user
         resource:
           mountPath: mountPath
-          defaultMode: 3
+          defaultMode: 5
           name: name
           items:
           - items
@@ -40379,7 +40592,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 8
               volumes:
               - null
               - null
@@ -40541,7 +40754,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 3
+              replicas: 8
               volumes:
               - null
               - null
@@ -40872,7 +41085,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -41034,7 +41247,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -41195,7 +41408,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -41203,9 +41416,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 0
+              minAvailable: 1
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 2
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             successPolicy: successPolicy
@@ -41363,7 +41576,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -41374,8 +41587,18 @@ components:
             components:
             - termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               outputs:
               - delayValidation: true
                 toEnv: toEnv
@@ -41394,37 +41617,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -41442,37 +41665,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               template:
                 description: description
                 fields:
@@ -41488,7 +41711,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
+              cost: 0.43431398
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -41502,11 +41725,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -41538,37 +41761,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -41586,40 +41809,40 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               description: description
               run: "{}"
-              version: 4.2587733
+              version: 4.678948
               tags:
               - tags
               - tags
@@ -41696,8 +41919,18 @@ components:
               queue: queue
             - termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               outputs:
               - delayValidation: true
                 toEnv: toEnv
@@ -41716,37 +41949,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -41764,37 +41997,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               template:
                 description: description
                 fields:
@@ -41810,7 +42043,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
+              cost: 0.43431398
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -41824,11 +42057,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -41860,37 +42093,37 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               - delayValidation: true
                 toEnv: toEnv
                 description: description
@@ -41908,40 +42141,40 @@ components:
                 value: "{}"
                 validation:
                   multipleOf: 0
-                  maxItems: 8
+                  maxItems: 3
                   excludes:
                   - "{}"
                   - "{}"
                   keys:
                   - keys
                   - keys
-                  minLength: 5
-                  lt: 7
-                  maxDigits: 0
+                  minLength: 6
+                  lt: 0
+                  maxDigits: 5
                   containsKeys:
                   - containsKeys
                   - containsKeys
-                  gt: 1
-                  minItems: 6
+                  gt: 7
+                  minItems: 4
                   regex: regex
                   contains:
                   - "{}"
                   - "{}"
                   delay: true
-                  decimalPlaces: 7
+                  decimalPlaces: 4
                   excludesKeys:
                   - excludesKeys
                   - excludesKeys
-                  minDigits: 9
+                  minDigits: 7
                   options:
                   - "{}"
                   - "{}"
                   le: 9
-                  ge: 4
-                  maxLength: 4
+                  ge: 9
+                  maxLength: 8
               description: description
               run: "{}"
-              version: 4.2587733
+              version: 4.678948
               tags:
               - tags
               - tags
@@ -42048,9 +42281,9 @@ components:
             - joins:
                 key:
                   ref: ref
-                  offset: 0
+                  offset: 4
                   query: query
-                  limit: 4
+                  limit: 6
                   sort: sort
                   params:
                     key:
@@ -42078,11 +42311,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -42148,8 +42381,18 @@ components:
                 - null
               termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               cache:
                 disable: true
                 io:
@@ -42159,7 +42402,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 1.0414449
               kind: kind
               isPreset: true
               trigger: null
@@ -42182,8 +42425,18 @@ components:
               component:
                 termination:
                   maxRetries: 3
+                  culling:
+                    timeout: 5
                   ttl: 3
                   timeout: 7
+                  probe:
+                    http:
+                      path: path
+                      port: 3
+                    exec:
+                      command:
+                      - command
+                      - command
                 outputs:
                 - delayValidation: true
                   toEnv: toEnv
@@ -42202,37 +42455,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 - delayValidation: true
                   toEnv: toEnv
                   description: description
@@ -42250,37 +42503,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 template:
                   description: description
                   fields:
@@ -42296,7 +42549,7 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 4.459605
+                cost: 0.43431398
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -42310,11 +42563,11 @@ components:
                   logLevel: logLevel
                   autoResume: true
                   sidecar:
-                    sleepInterval: 5
+                    sleepInterval: 4
                     monitorSpec: true
                     image: image
                     imagePullPolicy: imagePullPolicy
-                    syncInterval: 3
+                    syncInterval: 0
                     resources: "{}"
                     monitorLogs: true
                     imageTag: imageTag
@@ -42346,37 +42599,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 - delayValidation: true
                   toEnv: toEnv
                   description: description
@@ -42394,40 +42647,40 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 description: description
                 run: "{}"
-                version: 4.2587733
+                version: 4.678948
                 tags:
                 - tags
                 - tags
@@ -42544,9 +42797,9 @@ components:
             - joins:
                 key:
                   ref: ref
-                  offset: 0
+                  offset: 4
                   query: query
-                  limit: 4
+                  limit: 6
                   sort: sort
                   params:
                     key:
@@ -42574,11 +42827,11 @@ components:
                 logLevel: logLevel
                 autoResume: true
                 sidecar:
-                  sleepInterval: 5
+                  sleepInterval: 4
                   monitorSpec: true
                   image: image
                   imagePullPolicy: imagePullPolicy
-                  syncInterval: 3
+                  syncInterval: 0
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
@@ -42644,8 +42897,18 @@ components:
                 - null
               termination:
                 maxRetries: 3
+                culling:
+                  timeout: 5
                 ttl: 3
                 timeout: 7
+                probe:
+                  http:
+                    path: path
+                    port: 3
+                  exec:
+                    command:
+                    - command
+                    - command
               cache:
                 disable: true
                 io:
@@ -42655,7 +42918,7 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 6.628464
+              cost: 1.0414449
               kind: kind
               isPreset: true
               trigger: null
@@ -42678,8 +42941,18 @@ components:
               component:
                 termination:
                   maxRetries: 3
+                  culling:
+                    timeout: 5
                   ttl: 3
                   timeout: 7
+                  probe:
+                    http:
+                      path: path
+                      port: 3
+                    exec:
+                      command:
+                      - command
+                      - command
                 outputs:
                 - delayValidation: true
                   toEnv: toEnv
@@ -42698,37 +42971,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 - delayValidation: true
                   toEnv: toEnv
                   description: description
@@ -42746,37 +43019,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 template:
                   description: description
                   fields:
@@ -42792,7 +43065,7 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 4.459605
+                cost: 0.43431398
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -42806,11 +43079,11 @@ components:
                   logLevel: logLevel
                   autoResume: true
                   sidecar:
-                    sleepInterval: 5
+                    sleepInterval: 4
                     monitorSpec: true
                     image: image
                     imagePullPolicy: imagePullPolicy
-                    syncInterval: 3
+                    syncInterval: 0
                     resources: "{}"
                     monitorLogs: true
                     imageTag: imageTag
@@ -42842,37 +43115,37 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 - delayValidation: true
                   toEnv: toEnv
                   description: description
@@ -42890,40 +43163,40 @@ components:
                   value: "{}"
                   validation:
                     multipleOf: 0
-                    maxItems: 8
+                    maxItems: 3
                     excludes:
                     - "{}"
                     - "{}"
                     keys:
                     - keys
                     - keys
-                    minLength: 5
-                    lt: 7
-                    maxDigits: 0
+                    minLength: 6
+                    lt: 0
+                    maxDigits: 5
                     containsKeys:
                     - containsKeys
                     - containsKeys
-                    gt: 1
-                    minItems: 6
+                    gt: 7
+                    minItems: 4
                     regex: regex
                     contains:
                     - "{}"
                     - "{}"
                     delay: true
-                    decimalPlaces: 7
+                    decimalPlaces: 4
                     excludesKeys:
                     - excludesKeys
                     - excludesKeys
-                    minDigits: 9
+                    minDigits: 7
                     options:
                     - "{}"
                     - "{}"
                     le: 9
-                    ge: 4
-                    maxLength: 4
+                    ge: 9
+                    maxLength: 8
                 description: description
                 run: "{}"
-                version: 4.2587733
+                version: 4.678948
                 tags:
                 - tags
                 - tags
@@ -43047,26 +43320,26 @@ components:
             connections:
             - connections
             - connections
-            concurrency: 3
+            concurrency: 2
           pytorchJob:
             cleanPodPolicy: null
             nProcPerNode: nProcPerNode
             elasticPolicy:
-              maxReplicas: 6
+              maxReplicas: 8
               rdvzId: rdvzId
               rdvzConf:
               - "{}"
               - "{}"
-              nProcPerNode: 8
+              nProcPerNode: 1
               Metrics:
               - "{}"
               - "{}"
-              minReplicas: 8
-              maxRestarts: 9
+              minReplicas: 4
+              maxRestarts: 3
               rdvzHost: rdvzHost
               rdvzBackend: rdvzBackend
               standalone: true
-              rdvzPort: 4
+              rdvzPort: 9
             kind: pytorchjob
             worker:
               container: "{}"
@@ -43222,7 +43495,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -43230,9 +43503,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 0
+              minAvailable: 1
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 2
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             master:
@@ -43389,7 +43662,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -43399,7 +43672,7 @@ components:
           raycluster:
             rayVersion: rayVersion
             head:
-              maxReplicas: 0
+              maxReplicas: 5
               container: "{}"
               init:
               - modelRef: modelRef
@@ -43554,8 +43827,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
+              minReplicas: 5
+              replicas: 0
               volumes:
               - null
               - null
@@ -43569,7 +43842,7 @@ components:
             kind: raycluster
             entrypoint: entrypoint
             workers:
-            - maxReplicas: 0
+            - maxReplicas: 5
               container: "{}"
               init:
               - modelRef: modelRef
@@ -43724,8 +43997,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
+              minReplicas: 5
+              replicas: 0
               volumes:
               - null
               - null
@@ -43734,7 +44007,7 @@ components:
               connections:
               - connections
               - connections
-            - maxReplicas: 0
+            - maxReplicas: 5
               container: "{}"
               init:
               - modelRef: modelRef
@@ -43889,8 +44162,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 8
-              replicas: 9
+              minReplicas: 5
+              replicas: 0
               volumes:
               - null
               - null
@@ -44063,7 +44336,7 @@ components:
             - connections
           mpiJob:
             cleanPodPolicy: null
-            slotsPerWorker: 1
+            slotsPerWorker: 9
             kind: mpijob
             worker:
               container: "{}"
@@ -44219,7 +44492,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -44227,9 +44500,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 0
+              minAvailable: 1
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 2
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             launcher:
@@ -44386,7 +44659,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 1
+              replicas: 6
               volumes:
               - null
               - null
@@ -44624,7 +44897,7 @@ components:
           cron:
             cron: cron
             dependsOnPast: true
-            maxRuns: 8
+            maxRuns: 3
             kind: cron
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
@@ -44633,17 +44906,17 @@ components:
             startAt: 2000-01-23T04:56:07.000+00:00
           interval:
             dependsOnPast: true
-            maxRuns: 7
+            maxRuns: 3
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 3
+            frequency: 9
         polyaxonSidecarContainer:
-          sleepInterval: 5
+          sleepInterval: 4
           monitorSpec: true
           image: image
           imagePullPolicy: imagePullPolicy
-          syncInterval: 3
+          syncInterval: 0
           resources: "{}"
           monitorLogs: true
           imageTag: imageTag
@@ -44664,7 +44937,7 @@ components:
           kind: null
           configMap:
             mountPath: mountPath
-            defaultMode: 3
+            defaultMode: 5
             name: name
             items:
             - items
@@ -44675,7 +44948,7 @@ components:
             key: annotations
           secret:
             mountPath: mountPath
-            defaultMode: 3
+            defaultMode: 5
             name: name
             items:
             - items
@@ -44693,45 +44966,45 @@ components:
           image:
             path: path
             colorspace: 3
-            width: 0
-            height: 7
+            width: 2
+            height: 3
           curve:
             annotation: annotation
             kind: null
             x:
-            - 2.7977867
-            - 2.7977867
+            - 0.5891909
+            - 0.5891909
             "y":
-            - 9.386525
-            - 9.386525
+            - 2.535259
+            - 2.535259
           video:
             path: path
             content_type: content_type
-            colorspace: 4
-            width: 7
-            height: 0
+            colorspace: 9
+            width: 2
+            height: 4
           histogram:
             counts:
-            - 3.804112695731078
-            - 3.804112695731078
+            - 4.518309517874243
+            - 4.518309517874243
             values:
-            - 2.380090174313445
-            - 2.380090174313445
+            - 8.675064425986758
+            - 8.675064425986758
           artifact:
             path: path
             kind: null
-          metric: 5.877125
-          step: 9
+          metric: 0.47684023
+          step: 7
           html: html
           model:
             path: path
             framework: framework
             spec: "{}"
           audio:
-            num_channels: 4
+            num_channels: 0
             path: path
-            length_frames: 0
-            sample_rate: 8.675064
+            length_frames: 7
+            sample_rate: 0.4833313
             content_type: content_type
           text: text
           dataframe:
@@ -44814,9 +45087,9 @@ components:
           joins:
             key:
               ref: ref
-              offset: 0
+              offset: 4
               query: query
-              limit: 4
+              limit: 6
               sort: sort
               params:
                 key:
@@ -44844,11 +45117,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -44914,8 +45187,18 @@ components:
             - null
           termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           cache:
             disable: true
             io:
@@ -44925,7 +45208,7 @@ components:
             sections:
             - sections
             - sections
-          cost: 6.628464
+          cost: 1.0414449
           kind: kind
           isPreset: true
           trigger: null
@@ -44948,8 +45231,18 @@ components:
           component:
             termination:
               maxRetries: 3
+              culling:
+                timeout: 5
               ttl: 3
               timeout: 7
+              probe:
+                http:
+                  path: path
+                  port: 3
+                exec:
+                  command:
+                  - command
+                  - command
             outputs:
             - delayValidation: true
               toEnv: toEnv
@@ -44968,37 +45261,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -45016,37 +45309,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             template:
               description: description
               fields:
@@ -45062,7 +45355,7 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
+            cost: 0.43431398
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -45076,11 +45369,11 @@ components:
               logLevel: logLevel
               autoResume: true
               sidecar:
-                sleepInterval: 5
+                sleepInterval: 4
                 monitorSpec: true
                 image: image
                 imagePullPolicy: imagePullPolicy
-                syncInterval: 3
+                syncInterval: 0
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
@@ -45112,37 +45405,37 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             - delayValidation: true
               toEnv: toEnv
               description: description
@@ -45160,40 +45453,40 @@ components:
               value: "{}"
               validation:
                 multipleOf: 0
-                maxItems: 8
+                maxItems: 3
                 excludes:
                 - "{}"
                 - "{}"
                 keys:
                 - keys
                 - keys
-                minLength: 5
-                lt: 7
-                maxDigits: 0
+                minLength: 6
+                lt: 0
+                maxDigits: 5
                 containsKeys:
                 - containsKeys
                 - containsKeys
-                gt: 1
-                minItems: 6
+                gt: 7
+                minItems: 4
                 regex: regex
                 contains:
                 - "{}"
                 - "{}"
                 delay: true
-                decimalPlaces: 7
+                decimalPlaces: 4
                 excludesKeys:
                 - excludesKeys
                 - excludesKeys
-                minDigits: 9
+                minDigits: 7
                 options:
                 - "{}"
                 - "{}"
                 le: 9
-                ge: 4
-                maxLength: 4
+                ge: 9
+                maxLength: 8
             description: description
             run: "{}"
-            version: 4.2587733
+            version: 4.678948
             tags:
             - tags
             - tags
@@ -45311,9 +45604,9 @@ components:
           joins:
             key:
               ref: ref
-              offset: 0
+              offset: 4
               query: query
-              limit: 4
+              limit: 6
               sort: sort
               params:
                 key:
@@ -45340,37 +45633,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -45388,37 +45681,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           plugins:
             mountArtifactsStore: true
             syncStatuses: true
@@ -45431,11 +45724,11 @@ components:
             logLevel: logLevel
             autoResume: true
             sidecar:
-              sleepInterval: 5
+              sleepInterval: 4
               monitorSpec: true
               image: image
               imagePullPolicy: imagePullPolicy
-              syncInterval: 3
+              syncInterval: 0
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
@@ -45467,37 +45760,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -45515,37 +45808,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           description: description
           run: "{}"
           contexts:
@@ -45566,37 +45859,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           - delayValidation: true
             toEnv: toEnv
             description: description
@@ -45614,37 +45907,37 @@ components:
             value: "{}"
             validation:
               multipleOf: 0
-              maxItems: 8
+              maxItems: 3
               excludes:
               - "{}"
               - "{}"
               keys:
               - keys
               - keys
-              minLength: 5
-              lt: 7
-              maxDigits: 0
+              minLength: 6
+              lt: 0
+              maxDigits: 5
               containsKeys:
               - containsKeys
               - containsKeys
-              gt: 1
-              minItems: 6
+              gt: 7
+              minItems: 4
               regex: regex
               contains:
               - "{}"
               - "{}"
               delay: true
-              decimalPlaces: 7
+              decimalPlaces: 4
               excludesKeys:
               - excludesKeys
               - excludesKeys
-              minDigits: 9
+              minDigits: 7
               options:
               - "{}"
               - "{}"
               le: 9
-              ge: 4
-              maxLength: 4
+              ge: 9
+              maxLength: 8
           matrix: "{}"
           isApproved: true
           hooks:
@@ -45695,8 +45988,18 @@ components:
             - null
           termination:
             maxRetries: 3
+            culling:
+              timeout: 5
             ttl: 3
             timeout: 7
+            probe:
+              http:
+                path: path
+                port: 3
+              exec:
+                command:
+                - command
+                - command
           cache:
             disable: true
             io:
@@ -45706,10 +46009,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 5.3124895
+          cost: 7.6068635
           kind: kind
           trigger: null
-          version: 5.299144
+          version: 8.378238
           tags:
           - tags
           - tags
@@ -46712,7 +47015,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -46874,7 +47177,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -47035,7 +47338,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -47043,9 +47346,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 0
+          minAvailable: 1
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 2
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         successPolicy: successPolicy
@@ -47203,7 +47506,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 1
+          replicas: 6
           volumes:
           - null
           - null
@@ -47497,8 +47800,18 @@ components:
         \ job runtime, and cleanup policy."
       example:
         maxRetries: 3
+        culling:
+          timeout: 5
         ttl: 3
         timeout: 7
+        probe:
+          http:
+            path: path
+            port: 3
+          exec:
+            command:
+            - command
+            - command
       properties:
         maxRetries:
           format: int32
@@ -47512,6 +47825,10 @@ components:
           format: int32
           title: A timeout in seconds
           type: integer
+        culling:
+          $ref: '#/components/schemas/v1Culling'
+        probe:
+          $ref: '#/components/schemas/v1ActivityProbe'
       type: object
     v1Token:
       example:
@@ -47832,37 +48149,37 @@ components:
     v1Validation:
       example:
         multipleOf: 0
-        maxItems: 8
+        maxItems: 3
         excludes:
         - "{}"
         - "{}"
         keys:
         - keys
         - keys
-        minLength: 5
-        lt: 7
-        maxDigits: 0
+        minLength: 6
+        lt: 0
+        maxDigits: 5
         containsKeys:
         - containsKeys
         - containsKeys
-        gt: 1
-        minItems: 6
+        gt: 7
+        minItems: 4
         regex: regex
         contains:
         - "{}"
         - "{}"
         delay: true
-        decimalPlaces: 7
+        decimalPlaces: 4
         excludesKeys:
         - excludesKeys
         - excludesKeys
-        minDigits: 9
+        minDigits: 7
         options:
         - "{}"
         - "{}"
         le: 9
-        ge: 4
-        maxLength: 4
+        ge: 9
+        maxLength: 8
       properties:
         delay:
           title: Validation delay

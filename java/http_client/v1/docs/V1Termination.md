@@ -11,6 +11,8 @@ Termination specification, it defines how to handle failures, job runtime, and c
 |**maxRetries** | **Integer** |  |  [optional] |
 |**ttl** | **Integer** |  |  [optional] |
 |**timeout** | **Integer** |  |  [optional] |
+|**culling** | [**V1Culling**](V1Culling.md) |  |  [optional] |
+|**probe** | [**V1ActivityProbe**](V1ActivityProbe.md) |  |  [optional] |
 
 
 
