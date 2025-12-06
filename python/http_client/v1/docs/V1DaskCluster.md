@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **kind** | **str** |  | [optional] [default to 'daskcluster']
 **worker** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
 **scheduler** | [**V1DaskReplica**](V1DaskReplica.md) |  | [optional] 
+**min_replicas** | **int** |  | [optional] 
+**max_replicas** | **int** |  | [optional] 
 
 ## Example
 

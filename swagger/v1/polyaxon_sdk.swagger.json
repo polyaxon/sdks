@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.12.0-rc5",
+    "version": "2.12.0-rc8",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -21801,6 +21801,16 @@
         "scheduler": {
           "$ref": "#/definitions/v1DaskReplica",
           "title": "Scheduler pod specification"
+        },
+        "minReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Minimum number of workers for autoscaling (creates DaskAutoscaler if set)"
+        },
+        "maxReplicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Maximum number of workers for autoscaling (creates DaskAutoscaler if set)"
         }
       },
       "title": "Dask specification"
@@ -25268,6 +25278,9 @@
         "monitorSpec": {
           "type": "boolean"
         },
+        "noConnections": {
+          "type": "boolean"
+        },
         "resources": {
           "$ref": "#/definitions/v1ResourceRequirements"
         }
@@ -25838,6 +25851,24 @@
       },
       "title": "Matrix based on randomly generated search space"
     },
+    "v1RayAutoscalerOptions": {
+      "type": "object",
+      "properties": {
+        "upscalingMode": {
+          "type": "string",
+          "title": "UpscalingMode is \"Conservative\", \"Default\", or \"Aggressive\"\nConservative: Upscaling is rate-limited\nDefault: Upscaling is not rate-limited\nAggressive: An alias for Default"
+        },
+        "imagePullPolicy": {
+          "type": "string",
+          "title": "ImagePullPolicy for the autoscaler container"
+        },
+        "resources": {
+          "$ref": "#/definitions/v1ResourceRequirements",
+          "title": "Resources for the autoscaler container"
+        }
+      },
+      "title": "Autoscaler options for Ray cluster"
+    },
     "v1RayCluster": {
       "type": "object",
       "properties": {
@@ -25875,6 +25906,14 @@
             "$ref": "#/definitions/v1RayReplica"
           },
           "title": "Ray workers group section"
+        },
+        "enableInTreeAutoscaling": {
+          "type": "boolean",
+          "title": "Enable in-tree autoscaling for the Ray cluster"
+        },
+        "autoscalerOptions": {
+          "$ref": "#/definitions/v1RayAutoscalerOptions",
+          "title": "Autoscaler options for the Ray cluster"
         }
       },
       "title": "Ray specification"
@@ -26300,7 +26339,6 @@
       "enum": [
         "job",
         "service",
-        "cluster",
         "dag",
         "daskcluster",
         "raycluster",

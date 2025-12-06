@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.12.0-rc5
+- API version: 2.12.0-rc8
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.12.0-rc5</version>
+  <version>2.12.0-rc8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.12.0-rc5"
+     implementation "org.openapitools:openapi-java-client:2.12.0-rc8"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.12.0-rc5.jar`
+* `target/openapi-java-client-2.12.0-rc8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -598,6 +598,7 @@ Class | Method | HTTP request | Description
  - [V1PytorchJob](docs/V1PytorchJob.md)
  - [V1Queue](docs/V1Queue.md)
  - [V1RandomSearch](docs/V1RandomSearch.md)
+ - [V1RayAutoscalerOptions](docs/V1RayAutoscalerOptions.md)
  - [V1RayCluster](docs/V1RayCluster.md)
  - [V1RayReplica](docs/V1RayReplica.md)
  - [V1Reference](docs/V1Reference.md)

@@ -175,6 +175,7 @@ export * from './V1PytorchElasticPolicy';
 export * from './V1PytorchJob';
 export * from './V1Queue';
 export * from './V1RandomSearch';
+export * from './V1RayAutoscalerOptions';
 export * from './V1RayCluster';
 export * from './V1RayReplica';
 export * from './V1Reference';

@@ -7,8 +7,6 @@
 
 * `service` (value: `"service"`)
 
-* `cluster` (value: `"cluster"`)
-
 * `dag` (value: `"dag"`)
 
 * `daskcluster` (value: `"daskcluster"`)

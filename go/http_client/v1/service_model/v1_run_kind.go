@@ -39,9 +39,6 @@ const (
 	// V1RunKindService captures enum value "service"
 	V1RunKindService V1RunKind = "service"
 
-	// V1RunKindCluster captures enum value "cluster"
-	V1RunKindCluster V1RunKind = "cluster"
-
 	// V1RunKindDag captures enum value "dag"
 	V1RunKindDag V1RunKind = "dag"
 
@@ -87,7 +84,7 @@ var v1RunKindEnum []any
 
 func init() {
 	var res []V1RunKind
-	if err := json.Unmarshal([]byte(`["job","service","cluster","dag","daskcluster","raycluster","mpijob","tfjob","pytorchjob","matrix","schedule","tuner","watchdog","notifier","builder","cleaner"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["job","service","dag","daskcluster","raycluster","mpijob","tfjob","pytorchjob","matrix","schedule","tuner","watchdog","notifier","builder","cleaner"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **syncInterval** | **Number** |  | [optional] 
 **monitorLogs** | **Boolean** |  | [optional] 
 **monitorSpec** | **Boolean** |  | [optional] 
+**noConnections** | **Boolean** |  | [optional] 
 **resources** | **Object** |  | [optional] 
 
 

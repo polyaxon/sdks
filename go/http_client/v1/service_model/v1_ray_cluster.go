@@ -20,6 +20,12 @@ import (
 // swagger:model v1RayCluster
 type V1RayCluster struct {
 
+	// Autoscaler options for the Ray cluster
+	AutoscalerOptions *V1RayAutoscalerOptions `json:"autoscalerOptions,omitempty"`
+
+	// Enable in-tree autoscaling for the Ray cluster
+	EnableInTreeAutoscaling bool `json:"enableInTreeAutoscaling,omitempty"`
+
 	// Entrypoint of the ray application, e.g. python path/to/run.py
 	Entrypoint string `json:"entrypoint,omitempty"`
 
@@ -46,6 +52,10 @@ type V1RayCluster struct {
 func (m *V1RayCluster) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAutoscalerOptions(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHead(formats); err != nil {
 		res = append(res, err)
 	}
@@ -57,6 +67,29 @@ func (m *V1RayCluster) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1RayCluster) validateAutoscalerOptions(formats strfmt.Registry) error {
+	if swag.IsZero(m.AutoscalerOptions) { // not required
+		return nil
+	}
+
+	if m.AutoscalerOptions != nil {
+		if err := m.AutoscalerOptions.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("autoscalerOptions")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("autoscalerOptions")
+			}
+
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -117,6 +150,10 @@ func (m *V1RayCluster) validateWorkers(formats strfmt.Registry) error {
 func (m *V1RayCluster) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateAutoscalerOptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateHead(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -128,6 +165,31 @@ func (m *V1RayCluster) ContextValidate(ctx context.Context, formats strfmt.Regis
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1RayCluster) contextValidateAutoscalerOptions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AutoscalerOptions != nil {
+
+		if swag.IsZero(m.AutoscalerOptions) { // not required
+			return nil
+		}
+
+		if err := m.AutoscalerOptions.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("autoscalerOptions")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("autoscalerOptions")
+			}
+
+			return err
+		}
+	}
+
 	return nil
 }
 

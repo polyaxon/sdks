@@ -44,4 +44,10 @@ message DaskCluster {
 
     // Scheduler pod specification
     DaskReplica scheduler = 4;
+
+    // Minimum number of workers for autoscaling (creates DaskAutoscaler if set)
+    int32 minReplicas = 5;
+
+    // Maximum number of workers for autoscaling (creates DaskAutoscaler if set)
+    int32 maxReplicas = 6;
 }

@@ -15,7 +15,8 @@ message PolyaxonSidecarContainer {
     int32 syncInterval = 5;
     bool monitorLogs = 6;
     bool monitorSpec = 7;
-    ResourceRequirements resources = 8;
+    bool noConnections = 8;
+    ResourceRequirements resources = 9;
 }
 
 // Polyaxon init specification

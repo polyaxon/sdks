@@ -22,6 +22,12 @@ type V1DaskCluster struct {
 	// Optional component kind, should be equal to 'daskcluster'
 	Kind *string `json:"kind,omitempty"`
 
+	// Maximum number of workers for autoscaling (creates DaskAutoscaler if set)
+	MaxReplicas int32 `json:"maxReplicas,omitempty"`
+
+	// Minimum number of workers for autoscaling (creates DaskAutoscaler if set)
+	MinReplicas int32 `json:"minReplicas,omitempty"`
+
 	// Scheduler pod specification
 	Scheduler *V1DaskReplica `json:"scheduler,omitempty"`
 

@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **ray_version** | **str** |  | [optional] 
 **head** | [**V1RayReplica**](V1RayReplica.md) |  | [optional] 
 **workers** | [**List[V1RayReplica]**](V1RayReplica.md) |  | [optional] 
+**enable_in_tree_autoscaling** | **bool** |  | [optional] 
+**autoscaler_options** | [**V1RayAutoscalerOptions**](V1RayAutoscalerOptions.md) |  | [optional] 
 
 ## Example
 

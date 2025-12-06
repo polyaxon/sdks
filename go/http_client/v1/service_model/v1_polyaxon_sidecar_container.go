@@ -32,6 +32,9 @@ type V1PolyaxonSidecarContainer struct {
 	// monitor spec
 	MonitorSpec bool `json:"monitorSpec,omitempty"`
 
+	// no connections
+	NoConnections bool `json:"noConnections,omitempty"`
+
 	// resources
 	Resources V1ResourceRequirements `json:"resources,omitempty"`
 

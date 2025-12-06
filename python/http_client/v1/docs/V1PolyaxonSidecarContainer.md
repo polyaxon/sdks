@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **sync_interval** | **int** |  | [optional] 
 **monitor_logs** | **bool** |  | [optional] 
 **monitor_spec** | **bool** |  | [optional] 
+**no_connections** | **bool** |  | [optional] 
 **resources** | **object** |  | [optional] 
 
 ## Example

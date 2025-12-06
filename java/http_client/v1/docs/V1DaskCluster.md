@@ -10,6 +10,8 @@
 |**kind** | **String** |  |  [optional] |
 |**worker** | [**V1DaskReplica**](V1DaskReplica.md) |  |  [optional] |
 |**scheduler** | [**V1DaskReplica**](V1DaskReplica.md) |  |  [optional] |
+|**minReplicas** | **Integer** |  |  [optional] |
+|**maxReplicas** | **Integer** |  |  [optional] |
 
 
 

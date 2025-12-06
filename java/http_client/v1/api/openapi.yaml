@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.12.0-rc5
+  version: 2.12.0-rc8
 servers:
 - url: /
 security:
@@ -23253,6 +23253,7 @@ components:
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
+            noConnections: true
           shm: true
           notifications:
           - trigger: null
@@ -23530,10 +23531,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 7.6068635
+        cost: 3.1112027
         kind: kind
         trigger: null
-        version: 8.378238
+        version: 3.7814124
         tags:
         - tags
         - tags
@@ -23831,6 +23832,7 @@ components:
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
+            noConnections: true
           shm: true
           notifications:
           - trigger: null
@@ -24136,7 +24138,7 @@ components:
     v1ConnectionResource:
       example:
         mountPath: mountPath
-        defaultMode: 5
+        defaultMode: 0
         name: name
         items:
         - items
@@ -24247,7 +24249,7 @@ components:
         kind: null
         configMap:
           mountPath: mountPath
-          defaultMode: 5
+          defaultMode: 0
           name: name
           items:
           - items
@@ -24258,7 +24260,7 @@ components:
           key: annotations
         secret:
           mountPath: mountPath
-          defaultMode: 5
+          defaultMode: 0
           name: name
           items:
           - items
@@ -24316,7 +24318,7 @@ components:
       example:
         cron: cron
         dependsOnPast: true
-        maxRuns: 3
+        maxRuns: 9
         kind: cron
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
@@ -24506,6 +24508,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -24838,6 +24841,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -25092,6 +25096,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -25344,6 +25349,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -25608,6 +25614,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -25860,6 +25867,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -26461,6 +26469,8 @@ components:
           connections:
           - connections
           - connections
+        maxReplicas: 5
+        minReplicas: 0
         kind: daskcluster
         worker:
           container: "{}"
@@ -26632,6 +26642,16 @@ components:
           $ref: '#/components/schemas/v1DaskReplica'
         scheduler:
           $ref: '#/components/schemas/v1DaskReplica'
+        minReplicas:
+          format: int32
+          title: Minimum number of workers for autoscaling (creates DaskAutoscaler
+            if set)
+          type: integer
+        maxReplicas:
+          format: int32
+          title: Maximum number of workers for autoscaling (creates DaskAutoscaler
+            if set)
+          type: integer
       title: Dask specification
       type: object
     v1DaskReplica:
@@ -27226,46 +27246,46 @@ components:
       example:
         image:
           path: path
-          colorspace: 3
-          width: 2
+          colorspace: 4
+          width: 8
           height: 3
         curve:
           annotation: annotation
           kind: null
           x:
-          - 0.5891909
-          - 0.5891909
+          - 6.173804
+          - 6.173804
           "y":
-          - 2.535259
-          - 2.535259
+          - 4.878988
+          - 4.878988
         video:
           path: path
           content_type: content_type
-          colorspace: 9
-          width: 2
-          height: 4
+          colorspace: 2
+          width: 0
+          height: 9
         histogram:
           counts:
-          - 4.518309517874243
-          - 4.518309517874243
+          - 0.35262192099236644
+          - 0.35262192099236644
           values:
-          - 8.675064425986758
-          - 8.675064425986758
+          - 0.4833312865174044
+          - 0.4833312865174044
         artifact:
           path: path
           kind: null
-        metric: 0.47684023
-        step: 7
+        metric: 2.3800902
+        step: 3
         html: html
         model:
           path: path
           framework: framework
           spec: "{}"
         audio:
-          num_channels: 0
+          num_channels: 4
           path: path
-          length_frames: 7
-          sample_rate: 0.4833313
+          length_frames: 2
+          sample_rate: 7.203795
           content_type: content_type
         text: text
         dataframe:
@@ -27370,10 +27390,10 @@ components:
       type: object
     v1EventAudio:
       example:
-        num_channels: 0
+        num_channels: 4
         path: path
-        length_frames: 7
-        sample_rate: 0.4833313
+        length_frames: 2
+        sample_rate: 7.203795
         content_type: content_type
       properties:
         sample_rate:
@@ -27458,11 +27478,11 @@ components:
         annotation: annotation
         kind: null
         x:
-        - 0.5891909
-        - 0.5891909
+        - 6.173804
+        - 6.173804
         "y":
-        - 2.535259
-        - 2.535259
+        - 4.878988
+        - 4.878988
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -27511,11 +27531,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 4.518309517874243
-        - 4.518309517874243
+        - 0.35262192099236644
+        - 0.35262192099236644
         values:
-        - 8.675064425986758
-        - 8.675064425986758
+        - 0.4833312865174044
+        - 0.4833312865174044
       properties:
         values:
           items:
@@ -27532,8 +27552,8 @@ components:
     v1EventImage:
       example:
         path: path
-        colorspace: 3
-        width: 2
+        colorspace: 4
+        width: 8
         height: 3
       properties:
         height:
@@ -27738,9 +27758,9 @@ components:
       example:
         path: path
         content_type: content_type
-        colorspace: 9
-        width: 2
-        height: 4
+        colorspace: 2
+        width: 0
+        height: 9
       properties:
         height:
           description: Height of the video.
@@ -28761,11 +28781,11 @@ components:
     v1IntervalSchedule:
       example:
         dependsOnPast: true
-        maxRuns: 3
+        maxRuns: 5
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 9
+        frequency: 7
       properties:
         kind:
           default: interval
@@ -32335,6 +32355,7 @@ components:
             resources: "{}"
             monitorLogs: true
             imageTag: imageTag
+            noConnections: true
           shm: true
           notifications:
           - trigger: null
@@ -32587,6 +32608,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -33225,6 +33247,7 @@ components:
           resources: "{}"
           monitorLogs: true
           imageTag: imageTag
+          noConnections: true
         shm: true
         notifications:
         - trigger: null
@@ -33495,6 +33518,7 @@ components:
         resources: "{}"
         monitorLogs: true
         imageTag: imageTag
+        noConnections: true
       properties:
         image:
           type: string
@@ -33511,6 +33535,8 @@ components:
         monitorLogs:
           type: boolean
         monitorSpec:
+          type: boolean
+        noConnections:
           type: boolean
         resources:
           title: Placeholder Resource Requirements
@@ -34574,11 +34600,32 @@ components:
           type: array
       title: Matrix based on randomly generated search space
       type: object
+    v1RayAutoscalerOptions:
+      example:
+        imagePullPolicy: imagePullPolicy
+        upscalingMode: upscalingMode
+        resources: "{}"
+      properties:
+        upscalingMode:
+          title: |-
+            UpscalingMode is "Conservative", "Default", or "Aggressive"
+            Conservative: Upscaling is rate-limited
+            Default: Upscaling is not rate-limited
+            Aggressive: An alias for Default
+          type: string
+        imagePullPolicy:
+          title: ImagePullPolicy for the autoscaler container
+          type: string
+        resources:
+          title: Placeholder Resource Requirements
+          type: object
+      title: Autoscaler options for Ray cluster
+      type: object
     v1RayCluster:
       example:
         rayVersion: rayVersion
         head:
-          maxReplicas: 5
+          maxReplicas: 7
           container: "{}"
           init:
           - modelRef: modelRef
@@ -34733,8 +34780,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 5
-          replicas: 0
+          minReplicas: 8
+          replicas: 5
           volumes:
           - null
           - null
@@ -34745,10 +34792,15 @@ components:
           - connections
         metadata:
           key: metadata
+        autoscalerOptions:
+          imagePullPolicy: imagePullPolicy
+          upscalingMode: upscalingMode
+          resources: "{}"
         kind: raycluster
         entrypoint: entrypoint
+        enableInTreeAutoscaling: true
         workers:
-        - maxReplicas: 5
+        - maxReplicas: 7
           container: "{}"
           init:
           - modelRef: modelRef
@@ -34903,8 +34955,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 5
-          replicas: 0
+          minReplicas: 8
+          replicas: 5
           volumes:
           - null
           - null
@@ -34913,7 +34965,7 @@ components:
           connections:
           - connections
           - connections
-        - maxReplicas: 5
+        - maxReplicas: 7
           container: "{}"
           init:
           - modelRef: modelRef
@@ -35068,8 +35120,8 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          minReplicas: 5
-          replicas: 0
+          minReplicas: 8
+          replicas: 5
           volumes:
           - null
           - null
@@ -35107,11 +35159,16 @@ components:
             $ref: '#/components/schemas/v1RayReplica'
           title: Ray workers group section
           type: array
+        enableInTreeAutoscaling:
+          title: Enable in-tree autoscaling for the Ray cluster
+          type: boolean
+        autoscalerOptions:
+          $ref: '#/components/schemas/v1RayAutoscalerOptions'
       title: Ray specification
       type: object
     v1RayReplica:
       example:
-        maxReplicas: 5
+        maxReplicas: 7
         container: "{}"
         init:
         - modelRef: modelRef
@@ -35266,8 +35323,8 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        minReplicas: 5
-        replicas: 0
+        minReplicas: 8
+        replicas: 5
         volumes:
         - null
         - null
@@ -35933,7 +35990,6 @@ components:
       enum:
       - job
       - service
-      - cluster
       - dag
       - daskcluster
       - raycluster
@@ -36171,6 +36227,8 @@ components:
             connections:
             - connections
             - connections
+          maxReplicas: 5
+          minReplicas: 0
           kind: daskcluster
           worker:
             container: "{}"
@@ -37305,6 +37363,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -37637,6 +37696,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -37891,6 +37951,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -38143,6 +38204,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -38407,6 +38469,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -38659,6 +38722,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -39244,7 +39308,7 @@ components:
         raycluster:
           rayVersion: rayVersion
           head:
-            maxReplicas: 5
+            maxReplicas: 7
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39399,8 +39463,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 5
-            replicas: 0
+            minReplicas: 8
+            replicas: 5
             volumes:
             - null
             - null
@@ -39411,10 +39475,15 @@ components:
             - connections
           metadata:
             key: metadata
+          autoscalerOptions:
+            imagePullPolicy: imagePullPolicy
+            upscalingMode: upscalingMode
+            resources: "{}"
           kind: raycluster
           entrypoint: entrypoint
+          enableInTreeAutoscaling: true
           workers:
-          - maxReplicas: 5
+          - maxReplicas: 7
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39569,8 +39638,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 5
-            replicas: 0
+            minReplicas: 8
+            replicas: 5
             volumes:
             - null
             - null
@@ -39579,7 +39648,7 @@ components:
             connections:
             - connections
             - connections
-          - maxReplicas: 5
+          - maxReplicas: 7
             container: "{}"
             init:
             - modelRef: modelRef
@@ -39734,8 +39803,8 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            minReplicas: 5
-            replicas: 0
+            minReplicas: 8
+            replicas: 5
             volumes:
             - null
             - null
@@ -40347,7 +40416,7 @@ components:
         cron:
           cron: cron
           dependsOnPast: true
-          maxRuns: 3
+          maxRuns: 9
           kind: cron
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
@@ -40356,11 +40425,11 @@ components:
           startAt: 2000-01-23T04:56:07.000+00:00
         interval:
           dependsOnPast: true
-          maxRuns: 3
+          maxRuns: 5
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 9
+          frequency: 7
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -40431,7 +40500,7 @@ components:
           user: user
         resource:
           mountPath: mountPath
-          defaultMode: 5
+          defaultMode: 0
           name: name
           items:
           - items
@@ -40599,6 +40668,8 @@ components:
               connections:
               - connections
               - connections
+            maxReplicas: 5
+            minReplicas: 0
             kind: daskcluster
             worker:
               container: "{}"
@@ -41733,6 +41804,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -42065,6 +42137,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -42319,6 +42392,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -42571,6 +42645,7 @@ components:
                     resources: "{}"
                     monitorLogs: true
                     imageTag: imageTag
+                    noConnections: true
                   shm: true
                   notifications:
                   - trigger: null
@@ -42835,6 +42910,7 @@ components:
                   resources: "{}"
                   monitorLogs: true
                   imageTag: imageTag
+                  noConnections: true
                 shm: true
                 notifications:
                 - trigger: null
@@ -43087,6 +43163,7 @@ components:
                     resources: "{}"
                     monitorLogs: true
                     imageTag: imageTag
+                    noConnections: true
                   shm: true
                   notifications:
                   - trigger: null
@@ -43672,7 +43749,7 @@ components:
           raycluster:
             rayVersion: rayVersion
             head:
-              maxReplicas: 5
+              maxReplicas: 7
               container: "{}"
               init:
               - modelRef: modelRef
@@ -43827,8 +43904,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 5
-              replicas: 0
+              minReplicas: 8
+              replicas: 5
               volumes:
               - null
               - null
@@ -43839,10 +43916,15 @@ components:
               - connections
             metadata:
               key: metadata
+            autoscalerOptions:
+              imagePullPolicy: imagePullPolicy
+              upscalingMode: upscalingMode
+              resources: "{}"
             kind: raycluster
             entrypoint: entrypoint
+            enableInTreeAutoscaling: true
             workers:
-            - maxReplicas: 5
+            - maxReplicas: 7
               container: "{}"
               init:
               - modelRef: modelRef
@@ -43997,8 +44079,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 5
-              replicas: 0
+              minReplicas: 8
+              replicas: 5
               volumes:
               - null
               - null
@@ -44007,7 +44089,7 @@ components:
               connections:
               - connections
               - connections
-            - maxReplicas: 5
+            - maxReplicas: 7
               container: "{}"
               init:
               - modelRef: modelRef
@@ -44162,8 +44244,8 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              minReplicas: 5
-              replicas: 0
+              minReplicas: 8
+              replicas: 5
               volumes:
               - null
               - null
@@ -44897,7 +44979,7 @@ components:
           cron:
             cron: cron
             dependsOnPast: true
-            maxRuns: 3
+            maxRuns: 9
             kind: cron
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
@@ -44906,11 +44988,11 @@ components:
             startAt: 2000-01-23T04:56:07.000+00:00
           interval:
             dependsOnPast: true
-            maxRuns: 3
+            maxRuns: 5
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 9
+            frequency: 7
         polyaxonSidecarContainer:
           sleepInterval: 4
           monitorSpec: true
@@ -44920,6 +45002,7 @@ components:
           resources: "{}"
           monitorLogs: true
           imageTag: imageTag
+          noConnections: true
         artifacs:
           files:
           - "{}"
@@ -44937,7 +45020,7 @@ components:
           kind: null
           configMap:
             mountPath: mountPath
-            defaultMode: 5
+            defaultMode: 0
             name: name
             items:
             - items
@@ -44948,7 +45031,7 @@ components:
             key: annotations
           secret:
             mountPath: mountPath
-            defaultMode: 5
+            defaultMode: 0
             name: name
             items:
             - items
@@ -44965,46 +45048,46 @@ components:
         event:
           image:
             path: path
-            colorspace: 3
-            width: 2
+            colorspace: 4
+            width: 8
             height: 3
           curve:
             annotation: annotation
             kind: null
             x:
-            - 0.5891909
-            - 0.5891909
+            - 6.173804
+            - 6.173804
             "y":
-            - 2.535259
-            - 2.535259
+            - 4.878988
+            - 4.878988
           video:
             path: path
             content_type: content_type
-            colorspace: 9
-            width: 2
-            height: 4
+            colorspace: 2
+            width: 0
+            height: 9
           histogram:
             counts:
-            - 4.518309517874243
-            - 4.518309517874243
+            - 0.35262192099236644
+            - 0.35262192099236644
             values:
-            - 8.675064425986758
-            - 8.675064425986758
+            - 0.4833312865174044
+            - 0.4833312865174044
           artifact:
             path: path
             kind: null
-          metric: 0.47684023
-          step: 7
+          metric: 2.3800902
+          step: 3
           html: html
           model:
             path: path
             framework: framework
             spec: "{}"
           audio:
-            num_channels: 0
+            num_channels: 4
             path: path
-            length_frames: 7
-            sample_rate: 0.4833313
+            length_frames: 2
+            sample_rate: 7.203795
             content_type: content_type
           text: text
           dataframe:
@@ -45125,6 +45208,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -45377,6 +45461,7 @@ components:
                 resources: "{}"
                 monitorLogs: true
                 imageTag: imageTag
+                noConnections: true
               shm: true
               notifications:
               - trigger: null
@@ -45732,6 +45817,7 @@ components:
               resources: "{}"
               monitorLogs: true
               imageTag: imageTag
+              noConnections: true
             shm: true
             notifications:
             - trigger: null
@@ -46009,10 +46095,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 7.6068635
+          cost: 3.1112027
           kind: kind
           trigger: null
-          version: 8.378238
+          version: 3.7814124
           tags:
           - tags
           - tags

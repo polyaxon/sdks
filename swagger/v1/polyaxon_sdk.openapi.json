@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.12.0-rc5"
+    "version" : "2.12.0-rc8"
   },
   "servers" : [ {
     "url" : "/"
@@ -31856,6 +31856,16 @@
           },
           "scheduler" : {
             "$ref" : "#/components/schemas/v1DaskReplica"
+          },
+          "minReplicas" : {
+            "title" : "Minimum number of workers for autoscaling (creates DaskAutoscaler if set)",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "maxReplicas" : {
+            "title" : "Maximum number of workers for autoscaling (creates DaskAutoscaler if set)",
+            "type" : "integer",
+            "format" : "int32"
           }
         }
       },
@@ -35247,6 +35257,9 @@
           "monitorSpec" : {
             "type" : "boolean"
           },
+          "noConnections" : {
+            "type" : "boolean"
+          },
           "resources" : {
             "$ref" : "#/components/schemas/v1ResourceRequirements"
           }
@@ -35812,6 +35825,23 @@
           }
         }
       },
+      "v1RayAutoscalerOptions" : {
+        "title" : "Autoscaler options for Ray cluster",
+        "type" : "object",
+        "properties" : {
+          "upscalingMode" : {
+            "title" : "UpscalingMode is \"Conservative\", \"Default\", or \"Aggressive\"\nConservative: Upscaling is rate-limited\nDefault: Upscaling is not rate-limited\nAggressive: An alias for Default",
+            "type" : "string"
+          },
+          "imagePullPolicy" : {
+            "title" : "ImagePullPolicy for the autoscaler container",
+            "type" : "string"
+          },
+          "resources" : {
+            "$ref" : "#/components/schemas/v1ResourceRequirements"
+          }
+        }
+      },
       "v1RayCluster" : {
         "title" : "Ray specification",
         "type" : "object",
@@ -35850,6 +35880,13 @@
             "items" : {
               "$ref" : "#/components/schemas/v1RayReplica"
             }
+          },
+          "enableInTreeAutoscaling" : {
+            "title" : "Enable in-tree autoscaling for the Ray cluster",
+            "type" : "boolean"
+          },
+          "autoscalerOptions" : {
+            "$ref" : "#/components/schemas/v1RayAutoscalerOptions"
           }
         }
       },
@@ -36253,7 +36290,7 @@
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "cluster", "dag", "daskcluster", "raycluster", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
+        "enum" : [ "job", "service", "dag", "daskcluster", "raycluster", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
         "default" : "job"
       },
       "v1RunPending" : {

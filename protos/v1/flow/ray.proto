@@ -42,6 +42,21 @@ message RayReplica {
   Container container = 11;
 }
 
+// Autoscaler options for Ray cluster
+message RayAutoscalerOptions {
+  // UpscalingMode is "Conservative", "Default", or "Aggressive"
+  // Conservative: Upscaling is rate-limited
+  // Default: Upscaling is not rate-limited
+  // Aggressive: An alias for Default
+  string upscalingMode = 1;
+
+  // ImagePullPolicy for the autoscaler container
+  string imagePullPolicy = 2;
+
+  // Resources for the autoscaler container
+  ResourceRequirements resources = 3;
+}
+
 // Ray specification
 message RayCluster {
     // Kind of runtime, should be equal to "raycluster"
@@ -64,4 +79,10 @@ message RayCluster {
 
     // Ray workers group section
     repeated RayReplica workers = 7;
+
+    // Enable in-tree autoscaling for the Ray cluster
+    bool enableInTreeAutoscaling = 8;
+
+    // Autoscaler options for the Ray cluster
+    RayAutoscalerOptions autoscalerOptions = 9;
 }

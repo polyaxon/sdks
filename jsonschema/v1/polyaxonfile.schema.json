@@ -5608,6 +5608,16 @@
           "title": "Optional component kind, should be equal to 'daskcluster'",
           "type": "string"
         },
+        "maxReplicas": {
+          "format": "int32",
+          "title": "Maximum number of workers for autoscaling (creates DaskAutoscaler if set)",
+          "type": "integer"
+        },
+        "minReplicas": {
+          "format": "int32",
+          "title": "Minimum number of workers for autoscaling (creates DaskAutoscaler if set)",
+          "type": "integer"
+        },
         "scheduler": {
           "$ref": "#/definitions/v1DaskReplica",
           "title": "Scheduler pod specification"
@@ -9188,6 +9198,9 @@
         "monitorSpec": {
           "type": "boolean"
         },
+        "noConnections": {
+          "type": "boolean"
+        },
         "resources": {
           "$ref": "#/definitions/io.k8s.api.core.v1.ResourceRequirements"
         },
@@ -9775,8 +9788,34 @@
       "title": "Matrix based on randomly generated search space",
       "type": "object"
     },
+    "v1RayAutoscalerOptions": {
+      "properties": {
+        "imagePullPolicy": {
+          "title": "ImagePullPolicy for the autoscaler container",
+          "type": "string"
+        },
+        "resources": {
+          "$ref": "#/definitions/v1ResourceRequirements",
+          "title": "Resources for the autoscaler container"
+        },
+        "upscalingMode": {
+          "title": "UpscalingMode is \"Conservative\", \"Default\", or \"Aggressive\"\nConservative: Upscaling is rate-limited\nDefault: Upscaling is not rate-limited\nAggressive: An alias for Default",
+          "type": "string"
+        }
+      },
+      "title": "Autoscaler options for Ray cluster",
+      "type": "object"
+    },
     "v1RayCluster": {
       "properties": {
+        "autoscalerOptions": {
+          "$ref": "#/definitions/v1RayAutoscalerOptions",
+          "title": "Autoscaler options for the Ray cluster"
+        },
+        "enableInTreeAutoscaling": {
+          "title": "Enable in-tree autoscaling for the Ray cluster",
+          "type": "boolean"
+        },
         "entrypoint": {
           "title": "Entrypoint of the ray application, e.g. python path/to/run.py",
           "type": "string"
@@ -10237,7 +10276,6 @@
       "enum": [
         "job",
         "service",
-        "cluster",
         "dag",
         "daskcluster",
         "raycluster",
