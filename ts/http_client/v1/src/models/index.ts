@@ -11,6 +11,7 @@ export * from './V1ActivityProbeExec';
 export * from './V1ActivityProbeHttp';
 export * from './V1Agent';
 export * from './V1AgentReconcileBodyRequest';
+export * from './V1AgentResourcesRequest';
 export * from './V1AgentStateResponse';
 export * from './V1AgentStatusBodyRequest';
 export * from './V1AnalyticsSpec';

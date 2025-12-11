@@ -1,9 +1,9 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.12.0-rc8
+- API version: 2.12.0-rc9
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.12.0-rc8</version>
+  <version>2.12.0-rc9</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.12.0-rc8"
+     implementation "org.openapitools:openapi-java-client:2.12.0-rc9"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.12.0-rc8.jar`
+* `target/openapi-java-client-2.12.0-rc9.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -142,6 +142,7 @@ Class | Method | HTTP request | Description
 *AgentsV1Api* | [**patchAgent**](docs/AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
 *AgentsV1Api* | [**patchAgentToken**](docs/AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 *AgentsV1Api* | [**reconcileAgent**](docs/AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent
+*AgentsV1Api* | [**restartAgent**](docs/AgentsV1Api.md#restartAgent) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart | Restart agent service
 *AgentsV1Api* | [**syncAgent**](docs/AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 *AgentsV1Api* | [**updateAgent**](docs/AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 *AgentsV1Api* | [**updateAgentConfig**](docs/AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
@@ -434,6 +435,7 @@ Class | Method | HTTP request | Description
  - [V1ActivityProbeHttp](docs/V1ActivityProbeHttp.md)
  - [V1Agent](docs/V1Agent.md)
  - [V1AgentReconcileBodyRequest](docs/V1AgentReconcileBodyRequest.md)
+ - [V1AgentResourcesRequest](docs/V1AgentResourcesRequest.md)
  - [V1AgentStateResponse](docs/V1AgentStateResponse.md)
  - [V1AgentStatusBodyRequest](docs/V1AgentStatusBodyRequest.md)
  - [V1AnalyticsSpec](docs/V1AnalyticsSpec.md)

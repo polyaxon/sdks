@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.12.0-rc8
+  version: 2.12.0-rc9
 servers:
 - url: /
 security:
@@ -20427,6 +20427,77 @@ paths:
       tags:
       - AgentsV1
       x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart:
+    post:
+      operationId: RestartAgent
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AgentResourcesRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Restart agent service
+      tags:
+      - AgentsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
   /streams/v1/{namespace}/{owner}/agents/{uuid}/logs:
     get:
       operationId: GetAgentLogs
@@ -22642,6 +22713,31 @@ components:
           title: Reconcile reconcile
           type: object
       title: Request data to reconcile agent
+      type: object
+    v1AgentResourcesRequest:
+      properties:
+        namespace:
+          title: namespace
+          type: string
+        owner:
+          title: Owner of the namespace
+          type: string
+        uuid:
+          title: Uuid identifier of the entity
+          type: string
+        service:
+          title: Service
+          type: string
+        last_file:
+          title: last_file
+          type: string
+        force:
+          title: Force query param
+          type: boolean
+        connection:
+          title: Connection to use
+          type: string
+      title: Request data to get agent resources
       type: object
     v1AgentStateResponse:
       example:

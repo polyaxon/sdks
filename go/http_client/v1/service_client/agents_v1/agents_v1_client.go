@@ -92,6 +92,8 @@ type ClientService interface {
 
 	ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*ReconcileAgentOK, *ReconcileAgentNoContent, error)
 
+	RestartAgent(params *RestartAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestartAgentOK, *RestartAgentNoContent, error)
+
 	SyncAgent(params *SyncAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*SyncAgentOK, *SyncAgentNoContent, error)
 
 	UpdateAgent(params *UpdateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentOK, *UpdateAgentNoContent, error)
@@ -936,6 +938,50 @@ func (a *Client) ReconcileAgent(params *ReconcileAgentParams, authInfo runtime.C
 	//
 	// a default response is provided: fill this and return an error
 	unexpectedSuccess := result.(*ReconcileAgentDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+RestartAgent restarts agent service
+*/
+func (a *Client) RestartAgent(params *RestartAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*RestartAgentOK, *RestartAgentNoContent, error) {
+	// NOTE: parameters are not validated before sending
+	if params == nil {
+		params = NewRestartAgentParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "RestartAgent",
+		Method:             "POST",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &RestartAgentReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	// several success responses have to be checked
+	switch value := result.(type) {
+	case *RestartAgentOK:
+		return value, nil, nil
+	case *RestartAgentNoContent:
+		return nil, value, nil
+	}
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
+	unexpectedSuccess := result.(*RestartAgentDefault)
 	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

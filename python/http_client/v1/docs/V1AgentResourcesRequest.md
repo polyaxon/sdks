@@ -1,0 +1,34 @@
+# V1AgentResourcesRequest
+
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**namespace** | **str** |  | [optional] 
+**owner** | **str** |  | [optional] 
+**uuid** | **str** |  | [optional] 
+**service** | **str** |  | [optional] 
+**last_file** | **str** |  | [optional] 
+**force** | **bool** |  | [optional] 
+**connection** | **str** |  | [optional] 
+
+## Example
+
+```python
+from polyaxon_sdk.models.v1_agent_resources_request import V1AgentResourcesRequest
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of V1AgentResourcesRequest from a JSON string
+v1_agent_resources_request_instance = V1AgentResourcesRequest.from_json(json)
+# print the JSON string representation of the object
+print V1AgentResourcesRequest.to_json()
+
+# convert the object into a dict
+v1_agent_resources_request_dict = v1_agent_resources_request_instance.to_dict()
+# create an instance of V1AgentResourcesRequest from a dict
+v1_agent_resources_request_form_dict = v1_agent_resources_request.from_dict(v1_agent_resources_request_dict)
+```
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

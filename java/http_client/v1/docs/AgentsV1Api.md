@@ -24,6 +24,7 @@ All URIs are relative to *http://localhost*
 | [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent |
 | [**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token |
 | [**reconcileAgent**](AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent |
+| [**restartAgent**](AgentsV1Api.md#restartAgent) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart | Restart agent service |
 | [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent |
 | [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent |
 | [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config |
@@ -1481,6 +1482,83 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **uuid** | **String**| Uuid identifier of the entity | |
 | **body** | [**V1AgentReconcileBodyRequest**](V1AgentReconcileBodyRequest.md)|  | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+<a name="restartAgent"></a>
+# **restartAgent**
+> Object restartAgent(namespace, owner, uuid, body)
+
+Restart agent service
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    V1AgentResourcesRequest body = new V1AgentResourcesRequest(); // V1AgentResourcesRequest | 
+    try {
+      Object result = apiInstance.restartAgent(namespace, owner, uuid, body);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#restartAgent");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **body** | [**V1AgentResourcesRequest**](V1AgentResourcesRequest.md)|  | |
 
 ### Return type
 

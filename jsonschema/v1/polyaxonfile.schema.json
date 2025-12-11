@@ -4430,6 +4430,40 @@
       "title": "Request data to reconcile agent",
       "type": "object"
     },
+    "v1AgentResourcesRequest": {
+      "properties": {
+        "connection": {
+          "title": "Connection to use",
+          "type": "string"
+        },
+        "force": {
+          "title": "Force query param",
+          "type": "boolean"
+        },
+        "last_file": {
+          "title": "last_file",
+          "type": "string"
+        },
+        "namespace": {
+          "title": "namespace",
+          "type": "string"
+        },
+        "owner": {
+          "title": "Owner of the namespace",
+          "type": "string"
+        },
+        "service": {
+          "title": "Service",
+          "type": "string"
+        },
+        "uuid": {
+          "title": "Uuid identifier of the entity",
+          "type": "string"
+        }
+      },
+      "title": "Request data to get agent resources",
+      "type": "object"
+    },
     "v1AgentStateResponse": {
       "properties": {
         "compatible_updates": {

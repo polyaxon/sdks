@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.12.0-rc8",
+    "version": "2.12.0-rc9",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -18771,6 +18771,72 @@
         ]
       }
     },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart": {
+      "post": {
+        "summary": "Restart agent service",
+        "operationId": "RestartAgent",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AgentResourcesRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs": {
       "get": {
         "summary": "Get run logs",
@@ -20726,6 +20792,40 @@
         }
       },
       "title": "Request data to reconcile agent"
+    },
+    "v1AgentResourcesRequest": {
+      "type": "object",
+      "properties": {
+        "namespace": {
+          "type": "string",
+          "title": "namespace"
+        },
+        "owner": {
+          "type": "string",
+          "title": "Owner of the namespace"
+        },
+        "uuid": {
+          "type": "string",
+          "title": "Uuid identifier of the entity"
+        },
+        "service": {
+          "type": "string",
+          "title": "Service"
+        },
+        "last_file": {
+          "type": "string",
+          "title": "last_file"
+        },
+        "force": {
+          "type": "boolean",
+          "title": "Force query param"
+        },
+        "connection": {
+          "type": "string",
+          "title": "Connection to use"
+        }
+      },
+      "title": "Request data to get agent resources"
     },
     "v1AgentStateResponse": {
       "type": "object",

@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.12.0-rc8"
+    "version" : "2.12.0-rc9"
   },
   "servers" : [ {
     "url" : "/"
@@ -28365,6 +28365,107 @@
         }
       }
     },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart" : {
+      "post" : {
+        "tags" : [ "AgentsV1" ],
+        "summary" : "Restart agent service",
+        "operationId" : "RestartAgent",
+        "parameters" : [ {
+          "name" : "namespace",
+          "in" : "path",
+          "description" : "namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1AgentResourcesRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
     "/streams/v1/{namespace}/{owner}/agents/{uuid}/logs" : {
       "get" : {
         "tags" : [ "AgentsV1" ],
@@ -30873,6 +30974,40 @@
             "title" : "Reconcile reconcile",
             "type" : "object",
             "properties" : { }
+          }
+        }
+      },
+      "v1AgentResourcesRequest" : {
+        "title" : "Request data to get agent resources",
+        "type" : "object",
+        "properties" : {
+          "namespace" : {
+            "title" : "namespace",
+            "type" : "string"
+          },
+          "owner" : {
+            "title" : "Owner of the namespace",
+            "type" : "string"
+          },
+          "uuid" : {
+            "title" : "Uuid identifier of the entity",
+            "type" : "string"
+          },
+          "service" : {
+            "title" : "Service",
+            "type" : "string"
+          },
+          "last_file" : {
+            "title" : "last_file",
+            "type" : "string"
+          },
+          "force" : {
+            "title" : "Force query param",
+            "type" : "boolean"
+          },
+          "connection" : {
+            "title" : "Connection to use",
+            "type" : "string"
           }
         }
       },

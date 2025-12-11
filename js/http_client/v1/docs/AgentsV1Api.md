@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**patchAgent**](AgentsV1Api.md#patchAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid} | Patch agent
 [**patchAgentToken**](AgentsV1Api.md#patchAgentToken) | **PATCH** /api/v1/orgs/{owner}/agents/{entity}/token | Patch agent token
 [**reconcileAgent**](AgentsV1Api.md#reconcileAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{uuid}/reconcile | Reconcile agent
+[**restartAgent**](AgentsV1Api.md#restartAgent) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_restart | Restart agent service
 [**syncAgent**](AgentsV1Api.md#syncAgent) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/sync | Sync agent
 [**updateAgent**](AgentsV1Api.md#updateAgent) | **PUT** /api/v1/orgs/{owner}/agents/{agent.uuid} | Update agent
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
@@ -1092,6 +1093,61 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **uuid** | **String**| Uuid identifier of the entity | 
  **body** | [**V1AgentReconcileBodyRequest**](V1AgentReconcileBodyRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## restartAgent
+
+> Object restartAgent(namespace, owner, uuid, body)
+
+Restart agent service
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+let body = new PolyaxonSdk.V1AgentResourcesRequest(); // V1AgentResourcesRequest | 
+apiInstance.restartAgent(namespace, owner, uuid, body, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+ **body** | [**V1AgentResourcesRequest**](V1AgentResourcesRequest.md)|  | 
 
 ### Return type
 
