@@ -8,7 +8,7 @@
       "url" : "https://github.com/polyaxon/polyaxon",
       "email" : "contact@polyaxon.com"
     },
-    "version" : "2.12.0-rc9"
+    "version" : "2.12.0"
   },
   "servers" : [ {
     "url" : "/"
