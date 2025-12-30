@@ -25187,6 +25187,10 @@
       "type": "object",
       "title": "Placeholder for PodDNSConfig"
     },
+    "v1PodFailurePolicy": {
+      "type": "object",
+      "title": "Placeholder for PodFailurePolicyRule"
+    },
     "v1PodSecurityContext": {
       "type": "object",
       "title": "Placeholder for PodSecurityContext"
@@ -27494,6 +27498,10 @@
         "probe": {
           "$ref": "#/definitions/v1ActivityProbe",
           "title": "Activity probe configuration"
+        },
+        "podFailurePolicy": {
+          "$ref": "#/definitions/v1PodFailurePolicy",
+          "title": "Pod failure policy configuration"
         }
       },
       "description": "Termination specification, it defines how to handle failures, job runtime, and cleanup policy."

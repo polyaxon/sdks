@@ -20,7 +20,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Optional
+from typing import Any, Dict, Optional
 from pydantic import BaseModel, Field, StrictInt
 from polyaxon_sdk.models.v1_activity_probe import V1ActivityProbe
 from polyaxon_sdk.models.v1_culling import V1Culling
@@ -34,7 +34,8 @@ class V1Termination(BaseModel):
     timeout: Optional[StrictInt] = None
     culling: Optional[V1Culling] = None
     probe: Optional[V1ActivityProbe] = None
-    __properties = ["maxRetries", "ttl", "timeout", "culling", "probe"]
+    pod_failure_policy: Optional[Dict[str, Any]] = Field(None, alias="podFailurePolicy")
+    __properties = ["maxRetries", "ttl", "timeout", "culling", "probe", "podFailurePolicy"]
 
     class Config:
         allow_population_by_field_name = True
@@ -81,7 +82,8 @@ class V1Termination(BaseModel):
             "ttl": obj.get("ttl"),
             "timeout": obj.get("timeout"),
             "culling": V1Culling.from_dict(obj.get("culling")) if obj.get("culling") is not None else None,
-            "probe": V1ActivityProbe.from_dict(obj.get("probe")) if obj.get("probe") is not None else None
+            "probe": V1ActivityProbe.from_dict(obj.get("probe")) if obj.get("probe") is not None else None,
+            "pod_failure_policy": obj.get("podFailurePolicy")
         })
         return _obj
 

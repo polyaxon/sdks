@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **timeout** | **int** |  | [optional] 
 **culling** | [**V1Culling**](V1Culling.md) |  | [optional] 
 **probe** | [**V1ActivityProbe**](V1ActivityProbe.md) |  | [optional] 
+**pod_failure_policy** | **object** |  | [optional] 
 
 ## Example
 

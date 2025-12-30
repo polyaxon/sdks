@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package v1;
 
+import "v1/flow/k8s.proto";
+
 option go_package = "v1/flow";
 
 // Termination specification, it defines how to handle failures, job runtime, and cleanup policy.
@@ -20,6 +22,9 @@ message Termination {
 
     // Activity probe configuration
     ActivityProbe probe = 5;
+
+    // Pod failure policy configuration
+    PodFailurePolicy podFailurePolicy = 6;
 }
 
 // Culling specification

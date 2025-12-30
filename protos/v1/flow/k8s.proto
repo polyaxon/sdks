@@ -27,3 +27,6 @@ message Toleration {}
 
 // Placeholder Resource Requirements
 message ResourceRequirements {}
+
+// Placeholder for PodFailurePolicyRule
+message PodFailurePolicy {}
