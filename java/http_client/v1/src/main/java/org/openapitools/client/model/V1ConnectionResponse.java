@@ -64,6 +64,10 @@ public class V1ConnectionResponse {
   @SerializedName(SERIALIZED_NAME_AGENT)
   private String agent;
 
+  public static final String SERIALIZED_NAME_PROJECT = "project";
+  @SerializedName(SERIALIZED_NAME_PROJECT)
+  private String project;
+
   public static final String SERIALIZED_NAME_USER = "user";
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
@@ -91,6 +95,14 @@ public class V1ConnectionResponse {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
   private V1ConnectionKind kind = V1ConnectionKind.HOST_PATH;
+
+  public static final String SERIALIZED_NAME_SECRET = "secret";
+  @SerializedName(SERIALIZED_NAME_SECRET)
+  private Object secret;
+
+  public static final String SERIALIZED_NAME_SPEC = "spec";
+  @SerializedName(SERIALIZED_NAME_SPEC)
+  private Object spec;
 
   public V1ConnectionResponse() {
   }
@@ -158,6 +170,28 @@ public class V1ConnectionResponse {
 
   public void setAgent(String agent) {
     this.agent = agent;
+  }
+
+
+  public V1ConnectionResponse project(String project) {
+
+    this.project = project;
+    return this;
+  }
+
+   /**
+   * Get project
+   * @return project
+  **/
+  @javax.annotation.Nullable
+
+  public String getProject() {
+    return project;
+  }
+
+
+  public void setProject(String project) {
+    this.project = project;
   }
 
 
@@ -323,6 +357,50 @@ public class V1ConnectionResponse {
   }
 
 
+  public V1ConnectionResponse secret(Object secret) {
+
+    this.secret = secret;
+    return this;
+  }
+
+   /**
+   * Get secret
+   * @return secret
+  **/
+  @javax.annotation.Nullable
+
+  public Object getSecret() {
+    return secret;
+  }
+
+
+  public void setSecret(Object secret) {
+    this.secret = secret;
+  }
+
+
+  public V1ConnectionResponse spec(Object spec) {
+
+    this.spec = spec;
+    return this;
+  }
+
+   /**
+   * Get spec
+   * @return spec
+  **/
+  @javax.annotation.Nullable
+
+  public Object getSpec() {
+    return spec;
+  }
+
+
+  public void setSpec(Object spec) {
+    this.spec = spec;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -336,18 +414,21 @@ public class V1ConnectionResponse {
     return Objects.equals(this.uuid, v1ConnectionResponse.uuid) &&
         Objects.equals(this.name, v1ConnectionResponse.name) &&
         Objects.equals(this.agent, v1ConnectionResponse.agent) &&
+        Objects.equals(this.project, v1ConnectionResponse.project) &&
         Objects.equals(this.user, v1ConnectionResponse.user) &&
         Objects.equals(this.description, v1ConnectionResponse.description) &&
         Objects.equals(this.tags, v1ConnectionResponse.tags) &&
         Objects.equals(this.createdAt, v1ConnectionResponse.createdAt) &&
         Objects.equals(this.updatedAt, v1ConnectionResponse.updatedAt) &&
         Objects.equals(this.liveState, v1ConnectionResponse.liveState) &&
-        Objects.equals(this.kind, v1ConnectionResponse.kind);
+        Objects.equals(this.kind, v1ConnectionResponse.kind) &&
+        Objects.equals(this.secret, v1ConnectionResponse.secret) &&
+        Objects.equals(this.spec, v1ConnectionResponse.spec);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, name, agent, user, description, tags, createdAt, updatedAt, liveState, kind);
+    return Objects.hash(uuid, name, agent, project, user, description, tags, createdAt, updatedAt, liveState, kind, secret, spec);
   }
 
   @Override
@@ -357,6 +438,7 @@ public class V1ConnectionResponse {
     sb.append("    uuid: ").append(toIndentedString(uuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    agent: ").append(toIndentedString(agent)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -364,6 +446,8 @@ public class V1ConnectionResponse {
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    liveState: ").append(toIndentedString(liveState)).append("\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+    sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
+    sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -389,6 +473,7 @@ public class V1ConnectionResponse {
     openapiFields.add("uuid");
     openapiFields.add("name");
     openapiFields.add("agent");
+    openapiFields.add("project");
     openapiFields.add("user");
     openapiFields.add("description");
     openapiFields.add("tags");
@@ -396,6 +481,8 @@ public class V1ConnectionResponse {
     openapiFields.add("updated_at");
     openapiFields.add("live_state");
     openapiFields.add("kind");
+    openapiFields.add("secret");
+    openapiFields.add("spec");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -429,6 +516,9 @@ public class V1ConnectionResponse {
       }
       if ((jsonObj.get("agent") != null && !jsonObj.get("agent").isJsonNull()) && !jsonObj.get("agent").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `agent` to be a primitive type in the JSON string but got `%s`", jsonObj.get("agent").toString()));
+      }
+      if ((jsonObj.get("project") != null && !jsonObj.get("project").isJsonNull()) && !jsonObj.get("project").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `project` to be a primitive type in the JSON string but got `%s`", jsonObj.get("project").toString()));
       }
       if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));

@@ -47,6 +47,49 @@
       },
       "type": "object"
     },
+    "AutomationExecutionAutomationExecutionStatus": {
+      "default": "pending",
+      "enum": [
+        "pending",
+        "scheduled",
+        "running",
+        "retrying",
+        "succeeded",
+        "failed"
+      ],
+      "title": "Automation execution status",
+      "type": "string"
+    },
+    "AutomationFailStrategy": {
+      "default": "stop",
+      "enum": [
+        "stop",
+        "continue"
+      ],
+      "title": "=== FAILURE HANDLING ===\nHow to handle action failures",
+      "type": "string"
+    },
+    "AutomationTriggerKind": {
+      "default": "event",
+      "enum": [
+        "event",
+        "metric",
+        "sequence",
+        "query",
+        "compound"
+      ],
+      "title": "Trigger type - how the trigger evaluates events",
+      "type": "string"
+    },
+    "AutomationTriggerPosture": {
+      "default": "reactive",
+      "enum": [
+        "reactive",
+        "proactive"
+      ],
+      "title": "Trigger posture - when the trigger fires",
+      "type": "string"
+    },
     "SearchView": {
       "default": "any",
       "description": "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
@@ -4651,6 +4694,249 @@
       "title": "Auth type specification",
       "type": "object"
     },
+    "v1Automation": {
+      "properties": {
+        "actions": {
+          "items": {
+            "$ref": "#/definitions/v1AutomationAction"
+          },
+          "title": "Actions to execute (trigger and resolve actions)",
+          "type": "array"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "Optional time when the entity was created",
+          "type": "string"
+        },
+        "description": {
+          "title": "Optional description",
+          "type": "string"
+        },
+        "enabled": {
+          "title": "Whether this automation is active",
+          "type": "boolean"
+        },
+        "fail_strategy": {
+          "$ref": "#/definitions/AutomationFailStrategy",
+          "title": "FailStrategy: \"stop\" (stop on first failure) or \"continue\" (continue all actions)"
+        },
+        "live_state": {
+          "format": "int32",
+          "title": "Current live state",
+          "type": "integer"
+        },
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "org_level": {
+          "title": "Whether this is an org-level automation",
+          "type": "boolean"
+        },
+        "posture": {
+          "$ref": "#/definitions/AutomationTriggerPosture",
+          "title": "Posture: reactive (fire when events happen) or proactive (fire when events don't happen)"
+        },
+        "project": {
+          "title": "Optional project",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity",
+          "type": "array"
+        },
+        "trigger_config": {
+          "title": "Trigger configuration (expect, query, threshold, within, group_by, etc.)",
+          "type": "object"
+        },
+        "trigger_entity_uuid": {
+          "title": "Specific entity UUID to watch (null = any entity of trigger_on kind)",
+          "type": "string"
+        },
+        "trigger_kind": {
+          "$ref": "#/definitions/AutomationTriggerKind",
+          "title": "Kind of trigger: event, metric, sequence, query, compound"
+        },
+        "trigger_on": {
+          "title": "Entity kind that triggers: run, model, artifact, component, connection, webhook, org",
+          "type": "string"
+        },
+        "trigger_schedule": {
+          "title": "When to evaluate trigger (for QUERY/PROACTIVE kinds)\nV1Schedule schema: {\"kind\": \"cron\", \"cron\": \"0 * * * *\"} or {\"kind\": \"interval\", \"frequency\": 3600}",
+          "type": "object"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "title": "Optional last time the entity was updated",
+          "type": "string"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "Automation specification",
+      "type": "object"
+    },
+    "v1AutomationAction": {
+      "properties": {
+        "action": {
+          "$ref": "#/definitions/v1AutomationActionKind",
+          "title": "Action operation kind"
+        },
+        "apply_to": {
+          "title": "Target entity kind (null = infer from trigger)",
+          "type": "string"
+        },
+        "config": {
+          "title": "Action-specific configuration",
+          "type": "object"
+        },
+        "entity_uuid": {
+          "title": "Target entity UUID (null = infer from triggering event)",
+          "type": "string"
+        },
+        "kind": {
+          "title": "When to execute: 'trigger' or 'resolve'",
+          "type": "string"
+        },
+        "priority": {
+          "format": "int32",
+          "title": "Execution order (lower = first)",
+          "type": "integer"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        }
+      },
+      "title": "An action to execute when an automation fires or resolves",
+      "type": "object"
+    },
+    "v1AutomationActionKind": {
+      "default": "notify",
+      "description": "- notify: Notifications\n - start: Run operations\n - stage: Version operations",
+      "enum": [
+        "notify",
+        "webhook",
+        "start",
+        "restart",
+        "resume",
+        "stop",
+        "skip",
+        "status",
+        "stage",
+        "promote",
+        "tag",
+        "transfer",
+        "archive",
+        "delete"
+      ],
+      "title": "Actions that can be performed",
+      "type": "string"
+    },
+    "v1AutomationExecution": {
+      "properties": {
+        "action_result": {
+          "title": "Response from action",
+          "type": "object"
+        },
+        "automation": {
+          "title": "Automation UUID",
+          "type": "string"
+        },
+        "bucketing_key": {
+          "title": "The group_by key for this execution",
+          "type": "string"
+        },
+        "created_at": {
+          "format": "date-time",
+          "title": "When execution was created",
+          "type": "string"
+        },
+        "duration": {
+          "format": "float",
+          "title": "Execution duration (seconds)",
+          "type": "number"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "title": "When action execution completed",
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1AutomationExecutionKind",
+          "title": "Kind: 'trigger' or 'resolve'"
+        },
+        "retry_count": {
+          "format": "int32",
+          "title": "Number of retry attempts",
+          "type": "integer"
+        },
+        "started_at": {
+          "format": "date-time",
+          "title": "When action execution began",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/AutomationExecutionAutomationExecutionStatus",
+          "title": "Status: pending, running, retrying, succeeded, failed"
+        },
+        "target_kind": {
+          "title": "Target entity kind",
+          "type": "string"
+        },
+        "target_uuid": {
+          "title": "Target entity UUID",
+          "type": "string"
+        },
+        "triggering_event": {
+          "$ref": "#/definitions/v1Activity",
+          "title": "The event(s) that caused this trigger to fire"
+        },
+        "uuid": {
+          "title": "UUID",
+          "type": "string"
+        },
+        "wait_time": {
+          "format": "float",
+          "title": "Time from creation to start (seconds)",
+          "type": "number"
+        }
+      },
+      "title": "Automation execution record",
+      "type": "object"
+    },
+    "v1AutomationExecutionKind": {
+      "default": "trigger",
+      "enum": [
+        "trigger",
+        "resolve"
+      ],
+      "title": "When an action executes",
+      "type": "string"
+    },
+    "v1AutomationTestRequest": {
+      "properties": {
+        "automation_uuid": {
+          "title": "Automation UUID",
+          "type": "string"
+        },
+        "event": {
+          "title": "Mock event data for testing",
+          "type": "object"
+        },
+        "owner": {
+          "title": "Owner of the namespace",
+          "type": "string"
+        }
+      },
+      "title": "Request to test an automation trigger with mock event data",
+      "type": "object"
+    },
     "v1AverageStoppingPolicy": {
       "properties": {
         "kind": {
@@ -5311,6 +5597,18 @@
         "name": {
           "title": "Name",
           "type": "string"
+        },
+        "project": {
+          "title": "Optional project",
+          "type": "string"
+        },
+        "secret": {
+          "title": "Read-only connection secret",
+          "type": "object"
+        },
+        "spec": {
+          "title": "The connection spec",
+          "type": "object"
         },
         "tags": {
           "items": {
@@ -6376,8 +6674,22 @@
         "alert_critical",
         "model_version_new_metric",
         "project_custom_event",
-        "org_custom_event"
+        "org_custom_event",
+        "automation_triggered",
+        "automation_resolved",
+        "automation_execution_succeeded",
+        "automation_execution_failed",
+        "webhook_received",
+        "webhook_processed",
+        "webhook_failed",
+        "artifact_version_created",
+        "artifact_version_stage_changed",
+        "model_version_created",
+        "model_version_stage_changed",
+        "component_version_created",
+        "component_version_stage_changed"
       ],
+      "title": "- run_status_created: Run status events\n - run_approved_actor: Run actor events\n - connection_git_commit: Connection events\n - alert_info: Alert events\n - model_version_new_metric: Model version events\n - project_custom_event: Custom events\n - automation_triggered: Automation events\n - webhook_received: Webhook events\n - artifact_version_created: Version stage events",
       "type": "string"
     },
     "v1EventModel": {
@@ -7685,6 +7997,58 @@
         }
       },
       "title": "Contains list of agents",
+      "type": "object"
+    },
+    "v1ListAutomationExecutionsResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "title": "Count of the entities",
+          "type": "integer"
+        },
+        "next": {
+          "title": "Next page",
+          "type": "string"
+        },
+        "previous": {
+          "title": "Previous page",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/v1AutomationExecution"
+          },
+          "title": "List of all entities",
+          "type": "array"
+        }
+      },
+      "title": "Contains list of automation executions",
+      "type": "object"
+    },
+    "v1ListAutomationsResponse": {
+      "properties": {
+        "count": {
+          "format": "int32",
+          "title": "Count of the entities",
+          "type": "integer"
+        },
+        "next": {
+          "title": "Next page",
+          "type": "string"
+        },
+        "previous": {
+          "title": "Previous page",
+          "type": "string"
+        },
+        "results": {
+          "items": {
+            "$ref": "#/definitions/v1Automation"
+          },
+          "title": "List of all entities",
+          "type": "array"
+        }
+      },
+      "title": "Contains list of automations",
       "type": "object"
     },
     "v1ListBookmarksResponse": {
@@ -9050,6 +9414,10 @@
       "title": "Placeholder for PodDNSConfig",
       "type": "object"
     },
+    "v1PodFailurePolicy": {
+      "title": "Placeholder for PodFailurePolicyRule",
+      "type": "object"
+    },
     "v1PodSecurityContext": {
       "title": "Placeholder for PodSecurityContext",
       "type": "object"
@@ -9067,6 +9435,13 @@
           "format": "int32",
           "title": "Optional project archived deletion interval",
           "type": "integer"
+        },
+        "automations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized automations",
+          "type": "array"
         },
         "connected_projects": {
           "items": {
@@ -9423,6 +9798,13 @@
             "type": "string"
           },
           "title": "Authorized agents",
+          "type": "array"
+        },
+        "automations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized automations",
           "type": "array"
         },
         "connections": {
@@ -11351,6 +11733,10 @@
           "format": "int32",
           "title": "Max retries for a specific run",
           "type": "integer"
+        },
+        "podFailurePolicy": {
+          "$ref": "#/definitions/v1PodFailurePolicy",
+          "title": "Pod failure policy configuration"
         },
         "probe": {
           "$ref": "#/definitions/v1ActivityProbe",

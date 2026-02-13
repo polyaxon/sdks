@@ -3,6 +3,7 @@
 export * from './AgentsV1Api';
 export * from './ArtifactsStoresV1Api';
 export * from './AuthV1Api';
+export * from './AutomationsV1Api';
 export * from './ConnectionsV1Api';
 export * from './DashboardsV1Api';
 export * from './OrganizationsV1Api';

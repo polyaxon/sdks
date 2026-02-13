@@ -132,6 +132,10 @@ public class V1Policy {
   @SerializedName(SERIALIZED_NAME_USER_ACCESSES)
   private List<V1UserAccess> userAccesses;
 
+  public static final String SERIALIZED_NAME_AUTOMATIONS = "automations";
+  @SerializedName(SERIALIZED_NAME_AUTOMATIONS)
+  private List<String> automations;
+
   public static final String SERIALIZED_NAME_TEAMS = "teams";
   @SerializedName(SERIALIZED_NAME_TEAMS)
   private List<String> teams;
@@ -675,6 +679,36 @@ public class V1Policy {
   }
 
 
+  public V1Policy automations(List<String> automations) {
+
+    this.automations = automations;
+    return this;
+  }
+
+  public V1Policy addAutomationsItem(String automationsItem) {
+    if (this.automations == null) {
+      this.automations = new ArrayList<>();
+    }
+    this.automations.add(automationsItem);
+    return this;
+  }
+
+   /**
+   * Get automations
+   * @return automations
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getAutomations() {
+    return automations;
+  }
+
+
+  public void setAutomations(List<String> automations) {
+    this.automations = automations;
+  }
+
+
   public V1Policy teams(List<String> teams) {
 
     this.teams = teams;
@@ -795,6 +829,7 @@ public class V1Policy {
         Objects.equals(this.agents, v1Policy.agents) &&
         Objects.equals(this.namespaces, v1Policy.namespaces) &&
         Objects.equals(this.userAccesses, v1Policy.userAccesses) &&
+        Objects.equals(this.automations, v1Policy.automations) &&
         Objects.equals(this.teams, v1Policy.teams) &&
         Objects.equals(this.projects, v1Policy.projects) &&
         Objects.equals(this.connectedProjects, v1Policy.connectedProjects);
@@ -802,7 +837,7 @@ public class V1Policy {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uuid, owner, name, description, user, tags, createdAt, updatedAt, excludedFeatures, excludedRuntimes, archivedDeletionInterval, connections, defaultPresets, defaultPresetsOrdered, presets, queue, queues, agents, namespaces, userAccesses, teams, projects, connectedProjects);
+    return Objects.hash(uuid, owner, name, description, user, tags, createdAt, updatedAt, excludedFeatures, excludedRuntimes, archivedDeletionInterval, connections, defaultPresets, defaultPresetsOrdered, presets, queue, queues, agents, namespaces, userAccesses, automations, teams, projects, connectedProjects);
   }
 
   @Override
@@ -829,6 +864,7 @@ public class V1Policy {
     sb.append("    agents: ").append(toIndentedString(agents)).append("\n");
     sb.append("    namespaces: ").append(toIndentedString(namespaces)).append("\n");
     sb.append("    userAccesses: ").append(toIndentedString(userAccesses)).append("\n");
+    sb.append("    automations: ").append(toIndentedString(automations)).append("\n");
     sb.append("    teams: ").append(toIndentedString(teams)).append("\n");
     sb.append("    projects: ").append(toIndentedString(projects)).append("\n");
     sb.append("    connectedProjects: ").append(toIndentedString(connectedProjects)).append("\n");
@@ -874,6 +910,7 @@ public class V1Policy {
     openapiFields.add("agents");
     openapiFields.add("namespaces");
     openapiFields.add("user_accesses");
+    openapiFields.add("automations");
     openapiFields.add("teams");
     openapiFields.add("projects");
     openapiFields.add("connected_projects");
@@ -973,6 +1010,10 @@ public class V1Policy {
             V1UserAccess.validateJsonObject(jsonArrayuserAccesses.get(i).getAsJsonObject());
           };
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("automations") != null && !jsonObj.get("automations").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `automations` to be an array in the JSON string but got `%s`", jsonObj.get("automations").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("teams") != null && !jsonObj.get("teams").isJsonArray()) {

@@ -85,6 +85,12 @@ export interface V1ProjectSettings {
      * @type {Array<string>}
      * @memberof V1ProjectSettings
      */
+    automations?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1ProjectSettings
+     */
     teams?: Array<string>;
     /**
      *
@@ -128,6 +134,7 @@ export function V1ProjectSettingsFromJSONTyped(json: any, ignoreDiscriminator: b
         'agents': !exists(json, 'agents') ? undefined : json['agents'],
         'namespaces': !exists(json, 'namespaces') ? undefined : json['namespaces'],
         'user_accesses': !exists(json, 'user_accesses') ? undefined : ((json['user_accesses'] as Array<any>).map(V1UserAccessFromJSON)),
+        'automations': !exists(json, 'automations') ? undefined : json['automations'],
         'teams': !exists(json, 'teams') ? undefined : json['teams'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
         'policy': !exists(json, 'policy') ? undefined : json['policy'],
@@ -152,6 +159,7 @@ export function V1ProjectSettingsToJSON(value?: V1ProjectSettings | null): any {
         'agents': value.agents,
         'namespaces': value.namespaces,
         'user_accesses': value.user_accesses === undefined ? undefined : ((value.user_accesses as Array<any>).map(V1UserAccessToJSON)),
+        'automations': value.automations,
         'teams': value.teams,
         'projects': value.projects,
         'policy': value.policy,

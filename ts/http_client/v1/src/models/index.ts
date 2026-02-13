@@ -1,6 +1,10 @@
 /* tslint:disable */
 /* eslint-disable */
 export * from './AgentStateResponseAgentState';
+export * from './AutomationExecutionAutomationExecutionStatus';
+export * from './AutomationFailStrategy';
+export * from './AutomationTriggerKind';
+export * from './AutomationTriggerPosture';
 export * from './ProtobufAny';
 export * from './ProtobufNullValue';
 export * from './RuntimeError';
@@ -21,6 +25,12 @@ export * from './V1ArtifactsMount';
 export * from './V1ArtifactsType';
 export * from './V1Auth';
 export * from './V1AuthType';
+export * from './V1Automation';
+export * from './V1AutomationAction';
+export * from './V1AutomationActionKind';
+export * from './V1AutomationExecution';
+export * from './V1AutomationExecutionKind';
+export * from './V1AutomationTestRequest';
 export * from './V1AverageStoppingPolicy';
 export * from './V1Bayes';
 export * from './V1BucketConnection';
@@ -117,6 +127,8 @@ export * from './V1JoinParam';
 export * from './V1KFReplica';
 export * from './V1ListActivitiesResponse';
 export * from './V1ListAgentsResponse';
+export * from './V1ListAutomationExecutionsResponse';
+export * from './V1ListAutomationsResponse';
 export * from './V1ListBookmarksResponse';
 export * from './V1ListConnectionsResponse';
 export * from './V1ListDashboardsResponse';

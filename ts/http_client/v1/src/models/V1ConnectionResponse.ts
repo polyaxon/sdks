@@ -49,6 +49,12 @@ export interface V1ConnectionResponse {
      * @type {string}
      * @memberof V1ConnectionResponse
      */
+    project?: string;
+    /**
+     *
+     * @type {string}
+     * @memberof V1ConnectionResponse
+     */
     user?: string;
     /**
      *
@@ -86,6 +92,18 @@ export interface V1ConnectionResponse {
      * @memberof V1ConnectionResponse
      */
     kind?: V1ConnectionKind;
+    /**
+     *
+     * @type {object}
+     * @memberof V1ConnectionResponse
+     */
+    secret?: object;
+    /**
+     *
+     * @type {object}
+     * @memberof V1ConnectionResponse
+     */
+    spec?: object;
 }
 
 /**
@@ -110,6 +128,7 @@ export function V1ConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'agent': !exists(json, 'agent') ? undefined : json['agent'],
+        'project': !exists(json, 'project') ? undefined : json['project'],
         'user': !exists(json, 'user') ? undefined : json['user'],
         'description': !exists(json, 'description') ? undefined : json['description'],
         'tags': !exists(json, 'tags') ? undefined : json['tags'],
@@ -117,6 +136,8 @@ export function V1ConnectionResponseFromJSONTyped(json: any, ignoreDiscriminator
         'updated_at': !exists(json, 'updated_at') ? undefined : (new Date(json['updated_at'])),
         'live_state': !exists(json, 'live_state') ? undefined : json['live_state'],
         'kind': !exists(json, 'kind') ? undefined : V1ConnectionKindFromJSON(json['kind']),
+        'secret': !exists(json, 'secret') ? undefined : json['secret'],
+        'spec': !exists(json, 'spec') ? undefined : json['spec'],
     };
 }
 
@@ -132,6 +153,7 @@ export function V1ConnectionResponseToJSON(value?: V1ConnectionResponse | null):
         'uuid': value.uuid,
         'name': value.name,
         'agent': value.agent,
+        'project': value.project,
         'user': value.user,
         'description': value.description,
         'tags': value.tags,
@@ -139,6 +161,8 @@ export function V1ConnectionResponseToJSON(value?: V1ConnectionResponse | null):
         'updated_at': value.updated_at === undefined ? undefined : (value.updated_at.toISOString()),
         'live_state': value.live_state,
         'kind': V1ConnectionKindToJSON(value.kind),
+        'secret': value.secret,
+        'spec': value.spec,
     };
 }
 

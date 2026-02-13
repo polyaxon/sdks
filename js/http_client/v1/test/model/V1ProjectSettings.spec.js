@@ -108,6 +108,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property automations (base name: "automations")', function() {
+      // uncomment below and update the code to test the property automations
+      //var instance = new PolyaxonSdk.V1ProjectSettings();
+      //expect(instance).to.be();
+    });
+
     it('should have the property teams (base name: "teams")', function() {
       // uncomment below and update the code to test the property teams
       //var instance = new PolyaxonSdk.V1ProjectSettings();

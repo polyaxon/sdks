@@ -243,6 +243,97 @@ export default class V1EventKind {
         "org_custom_event" = "org_custom_event";
 
 
+        /**
+         * value: "automation_triggered"
+         * @const
+         */
+        "automation_triggered" = "automation_triggered";
+
+
+        /**
+         * value: "automation_resolved"
+         * @const
+         */
+        "automation_resolved" = "automation_resolved";
+
+
+        /**
+         * value: "automation_execution_succeeded"
+         * @const
+         */
+        "automation_execution_succeeded" = "automation_execution_succeeded";
+
+
+        /**
+         * value: "automation_execution_failed"
+         * @const
+         */
+        "automation_execution_failed" = "automation_execution_failed";
+
+
+        /**
+         * value: "webhook_received"
+         * @const
+         */
+        "webhook_received" = "webhook_received";
+
+
+        /**
+         * value: "webhook_processed"
+         * @const
+         */
+        "webhook_processed" = "webhook_processed";
+
+
+        /**
+         * value: "webhook_failed"
+         * @const
+         */
+        "webhook_failed" = "webhook_failed";
+
+
+        /**
+         * value: "artifact_version_created"
+         * @const
+         */
+        "artifact_version_created" = "artifact_version_created";
+
+
+        /**
+         * value: "artifact_version_stage_changed"
+         * @const
+         */
+        "artifact_version_stage_changed" = "artifact_version_stage_changed";
+
+
+        /**
+         * value: "model_version_created"
+         * @const
+         */
+        "model_version_created" = "model_version_created";
+
+
+        /**
+         * value: "model_version_stage_changed"
+         * @const
+         */
+        "model_version_stage_changed" = "model_version_stage_changed";
+
+
+        /**
+         * value: "component_version_created"
+         * @const
+         */
+        "component_version_created" = "component_version_created";
+
+
+        /**
+         * value: "component_version_stage_changed"
+         * @const
+         */
+        "component_version_stage_changed" = "component_version_stage_changed";
+
+
 
     /**
     * Returns a <code>V1EventKind</code> enum value from a Javascript object name.

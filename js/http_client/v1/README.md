@@ -160,6 +160,18 @@ Class | Method | HTTP request | Description
 *PolyaxonSdk.AuthV1Api* | [**resetPasswordConfirm**](docs/AuthV1Api.md#resetPasswordConfirm) | **POST** /api/v1/auth/reset-password-confirm | Reset password confirm
 *PolyaxonSdk.AuthV1Api* | [**signup**](docs/AuthV1Api.md#signup) | **POST** /api/v1/auth/signup | Signup
 *PolyaxonSdk.AuthV1Api* | [**trial**](docs/AuthV1Api.md#trial) | **POST** /api/v1/auth/trial | Trial Start
+*PolyaxonSdk.AutomationsV1Api* | [**createAutomation**](docs/AutomationsV1Api.md#createAutomation) | **POST** /api/v1/orgs/{owner}/automations | Create automation
+*PolyaxonSdk.AutomationsV1Api* | [**deleteAutomation**](docs/AutomationsV1Api.md#deleteAutomation) | **DELETE** /api/v1/orgs/{owner}/automations/{uuid} | Delete automation
+*PolyaxonSdk.AutomationsV1Api* | [**getAutomation**](docs/AutomationsV1Api.md#getAutomation) | **GET** /api/v1/orgs/{owner}/automations/{uuid} | Get automation
+*PolyaxonSdk.AutomationsV1Api* | [**getAutomationStats**](docs/AutomationsV1Api.md#getAutomationStats) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/stats | Get automation stats
+*PolyaxonSdk.AutomationsV1Api* | [**listAutomationEvents**](docs/AutomationsV1Api.md#listAutomationEvents) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/events | List automation events (from executions&#39; triggering_event)
+*PolyaxonSdk.AutomationsV1Api* | [**listAutomationExecutions**](docs/AutomationsV1Api.md#listAutomationExecutions) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/executions | List automation executions
+*PolyaxonSdk.AutomationsV1Api* | [**listAutomationNames**](docs/AutomationsV1Api.md#listAutomationNames) | **GET** /api/v1/orgs/{owner}/automations/names | List automation names
+*PolyaxonSdk.AutomationsV1Api* | [**listAutomations**](docs/AutomationsV1Api.md#listAutomations) | **GET** /api/v1/orgs/{owner}/automations | List automations
+*PolyaxonSdk.AutomationsV1Api* | [**patchAutomation**](docs/AutomationsV1Api.md#patchAutomation) | **PATCH** /api/v1/orgs/{owner}/automations/{automation.uuid} | Patch automation
+*PolyaxonSdk.AutomationsV1Api* | [**retryAutomationExecution**](docs/AutomationsV1Api.md#retryAutomationExecution) | **POST** /api/v1/orgs/{owner}/automations/{entity}/executions/{uuid}/retry | Retry automation execution
+*PolyaxonSdk.AutomationsV1Api* | [**testAutomation**](docs/AutomationsV1Api.md#testAutomation) | **POST** /api/v1/orgs/{owner}/automations/{automation_uuid}/test | Test automation trigger evaluation
+*PolyaxonSdk.AutomationsV1Api* | [**updateAutomation**](docs/AutomationsV1Api.md#updateAutomation) | **PUT** /api/v1/orgs/{owner}/automations/{automation.uuid} | Update automation
 *PolyaxonSdk.ConnectionsV1Api* | [**createConnection**](docs/ConnectionsV1Api.md#createConnection) | **POST** /api/v1/orgs/{owner}/connections | Create connection
 *PolyaxonSdk.ConnectionsV1Api* | [**deleteConnection**](docs/ConnectionsV1Api.md#deleteConnection) | **DELETE** /api/v1/orgs/{owner}/connections/{uuid} | Delete connection
 *PolyaxonSdk.ConnectionsV1Api* | [**getConnection**](docs/ConnectionsV1Api.md#getConnection) | **GET** /api/v1/orgs/{owner}/connections/{uuid} | Get connection
@@ -431,6 +443,10 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [PolyaxonSdk.AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
+ - [PolyaxonSdk.AutomationExecutionAutomationExecutionStatus](docs/AutomationExecutionAutomationExecutionStatus.md)
+ - [PolyaxonSdk.AutomationFailStrategy](docs/AutomationFailStrategy.md)
+ - [PolyaxonSdk.AutomationTriggerKind](docs/AutomationTriggerKind.md)
+ - [PolyaxonSdk.AutomationTriggerPosture](docs/AutomationTriggerPosture.md)
  - [PolyaxonSdk.ProtobufAny](docs/ProtobufAny.md)
  - [PolyaxonSdk.ProtobufNullValue](docs/ProtobufNullValue.md)
  - [PolyaxonSdk.RuntimeError](docs/RuntimeError.md)
@@ -451,6 +467,12 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1ArtifactsType](docs/V1ArtifactsType.md)
  - [PolyaxonSdk.V1Auth](docs/V1Auth.md)
  - [PolyaxonSdk.V1AuthType](docs/V1AuthType.md)
+ - [PolyaxonSdk.V1Automation](docs/V1Automation.md)
+ - [PolyaxonSdk.V1AutomationAction](docs/V1AutomationAction.md)
+ - [PolyaxonSdk.V1AutomationActionKind](docs/V1AutomationActionKind.md)
+ - [PolyaxonSdk.V1AutomationExecution](docs/V1AutomationExecution.md)
+ - [PolyaxonSdk.V1AutomationExecutionKind](docs/V1AutomationExecutionKind.md)
+ - [PolyaxonSdk.V1AutomationTestRequest](docs/V1AutomationTestRequest.md)
  - [PolyaxonSdk.V1AverageStoppingPolicy](docs/V1AverageStoppingPolicy.md)
  - [PolyaxonSdk.V1Bayes](docs/V1Bayes.md)
  - [PolyaxonSdk.V1BucketConnection](docs/V1BucketConnection.md)
@@ -547,6 +569,8 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1KFReplica](docs/V1KFReplica.md)
  - [PolyaxonSdk.V1ListActivitiesResponse](docs/V1ListActivitiesResponse.md)
  - [PolyaxonSdk.V1ListAgentsResponse](docs/V1ListAgentsResponse.md)
+ - [PolyaxonSdk.V1ListAutomationExecutionsResponse](docs/V1ListAutomationExecutionsResponse.md)
+ - [PolyaxonSdk.V1ListAutomationsResponse](docs/V1ListAutomationsResponse.md)
  - [PolyaxonSdk.V1ListBookmarksResponse](docs/V1ListBookmarksResponse.md)
  - [PolyaxonSdk.V1ListConnectionsResponse](docs/V1ListConnectionsResponse.md)
  - [PolyaxonSdk.V1ListDashboardsResponse](docs/V1ListDashboardsResponse.md)

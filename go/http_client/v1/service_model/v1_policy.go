@@ -27,6 +27,9 @@ type V1Policy struct {
 	// Optional project archived deletion interval
 	ArchivedDeletionInterval int32 `json:"archived_deletion_interval,omitempty"`
 
+	// Authorized automations
+	Automations []string `json:"automations"`
+
 	// Connected projects
 	ConnectedProjects []string `json:"connected_projects"`
 

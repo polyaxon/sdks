@@ -23,6 +23,9 @@ type V1ProjectSettings struct {
 	// Authorized agents
 	Agents []string `json:"agents"`
 
+	// Authorized automations
+	Automations []string `json:"automations"`
+
 	// Authorized connections
 	Connections []string `json:"connections"`
 

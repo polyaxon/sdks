@@ -65,6 +65,9 @@ class V1Termination {
             if (data.hasOwnProperty('probe')) {
                 obj['probe'] = V1ActivityProbe.constructFromObject(data['probe']);
             }
+            if (data.hasOwnProperty('podFailurePolicy')) {
+                obj['podFailurePolicy'] = ApiClient.convertToType(data['podFailurePolicy'], Object);
+            }
         }
         return obj;
     }
@@ -116,6 +119,11 @@ V1Termination.prototype['culling'] = undefined;
  * @member {module:model/V1ActivityProbe} probe
  */
 V1Termination.prototype['probe'] = undefined;
+
+/**
+ * @member {Object} podFailurePolicy
+ */
+V1Termination.prototype['podFailurePolicy'] = undefined;
 
 
 

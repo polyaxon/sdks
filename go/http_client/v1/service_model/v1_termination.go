@@ -25,6 +25,9 @@ type V1Termination struct {
 	// Max retries for a specific run
 	MaxRetries int32 `json:"maxRetries,omitempty"`
 
+	// Pod failure policy configuration
+	PodFailurePolicy V1PodFailurePolicy `json:"podFailurePolicy,omitempty"`
+
 	// Activity probe configuration
 	Probe *V1ActivityProbe `json:"probe,omitempty"`
 

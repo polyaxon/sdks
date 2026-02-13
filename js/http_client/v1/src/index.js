@@ -14,6 +14,10 @@
 
 import ApiClient from './ApiClient';
 import AgentStateResponseAgentState from './model/AgentStateResponseAgentState';
+import AutomationExecutionAutomationExecutionStatus from './model/AutomationExecutionAutomationExecutionStatus';
+import AutomationFailStrategy from './model/AutomationFailStrategy';
+import AutomationTriggerKind from './model/AutomationTriggerKind';
+import AutomationTriggerPosture from './model/AutomationTriggerPosture';
 import ProtobufAny from './model/ProtobufAny';
 import ProtobufNullValue from './model/ProtobufNullValue';
 import RuntimeError from './model/RuntimeError';
@@ -34,6 +38,12 @@ import V1ArtifactsMount from './model/V1ArtifactsMount';
 import V1ArtifactsType from './model/V1ArtifactsType';
 import V1Auth from './model/V1Auth';
 import V1AuthType from './model/V1AuthType';
+import V1Automation from './model/V1Automation';
+import V1AutomationAction from './model/V1AutomationAction';
+import V1AutomationActionKind from './model/V1AutomationActionKind';
+import V1AutomationExecution from './model/V1AutomationExecution';
+import V1AutomationExecutionKind from './model/V1AutomationExecutionKind';
+import V1AutomationTestRequest from './model/V1AutomationTestRequest';
 import V1AverageStoppingPolicy from './model/V1AverageStoppingPolicy';
 import V1Bayes from './model/V1Bayes';
 import V1BucketConnection from './model/V1BucketConnection';
@@ -130,6 +140,8 @@ import V1JoinParam from './model/V1JoinParam';
 import V1KFReplica from './model/V1KFReplica';
 import V1ListActivitiesResponse from './model/V1ListActivitiesResponse';
 import V1ListAgentsResponse from './model/V1ListAgentsResponse';
+import V1ListAutomationExecutionsResponse from './model/V1ListAutomationExecutionsResponse';
+import V1ListAutomationsResponse from './model/V1ListAutomationsResponse';
 import V1ListBookmarksResponse from './model/V1ListBookmarksResponse';
 import V1ListConnectionsResponse from './model/V1ListConnectionsResponse';
 import V1ListDashboardsResponse from './model/V1ListDashboardsResponse';
@@ -252,6 +264,7 @@ import V1WasbType from './model/V1WasbType';
 import AgentsV1Api from './api/AgentsV1Api';
 import ArtifactsStoresV1Api from './api/ArtifactsStoresV1Api';
 import AuthV1Api from './api/AuthV1Api';
+import AutomationsV1Api from './api/AutomationsV1Api';
 import ConnectionsV1Api from './api/ConnectionsV1Api';
 import DashboardsV1Api from './api/DashboardsV1Api';
 import OrganizationsV1Api from './api/OrganizationsV1Api';
@@ -314,6 +327,30 @@ export {
      * @property {module:model/AgentStateResponseAgentState}
      */
     AgentStateResponseAgentState,
+
+    /**
+     * The AutomationExecutionAutomationExecutionStatus model constructor.
+     * @property {module:model/AutomationExecutionAutomationExecutionStatus}
+     */
+    AutomationExecutionAutomationExecutionStatus,
+
+    /**
+     * The AutomationFailStrategy model constructor.
+     * @property {module:model/AutomationFailStrategy}
+     */
+    AutomationFailStrategy,
+
+    /**
+     * The AutomationTriggerKind model constructor.
+     * @property {module:model/AutomationTriggerKind}
+     */
+    AutomationTriggerKind,
+
+    /**
+     * The AutomationTriggerPosture model constructor.
+     * @property {module:model/AutomationTriggerPosture}
+     */
+    AutomationTriggerPosture,
 
     /**
      * The ProtobufAny model constructor.
@@ -434,6 +471,42 @@ export {
      * @property {module:model/V1AuthType}
      */
     V1AuthType,
+
+    /**
+     * The V1Automation model constructor.
+     * @property {module:model/V1Automation}
+     */
+    V1Automation,
+
+    /**
+     * The V1AutomationAction model constructor.
+     * @property {module:model/V1AutomationAction}
+     */
+    V1AutomationAction,
+
+    /**
+     * The V1AutomationActionKind model constructor.
+     * @property {module:model/V1AutomationActionKind}
+     */
+    V1AutomationActionKind,
+
+    /**
+     * The V1AutomationExecution model constructor.
+     * @property {module:model/V1AutomationExecution}
+     */
+    V1AutomationExecution,
+
+    /**
+     * The V1AutomationExecutionKind model constructor.
+     * @property {module:model/V1AutomationExecutionKind}
+     */
+    V1AutomationExecutionKind,
+
+    /**
+     * The V1AutomationTestRequest model constructor.
+     * @property {module:model/V1AutomationTestRequest}
+     */
+    V1AutomationTestRequest,
 
     /**
      * The V1AverageStoppingPolicy model constructor.
@@ -1010,6 +1083,18 @@ export {
      * @property {module:model/V1ListAgentsResponse}
      */
     V1ListAgentsResponse,
+
+    /**
+     * The V1ListAutomationExecutionsResponse model constructor.
+     * @property {module:model/V1ListAutomationExecutionsResponse}
+     */
+    V1ListAutomationExecutionsResponse,
+
+    /**
+     * The V1ListAutomationsResponse model constructor.
+     * @property {module:model/V1ListAutomationsResponse}
+     */
+    V1ListAutomationsResponse,
 
     /**
      * The V1ListBookmarksResponse model constructor.
@@ -1742,6 +1827,12 @@ export {
     * @property {module:api/AuthV1Api}
     */
     AuthV1Api,
+
+    /**
+    * The AutomationsV1Api service constructor.
+    * @property {module:api/AutomationsV1Api}
+    */
+    AutomationsV1Api,
 
     /**
     * The ConnectionsV1Api service constructor.

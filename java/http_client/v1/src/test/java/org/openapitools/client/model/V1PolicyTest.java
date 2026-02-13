@@ -202,6 +202,14 @@ public class V1PolicyTest {
     }
 
     /**
+     * Test the property 'automations'
+     */
+    @Test
+    public void automationsTest() {
+        // TODO: test automations
+    }
+
+    /**
      * Test the property 'teams'
      */
     @Test

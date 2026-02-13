@@ -48,10 +48,11 @@ class V1Policy(BaseModel):
     agents: Optional[conlist(StrictStr)] = None
     namespaces: Optional[conlist(StrictStr)] = None
     user_accesses: Optional[conlist(V1UserAccess)] = None
+    automations: Optional[conlist(StrictStr)] = None
     teams: Optional[conlist(StrictStr)] = None
     projects: Optional[conlist(StrictStr)] = None
     connected_projects: Optional[conlist(StrictStr)] = None
-    __properties = ["uuid", "owner", "name", "description", "user", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "teams", "projects", "connected_projects"]
+    __properties = ["uuid", "owner", "name", "description", "user", "tags", "created_at", "updated_at", "excluded_features", "excluded_runtimes", "archived_deletion_interval", "connections", "default_presets", "default_presets_ordered", "presets", "queue", "queues", "agents", "namespaces", "user_accesses", "automations", "teams", "projects", "connected_projects"]
 
     class Config:
         allow_population_by_field_name = True
@@ -115,6 +116,7 @@ class V1Policy(BaseModel):
             "agents": obj.get("agents"),
             "namespaces": obj.get("namespaces"),
             "user_accesses": [V1UserAccess.from_dict(_item) for _item in obj.get("user_accesses")] if obj.get("user_accesses") is not None else None,
+            "automations": obj.get("automations"),
             "teams": obj.get("teams"),
             "projects": obj.get("projects"),
             "connected_projects": obj.get("connected_projects")

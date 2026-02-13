@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **uuid** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **agent** | **str** |  | [optional] 
+**project** | **str** |  | [optional] 
 **user** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
@@ -14,6 +15,8 @@ Name | Type | Description | Notes
 **updated_at** | **datetime** |  | [optional] 
 **live_state** | **int** |  | [optional] 
 **kind** | [**V1ConnectionKind**](V1ConnectionKind.md) |  | [optional] 
+**secret** | **object** |  | [optional] 
+**spec** | **object** |  | [optional] 
 
 ## Example
 

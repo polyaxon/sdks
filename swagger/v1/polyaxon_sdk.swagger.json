@@ -3104,6 +3104,934 @@
         ]
       }
     },
+    "/api/v1/orgs/{owner}/automations": {
+      "get": {
+        "summary": "List automations",
+        "operationId": "ListAutomations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAutomationsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Mode of the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      },
+      "post": {
+        "summary": "Create automation",
+        "operationId": "CreateAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Automation",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/names": {
+      "get": {
+        "summary": "List automation names",
+        "operationId": "ListAutomationNames",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAutomationsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Mode of the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{automation.uuid}": {
+      "put": {
+        "summary": "Update automation",
+        "operationId": "UpdateAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "automation.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Automation",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      },
+      "patch": {
+        "summary": "Patch automation",
+        "operationId": "PatchAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "automation.uuid",
+            "description": "UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Automation",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{automation_uuid}/test": {
+      "post": {
+        "summary": "Test automation trigger evaluation",
+        "operationId": "TestAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "automation_uuid",
+            "description": "Automation UUID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1AutomationTestRequest"
+            }
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{entity}/executions/{uuid}/retry": {
+      "post": {
+        "summary": "Retry automation execution",
+        "operationId": "RetryAutomationExecution",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1AutomationExecution"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}": {
+      "get": {
+        "summary": "Get automation",
+        "operationId": "GetAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Automation"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      },
+      "delete": {
+        "summary": "Delete automation",
+        "operationId": "DeleteAutomation",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the sub-entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity: project name, hub name, registry name, ...",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/events": {
+      "get": {
+        "summary": "List automation events (from executions' triggering_event)",
+        "operationId": "ListAutomationEvents",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListActivitiesResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "SubEntity uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/executions": {
+      "get": {
+        "summary": "List automation executions",
+        "operationId": "ListAutomationExecutions",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ListAutomationExecutionsResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "SubEntity uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "no_page",
+            "description": "No pagination.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/stats": {
+      "get": {
+        "summary": "Get automation stats",
+        "operationId": "GetAutomationStats",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "SubEntity uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "entity",
+            "description": "Entity name under namespace.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "description": "Pagination offset.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "limit",
+            "description": "Limit size.",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "sort",
+            "description": "Sort to order the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "query",
+            "description": "Query filter the search.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bookmarks",
+            "description": "Filter by bookmarks.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "mode",
+            "description": "Stats Mode.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "kind",
+            "description": "Stats Kind.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "aggregate",
+            "description": "Stats aggregate.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "groupby",
+            "description": "Stats group.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "trunc",
+            "description": "Stats trunc.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "start_date",
+            "description": "Stats start date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "description": "Stats end date.",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "boundary",
+            "description": "Stats boundary.",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "AutomationsV1"
+        ]
+      }
+    },
     "/api/v1/orgs/{owner}/connections": {
       "get": {
         "summary": "List connections",
@@ -20532,6 +21460,49 @@
         }
       }
     },
+    "AutomationExecutionAutomationExecutionStatus": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "scheduled",
+        "running",
+        "retrying",
+        "succeeded",
+        "failed"
+      ],
+      "default": "pending",
+      "title": "Automation execution status"
+    },
+    "AutomationFailStrategy": {
+      "type": "string",
+      "enum": [
+        "stop",
+        "continue"
+      ],
+      "default": "stop",
+      "title": "=== FAILURE HANDLING ===\nHow to handle action failures"
+    },
+    "AutomationTriggerKind": {
+      "type": "string",
+      "enum": [
+        "event",
+        "metric",
+        "sequence",
+        "query",
+        "compound"
+      ],
+      "default": "event",
+      "title": "Trigger type - how the trigger evaluates events"
+    },
+    "AutomationTriggerPosture": {
+      "type": "string",
+      "enum": [
+        "reactive",
+        "proactive"
+      ],
+      "default": "reactive",
+      "title": "Trigger posture - when the trigger fires"
+    },
     "SearchView": {
       "type": "string",
       "enum": [
@@ -21013,6 +21984,249 @@
         }
       },
       "title": "Auth type specification"
+    },
+    "v1Automation": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "project": {
+          "type": "string",
+          "title": "Optional project"
+        },
+        "description": {
+          "type": "string",
+          "title": "Optional description"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional tags of this entity"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional time when the entity was created"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Optional last time the entity was updated"
+        },
+        "live_state": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Current live state"
+        },
+        "enabled": {
+          "type": "boolean",
+          "title": "Whether this automation is active"
+        },
+        "trigger_kind": {
+          "$ref": "#/definitions/AutomationTriggerKind",
+          "title": "Kind of trigger: event, metric, sequence, query, compound"
+        },
+        "posture": {
+          "$ref": "#/definitions/AutomationTriggerPosture",
+          "title": "Posture: reactive (fire when events happen) or proactive (fire when events don't happen)"
+        },
+        "trigger_on": {
+          "type": "string",
+          "title": "Entity kind that triggers: run, model, artifact, component, connection, webhook, org"
+        },
+        "trigger_entity_uuid": {
+          "type": "string",
+          "title": "Specific entity UUID to watch (null = any entity of trigger_on kind)"
+        },
+        "trigger_config": {
+          "type": "object",
+          "title": "Trigger configuration (expect, query, threshold, within, group_by, etc.)"
+        },
+        "trigger_schedule": {
+          "type": "object",
+          "title": "When to evaluate trigger (for QUERY/PROACTIVE kinds)\nV1Schedule schema: {\"kind\": \"cron\", \"cron\": \"0 * * * *\"} or {\"kind\": \"interval\", \"frequency\": 3600}"
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AutomationAction"
+          },
+          "title": "Actions to execute (trigger and resolve actions)"
+        },
+        "fail_strategy": {
+          "$ref": "#/definitions/AutomationFailStrategy",
+          "title": "FailStrategy: \"stop\" (stop on first failure) or \"continue\" (continue all actions)"
+        },
+        "org_level": {
+          "type": "boolean",
+          "title": "Whether this is an org-level automation"
+        }
+      },
+      "title": "Automation specification"
+    },
+    "v1AutomationAction": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "kind": {
+          "type": "string",
+          "title": "When to execute: 'trigger' or 'resolve'"
+        },
+        "priority": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Execution order (lower = first)"
+        },
+        "action": {
+          "$ref": "#/definitions/v1AutomationActionKind",
+          "title": "Action operation kind"
+        },
+        "apply_to": {
+          "type": "string",
+          "title": "Target entity kind (null = infer from trigger)"
+        },
+        "entity_uuid": {
+          "type": "string",
+          "title": "Target entity UUID (null = infer from triggering event)"
+        },
+        "config": {
+          "type": "object",
+          "title": "Action-specific configuration"
+        }
+      },
+      "title": "An action to execute when an automation fires or resolves"
+    },
+    "v1AutomationActionKind": {
+      "type": "string",
+      "enum": [
+        "notify",
+        "webhook",
+        "start",
+        "restart",
+        "resume",
+        "stop",
+        "skip",
+        "status",
+        "stage",
+        "promote",
+        "tag",
+        "transfer",
+        "archive",
+        "delete"
+      ],
+      "default": "notify",
+      "description": "- notify: Notifications\n - start: Run operations\n - stage: Version operations",
+      "title": "Actions that can be performed"
+    },
+    "v1AutomationExecution": {
+      "type": "object",
+      "properties": {
+        "uuid": {
+          "type": "string",
+          "title": "UUID"
+        },
+        "automation": {
+          "type": "string",
+          "title": "Automation UUID"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1AutomationExecutionKind",
+          "title": "Kind: 'trigger' or 'resolve'"
+        },
+        "status": {
+          "$ref": "#/definitions/AutomationExecutionAutomationExecutionStatus",
+          "title": "Status: pending, running, retrying, succeeded, failed"
+        },
+        "triggering_event": {
+          "$ref": "#/definitions/v1Activity",
+          "title": "The event(s) that caused this trigger to fire"
+        },
+        "bucketing_key": {
+          "type": "string",
+          "title": "The group_by key for this execution"
+        },
+        "target_kind": {
+          "type": "string",
+          "title": "Target entity kind"
+        },
+        "target_uuid": {
+          "type": "string",
+          "title": "Target entity UUID"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "When execution was created"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "When action execution began"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time",
+          "title": "When action execution completed"
+        },
+        "wait_time": {
+          "type": "number",
+          "format": "float",
+          "title": "Time from creation to start (seconds)"
+        },
+        "duration": {
+          "type": "number",
+          "format": "float",
+          "title": "Execution duration (seconds)"
+        },
+        "action_result": {
+          "type": "object",
+          "title": "Response from action"
+        },
+        "retry_count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Number of retry attempts"
+        }
+      },
+      "title": "Automation execution record"
+    },
+    "v1AutomationExecutionKind": {
+      "type": "string",
+      "enum": [
+        "trigger",
+        "resolve"
+      ],
+      "default": "trigger",
+      "title": "When an action executes"
+    },
+    "v1AutomationTestRequest": {
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "title": "Owner of the namespace"
+        },
+        "automation_uuid": {
+          "type": "string",
+          "title": "Automation UUID"
+        },
+        "event": {
+          "type": "object",
+          "title": "Mock event data for testing"
+        }
+      },
+      "title": "Request to test an automation trigger with mock event data"
     },
     "v1Bayes": {
       "type": "object",
@@ -21561,6 +22775,10 @@
           "type": "string",
           "title": "Agent"
         },
+        "project": {
+          "type": "string",
+          "title": "Optional project"
+        },
         "user": {
           "type": "string",
           "title": "Optional name of user created this entity"
@@ -21594,6 +22812,14 @@
         "kind": {
           "$ref": "#/definitions/v1ConnectionKind",
           "title": "The connection kind"
+        },
+        "secret": {
+          "type": "object",
+          "title": "Read-only connection secret"
+        },
+        "spec": {
+          "type": "object",
+          "title": "The connection spec"
         }
       },
       "title": "Connection specification"
@@ -22614,9 +23840,23 @@
         "alert_critical",
         "model_version_new_metric",
         "project_custom_event",
-        "org_custom_event"
+        "org_custom_event",
+        "automation_triggered",
+        "automation_resolved",
+        "automation_execution_succeeded",
+        "automation_execution_failed",
+        "webhook_received",
+        "webhook_processed",
+        "webhook_failed",
+        "artifact_version_created",
+        "artifact_version_stage_changed",
+        "model_version_created",
+        "model_version_stage_changed",
+        "component_version_created",
+        "component_version_stage_changed"
       ],
-      "default": "run_status_created"
+      "default": "run_status_created",
+      "title": "- run_status_created: Run status events\n - run_approved_actor: Run actor events\n - connection_git_commit: Connection events\n - alert_info: Alert events\n - model_version_new_metric: Model version events\n - project_custom_event: Custom events\n - automation_triggered: Automation events\n - webhook_received: Webhook events\n - artifact_version_created: Version stage events"
     },
     "v1EventModel": {
       "type": "object",
@@ -23891,6 +25131,58 @@
         }
       },
       "title": "Contains list of agents"
+    },
+    "v1ListAutomationExecutionsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Count of the entities"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1AutomationExecution"
+          },
+          "title": "List of all entities"
+        },
+        "previous": {
+          "type": "string",
+          "title": "Previous page"
+        },
+        "next": {
+          "type": "string",
+          "title": "Next page"
+        }
+      },
+      "title": "Contains list of automation executions"
+    },
+    "v1ListAutomationsResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Count of the entities"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Automation"
+          },
+          "title": "List of all entities"
+        },
+        "previous": {
+          "type": "string",
+          "title": "Previous page"
+        },
+        "next": {
+          "type": "string",
+          "title": "Next page"
+        }
+      },
+      "title": "Contains list of automations"
     },
     "v1ListBookmarksResponse": {
       "type": "object",
@@ -25314,6 +26606,13 @@
           },
           "title": "Authorized users"
         },
+        "automations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized automations"
+        },
         "teams": {
           "type": "array",
           "items": {
@@ -25619,6 +26918,13 @@
             "$ref": "#/definitions/v1UserAccess"
           },
           "title": "Authorized users"
+        },
+        "automations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Authorized automations"
         },
         "teams": {
           "type": "array",

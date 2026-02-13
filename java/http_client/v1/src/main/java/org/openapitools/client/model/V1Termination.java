@@ -70,6 +70,10 @@ public class V1Termination {
   @SerializedName(SERIALIZED_NAME_PROBE)
   private V1ActivityProbe probe;
 
+  public static final String SERIALIZED_NAME_POD_FAILURE_POLICY = "podFailurePolicy";
+  @SerializedName(SERIALIZED_NAME_POD_FAILURE_POLICY)
+  private Object podFailurePolicy;
+
   public V1Termination() {
   }
 
@@ -183,6 +187,28 @@ public class V1Termination {
   }
 
 
+  public V1Termination podFailurePolicy(Object podFailurePolicy) {
+
+    this.podFailurePolicy = podFailurePolicy;
+    return this;
+  }
+
+   /**
+   * Get podFailurePolicy
+   * @return podFailurePolicy
+  **/
+  @javax.annotation.Nullable
+
+  public Object getPodFailurePolicy() {
+    return podFailurePolicy;
+  }
+
+
+  public void setPodFailurePolicy(Object podFailurePolicy) {
+    this.podFailurePolicy = podFailurePolicy;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -197,12 +223,13 @@ public class V1Termination {
         Objects.equals(this.ttl, v1Termination.ttl) &&
         Objects.equals(this.timeout, v1Termination.timeout) &&
         Objects.equals(this.culling, v1Termination.culling) &&
-        Objects.equals(this.probe, v1Termination.probe);
+        Objects.equals(this.probe, v1Termination.probe) &&
+        Objects.equals(this.podFailurePolicy, v1Termination.podFailurePolicy);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(maxRetries, ttl, timeout, culling, probe);
+    return Objects.hash(maxRetries, ttl, timeout, culling, probe, podFailurePolicy);
   }
 
   @Override
@@ -214,6 +241,7 @@ public class V1Termination {
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    culling: ").append(toIndentedString(culling)).append("\n");
     sb.append("    probe: ").append(toIndentedString(probe)).append("\n");
+    sb.append("    podFailurePolicy: ").append(toIndentedString(podFailurePolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -241,6 +269,7 @@ public class V1Termination {
     openapiFields.add("timeout");
     openapiFields.add("culling");
     openapiFields.add("probe");
+    openapiFields.add("podFailurePolicy");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

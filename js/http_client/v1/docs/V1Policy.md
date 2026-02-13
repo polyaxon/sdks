@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **agents** | **[String]** |  | [optional] 
 **namespaces** | **[String]** |  | [optional] 
 **user_accesses** | [**[V1UserAccess]**](V1UserAccess.md) |  | [optional] 
+**automations** | **[String]** |  | [optional] 
 **teams** | **[String]** |  | [optional] 
 **projects** | **[String]** |  | [optional] 
 **connected_projects** | **[String]** |  | [optional] 

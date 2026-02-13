@@ -4742,6 +4742,1411 @@
         }
       }
     },
+    "/api/v1/orgs/{owner}/automations" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "List automations",
+        "operationId" : "ListAutomations",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Mode of the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListAutomationsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Create automation",
+        "operationId" : "CreateAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Automation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Automation"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Automation"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/names" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "List automation names",
+        "operationId" : "ListAutomationNames",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Mode of the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListAutomationsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{automation.uuid}" : {
+      "put" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Update automation",
+        "operationId" : "UpdateAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "automation.uuid",
+          "in" : "path",
+          "description" : "UUID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Automation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Automation"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Automation"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      },
+      "patch" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Patch automation",
+        "operationId" : "PatchAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "automation.uuid",
+          "in" : "path",
+          "description" : "UUID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "Automation",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1Automation"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Automation"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{automation_uuid}/test" : {
+      "post" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Test automation trigger evaluation",
+        "operationId" : "TestAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "automation_uuid",
+          "in" : "path",
+          "description" : "Automation UUID",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1AutomationTestRequest"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name" : "body"
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{entity}/executions/{uuid}/retry" : {
+      "post" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Retry automation execution",
+        "operationId" : "RetryAutomationExecution",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "path",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1AutomationExecution"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Get automation",
+        "operationId" : "GetAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1Automation"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Delete automation",
+        "operationId" : "DeleteAutomation",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "Uuid identifier of the sub-entity",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity: project name, hub name, registry name, ...",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : { }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/events" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "List automation events (from executions' triggering_event)",
+        "operationId" : "ListAutomationEvents",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "SubEntity uuid",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity name under namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListActivitiesResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/executions" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "List automation executions",
+        "operationId" : "ListAutomationExecutions",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "SubEntity uuid",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity name under namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "no_page",
+          "in" : "query",
+          "description" : "No pagination.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/v1ListAutomationExecutionsResponse"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orgs/{owner}/automations/{uuid}/stats" : {
+      "get" : {
+        "tags" : [ "AutomationsV1" ],
+        "summary" : "Get automation stats",
+        "operationId" : "GetAutomationStats",
+        "parameters" : [ {
+          "name" : "owner",
+          "in" : "path",
+          "description" : "Owner of the namespace",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "uuid",
+          "in" : "path",
+          "description" : "SubEntity uuid",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "entity",
+          "in" : "query",
+          "description" : "Entity name under namespace.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Pagination offset.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit size.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "sort",
+          "in" : "query",
+          "description" : "Sort to order the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "query",
+          "in" : "query",
+          "description" : "Query filter the search.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "bookmarks",
+          "in" : "query",
+          "description" : "Filter by bookmarks.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "mode",
+          "in" : "query",
+          "description" : "Stats Mode.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "kind",
+          "in" : "query",
+          "description" : "Stats Kind.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "aggregate",
+          "in" : "query",
+          "description" : "Stats aggregate.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "groupby",
+          "in" : "query",
+          "description" : "Stats group.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "trunc",
+          "in" : "query",
+          "description" : "Stats trunc.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "start_date",
+          "in" : "query",
+          "description" : "Stats start date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "end_date",
+          "in" : "query",
+          "description" : "Stats end date.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "boundary",
+          "in" : "query",
+          "description" : "Stats boundary.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "A successful response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "204" : {
+            "description" : "No content.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "403" : {
+            "description" : "You don't have permission to access the resource.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Resource does not exist.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "An unexpected error response.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/runtimeError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/orgs/{owner}/connections" : {
       "get" : {
         "tags" : [ "ConnectionsV1" ],
@@ -27799,8 +29204,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -28075,8 +29480,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -28712,8 +30117,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -29582,8 +30987,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -29755,8 +31160,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -30183,8 +31588,8 @@
           "explode" : true,
           "schema" : {
             "type" : "string",
-            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-            "default" : "created"
+            "default" : "created",
+            "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
           }
         } ],
         "responses" : {
@@ -30724,12 +32129,36 @@
           }
         }
       },
+      "AutomationExecutionAutomationExecutionStatus" : {
+        "title" : "Automation execution status",
+        "type" : "string",
+        "default" : "pending",
+        "enum" : [ "pending", "scheduled", "running", "retrying", "succeeded", "failed" ]
+      },
+      "AutomationFailStrategy" : {
+        "title" : "=== FAILURE HANDLING ===\nHow to handle action failures",
+        "type" : "string",
+        "default" : "stop",
+        "enum" : [ "stop", "continue" ]
+      },
+      "AutomationTriggerKind" : {
+        "title" : "Trigger type - how the trigger evaluates events",
+        "type" : "string",
+        "default" : "event",
+        "enum" : [ "event", "metric", "sequence", "query", "compound" ]
+      },
+      "AutomationTriggerPosture" : {
+        "title" : "Trigger posture - when the trigger fires",
+        "type" : "string",
+        "default" : "reactive",
+        "enum" : [ "reactive", "proactive" ]
+      },
       "SearchView" : {
         "title" : "Search view",
         "type" : "string",
         "description" : "- any: Any view\n - runs: Runs view\n - selection: Selection view\n - analytics: Analytics view\n - components: Components view\n - models: Models view\n - artifacts: Artifacts view\n - projects: Projects view",
-        "enum" : [ "any", "runs", "selection", "analytics", "components", "models", "artifacts", "projects" ],
-        "default" : "any"
+        "default" : "any",
+        "enum" : [ "any", "runs", "selection", "analytics", "components", "models", "artifacts", "projects" ]
       },
       "protobufAny" : {
         "type" : "object",
@@ -30750,8 +32179,8 @@
       "protobufNullValue" : {
         "type" : "string",
         "description" : "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value.",
-        "enum" : [ "NULL_VALUE" ],
-        "default" : "NULL_VALUE"
+        "default" : "NULL_VALUE",
+        "enum" : [ "NULL_VALUE" ]
       },
       "runtimeError" : {
         "type" : "object",
@@ -31074,8 +32503,8 @@
         "title" : "Artifact kind",
         "type" : "string",
         "description" : "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - span: Trace/Span event\n - artifact: Generic artifact",
-        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ],
-        "default" : "model"
+        "default" : "model",
+        "enum" : [ "model", "audio", "video", "histogram", "image", "tensor", "dataframe", "chart", "csv", "tsv", "psv", "ssv", "metric", "env", "html", "text", "file", "dir", "dockerfile", "docker_image", "data", "coderef", "table", "tensorboard", "curve", "confusion", "analysis", "iteration", "markdown", "system", "span", "artifact" ]
       },
       "v1ArtifactTree" : {
         "title" : "Artifact tree response",
@@ -31164,6 +32593,229 @@
           "password" : {
             "title" : "Optional password",
             "type" : "string"
+          }
+        }
+      },
+      "v1Automation" : {
+        "title" : "Automation specification",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "UUID",
+            "type" : "string"
+          },
+          "name" : {
+            "title" : "Name",
+            "type" : "string"
+          },
+          "project" : {
+            "title" : "Optional project",
+            "type" : "string"
+          },
+          "description" : {
+            "title" : "Optional description",
+            "type" : "string"
+          },
+          "tags" : {
+            "title" : "Optional tags of this entity",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "created_at" : {
+            "title" : "Optional time when the entity was created",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updated_at" : {
+            "title" : "Optional last time the entity was updated",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "live_state" : {
+            "title" : "Current live state",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "enabled" : {
+            "title" : "Whether this automation is active",
+            "type" : "boolean"
+          },
+          "trigger_kind" : {
+            "$ref" : "#/components/schemas/AutomationTriggerKind"
+          },
+          "posture" : {
+            "$ref" : "#/components/schemas/AutomationTriggerPosture"
+          },
+          "trigger_on" : {
+            "title" : "Entity kind that triggers: run, model, artifact, component, connection, webhook, org",
+            "type" : "string"
+          },
+          "trigger_entity_uuid" : {
+            "title" : "Specific entity UUID to watch (null = any entity of trigger_on kind)",
+            "type" : "string"
+          },
+          "trigger_config" : {
+            "title" : "Trigger configuration (expect, query, threshold, within, group_by, etc.)",
+            "type" : "object",
+            "properties" : { }
+          },
+          "trigger_schedule" : {
+            "title" : "When to evaluate trigger (for QUERY/PROACTIVE kinds)\nV1Schedule schema: {\"kind\": \"cron\", \"cron\": \"0 * * * *\"} or {\"kind\": \"interval\", \"frequency\": 3600}",
+            "type" : "object",
+            "properties" : { }
+          },
+          "actions" : {
+            "title" : "Actions to execute (trigger and resolve actions)",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1AutomationAction"
+            }
+          },
+          "fail_strategy" : {
+            "$ref" : "#/components/schemas/AutomationFailStrategy"
+          },
+          "org_level" : {
+            "title" : "Whether this is an org-level automation",
+            "type" : "boolean"
+          }
+        }
+      },
+      "v1AutomationAction" : {
+        "title" : "An action to execute when an automation fires or resolves",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "UUID",
+            "type" : "string"
+          },
+          "kind" : {
+            "title" : "When to execute: 'trigger' or 'resolve'",
+            "type" : "string"
+          },
+          "priority" : {
+            "title" : "Execution order (lower = first)",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "action" : {
+            "$ref" : "#/components/schemas/v1AutomationActionKind"
+          },
+          "apply_to" : {
+            "title" : "Target entity kind (null = infer from trigger)",
+            "type" : "string"
+          },
+          "entity_uuid" : {
+            "title" : "Target entity UUID (null = infer from triggering event)",
+            "type" : "string"
+          },
+          "config" : {
+            "title" : "Action-specific configuration",
+            "type" : "object",
+            "properties" : { }
+          }
+        }
+      },
+      "v1AutomationActionKind" : {
+        "title" : "Actions that can be performed",
+        "type" : "string",
+        "description" : "- notify: Notifications\n - start: Run operations\n - stage: Version operations",
+        "default" : "notify",
+        "enum" : [ "notify", "webhook", "start", "restart", "resume", "stop", "skip", "status", "stage", "promote", "tag", "transfer", "archive", "delete" ]
+      },
+      "v1AutomationExecution" : {
+        "title" : "Automation execution record",
+        "type" : "object",
+        "properties" : {
+          "uuid" : {
+            "title" : "UUID",
+            "type" : "string"
+          },
+          "automation" : {
+            "title" : "Automation UUID",
+            "type" : "string"
+          },
+          "kind" : {
+            "$ref" : "#/components/schemas/v1AutomationExecutionKind"
+          },
+          "status" : {
+            "$ref" : "#/components/schemas/AutomationExecutionAutomationExecutionStatus"
+          },
+          "triggering_event" : {
+            "$ref" : "#/components/schemas/v1Activity"
+          },
+          "bucketing_key" : {
+            "title" : "The group_by key for this execution",
+            "type" : "string"
+          },
+          "target_kind" : {
+            "title" : "Target entity kind",
+            "type" : "string"
+          },
+          "target_uuid" : {
+            "title" : "Target entity UUID",
+            "type" : "string"
+          },
+          "created_at" : {
+            "title" : "When execution was created",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "started_at" : {
+            "title" : "When action execution began",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "finished_at" : {
+            "title" : "When action execution completed",
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "wait_time" : {
+            "title" : "Time from creation to start (seconds)",
+            "type" : "number",
+            "format" : "float"
+          },
+          "duration" : {
+            "title" : "Execution duration (seconds)",
+            "type" : "number",
+            "format" : "float"
+          },
+          "action_result" : {
+            "title" : "Response from action",
+            "type" : "object",
+            "properties" : { }
+          },
+          "retry_count" : {
+            "title" : "Number of retry attempts",
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
+      "v1AutomationExecutionKind" : {
+        "title" : "When an action executes",
+        "type" : "string",
+        "default" : "trigger",
+        "enum" : [ "trigger", "resolve" ]
+      },
+      "v1AutomationTestRequest" : {
+        "title" : "Request to test an automation trigger with mock event data",
+        "type" : "object",
+        "properties" : {
+          "owner" : {
+            "title" : "Owner of the namespace",
+            "type" : "string"
+          },
+          "automation_uuid" : {
+            "title" : "Automation UUID",
+            "type" : "string"
+          },
+          "event" : {
+            "title" : "Mock event data for testing",
+            "type" : "object",
+            "properties" : { }
           }
         }
       },
@@ -31335,8 +32987,8 @@
       "v1CleanPodPolicy" : {
         "title" : "CleanPodPolicy",
         "type" : "string",
-        "enum" : [ "All", "Running", "None" ],
-        "default" : "All"
+        "default" : "All",
+        "enum" : [ "All", "Running", "None" ]
       },
       "v1Cloning" : {
         "type" : "object",
@@ -31356,8 +33008,8 @@
       },
       "v1CloningKind" : {
         "type" : "string",
-        "enum" : [ "copy", "restart", "cache" ],
-        "default" : "copy"
+        "default" : "copy",
+        "enum" : [ "copy", "restart", "cache" ]
       },
       "v1Compatibility" : {
         "type" : "object",
@@ -31615,8 +33267,8 @@
       "v1ConnectionKind" : {
         "title" : "Connection kinds",
         "type" : "string",
-        "enum" : [ "host_path", "volume_claim", "gcs", "s3", "wasb", "registry", "git", "aws", "gcp", "azure", "mysql", "postgres", "oracle", "vertica", "sqlite", "mssql", "redis", "presto", "mongo", "cassandra", "ftp", "grpc", "hdfs", "http", "pig_cli", "hive_cli", "hive_metastore", "hive_server2", "jdbc", "jenkins", "samba", "snowflake", "ssh", "cloudant", "databricks", "segment", "slack", "discord", "mattermost", "pagerduty", "hipchat", "webhook", "custom" ],
-        "default" : "host_path"
+        "default" : "host_path",
+        "enum" : [ "host_path", "volume_claim", "gcs", "s3", "wasb", "registry", "git", "aws", "gcp", "azure", "mysql", "postgres", "oracle", "vertica", "sqlite", "mssql", "redis", "presto", "mongo", "cassandra", "ftp", "grpc", "hdfs", "http", "pig_cli", "hive_cli", "hive_metastore", "hive_server2", "jdbc", "jenkins", "samba", "snowflake", "ssh", "cloudant", "databricks", "segment", "slack", "discord", "mattermost", "pagerduty", "hipchat", "webhook", "custom" ]
       },
       "v1ConnectionResource" : {
         "title" : "K8S resource schema validation",
@@ -31656,6 +33308,10 @@
             "title" : "Agent",
             "type" : "string"
           },
+          "project" : {
+            "title" : "Optional project",
+            "type" : "string"
+          },
           "user" : {
             "title" : "Optional name of user created this entity",
             "type" : "string"
@@ -31688,6 +33344,16 @@
           },
           "kind" : {
             "$ref" : "#/components/schemas/v1ConnectionKind"
+          },
+          "secret" : {
+            "title" : "Read-only connection secret",
+            "type" : "object",
+            "properties" : { }
+          },
+          "spec" : {
+            "title" : "The connection spec",
+            "type" : "object",
+            "properties" : { }
           }
         }
       },
@@ -32528,8 +34194,8 @@
         "title" : "Chart kind",
         "type" : "string",
         "description" : "- plotly: Plotly chart\n - bokeh: Bokeh chart\n - vega: Vega chart",
-        "enum" : [ "plotly", "bokeh", "vega" ],
-        "default" : "plotly"
+        "default" : "plotly",
+        "enum" : [ "plotly", "bokeh", "vega" ]
       },
       "v1EventConfusionMatrix" : {
         "title" : "Cofusion matrix spec definition",
@@ -32594,8 +34260,8 @@
         "title" : "Curve kind",
         "type" : "string",
         "description" : "- roc: ROC curve\n - pr: Precision Recall curve\n - custom: Custom curve",
-        "enum" : [ "roc", "pr", "custom" ],
-        "default" : "roc"
+        "default" : "roc",
+        "enum" : [ "roc", "pr", "custom" ]
       },
       "v1EventDataframe" : {
         "title" : "Dataframe spec definition",
@@ -32657,9 +34323,10 @@
         }
       },
       "v1EventKind" : {
+        "title" : "- run_status_created: Run status events\n - run_approved_actor: Run actor events\n - connection_git_commit: Connection events\n - alert_info: Alert events\n - model_version_new_metric: Model version events\n - project_custom_event: Custom events\n - automation_triggered: Automation events\n - webhook_received: Webhook events\n - artifact_version_created: Version stage events",
         "type" : "string",
-        "enum" : [ "run_status_created", "run_status_resuming", "run_status_compiled", "run_status_on_schedule", "run_status_queued", "run_status_scheduled", "run_status_starting", "run_status_running", "run_status_processing", "run_status_stopping", "run_status_failed", "run_status_stopped", "run_status_succeeded", "run_status_skipped", "run_status_warning", "run_status_unschedulable", "run_status_upstream_failed", "run_status_retrying", "run_status_unknown", "run_status_done", "run_approved_actor", "run_invalidated_actor", "run_new_artifacts", "connection_git_commit", "connection_dataset_version", "connection_registry_image", "alert_info", "alert_warning", "alert_critical", "model_version_new_metric", "project_custom_event", "org_custom_event" ],
-        "default" : "run_status_created"
+        "default" : "run_status_created",
+        "enum" : [ "run_status_created", "run_status_resuming", "run_status_compiled", "run_status_on_schedule", "run_status_queued", "run_status_scheduled", "run_status_starting", "run_status_running", "run_status_processing", "run_status_stopping", "run_status_failed", "run_status_stopped", "run_status_succeeded", "run_status_skipped", "run_status_warning", "run_status_unschedulable", "run_status_upstream_failed", "run_status_retrying", "run_status_unknown", "run_status_done", "run_approved_actor", "run_invalidated_actor", "run_new_artifacts", "connection_git_commit", "connection_dataset_version", "connection_registry_image", "alert_info", "alert_warning", "alert_critical", "model_version_new_metric", "project_custom_event", "org_custom_event", "automation_triggered", "automation_resolved", "automation_execution_succeeded", "automation_execution_failed", "webhook_received", "webhook_processed", "webhook_failed", "artifact_version_created", "artifact_version_stage_changed", "model_version_created", "model_version_stage_changed", "component_version_created", "component_version_stage_changed" ]
       },
       "v1EventModel" : {
         "title" : "Model spec definition",
@@ -32749,8 +34416,8 @@
       "v1EventSpanKind" : {
         "title" : "Curve kind",
         "type" : "string",
-        "enum" : [ "llm", "chain", "agent", "tool", "embedding", "retriever" ],
-        "default" : "llm"
+        "default" : "llm",
+        "enum" : [ "llm", "chain", "agent", "tool", "embedding", "retriever" ]
       },
       "v1EventTrigger" : {
         "title" : "Event definition",
@@ -33492,8 +35159,8 @@
         "title" : "Hyperopt algorithms enum",
         "type" : "string",
         "description" : "- tpe: tpe algorithm\n - rand: random algorithm\n - anneal: anneal algorithm",
-        "enum" : [ "tpe", "rand", "anneal" ],
-        "default" : "tpe"
+        "default" : "tpe",
+        "enum" : [ "tpe", "rand", "anneal" ]
       },
       "v1IO" : {
         "title" : "Inputs/Outputs specification",
@@ -33922,6 +35589,58 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/v1Agent"
+            }
+          },
+          "previous" : {
+            "title" : "Previous page",
+            "type" : "string"
+          },
+          "next" : {
+            "title" : "Next page",
+            "type" : "string"
+          }
+        }
+      },
+      "v1ListAutomationExecutionsResponse" : {
+        "title" : "Contains list of automation executions",
+        "type" : "object",
+        "properties" : {
+          "count" : {
+            "title" : "Count of the entities",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "results" : {
+            "title" : "List of all entities",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1AutomationExecution"
+            }
+          },
+          "previous" : {
+            "title" : "Previous page",
+            "type" : "string"
+          },
+          "next" : {
+            "title" : "Next page",
+            "type" : "string"
+          }
+        }
+      },
+      "v1ListAutomationsResponse" : {
+        "title" : "Contains list of automations",
+        "type" : "object",
+        "properties" : {
+          "count" : {
+            "title" : "Count of the entities",
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "results" : {
+            "title" : "List of all entities",
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/v1Automation"
             }
           },
           "previous" : {
@@ -34552,8 +36271,8 @@
       },
       "v1ManagedBy" : {
         "type" : "string",
-        "enum" : [ "client", "cli", "agent" ],
-        "default" : "client"
+        "default" : "client",
+        "enum" : [ "client", "cli", "agent" ]
       },
       "v1Mapping" : {
         "title" : "Matrix based on map/array either specified manually by the user or passed from another step",
@@ -34616,8 +36335,8 @@
       },
       "v1MatrixKind" : {
         "type" : "string",
-        "enum" : [ "random", "grid", "hyperband", "bayes", "hyperopt", "iterative", "mapping" ],
-        "default" : "random"
+        "default" : "random",
+        "enum" : [ "random", "grid", "hyperband", "bayes", "hyperopt", "iterative", "mapping" ]
       },
       "v1MedianStoppingPolicy" : {
         "type" : "object",
@@ -34895,8 +36614,8 @@
         "title" : "Optimization enum for metrics",
         "type" : "string",
         "description" : "- maximize: Minimize a metric\n - minimize: Minimize a metric",
-        "enum" : [ "maximize", "minimize" ],
-        "default" : "maximize"
+        "default" : "maximize",
+        "enum" : [ "maximize", "minimize" ]
       },
       "v1OptimizationMetric" : {
         "title" : "OptimizationMetric specification",
@@ -35097,8 +36816,8 @@
         "title" : "PatchStrategy",
         "type" : "string",
         "description" : "- replace: Replaces the keys\n - isnull: Only set the keys if they do not exist or if they are null\n - post_merge: Merge the all keys and replace by new one\n - pre_merge: Merge the all keys and keep old ones",
-        "enum" : [ "replace", "isnull", "post_merge", "pre_merge" ],
-        "default" : "replace"
+        "default" : "replace",
+        "enum" : [ "replace", "isnull", "post_merge", "pre_merge" ]
       },
       "v1PathRef" : {
         "title" : "Path reference specification",
@@ -35133,8 +36852,8 @@
       },
       "v1PipelineKind" : {
         "type" : "string",
-        "enum" : [ "dag", "matrix" ],
-        "default" : "dag"
+        "default" : "dag",
+        "enum" : [ "dag", "matrix" ]
       },
       "v1Plugins" : {
         "title" : "Plugins specification",
@@ -35326,6 +37045,13 @@
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/v1UserAccess"
+            }
+          },
+          "automations" : {
+            "title" : "Authorized automations",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
             }
           },
           "teams" : {
@@ -35633,6 +37359,13 @@
               "$ref" : "#/components/schemas/v1UserAccess"
             }
           },
+          "automations" : {
+            "title" : "Authorized automations",
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
           "teams" : {
             "title" : "Authorized teams",
             "type" : "array",
@@ -35759,8 +37492,8 @@
       },
       "v1ProjectVersionKind" : {
         "type" : "string",
-        "enum" : [ "component", "model", "artifact" ],
-        "default" : "component"
+        "default" : "component",
+        "enum" : [ "component", "model", "artifact" ]
       },
       "v1PytorchElasticPolicy" : {
         "type" : "object",
@@ -36117,8 +37850,8 @@
         "title" : "ResourceTypes enum for optmiztion resources",
         "type" : "string",
         "description" : "- int: Int resource\n - float: Float resource",
-        "enum" : [ "int", "float" ],
-        "default" : "int"
+        "default" : "int",
+        "enum" : [ "int", "float" ]
       },
       "v1Run" : {
         "title" : "Run specification",
@@ -36392,8 +38125,8 @@
       },
       "v1RunEdgeKind" : {
         "type" : "string",
-        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build", "manual" ],
-        "default" : "action"
+        "default" : "action",
+        "enum" : [ "action", "event", "hook", "dag", "join", "run", "tb", "build", "manual" ]
       },
       "v1RunEdgeLineage" : {
         "title" : "single run edge",
@@ -36429,13 +38162,13 @@
       "v1RunKind" : {
         "title" : "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type" : "string",
-        "enum" : [ "job", "service", "dag", "daskcluster", "raycluster", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ],
-        "default" : "job"
+        "default" : "job",
+        "enum" : [ "job", "service", "dag", "daskcluster", "raycluster", "mpijob", "tfjob", "pytorchjob", "matrix", "schedule", "tuner", "watchdog", "notifier", "builder", "cleaner" ]
       },
       "v1RunPending" : {
         "type" : "string",
-        "enum" : [ "approval", "upload", "cache", "build" ],
-        "default" : "approval"
+        "default" : "approval",
+        "enum" : [ "approval", "upload", "cache", "build" ]
       },
       "v1RunReferenceCatalog" : {
         "title" : "Run Settings catalog specification",
@@ -36593,8 +38326,8 @@
       },
       "v1ScheduleKind" : {
         "type" : "string",
-        "enum" : [ "cron", "interval", "datetime" ],
-        "default" : "cron"
+        "default" : "cron",
+        "enum" : [ "cron", "interval", "datetime" ]
       },
       "v1SchedulingPolicy" : {
         "type" : "object",
@@ -37087,8 +38820,8 @@
       },
       "v1Stages" : {
         "type" : "string",
-        "enum" : [ "testing", "staging", "production", "disabled" ],
-        "default" : "testing"
+        "default" : "testing",
+        "enum" : [ "testing", "staging", "production", "disabled" ]
       },
       "v1Status" : {
         "title" : "Status specification",
@@ -37153,8 +38886,8 @@
       },
       "v1Statuses" : {
         "type" : "string",
-        "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ],
-        "default" : "created"
+        "default" : "created",
+        "enum" : [ "created", "resuming", "on_schedule", "compiled", "queued", "scheduled", "starting", "running", "processing", "stopping", "failed", "stopped", "succeeded", "skipped", "warning", "unschedulable", "upstream_failed", "retrying", "unknown", "done" ]
       },
       "v1TFJob" : {
         "title" : "TF Job specification",
@@ -37527,8 +39260,8 @@
       "v1TriggerPolicy" : {
         "title" : "TriggerPolicy enum",
         "type" : "string",
-        "enum" : [ "all_succeeded", "all_failed", "all_done", "one_succeeded", "one_failed", "one_done" ],
-        "default" : "all_succeeded"
+        "default" : "all_succeeded",
+        "enum" : [ "all_succeeded", "all_failed", "all_done", "one_succeeded", "one_failed", "one_done" ]
       },
       "v1TruncationStoppingPolicy" : {
         "type" : "object",

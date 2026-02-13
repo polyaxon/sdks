@@ -91,7 +91,33 @@ public enum V1EventKind {
 
   PROJECT_CUSTOM_EVENT("project_custom_event"),
 
-  ORG_CUSTOM_EVENT("org_custom_event");
+  ORG_CUSTOM_EVENT("org_custom_event"),
+
+  AUTOMATION_TRIGGERED("automation_triggered"),
+
+  AUTOMATION_RESOLVED("automation_resolved"),
+
+  AUTOMATION_EXECUTION_SUCCEEDED("automation_execution_succeeded"),
+
+  AUTOMATION_EXECUTION_FAILED("automation_execution_failed"),
+
+  WEBHOOK_RECEIVED("webhook_received"),
+
+  WEBHOOK_PROCESSED("webhook_processed"),
+
+  WEBHOOK_FAILED("webhook_failed"),
+
+  ARTIFACT_VERSION_CREATED("artifact_version_created"),
+
+  ARTIFACT_VERSION_STAGE_CHANGED("artifact_version_stage_changed"),
+
+  MODEL_VERSION_CREATED("model_version_created"),
+
+  MODEL_VERSION_STAGE_CHANGED("model_version_stage_changed"),
+
+  COMPONENT_VERSION_CREATED("component_version_created"),
+
+  COMPONENT_VERSION_STAGE_CHANGED("component_version_stage_changed");
 
   private String value;
 

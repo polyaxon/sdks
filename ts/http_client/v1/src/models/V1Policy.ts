@@ -151,6 +151,12 @@ export interface V1Policy {
      * @type {Array<string>}
      * @memberof V1Policy
      */
+    automations?: Array<string>;
+    /**
+     *
+     * @type {Array<string>}
+     * @memberof V1Policy
+     */
     teams?: Array<string>;
     /**
      *
@@ -205,6 +211,7 @@ export function V1PolicyFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'agents': !exists(json, 'agents') ? undefined : json['agents'],
         'namespaces': !exists(json, 'namespaces') ? undefined : json['namespaces'],
         'user_accesses': !exists(json, 'user_accesses') ? undefined : ((json['user_accesses'] as Array<any>).map(V1UserAccessFromJSON)),
+        'automations': !exists(json, 'automations') ? undefined : json['automations'],
         'teams': !exists(json, 'teams') ? undefined : json['teams'],
         'projects': !exists(json, 'projects') ? undefined : json['projects'],
         'connected_projects': !exists(json, 'connected_projects') ? undefined : json['connected_projects'],
@@ -240,6 +247,7 @@ export function V1PolicyToJSON(value?: V1Policy | null): any {
         'agents': value.agents,
         'namespaces': value.namespaces,
         'user_accesses': value.user_accesses === undefined ? undefined : ((value.user_accesses as Array<any>).map(V1UserAccessToJSON)),
+        'automations': value.automations,
         'teams': value.teams,
         'projects': value.projects,
         'connected_projects': value.connected_projects,

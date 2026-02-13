@@ -20,7 +20,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_connection_kind import V1ConnectionKind
 
@@ -31,6 +31,7 @@ class V1ConnectionResponse(BaseModel):
     uuid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     agent: Optional[StrictStr] = None
+    project: Optional[StrictStr] = None
     user: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
     tags: Optional[conlist(StrictStr)] = None
@@ -38,7 +39,9 @@ class V1ConnectionResponse(BaseModel):
     updated_at: Optional[datetime] = None
     live_state: Optional[StrictInt] = None
     kind: Optional[V1ConnectionKind] = None
-    __properties = ["uuid", "name", "agent", "user", "description", "tags", "created_at", "updated_at", "live_state", "kind"]
+    secret: Optional[Dict[str, Any]] = None
+    spec: Optional[Dict[str, Any]] = None
+    __properties = ["uuid", "name", "agent", "project", "user", "description", "tags", "created_at", "updated_at", "live_state", "kind", "secret", "spec"]
 
     class Config:
         allow_population_by_field_name = True
@@ -78,13 +81,16 @@ class V1ConnectionResponse(BaseModel):
             "uuid": obj.get("uuid"),
             "name": obj.get("name"),
             "agent": obj.get("agent"),
+            "project": obj.get("project"),
             "user": obj.get("user"),
             "description": obj.get("description"),
             "tags": obj.get("tags"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
             "live_state": obj.get("live_state"),
-            "kind": obj.get("kind")
+            "kind": obj.get("kind"),
+            "secret": obj.get("secret"),
+            "spec": obj.get("spec")
         })
         return _obj
 

@@ -79,4 +79,12 @@ public class V1TerminationTest {
         // TODO: test probe
     }
 
+    /**
+     * Test the property 'podFailurePolicy'
+     */
+    @Test
+    public void podFailurePolicyTest() {
+        // TODO: test podFailurePolicy
+    }
+
 }

@@ -14,7 +14,15 @@ import (
 	"github.com/go-openapi/validate"
 )
 
-// V1EventKind v1 event kind
+// V1EventKind - run_status_created: Run status events
+//   - run_approved_actor: Run actor events
+//   - connection_git_commit: Connection events
+//   - alert_info: Alert events
+//   - model_version_new_metric: Model version events
+//   - project_custom_event: Custom events
+//   - automation_triggered: Automation events
+//   - webhook_received: Webhook events
+//   - artifact_version_created: Version stage events
 //
 // swagger:model v1EventKind
 type V1EventKind string
@@ -125,6 +133,45 @@ const (
 
 	// V1EventKindOrgCustomEvent captures enum value "org_custom_event"
 	V1EventKindOrgCustomEvent V1EventKind = "org_custom_event"
+
+	// V1EventKindAutomationTriggered captures enum value "automation_triggered"
+	V1EventKindAutomationTriggered V1EventKind = "automation_triggered"
+
+	// V1EventKindAutomationResolved captures enum value "automation_resolved"
+	V1EventKindAutomationResolved V1EventKind = "automation_resolved"
+
+	// V1EventKindAutomationExecutionSucceeded captures enum value "automation_execution_succeeded"
+	V1EventKindAutomationExecutionSucceeded V1EventKind = "automation_execution_succeeded"
+
+	// V1EventKindAutomationExecutionFailed captures enum value "automation_execution_failed"
+	V1EventKindAutomationExecutionFailed V1EventKind = "automation_execution_failed"
+
+	// V1EventKindWebhookReceived captures enum value "webhook_received"
+	V1EventKindWebhookReceived V1EventKind = "webhook_received"
+
+	// V1EventKindWebhookProcessed captures enum value "webhook_processed"
+	V1EventKindWebhookProcessed V1EventKind = "webhook_processed"
+
+	// V1EventKindWebhookFailed captures enum value "webhook_failed"
+	V1EventKindWebhookFailed V1EventKind = "webhook_failed"
+
+	// V1EventKindArtifactVersionCreated captures enum value "artifact_version_created"
+	V1EventKindArtifactVersionCreated V1EventKind = "artifact_version_created"
+
+	// V1EventKindArtifactVersionStageChanged captures enum value "artifact_version_stage_changed"
+	V1EventKindArtifactVersionStageChanged V1EventKind = "artifact_version_stage_changed"
+
+	// V1EventKindModelVersionCreated captures enum value "model_version_created"
+	V1EventKindModelVersionCreated V1EventKind = "model_version_created"
+
+	// V1EventKindModelVersionStageChanged captures enum value "model_version_stage_changed"
+	V1EventKindModelVersionStageChanged V1EventKind = "model_version_stage_changed"
+
+	// V1EventKindComponentVersionCreated captures enum value "component_version_created"
+	V1EventKindComponentVersionCreated V1EventKind = "component_version_created"
+
+	// V1EventKindComponentVersionStageChanged captures enum value "component_version_stage_changed"
+	V1EventKindComponentVersionStageChanged V1EventKind = "component_version_stage_changed"
 )
 
 // for schema
@@ -132,7 +179,7 @@ var v1EventKindEnum []any
 
 func init() {
 	var res []V1EventKind
-	if err := json.Unmarshal([]byte(`["run_status_created","run_status_resuming","run_status_compiled","run_status_on_schedule","run_status_queued","run_status_scheduled","run_status_starting","run_status_running","run_status_processing","run_status_stopping","run_status_failed","run_status_stopped","run_status_succeeded","run_status_skipped","run_status_warning","run_status_unschedulable","run_status_upstream_failed","run_status_retrying","run_status_unknown","run_status_done","run_approved_actor","run_invalidated_actor","run_new_artifacts","connection_git_commit","connection_dataset_version","connection_registry_image","alert_info","alert_warning","alert_critical","model_version_new_metric","project_custom_event","org_custom_event"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["run_status_created","run_status_resuming","run_status_compiled","run_status_on_schedule","run_status_queued","run_status_scheduled","run_status_starting","run_status_running","run_status_processing","run_status_stopping","run_status_failed","run_status_stopped","run_status_succeeded","run_status_skipped","run_status_warning","run_status_unschedulable","run_status_upstream_failed","run_status_retrying","run_status_unknown","run_status_done","run_approved_actor","run_invalidated_actor","run_new_artifacts","connection_git_commit","connection_dataset_version","connection_registry_image","alert_info","alert_warning","alert_critical","model_version_new_metric","project_custom_event","org_custom_event","automation_triggered","automation_resolved","automation_execution_succeeded","automation_execution_failed","webhook_received","webhook_processed","webhook_failed","artifact_version_created","artifact_version_stage_changed","model_version_created","model_version_stage_changed","component_version_created","component_version_stage_changed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

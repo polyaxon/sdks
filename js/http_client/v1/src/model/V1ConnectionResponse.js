@@ -57,6 +57,9 @@ class V1ConnectionResponse {
             if (data.hasOwnProperty('agent')) {
                 obj['agent'] = ApiClient.convertToType(data['agent'], 'String');
             }
+            if (data.hasOwnProperty('project')) {
+                obj['project'] = ApiClient.convertToType(data['project'], 'String');
+            }
             if (data.hasOwnProperty('user')) {
                 obj['user'] = ApiClient.convertToType(data['user'], 'String');
             }
@@ -77,6 +80,12 @@ class V1ConnectionResponse {
             }
             if (data.hasOwnProperty('kind')) {
                 obj['kind'] = V1ConnectionKind.constructFromObject(data['kind']);
+            }
+            if (data.hasOwnProperty('secret')) {
+                obj['secret'] = ApiClient.convertToType(data['secret'], Object);
+            }
+            if (data.hasOwnProperty('spec')) {
+                obj['spec'] = ApiClient.convertToType(data['spec'], Object);
             }
         }
         return obj;
@@ -99,6 +108,10 @@ class V1ConnectionResponse {
         // ensure the json data is a string
         if (data['agent'] && !(typeof data['agent'] === 'string' || data['agent'] instanceof String)) {
             throw new Error("Expected the field `agent` to be a primitive type in the JSON string but got " + data['agent']);
+        }
+        // ensure the json data is a string
+        if (data['project'] && !(typeof data['project'] === 'string' || data['project'] instanceof String)) {
+            throw new Error("Expected the field `project` to be a primitive type in the JSON string but got " + data['project']);
         }
         // ensure the json data is a string
         if (data['user'] && !(typeof data['user'] === 'string' || data['user'] instanceof String)) {
@@ -137,6 +150,11 @@ V1ConnectionResponse.prototype['name'] = undefined;
 V1ConnectionResponse.prototype['agent'] = undefined;
 
 /**
+ * @member {String} project
+ */
+V1ConnectionResponse.prototype['project'] = undefined;
+
+/**
  * @member {String} user
  */
 V1ConnectionResponse.prototype['user'] = undefined;
@@ -170,6 +188,16 @@ V1ConnectionResponse.prototype['live_state'] = undefined;
  * @member {module:model/V1ConnectionKind} kind
  */
 V1ConnectionResponse.prototype['kind'] = undefined;
+
+/**
+ * @member {Object} secret
+ */
+V1ConnectionResponse.prototype['secret'] = undefined;
+
+/**
+ * @member {Object} spec
+ */
+V1ConnectionResponse.prototype['spec'] = undefined;
 
 
 

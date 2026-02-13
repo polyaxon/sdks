@@ -75,6 +75,9 @@ class V1ProjectSettings {
             if (data.hasOwnProperty('user_accesses')) {
                 obj['user_accesses'] = ApiClient.convertToType(data['user_accesses'], [V1UserAccess]);
             }
+            if (data.hasOwnProperty('automations')) {
+                obj['automations'] = ApiClient.convertToType(data['automations'], ['String']);
+            }
             if (data.hasOwnProperty('teams')) {
                 obj['teams'] = ApiClient.convertToType(data['teams'], ['String']);
             }
@@ -135,6 +138,10 @@ class V1ProjectSettings {
             for (const item of data['user_accesses']) {
                 V1UserAccess.validateJSON(item);
             };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['automations'])) {
+            throw new Error("Expected the field `automations` to be an array in the JSON data but got " + data['automations']);
         }
         // ensure the json data is an array
         if (!Array.isArray(data['teams'])) {
@@ -201,6 +208,11 @@ V1ProjectSettings.prototype['namespaces'] = undefined;
  * @member {Array.<module:model/V1UserAccess>} user_accesses
  */
 V1ProjectSettings.prototype['user_accesses'] = undefined;
+
+/**
+ * @member {Array.<String>} automations
+ */
+V1ProjectSettings.prototype['automations'] = undefined;
 
 /**
  * @member {Array.<String>} teams

@@ -4,6 +4,7 @@
 from polyaxon_sdk.api.agents_v1_api import AgentsV1Api
 from polyaxon_sdk.api.artifacts_stores_v1_api import ArtifactsStoresV1Api
 from polyaxon_sdk.api.auth_v1_api import AuthV1Api
+from polyaxon_sdk.api.automations_v1_api import AutomationsV1Api
 from polyaxon_sdk.api.connections_v1_api import ConnectionsV1Api
 from polyaxon_sdk.api.dashboards_v1_api import DashboardsV1Api
 from polyaxon_sdk.api.organizations_v1_api import OrganizationsV1Api

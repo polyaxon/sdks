@@ -39,6 +39,15 @@ type V1ConnectionResponse struct {
 	// Name
 	Name string `json:"name,omitempty"`
 
+	// Optional project
+	Project string `json:"project,omitempty"`
+
+	// Read-only connection secret
+	Secret any `json:"secret,omitempty"`
+
+	// The connection spec
+	Spec any `json:"spec,omitempty"`
+
 	// Optional tags of this entity
 	Tags []string `json:"tags"`
 

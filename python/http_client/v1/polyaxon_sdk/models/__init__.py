@@ -16,6 +16,10 @@
 
 # import models into model package
 from polyaxon_sdk.models.agent_state_response_agent_state import AgentStateResponseAgentState
+from polyaxon_sdk.models.automation_execution_automation_execution_status import AutomationExecutionAutomationExecutionStatus
+from polyaxon_sdk.models.automation_fail_strategy import AutomationFailStrategy
+from polyaxon_sdk.models.automation_trigger_kind import AutomationTriggerKind
+from polyaxon_sdk.models.automation_trigger_posture import AutomationTriggerPosture
 from polyaxon_sdk.models.protobuf_any import ProtobufAny
 from polyaxon_sdk.models.protobuf_null_value import ProtobufNullValue
 from polyaxon_sdk.models.runtime_error import RuntimeError
@@ -36,6 +40,12 @@ from polyaxon_sdk.models.v1_artifacts_mount import V1ArtifactsMount
 from polyaxon_sdk.models.v1_artifacts_type import V1ArtifactsType
 from polyaxon_sdk.models.v1_auth import V1Auth
 from polyaxon_sdk.models.v1_auth_type import V1AuthType
+from polyaxon_sdk.models.v1_automation import V1Automation
+from polyaxon_sdk.models.v1_automation_action import V1AutomationAction
+from polyaxon_sdk.models.v1_automation_action_kind import V1AutomationActionKind
+from polyaxon_sdk.models.v1_automation_execution import V1AutomationExecution
+from polyaxon_sdk.models.v1_automation_execution_kind import V1AutomationExecutionKind
+from polyaxon_sdk.models.v1_automation_test_request import V1AutomationTestRequest
 from polyaxon_sdk.models.v1_average_stopping_policy import V1AverageStoppingPolicy
 from polyaxon_sdk.models.v1_bayes import V1Bayes
 from polyaxon_sdk.models.v1_bucket_connection import V1BucketConnection
@@ -132,6 +142,8 @@ from polyaxon_sdk.models.v1_join_param import V1JoinParam
 from polyaxon_sdk.models.v1_kf_replica import V1KFReplica
 from polyaxon_sdk.models.v1_list_activities_response import V1ListActivitiesResponse
 from polyaxon_sdk.models.v1_list_agents_response import V1ListAgentsResponse
+from polyaxon_sdk.models.v1_list_automation_executions_response import V1ListAutomationExecutionsResponse
+from polyaxon_sdk.models.v1_list_automations_response import V1ListAutomationsResponse
 from polyaxon_sdk.models.v1_list_bookmarks_response import V1ListBookmarksResponse
 from polyaxon_sdk.models.v1_list_connections_response import V1ListConnectionsResponse
 from polyaxon_sdk.models.v1_list_dashboards_response import V1ListDashboardsResponse

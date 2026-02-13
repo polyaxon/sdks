@@ -10,6 +10,7 @@
 |**uuid** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**agent** | **String** |  |  [optional] |
+|**project** | **String** |  |  [optional] |
 |**user** | **String** |  |  [optional] |
 |**description** | **String** |  |  [optional] |
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
@@ -17,6 +18,8 @@
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
 |**kind** | **V1ConnectionKind** |  |  [optional] |
+|**secret** | **Object** |  |  [optional] |
+|**spec** | **Object** |  |  [optional] |
 
 
 

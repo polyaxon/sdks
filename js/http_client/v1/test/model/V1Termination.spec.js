@@ -84,6 +84,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property podFailurePolicy (base name: "podFailurePolicy")', function() {
+      // uncomment below and update the code to test the property podFailurePolicy
+      //var instance = new PolyaxonSdk.V1Termination();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -66,6 +66,14 @@ public class V1ConnectionResponseTest {
     }
 
     /**
+     * Test the property 'project'
+     */
+    @Test
+    public void projectTest() {
+        // TODO: test project
+    }
+
+    /**
      * Test the property 'user'
      */
     @Test
@@ -119,6 +127,22 @@ public class V1ConnectionResponseTest {
     @Test
     public void kindTest() {
         // TODO: test kind
+    }
+
+    /**
+     * Test the property 'secret'
+     */
+    @Test
+    public void secretTest() {
+        // TODO: test secret
+    }
+
+    /**
+     * Test the property 'spec'
+     */
+    @Test
+    public void specTest() {
+        // TODO: test spec
     }
 
 }

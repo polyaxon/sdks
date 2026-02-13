@@ -9,5 +9,6 @@ Name | Type | Description | Notes
 **timeout** | **Number** |  | [optional] 
 **culling** | [**V1Culling**](V1Culling.md) |  | [optional] 
 **probe** | [**V1ActivityProbe**](V1ActivityProbe.md) |  | [optional] 
+**podFailurePolicy** | **Object** |  | [optional] 
 
 

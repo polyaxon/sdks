@@ -72,6 +72,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property project (base name: "project")', function() {
+      // uncomment below and update the code to test the property project
+      //var instance = new PolyaxonSdk.V1ConnectionResponse();
+      //expect(instance).to.be();
+    });
+
     it('should have the property user (base name: "user")', function() {
       // uncomment below and update the code to test the property user
       //var instance = new PolyaxonSdk.V1ConnectionResponse();
@@ -110,6 +116,18 @@
 
     it('should have the property kind (base name: "kind")', function() {
       // uncomment below and update the code to test the property kind
+      //var instance = new PolyaxonSdk.V1ConnectionResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property secret (base name: "secret")', function() {
+      // uncomment below and update the code to test the property secret
+      //var instance = new PolyaxonSdk.V1ConnectionResponse();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property spec (base name: "spec")', function() {
+      // uncomment below and update the code to test the property spec
       //var instance = new PolyaxonSdk.V1ConnectionResponse();
       //expect(instance).to.be();
     });

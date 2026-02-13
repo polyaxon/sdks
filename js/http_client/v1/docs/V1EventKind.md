@@ -67,4 +67,30 @@
 
 * `org_custom_event` (value: `"org_custom_event"`)
 
+* `automation_triggered` (value: `"automation_triggered"`)
+
+* `automation_resolved` (value: `"automation_resolved"`)
+
+* `automation_execution_succeeded` (value: `"automation_execution_succeeded"`)
+
+* `automation_execution_failed` (value: `"automation_execution_failed"`)
+
+* `webhook_received` (value: `"webhook_received"`)
+
+* `webhook_processed` (value: `"webhook_processed"`)
+
+* `webhook_failed` (value: `"webhook_failed"`)
+
+* `artifact_version_created` (value: `"artifact_version_created"`)
+
+* `artifact_version_stage_changed` (value: `"artifact_version_stage_changed"`)
+
+* `model_version_created` (value: `"model_version_created"`)
+
+* `model_version_stage_changed` (value: `"model_version_stage_changed"`)
+
+* `component_version_created` (value: `"component_version_created"`)
+
+* `component_version_stage_changed` (value: `"component_version_stage_changed"`)
+
 

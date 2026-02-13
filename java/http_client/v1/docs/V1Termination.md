@@ -13,6 +13,7 @@ Termination specification, it defines how to handle failures, job runtime, and c
 |**timeout** | **Integer** |  |  [optional] |
 |**culling** | [**V1Culling**](V1Culling.md) |  |  [optional] |
 |**probe** | [**V1ActivityProbe**](V1ActivityProbe.md) |  |  [optional] |
+|**podFailurePolicy** | **Object** |  |  [optional] |
 
 
 

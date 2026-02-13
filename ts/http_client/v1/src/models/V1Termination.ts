@@ -62,6 +62,12 @@ export interface V1Termination {
      * @memberof V1Termination
      */
     probe?: V1ActivityProbe;
+    /**
+     *
+     * @type {object}
+     * @memberof V1Termination
+     */
+    podFailurePolicy?: object;
 }
 
 /**
@@ -88,6 +94,7 @@ export function V1TerminationFromJSONTyped(json: any, ignoreDiscriminator: boole
         'timeout': !exists(json, 'timeout') ? undefined : json['timeout'],
         'culling': !exists(json, 'culling') ? undefined : V1CullingFromJSON(json['culling']),
         'probe': !exists(json, 'probe') ? undefined : V1ActivityProbeFromJSON(json['probe']),
+        'podFailurePolicy': !exists(json, 'podFailurePolicy') ? undefined : json['podFailurePolicy'],
     };
 }
 
@@ -105,6 +112,7 @@ export function V1TerminationToJSON(value?: V1Termination | null): any {
         'timeout': value.timeout,
         'culling': V1CullingToJSON(value.culling),
         'probe': V1ActivityProbeToJSON(value.probe),
+        'podFailurePolicy': value.podFailurePolicy,
     };
 }
 

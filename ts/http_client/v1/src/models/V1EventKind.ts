@@ -49,7 +49,20 @@ export const V1EventKind = {
     AlertCritical: 'alert_critical',
     ModelVersionNewMetric: 'model_version_new_metric',
     ProjectCustomEvent: 'project_custom_event',
-    OrgCustomEvent: 'org_custom_event'
+    OrgCustomEvent: 'org_custom_event',
+    AutomationTriggered: 'automation_triggered',
+    AutomationResolved: 'automation_resolved',
+    AutomationExecutionSucceeded: 'automation_execution_succeeded',
+    AutomationExecutionFailed: 'automation_execution_failed',
+    WebhookReceived: 'webhook_received',
+    WebhookProcessed: 'webhook_processed',
+    WebhookFailed: 'webhook_failed',
+    ArtifactVersionCreated: 'artifact_version_created',
+    ArtifactVersionStageChanged: 'artifact_version_stage_changed',
+    ModelVersionCreated: 'model_version_created',
+    ModelVersionStageChanged: 'model_version_stage_changed',
+    ComponentVersionCreated: 'component_version_created',
+    ComponentVersionStageChanged: 'component_version_stage_changed'
 } as const;
 export type V1EventKind = typeof V1EventKind[keyof typeof V1EventKind];
 
