@@ -1,0 +1,124 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "v1/api";
+
+
+// Incoming webhook endpoint for external event sources
+message Webhook {
+    // UUID
+    string uuid = 1;
+
+    // Name
+    string name = 2;
+
+    // Optional project scope
+    string project = 3;
+
+    // Optional description
+    string description = 4;
+
+    // Optional tags
+    repeated string tags = 5;
+
+    // Optional time when the entity was created
+    google.protobuf.Timestamp created_at = 6;
+
+    // Optional last time the entity was updated
+    google.protobuf.Timestamp updated_at = 7;
+
+    // Current live state
+    int32 live_state = 8;
+
+    // Connection that defines the source type (github, gitlab, s3, generic)
+    string connection = 9;
+
+    // Filter which events to accept (e.g., {"ref": "refs/heads/main"})
+    google.protobuf.Struct event_filter = 10;
+
+    // When the last webhook was received
+    google.protobuf.Timestamp last_received_at = 11;
+
+    // Total number of webhooks received
+    int32 receive_count = 12;
+
+    // Generated endpoint URL (read-only)
+    string endpoint_url = 13;
+}
+
+
+// Request data to create/update a webhook
+message WebhookBodyRequest {
+    // Owner of the namespace
+    string owner = 1;
+
+    // Webhook
+    Webhook webhook = 2;
+}
+
+
+// Contains list of webhooks
+message ListWebhooksResponse {
+    // Count of the entities
+    int32 count = 1;
+
+    // List of all entities
+    repeated Webhook results = 2;
+
+    // Previous page
+    string previous = 3;
+
+    // Next page
+    string next = 4;
+}
+
+
+// Received webhook event record
+message WebhookEvent {
+    // UUID
+    string uuid = 1;
+
+    // Webhook UUID that received this event
+    string webhook = 2;
+
+    // Event type (normalized, e.g., "git.push", "storage.object.created")
+    string event_type = 3;
+
+    // When the event was received
+    google.protobuf.Timestamp created_at = 4;
+
+    // Raw payload from the external system
+    google.protobuf.Struct payload = 5;
+
+    // Request headers (useful for signature verification)
+    google.protobuf.Struct headers = 6;
+
+    // Whether this event has been processed
+    bool processed = 7;
+
+    // Error message if processing failed
+    string process_error = 8;
+
+    // Event after normalization to internal schema
+    google.protobuf.Struct normalized_event = 9;
+}
+
+
+// Contains list of webhook events
+message ListWebhookEventsResponse {
+    // Count of the entities
+    int32 count = 1;
+
+    // List of all entities
+    repeated WebhookEvent results = 2;
+
+    // Previous page
+    string previous = 3;
+
+    // Next page
+    string next = 4;
+}

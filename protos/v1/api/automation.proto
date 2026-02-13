@@ -1,0 +1,488 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "v1/api/activities.proto";
+
+option go_package = "v1/api";
+
+
+// An action to execute when an automation fires or resolves
+message AutomationAction {
+    // UUID
+    string uuid = 1;
+
+    // When to execute: 'trigger' or 'resolve'
+    string kind = 2;
+
+    // Execution order (lower = first)
+    int32 priority = 3;
+
+    // Actions that can be performed
+    enum Kind {
+        // Notifications
+        notify = 0; // Send notification via connection (Slack, Teams, Email)
+        webhook = 1; // Call external webhook URL
+
+        // Run operations
+        start = 2; // Start a new run
+        restart = 3; // Restart failed run
+        resume = 4; // Resume paused run
+        stop = 5; // Stop running run
+        skip = 6; // Skip pending run
+        status = 7; // Update run status
+
+        // Version operations
+        stage = 8; // Change version stage
+        promote = 9; // Promote version
+        tag = 10; // Add/remove tags
+        transfer = 11; // Transfer ownership
+        archive = 12; // Archive entity
+        delete = 13; // Delete entity
+    }
+
+
+    // Action operation kind
+    Kind action = 4;
+
+    // Target entity kind (null = infer from trigger)
+    string apply_to = 5;
+
+    // Target entity UUID (null = infer from triggering event)
+    string entity_uuid = 6;
+
+    // Action-specific configuration
+    google.protobuf.Struct config = 7;
+}
+
+
+// === TRIGGER CONFIGURATION MESSAGES ===
+
+// Configuration for EVENT triggers
+message EventTriggerConfig {
+    // Number of events before firing (default: 1)
+    int32 threshold = 1;
+
+    // Time window in seconds
+    int32 within = 2;
+
+    // Fields to group events by
+    repeated string group_by = 3;
+}
+
+// Configuration for QUERY triggers (cron-based)
+message QueryTriggerConfig {
+    // PQL query to filter entities
+    string query = 1;
+
+    // Minimum matches to fire (default: 1)
+    int32 threshold = 2;
+
+    // Single execution vs one per match
+    bool aggregate = 3;
+}
+
+// Configuration for SEQUENCE triggers
+message SequenceTriggerConfig {
+    // Ordered list of event kinds
+    repeated string expect = 1;
+
+    // Time window in seconds
+    int32 within = 2;
+
+    // Reset on unexpected events
+    bool strict = 3;
+
+    // Fields to track sequences separately
+    repeated string group_by = 4;
+}
+
+// Configuration for METRIC triggers (cron-based)
+message MetricTriggerConfig {
+
+
+    // Metric comparison conditions for METRIC triggers
+    enum Condition {
+        above = 0;
+        below = 1;
+        equals = 2;
+        crosses_above = 3;
+        crosses_below = 4;
+    }
+
+    // Metric name (e.g., 'loss', 'accuracy')
+    string metric = 1;
+
+    // MetricCondition value
+    Condition condition = 2;
+
+    // Threshold value
+    float threshold = 3;
+
+    // Number of recent values to average
+    int32 window_size = 4;
+
+    // Optional PQL filter
+    string query = 5;
+}
+
+// Sub-trigger within a compound trigger
+message SubTriggerConfig {
+    // "event", "query", "metric", "sequence"
+    string kind = 1;
+
+    // For event sub-triggers
+    repeated string expect = 2;
+
+    // For query sub-triggers or filter
+    string query = 3;
+
+    // For metric sub-triggers
+    string metric = 4;
+
+    // For metric sub-triggers
+    string condition = 5;
+
+    // For metric sub-triggers
+    float threshold = 6;
+}
+
+// Configuration for COMPOUND triggers (AND/OR/N-of-M)
+message CompoundTriggerConfig {
+    // "all" (AND), "any" (OR), or integer N
+    string require = 1;
+
+    // Time window in seconds (default: 600)
+    int32 within = 2;
+
+    // Sub-triggers to evaluate
+    repeated SubTriggerConfig triggers = 3;
+}
+
+
+// === STATE TRACKING MESSAGES ===
+
+// Tracks position in SEQUENCE triggers
+message AutomationSequenceProgress {
+    // UUID
+    string uuid = 1;
+
+    // Automation UUID
+    string automation = 2;
+
+    // Bucketing key for grouping
+    string bucketing_key = 3;
+
+    // Current step in the sequence
+    int32 current_step = 4;
+
+    // When the sequence started
+    google.protobuf.Timestamp started_at = 5;
+
+    // Events seen so far
+    repeated google.protobuf.Struct events_seen = 6;
+
+    // When this record was created
+    google.protobuf.Timestamp created_at = 7;
+
+    // When this record was last updated
+    google.protobuf.Timestamp updated_at = 8;
+}
+
+// Tracks which sub-triggers have fired for COMPOUND triggers
+message AutomationCompoundState {
+    // UUID
+    string uuid = 1;
+
+    // Automation UUID
+    string automation = 2;
+
+    // Bucketing key for grouping
+    string bucketing_key = 3;
+
+    // Indices of sub-triggers that have fired
+    repeated int32 fired_triggers = 4;
+
+    // Events that caused each trigger to fire
+    google.protobuf.Struct trigger_events = 5;
+
+    // When the evaluation window started
+    google.protobuf.Timestamp window_start = 6;
+
+    // When this record was created
+    google.protobuf.Timestamp created_at = 7;
+
+    // When this record was last updated
+    google.protobuf.Timestamp updated_at = 8;
+}
+
+// Tracks event counts within time windows (threshold triggers)
+message AutomationBucket {
+    // UUID
+    string uuid = 1;
+
+    // Automation UUID
+    string automation = 2;
+
+    // Bucketing key for grouping
+    string bucketing_key = 3;
+
+    // Window start time
+    google.protobuf.Timestamp window_start = 4;
+
+    // Window end time
+    google.protobuf.Timestamp window_end = 5;
+
+    // Number of events in this bucket
+    int32 event_count = 6;
+
+    // Last event timestamp
+    google.protobuf.Timestamp last_event_at = 7;
+
+    // Last event data
+    google.protobuf.Struct last_event = 8;
+}
+
+// State kind for triggered/resolved tracking
+enum AutomationStateKind {
+    normal = 0;
+    triggered = 1;
+}
+
+// Tracks whether automation is in triggered/normal state
+message AutomationState {
+    // UUID
+    string uuid = 1;
+
+    // Automation UUID
+    string automation = 2;
+
+    // Bucketing key for grouping
+    string bucketing_key = 3;
+
+    // Current state: "normal" or "triggered"
+    string state = 4;
+
+    // When the automation was triggered
+    google.protobuf.Timestamp triggered_at = 5;
+
+    // When the automation was resolved
+    google.protobuf.Timestamp resolved_at = 6;
+
+    // Last trigger execution UUID
+    string last_trigger_execution = 7;
+
+    // Last resolve execution UUID
+    string last_resolve_execution = 8;
+}
+
+// Automation specification
+message Automation {
+
+    // UUID
+    string uuid = 1;
+
+    // Name
+    string name = 2;
+
+    // Optional project
+    string project = 3;
+
+    // Optional description
+    string description = 4;
+
+    // Optional tags of this entity
+    repeated string tags = 5;
+
+    // Optional time when the entity was created
+    google.protobuf.Timestamp created_at = 6;
+
+    // Optional last time the entity was updated
+    google.protobuf.Timestamp updated_at = 7;
+
+    // Current live state
+    int32 live_state = 8;
+
+    // Whether this automation is active
+    bool enabled = 9;
+
+    // === TRIGGER CONFIGURATION ===
+
+    // Trigger type - how the trigger evaluates events
+    enum TriggerKind {
+        event = 0; // Simple event matching
+        metric = 1; // Metric threshold triggers
+        sequence = 2; // Events in specific order
+        query = 3; // PQL query-based triggers (supports AND/OR via comma/pipe)
+        compound = 4; // AND/OR/N-of-M combinations of sub-triggers
+    }
+
+    // Kind of trigger: event, metric, sequence, query, compound
+    TriggerKind trigger_kind = 10;
+
+    // Trigger posture - when the trigger fires
+    enum TriggerPosture {
+        reactive = 0; // Fire when events happen
+        proactive = 1; // Fire when events DON'T happen (absence detection)
+    }
+
+    // Posture: reactive (fire when events happen) or proactive (fire when events don't happen)
+    TriggerPosture posture = 11;
+
+    // Entity kind that triggers: run, model, artifact, component, connection, webhook, org
+    string trigger_on = 12;
+
+    // Specific entity UUID to watch (null = any entity of trigger_on kind)
+    string trigger_entity_uuid = 13;
+
+    // Trigger configuration (expect, query, threshold, within, group_by, etc.)
+    google.protobuf.Struct trigger_config = 14;
+
+    // === TRIGGER SCHEDULE ===
+
+    // When to evaluate trigger (for QUERY/PROACTIVE kinds)
+    // V1Schedule schema: {"kind": "cron", "cron": "0 * * * *"} or {"kind": "interval", "frequency": 3600}
+    google.protobuf.Struct trigger_schedule = 15;
+
+    // === ACTIONS ===
+
+    // Actions to execute (trigger and resolve actions)
+    repeated AutomationAction actions = 16;
+
+    // === FAILURE HANDLING ===
+    // How to handle action failures
+    enum FailStrategy {
+        stop = 0; // Stop on first failure
+        continue = 1; // Continue all actions, report failures at end
+    }
+
+    // FailStrategy: "stop" (stop on first failure) or "continue" (continue all actions)
+    FailStrategy fail_strategy = 21;
+
+    // Whether this is an org-level automation
+    bool org_level = 22;
+}
+
+
+// Request data to create/update an automation
+message AutomationBodyRequest {
+    // Owner of the namespace
+    string owner = 1;
+
+    // Automation
+    Automation automation = 2;
+}
+
+
+// Contains list of automations
+message ListAutomationsResponse {
+    // Count of the entities
+    int32 count = 1;
+
+    // List of all entities
+    repeated Automation results = 2;
+
+    // Previous page
+    string previous = 3;
+
+    // Next page
+    string next = 4;
+}
+
+
+// Automation execution record
+message AutomationExecution {
+
+  // Automation execution status
+  enum AutomationExecutionStatus {
+      pending = 0;
+      scheduled = 1;
+      running = 2;
+      retrying = 3;
+      succeeded = 4;
+      failed = 5;
+  }
+
+    // When an action executes
+    enum Kind {
+        trigger = 0; // Execute when automation fires
+        resolve = 1; // Execute when condition clears
+  }
+
+    // UUID
+    string uuid = 1;
+
+    // Automation UUID
+    string automation = 2;
+
+    // Kind: 'trigger' or 'resolve'
+    Kind kind = 3;
+
+    // Status: pending, running, retrying, succeeded, failed
+    AutomationExecutionStatus status = 4;
+
+    // The event(s) that caused this trigger to fire
+    Activity triggering_event = 5;
+
+    // The group_by key for this execution
+    string bucketing_key = 6;
+
+    // Target entity kind
+    string target_kind = 7;
+
+    // Target entity UUID
+    string target_uuid = 8;
+
+    // When execution was created
+    google.protobuf.Timestamp created_at = 9;
+
+    // When action execution began
+    google.protobuf.Timestamp started_at = 10;
+
+    // When action execution completed
+    google.protobuf.Timestamp finished_at = 11;
+
+    // Time from creation to start (seconds)
+    float wait_time = 15;
+
+    // Execution duration (seconds)
+    float duration = 16;
+
+    // Response from action
+    google.protobuf.Struct action_result = 12;
+
+    // Number of retry attempts
+    int32 retry_count = 14;
+}
+
+
+// Contains list of automation executions
+message ListAutomationExecutionsResponse {
+    // Count of the entities
+    int32 count = 1;
+
+    // List of all entities
+    repeated AutomationExecution results = 2;
+
+    // Previous page
+    string previous = 3;
+
+    // Next page
+    string next = 4;
+}
+
+
+// Request to test an automation trigger with mock event data
+message AutomationTestRequest {
+    // Owner of the namespace
+    string owner = 1;
+
+    // Automation UUID
+    string automation_uuid = 2;
+
+    // Mock event data for testing
+    google.protobuf.Struct event = 3;
+}

@@ -5,6 +5,7 @@ package v1;
 option go_package = "v1/flow";
 
 enum EventKind {
+  // Run status events
   run_status_created = 0;
   run_status_resuming = 1;
   run_status_compiled = 2;
@@ -25,18 +26,47 @@ enum EventKind {
   run_status_retrying = 17;
   run_status_unknown = 18;
   run_status_done = 19;
+
+  // Run actor events
   run_approved_actor = 20;
   run_invalidated_actor = 21;
   run_new_artifacts = 22;
+
+  // Connection events
   connection_git_commit = 23;
   connection_dataset_version = 24;
   connection_registry_image = 25;
+
+  // Alert events
   alert_info = 26;
   alert_warning = 27;
   alert_critical = 28;
+
+  // Model version events
   model_version_new_metric = 29;
+
+  // Custom events
   project_custom_event = 30;
   org_custom_event = 31;
+
+  // Automation events
+  automation_triggered = 32;
+  automation_resolved = 33;
+  automation_execution_succeeded = 34;
+  automation_execution_failed = 35;
+
+  // Webhook events
+  webhook_received = 36;
+  webhook_processed = 37;
+  webhook_failed = 38;
+
+  // Version stage events
+  artifact_version_created = 39;
+  artifact_version_stage_changed = 40;
+  model_version_created = 41;
+  model_version_stage_changed = 42;
+  component_version_created = 43;
+  component_version_stage_changed = 44;
 }
 
 // Event definition

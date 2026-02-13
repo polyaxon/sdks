@@ -135,14 +135,17 @@ message ProjectSettings {
     // Authorized users
     repeated UserAccess user_accesses = 9;
 
+    // Authorized automations
+    repeated string automations = 10;
+
     // Authorized teams
-    repeated string teams = 10;
+    repeated string teams = 11;
 
     // Authorized projects
-    repeated string projects = 11;
+    repeated string projects = 12;
 
     // Attached policy
-    string policy = 12;
+    string policy = 13;
 }
 
 // Request data to update project settings

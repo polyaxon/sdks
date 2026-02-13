@@ -34,6 +34,7 @@ import "v1/api/project.proto";
 import "v1/api/version.proto";
 import "v1/api/auth.proto";
 import "v1/api/preset.proto";
+import "v1/api/automation.proto";
 import "v1/api/user.proto";
 import "v1/api/search.proto";
 import "v1/api/status.proto";
@@ -1229,6 +1230,98 @@ service PresetsV1 {
     };
   }
 }
+
+// Service to manage automations
+service AutomationsV1 {
+  // List automation names
+  rpc ListAutomationNames(OwnerResourceListRequest) returns (ListAutomationsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations/names"
+    };
+  }
+
+  // List automations
+  rpc ListAutomations(OwnerResourceListRequest) returns (ListAutomationsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations"
+    };
+  }
+
+  // Create automation
+  rpc CreateAutomation(AutomationBodyRequest) returns (Automation) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/automations"
+      body: "automation"
+    };
+  }
+
+  // Get automation
+  rpc GetAutomation(OwnerSubEntityResourceRequestByUid) returns (Automation) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations/{uuid}"
+    };
+  }
+
+  // Update automation
+  rpc UpdateAutomation(AutomationBodyRequest) returns (Automation) {
+    option (google.api.http) = {
+      put: "/api/v1/orgs/{owner}/automations/{automation.uuid}"
+      body: "automation"
+    };
+  }
+
+  // Patch automation
+  rpc PatchAutomation(AutomationBodyRequest) returns (Automation) {
+    option (google.api.http) = {
+      patch: "/api/v1/orgs/{owner}/automations/{automation.uuid}"
+      body: "automation"
+    };
+  }
+
+  // Delete automation
+  rpc DeleteAutomation(OwnerSubEntityResourceRequestByUid) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/api/v1/orgs/{owner}/automations/{uuid}"
+    };
+  }
+
+  // List automation executions
+  rpc ListAutomationExecutions(OwnerSubEntityResourceListRequestByUid) returns (ListAutomationExecutionsResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations/{uuid}/executions"
+    };
+  }
+
+  // List automation events (from executions' triggering_event)
+  rpc ListAutomationEvents(OwnerSubEntityResourceListRequestByUid) returns (ListActivitiesResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations/{uuid}/events"
+    };
+  }
+
+  // Get automation stats
+  rpc GetAutomationStats(OwnerSubEntityStatsRequestByUid) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      get: "/api/v1/orgs/{owner}/automations/{uuid}/stats"
+    };
+  }
+
+  // Test automation trigger evaluation
+  rpc TestAutomation(AutomationTestRequest) returns (google.protobuf.Struct) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/automations/{automation_uuid}/test"
+      body: "*"
+    };
+  }
+
+  // Retry automation execution
+  rpc RetryAutomationExecution(OwnerSubEntityResourceRequestByUid) returns (AutomationExecution) {
+    option (google.api.http) = {
+      post: "/api/v1/orgs/{owner}/automations/{entity}/executions/{uuid}/retry"
+    };
+  }
+}
+
 
 // Service to manage agents
 service AgentsV1 {
