@@ -10,9 +10,11 @@ Name | Type | Description | Notes
 **tags** | **[String]** |  | [optional] 
 **live_state** | **Number** |  | [optional] 
 **user** | **String** |  | [optional] 
+**project** | **String** |  | [optional] 
+**run** | **String** |  | [optional] 
 **spec** | [**V1DashboardSpec**](V1DashboardSpec.md) |  | [optional] 
-**org_level** | **Boolean** |  | [optional] 
 **created_at** | **Date** |  | [optional] 
 **updated_at** | **Date** |  | [optional] 
+**level** | [**V1EntityLevel**](V1EntityLevel.md) |  | [optional] 
 
 

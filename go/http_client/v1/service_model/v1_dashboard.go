@@ -27,14 +27,20 @@ type V1Dashboard struct {
 	// Optional description
 	Description string `json:"description,omitempty"`
 
+	// Optional visibility level
+	Level *V1EntityLevel `json:"level,omitempty"`
+
 	// Current live state
 	LiveState int32 `json:"live_state,omitempty"`
 
 	// Optional name
 	Name string `json:"name,omitempty"`
 
-	// Optional dashboard level
-	OrgLevel bool `json:"org_level,omitempty"`
+	// Optional project name
+	Project string `json:"project,omitempty"`
+
+	// Optional run uuid
+	Run string `json:"run,omitempty"`
 
 	// Optional dashboard specification
 	Spec *V1DashboardSpec `json:"spec,omitempty"`
@@ -46,7 +52,7 @@ type V1Dashboard struct {
 	// Format: date-time
 	UpdatedAt strfmt.DateTime `json:"updated_at,omitempty"`
 
-	// Required name of user started this entity
+	// Name of user started this entity
 	User string `json:"user,omitempty"`
 
 	// UUID
@@ -58,6 +64,10 @@ func (m *V1Dashboard) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateCreatedAt(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLevel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -82,6 +92,29 @@ func (m *V1Dashboard) validateCreatedAt(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *V1Dashboard) validateLevel(formats strfmt.Registry) error {
+	if swag.IsZero(m.Level) { // not required
+		return nil
+	}
+
+	if m.Level != nil {
+		if err := m.Level.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("level")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("level")
+			}
+
+			return err
+		}
 	}
 
 	return nil
@@ -126,6 +159,10 @@ func (m *V1Dashboard) validateUpdatedAt(formats strfmt.Registry) error {
 func (m *V1Dashboard) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateLevel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSpec(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -133,6 +170,31 @@ func (m *V1Dashboard) ContextValidate(ctx context.Context, formats strfmt.Regist
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1Dashboard) contextValidateLevel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Level != nil {
+
+		if swag.IsZero(m.Level) { // not required
+			return nil
+		}
+
+		if err := m.Level.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("level")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("level")
+			}
+
+			return err
+		}
+	}
+
 	return nil
 }
 

@@ -27,14 +27,17 @@ type V1Search struct {
 	// Optional description
 	Description string `json:"description,omitempty"`
 
+	// Optional visibility level
+	Level *V1EntityLevel `json:"level,omitempty"`
+
 	// Current live state
 	LiveState int32 `json:"live_state,omitempty"`
 
 	// Optional name
 	Name string `json:"name,omitempty"`
 
-	// Optional search level
-	OrgLevel bool `json:"org_level,omitempty"`
+	// Optional project name
+	Project string `json:"project,omitempty"`
 
 	// Search spec
 	Spec *V1SearchSpec `json:"spec,omitempty"`
@@ -51,9 +54,6 @@ type V1Search struct {
 
 	// UUID
 	UUID string `json:"uuid,omitempty"`
-
-	// Optional search view
-	View *SearchView `json:"view,omitempty"`
 }
 
 // Validate validates this v1 search
@@ -64,15 +64,15 @@ func (m *V1Search) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLevel(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSpec(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateUpdatedAt(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateView(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -89,6 +89,29 @@ func (m *V1Search) validateCreatedAt(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("created_at", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *V1Search) validateLevel(formats strfmt.Registry) error {
+	if swag.IsZero(m.Level) { // not required
+		return nil
+	}
+
+	if m.Level != nil {
+		if err := m.Level.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("level")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("level")
+			}
+
+			return err
+		}
 	}
 
 	return nil
@@ -129,44 +152,46 @@ func (m *V1Search) validateUpdatedAt(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Search) validateView(formats strfmt.Registry) error {
-	if swag.IsZero(m.View) { // not required
-		return nil
-	}
-
-	if m.View != nil {
-		if err := m.View.Validate(formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("view")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("view")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
 // ContextValidate validate this v1 search based on the context it is used
 func (m *V1Search) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateSpec(ctx, formats); err != nil {
+	if err := m.contextValidateLevel(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateView(ctx, formats); err != nil {
+	if err := m.contextValidateSpec(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *V1Search) contextValidateLevel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Level != nil {
+
+		if swag.IsZero(m.Level) { // not required
+			return nil
+		}
+
+		if err := m.Level.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("level")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("level")
+			}
+
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -186,31 +211,6 @@ func (m *V1Search) contextValidateSpec(ctx context.Context, formats strfmt.Regis
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("spec")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1Search) contextValidateView(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.View != nil {
-
-		if swag.IsZero(m.View) { // not required
-			return nil
-		}
-
-		if err := m.View.ContextValidate(ctx, formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("view")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("view")
 			}
 
 			return err

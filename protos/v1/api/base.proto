@@ -78,6 +78,21 @@ message OwnerSubEntityResourceRequestByUid {
   string uuid = 3;
 }
 
+// Request data to promote sub-entity
+message OwnerSubEntityResourcePromoteRequest {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Entity: project name, hub name, registry name, ...
+  string entity = 2;
+
+  // Uuid identifier of the sub-entity
+  string uuid = 3;
+
+  // Target level
+  string level = 4;
+}
+
 // Request data with owner/entity/sub-entity namespace
 message OwnerSubEntityResourceRequestByName {
   // Owner of the namespace

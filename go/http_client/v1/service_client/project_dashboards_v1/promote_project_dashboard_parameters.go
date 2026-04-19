@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/polyaxon/sdks/go/http_client/v1/service_model"
 )
 
 // NewPromoteProjectDashboardParams creates a new PromoteProjectDashboardParams object,
@@ -60,6 +62,9 @@ PromoteProjectDashboardParams contains all the parameters to send to the API end
 	Typically these are written to a http.Request.
 */
 type PromoteProjectDashboardParams struct {
+
+	// Body.
+	Body *service_model.V1OwnerSubEntityResourcePromoteRequest
 
 	/* Entity.
 
@@ -132,6 +137,17 @@ func (o *PromoteProjectDashboardParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the promote project dashboard params
+func (o *PromoteProjectDashboardParams) WithBody(body *service_model.V1OwnerSubEntityResourcePromoteRequest) *PromoteProjectDashboardParams {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the promote project dashboard params
+func (o *PromoteProjectDashboardParams) SetBody(body *service_model.V1OwnerSubEntityResourcePromoteRequest) {
+	o.Body = body
+}
+
 // WithEntity adds the entity to the promote project dashboard params
 func (o *PromoteProjectDashboardParams) WithEntity(entity string) *PromoteProjectDashboardParams {
 	o.SetEntity(entity)
@@ -172,6 +188,11 @@ func (o *PromoteProjectDashboardParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
+	}
 
 	// path param entity
 	if err := r.SetPathParam("entity", o.Entity); err != nil {

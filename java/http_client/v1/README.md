@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.13.0
+- API version: 2.15.1
 
 
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.13.0</version>
+  <version>2.15.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.13.0"
+     implementation "org.openapitools:openapi-java-client:2.15.1"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.13.0.jar`
+* `target/openapi-java-client-2.15.1.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -154,18 +154,6 @@ Class | Method | HTTP request | Description
 *AuthV1Api* | [**resetPasswordConfirm**](docs/AuthV1Api.md#resetPasswordConfirm) | **POST** /api/v1/auth/reset-password-confirm | Reset password confirm
 *AuthV1Api* | [**signup**](docs/AuthV1Api.md#signup) | **POST** /api/v1/auth/signup | Signup
 *AuthV1Api* | [**trial**](docs/AuthV1Api.md#trial) | **POST** /api/v1/auth/trial | Trial Start
-*AutomationsV1Api* | [**createAutomation**](docs/AutomationsV1Api.md#createAutomation) | **POST** /api/v1/orgs/{owner}/automations | Create automation
-*AutomationsV1Api* | [**deleteAutomation**](docs/AutomationsV1Api.md#deleteAutomation) | **DELETE** /api/v1/orgs/{owner}/automations/{uuid} | Delete automation
-*AutomationsV1Api* | [**getAutomation**](docs/AutomationsV1Api.md#getAutomation) | **GET** /api/v1/orgs/{owner}/automations/{uuid} | Get automation
-*AutomationsV1Api* | [**getAutomationStats**](docs/AutomationsV1Api.md#getAutomationStats) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/stats | Get automation stats
-*AutomationsV1Api* | [**listAutomationEvents**](docs/AutomationsV1Api.md#listAutomationEvents) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/events | List automation events (from executions&#39; triggering_event)
-*AutomationsV1Api* | [**listAutomationExecutions**](docs/AutomationsV1Api.md#listAutomationExecutions) | **GET** /api/v1/orgs/{owner}/automations/{uuid}/executions | List automation executions
-*AutomationsV1Api* | [**listAutomationNames**](docs/AutomationsV1Api.md#listAutomationNames) | **GET** /api/v1/orgs/{owner}/automations/names | List automation names
-*AutomationsV1Api* | [**listAutomations**](docs/AutomationsV1Api.md#listAutomations) | **GET** /api/v1/orgs/{owner}/automations | List automations
-*AutomationsV1Api* | [**patchAutomation**](docs/AutomationsV1Api.md#patchAutomation) | **PATCH** /api/v1/orgs/{owner}/automations/{automation.uuid} | Patch automation
-*AutomationsV1Api* | [**retryAutomationExecution**](docs/AutomationsV1Api.md#retryAutomationExecution) | **POST** /api/v1/orgs/{owner}/automations/{entity}/executions/{uuid}/retry | Retry automation execution
-*AutomationsV1Api* | [**testAutomation**](docs/AutomationsV1Api.md#testAutomation) | **POST** /api/v1/orgs/{owner}/automations/{automation_uuid}/test | Test automation trigger evaluation
-*AutomationsV1Api* | [**updateAutomation**](docs/AutomationsV1Api.md#updateAutomation) | **PUT** /api/v1/orgs/{owner}/automations/{automation.uuid} | Update automation
 *ConnectionsV1Api* | [**createConnection**](docs/ConnectionsV1Api.md#createConnection) | **POST** /api/v1/orgs/{owner}/connections | Create connection
 *ConnectionsV1Api* | [**deleteConnection**](docs/ConnectionsV1Api.md#deleteConnection) | **DELETE** /api/v1/orgs/{owner}/connections/{uuid} | Delete connection
 *ConnectionsV1Api* | [**getConnection**](docs/ConnectionsV1Api.md#getConnection) | **GET** /api/v1/orgs/{owner}/connections/{uuid} | Get connection
@@ -437,14 +425,9 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [AgentStateResponseAgentState](docs/AgentStateResponseAgentState.md)
- - [AutomationExecutionAutomationExecutionStatus](docs/AutomationExecutionAutomationExecutionStatus.md)
- - [AutomationFailStrategy](docs/AutomationFailStrategy.md)
- - [AutomationTriggerKind](docs/AutomationTriggerKind.md)
- - [AutomationTriggerPosture](docs/AutomationTriggerPosture.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufNullValue](docs/ProtobufNullValue.md)
  - [RuntimeError](docs/RuntimeError.md)
- - [SearchView](docs/SearchView.md)
  - [V1Activity](docs/V1Activity.md)
  - [V1ActivityProbe](docs/V1ActivityProbe.md)
  - [V1ActivityProbeExec](docs/V1ActivityProbeExec.md)
@@ -461,12 +444,6 @@ Class | Method | HTTP request | Description
  - [V1ArtifactsType](docs/V1ArtifactsType.md)
  - [V1Auth](docs/V1Auth.md)
  - [V1AuthType](docs/V1AuthType.md)
- - [V1Automation](docs/V1Automation.md)
- - [V1AutomationAction](docs/V1AutomationAction.md)
- - [V1AutomationActionKind](docs/V1AutomationActionKind.md)
- - [V1AutomationExecution](docs/V1AutomationExecution.md)
- - [V1AutomationExecutionKind](docs/V1AutomationExecutionKind.md)
- - [V1AutomationTestRequest](docs/V1AutomationTestRequest.md)
  - [V1AverageStoppingPolicy](docs/V1AverageStoppingPolicy.md)
  - [V1Bayes](docs/V1Bayes.md)
  - [V1BucketConnection](docs/V1BucketConnection.md)
@@ -499,6 +476,7 @@ Class | Method | HTTP request | Description
  - [V1EarlyStopping](docs/V1EarlyStopping.md)
  - [V1EntitiesTags](docs/V1EntitiesTags.md)
  - [V1EntitiesTransfer](docs/V1EntitiesTransfer.md)
+ - [V1EntityLevel](docs/V1EntityLevel.md)
  - [V1EntityNotificationBody](docs/V1EntityNotificationBody.md)
  - [V1EntityStageBodyRequest](docs/V1EntityStageBodyRequest.md)
  - [V1EntityStatusBodyRequest](docs/V1EntityStatusBodyRequest.md)
@@ -563,8 +541,6 @@ Class | Method | HTTP request | Description
  - [V1KFReplica](docs/V1KFReplica.md)
  - [V1ListActivitiesResponse](docs/V1ListActivitiesResponse.md)
  - [V1ListAgentsResponse](docs/V1ListAgentsResponse.md)
- - [V1ListAutomationExecutionsResponse](docs/V1ListAutomationExecutionsResponse.md)
- - [V1ListAutomationsResponse](docs/V1ListAutomationsResponse.md)
  - [V1ListBookmarksResponse](docs/V1ListBookmarksResponse.md)
  - [V1ListConnectionsResponse](docs/V1ListConnectionsResponse.md)
  - [V1ListDashboardsResponse](docs/V1ListDashboardsResponse.md)
@@ -604,6 +580,7 @@ Class | Method | HTTP request | Description
  - [V1OptimizationResource](docs/V1OptimizationResource.md)
  - [V1Organization](docs/V1Organization.md)
  - [V1OrganizationMember](docs/V1OrganizationMember.md)
+ - [V1OwnerSubEntityResourcePromoteRequest](docs/V1OwnerSubEntityResourcePromoteRequest.md)
  - [V1Param](docs/V1Param.md)
  - [V1PasswordChange](docs/V1PasswordChange.md)
  - [V1PatchStrategy](docs/V1PatchStrategy.md)

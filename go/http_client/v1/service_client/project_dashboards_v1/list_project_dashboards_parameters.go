@@ -114,6 +114,12 @@ type ListProjectDashboardsParams struct {
 	*/
 	Query *string
 
+	/* Run.
+
+	   Run.
+	*/
+	Run *string
+
 	/* Sort.
 
 	   Sort to order the search.
@@ -261,6 +267,17 @@ func (o *ListProjectDashboardsParams) SetQuery(query *string) {
 	o.Query = query
 }
 
+// WithRun adds the run to the list project dashboards params
+func (o *ListProjectDashboardsParams) WithRun(run *string) *ListProjectDashboardsParams {
+	o.SetRun(run)
+	return o
+}
+
+// SetRun adds the run to the list project dashboards params
+func (o *ListProjectDashboardsParams) SetRun(run *string) {
+	o.Run = run
+}
+
 // WithSort adds the sort to the list project dashboards params
 func (o *ListProjectDashboardsParams) WithSort(sort *string) *ListProjectDashboardsParams {
 	o.SetSort(sort)
@@ -387,6 +404,23 @@ func (o *ListProjectDashboardsParams) WriteToRequest(r runtime.ClientRequest, re
 		if qQuery != "" {
 
 			if err := r.SetQueryParam("query", qQuery); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Run != nil {
+
+		// query param run
+		var qrRun string
+
+		if o.Run != nil {
+			qrRun = *o.Run
+		}
+		qRun := qrRun
+		if qRun != "" {
+
+			if err := r.SetQueryParam("run", qRun); err != nil {
 				return err
 			}
 		}

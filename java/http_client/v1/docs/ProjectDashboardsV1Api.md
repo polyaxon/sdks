@@ -241,7 +241,7 @@ public class Example {
 
 <a name="listProjectDashboardNames"></a>
 # **listProjectDashboardNames**
-> V1ListDashboardsResponse listProjectDashboardNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage)
+> V1ListDashboardsResponse listProjectDashboardNames(owner, name, run, offset, limit, sort, query, bookmarks, mode, noPage)
 
 List project dashboard
 
@@ -269,6 +269,7 @@ public class Example {
     ProjectDashboardsV1Api apiInstance = new ProjectDashboardsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
     String name = "name_example"; // String | Entity managing the resource
+    String run = "run_example"; // String | Run.
     Integer offset = 56; // Integer | Pagination offset.
     Integer limit = 56; // Integer | Limit size.
     String sort = "sort_example"; // String | Sort to order the search.
@@ -277,7 +278,7 @@ public class Example {
     String mode = "mode_example"; // String | Mode of the search.
     Boolean noPage = true; // Boolean | No pagination.
     try {
-      V1ListDashboardsResponse result = apiInstance.listProjectDashboardNames(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+      V1ListDashboardsResponse result = apiInstance.listProjectDashboardNames(owner, name, run, offset, limit, sort, query, bookmarks, mode, noPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectDashboardsV1Api#listProjectDashboardNames");
@@ -296,6 +297,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
 | **name** | **String**| Entity managing the resource | |
+| **run** | **String**| Run. | [optional] |
 | **offset** | **Integer**| Pagination offset. | [optional] |
 | **limit** | **Integer**| Limit size. | [optional] |
 | **sort** | **String**| Sort to order the search. | [optional] |
@@ -328,7 +330,7 @@ public class Example {
 
 <a name="listProjectDashboards"></a>
 # **listProjectDashboards**
-> V1ListDashboardsResponse listProjectDashboards(owner, name, offset, limit, sort, query, bookmarks, mode, noPage)
+> V1ListDashboardsResponse listProjectDashboards(owner, name, run, offset, limit, sort, query, bookmarks, mode, noPage)
 
 List project dashboards
 
@@ -356,6 +358,7 @@ public class Example {
     ProjectDashboardsV1Api apiInstance = new ProjectDashboardsV1Api(defaultClient);
     String owner = "owner_example"; // String | Owner of the namespace
     String name = "name_example"; // String | Entity managing the resource
+    String run = "run_example"; // String | Run.
     Integer offset = 56; // Integer | Pagination offset.
     Integer limit = 56; // Integer | Limit size.
     String sort = "sort_example"; // String | Sort to order the search.
@@ -364,7 +367,7 @@ public class Example {
     String mode = "mode_example"; // String | Mode of the search.
     Boolean noPage = true; // Boolean | No pagination.
     try {
-      V1ListDashboardsResponse result = apiInstance.listProjectDashboards(owner, name, offset, limit, sort, query, bookmarks, mode, noPage);
+      V1ListDashboardsResponse result = apiInstance.listProjectDashboards(owner, name, run, offset, limit, sort, query, bookmarks, mode, noPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectDashboardsV1Api#listProjectDashboards");
@@ -383,6 +386,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **owner** | **String**| Owner of the namespace | |
 | **name** | **String**| Entity managing the resource | |
+| **run** | **String**| Run. | [optional] |
 | **offset** | **Integer**| Pagination offset. | [optional] |
 | **limit** | **Integer**| Limit size. | [optional] |
 | **sort** | **String**| Sort to order the search. | [optional] |
@@ -492,7 +496,7 @@ public class Example {
 
 <a name="promoteProjectDashboard"></a>
 # **promoteProjectDashboard**
-> promoteProjectDashboard(owner, entity, uuid)
+> promoteProjectDashboard(owner, entity, uuid, body)
 
 Promote project dashboard
 
@@ -521,8 +525,9 @@ public class Example {
     String owner = "owner_example"; // String | Owner of the namespace
     String entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
     String uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
+    V1OwnerSubEntityResourcePromoteRequest body = new V1OwnerSubEntityResourcePromoteRequest(); // V1OwnerSubEntityResourcePromoteRequest | 
     try {
-      apiInstance.promoteProjectDashboard(owner, entity, uuid);
+      apiInstance.promoteProjectDashboard(owner, entity, uuid, body);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectDashboardsV1Api#promoteProjectDashboard");
       System.err.println("Status code: " + e.getCode());
@@ -541,6 +546,7 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **entity** | **String**| Entity: project name, hub name, registry name, ... | |
 | **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | |
 
 ### Return type
 
@@ -552,7 +558,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

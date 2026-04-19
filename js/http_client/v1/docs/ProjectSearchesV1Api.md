@@ -367,7 +367,7 @@ Name | Type | Description  | Notes
 
 ## promoteProjectSearch
 
-> promoteProjectSearch(owner, entity, uuid)
+> promoteProjectSearch(owner, entity, uuid, body)
 
 Promote project search
 
@@ -386,7 +386,8 @@ let apiInstance = new PolyaxonSdk.ProjectSearchesV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
 let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
-apiInstance.promoteProjectSearch(owner, entity, uuid, (error, data, response) => {
+let body = new PolyaxonSdk.V1OwnerSubEntityResourcePromoteRequest(); // V1OwnerSubEntityResourcePromoteRequest | 
+apiInstance.promoteProjectSearch(owner, entity, uuid, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -403,6 +404,7 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **entity** | **String**| Entity: project name, hub name, registry name, ... | 
  **uuid** | **String**| Uuid identifier of the sub-entity | 
+ **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | 
 
 ### Return type
 
@@ -414,7 +416,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

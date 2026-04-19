@@ -27,7 +27,6 @@
 |**agents** | **List&lt;String&gt;** |  |  [optional] |
 |**namespaces** | **List&lt;String&gt;** |  |  [optional] |
 |**userAccesses** | [**List&lt;V1UserAccess&gt;**](V1UserAccess.md) |  |  [optional] |
-|**automations** | **List&lt;String&gt;** |  |  [optional] |
 |**teams** | **List&lt;String&gt;** |  |  [optional] |
 |**projects** | **List&lt;String&gt;** |  |  [optional] |
 |**connectedProjects** | **List&lt;String&gt;** |  |  [optional] |

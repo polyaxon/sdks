@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_project_dashboard_names**
-> V1ListDashboardsResponse list_project_dashboard_names(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+> V1ListDashboardsResponse list_project_dashboard_names(owner, name, run=run, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
 
 List project dashboard
 
@@ -294,6 +294,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
     name = 'name_example' # str | Entity managing the resource
+    run = 'run_example' # str | Run. (optional)
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
     sort = 'sort_example' # str | Sort to order the search. (optional)
@@ -304,7 +305,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # List project dashboard
-        api_response = api_instance.list_project_dashboard_names(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        api_response = api_instance.list_project_dashboard_names(owner, name, run=run, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
         print("The response of ProjectDashboardsV1Api->list_project_dashboard_names:\n")
         pprint(api_response)
     except Exception as e:
@@ -317,6 +318,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
  **name** | **str**| Entity managing the resource | 
+ **run** | **str**| Run. | [optional] 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
  **sort** | **str**| Sort to order the search. | [optional] 
@@ -350,7 +352,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_project_dashboards**
-> V1ListDashboardsResponse list_project_dashboards(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+> V1ListDashboardsResponse list_project_dashboards(owner, name, run=run, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
 
 List project dashboards
 
@@ -387,6 +389,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     api_instance = polyaxon_sdk.ProjectDashboardsV1Api(api_client)
     owner = 'owner_example' # str | Owner of the namespace
     name = 'name_example' # str | Entity managing the resource
+    run = 'run_example' # str | Run. (optional)
     offset = 56 # int | Pagination offset. (optional)
     limit = 56 # int | Limit size. (optional)
     sort = 'sort_example' # str | Sort to order the search. (optional)
@@ -397,7 +400,7 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
 
     try:
         # List project dashboards
-        api_response = api_instance.list_project_dashboards(owner, name, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
+        api_response = api_instance.list_project_dashboards(owner, name, run=run, offset=offset, limit=limit, sort=sort, query=query, bookmarks=bookmarks, mode=mode, no_page=no_page)
         print("The response of ProjectDashboardsV1Api->list_project_dashboards:\n")
         pprint(api_response)
     except Exception as e:
@@ -410,6 +413,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **str**| Owner of the namespace | 
  **name** | **str**| Entity managing the resource | 
+ **run** | **str**| Run. | [optional] 
  **offset** | **int**| Pagination offset. | [optional] 
  **limit** | **int**| Limit size. | [optional] 
  **sort** | **str**| Sort to order the search. | [optional] 
@@ -526,7 +530,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **promote_project_dashboard**
-> promote_project_dashboard(owner, entity, uuid)
+> promote_project_dashboard(owner, entity, uuid, body)
 
 Promote project dashboard
 
@@ -564,10 +568,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
     uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    body = polyaxon_sdk.V1OwnerSubEntityResourcePromoteRequest() # V1OwnerSubEntityResourcePromoteRequest | 
 
     try:
         # Promote project dashboard
-        api_instance.promote_project_dashboard(owner, entity, uuid)
+        api_instance.promote_project_dashboard(owner, entity, uuid, body)
     except Exception as e:
         print("Exception when calling ProjectDashboardsV1Api->promote_project_dashboard: %s\n" % e)
 ```
@@ -579,6 +584,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **entity** | **str**| Entity: project name, hub name, registry name, ... | 
  **uuid** | **str**| Uuid identifier of the sub-entity | 
+ **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | 
 
 ### Return type
 
@@ -590,7 +596,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

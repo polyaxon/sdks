@@ -8,11 +8,11 @@ Name | Type | Description | Notes
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **user** | **str** |  | [optional] 
+**project** | **str** |  | [optional] 
 **tags** | **List[str]** |  | [optional] 
 **live_state** | **int** |  | [optional] 
-**view** | [**SearchView**](SearchView.md) |  | [optional] 
 **spec** | [**V1SearchSpec**](V1SearchSpec.md) |  | [optional] 
-**org_level** | **bool** |  | [optional] 
+**level** | [**V1EntityLevel**](V1EntityLevel.md) |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 

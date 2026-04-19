@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/polyaxon/sdks/go/http_client/v1/service_model"
 )
 
 // NewPromoteProjectSearchParams creates a new PromoteProjectSearchParams object,
@@ -60,6 +62,9 @@ PromoteProjectSearchParams contains all the parameters to send to the API endpoi
 	Typically these are written to a http.Request.
 */
 type PromoteProjectSearchParams struct {
+
+	// Body.
+	Body *service_model.V1OwnerSubEntityResourcePromoteRequest
 
 	/* Entity.
 
@@ -132,6 +137,17 @@ func (o *PromoteProjectSearchParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithBody adds the body to the promote project search params
+func (o *PromoteProjectSearchParams) WithBody(body *service_model.V1OwnerSubEntityResourcePromoteRequest) *PromoteProjectSearchParams {
+	o.SetBody(body)
+	return o
+}
+
+// SetBody adds the body to the promote project search params
+func (o *PromoteProjectSearchParams) SetBody(body *service_model.V1OwnerSubEntityResourcePromoteRequest) {
+	o.Body = body
+}
+
 // WithEntity adds the entity to the promote project search params
 func (o *PromoteProjectSearchParams) WithEntity(entity string) *PromoteProjectSearchParams {
 	o.SetEntity(entity)
@@ -172,6 +188,11 @@ func (o *PromoteProjectSearchParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
+	}
 
 	// path param entity
 	if err := r.SetPathParam("entity", o.Entity); err != nil {

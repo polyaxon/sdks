@@ -13,10 +13,12 @@
 |**tags** | **List&lt;String&gt;** |  |  [optional] |
 |**liveState** | **Integer** |  |  [optional] |
 |**user** | **String** |  |  [optional] |
+|**project** | **String** |  |  [optional] |
+|**run** | **String** |  |  [optional] |
 |**spec** | [**V1DashboardSpec**](V1DashboardSpec.md) |  |  [optional] |
-|**orgLevel** | **Boolean** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
+|**level** | **V1EntityLevel** |  |  [optional] |
 
 
 

@@ -6,6 +6,14 @@ import "google/protobuf/struct.proto";
 
 option go_package = "v1/api";
 
+// Entity level visibility
+enum EntityLevel {
+    entity = 0;
+    project = 1;
+    cross = 2;
+    org = 3;
+}
+
 // Dashboard section definition
 message SectionSpec {
   // Section name

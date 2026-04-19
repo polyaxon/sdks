@@ -25,20 +25,26 @@ message Dashboard {
     // Current live state
     int32 live_state = 5;
 
-    // Required name of user started this entity
+    // Name of user started this entity
     string user = 6;
 
-    // Optional dashboard specification
-    DashboardSpec spec = 7;
+    // Optional project name
+    string project = 7;
 
-    // Optional dashboard level
-    bool org_level = 8;
+    // Optional run uuid
+    string run = 8;
+
+    // Optional dashboard specification
+    DashboardSpec spec = 9;
 
     // Optional time when the entity was created
-    google.protobuf.Timestamp created_at = 9;
+    google.protobuf.Timestamp created_at = 10;
 
     // Optional last time the entity was updated
-    google.protobuf.Timestamp updated_at = 10;
+    google.protobuf.Timestamp updated_at = 11;
+
+    // Optional visibility level
+    EntityLevel level = 12;
 }
 
  // Request data to create/update dashboard
@@ -75,4 +81,38 @@ message ListDashboardsResponse {
 
     // Next page
     string next = 4;
+}
+
+
+// Request list data with owner/agent namespace
+message DashboardListRequestByName {
+  // Owner of the namespace
+  string owner = 1;
+
+  // Entity managing the resource
+  string name = 2;
+
+  // Run
+  string run = 3;
+
+  // Pagination offset
+  int32 offset = 4;
+
+  // Limit size
+  int32 limit = 5;
+
+  // Sort to order the search
+  string sort = 6;
+
+  // Query filter the search
+  string query = 7;
+
+  // Filter by bookmarks
+  bool bookmarks = 8;
+
+  // Mode of the search
+  string mode = 9;
+
+  // No pagination
+  bool no_page = 10;
 }

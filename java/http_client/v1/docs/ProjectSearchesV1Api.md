@@ -492,7 +492,7 @@ public class Example {
 
 <a name="promoteProjectSearch"></a>
 # **promoteProjectSearch**
-> promoteProjectSearch(owner, entity, uuid)
+> promoteProjectSearch(owner, entity, uuid, body)
 
 Promote project search
 
@@ -521,8 +521,9 @@ public class Example {
     String owner = "owner_example"; // String | Owner of the namespace
     String entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
     String uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
+    V1OwnerSubEntityResourcePromoteRequest body = new V1OwnerSubEntityResourcePromoteRequest(); // V1OwnerSubEntityResourcePromoteRequest | 
     try {
-      apiInstance.promoteProjectSearch(owner, entity, uuid);
+      apiInstance.promoteProjectSearch(owner, entity, uuid, body);
     } catch (ApiException e) {
       System.err.println("Exception when calling ProjectSearchesV1Api#promoteProjectSearch");
       System.err.println("Status code: " + e.getCode());
@@ -541,6 +542,7 @@ public class Example {
 | **owner** | **String**| Owner of the namespace | |
 | **entity** | **String**| Entity: project name, hub name, registry name, ... | |
 | **uuid** | **String**| Uuid identifier of the sub-entity | |
+| **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | |
 
 ### Return type
 
@@ -552,7 +554,7 @@ null (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

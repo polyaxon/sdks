@@ -22,47 +22,20 @@ message Search {
     // Optional name of user created this entity
     string user = 4;
 
+    // Optional project name
+    string project = 5;
+
     // Optional tags of this entity
-    repeated string tags = 5;
+    repeated string tags = 6;
 
     // Current live state
-    int32 live_state = 6;
-
-    // Search view
-    enum View {
-      // Any view
-      any = 0;
-
-      // Runs view
-      runs = 1;
-
-      // Selection view
-      selection = 2;
-
-      // Analytics view
-      analytics = 4;
-
-      // Components view
-      components = 5;
-
-      // Models view
-      models = 6;
-
-      // Artifacts view
-      artifacts = 7;
-
-      // Projects view
-      projects = 8;
-    }
-
-    // Optional search view
-    View view = 7;
+    int32 live_state = 7;
 
     // Search spec
     SearchSpec spec = 8;
 
-    // Optional search level
-    bool org_level = 9;
+    // Optional visibility level
+    EntityLevel level = 9;
 
     // Optional time when the entity was created
     google.protobuf.Timestamp created_at = 10;

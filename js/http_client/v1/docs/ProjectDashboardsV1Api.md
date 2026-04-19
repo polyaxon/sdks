@@ -197,6 +197,7 @@ let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let name = "name_example"; // String | Entity managing the resource
 let opts = {
+  'run': "run_example", // String | Run.
   'offset': 56, // Number | Pagination offset.
   'limit': 56, // Number | Limit size.
   'sort': "sort_example", // String | Sort to order the search.
@@ -221,6 +222,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
  **name** | **String**| Entity managing the resource | 
+ **run** | **String**| Run. | [optional] 
  **offset** | **Number**| Pagination offset. | [optional] 
  **limit** | **Number**| Limit size. | [optional] 
  **sort** | **String**| Sort to order the search. | [optional] 
@@ -264,6 +266,7 @@ let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let name = "name_example"; // String | Entity managing the resource
 let opts = {
+  'run': "run_example", // String | Run.
   'offset': 56, // Number | Pagination offset.
   'limit': 56, // Number | Limit size.
   'sort': "sort_example", // String | Sort to order the search.
@@ -288,6 +291,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **owner** | **String**| Owner of the namespace | 
  **name** | **String**| Entity managing the resource | 
+ **run** | **String**| Run. | [optional] 
  **offset** | **Number**| Pagination offset. | [optional] 
  **limit** | **Number**| Limit size. | [optional] 
  **sort** | **String**| Sort to order the search. | [optional] 
@@ -367,7 +371,7 @@ Name | Type | Description  | Notes
 
 ## promoteProjectDashboard
 
-> promoteProjectDashboard(owner, entity, uuid)
+> promoteProjectDashboard(owner, entity, uuid, body)
 
 Promote project dashboard
 
@@ -386,7 +390,8 @@ let apiInstance = new PolyaxonSdk.ProjectDashboardsV1Api();
 let owner = "owner_example"; // String | Owner of the namespace
 let entity = "entity_example"; // String | Entity: project name, hub name, registry name, ...
 let uuid = "uuid_example"; // String | Uuid identifier of the sub-entity
-apiInstance.promoteProjectDashboard(owner, entity, uuid, (error, data, response) => {
+let body = new PolyaxonSdk.V1OwnerSubEntityResourcePromoteRequest(); // V1OwnerSubEntityResourcePromoteRequest | 
+apiInstance.promoteProjectDashboard(owner, entity, uuid, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -403,6 +408,7 @@ Name | Type | Description  | Notes
  **owner** | **String**| Owner of the namespace | 
  **entity** | **String**| Entity: project name, hub name, registry name, ... | 
  **uuid** | **String**| Uuid identifier of the sub-entity | 
+ **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | 
 
 ### Return type
 
@@ -414,7 +420,7 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

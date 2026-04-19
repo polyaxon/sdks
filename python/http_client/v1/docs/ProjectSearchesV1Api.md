@@ -526,7 +526,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **promote_project_search**
-> promote_project_search(owner, entity, uuid)
+> promote_project_search(owner, entity, uuid, body)
 
 Promote project search
 
@@ -564,10 +564,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     owner = 'owner_example' # str | Owner of the namespace
     entity = 'entity_example' # str | Entity: project name, hub name, registry name, ...
     uuid = 'uuid_example' # str | Uuid identifier of the sub-entity
+    body = polyaxon_sdk.V1OwnerSubEntityResourcePromoteRequest() # V1OwnerSubEntityResourcePromoteRequest | 
 
     try:
         # Promote project search
-        api_instance.promote_project_search(owner, entity, uuid)
+        api_instance.promote_project_search(owner, entity, uuid, body)
     except Exception as e:
         print("Exception when calling ProjectSearchesV1Api->promote_project_search: %s\n" % e)
 ```
@@ -579,6 +580,7 @@ Name | Type | Description  | Notes
  **owner** | **str**| Owner of the namespace | 
  **entity** | **str**| Entity: project name, hub name, registry name, ... | 
  **uuid** | **str**| Uuid identifier of the sub-entity | 
+ **body** | [**V1OwnerSubEntityResourcePromoteRequest**](V1OwnerSubEntityResourcePromoteRequest.md)|  | 
 
 ### Return type
 
@@ -590,7 +592,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
