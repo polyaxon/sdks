@@ -56,4 +56,7 @@ message Plugins {
 
     // Option Notifications: Deprecated
     repeated Notification notifications = 13;
+
+    // Optional flag to inject a tmux binary for reconnectable exec sessions, default false
+    PolyaxonTmuxContainer tmux = 14;
 }

@@ -26,3 +26,11 @@ message PolyaxonInitContainer {
     string imagePullPolicy = 3;
     ResourceRequirements resources = 4;
 }
+
+// Polyaxon tmux specification
+message PolyaxonTmuxContainer {
+    string image = 1;
+    string imageTag = 2;
+    string imagePullPolicy = 3;
+    ResourceRequirements resources = 4;
+}
