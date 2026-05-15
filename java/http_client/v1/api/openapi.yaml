@@ -20236,7 +20236,7 @@ paths:
         required: false
         schema:
           format: int64
-          type: string
+          type: integer
         style: form
       - explode: true
         in: query
@@ -20244,7 +20244,7 @@ paths:
         required: false
         schema:
           format: int64
-          type: string
+          type: integer
         style: form
       responses:
         "200":
@@ -29377,25 +29377,25 @@ components:
       description: List response for GET /exec/bg.
       example:
         execs:
-        - duration_ms: duration_ms
+        - duration_ms: 6
           exec_id: exec_id
           finished_at: 2000-01-23T04:56:07.000+00:00
-          stdout_bytes: stdout_bytes
-          exit_code: 6
+          stdout_bytes: 5
+          exit_code: 1
           started_at: 2000-01-23T04:56:07.000+00:00
           pid: 0
-          stderr_bytes: stderr_bytes
+          stderr_bytes: 5
           state: state
           tag: tag
           signal: signal
-        - duration_ms: duration_ms
+        - duration_ms: 6
           exec_id: exec_id
           finished_at: 2000-01-23T04:56:07.000+00:00
-          stdout_bytes: stdout_bytes
-          exit_code: 6
+          stdout_bytes: 5
+          exit_code: 1
           started_at: 2000-01-23T04:56:07.000+00:00
           pid: 0
-          stderr_bytes: stderr_bytes
+          stderr_bytes: 5
           state: state
           tag: tag
           signal: signal
@@ -29409,12 +29409,12 @@ components:
       description: "Response body for GET /exec/bg/{id}/logs."
       example:
         exec_id: exec_id
-        offset: offset
+        offset: 0
         data: data
         stream: stream
-        bytes: 0
+        bytes: 1
         state: state
-        next_offset: next_offset
+        next_offset: 6
         eof: true
       properties:
         exec_id:
@@ -29423,10 +29423,10 @@ components:
           type: string
         offset:
           format: int64
-          type: string
+          type: integer
         next_offset:
           format: int64
-          type: string
+          type: integer
         bytes:
           format: int32
           type: integer
@@ -29486,14 +29486,14 @@ components:
     v1ExecBgStatus:
       description: One background exec status record.
       example:
-        duration_ms: duration_ms
+        duration_ms: 6
         exec_id: exec_id
         finished_at: 2000-01-23T04:56:07.000+00:00
-        stdout_bytes: stdout_bytes
-        exit_code: 6
+        stdout_bytes: 5
+        exit_code: 1
         started_at: 2000-01-23T04:56:07.000+00:00
         pid: 0
-        stderr_bytes: stderr_bytes
+        stderr_bytes: 5
         state: state
         tag: tag
         signal: signal
@@ -29513,7 +29513,7 @@ components:
           type: string
         duration_ms:
           format: int64
-          type: string
+          type: integer
         exit_code:
           format: int32
           nullable: true
@@ -29522,10 +29522,10 @@ components:
           type: string
         stdout_bytes:
           format: int64
-          type: string
+          type: integer
         stderr_bytes:
           format: int64
-          type: string
+          type: integer
         tag:
           type: string
       type: object
@@ -29556,7 +29556,7 @@ components:
     v1ExecResult:
       description: Response body for POST /exec.
       example:
-        duration_ms: duration_ms
+        duration_ms: 6
         exec_id: exec_id
         stderr_truncated: true
         stdout: stdout
@@ -29580,7 +29580,7 @@ components:
           type: string
         duration_ms:
           format: int64
-          type: string
+          type: integer
         timed_out:
           type: boolean
         stdout_truncated:
@@ -29636,7 +29636,7 @@ components:
       description: One filesystem list entry.
       example:
         mode: mode
-        size: size
+        size: 0
         name: name
         type: type
         mtime: 2000-01-23T04:56:07.000+00:00
@@ -29648,7 +29648,7 @@ components:
           type: string
         size:
           format: int64
-          type: string
+          type: integer
         mtime:
           format: date-time
           type: string
@@ -29663,13 +29663,13 @@ components:
         path: path
         entries:
         - mode: mode
-          size: size
+          size: 0
           name: name
           type: type
           mtime: 2000-01-23T04:56:07.000+00:00
           symlink_target: symlink_target
         - mode: mode
-          size: size
+          size: 0
           name: name
           type: type
           mtime: 2000-01-23T04:56:07.000+00:00
@@ -29708,9 +29708,9 @@ components:
       example:
         mode: mode
         path: path
-        uid: 0
-        gid: 6
-        size: size
+        uid: 6
+        gid: 1
+        size: 0
         type: type
         mtime: 2000-01-23T04:56:07.000+00:00
         symlink_target: symlink_target
@@ -29721,7 +29721,7 @@ components:
           type: string
         size:
           format: int64
-          type: string
+          type: integer
         mtime:
           format: date-time
           type: string
@@ -35130,11 +35130,11 @@ components:
     v1PingResponse:
       description: Response body for GET /ping.
       example:
-        ptys_running: ptys_running
+        ptys_running: 1
         last_activity: 2000-01-23T04:56:07.000+00:00
-        uptime_ms: uptime_ms
-        execs_running: execs_running
-        ptys_attached: ptys_attached
+        uptime_ms: 0
+        execs_running: 6
+        ptys_attached: 5
         version: version
         status: status
       properties:
@@ -35144,19 +35144,19 @@ components:
           type: string
         uptime_ms:
           format: int64
-          type: string
+          type: integer
         last_activity:
           format: date-time
           type: string
         execs_running:
           format: int64
-          type: string
+          type: integer
         ptys_running:
           format: int64
-          type: string
+          type: integer
         ptys_attached:
           format: int64
-          type: string
+          type: integer
       type: object
     v1Pipeline:
       example:
@@ -36027,9 +36027,9 @@ components:
         pid: 0
         rows: 5
         last_client_activity: 2000-01-23T04:56:07.000+00:00
-        duration_ms: duration_ms
+        duration_ms: 6
         last_activity: 2000-01-23T04:56:07.000+00:00
-        exit_code: 6
+        exit_code: 1
         attached: true
         started_at: 2000-01-23T04:56:07.000+00:00
         detached_since: 2000-01-23T04:56:07.000+00:00
@@ -36037,7 +36037,7 @@ components:
         tag: tag
         pty_id: pty_id
         signal: signal
-        cols: 1
+        cols: 5
       properties:
         pty_id:
           type: string
@@ -36054,7 +36054,7 @@ components:
           type: string
         duration_ms:
           format: int64
-          type: string
+          type: integer
         exit_code:
           format: int32
           nullable: true
@@ -36090,9 +36090,9 @@ components:
           pid: 0
           rows: 5
           last_client_activity: 2000-01-23T04:56:07.000+00:00
-          duration_ms: duration_ms
+          duration_ms: 6
           last_activity: 2000-01-23T04:56:07.000+00:00
-          exit_code: 6
+          exit_code: 1
           attached: true
           started_at: 2000-01-23T04:56:07.000+00:00
           detached_since: 2000-01-23T04:56:07.000+00:00
@@ -36100,14 +36100,14 @@ components:
           tag: tag
           pty_id: pty_id
           signal: signal
-          cols: 1
+          cols: 5
         - finished_at: 2000-01-23T04:56:07.000+00:00
           pid: 0
           rows: 5
           last_client_activity: 2000-01-23T04:56:07.000+00:00
-          duration_ms: duration_ms
+          duration_ms: 6
           last_activity: 2000-01-23T04:56:07.000+00:00
-          exit_code: 6
+          exit_code: 1
           attached: true
           started_at: 2000-01-23T04:56:07.000+00:00
           detached_since: 2000-01-23T04:56:07.000+00:00
@@ -36115,7 +36115,7 @@ components:
           tag: tag
           pty_id: pty_id
           signal: signal
-          cols: 1
+          cols: 5
       properties:
         sessions:
           items:
