@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -78,7 +78,7 @@ public class V1Termination {
   }
 
   public V1Termination maxRetries(Integer maxRetries) {
-
+    
     this.maxRetries = maxRetries;
     return this;
   }
@@ -100,7 +100,7 @@ public class V1Termination {
 
 
   public V1Termination ttl(Integer ttl) {
-
+    
     this.ttl = ttl;
     return this;
   }
@@ -122,7 +122,7 @@ public class V1Termination {
 
 
   public V1Termination timeout(Integer timeout) {
-
+    
     this.timeout = timeout;
     return this;
   }
@@ -144,7 +144,7 @@ public class V1Termination {
 
 
   public V1Termination culling(V1Culling culling) {
-
+    
     this.culling = culling;
     return this;
   }
@@ -166,7 +166,7 @@ public class V1Termination {
 
 
   public V1Termination probe(V1ActivityProbe probe) {
-
+    
     this.probe = probe;
     return this;
   }
@@ -188,7 +188,7 @@ public class V1Termination {
 
 
   public V1Termination podFailurePolicy(Object podFailurePolicy) {
-
+    
     this.podFailurePolicy = podFailurePolicy;
     return this;
   }

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -92,7 +92,7 @@ public class V1RunSchema {
   }
 
   public V1RunSchema job(V1Job job) {
-
+    
     this.job = job;
     return this;
   }
@@ -114,7 +114,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema service(V1Service service) {
-
+    
     this.service = service;
     return this;
   }
@@ -136,7 +136,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema dag(V1Dag dag) {
-
+    
     this.dag = dag;
     return this;
   }
@@ -158,7 +158,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema tfJob(V1TFJob tfJob) {
-
+    
     this.tfJob = tfJob;
     return this;
   }
@@ -180,7 +180,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema pytorchJob(V1PytorchJob pytorchJob) {
-
+    
     this.pytorchJob = pytorchJob;
     return this;
   }
@@ -202,7 +202,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema mpiJob(V1MPIJob mpiJob) {
-
+    
     this.mpiJob = mpiJob;
     return this;
   }
@@ -224,7 +224,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema daskcluster(V1DaskCluster daskcluster) {
-
+    
     this.daskcluster = daskcluster;
     return this;
   }
@@ -246,7 +246,7 @@ public class V1RunSchema {
 
 
   public V1RunSchema raycluster(V1RayCluster raycluster) {
-
+    
     this.raycluster = raycluster;
     return this;
   }

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -88,7 +88,7 @@ public class V1PolyaxonSidecarContainer {
   }
 
   public V1PolyaxonSidecarContainer image(String image) {
-
+    
     this.image = image;
     return this;
   }
@@ -110,7 +110,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imageTag(String imageTag) {
-
+    
     this.imageTag = imageTag;
     return this;
   }
@@ -132,7 +132,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer imagePullPolicy(String imagePullPolicy) {
-
+    
     this.imagePullPolicy = imagePullPolicy;
     return this;
   }
@@ -154,7 +154,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer sleepInterval(Integer sleepInterval) {
-
+    
     this.sleepInterval = sleepInterval;
     return this;
   }
@@ -176,7 +176,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer syncInterval(Integer syncInterval) {
-
+    
     this.syncInterval = syncInterval;
     return this;
   }
@@ -198,7 +198,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer monitorLogs(Boolean monitorLogs) {
-
+    
     this.monitorLogs = monitorLogs;
     return this;
   }
@@ -220,7 +220,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer monitorSpec(Boolean monitorSpec) {
-
+    
     this.monitorSpec = monitorSpec;
     return this;
   }
@@ -242,7 +242,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer noConnections(Boolean noConnections) {
-
+    
     this.noConnections = noConnections;
     return this;
   }
@@ -264,7 +264,7 @@ public class V1PolyaxonSidecarContainer {
 
 
   public V1PolyaxonSidecarContainer resources(Object resources) {
-
+    
     this.resources = resources;
     return this;
   }

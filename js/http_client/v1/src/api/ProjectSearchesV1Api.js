@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -26,7 +26,7 @@ import V1Search from '../model/V1Search';
 export default class ProjectSearchesV1Api {
 
     /**
-    * Constructs a new ProjectSearchesV1Api.
+    * Constructs a new ProjectSearchesV1Api. 
     * Polyaxon sdk
     * @alias module:api/ProjectSearchesV1Api
     * @class
@@ -398,7 +398,7 @@ export default class ProjectSearchesV1Api {
      * @param {String} owner Owner of the namespace
      * @param {String} entity Entity: project name, hub name, registry name, ...
      * @param {String} uuid Uuid identifier of the sub-entity
-     * @param {module:model/V1OwnerSubEntityResourcePromoteRequest} body
+     * @param {module:model/V1OwnerSubEntityResourcePromoteRequest} body 
      * @param {module:api/ProjectSearchesV1Api~promoteProjectSearchCallback} callback The callback function, accepting three arguments: error, data, response
      */
     promoteProjectSearch(owner, entity, uuid, body, callback) {

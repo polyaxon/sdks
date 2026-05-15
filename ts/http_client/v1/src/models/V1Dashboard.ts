@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -27,79 +27,79 @@ import {
 } from './V1EntityLevel';
 
 /**
- *
+ * 
  * @export
  * @interface V1Dashboard
  */
 export interface V1Dashboard {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     name?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     description?: string;
     /**
-     *
+     * 
      * @type {Array<string>}
      * @memberof V1Dashboard
      */
     tags?: Array<string>;
     /**
-     *
+     * 
      * @type {number}
      * @memberof V1Dashboard
      */
     live_state?: number;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     user?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     project?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1Dashboard
      */
     run?: string;
     /**
-     *
+     * 
      * @type {V1DashboardSpec}
      * @memberof V1Dashboard
      */
     spec?: V1DashboardSpec;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Dashboard
      */
     created_at?: Date;
     /**
-     *
+     * 
      * @type {Date}
      * @memberof V1Dashboard
      */
     updated_at?: Date;
     /**
-     *
+     * 
      * @type {V1EntityLevel}
      * @memberof V1Dashboard
      */
@@ -124,7 +124,7 @@ export function V1DashboardFromJSONTyped(json: any, ignoreDiscriminator: boolean
         return json;
     }
     return {
-
+        
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
         'name': !exists(json, 'name') ? undefined : json['name'],
         'description': !exists(json, 'description') ? undefined : json['description'],
@@ -148,7 +148,7 @@ export function V1DashboardToJSON(value?: V1Dashboard | null): any {
         return null;
     }
     return {
-
+        
         'uuid': value.uuid,
         'name': value.name,
         'description': value.description,

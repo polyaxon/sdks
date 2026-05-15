@@ -18202,6 +18202,1248 @@
         ]
       }
     },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec": {
+      "post": {
+        "operationId": "Exec",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecResult"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ExecRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg": {
+      "get": {
+        "operationId": "ListBgExecs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgList"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      },
+      "post": {
+        "operationId": "ExecBg",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgStart"
+            }
+          },
+          "202": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgStart"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}": {
+      "get": {
+        "operationId": "GetBgExec",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgStatus"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      },
+      "delete": {
+        "operationId": "DeleteBgExec",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/logs": {
+      "get": {
+        "operationId": "GetBgExecLogs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1ExecBgLogs"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "stream",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          },
+          {
+            "name": "max_bytes",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/signal": {
+      "post": {
+        "operationId": "SignalBgExec",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SignalRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/ls": {
+      "get": {
+        "operationId": "FsLs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FsListResult"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "recursive",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "max_entries",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/mkdir": {
+      "post": {
+        "operationId": "FsMkdir",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FsPathResult"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1FsMkdirRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/rm": {
+      "delete": {
+        "operationId": "FsRm",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FsPathResult"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "recursive",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/stat": {
+      "get": {
+        "operationId": "FsStat",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1FsStatResult"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/ping": {
+      "get": {
+        "operationId": "Ping",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1PingResponse"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty": {
+      "get": {
+        "operationId": "ListPtys",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1PtyList"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      },
+      "post": {
+        "operationId": "CreatePty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Pty"
+            }
+          },
+          "201": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Pty"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreatePtyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}": {
+      "get": {
+        "operationId": "GetPty",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1Pty"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      },
+      "delete": {
+        "operationId": "DeletePty",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/resize": {
+      "post": {
+        "operationId": "ResizePty",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1ResizePtyRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
+    "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/signal": {
+      "post": {
+        "operationId": "SignalPty",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1SignalRequest"
+            }
+          }
+        ],
+        "tags": [
+          "SandboxV1"
+        ]
+      }
+    },
     "/schemas": {
       "get": {
         "summary": "NoOp",
@@ -21683,6 +22925,41 @@
       "type": "object",
       "title": "Placeholder for Container"
     },
+    "v1CreatePtyRequest": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Command argv. Empty means use the server default shell."
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment overrides. JSON null means unset the key."
+        },
+        "workdir": {
+          "type": "string",
+          "description": "Working directory."
+        },
+        "cols": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Terminal columns."
+        },
+        "rows": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Terminal rows."
+        },
+        "tag": {
+          "type": "string",
+          "description": "Optional reconnect handle."
+        }
+      },
+      "description": "Request body for POST /pty."
+    },
     "v1Credentials": {
       "type": "object",
       "properties": {
@@ -22820,6 +24097,218 @@
       },
       "title": "Events response definition"
     },
+    "v1ExecBgList": {
+      "type": "object",
+      "properties": {
+        "execs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1ExecBgStatus"
+          }
+        }
+      },
+      "description": "List response for GET /exec/bg."
+    },
+    "v1ExecBgLogs": {
+      "type": "object",
+      "properties": {
+        "exec_id": {
+          "type": "string"
+        },
+        "stream": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "string",
+          "format": "int64"
+        },
+        "next_offset": {
+          "type": "string",
+          "format": "int64"
+        },
+        "bytes": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "string"
+        },
+        "eof": {
+          "type": "boolean"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "description": "Response body for GET /exec/bg/{id}/logs."
+    },
+    "v1ExecBgRequest": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Command argv. No shell interpolation unless the caller passes a shell."
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment overrides. JSON null means unset the key."
+        },
+        "workdir": {
+          "type": "string",
+          "description": "Working directory."
+        },
+        "stdin": {
+          "type": "string",
+          "description": "Base64-encoded stdin bytes."
+        },
+        "timeout_ms": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Timeout in milliseconds."
+        },
+        "tag": {
+          "type": "string",
+          "description": "Optional reconnect handle."
+        }
+      },
+      "description": "Request body for POST /exec/bg."
+    },
+    "v1ExecBgStart": {
+      "type": "object",
+      "properties": {
+        "exec_id": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "description": "Response body for POST /exec/bg."
+    },
+    "v1ExecBgStatus": {
+      "type": "object",
+      "properties": {
+        "exec_id": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "exit_code": {
+          "type": "integer",
+          "format": "int32",
+          "x-nullable": true
+        },
+        "signal": {
+          "type": "string"
+        },
+        "stdout_bytes": {
+          "type": "string",
+          "format": "int64"
+        },
+        "stderr_bytes": {
+          "type": "string",
+          "format": "int64"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "description": "One background exec status record."
+    },
+    "v1ExecRequest": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Command argv. No shell interpolation unless the caller passes a shell."
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment overrides. JSON null means unset the key."
+        },
+        "workdir": {
+          "type": "string",
+          "description": "Working directory."
+        },
+        "stdin": {
+          "type": "string",
+          "description": "Base64-encoded stdin bytes."
+        },
+        "timeout_ms": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Timeout in milliseconds."
+        }
+      },
+      "description": "Request body for POST /exec."
+    },
+    "v1ExecResult": {
+      "type": "object",
+      "properties": {
+        "exec_id": {
+          "type": "string"
+        },
+        "exit_code": {
+          "type": "integer",
+          "format": "int32",
+          "x-nullable": true
+        },
+        "signal": {
+          "type": "string"
+        },
+        "stdout": {
+          "type": "string"
+        },
+        "stderr": {
+          "type": "string"
+        },
+        "duration_ms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "timed_out": {
+          "type": "boolean"
+        },
+        "stdout_truncated": {
+          "type": "boolean"
+        },
+        "stderr_truncated": {
+          "type": "boolean"
+        }
+      },
+      "description": "Response body for POST /exec."
+    },
     "v1FailureEarlyStopping": {
       "type": "object",
       "properties": {
@@ -22857,6 +24346,109 @@
         }
       },
       "title": "File type specification"
+    },
+    "v1FsEntry": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "mtime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "symlink_target": {
+          "type": "string"
+        }
+      },
+      "description": "One filesystem list entry."
+    },
+    "v1FsListResult": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1FsEntry"
+          }
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "description": "Response body for GET /fs/ls."
+    },
+    "v1FsMkdirRequest": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "boolean"
+        },
+        "mode": {
+          "type": "string"
+        }
+      },
+      "description": "Request body for POST /fs/mkdir."
+    },
+    "v1FsPathResult": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "description": "Response body for filesystem path operations."
+    },
+    "v1FsStatResult": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string",
+          "format": "int64"
+        },
+        "mtime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "gid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "symlink_target": {
+          "type": "string",
+          "x-nullable": true
+        }
+      },
+      "description": "Response body for GET /fs/stat."
     },
     "v1GcsType": {
       "type": "object",
@@ -25152,6 +26744,38 @@
       },
       "title": "Path reference specification"
     },
+    "v1PingResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "uptime_ms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "last_activity": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "execs_running": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ptys_running": {
+          "type": "string",
+          "format": "int64"
+        },
+        "ptys_attached": {
+          "type": "string",
+          "format": "int64"
+        }
+      },
+      "description": "Response body for GET /ping."
+    },
     "v1Pipeline": {
       "type": "object",
       "properties": {
@@ -25234,6 +26858,10 @@
             "$ref": "#/definitions/v1Notification"
           },
           "title": "Option Notifications: Deprecated"
+        },
+        "tmux": {
+          "$ref": "#/definitions/v1PolyaxonTmuxContainer",
+          "title": "Optional flag to inject a tmux binary for reconnectable exec sessions, default false"
         }
       },
       "title": "Plugins specification"
@@ -25445,6 +27073,24 @@
         }
       },
       "title": "Polyaxon sidecar specification"
+    },
+    "v1PolyaxonTmuxContainer": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "type": "string"
+        },
+        "imageTag": {
+          "type": "string"
+        },
+        "imagePullPolicy": {
+          "type": "string"
+        },
+        "resources": {
+          "$ref": "#/definitions/v1ResourceRequirements"
+        }
+      },
+      "title": "Polyaxon tmux specification"
     },
     "v1Preset": {
       "type": "object",
@@ -25809,6 +27455,81 @@
       ],
       "default": "component"
     },
+    "v1Pty": {
+      "type": "object",
+      "properties": {
+        "pty_id": {
+          "type": "string"
+        },
+        "pid": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "state": {
+          "type": "string"
+        },
+        "started_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "finished_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "duration_ms": {
+          "type": "string",
+          "format": "int64"
+        },
+        "exit_code": {
+          "type": "integer",
+          "format": "int32",
+          "x-nullable": true
+        },
+        "signal": {
+          "type": "string"
+        },
+        "last_activity": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "last_client_activity": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "detached_since": {
+          "type": "string",
+          "format": "date-time",
+          "x-nullable": true
+        },
+        "attached": {
+          "type": "boolean"
+        },
+        "cols": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rows": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "description": "One PTY session record."
+    },
+    "v1PtyList": {
+      "type": "object",
+      "properties": {
+        "sessions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Pty"
+          }
+        }
+      },
+      "description": "List response for GET /pty."
+    },
     "v1PytorchElasticPolicy": {
       "type": "object",
       "properties": {
@@ -26158,6 +27879,20 @@
         }
       },
       "title": "Reference specification"
+    },
+    "v1ResizePtyRequest": {
+      "type": "object",
+      "properties": {
+        "cols": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "rows": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "description": "Request body for POST /pty/{id}/resize."
     },
     "v1ResourceRequirements": {
       "type": "object",
@@ -27122,6 +28857,15 @@
         }
       },
       "title": "Settings catalog specification"
+    },
+    "v1SignalRequest": {
+      "type": "object",
+      "properties": {
+        "signal": {
+          "type": "string"
+        }
+      },
+      "description": "Request body for signal endpoints."
     },
     "v1Stage": {
       "type": "object",

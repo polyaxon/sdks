@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -58,7 +58,7 @@ public class V1ActivityProbeExec {
   }
 
   public V1ActivityProbeExec command(List<String> command) {
-
+    
     this.command = command;
     return this;
   }

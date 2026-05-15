@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -68,7 +68,7 @@ public class V1OwnerSubEntityResourcePromoteRequest {
   }
 
   public V1OwnerSubEntityResourcePromoteRequest owner(String owner) {
-
+    
     this.owner = owner;
     return this;
   }
@@ -90,7 +90,7 @@ public class V1OwnerSubEntityResourcePromoteRequest {
 
 
   public V1OwnerSubEntityResourcePromoteRequest entity(String entity) {
-
+    
     this.entity = entity;
     return this;
   }
@@ -112,7 +112,7 @@ public class V1OwnerSubEntityResourcePromoteRequest {
 
 
   public V1OwnerSubEntityResourcePromoteRequest uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -134,7 +134,7 @@ public class V1OwnerSubEntityResourcePromoteRequest {
 
 
   public V1OwnerSubEntityResourcePromoteRequest level(String level) {
-
+    
     this.level = level;
     return this;
   }

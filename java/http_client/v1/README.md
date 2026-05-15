@@ -3,7 +3,7 @@
 Polyaxon SDKs and REST API specification.
 - API version: 2.15.1
 
-
+   
 
   For more information, please visit [https://github.com/polyaxon/polyaxon](https://github.com/polyaxon/polyaxon)
 
@@ -91,7 +91,7 @@ public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
     defaultClient.setBasePath("http://localhost");
-
+    
     // Configure API key authorization: ApiKey
     ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
     ApiKey.setApiKey("YOUR API KEY");
@@ -345,6 +345,24 @@ Class | Method | HTTP request | Description
 *RunsV1Api* | [**updateRun**](docs/RunsV1Api.md#updateRun) | **PUT** /api/v1/{owner}/{project}/runs/{run.uuid} | Update run
 *RunsV1Api* | [**uploadRunArtifact**](docs/RunsV1Api.md#uploadRunArtifact) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/artifacts/upload | Upload an artifact file to a store via run access
 *RunsV1Api* | [**uploadRunLogs**](docs/RunsV1Api.md#uploadRunLogs) | **POST** /api/v1/{owner}/{project}/runs/{uuid}/logs/upload | Upload a logs file to a store via run access
+*SandboxV1Api* | [**createPty**](docs/SandboxV1Api.md#createPty) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty | 
+*SandboxV1Api* | [**deleteBgExec**](docs/SandboxV1Api.md#deleteBgExec) | **DELETE** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id} | 
+*SandboxV1Api* | [**deletePty**](docs/SandboxV1Api.md#deletePty) | **DELETE** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id} | 
+*SandboxV1Api* | [**exec**](docs/SandboxV1Api.md#exec) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec | 
+*SandboxV1Api* | [**execBg**](docs/SandboxV1Api.md#execBg) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg | 
+*SandboxV1Api* | [**fsLs**](docs/SandboxV1Api.md#fsLs) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/ls | 
+*SandboxV1Api* | [**fsMkdir**](docs/SandboxV1Api.md#fsMkdir) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/mkdir | 
+*SandboxV1Api* | [**fsRm**](docs/SandboxV1Api.md#fsRm) | **DELETE** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/rm | 
+*SandboxV1Api* | [**fsStat**](docs/SandboxV1Api.md#fsStat) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/stat | 
+*SandboxV1Api* | [**getBgExec**](docs/SandboxV1Api.md#getBgExec) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id} | 
+*SandboxV1Api* | [**getBgExecLogs**](docs/SandboxV1Api.md#getBgExecLogs) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/logs | 
+*SandboxV1Api* | [**getPty**](docs/SandboxV1Api.md#getPty) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id} | 
+*SandboxV1Api* | [**listBgExecs**](docs/SandboxV1Api.md#listBgExecs) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg | 
+*SandboxV1Api* | [**listPtys**](docs/SandboxV1Api.md#listPtys) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty | 
+*SandboxV1Api* | [**ping**](docs/SandboxV1Api.md#ping) | **GET** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/ping | 
+*SandboxV1Api* | [**resizePty**](docs/SandboxV1Api.md#resizePty) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/resize | 
+*SandboxV1Api* | [**signalBgExec**](docs/SandboxV1Api.md#signalBgExec) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/signal | 
+*SandboxV1Api* | [**signalPty**](docs/SandboxV1Api.md#signalPty) | **POST** /sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/signal | 
 *SchemasV1Api* | [**noOp**](docs/SchemasV1Api.md#noOp) | **GET** /schemas | NoOp
 *SearchesV1Api* | [**createSearch**](docs/SearchesV1Api.md#createSearch) | **POST** /api/v1/orgs/{owner}/searches | Create search
 *SearchesV1Api* | [**deleteSearch**](docs/SearchesV1Api.md#deleteSearch) | **DELETE** /api/v1/orgs/{owner}/searches/{uuid} | Delete search
@@ -461,6 +479,7 @@ Class | Method | HTTP request | Description
  - [V1ConnectionResponse](docs/V1ConnectionResponse.md)
  - [V1ConnectionSchema](docs/V1ConnectionSchema.md)
  - [V1ConnectionType](docs/V1ConnectionType.md)
+ - [V1CreatePtyRequest](docs/V1CreatePtyRequest.md)
  - [V1Credentials](docs/V1Credentials.md)
  - [V1CronSchedule](docs/V1CronSchedule.md)
  - [V1Culling](docs/V1Culling.md)
@@ -500,8 +519,20 @@ Class | Method | HTTP request | Description
  - [V1EventType](docs/V1EventType.md)
  - [V1EventVideo](docs/V1EventVideo.md)
  - [V1EventsResponse](docs/V1EventsResponse.md)
+ - [V1ExecBgList](docs/V1ExecBgList.md)
+ - [V1ExecBgLogs](docs/V1ExecBgLogs.md)
+ - [V1ExecBgRequest](docs/V1ExecBgRequest.md)
+ - [V1ExecBgStart](docs/V1ExecBgStart.md)
+ - [V1ExecBgStatus](docs/V1ExecBgStatus.md)
+ - [V1ExecRequest](docs/V1ExecRequest.md)
+ - [V1ExecResult](docs/V1ExecResult.md)
  - [V1FailureEarlyStopping](docs/V1FailureEarlyStopping.md)
  - [V1FileType](docs/V1FileType.md)
+ - [V1FsEntry](docs/V1FsEntry.md)
+ - [V1FsListResult](docs/V1FsListResult.md)
+ - [V1FsMkdirRequest](docs/V1FsMkdirRequest.md)
+ - [V1FsPathResult](docs/V1FsPathResult.md)
+ - [V1FsStatResult](docs/V1FsStatResult.md)
  - [V1GcsType](docs/V1GcsType.md)
  - [V1GitConnection](docs/V1GitConnection.md)
  - [V1GitType](docs/V1GitType.md)
@@ -585,18 +616,22 @@ Class | Method | HTTP request | Description
  - [V1PasswordChange](docs/V1PasswordChange.md)
  - [V1PatchStrategy](docs/V1PatchStrategy.md)
  - [V1PathRef](docs/V1PathRef.md)
+ - [V1PingResponse](docs/V1PingResponse.md)
  - [V1Pipeline](docs/V1Pipeline.md)
  - [V1PipelineKind](docs/V1PipelineKind.md)
  - [V1Plugins](docs/V1Plugins.md)
  - [V1Policy](docs/V1Policy.md)
  - [V1PolyaxonInitContainer](docs/V1PolyaxonInitContainer.md)
  - [V1PolyaxonSidecarContainer](docs/V1PolyaxonSidecarContainer.md)
+ - [V1PolyaxonTmuxContainer](docs/V1PolyaxonTmuxContainer.md)
  - [V1Preset](docs/V1Preset.md)
  - [V1PresetSettings](docs/V1PresetSettings.md)
  - [V1Project](docs/V1Project.md)
  - [V1ProjectSettings](docs/V1ProjectSettings.md)
  - [V1ProjectVersion](docs/V1ProjectVersion.md)
  - [V1ProjectVersionKind](docs/V1ProjectVersionKind.md)
+ - [V1Pty](docs/V1Pty.md)
+ - [V1PtyList](docs/V1PtyList.md)
  - [V1PytorchElasticPolicy](docs/V1PytorchElasticPolicy.md)
  - [V1PytorchJob](docs/V1PytorchJob.md)
  - [V1Queue](docs/V1Queue.md)
@@ -605,6 +640,7 @@ Class | Method | HTTP request | Description
  - [V1RayCluster](docs/V1RayCluster.md)
  - [V1RayReplica](docs/V1RayReplica.md)
  - [V1Reference](docs/V1Reference.md)
+ - [V1ResizePtyRequest](docs/V1ResizePtyRequest.md)
  - [V1ResourceType](docs/V1ResourceType.md)
  - [V1Run](docs/V1Run.md)
  - [V1RunArtifact](docs/V1RunArtifact.md)
@@ -631,6 +667,7 @@ Class | Method | HTTP request | Description
  - [V1Service](docs/V1Service.md)
  - [V1ServiceAccount](docs/V1ServiceAccount.md)
  - [V1SettingsCatalog](docs/V1SettingsCatalog.md)
+ - [V1SignalRequest](docs/V1SignalRequest.md)
  - [V1Stage](docs/V1Stage.md)
  - [V1StageCondition](docs/V1StageCondition.md)
  - [V1Stages](docs/V1Stages.md)

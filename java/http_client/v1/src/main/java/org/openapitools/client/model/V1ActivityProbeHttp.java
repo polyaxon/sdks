@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -60,7 +60,7 @@ public class V1ActivityProbeHttp {
   }
 
   public V1ActivityProbeHttp path(String path) {
-
+    
     this.path = path;
     return this;
   }
@@ -82,7 +82,7 @@ public class V1ActivityProbeHttp {
 
 
   public V1ActivityProbeHttp port(Integer port) {
-
+    
     this.port = port;
     return this;
   }

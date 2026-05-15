@@ -24,6 +24,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field, StrictBool, StrictStr, conlist
 from polyaxon_sdk.models.v1_notification import V1Notification
 from polyaxon_sdk.models.v1_polyaxon_sidecar_container import V1PolyaxonSidecarContainer
+from polyaxon_sdk.models.v1_polyaxon_tmux_container import V1PolyaxonTmuxContainer
 
 class V1Plugins(BaseModel):
     """
@@ -42,7 +43,8 @@ class V1Plugins(BaseModel):
     external_host: Optional[StrictBool] = Field(None, alias="externalHost")
     sidecar: Optional[V1PolyaxonSidecarContainer] = None
     notifications: Optional[conlist(V1Notification)] = None
-    __properties = ["auth", "docker", "shm", "mountArtifactsStore", "collectArtifacts", "collectLogs", "collectResources", "syncStatuses", "autoResume", "logLevel", "externalHost", "sidecar", "notifications"]
+    tmux: Optional[V1PolyaxonTmuxContainer] = None
+    __properties = ["auth", "docker", "shm", "mountArtifactsStore", "collectArtifacts", "collectLogs", "collectResources", "syncStatuses", "autoResume", "logLevel", "externalHost", "sidecar", "notifications", "tmux"]
 
     class Config:
         allow_population_by_field_name = True
@@ -77,6 +79,9 @@ class V1Plugins(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['notifications'] = _items
+        # override the default output from pydantic by calling `to_dict()` of tmux
+        if self.tmux:
+            _dict['tmux'] = self.tmux.to_dict()
         return _dict
 
     @classmethod
@@ -101,7 +106,8 @@ class V1Plugins(BaseModel):
             "log_level": obj.get("logLevel"),
             "external_host": obj.get("externalHost"),
             "sidecar": V1PolyaxonSidecarContainer.from_dict(obj.get("sidecar")) if obj.get("sidecar") is not None else None,
-            "notifications": [V1Notification.from_dict(_item) for _item in obj.get("notifications")] if obj.get("notifications") is not None else None
+            "notifications": [V1Notification.from_dict(_item) for _item in obj.get("notifications")] if obj.get("notifications") is not None else None,
+            "tmux": V1PolyaxonTmuxContainer.from_dict(obj.get("tmux")) if obj.get("tmux") is not None else None
         })
         return _obj
 

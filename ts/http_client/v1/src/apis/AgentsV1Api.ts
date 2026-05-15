@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -220,7 +220,7 @@ export interface UpdateAgentTokenRequest {
 }
 
 /**
- *
+ * 
  */
 export class AgentsV1Api extends runtime.BaseAPI {
 

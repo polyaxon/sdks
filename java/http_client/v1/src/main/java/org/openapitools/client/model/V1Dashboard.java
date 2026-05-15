@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -105,7 +105,7 @@ public class V1Dashboard {
   }
 
   public V1Dashboard uuid(String uuid) {
-
+    
     this.uuid = uuid;
     return this;
   }
@@ -127,7 +127,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard name(String name) {
-
+    
     this.name = name;
     return this;
   }
@@ -149,7 +149,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard description(String description) {
-
+    
     this.description = description;
     return this;
   }
@@ -171,7 +171,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard tags(List<String> tags) {
-
+    
     this.tags = tags;
     return this;
   }
@@ -201,7 +201,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard liveState(Integer liveState) {
-
+    
     this.liveState = liveState;
     return this;
   }
@@ -223,7 +223,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard user(String user) {
-
+    
     this.user = user;
     return this;
   }
@@ -245,7 +245,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard project(String project) {
-
+    
     this.project = project;
     return this;
   }
@@ -267,7 +267,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard run(String run) {
-
+    
     this.run = run;
     return this;
   }
@@ -289,7 +289,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard spec(V1DashboardSpec spec) {
-
+    
     this.spec = spec;
     return this;
   }
@@ -311,7 +311,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard createdAt(OffsetDateTime createdAt) {
-
+    
     this.createdAt = createdAt;
     return this;
   }
@@ -333,7 +333,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard updatedAt(OffsetDateTime updatedAt) {
-
+    
     this.updatedAt = updatedAt;
     return this;
   }
@@ -355,7 +355,7 @@ public class V1Dashboard {
 
 
   public V1Dashboard level(V1EntityLevel level) {
-
+    
     this.level = level;
     return this;
   }

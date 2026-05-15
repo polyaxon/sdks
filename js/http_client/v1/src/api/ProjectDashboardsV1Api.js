@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -26,7 +26,7 @@ import V1OwnerSubEntityResourcePromoteRequest from '../model/V1OwnerSubEntityRes
 export default class ProjectDashboardsV1Api {
 
     /**
-    * Constructs a new ProjectDashboardsV1Api.
+    * Constructs a new ProjectDashboardsV1Api. 
     * Polyaxon sdk
     * @alias module:api/ProjectDashboardsV1Api
     * @class
@@ -402,7 +402,7 @@ export default class ProjectDashboardsV1Api {
      * @param {String} owner Owner of the namespace
      * @param {String} entity Entity: project name, hub name, registry name, ...
      * @param {String} uuid Uuid identifier of the sub-entity
-     * @param {module:model/V1OwnerSubEntityResourcePromoteRequest} body
+     * @param {module:model/V1OwnerSubEntityResourcePromoteRequest} body 
      * @param {module:api/ProjectDashboardsV1Api~promoteProjectDashboardCallback} callback The callback function, accepting three arguments: error, data, response
      */
     promoteProjectDashboard(owner, entity, uuid, body, callback) {

@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -73,7 +73,7 @@ public class V1DaskCluster {
   }
 
   public V1DaskCluster kind(String kind) {
-
+    
     this.kind = kind;
     return this;
   }
@@ -95,7 +95,7 @@ public class V1DaskCluster {
 
 
   public V1DaskCluster worker(V1DaskReplica worker) {
-
+    
     this.worker = worker;
     return this;
   }
@@ -117,7 +117,7 @@ public class V1DaskCluster {
 
 
   public V1DaskCluster scheduler(V1DaskReplica scheduler) {
-
+    
     this.scheduler = scheduler;
     return this;
   }
@@ -139,7 +139,7 @@ public class V1DaskCluster {
 
 
   public V1DaskCluster minReplicas(Integer minReplicas) {
-
+    
     this.minReplicas = minReplicas;
     return this;
   }
@@ -161,7 +161,7 @@ public class V1DaskCluster {
 
 
   public V1DaskCluster maxReplicas(Integer maxReplicas) {
-
+    
     this.maxReplicas = maxReplicas;
     return this;
   }

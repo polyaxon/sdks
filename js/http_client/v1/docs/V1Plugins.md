@@ -17,5 +17,6 @@ Name | Type | Description | Notes
 **externalHost** | **Boolean** |  | [optional] 
 **sidecar** | [**V1PolyaxonSidecarContainer**](V1PolyaxonSidecarContainer.md) |  | [optional] 
 **notifications** | [**[V1Notification]**](V1Notification.md) |  | [optional] 
+**tmux** | [**V1PolyaxonTmuxContainer**](V1PolyaxonTmuxContainer.md) |  | [optional] 
 
 

@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -18,35 +18,35 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1EntityLevel {
-
+    
         /**
          * value: "entity"
          * @const
          */
         "entity" = "entity";
 
-
+    
         /**
          * value: "project"
          * @const
          */
         "project" = "project";
 
-
+    
         /**
          * value: "cross"
          * @const
          */
         "cross" = "cross";
 
-
+    
         /**
          * value: "org"
          * @const
          */
         "org" = "org";
 
-
+    
 
     /**
     * Returns a <code>V1EntityLevel</code> enum value from a Javascript object name.

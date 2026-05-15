@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import V1Notification from './V1Notification';
 import V1PolyaxonSidecarContainer from './V1PolyaxonSidecarContainer';
+import V1PolyaxonTmuxContainer from './V1PolyaxonTmuxContainer';
 
 /**
  * The V1Plugins model module.
@@ -25,8 +26,8 @@ class V1Plugins {
      * Constructs a new <code>V1Plugins</code>.
      * @alias module:model/V1Plugins
      */
-    constructor() {
-
+    constructor() { 
+        
         V1Plugins.initialize(this);
     }
 
@@ -35,7 +36,7 @@ class V1Plugins {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**
@@ -88,6 +89,9 @@ class V1Plugins {
             if (data.hasOwnProperty('notifications')) {
                 obj['notifications'] = ApiClient.convertToType(data['notifications'], [V1Notification]);
             }
+            if (data.hasOwnProperty('tmux')) {
+                obj['tmux'] = V1PolyaxonTmuxContainer.constructFromObject(data['tmux']);
+            }
         }
         return obj;
     }
@@ -115,6 +119,10 @@ class V1Plugins {
             for (const item of data['notifications']) {
                 V1Notification.validateJSON(item);
             };
+        }
+        // validate the optional field `tmux`
+        if (data['tmux']) { // data not null
+          V1PolyaxonTmuxContainer.validateJSON(data['tmux']);
         }
 
         return true;
@@ -189,6 +197,11 @@ V1Plugins.prototype['sidecar'] = undefined;
  * @member {Array.<module:model/V1Notification>} notifications
  */
 V1Plugins.prototype['notifications'] = undefined;
+
+/**
+ * @member {module:model/V1PolyaxonTmuxContainer} tmux
+ */
+V1Plugins.prototype['tmux'] = undefined;
 
 
 

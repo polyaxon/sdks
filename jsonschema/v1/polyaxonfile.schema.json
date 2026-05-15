@@ -5391,6 +5391,41 @@
       "title": "Placeholder for Container",
       "type": "object"
     },
+    "v1CreatePtyRequest": {
+      "description": "Request body for POST /pty.",
+      "properties": {
+        "cols": {
+          "description": "Terminal columns.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "command": {
+          "description": "Command argv. Empty means use the server default shell.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "description": "Environment overrides. JSON null means unset the key.",
+          "type": "object"
+        },
+        "rows": {
+          "description": "Terminal rows.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "tag": {
+          "description": "Optional reconnect handle.",
+          "type": "string"
+        },
+        "workdir": {
+          "description": "Working directory.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "v1Credentials": {
       "properties": {
         "password": {
@@ -6552,6 +6587,216 @@
       "title": "Events response definition",
       "type": "object"
     },
+    "v1ExecBgList": {
+      "description": "List response for GET /exec/bg.",
+      "properties": {
+        "execs": {
+          "items": {
+            "$ref": "#/definitions/v1ExecBgStatus"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecBgLogs": {
+      "description": "Response body for GET /exec/bg/{id}/logs.",
+      "properties": {
+        "bytes": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "data": {
+          "type": "string"
+        },
+        "eof": {
+          "type": "boolean"
+        },
+        "exec_id": {
+          "type": "string"
+        },
+        "next_offset": {
+          "format": "int64",
+          "type": "string"
+        },
+        "offset": {
+          "format": "int64",
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "stream": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecBgRequest": {
+      "description": "Request body for POST /exec/bg.",
+      "properties": {
+        "command": {
+          "description": "Command argv. No shell interpolation unless the caller passes a shell.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "description": "Environment overrides. JSON null means unset the key.",
+          "type": "object"
+        },
+        "stdin": {
+          "description": "Base64-encoded stdin bytes.",
+          "type": "string"
+        },
+        "tag": {
+          "description": "Optional reconnect handle.",
+          "type": "string"
+        },
+        "timeout_ms": {
+          "description": "Timeout in milliseconds.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "workdir": {
+          "description": "Working directory.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecBgStart": {
+      "description": "Response body for POST /exec/bg.",
+      "properties": {
+        "exec_id": {
+          "type": "string"
+        },
+        "pid": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "started_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecBgStatus": {
+      "description": "One background exec status record.",
+      "properties": {
+        "duration_ms": {
+          "format": "int64",
+          "type": "string"
+        },
+        "exec_id": {
+          "type": "string"
+        },
+        "exit_code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pid": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "started_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "stderr_bytes": {
+          "format": "int64",
+          "type": "string"
+        },
+        "stdout_bytes": {
+          "format": "int64",
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecRequest": {
+      "description": "Request body for POST /exec.",
+      "properties": {
+        "command": {
+          "description": "Command argv. No shell interpolation unless the caller passes a shell.",
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "env": {
+          "description": "Environment overrides. JSON null means unset the key.",
+          "type": "object"
+        },
+        "stdin": {
+          "description": "Base64-encoded stdin bytes.",
+          "type": "string"
+        },
+        "timeout_ms": {
+          "description": "Timeout in milliseconds.",
+          "format": "int32",
+          "type": "integer"
+        },
+        "workdir": {
+          "description": "Working directory.",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1ExecResult": {
+      "description": "Response body for POST /exec.",
+      "properties": {
+        "duration_ms": {
+          "format": "int64",
+          "type": "string"
+        },
+        "exec_id": {
+          "type": "string"
+        },
+        "exit_code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "stderr": {
+          "type": "string"
+        },
+        "stderr_truncated": {
+          "type": "boolean"
+        },
+        "stdout": {
+          "type": "string"
+        },
+        "stdout_truncated": {
+          "type": "boolean"
+        },
+        "timed_out": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
     "v1FailureEarlyStopping": {
       "description": "FailureEarlyStoppingSchema specification\nEarly stopping based on failure config.\nthis policy stops based on a percentage of\nfailed runs at every evaluation.",
       "properties": {
@@ -6588,6 +6833,108 @@
         }
       },
       "title": "File type specification",
+      "type": "object"
+    },
+    "v1FsEntry": {
+      "description": "One filesystem list entry.",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "mtime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "type": "string"
+        },
+        "symlink_target": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1FsListResult": {
+      "description": "Response body for GET /fs/ls.",
+      "properties": {
+        "entries": {
+          "items": {
+            "$ref": "#/definitions/v1FsEntry"
+          },
+          "type": "array"
+        },
+        "path": {
+          "type": "string"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "v1FsMkdirRequest": {
+      "description": "Request body for POST /fs/mkdir.",
+      "properties": {
+        "mode": {
+          "type": "string"
+        },
+        "parents": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1FsPathResult": {
+      "description": "Response body for filesystem path operations.",
+      "properties": {
+        "path": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1FsStatResult": {
+      "description": "Response body for GET /fs/stat.",
+      "properties": {
+        "gid": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "mtime": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "size": {
+          "format": "int64",
+          "type": "string"
+        },
+        "symlink_target": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "uid": {
+          "format": "int64",
+          "type": "integer"
+        }
+      },
       "type": "object"
     },
     "v1GcsType": {
@@ -8985,6 +9332,38 @@
       "title": "Path reference specification",
       "type": "object"
     },
+    "v1PingResponse": {
+      "description": "Response body for GET /ping.",
+      "properties": {
+        "execs_running": {
+          "format": "int64",
+          "type": "string"
+        },
+        "last_activity": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "ptys_attached": {
+          "format": "int64",
+          "type": "string"
+        },
+        "ptys_running": {
+          "format": "int64",
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "uptime_ms": {
+          "format": "int64",
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
     "v1Pipeline": {
       "properties": {
         "kind": {
@@ -9066,6 +9445,10 @@
         "syncStatuses": {
           "title": "Optional flag to tell Polyaxon to sync statuses",
           "type": "boolean"
+        },
+        "tmux": {
+          "$ref": "#/definitions/v1PolyaxonTmuxContainer",
+          "title": "Optional flag to inject a tmux binary for reconnectable exec sessions, default false"
         }
       },
       "title": "Plugins specification",
@@ -9277,6 +9660,24 @@
         }
       },
       "title": "Polyaxon sidecar specification",
+      "type": "object"
+    },
+    "v1PolyaxonTmuxContainer": {
+      "properties": {
+        "image": {
+          "type": "string"
+        },
+        "imagePullPolicy": {
+          "type": "string"
+        },
+        "imageTag": {
+          "type": "string"
+        },
+        "resources": {
+          "$ref": "#/definitions/v1ResourceRequirements"
+        }
+      },
+      "title": "Polyaxon tmux specification",
       "type": "object"
     },
     "v1Preset": {
@@ -9642,6 +10043,79 @@
       ],
       "type": "string"
     },
+    "v1Pty": {
+      "description": "One PTY session record.",
+      "properties": {
+        "attached": {
+          "type": "boolean"
+        },
+        "cols": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "detached_since": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "duration_ms": {
+          "format": "int64",
+          "type": "string"
+        },
+        "exit_code": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "finished_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "last_activity": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "last_client_activity": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "pid": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "pty_id": {
+          "type": "string"
+        },
+        "rows": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "signal": {
+          "type": "string"
+        },
+        "started_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "tag": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "v1PtyList": {
+      "description": "List response for GET /pty.",
+      "properties": {
+        "sessions": {
+          "items": {
+            "$ref": "#/definitions/v1Pty"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
     "v1PytorchElasticPolicy": {
       "properties": {
         "Metrics": {
@@ -9998,6 +10472,20 @@
         }
       },
       "title": "Reference specification",
+      "type": "object"
+    },
+    "v1ResizePtyRequest": {
+      "description": "Request body for POST /pty/{id}/resize.",
+      "properties": {
+        "cols": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "rows": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
       "type": "object"
     },
     "v1ResourceRequirements": {
@@ -10962,6 +11450,15 @@
         }
       },
       "title": "Settings catalog specification",
+      "type": "object"
+    },
+    "v1SignalRequest": {
+      "description": "Request body for signal endpoints.",
+      "properties": {
+        "signal": {
+          "type": "string"
+        }
+      },
       "type": "object"
     },
     "v1Stage": {

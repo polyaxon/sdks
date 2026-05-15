@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Notification;
 import org.openapitools.client.model.V1PolyaxonSidecarContainer;
+import org.openapitools.client.model.V1PolyaxonTmuxContainer;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -143,6 +144,14 @@ public class V1PluginsTest {
     @Test
     public void notificationsTest() {
         // TODO: test notifications
+    }
+
+    /**
+     * Test the property 'tmux'
+     */
+    @Test
+    public void tmuxTest() {
+        // TODO: test tmux
     }
 
 }

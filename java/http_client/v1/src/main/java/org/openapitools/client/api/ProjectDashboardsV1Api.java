@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -164,7 +164,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param body Dashboard body (required)
@@ -187,7 +187,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param body Dashboard body (required)
@@ -211,7 +211,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Create project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param body Dashboard body (required)
@@ -323,7 +323,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -344,7 +344,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -367,7 +367,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Delete project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -478,7 +478,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -501,7 +501,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -525,7 +525,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Get project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -670,7 +670,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -700,7 +700,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -731,7 +731,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -883,7 +883,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -913,7 +913,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -944,7 +944,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * List project dashboards (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param name Entity managing the resource (required)
      * @param run Run. (optional)
@@ -1070,7 +1070,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
@@ -1094,7 +1094,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
@@ -1119,7 +1119,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Patch project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
@@ -1239,7 +1239,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1261,7 +1261,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1285,7 +1285,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Promote project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param entity Entity: project name, hub name, registry name, ... (required)
      * @param uuid Uuid identifier of the sub-entity (required)
@@ -1404,7 +1404,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
@@ -1428,7 +1428,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)
@@ -1453,7 +1453,7 @@ public class ProjectDashboardsV1Api {
 
     /**
      * Update project dashboard (asynchronously)
-     *
+     * 
      * @param owner Owner of the namespace (required)
      * @param project Project under namespace (required)
      * @param dashboardUuid UUID (required)

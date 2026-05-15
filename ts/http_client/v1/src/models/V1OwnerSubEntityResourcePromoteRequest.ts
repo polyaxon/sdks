@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -14,13 +14,13 @@
 
 import { exists, mapValues } from '../runtime';
 /**
- *
+ * 
  * @export
  * @interface V1OwnerSubEntityResourcePromoteRequest
  */
 export interface V1OwnerSubEntityResourcePromoteRequest {
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OwnerSubEntityResourcePromoteRequest
      */
@@ -32,13 +32,13 @@ export interface V1OwnerSubEntityResourcePromoteRequest {
      */
     entity?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OwnerSubEntityResourcePromoteRequest
      */
     uuid?: string;
     /**
-     *
+     * 
      * @type {string}
      * @memberof V1OwnerSubEntityResourcePromoteRequest
      */
@@ -63,7 +63,7 @@ export function V1OwnerSubEntityResourcePromoteRequestFromJSONTyped(json: any, i
         return json;
     }
     return {
-
+        
         'owner': !exists(json, 'owner') ? undefined : json['owner'],
         'entity': !exists(json, 'entity') ? undefined : json['entity'],
         'uuid': !exists(json, 'uuid') ? undefined : json['uuid'],
@@ -79,7 +79,7 @@ export function V1OwnerSubEntityResourcePromoteRequestToJSON(value?: V1OwnerSubE
         return null;
     }
     return {
-
+        
         'owner': value.owner,
         'entity': value.entity,
         'uuid': value.uuid,

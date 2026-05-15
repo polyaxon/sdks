@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.openapitools.client.model.V1Notification;
 import org.openapitools.client.model.V1PolyaxonSidecarContainer;
+import org.openapitools.client.model.V1PolyaxonTmuxContainer;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -104,11 +105,15 @@ public class V1Plugins {
   @SerializedName(SERIALIZED_NAME_NOTIFICATIONS)
   private List<V1Notification> notifications;
 
+  public static final String SERIALIZED_NAME_TMUX = "tmux";
+  @SerializedName(SERIALIZED_NAME_TMUX)
+  private V1PolyaxonTmuxContainer tmux;
+
   public V1Plugins() {
   }
 
   public V1Plugins auth(Boolean auth) {
-
+    
     this.auth = auth;
     return this;
   }
@@ -130,7 +135,7 @@ public class V1Plugins {
 
 
   public V1Plugins docker(Boolean docker) {
-
+    
     this.docker = docker;
     return this;
   }
@@ -152,7 +157,7 @@ public class V1Plugins {
 
 
   public V1Plugins shm(Boolean shm) {
-
+    
     this.shm = shm;
     return this;
   }
@@ -174,7 +179,7 @@ public class V1Plugins {
 
 
   public V1Plugins mountArtifactsStore(Boolean mountArtifactsStore) {
-
+    
     this.mountArtifactsStore = mountArtifactsStore;
     return this;
   }
@@ -196,7 +201,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectArtifacts(Boolean collectArtifacts) {
-
+    
     this.collectArtifacts = collectArtifacts;
     return this;
   }
@@ -218,7 +223,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectLogs(Boolean collectLogs) {
-
+    
     this.collectLogs = collectLogs;
     return this;
   }
@@ -240,7 +245,7 @@ public class V1Plugins {
 
 
   public V1Plugins collectResources(Boolean collectResources) {
-
+    
     this.collectResources = collectResources;
     return this;
   }
@@ -262,7 +267,7 @@ public class V1Plugins {
 
 
   public V1Plugins syncStatuses(Boolean syncStatuses) {
-
+    
     this.syncStatuses = syncStatuses;
     return this;
   }
@@ -284,7 +289,7 @@ public class V1Plugins {
 
 
   public V1Plugins autoResume(Boolean autoResume) {
-
+    
     this.autoResume = autoResume;
     return this;
   }
@@ -306,7 +311,7 @@ public class V1Plugins {
 
 
   public V1Plugins logLevel(String logLevel) {
-
+    
     this.logLevel = logLevel;
     return this;
   }
@@ -328,7 +333,7 @@ public class V1Plugins {
 
 
   public V1Plugins externalHost(Boolean externalHost) {
-
+    
     this.externalHost = externalHost;
     return this;
   }
@@ -350,7 +355,7 @@ public class V1Plugins {
 
 
   public V1Plugins sidecar(V1PolyaxonSidecarContainer sidecar) {
-
+    
     this.sidecar = sidecar;
     return this;
   }
@@ -372,7 +377,7 @@ public class V1Plugins {
 
 
   public V1Plugins notifications(List<V1Notification> notifications) {
-
+    
     this.notifications = notifications;
     return this;
   }
@@ -401,6 +406,28 @@ public class V1Plugins {
   }
 
 
+  public V1Plugins tmux(V1PolyaxonTmuxContainer tmux) {
+    
+    this.tmux = tmux;
+    return this;
+  }
+
+   /**
+   * Get tmux
+   * @return tmux
+  **/
+  @javax.annotation.Nullable
+
+  public V1PolyaxonTmuxContainer getTmux() {
+    return tmux;
+  }
+
+
+  public void setTmux(V1PolyaxonTmuxContainer tmux) {
+    this.tmux = tmux;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -423,12 +450,13 @@ public class V1Plugins {
         Objects.equals(this.logLevel, v1Plugins.logLevel) &&
         Objects.equals(this.externalHost, v1Plugins.externalHost) &&
         Objects.equals(this.sidecar, v1Plugins.sidecar) &&
-        Objects.equals(this.notifications, v1Plugins.notifications);
+        Objects.equals(this.notifications, v1Plugins.notifications) &&
+        Objects.equals(this.tmux, v1Plugins.tmux);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auth, docker, shm, mountArtifactsStore, collectArtifacts, collectLogs, collectResources, syncStatuses, autoResume, logLevel, externalHost, sidecar, notifications);
+    return Objects.hash(auth, docker, shm, mountArtifactsStore, collectArtifacts, collectLogs, collectResources, syncStatuses, autoResume, logLevel, externalHost, sidecar, notifications, tmux);
   }
 
   @Override
@@ -448,6 +476,7 @@ public class V1Plugins {
     sb.append("    externalHost: ").append(toIndentedString(externalHost)).append("\n");
     sb.append("    sidecar: ").append(toIndentedString(sidecar)).append("\n");
     sb.append("    notifications: ").append(toIndentedString(notifications)).append("\n");
+    sb.append("    tmux: ").append(toIndentedString(tmux)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -483,6 +512,7 @@ public class V1Plugins {
     openapiFields.add("externalHost");
     openapiFields.add("sidecar");
     openapiFields.add("notifications");
+    openapiFields.add("tmux");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -528,6 +558,10 @@ public class V1Plugins {
             V1Notification.validateJsonObject(jsonArraynotifications.get(i).getAsJsonObject());
           };
         }
+      }
+      // validate the optional field `tmux`
+      if (jsonObj.get("tmux") != null && !jsonObj.get("tmux").isJsonNull()) {
+        V1PolyaxonTmuxContainer.validateJsonObject(jsonObj.getAsJsonObject("tmux"));
       }
   }
 

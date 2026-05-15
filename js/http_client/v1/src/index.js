@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -50,6 +50,7 @@ import V1ConnectionResource from './model/V1ConnectionResource';
 import V1ConnectionResponse from './model/V1ConnectionResponse';
 import V1ConnectionSchema from './model/V1ConnectionSchema';
 import V1ConnectionType from './model/V1ConnectionType';
+import V1CreatePtyRequest from './model/V1CreatePtyRequest';
 import V1Credentials from './model/V1Credentials';
 import V1CronSchedule from './model/V1CronSchedule';
 import V1Culling from './model/V1Culling';
@@ -89,8 +90,20 @@ import V1EventTrigger from './model/V1EventTrigger';
 import V1EventType from './model/V1EventType';
 import V1EventVideo from './model/V1EventVideo';
 import V1EventsResponse from './model/V1EventsResponse';
+import V1ExecBgList from './model/V1ExecBgList';
+import V1ExecBgLogs from './model/V1ExecBgLogs';
+import V1ExecBgRequest from './model/V1ExecBgRequest';
+import V1ExecBgStart from './model/V1ExecBgStart';
+import V1ExecBgStatus from './model/V1ExecBgStatus';
+import V1ExecRequest from './model/V1ExecRequest';
+import V1ExecResult from './model/V1ExecResult';
 import V1FailureEarlyStopping from './model/V1FailureEarlyStopping';
 import V1FileType from './model/V1FileType';
+import V1FsEntry from './model/V1FsEntry';
+import V1FsListResult from './model/V1FsListResult';
+import V1FsMkdirRequest from './model/V1FsMkdirRequest';
+import V1FsPathResult from './model/V1FsPathResult';
+import V1FsStatResult from './model/V1FsStatResult';
 import V1GcsType from './model/V1GcsType';
 import V1GitConnection from './model/V1GitConnection';
 import V1GitType from './model/V1GitType';
@@ -174,18 +187,22 @@ import V1Param from './model/V1Param';
 import V1PasswordChange from './model/V1PasswordChange';
 import V1PatchStrategy from './model/V1PatchStrategy';
 import V1PathRef from './model/V1PathRef';
+import V1PingResponse from './model/V1PingResponse';
 import V1Pipeline from './model/V1Pipeline';
 import V1PipelineKind from './model/V1PipelineKind';
 import V1Plugins from './model/V1Plugins';
 import V1Policy from './model/V1Policy';
 import V1PolyaxonInitContainer from './model/V1PolyaxonInitContainer';
 import V1PolyaxonSidecarContainer from './model/V1PolyaxonSidecarContainer';
+import V1PolyaxonTmuxContainer from './model/V1PolyaxonTmuxContainer';
 import V1Preset from './model/V1Preset';
 import V1PresetSettings from './model/V1PresetSettings';
 import V1Project from './model/V1Project';
 import V1ProjectSettings from './model/V1ProjectSettings';
 import V1ProjectVersion from './model/V1ProjectVersion';
 import V1ProjectVersionKind from './model/V1ProjectVersionKind';
+import V1Pty from './model/V1Pty';
+import V1PtyList from './model/V1PtyList';
 import V1PytorchElasticPolicy from './model/V1PytorchElasticPolicy';
 import V1PytorchJob from './model/V1PytorchJob';
 import V1Queue from './model/V1Queue';
@@ -194,6 +211,7 @@ import V1RayAutoscalerOptions from './model/V1RayAutoscalerOptions';
 import V1RayCluster from './model/V1RayCluster';
 import V1RayReplica from './model/V1RayReplica';
 import V1Reference from './model/V1Reference';
+import V1ResizePtyRequest from './model/V1ResizePtyRequest';
 import V1ResourceType from './model/V1ResourceType';
 import V1Run from './model/V1Run';
 import V1RunArtifact from './model/V1RunArtifact';
@@ -220,6 +238,7 @@ import V1SectionSpec from './model/V1SectionSpec';
 import V1Service from './model/V1Service';
 import V1ServiceAccount from './model/V1ServiceAccount';
 import V1SettingsCatalog from './model/V1SettingsCatalog';
+import V1SignalRequest from './model/V1SignalRequest';
 import V1Stage from './model/V1Stage';
 import V1StageCondition from './model/V1StageCondition';
 import V1Stages from './model/V1Stages';
@@ -263,6 +282,7 @@ import ProjectSearchesV1Api from './api/ProjectSearchesV1Api';
 import ProjectsV1Api from './api/ProjectsV1Api';
 import QueuesV1Api from './api/QueuesV1Api';
 import RunsV1Api from './api/RunsV1Api';
+import SandboxV1Api from './api/SandboxV1Api';
 import SchemasV1Api from './api/SchemasV1Api';
 import SearchesV1Api from './api/SearchesV1Api';
 import ServiceAccountsV1Api from './api/ServiceAccountsV1Api';
@@ -533,6 +553,12 @@ export {
     V1ConnectionType,
 
     /**
+     * The V1CreatePtyRequest model constructor.
+     * @property {module:model/V1CreatePtyRequest}
+     */
+    V1CreatePtyRequest,
+
+    /**
      * The V1Credentials model constructor.
      * @property {module:model/V1Credentials}
      */
@@ -767,6 +793,48 @@ export {
     V1EventsResponse,
 
     /**
+     * The V1ExecBgList model constructor.
+     * @property {module:model/V1ExecBgList}
+     */
+    V1ExecBgList,
+
+    /**
+     * The V1ExecBgLogs model constructor.
+     * @property {module:model/V1ExecBgLogs}
+     */
+    V1ExecBgLogs,
+
+    /**
+     * The V1ExecBgRequest model constructor.
+     * @property {module:model/V1ExecBgRequest}
+     */
+    V1ExecBgRequest,
+
+    /**
+     * The V1ExecBgStart model constructor.
+     * @property {module:model/V1ExecBgStart}
+     */
+    V1ExecBgStart,
+
+    /**
+     * The V1ExecBgStatus model constructor.
+     * @property {module:model/V1ExecBgStatus}
+     */
+    V1ExecBgStatus,
+
+    /**
+     * The V1ExecRequest model constructor.
+     * @property {module:model/V1ExecRequest}
+     */
+    V1ExecRequest,
+
+    /**
+     * The V1ExecResult model constructor.
+     * @property {module:model/V1ExecResult}
+     */
+    V1ExecResult,
+
+    /**
      * The V1FailureEarlyStopping model constructor.
      * @property {module:model/V1FailureEarlyStopping}
      */
@@ -777,6 +845,36 @@ export {
      * @property {module:model/V1FileType}
      */
     V1FileType,
+
+    /**
+     * The V1FsEntry model constructor.
+     * @property {module:model/V1FsEntry}
+     */
+    V1FsEntry,
+
+    /**
+     * The V1FsListResult model constructor.
+     * @property {module:model/V1FsListResult}
+     */
+    V1FsListResult,
+
+    /**
+     * The V1FsMkdirRequest model constructor.
+     * @property {module:model/V1FsMkdirRequest}
+     */
+    V1FsMkdirRequest,
+
+    /**
+     * The V1FsPathResult model constructor.
+     * @property {module:model/V1FsPathResult}
+     */
+    V1FsPathResult,
+
+    /**
+     * The V1FsStatResult model constructor.
+     * @property {module:model/V1FsStatResult}
+     */
+    V1FsStatResult,
 
     /**
      * The V1GcsType model constructor.
@@ -1277,6 +1375,12 @@ export {
     V1PathRef,
 
     /**
+     * The V1PingResponse model constructor.
+     * @property {module:model/V1PingResponse}
+     */
+    V1PingResponse,
+
+    /**
      * The V1Pipeline model constructor.
      * @property {module:model/V1Pipeline}
      */
@@ -1313,6 +1417,12 @@ export {
     V1PolyaxonSidecarContainer,
 
     /**
+     * The V1PolyaxonTmuxContainer model constructor.
+     * @property {module:model/V1PolyaxonTmuxContainer}
+     */
+    V1PolyaxonTmuxContainer,
+
+    /**
      * The V1Preset model constructor.
      * @property {module:model/V1Preset}
      */
@@ -1347,6 +1457,18 @@ export {
      * @property {module:model/V1ProjectVersionKind}
      */
     V1ProjectVersionKind,
+
+    /**
+     * The V1Pty model constructor.
+     * @property {module:model/V1Pty}
+     */
+    V1Pty,
+
+    /**
+     * The V1PtyList model constructor.
+     * @property {module:model/V1PtyList}
+     */
+    V1PtyList,
 
     /**
      * The V1PytorchElasticPolicy model constructor.
@@ -1395,6 +1517,12 @@ export {
      * @property {module:model/V1Reference}
      */
     V1Reference,
+
+    /**
+     * The V1ResizePtyRequest model constructor.
+     * @property {module:model/V1ResizePtyRequest}
+     */
+    V1ResizePtyRequest,
 
     /**
      * The V1ResourceType model constructor.
@@ -1551,6 +1679,12 @@ export {
      * @property {module:model/V1SettingsCatalog}
      */
     V1SettingsCatalog,
+
+    /**
+     * The V1SignalRequest model constructor.
+     * @property {module:model/V1SignalRequest}
+     */
+    V1SignalRequest,
 
     /**
      * The V1Stage model constructor.
@@ -1809,6 +1943,12 @@ export {
     * @property {module:api/RunsV1Api}
     */
     RunsV1Api,
+
+    /**
+    * The SandboxV1Api service constructor.
+    * @property {module:api/SandboxV1Api}
+    */
+    SandboxV1Api,
 
     /**
     * The SchemasV1Api service constructor.

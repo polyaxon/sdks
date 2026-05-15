@@ -14,6 +14,7 @@ from polyaxon_sdk.api.project_searches_v1_api import ProjectSearchesV1Api
 from polyaxon_sdk.api.projects_v1_api import ProjectsV1Api
 from polyaxon_sdk.api.queues_v1_api import QueuesV1Api
 from polyaxon_sdk.api.runs_v1_api import RunsV1Api
+from polyaxon_sdk.api.sandbox_v1_api import SandboxV1Api
 from polyaxon_sdk.api.schemas_v1_api import SchemasV1Api
 from polyaxon_sdk.api.searches_v1_api import SearchesV1Api
 from polyaxon_sdk.api.service_accounts_v1_api import ServiceAccountsV1Api

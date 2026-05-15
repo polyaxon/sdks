@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -27,19 +27,19 @@ import {
 } from './V1ActivityProbeHttp';
 
 /**
- *
+ * 
  * @export
  * @interface V1ActivityProbe
  */
 export interface V1ActivityProbe {
     /**
-     *
+     * 
      * @type {V1ActivityProbeExec}
      * @memberof V1ActivityProbe
      */
     exec?: V1ActivityProbeExec;
     /**
-     *
+     * 
      * @type {V1ActivityProbeHttp}
      * @memberof V1ActivityProbe
      */
@@ -64,7 +64,7 @@ export function V1ActivityProbeFromJSONTyped(json: any, ignoreDiscriminator: boo
         return json;
     }
     return {
-
+        
         'exec': !exists(json, 'exec') ? undefined : V1ActivityProbeExecFromJSON(json['exec']),
         'http': !exists(json, 'http') ? undefined : V1ActivityProbeHttpFromJSON(json['http']),
     };
@@ -78,7 +78,7 @@ export function V1ActivityProbeToJSON(value?: V1ActivityProbe | null): any {
         return null;
     }
     return {
-
+        
         'exec': V1ActivityProbeExecToJSON(value.exec),
         'http': V1ActivityProbeHttpToJSON(value.http),
     };

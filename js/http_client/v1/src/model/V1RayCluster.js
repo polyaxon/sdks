@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -25,8 +25,8 @@ class V1RayCluster {
      * Constructs a new <code>V1RayCluster</code>.
      * @alias module:model/V1RayCluster
      */
-    constructor() {
-
+    constructor() { 
+        
         V1RayCluster.initialize(this);
     }
 
@@ -35,7 +35,7 @@ class V1RayCluster {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) {
+    static initialize(obj) { 
     }
 
     /**

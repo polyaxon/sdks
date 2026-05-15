@@ -1,6 +1,6 @@
 /*
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -56,7 +56,7 @@ public class V1Culling {
   }
 
   public V1Culling timeout(Integer timeout) {
-
+    
     this.timeout = timeout;
     return this;
   }

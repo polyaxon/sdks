@@ -13,6 +13,7 @@ export * from './ProjectSearchesV1Api';
 export * from './ProjectsV1Api';
 export * from './QueuesV1Api';
 export * from './RunsV1Api';
+export * from './SandboxV1Api';
 export * from './SchemasV1Api';
 export * from './SearchesV1Api';
 export * from './ServiceAccountsV1Api';

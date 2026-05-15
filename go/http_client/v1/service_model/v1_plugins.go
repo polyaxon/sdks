@@ -58,6 +58,9 @@ type V1Plugins struct {
 
 	// Optional flag to tell Polyaxon to sync statuses
 	SyncStatuses bool `json:"syncStatuses,omitempty"`
+
+	// Optional flag to inject a tmux binary for reconnectable exec sessions, default false
+	Tmux *V1PolyaxonTmuxContainer `json:"tmux,omitempty"`
 }
 
 // Validate validates this v1 plugins
@@ -69,6 +72,10 @@ func (m *V1Plugins) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSidecar(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTmux(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -131,6 +138,29 @@ func (m *V1Plugins) validateSidecar(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Plugins) validateTmux(formats strfmt.Registry) error {
+	if swag.IsZero(m.Tmux) { // not required
+		return nil
+	}
+
+	if m.Tmux != nil {
+		if err := m.Tmux.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("tmux")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("tmux")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this v1 plugins based on the context it is used
 func (m *V1Plugins) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -140,6 +170,10 @@ func (m *V1Plugins) ContextValidate(ctx context.Context, formats strfmt.Registry
 	}
 
 	if err := m.contextValidateSidecar(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTmux(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -194,6 +228,31 @@ func (m *V1Plugins) contextValidateSidecar(ctx context.Context, formats strfmt.R
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("sidecar")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Plugins) contextValidateTmux(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Tmux != nil {
+
+		if swag.IsZero(m.Tmux) { // not required
+			return nil
+		}
+
+		if err := m.Tmux.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("tmux")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("tmux")
 			}
 
 			return err

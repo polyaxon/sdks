@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -18,112 +18,112 @@ import ApiClient from '../ApiClient';
 * @readonly
 */
 export default class V1RunKind {
-
+    
         /**
          * value: "job"
          * @const
          */
         "job" = "job";
 
-
+    
         /**
          * value: "service"
          * @const
          */
         "service" = "service";
 
-
+    
         /**
          * value: "dag"
          * @const
          */
         "dag" = "dag";
 
-
+    
         /**
          * value: "daskcluster"
          * @const
          */
         "daskcluster" = "daskcluster";
 
-
+    
         /**
          * value: "raycluster"
          * @const
          */
         "raycluster" = "raycluster";
 
-
+    
         /**
          * value: "mpijob"
          * @const
          */
         "mpijob" = "mpijob";
 
-
+    
         /**
          * value: "tfjob"
          * @const
          */
         "tfjob" = "tfjob";
 
-
+    
         /**
          * value: "pytorchjob"
          * @const
          */
         "pytorchjob" = "pytorchjob";
 
-
+    
         /**
          * value: "matrix"
          * @const
          */
         "matrix" = "matrix";
 
-
+    
         /**
          * value: "schedule"
          * @const
          */
         "schedule" = "schedule";
 
-
+    
         /**
          * value: "tuner"
          * @const
          */
         "tuner" = "tuner";
 
-
+    
         /**
          * value: "watchdog"
          * @const
          */
         "watchdog" = "watchdog";
 
-
+    
         /**
          * value: "notifier"
          * @const
          */
         "notifier" = "notifier";
 
-
+    
         /**
          * value: "builder"
          * @const
          */
         "builder" = "builder";
 
-
+    
         /**
          * value: "cleaner"
          * @const
          */
         "cleaner" = "cleaner";
 
-
+    
 
     /**
     * Returns a <code>V1RunKind</code> enum value from a Javascript object name.

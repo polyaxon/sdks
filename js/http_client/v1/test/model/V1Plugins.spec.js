@@ -1,6 +1,6 @@
 /**
  * Polyaxon SDKs and REST API specification.
- *
+ *    
  *
  * The version of the OpenAPI document: 2.15.1
  * Contact: contact@polyaxon.com
@@ -128,6 +128,12 @@
 
     it('should have the property notifications (base name: "notifications")', function() {
       // uncomment below and update the code to test the property notifications
+      //var instance = new PolyaxonSdk.V1Plugins();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property tmux (base name: "tmux")', function() {
+      // uncomment below and update the code to test the property tmux
       //var instance = new PolyaxonSdk.V1Plugins();
       //expect(instance).to.be();
     });
