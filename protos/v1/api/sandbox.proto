@@ -1,0 +1,333 @@
+syntax = "proto3";
+
+package v1;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+option go_package = "v1/api";
+
+// Request body for POST /exec.
+message ExecRequest {
+  // Command argv. No shell interpolation unless the caller passes a shell.
+  repeated string command = 1;
+
+  // Environment overrides. JSON null means unset the key.
+  google.protobuf.Struct env = 2;
+
+  // Working directory.
+  string workdir = 3;
+
+  // Base64-encoded stdin bytes.
+  string stdin = 4;
+
+  // Timeout in milliseconds.
+  int32 timeout_ms = 5;
+}
+
+// Request body for POST /exec/bg.
+message ExecBgRequest {
+  // Command argv. No shell interpolation unless the caller passes a shell.
+  repeated string command = 1;
+
+  // Environment overrides. JSON null means unset the key.
+  google.protobuf.Struct env = 2;
+
+  // Working directory.
+  string workdir = 3;
+
+  // Base64-encoded stdin bytes.
+  string stdin = 4;
+
+  // Timeout in milliseconds.
+  int32 timeout_ms = 5;
+
+  // Optional reconnect handle.
+  string tag = 6;
+}
+
+// Response body for POST /exec.
+message ExecResult {
+  string exec_id = 1;
+  google.protobuf.Int32Value exit_code = 2;
+  string signal = 3;
+  string stdout = 4;
+  string stderr = 5;
+  int64 duration_ms = 6;
+  bool timed_out = 7;
+  bool stdout_truncated = 8;
+  bool stderr_truncated = 9;
+}
+
+// Response body for POST /exec/bg.
+message ExecBgStart {
+  string exec_id = 1;
+  int32 pid = 2;
+  google.protobuf.Timestamp started_at = 3;
+  string tag = 4;
+}
+
+// One background exec status record.
+message ExecBgStatus {
+  string exec_id = 1;
+  int32 pid = 2;
+  string state = 3;
+  google.protobuf.Timestamp started_at = 4;
+  google.protobuf.Timestamp finished_at = 5;
+  int64 duration_ms = 6;
+  google.protobuf.Int32Value exit_code = 7;
+  string signal = 8;
+  int64 stdout_bytes = 9;
+  int64 stderr_bytes = 10;
+  string tag = 11;
+}
+
+// List response for GET /exec/bg.
+message ExecBgList {
+  repeated ExecBgStatus execs = 1;
+}
+
+// Response body for GET /exec/bg/{id}/logs.
+message ExecBgLogs {
+  string exec_id = 1;
+  string stream = 2;
+  int64 offset = 3;
+  int64 next_offset = 4;
+  int32 bytes = 5;
+  string data = 6;
+  bool eof = 7;
+  string state = 8;
+}
+
+// Request body for signal endpoints.
+message SignalRequest {
+  string signal = 1;
+}
+
+// One filesystem list entry.
+message FsEntry {
+  string name = 1;
+  string type = 2;
+  int64 size = 3;
+  google.protobuf.Timestamp mtime = 4;
+  string mode = 5;
+  string symlink_target = 6;
+}
+
+// Response body for GET /fs/ls.
+message FsListResult {
+  string path = 1;
+  repeated FsEntry entries = 2;
+  bool truncated = 3;
+}
+
+// Request body for POST /fs/mkdir.
+message FsMkdirRequest {
+  string path = 1;
+  bool parents = 2;
+  string mode = 3;
+}
+
+// Response body for filesystem path operations.
+message FsPathResult {
+  string path = 1;
+}
+
+// Response body for GET /fs/stat.
+message FsStatResult {
+  string path = 1;
+  string type = 2;
+  int64 size = 3;
+  google.protobuf.Timestamp mtime = 4;
+  string mode = 5;
+  uint32 uid = 6;
+  uint32 gid = 7;
+  google.protobuf.StringValue symlink_target = 8;
+}
+
+// Request body for POST /pty.
+message CreatePtyRequest {
+  // Command argv. Empty means use the server default shell.
+  repeated string command = 1;
+
+  // Environment overrides. JSON null means unset the key.
+  google.protobuf.Struct env = 2;
+
+  // Working directory.
+  string workdir = 3;
+
+  // Terminal columns.
+  int32 cols = 4;
+
+  // Terminal rows.
+  int32 rows = 5;
+
+  // Optional reconnect handle.
+  string tag = 6;
+}
+
+// One PTY session record.
+message Pty {
+  string pty_id = 1;
+  int32 pid = 2;
+  string state = 3;
+  google.protobuf.Timestamp started_at = 4;
+  google.protobuf.Timestamp finished_at = 5;
+  int64 duration_ms = 6;
+  google.protobuf.Int32Value exit_code = 7;
+  string signal = 8;
+  google.protobuf.Timestamp last_activity = 9;
+  google.protobuf.Timestamp last_client_activity = 10;
+  google.protobuf.Timestamp detached_since = 11;
+  bool attached = 12;
+  int32 cols = 13;
+  int32 rows = 14;
+  string tag = 15;
+}
+
+// List response for GET /pty.
+message PtyList {
+  repeated Pty sessions = 1;
+}
+
+// Request body for POST /pty/{id}/resize.
+message ResizePtyRequest {
+  int32 cols = 1;
+  int32 rows = 2;
+}
+
+// Response body for GET /ping.
+message PingResponse {
+  string status = 1;
+  string version = 2;
+  int64 uptime_ms = 3;
+  google.protobuf.Timestamp last_activity = 4;
+  int64 execs_running = 5;
+  int64 ptys_running = 6;
+  int64 ptys_attached = 7;
+}
+
+// Path fields for a sandbox run.
+message SandboxRunRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+}
+
+// Path fields plus optional tag query.
+message SandboxRunListRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string tag = 5;
+}
+
+// Path fields plus a bg-exec or PTY id.
+message SandboxRunIdRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string id = 5;
+}
+
+// Query wrapper for GET /exec/bg/{id}/logs.
+message SandboxBgExecLogsRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string id = 5;
+  string stream = 6;
+  int64 offset = 7;
+  int64 max_bytes = 8;
+}
+
+// Query wrapper for GET /fs/ls.
+message FsLsRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string path = 5;
+  bool recursive = 6;
+  int32 max_entries = 7;
+}
+
+// Query wrapper for DELETE /fs/rm.
+message FsRmRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string path = 5;
+  bool recursive = 6;
+}
+
+// Query wrapper for GET /fs/stat.
+message FsStatRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string path = 5;
+}
+
+// Body wrapper for POST /exec.
+message ExecBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  ExecRequest body = 5;
+}
+
+// Body wrapper for POST /exec/bg.
+message ExecBgBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  ExecBgRequest body = 5;
+}
+
+// Body wrapper for signal endpoints.
+message SandboxRunSignalBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string id = 5;
+  SignalRequest body = 6;
+}
+
+// Body wrapper for POST /fs/mkdir.
+message FsMkdirBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  FsMkdirRequest body = 5;
+}
+
+// Body wrapper for POST /pty.
+message CreatePtyBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  CreatePtyRequest body = 5;
+}
+
+// Body wrapper for POST /pty/{id}/resize.
+message SandboxPtyResizeBodyRequest {
+  string namespace = 1;
+  string owner = 2;
+  string project = 3;
+  string uuid = 4;
+  string id = 5;
+  ResizePtyRequest body = 6;
+}

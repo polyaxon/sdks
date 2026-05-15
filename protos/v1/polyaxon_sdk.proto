@@ -1,18 +1,18 @@
 /**
- * Copyright 2018-2023 Polyaxon, Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */syntax = "proto3";
+* Copyright 2018-2023 Polyaxon, Inc.
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+http: //www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/syntax = "proto3";
 
 package v1;
 
@@ -34,6 +34,7 @@ import "v1/api/project.proto";
 import "v1/api/version.proto";
 import "v1/api/auth.proto";
 import "v1/api/preset.proto";
+import "v1/api/sandbox.proto";
 import "v1/api/automation.proto";
 import "v1/api/user.proto";
 import "v1/api/search.proto";
@@ -51,48 +52,48 @@ option go_package = "v1/polyaxon_sdk";
 
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
-    title  : "Polyaxon sdk";
+    title: "Polyaxon sdk";
     version: "2.15.1";
     contact: {
-      name : "Polyaxon sdk";
-      url  : "https://github.com/polyaxon/polyaxon";
+      name: "Polyaxon sdk";
+      url: "https://github.com/polyaxon/polyaxon";
       email: "contact@polyaxon.com";
     };
   };
-  schemes             : HTTP;
-  schemes             : HTTPS;
-  consumes            : "application/json";
-  produces            : "application/json";
+  schemes: HTTP;
+  schemes: HTTPS;
+  consumes: "application/json";
+  produces: "application/json";
   security_definitions: {
     security: {
-      key  : "ApiKey";
+      key: "ApiKey";
       value: {
         type: TYPE_API_KEY;
-        in  : IN_HEADER;
+        in: IN_HEADER;
         name: "Authorization";
       }
     }
   };
   security: {
     security_requirement: {
-      key  : "ApiKey";
+      key: "ApiKey";
       value: {};
     }
   };
   responses: {
-    key  : "204";
+    key: "204";
     value: {
       description: "No content.";
     }
   }
   responses: {
-    key  : "403";
+    key: "403";
     value: {
       description: "You don't have permission to access the resource.";
     }
   }
   responses: {
-    key  : "404";
+    key: "404";
     value: {
       description: "Resource does not exist.";
     }
@@ -140,7 +141,7 @@ service RunsV1 {
   // Update run
   rpc UpdateRun(RunBodyRequest) returns (Run) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project}/runs/{run.uuid}"
+      put: "/api/v1/{owner}/{project}/runs/{run.uuid}"
       body: "run"
     };
   }
@@ -149,7 +150,7 @@ service RunsV1 {
   rpc PatchRun(RunBodyRequest) returns (Run) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project}/runs/{run.uuid}"
-      body : "run"
+      body: "run"
     };
   }
 
@@ -164,7 +165,7 @@ service RunsV1 {
   rpc DeleteRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/{owner}/{name}/runs/delete"
-      body  : "uuids"
+      body: "uuids"
     };
   }
 
@@ -538,6 +539,124 @@ service RunsV1 {
   }
 }
 
+// Service to access sandbox-enabled runs
+service SandboxV1 {
+  rpc Ping(SandboxRunRequest) returns (PingResponse) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/ping"
+    };
+  }
+
+  rpc Exec(ExecBodyRequest) returns (ExecResult) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec"
+      body: "body"
+    };
+  }
+
+  rpc ExecBg(ExecBgBodyRequest) returns (ExecBgStart) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg"
+      body: "body"
+    };
+  }
+
+  rpc ListBgExecs(SandboxRunListRequest) returns (ExecBgList) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg"
+    };
+  }
+
+  rpc GetBgExec(SandboxRunIdRequest) returns (ExecBgStatus) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}"
+    };
+  }
+
+  rpc GetBgExecLogs(SandboxBgExecLogsRequest) returns (ExecBgLogs) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/logs"
+    };
+  }
+
+  rpc SignalBgExec(SandboxRunSignalBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}/signal"
+      body: "body"
+    };
+  }
+
+  rpc DeleteBgExec(SandboxRunIdRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/exec/bg/{id}"
+    };
+  }
+
+  rpc FsLs(FsLsRequest) returns (FsListResult) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/ls"
+    };
+  }
+
+  rpc FsMkdir(FsMkdirBodyRequest) returns (FsPathResult) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/mkdir"
+      body: "body"
+    };
+  }
+
+  rpc FsRm(FsRmRequest) returns (FsPathResult) {
+    option (google.api.http) = {
+      delete: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/rm"
+    };
+  }
+
+  rpc FsStat(FsStatRequest) returns (FsStatResult) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/fs/stat"
+    };
+  }
+
+  rpc CreatePty(CreatePtyBodyRequest) returns (Pty) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty"
+      body: "body"
+    };
+  }
+
+  rpc ListPtys(SandboxRunListRequest) returns (PtyList) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty"
+    };
+  }
+
+  rpc GetPty(SandboxRunIdRequest) returns (Pty) {
+    option (google.api.http) = {
+      get: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}"
+    };
+  }
+
+  rpc DeletePty(SandboxRunIdRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}"
+    };
+  }
+
+  rpc ResizePty(SandboxPtyResizeBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/resize"
+      body: "body"
+    };
+  }
+
+  rpc SignalPty(SandboxRunSignalBodyRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/sandbox/v1/{namespace}/{owner}/{project}/runs/{uuid}/pty/{id}/signal"
+      body: "body"
+    };
+  }
+}
+
 // Service to manage project
 service ProjectsV1 {
   // Create new project
@@ -594,7 +713,7 @@ service ProjectsV1 {
   // Update project
   rpc UpdateProject(ProjectBodyRequest) returns (Project) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project.name}"
+      put: "/api/v1/{owner}/{project.name}"
       body: "project"
     };
   }
@@ -603,7 +722,7 @@ service ProjectsV1 {
   rpc PatchProject(ProjectBodyRequest) returns (Project) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project.name}"
-      body : "project"
+      body: "project"
     };
   }
 
@@ -680,7 +799,7 @@ service ProjectsV1 {
   // Update project settings
   rpc UpdateProjectSettings(ProjectSettingsBodyRequest) returns (ProjectSettings) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project}/settings"
+      put: "/api/v1/{owner}/{project}/settings"
       body: "settings"
     };
   }
@@ -689,7 +808,7 @@ service ProjectsV1 {
   rpc PatchProjectSettings(ProjectSettingsBodyRequest) returns (ProjectSettings) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project}/settings"
-      body : "settings"
+      body: "settings"
     };
   }
 
@@ -725,7 +844,7 @@ service ProjectsV1 {
   // Update version
   rpc UpdateVersion(ProjectVersionBodyRequest) returns (ProjectVersion) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}"
+      put: "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}"
       body: "version"
     };
   }
@@ -734,7 +853,7 @@ service ProjectsV1 {
   rpc PatchVersion(ProjectVersionBodyRequest) returns (ProjectVersion) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project}/versions/{version.kind}/{version.name}"
-      body : "version"
+      body: "version"
     };
   }
 
@@ -803,7 +922,7 @@ service ConnectionsV1 {
   // Update connection
   rpc UpdateConnection(ConnectionBodyRequest) returns (ConnectionResponse) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/connections/{connection.uuid}"
+      put: "/api/v1/orgs/{owner}/connections/{connection.uuid}"
       body: "connection"
     };
   }
@@ -812,7 +931,7 @@ service ConnectionsV1 {
   rpc PatchConnection(ConnectionBodyRequest) returns (ConnectionResponse) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/connections/{connection.uuid}"
-      body : "connection"
+      body: "connection"
     };
   }
 
@@ -858,7 +977,7 @@ service ProjectSearchesV1 {
   // Update project search
   rpc UpdateProjectSearch(ProjectSearchBodyRequest) returns (Search) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project}/searches/{search.uuid}"
+      put: "/api/v1/{owner}/{project}/searches/{search.uuid}"
       body: "search"
     };
   }
@@ -867,7 +986,7 @@ service ProjectSearchesV1 {
   rpc PatchProjectSearch(ProjectSearchBodyRequest) returns (Search) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project}/searches/{search.uuid}"
-      body : "search"
+      body: "search"
     };
   }
 
@@ -921,7 +1040,7 @@ service SearchesV1 {
   // Update search
   rpc UpdateSearch(SearchBodyRequest) returns (Search) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/searches/{search.uuid}"
+      put: "/api/v1/orgs/{owner}/searches/{search.uuid}"
       body: "search"
     };
   }
@@ -930,7 +1049,7 @@ service SearchesV1 {
   rpc PatchSearch(SearchBodyRequest) returns (Search) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/searches/{search.uuid}"
-      body : "search"
+      body: "search"
     };
   }
 
@@ -976,7 +1095,7 @@ service ProjectDashboardsV1 {
   // Update project dashboard
   rpc UpdateProjectDashboard(ProjectDashboardBodyRequest) returns (Dashboard) {
     option (google.api.http) = {
-      put : "/api/v1/{owner}/{project}/dashboards/{dashboard.uuid}"
+      put: "/api/v1/{owner}/{project}/dashboards/{dashboard.uuid}"
       body: "dashboard"
     };
   }
@@ -985,7 +1104,7 @@ service ProjectDashboardsV1 {
   rpc PatchProjectDashboard(ProjectDashboardBodyRequest) returns (Dashboard) {
     option (google.api.http) = {
       patch: "/api/v1/{owner}/{project}/dashboards/{dashboard.uuid}"
-      body : "dashboard"
+      body: "dashboard"
     };
   }
 
@@ -1039,7 +1158,7 @@ service DashboardsV1 {
   // Update dashboard
   rpc UpdateDashboard(DashboardBodyRequest) returns (Dashboard) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/dashboards/{dashboard.uuid}"
+      put: "/api/v1/orgs/{owner}/dashboards/{dashboard.uuid}"
       body: "dashboard"
     };
   }
@@ -1048,7 +1167,7 @@ service DashboardsV1 {
   rpc PatchDashboard(DashboardBodyRequest) returns (Dashboard) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/dashboards/{dashboard.uuid}"
-      body : "dashboard"
+      body: "dashboard"
     };
   }
 
@@ -1102,7 +1221,7 @@ service TagsV1 {
   // Update tag
   rpc UpdateTag(TagBodyRequest) returns (Tag) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/tags/{tag.uuid}"
+      put: "/api/v1/orgs/{owner}/tags/{tag.uuid}"
       body: "tag"
     };
   }
@@ -1111,7 +1230,7 @@ service TagsV1 {
   rpc PatchTag(TagBodyRequest) returns (Tag) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/tags/{tag.uuid}"
-      body : "tag"
+      body: "tag"
     };
   }
 
@@ -1157,7 +1276,7 @@ service PoliciesV1 {
   // Update Policy
   rpc UpdatePolicy(PolicyBodyRequest) returns (Policy) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/policies/{policy.uuid}"
+      put: "/api/v1/orgs/{owner}/policies/{policy.uuid}"
       body: "policy"
     };
   }
@@ -1166,7 +1285,7 @@ service PoliciesV1 {
   rpc PatchPolicy(PolicyBodyRequest) returns (Policy) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/policies/{policy.uuid}"
-      body : "policy"
+      body: "policy"
     };
   }
 
@@ -1212,7 +1331,7 @@ service PresetsV1 {
   // Update scheduling preset
   rpc UpdatePreset(PresetBodyRequest) returns (Preset) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/presets/{preset.uuid}"
+      put: "/api/v1/orgs/{owner}/presets/{preset.uuid}"
       body: "preset"
     };
   }
@@ -1221,7 +1340,7 @@ service PresetsV1 {
   rpc PatchPreset(PresetBodyRequest) returns (Preset) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/presets/{preset.uuid}"
-      body : "preset"
+      body: "preset"
     };
   }
 
@@ -1267,7 +1386,7 @@ service AutomationsV1 {
   // Update automation
   rpc UpdateAutomation(AutomationBodyRequest) returns (Automation) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/automations/{automation.uuid}"
+      put: "/api/v1/orgs/{owner}/automations/{automation.uuid}"
       body: "automation"
     };
   }
@@ -1276,7 +1395,7 @@ service AutomationsV1 {
   rpc PatchAutomation(AutomationBodyRequest) returns (Automation) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/automations/{automation.uuid}"
-      body : "automation"
+      body: "automation"
     };
   }
 
@@ -1324,6 +1443,7 @@ service AutomationsV1 {
   }
 }
 
+
 // Service to manage agents
 service AgentsV1 {
   // List agents names
@@ -1358,7 +1478,7 @@ service AgentsV1 {
   // Update agent
   rpc UpdateAgent(AgentBodyRequest) returns (Agent) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/agents/{agent.uuid}"
+      put: "/api/v1/orgs/{owner}/agents/{agent.uuid}"
       body: "agent"
     };
   }
@@ -1367,7 +1487,7 @@ service AgentsV1 {
   rpc PatchAgent(AgentBodyRequest) returns (Agent) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{agent.uuid}"
-      body : "agent"
+      body: "agent"
     };
   }
 
@@ -1404,7 +1524,7 @@ service AgentsV1 {
   rpc SyncAgent(AgentBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{agent.uuid}/sync"
-      body : "agent"
+      body: "agent"
     };
   }
 
@@ -1426,7 +1546,7 @@ service AgentsV1 {
   rpc UpdateAgentConfig(AgentBodyRequest) returns (Agent) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{agent.uuid}/config"
-      body : "agent"
+      body: "agent"
     };
   }
 
@@ -1449,7 +1569,7 @@ service AgentsV1 {
   rpc ReconcileAgent(AgentReconcileBodyRequest) returns (google.protobuf.Struct) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{uuid}/reconcile"
-      body : "*"
+      body: "*"
     };
   }
 
@@ -1463,7 +1583,7 @@ service AgentsV1 {
   // Update agent token
   rpc UpdateAgentToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/agents/{entity}/token"
+      put: "/api/v1/orgs/{owner}/agents/{entity}/token"
       body: "token"
     };
   }
@@ -1472,7 +1592,7 @@ service AgentsV1 {
   rpc PatchAgentToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{entity}/token"
-      body : "token"
+      body: "token"
     };
   }
 
@@ -1497,6 +1617,7 @@ service AgentsV1 {
       body: "*"
     };
   }
+
 
   // Get run logs
   rpc GetAgentLogs(AgentResourcesRequest) returns (Logs) {
@@ -1540,7 +1661,7 @@ service ServiceAccountsV1 {
   // Update service account
   rpc UpdateServiceAccount(ServiceAccountBodyRequest) returns (ServiceAccount) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/sa/{sa.uuid}"
+      put: "/api/v1/orgs/{owner}/sa/{sa.uuid}"
       body: "sa"
     };
   }
@@ -1549,7 +1670,7 @@ service ServiceAccountsV1 {
   rpc PatchServiceAccount(ServiceAccountBodyRequest) returns (ServiceAccount) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/sa/{sa.uuid}"
-      body : "sa"
+      body: "sa"
     };
   }
 
@@ -1585,7 +1706,7 @@ service ServiceAccountsV1 {
   // Update service account token
   rpc UpdateServiceAccountToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}"
+      put: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}"
       body: "token"
     };
   }
@@ -1594,7 +1715,7 @@ service ServiceAccountsV1 {
   rpc PatchServiceAccountToken(EntityTokenBodyRequest) returns (Token) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/sa/{entity}/tokens/{token.uuid}"
-      body : "token"
+      body: "token"
     };
   }
 
@@ -1654,7 +1775,7 @@ service QueuesV1 {
   // Update queue
   rpc UpdateQueue(QueueBodyRequest) returns (Queue) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}"
+      put: "/api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}"
       body: "queue"
     };
   }
@@ -1663,7 +1784,7 @@ service QueuesV1 {
   rpc PatchQueue(QueueBodyRequest) returns (Queue) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/agents/{agent}/queues/{queue.uuid}"
-      body : "queue"
+      body: "queue"
     };
   }
 
@@ -1744,7 +1865,7 @@ service UsersV1 {
   // Update current user
   rpc UpdateUser(User) returns (User) {
     option (google.api.http) = {
-      put : "/api/v1/users"
+      put: "/api/v1/users"
       body: "*"
     };
   }
@@ -1753,7 +1874,7 @@ service UsersV1 {
   rpc PatchUser(User) returns (User) {
     option (google.api.http) = {
       patch: "/api/v1/users"
-      body : "*"
+      body: "*"
     };
   }
 
@@ -1782,7 +1903,7 @@ service UsersV1 {
   // Update token
   rpc UpdateToken(TokenBodyRequest) returns (Token) {
     option (google.api.http) = {
-      put : "/api/v1/users/tokens/{token.uuid}"
+      put: "/api/v1/users/tokens/{token.uuid}"
       body: "token"
     };
   }
@@ -1791,7 +1912,7 @@ service UsersV1 {
   rpc PatchToken(TokenBodyRequest) returns (Token) {
     option (google.api.http) = {
       patch: "/api/v1/users/tokens/{token.uuid}"
-      body : "token"
+      body: "token"
     };
   }
 
@@ -1882,7 +2003,7 @@ service OrganizationsV1 {
   // Update organization
   rpc UpdateOrganization(OrganizationBodyRequest) returns (Organization) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}"
+      put: "/api/v1/orgs/{owner}"
       body: "organization"
     };
   }
@@ -1891,7 +2012,7 @@ service OrganizationsV1 {
   rpc PatchOrganization(OrganizationBodyRequest) returns (Organization) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}"
-      body : "organization"
+      body: "organization"
     };
   }
 
@@ -1934,7 +2055,7 @@ service OrganizationsV1 {
   rpc DeleteOrganizationRuns(OwnerResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/orgs/{owner}/runs/delete"
-      body  : "uuids"
+      body: "uuids"
     };
   }
 
@@ -2071,7 +2192,7 @@ service OrganizationsV1 {
   // Update organization member
   rpc UpdateOrganizationMember(OrganizationMemberBodyRequest) returns (OrganizationMember) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/members/{member.user}"
+      put: "/api/v1/orgs/{owner}/members/{member.user}"
       body: "member"
     };
   }
@@ -2080,7 +2201,7 @@ service OrganizationsV1 {
   rpc PatchOrganizationMember(OrganizationMemberBodyRequest) returns (OrganizationMember) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/members/{member.user}"
-      body : "member"
+      body: "member"
     };
   }
 
@@ -2101,7 +2222,7 @@ service OrganizationsV1 {
   // Update organization invitation
   rpc UpdateOrganizationInvitation(OrganizationMemberBodyRequest) returns (OrganizationMember) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/invitations"
+      put: "/api/v1/orgs/{owner}/invitations"
       body: "member"
     };
   }
@@ -2110,7 +2231,7 @@ service OrganizationsV1 {
   rpc PatchOrganizationInvitation(OrganizationMemberBodyRequest) returns (OrganizationMember) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/invitations"
-      body : "member"
+      body: "member"
     };
   }
 
@@ -2139,7 +2260,7 @@ service OrganizationsV1 {
   // Update organization settings
   rpc UpdateOrganizationSettings(OrganizationBodyRequest) returns (Organization) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/settings"
+      put: "/api/v1/orgs/{owner}/settings"
       body: "organization"
     };
   }
@@ -2148,7 +2269,7 @@ service OrganizationsV1 {
   rpc PatchOrganizationSettings(OrganizationBodyRequest) returns (Organization) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/settings"
-      body : "organization"
+      body: "organization"
     };
   }
 
@@ -2203,7 +2324,7 @@ service TeamsV1 {
   // Update team
   rpc UpdateTeam(TeamBodyRequest) returns (Team) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/teams/{team.name}"
+      put: "/api/v1/orgs/{owner}/teams/{team.name}"
       body: "team"
     };
   }
@@ -2212,7 +2333,7 @@ service TeamsV1 {
   rpc PatchTeam(TeamBodyRequest) returns (Team) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/teams/{team.name}"
-      body : "team"
+      body: "team"
     };
   }
 
@@ -2248,7 +2369,7 @@ service TeamsV1 {
   // Update team member
   rpc UpdateTeamMember(TeamMemberBodyRequest) returns (TeamMember) {
     option (google.api.http) = {
-      put : "/api/v1/orgs/{owner}/teams/{team}/members/{member.user}"
+      put: "/api/v1/orgs/{owner}/teams/{team}/members/{member.user}"
       body: "member"
     };
   }
@@ -2257,7 +2378,7 @@ service TeamsV1 {
   rpc PatchTeamMember(TeamMemberBodyRequest) returns (TeamMember) {
     option (google.api.http) = {
       patch: "/api/v1/orgs/{owner}/teams/{team}/members/{member.user}"
-      body : "member"
+      body: "member"
     };
   }
 
@@ -2300,7 +2421,7 @@ service TeamsV1 {
   rpc DeleteTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       delete: "/api/v1/orgs/{owner}/teams/{name}/runs/delete"
-      body  : "uuids"
+      body: "uuids"
     };
   }
 
