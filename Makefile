@@ -179,6 +179,7 @@ swagger-clean:
 
 # Based on https://github.com/grpc-ecosystem/grpc-gateway/issues/441 & https://github.com/RedHatInsights/authz/blob/ae7ddb5b4b39f79af246ff7d3e652aa44f7ba912/Makefile#L70-L82
 swagger-to-openapi-v3:
+	python hack/patch_sandbox_swagger.py
 	java -jar $(PATH_SWAGGER_CODEGEN) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -l openapi -o swagger/temp
 	mv swagger/temp/openapi.json swagger/$(VERSION)/polyaxon_sdk.openapi.json
 	rm -rf swagger/temp
@@ -208,8 +209,10 @@ compile-pb: compile-go \
 	compile-python
 
 jsonschema-generate: hack/jsonschema/main.go
+	python hack/patch_sandbox_swagger.py
 	go run ./hack/jsonschema
 	rm jsonschema/$(VERSION)/polyaxon_sdk.swagger.json
 
 all: prepare \
-    jsonschema-generate
+  jsonschema-generate \
+	swagger-generate
