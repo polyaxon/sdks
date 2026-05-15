@@ -28255,7 +28255,7 @@
           "style" : "form",
           "explode" : true,
           "schema" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           }
         }, {
@@ -28265,7 +28265,7 @@
           "style" : "form",
           "explode" : true,
           "schema" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           }
         } ],
@@ -34874,11 +34874,11 @@
             "type" : "string"
           },
           "offset" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "next_offset" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "bytes" : {
@@ -34974,7 +34974,7 @@
             "format" : "date-time"
           },
           "duration_ms" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "exit_code" : {
@@ -34986,11 +34986,11 @@
             "type" : "string"
           },
           "stdout_bytes" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "stderr_bytes" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "tag" : {
@@ -35051,7 +35051,7 @@
             "type" : "string"
           },
           "duration_ms" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "timed_out" : {
@@ -35114,7 +35114,7 @@
             "type" : "string"
           },
           "size" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "mtime" : {
@@ -35182,7 +35182,7 @@
             "type" : "string"
           },
           "size" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "mtime" : {
@@ -37491,7 +37491,7 @@
             "type" : "string"
           },
           "uptime_ms" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "last_activity" : {
@@ -37499,15 +37499,15 @@
             "format" : "date-time"
           },
           "execs_running" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "ptys_running" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "ptys_attached" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           }
         },
@@ -38203,7 +38203,7 @@
             "format" : "date-time"
           },
           "duration_ms" : {
-            "type" : "string",
+            "type" : "integer",
             "format" : "int64"
           },
           "exit_code" : {
