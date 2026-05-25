@@ -22001,10 +22001,6 @@
           },
           "title": "The status conditions timeline"
         },
-        "is_replica": {
-          "type": "boolean",
-          "title": "Agent is in replica mode"
-        },
         "is_ui_managed": {
           "type": "boolean",
           "title": "Agent is updatable and managed from the UI"

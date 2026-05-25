@@ -54,23 +54,20 @@ message Agent {
     // The status conditions timeline
     repeated StatusCondition status_conditions = 14;
 
-    // Agent is in replica mode
-    bool is_replica = 15;
-
     // Agent is updatable and managed from the UI
-    bool is_ui_managed = 16;
+    bool is_ui_managed = 15;
 
     // Agent hostname
-    string hostname = 17;
+    string hostname = 16;
 
     // Optional settings
-    google.protobuf.Struct settings = 18;
+    google.protobuf.Struct settings = 17;
 
     // Optional agent stats
-    google.protobuf.Struct stats = 19;
+    google.protobuf.Struct stats = 18;
 
     // Contributors
-    repeated google.protobuf.Struct contributors = 20;
+    repeated google.protobuf.Struct contributors = 19;
 }
 
 // Request data to create/update agents
