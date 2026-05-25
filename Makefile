@@ -128,6 +128,7 @@ generate-py-swagger:
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g python-nextgen -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json --library asyncio
 	./py-client.sh async
 	java -jar $(PATH_SWAGGER_CLI) generate -i swagger/$(VERSION)/polyaxon_sdk.openapi.json -g python-nextgen -o python/$(HTTP_CLIENT)/$(VERSION) -c swagger/config/config-py.json
+	python hack/patch_python_query_bools.py
 	$(DOCKER_RUN) rm -rf python/$(HTTP_CLIENT)/$(VERSION)/test
 
 autogen-py:
