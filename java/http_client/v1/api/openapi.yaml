@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.15.1
+  version: 2.16.0
 servers:
 - url: /
 security:
@@ -23975,7 +23975,6 @@ components:
         description: description
         created_at: 2000-01-23T04:56:07.000+00:00
         live_state: 6
-        is_replica: true
         uuid: uuid
         version: version
         is_ui_managed: true
@@ -24058,9 +24057,6 @@ components:
             $ref: '#/components/schemas/v1StatusCondition'
           title: The status conditions timeline
           type: array
-        is_replica:
-          title: Agent is in replica mode
-          type: boolean
         is_ui_managed:
           title: Agent is updatable and managed from the UI
           type: boolean
@@ -31270,7 +31266,6 @@ components:
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
-          is_replica: true
           uuid: uuid
           version: version
           is_ui_managed: true
@@ -31308,7 +31303,6 @@ components:
           description: description
           created_at: 2000-01-23T04:56:07.000+00:00
           live_state: 6
-          is_replica: true
           uuid: uuid
           version: version
           is_ui_managed: true

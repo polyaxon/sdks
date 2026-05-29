@@ -37,9 +37,6 @@ type V1Agent struct {
 	// Agent hostname
 	Hostname string `json:"hostname,omitempty"`
 
-	// Agent is in replica mode
-	IsReplica bool `json:"is_replica,omitempty"`
-
 	// Agent is updatable and managed from the UI
 	IsUIManaged bool `json:"is_ui_managed,omitempty"`
 
