@@ -67,6 +67,7 @@ message Pipeline {
     enum Kind {
         dag = 0;
         matrix = 1;
+        schedule = 2;
     }
 
     // Optional uuid of the pipeline run
@@ -75,7 +76,7 @@ message Pipeline {
     // Optional name of the pipeline run
     string name = 2;
 
-    // Optional if the pipeline kind dag/matrix
+    // Optional pipeline kind
     Kind kind = 3;
 }
 

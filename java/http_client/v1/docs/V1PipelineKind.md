@@ -9,5 +9,7 @@
 
 * `MATRIX` (value: `"matrix"`)
 
+* `SCHEDULE` (value: `"schedule"`)
+
 
 

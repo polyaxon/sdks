@@ -31,7 +31,9 @@ public enum V1PipelineKind {
   
   DAG("dag"),
   
-  MATRIX("matrix");
+  MATRIX("matrix"),
+  
+  SCHEDULE("schedule");
 
   private String value;
 

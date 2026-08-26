@@ -32,4 +32,5 @@ class V1PipelineKind(str, Enum):
     """
     DAG = 'dag'
     MATRIX = 'matrix'
+    SCHEDULE = 'schedule'
 

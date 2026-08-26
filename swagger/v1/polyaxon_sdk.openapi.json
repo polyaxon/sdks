@@ -37527,7 +37527,7 @@
       },
       "v1PipelineKind" : {
         "type" : "string",
-        "enum" : [ "dag", "matrix" ],
+        "enum" : [ "dag", "matrix", "schedule" ],
         "default" : "dag"
       },
       "v1Plugins" : {

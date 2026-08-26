@@ -19,7 +19,8 @@
  */
 export const V1PipelineKind = {
     Dag: 'dag',
-    Matrix: 'matrix'
+    Matrix: 'matrix',
+    Schedule: 'schedule'
 } as const;
 export type V1PipelineKind = typeof V1PipelineKind[keyof typeof V1PipelineKind];
 

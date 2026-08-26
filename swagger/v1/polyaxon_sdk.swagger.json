@@ -26785,7 +26785,7 @@
         },
         "kind": {
           "$ref": "#/definitions/v1PipelineKind",
-          "title": "Optional if the pipeline kind dag/matrix"
+          "title": "Optional pipeline kind"
         }
       }
     },
@@ -26793,7 +26793,8 @@
       "type": "string",
       "enum": [
         "dag",
-        "matrix"
+        "matrix",
+        "schedule"
       ],
       "default": "dag"
     },

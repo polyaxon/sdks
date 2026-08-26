@@ -33,6 +33,13 @@ export default class V1PipelineKind {
         "matrix" = "matrix";
 
     
+        /**
+         * value: "schedule"
+         * @const
+         */
+        "schedule" = "schedule";
+
+    
 
     /**
     * Returns a <code>V1PipelineKind</code> enum value from a Javascript object name.

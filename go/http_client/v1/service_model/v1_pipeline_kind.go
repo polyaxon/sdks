@@ -35,6 +35,9 @@ const (
 
 	// V1PipelineKindMatrix captures enum value "matrix"
 	V1PipelineKindMatrix V1PipelineKind = "matrix"
+
+	// V1PipelineKindSchedule captures enum value "schedule"
+	V1PipelineKindSchedule V1PipelineKind = "schedule"
 )
 
 // for schema
@@ -42,7 +45,7 @@ var v1PipelineKindEnum []any
 
 func init() {
 	var res []V1PipelineKind
-	if err := json.Unmarshal([]byte(`["dag","matrix"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["dag","matrix","schedule"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

@@ -35172,6 +35172,7 @@ components:
       enum:
       - dag
       - matrix
+      - schedule
       type: string
     v1Plugins:
       example:

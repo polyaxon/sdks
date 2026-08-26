@@ -9364,7 +9364,7 @@
       "properties": {
         "kind": {
           "$ref": "#/definitions/v1PipelineKind",
-          "title": "Optional if the pipeline kind dag/matrix"
+          "title": "Optional pipeline kind"
         },
         "name": {
           "title": "Optional name of the pipeline run",
@@ -9381,7 +9381,8 @@
       "default": "dag",
       "enum": [
         "dag",
-        "matrix"
+        "matrix",
+        "schedule"
       ],
       "type": "string"
     },
