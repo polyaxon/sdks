@@ -71,17 +71,14 @@ message Policy {
   // Authorized users
   repeated UserAccess user_accesses = 20;
 
-  // Authorized automations
-  repeated string automations = 21;
-
   // Authorized teams
-  repeated string teams = 22;
+  repeated string teams = 21;
 
   // Authorized projects
-  repeated string projects = 23;
+  repeated string projects = 22;
 
   // Connected projects
-  repeated string connected_projects = 24;
+  repeated string connected_projects = 23;
 }
 
 
