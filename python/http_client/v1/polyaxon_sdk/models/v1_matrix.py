@@ -25,10 +25,10 @@ from pydantic import BaseModel
 from polyaxon_sdk.models.v1_bayes import V1Bayes
 from polyaxon_sdk.models.v1_grid_search import V1GridSearch
 from polyaxon_sdk.models.v1_hyperband import V1Hyperband
-from polyaxon_sdk.models.v1_hyperopt import V1Hyperopt
 from polyaxon_sdk.models.v1_iterative import V1Iterative
 from polyaxon_sdk.models.v1_mapping import V1Mapping
 from polyaxon_sdk.models.v1_random_search import V1RandomSearch
+from polyaxon_sdk.models.v1_tpe import V1TPE
 
 class V1Matrix(BaseModel):
     """
@@ -38,10 +38,10 @@ class V1Matrix(BaseModel):
     grid: Optional[V1GridSearch] = None
     hyperband: Optional[V1Hyperband] = None
     bayes: Optional[V1Bayes] = None
-    hyperopt: Optional[V1Hyperopt] = None
+    tpe: Optional[V1TPE] = None
     iterative: Optional[V1Iterative] = None
     mapping: Optional[V1Mapping] = None
-    __properties = ["random", "grid", "hyperband", "bayes", "hyperopt", "iterative", "mapping"]
+    __properties = ["random", "grid", "hyperband", "bayes", "tpe", "iterative", "mapping"]
 
     class Config:
         allow_population_by_field_name = True
@@ -78,9 +78,9 @@ class V1Matrix(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of bayes
         if self.bayes:
             _dict['bayes'] = self.bayes.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of hyperopt
-        if self.hyperopt:
-            _dict['hyperopt'] = self.hyperopt.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of tpe
+        if self.tpe:
+            _dict['tpe'] = self.tpe.to_dict()
         # override the default output from pydantic by calling `to_dict()` of iterative
         if self.iterative:
             _dict['iterative'] = self.iterative.to_dict()
@@ -103,7 +103,7 @@ class V1Matrix(BaseModel):
             "grid": V1GridSearch.from_dict(obj.get("grid")) if obj.get("grid") is not None else None,
             "hyperband": V1Hyperband.from_dict(obj.get("hyperband")) if obj.get("hyperband") is not None else None,
             "bayes": V1Bayes.from_dict(obj.get("bayes")) if obj.get("bayes") is not None else None,
-            "hyperopt": V1Hyperopt.from_dict(obj.get("hyperopt")) if obj.get("hyperopt") is not None else None,
+            "tpe": V1TPE.from_dict(obj.get("tpe")) if obj.get("tpe") is not None else None,
             "iterative": V1Iterative.from_dict(obj.get("iterative")) if obj.get("iterative") is not None else None,
             "mapping": V1Mapping.from_dict(obj.get("mapping")) if obj.get("mapping") is not None else None
         })

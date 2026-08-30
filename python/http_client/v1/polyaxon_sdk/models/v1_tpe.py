@@ -22,16 +22,14 @@ import json
 
 from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, StrictInt, StrictStr, conlist
-from polyaxon_sdk.models.v1_hyperopt_algorithms import V1HyperoptAlgorithms
 from polyaxon_sdk.models.v1_optimization_metric import V1OptimizationMetric
 from polyaxon_sdk.models.v1_tuner import V1Tuner
 
-class V1Hyperopt(BaseModel):
+class V1TPE(BaseModel):
     """
-    V1Hyperopt
+    V1TPE
     """
-    kind: Optional[StrictStr] = 'hyperopt'
-    algorithm: Optional[V1HyperoptAlgorithms] = None
+    kind: Optional[StrictStr] = 'tpe'
     params: Optional[Dict[str, Dict[str, Any]]] = None
     num_runs: Optional[StrictInt] = Field(None, alias="numRuns")
     max_iterations: Optional[StrictInt] = Field(None, alias="maxIterations")
@@ -40,7 +38,7 @@ class V1Hyperopt(BaseModel):
     concurrency: Optional[StrictInt] = None
     tuner: Optional[V1Tuner] = None
     early_stopping: Optional[conlist(Dict[str, Any])] = Field(None, alias="earlyStopping")
-    __properties = ["kind", "algorithm", "params", "numRuns", "maxIterations", "metric", "seed", "concurrency", "tuner", "earlyStopping"]
+    __properties = ["kind", "params", "numRuns", "maxIterations", "metric", "seed", "concurrency", "tuner", "earlyStopping"]
 
     class Config:
         allow_population_by_field_name = True
@@ -55,8 +53,8 @@ class V1Hyperopt(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> V1Hyperopt:
-        """Create an instance of V1Hyperopt from a JSON string"""
+    def from_json(cls, json_str: str) -> V1TPE:
+        """Create an instance of V1TPE from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self):
@@ -74,17 +72,16 @@ class V1Hyperopt(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: dict) -> V1Hyperopt:
-        """Create an instance of V1Hyperopt from a dict"""
+    def from_dict(cls, obj: dict) -> V1TPE:
+        """Create an instance of V1TPE from a dict"""
         if obj is None:
             return None
 
         if type(obj) is not dict:
-            return V1Hyperopt.parse_obj(obj)
+            return V1TPE.parse_obj(obj)
 
-        _obj = V1Hyperopt.parse_obj({
-            "kind": obj.get("kind") if obj.get("kind") is not None else 'hyperopt',
-            "algorithm": obj.get("algorithm"),
+        _obj = V1TPE.parse_obj({
+            "kind": obj.get("kind") if obj.get("kind") is not None else 'tpe',
             "params": obj.get("params"),
             "num_runs": obj.get("numRuns"),
             "max_iterations": obj.get("maxIterations"),

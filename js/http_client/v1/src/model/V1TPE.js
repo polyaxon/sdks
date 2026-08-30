@@ -12,23 +12,22 @@
  */
 
 import ApiClient from '../ApiClient';
-import V1HyperoptAlgorithms from './V1HyperoptAlgorithms';
 import V1OptimizationMetric from './V1OptimizationMetric';
 import V1Tuner from './V1Tuner';
 
 /**
- * The V1Hyperopt model module.
- * @module model/V1Hyperopt
+ * The V1TPE model module.
+ * @module model/V1TPE
  * @version 2.16.1
  */
-class V1Hyperopt {
+class V1TPE {
     /**
-     * Constructs a new <code>V1Hyperopt</code>.
-     * @alias module:model/V1Hyperopt
+     * Constructs a new <code>V1TPE</code>.
+     * @alias module:model/V1TPE
      */
     constructor() { 
         
-        V1Hyperopt.initialize(this);
+        V1TPE.initialize(this);
     }
 
     /**
@@ -40,21 +39,18 @@ class V1Hyperopt {
     }
 
     /**
-     * Constructs a <code>V1Hyperopt</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>V1TPE</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/V1Hyperopt} obj Optional instance to populate.
-     * @return {module:model/V1Hyperopt} The populated <code>V1Hyperopt</code> instance.
+     * @param {module:model/V1TPE} obj Optional instance to populate.
+     * @return {module:model/V1TPE} The populated <code>V1TPE</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new V1Hyperopt();
+            obj = obj || new V1TPE();
 
             if (data.hasOwnProperty('kind')) {
                 obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
-            }
-            if (data.hasOwnProperty('algorithm')) {
-                obj['algorithm'] = V1HyperoptAlgorithms.constructFromObject(data['algorithm']);
             }
             if (data.hasOwnProperty('params')) {
                 obj['params'] = ApiClient.convertToType(data['params'], {'String': Object});
@@ -85,9 +81,9 @@ class V1Hyperopt {
     }
 
     /**
-     * Validates the JSON data with respect to <code>V1Hyperopt</code>.
+     * Validates the JSON data with respect to <code>V1TPE</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1Hyperopt</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>V1TPE</code>.
      */
     static validateJSON(data) {
         // ensure the json data is a string
@@ -117,59 +113,54 @@ class V1Hyperopt {
 
 /**
  * @member {String} kind
- * @default 'hyperopt'
+ * @default 'tpe'
  */
-V1Hyperopt.prototype['kind'] = 'hyperopt';
-
-/**
- * @member {module:model/V1HyperoptAlgorithms} algorithm
- */
-V1Hyperopt.prototype['algorithm'] = undefined;
+V1TPE.prototype['kind'] = 'tpe';
 
 /**
  * @member {Object.<String, Object>} params
  */
-V1Hyperopt.prototype['params'] = undefined;
+V1TPE.prototype['params'] = undefined;
 
 /**
  * @member {Number} numRuns
  */
-V1Hyperopt.prototype['numRuns'] = undefined;
+V1TPE.prototype['numRuns'] = undefined;
 
 /**
  * @member {Number} maxIterations
  */
-V1Hyperopt.prototype['maxIterations'] = undefined;
+V1TPE.prototype['maxIterations'] = undefined;
 
 /**
  * @member {module:model/V1OptimizationMetric} metric
  */
-V1Hyperopt.prototype['metric'] = undefined;
+V1TPE.prototype['metric'] = undefined;
 
 /**
  * @member {Number} seed
  */
-V1Hyperopt.prototype['seed'] = undefined;
+V1TPE.prototype['seed'] = undefined;
 
 /**
  * @member {Number} concurrency
  */
-V1Hyperopt.prototype['concurrency'] = undefined;
+V1TPE.prototype['concurrency'] = undefined;
 
 /**
  * @member {module:model/V1Tuner} tuner
  */
-V1Hyperopt.prototype['tuner'] = undefined;
+V1TPE.prototype['tuner'] = undefined;
 
 /**
  * @member {Array.<Object>} earlyStopping
  */
-V1Hyperopt.prototype['earlyStopping'] = undefined;
+V1TPE.prototype['earlyStopping'] = undefined;
 
 
 
 
 
 
-export default V1Hyperopt;
+export default V1TPE;
 

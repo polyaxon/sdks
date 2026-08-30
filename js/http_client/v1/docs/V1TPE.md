@@ -1,11 +1,10 @@
-# PolyaxonSdk.V1Hyperopt
+# PolyaxonSdk.V1TPE
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **String** |  | [optional] [default to &#39;hyperopt&#39;]
-**algorithm** | [**V1HyperoptAlgorithms**](V1HyperoptAlgorithms.md) |  | [optional] 
+**kind** | **String** |  | [optional] [default to &#39;tpe&#39;]
 **params** | **{String: Object}** |  | [optional] 
 **numRuns** | **Number** |  | [optional] 
 **maxIterations** | **Number** |  | [optional] 

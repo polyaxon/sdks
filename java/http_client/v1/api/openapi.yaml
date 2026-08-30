@@ -25127,7 +25127,7 @@ components:
           type: boolean
         matrix:
           properties: {}
-          title: "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)"
+          title: "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
           type: object
         joins:
           additionalProperties:
@@ -30339,91 +30339,6 @@ components:
           type: array
       title: Matrix based on hyperband
       type: object
-    v1Hyperopt:
-      example:
-        maxIterations: 6
-        tuner:
-          presets:
-          - presets
-          - presets
-          hubRef: hubRef
-          namespace: namespace
-          params:
-            key:
-              ref: ref
-              toEnv: toEnv
-              contextOnly: true
-              connection: connection
-              toInit: true
-              value: "{}"
-          queue: queue
-        seed: 1
-        numRuns: 3
-        metric:
-          optimization: null
-          name: name
-        kind: hyperopt
-        params:
-          key: "{}"
-        earlyStopping:
-        - "{}"
-        - "{}"
-        algorithm: null
-        concurrency: 2
-      properties:
-        kind:
-          default: hyperopt
-          title: "Kind of matrix, should be equal to \"hyperopt\""
-          type: string
-        algorithm:
-          $ref: '#/components/schemas/v1HyperoptAlgorithms'
-        params:
-          additionalProperties:
-            properties: {}
-            type: object
-          title: Hyperparams/Space definition of params to traverse
-          type: object
-        numRuns:
-          format: int32
-          title: Number of runs to generate and search
-          type: integer
-        maxIterations:
-          format: int32
-          title: Maximum number of iteration to produce new observations
-          type: integer
-        metric:
-          $ref: '#/components/schemas/v1OptimizationMetric'
-        seed:
-          format: int32
-          title: Seed for the random generator
-          type: integer
-        concurrency:
-          format: int32
-          title: Number of concurrent runs
-          type: integer
-        tuner:
-          $ref: '#/components/schemas/v1Tuner'
-        earlyStopping:
-          items:
-            properties: {}
-            type: object
-          title: "A list of Early stopping objects, accepts both metric and failure\
-            \ early stopping mechanisms"
-          type: array
-      title: Matrix based on hyperopt
-      type: object
-    v1HyperoptAlgorithms:
-      default: tpe
-      description: |-
-        - tpe: tpe algorithm
-         - rand: random algorithm
-         - anneal: anneal algorithm
-      enum:
-      - tpe
-      - rand
-      - anneal
-      title: Hyperopt algorithms enum
-      type: string
     v1IO:
       example:
         delayValidation: true
@@ -34002,7 +33917,7 @@ components:
           - "{}"
           - "{}"
           concurrency: 1
-        hyperopt:
+        tpe:
           maxIterations: 6
           tuner:
             presets:
@@ -34024,13 +33939,12 @@ components:
           metric:
             optimization: null
             name: name
-          kind: hyperopt
+          kind: tpe
           params:
             key: "{}"
           earlyStopping:
           - "{}"
           - "{}"
-          algorithm: null
           concurrency: 2
         iterative:
           maxIterations: 6
@@ -34096,8 +34010,8 @@ components:
           $ref: '#/components/schemas/v1Hyperband'
         bayes:
           $ref: '#/components/schemas/v1Bayes'
-        hyperopt:
-          $ref: '#/components/schemas/v1Hyperopt'
+        tpe:
+          $ref: '#/components/schemas/v1TPE'
         iterative:
           $ref: '#/components/schemas/v1Iterative'
         mapping:
@@ -34111,7 +34025,7 @@ components:
       - grid
       - hyperband
       - bayes
-      - hyperopt
+      - tpe
       - iterative
       - mapping
       type: string
@@ -34799,7 +34713,7 @@ components:
           type: boolean
         matrix:
           properties: {}
-          title: "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)"
+          title: "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
           type: object
         joins:
           additionalProperties:
@@ -47024,7 +46938,7 @@ components:
             - "{}"
             - "{}"
             concurrency: 1
-          hyperopt:
+          tpe:
             maxIterations: 6
             tuner:
               presets:
@@ -47046,13 +46960,12 @@ components:
             metric:
               optimization: null
               name: name
-            kind: hyperopt
+            kind: tpe
             params:
               key: "{}"
             earlyStopping:
             - "{}"
             - "{}"
-            algorithm: null
             concurrency: 2
           iterative:
             maxIterations: 6
@@ -49807,6 +49720,76 @@ components:
         evaluator:
           $ref: '#/components/schemas/v1KFReplica'
       title: TF Job specification
+      type: object
+    v1TPE:
+      example:
+        maxIterations: 6
+        tuner:
+          presets:
+          - presets
+          - presets
+          hubRef: hubRef
+          namespace: namespace
+          params:
+            key:
+              ref: ref
+              toEnv: toEnv
+              contextOnly: true
+              connection: connection
+              toInit: true
+              value: "{}"
+          queue: queue
+        seed: 1
+        numRuns: 3
+        metric:
+          optimization: null
+          name: name
+        kind: tpe
+        params:
+          key: "{}"
+        earlyStopping:
+        - "{}"
+        - "{}"
+        concurrency: 2
+      properties:
+        kind:
+          default: tpe
+          title: "Kind of matrix, should be equal to \"tpe\""
+          type: string
+        params:
+          additionalProperties:
+            properties: {}
+            type: object
+          title: Hyperparams/Space definition of params to traverse
+          type: object
+        numRuns:
+          format: int32
+          title: Number of runs to generate and search
+          type: integer
+        maxIterations:
+          format: int32
+          title: Maximum number of iteration to produce new observations
+          type: integer
+        metric:
+          $ref: '#/components/schemas/v1OptimizationMetric'
+        seed:
+          format: int32
+          title: Seed for the random generator
+          type: integer
+        concurrency:
+          format: int32
+          title: Number of concurrent runs
+          type: integer
+        tuner:
+          $ref: '#/components/schemas/v1Tuner'
+        earlyStopping:
+          items:
+            properties: {}
+            type: object
+          title: "A list of Early stopping objects, accepts both metric and failure\
+            \ early stopping mechanisms"
+          type: array
+      title: Matrix based on Polyaxon's native TPE implementation
       type: object
     v1Tag:
       example:

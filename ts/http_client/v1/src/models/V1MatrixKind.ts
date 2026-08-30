@@ -22,7 +22,7 @@ export const V1MatrixKind = {
     Grid: 'grid',
     Hyperband: 'hyperband',
     Bayes: 'bayes',
-    Hyperopt: 'hyperopt',
+    Tpe: 'tpe',
     Iterative: 'iterative',
     Mapping: 'mapping'
 } as const;

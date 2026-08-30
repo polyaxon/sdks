@@ -132,8 +132,6 @@ from polyaxon_sdk.models.v1_hp_range import V1HpRange
 from polyaxon_sdk.models.v1_hp_uniform import V1HpUniform
 from polyaxon_sdk.models.v1_hub_ref import V1HubRef
 from polyaxon_sdk.models.v1_hyperband import V1Hyperband
-from polyaxon_sdk.models.v1_hyperopt import V1Hyperopt
-from polyaxon_sdk.models.v1_hyperopt_algorithms import V1HyperoptAlgorithms
 from polyaxon_sdk.models.v1_io import V1IO
 from polyaxon_sdk.models.v1_init import V1Init
 from polyaxon_sdk.models.v1_installation import V1Installation
@@ -248,6 +246,7 @@ from polyaxon_sdk.models.v1_status import V1Status
 from polyaxon_sdk.models.v1_status_condition import V1StatusCondition
 from polyaxon_sdk.models.v1_statuses import V1Statuses
 from polyaxon_sdk.models.v1_tf_job import V1TFJob
+from polyaxon_sdk.models.v1_tpe import V1TPE
 from polyaxon_sdk.models.v1_tag import V1Tag
 from polyaxon_sdk.models.v1_team import V1Team
 from polyaxon_sdk.models.v1_team_member import V1TeamMember

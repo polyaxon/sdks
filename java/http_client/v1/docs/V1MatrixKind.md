@@ -13,7 +13,7 @@
 
 * `BAYES` (value: `"bayes"`)
 
-* `HYPEROPT` (value: `"hyperopt"`)
+* `TPE` (value: `"tpe"`)
 
 * `ITERATIVE` (value: `"iterative"`)
 

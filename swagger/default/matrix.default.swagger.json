@@ -35,10 +35,10 @@
         }
       }
     },
-    "v1Hyperopt": {
+    "v1TPE": {
       "properties": {
         "kind": {
-          "default": "hyperopt"
+          "default": "tpe"
         }
       }
     },

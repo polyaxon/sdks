@@ -124,7 +124,7 @@
         }
       }
     },
-    "v1Hyperopt": {
+    "v1TPE": {
       "properties": {
         "earlyStopping": {
           "type": "array",
@@ -188,7 +188,7 @@
               "$ref": "#/definitions/v1Bayes"
             },
             {
-              "$ref": "#/definitions/v1Hyperopt"
+              "$ref": "#/definitions/v1TPE"
             },
             {
               "$ref": "#/definitions/v1Iterative"
@@ -290,7 +290,7 @@
               "$ref": "#/definitions/v1Bayes"
             },
             {
-              "$ref": "#/definitions/v1Hyperopt"
+              "$ref": "#/definitions/v1TPE"
             },
             {
               "$ref": "#/definitions/v1Iterative"

@@ -15,10 +15,10 @@ import ApiClient from '../ApiClient';
 import V1Bayes from './V1Bayes';
 import V1GridSearch from './V1GridSearch';
 import V1Hyperband from './V1Hyperband';
-import V1Hyperopt from './V1Hyperopt';
 import V1Iterative from './V1Iterative';
 import V1Mapping from './V1Mapping';
 import V1RandomSearch from './V1RandomSearch';
+import V1TPE from './V1TPE';
 
 /**
  * The V1Matrix model module.
@@ -66,8 +66,8 @@ class V1Matrix {
             if (data.hasOwnProperty('bayes')) {
                 obj['bayes'] = V1Bayes.constructFromObject(data['bayes']);
             }
-            if (data.hasOwnProperty('hyperopt')) {
-                obj['hyperopt'] = V1Hyperopt.constructFromObject(data['hyperopt']);
+            if (data.hasOwnProperty('tpe')) {
+                obj['tpe'] = V1TPE.constructFromObject(data['tpe']);
             }
             if (data.hasOwnProperty('iterative')) {
                 obj['iterative'] = V1Iterative.constructFromObject(data['iterative']);
@@ -101,9 +101,9 @@ class V1Matrix {
         if (data['bayes']) { // data not null
           V1Bayes.validateJSON(data['bayes']);
         }
-        // validate the optional field `hyperopt`
-        if (data['hyperopt']) { // data not null
-          V1Hyperopt.validateJSON(data['hyperopt']);
+        // validate the optional field `tpe`
+        if (data['tpe']) { // data not null
+          V1TPE.validateJSON(data['tpe']);
         }
         // validate the optional field `iterative`
         if (data['iterative']) { // data not null
@@ -143,9 +143,9 @@ V1Matrix.prototype['hyperband'] = undefined;
 V1Matrix.prototype['bayes'] = undefined;
 
 /**
- * @member {module:model/V1Hyperopt} hyperopt
+ * @member {module:model/V1TPE} tpe
  */
-V1Matrix.prototype['hyperopt'] = undefined;
+V1Matrix.prototype['tpe'] = undefined;
 
 /**
  * @member {module:model/V1Iterative} iterative

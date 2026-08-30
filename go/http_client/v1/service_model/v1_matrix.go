@@ -28,9 +28,6 @@ type V1Matrix struct {
 	// hyperband
 	Hyperband *V1Hyperband `json:"hyperband,omitempty"`
 
-	// hyperopt
-	Hyperopt *V1Hyperopt `json:"hyperopt,omitempty"`
-
 	// iterative
 	Iterative *V1Iterative `json:"iterative,omitempty"`
 
@@ -39,6 +36,9 @@ type V1Matrix struct {
 
 	// random
 	Random *V1RandomSearch `json:"random,omitempty"`
+
+	// tpe
+	Tpe *V1TPE `json:"tpe,omitempty"`
 }
 
 // Validate validates this v1 matrix
@@ -57,10 +57,6 @@ func (m *V1Matrix) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateHyperopt(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateIterative(formats); err != nil {
 		res = append(res, err)
 	}
@@ -70,6 +66,10 @@ func (m *V1Matrix) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateRandom(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTpe(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -148,29 +148,6 @@ func (m *V1Matrix) validateHyperband(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Matrix) validateHyperopt(formats strfmt.Registry) error {
-	if swag.IsZero(m.Hyperopt) { // not required
-		return nil
-	}
-
-	if m.Hyperopt != nil {
-		if err := m.Hyperopt.Validate(formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("hyperopt")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("hyperopt")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1Matrix) validateIterative(formats strfmt.Registry) error {
 	if swag.IsZero(m.Iterative) { // not required
 		return nil
@@ -240,6 +217,29 @@ func (m *V1Matrix) validateRandom(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Matrix) validateTpe(formats strfmt.Registry) error {
+	if swag.IsZero(m.Tpe) { // not required
+		return nil
+	}
+
+	if m.Tpe != nil {
+		if err := m.Tpe.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("tpe")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("tpe")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this v1 matrix based on the context it is used
 func (m *V1Matrix) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -256,10 +256,6 @@ func (m *V1Matrix) ContextValidate(ctx context.Context, formats strfmt.Registry)
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateHyperopt(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateIterative(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -269,6 +265,10 @@ func (m *V1Matrix) ContextValidate(ctx context.Context, formats strfmt.Registry)
 	}
 
 	if err := m.contextValidateRandom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTpe(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -353,31 +353,6 @@ func (m *V1Matrix) contextValidateHyperband(ctx context.Context, formats strfmt.
 	return nil
 }
 
-func (m *V1Matrix) contextValidateHyperopt(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Hyperopt != nil {
-
-		if swag.IsZero(m.Hyperopt) { // not required
-			return nil
-		}
-
-		if err := m.Hyperopt.ContextValidate(ctx, formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("hyperopt")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("hyperopt")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *V1Matrix) contextValidateIterative(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Iterative != nil {
@@ -444,6 +419,31 @@ func (m *V1Matrix) contextValidateRandom(ctx context.Context, formats strfmt.Reg
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("random")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Matrix) contextValidateTpe(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Tpe != nil {
+
+		if swag.IsZero(m.Tpe) { // not required
+			return nil
+		}
+
+		if err := m.Tpe.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("tpe")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("tpe")
 			}
 
 			return err

@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.client.model.V1HyperoptAlgorithms;
 import org.openapitools.client.model.V1OptimizationMetric;
 import org.openapitools.client.model.V1Tuner;
 import org.junit.jupiter.api.Disabled;
@@ -31,17 +30,17 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for V1Hyperopt
+ * Model tests for V1TPE
  */
-public class V1HyperoptTest {
-    private final V1Hyperopt model = new V1Hyperopt();
+public class V1TPETest {
+    private final V1TPE model = new V1TPE();
 
     /**
-     * Model tests for V1Hyperopt
+     * Model tests for V1TPE
      */
     @Test
-    public void testV1Hyperopt() {
-        // TODO: test V1Hyperopt
+    public void testV1TPE() {
+        // TODO: test V1TPE
     }
 
     /**
@@ -50,14 +49,6 @@ public class V1HyperoptTest {
     @Test
     public void kindTest() {
         // TODO: test kind
-    }
-
-    /**
-     * Test the property 'algorithm'
-     */
-    @Test
-    public void algorithmTest() {
-        // TODO: test algorithm
     }
 
     /**

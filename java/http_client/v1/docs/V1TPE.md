@@ -1,6 +1,6 @@
 
 
-# V1Hyperopt
+# V1TPE
 
 
 ## Properties
@@ -8,7 +8,6 @@
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
 |**kind** | **String** |  |  [optional] |
-|**algorithm** | **V1HyperoptAlgorithms** |  |  [optional] |
 |**params** | **Map&lt;String, Object&gt;** |  |  [optional] |
 |**numRuns** | **Integer** |  |  [optional] |
 |**maxIterations** | **Integer** |  |  [optional] |

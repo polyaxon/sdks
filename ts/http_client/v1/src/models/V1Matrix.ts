@@ -31,12 +31,6 @@ import {
     V1HyperbandFromJSONTyped,
     V1HyperbandToJSON,
 } from './V1Hyperband';
-import type { V1Hyperopt } from './V1Hyperopt';
-import {
-    V1HyperoptFromJSON,
-    V1HyperoptFromJSONTyped,
-    V1HyperoptToJSON,
-} from './V1Hyperopt';
 import type { V1Iterative } from './V1Iterative';
 import {
     V1IterativeFromJSON,
@@ -55,6 +49,12 @@ import {
     V1RandomSearchFromJSONTyped,
     V1RandomSearchToJSON,
 } from './V1RandomSearch';
+import type { V1TPE } from './V1TPE';
+import {
+    V1TPEFromJSON,
+    V1TPEFromJSONTyped,
+    V1TPEToJSON,
+} from './V1TPE';
 
 /**
  * 
@@ -88,10 +88,10 @@ export interface V1Matrix {
     bayes?: V1Bayes;
     /**
      * 
-     * @type {V1Hyperopt}
+     * @type {V1TPE}
      * @memberof V1Matrix
      */
-    hyperopt?: V1Hyperopt;
+    tpe?: V1TPE;
     /**
      * 
      * @type {V1Iterative}
@@ -129,7 +129,7 @@ export function V1MatrixFromJSONTyped(json: any, ignoreDiscriminator: boolean): 
         'grid': !exists(json, 'grid') ? undefined : V1GridSearchFromJSON(json['grid']),
         'hyperband': !exists(json, 'hyperband') ? undefined : V1HyperbandFromJSON(json['hyperband']),
         'bayes': !exists(json, 'bayes') ? undefined : V1BayesFromJSON(json['bayes']),
-        'hyperopt': !exists(json, 'hyperopt') ? undefined : V1HyperoptFromJSON(json['hyperopt']),
+        'tpe': !exists(json, 'tpe') ? undefined : V1TPEFromJSON(json['tpe']),
         'iterative': !exists(json, 'iterative') ? undefined : V1IterativeFromJSON(json['iterative']),
         'mapping': !exists(json, 'mapping') ? undefined : V1MappingFromJSON(json['mapping']),
     };
@@ -148,7 +148,7 @@ export function V1MatrixToJSON(value?: V1Matrix | null): any {
         'grid': V1GridSearchToJSON(value.grid),
         'hyperband': V1HyperbandToJSON(value.hyperband),
         'bayes': V1BayesToJSON(value.bayes),
-        'hyperopt': V1HyperoptToJSON(value.hyperopt),
+        'tpe': V1TPEToJSON(value.tpe),
         'iterative': V1IterativeToJSON(value.iterative),
         'mapping': V1MappingToJSON(value.mapping),
     };

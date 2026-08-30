@@ -11,7 +11,7 @@
 
 * `bayes` (value: `"bayes"`)
 
-* `hyperopt` (value: `"hyperopt"`)
+* `tpe` (value: `"tpe"`)
 
 * `iterative` (value: `"iterative"`)
 

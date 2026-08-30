@@ -1,11 +1,10 @@
-# V1Hyperopt
+# V1TPE
 
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kind** | **str** |  | [optional] [default to 'hyperopt']
-**algorithm** | [**V1HyperoptAlgorithms**](V1HyperoptAlgorithms.md) |  | [optional] 
+**kind** | **str** |  | [optional] [default to 'tpe']
 **params** | **Dict[str, object]** |  | [optional] 
 **num_runs** | **int** |  | [optional] 
 **max_iterations** | **int** |  | [optional] 
@@ -18,19 +17,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from polyaxon_sdk.models.v1_hyperopt import V1Hyperopt
+from polyaxon_sdk.models.v1_tpe import V1TPE
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of V1Hyperopt from a JSON string
-v1_hyperopt_instance = V1Hyperopt.from_json(json)
+# create an instance of V1TPE from a JSON string
+v1_tpe_instance = V1TPE.from_json(json)
 # print the JSON string representation of the object
-print V1Hyperopt.to_json()
+print V1TPE.to_json()
 
 # convert the object into a dict
-v1_hyperopt_dict = v1_hyperopt_instance.to_dict()
-# create an instance of V1Hyperopt from a dict
-v1_hyperopt_form_dict = v1_hyperopt.from_dict(v1_hyperopt_dict)
+v1_tpe_dict = v1_tpe_instance.to_dict()
+# create an instance of V1TPE from a dict
+v1_tpe_form_dict = v1_tpe.from_dict(v1_tpe_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

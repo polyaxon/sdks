@@ -37,7 +37,7 @@ public enum V1MatrixKind {
   
   BAYES("bayes"),
   
-  HYPEROPT("hyperopt"),
+  TPE("tpe"),
   
   ITERATIVE("iterative"),
   

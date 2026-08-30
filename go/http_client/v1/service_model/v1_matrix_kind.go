@@ -42,8 +42,8 @@ const (
 	// V1MatrixKindBayes captures enum value "bayes"
 	V1MatrixKindBayes V1MatrixKind = "bayes"
 
-	// V1MatrixKindHyperopt captures enum value "hyperopt"
-	V1MatrixKindHyperopt V1MatrixKind = "hyperopt"
+	// V1MatrixKindTpe captures enum value "tpe"
+	V1MatrixKindTpe V1MatrixKind = "tpe"
 
 	// V1MatrixKindIterative captures enum value "iterative"
 	V1MatrixKindIterative V1MatrixKind = "iterative"
@@ -57,7 +57,7 @@ var v1MatrixKindEnum []any
 
 func init() {
 	var res []V1MatrixKind
-	if err := json.Unmarshal([]byte(`["random","grid","hyperband","bayes","hyperopt","iterative","mapping"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["random","grid","hyperband","bayes","tpe","iterative","mapping"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

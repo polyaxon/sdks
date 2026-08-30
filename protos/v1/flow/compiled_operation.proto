@@ -75,7 +75,7 @@ message CompiledOperation {
     // Optional flag to skip this run if upstream was skipped
     bool skipOnUpstreamSkip = 19;
 
-    // Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)
+    // Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)
     google.protobuf.Struct matrix = 20;
 
     // Optional dict of joins

@@ -34,7 +34,7 @@ class V1MatrixKind(str, Enum):
     GRID = 'grid'
     HYPERBAND = 'hyperband'
     BAYES = 'bayes'
-    HYPEROPT = 'hyperopt'
+    TPE = 'tpe'
     ITERATIVE = 'iterative'
     MAPPING = 'mapping'
 

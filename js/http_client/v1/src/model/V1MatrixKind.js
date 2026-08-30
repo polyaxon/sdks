@@ -48,10 +48,10 @@ export default class V1MatrixKind {
 
     
         /**
-         * value: "hyperopt"
+         * value: "tpe"
          * @const
          */
-        "hyperopt" = "hyperopt";
+        "tpe" = "tpe";
 
     
         /**

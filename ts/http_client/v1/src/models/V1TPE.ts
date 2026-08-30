@@ -13,12 +13,6 @@
  */
 
 import { exists, mapValues } from '../runtime';
-import type { V1HyperoptAlgorithms } from './V1HyperoptAlgorithms';
-import {
-    V1HyperoptAlgorithmsFromJSON,
-    V1HyperoptAlgorithmsFromJSONTyped,
-    V1HyperoptAlgorithmsToJSON,
-} from './V1HyperoptAlgorithms';
 import type { V1OptimizationMetric } from './V1OptimizationMetric';
 import {
     V1OptimizationMetricFromJSON,
@@ -35,92 +29,85 @@ import {
 /**
  * 
  * @export
- * @interface V1Hyperopt
+ * @interface V1TPE
  */
-export interface V1Hyperopt {
+export interface V1TPE {
     /**
      * 
      * @type {string}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     kind?: string;
     /**
      * 
-     * @type {V1HyperoptAlgorithms}
-     * @memberof V1Hyperopt
-     */
-    algorithm?: V1HyperoptAlgorithms;
-    /**
-     * 
      * @type {{ [key: string]: object; }}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     params?: { [key: string]: object; };
     /**
      * 
      * @type {number}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     numRuns?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     maxIterations?: number;
     /**
      * 
      * @type {V1OptimizationMetric}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     metric?: V1OptimizationMetric;
     /**
      * 
      * @type {number}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     seed?: number;
     /**
      * 
      * @type {number}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     concurrency?: number;
     /**
      * 
      * @type {V1Tuner}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     tuner?: V1Tuner;
     /**
      * 
      * @type {Array<object>}
-     * @memberof V1Hyperopt
+     * @memberof V1TPE
      */
     earlyStopping?: Array<object>;
 }
 
 /**
- * Check if a given object implements the V1Hyperopt interface.
+ * Check if a given object implements the V1TPE interface.
  */
-export function instanceOfV1Hyperopt(value: object): boolean {
+export function instanceOfV1TPE(value: object): boolean {
     let isInstance = true;
 
     return isInstance;
 }
 
-export function V1HyperoptFromJSON(json: any): V1Hyperopt {
-    return V1HyperoptFromJSONTyped(json, false);
+export function V1TPEFromJSON(json: any): V1TPE {
+    return V1TPEFromJSONTyped(json, false);
 }
 
-export function V1HyperoptFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1Hyperopt {
+export function V1TPEFromJSONTyped(json: any, ignoreDiscriminator: boolean): V1TPE {
     if ((json === undefined) || (json === null)) {
         return json;
     }
     return {
         
         'kind': !exists(json, 'kind') ? undefined : json['kind'],
-        'algorithm': !exists(json, 'algorithm') ? undefined : V1HyperoptAlgorithmsFromJSON(json['algorithm']),
         'params': !exists(json, 'params') ? undefined : json['params'],
         'numRuns': !exists(json, 'numRuns') ? undefined : json['numRuns'],
         'maxIterations': !exists(json, 'maxIterations') ? undefined : json['maxIterations'],
@@ -132,7 +119,7 @@ export function V1HyperoptFromJSONTyped(json: any, ignoreDiscriminator: boolean)
     };
 }
 
-export function V1HyperoptToJSON(value?: V1Hyperopt | null): any {
+export function V1TPEToJSON(value?: V1TPE | null): any {
     if (value === undefined) {
         return undefined;
     }
@@ -142,7 +129,6 @@ export function V1HyperoptToJSON(value?: V1Hyperopt | null): any {
     return {
         
         'kind': value.kind,
-        'algorithm': V1HyperoptAlgorithmsToJSON(value.algorithm),
         'params': value.params,
         'numRuns': value.numRuns,
         'maxIterations': value.maxIterations,

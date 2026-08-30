@@ -24,10 +24,10 @@ import java.io.IOException;
 import org.openapitools.client.model.V1Bayes;
 import org.openapitools.client.model.V1GridSearch;
 import org.openapitools.client.model.V1Hyperband;
-import org.openapitools.client.model.V1Hyperopt;
 import org.openapitools.client.model.V1Iterative;
 import org.openapitools.client.model.V1Mapping;
 import org.openapitools.client.model.V1RandomSearch;
+import org.openapitools.client.model.V1TPE;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -71,9 +71,9 @@ public class V1Matrix {
   @SerializedName(SERIALIZED_NAME_BAYES)
   private V1Bayes bayes;
 
-  public static final String SERIALIZED_NAME_HYPEROPT = "hyperopt";
-  @SerializedName(SERIALIZED_NAME_HYPEROPT)
-  private V1Hyperopt hyperopt;
+  public static final String SERIALIZED_NAME_TPE = "tpe";
+  @SerializedName(SERIALIZED_NAME_TPE)
+  private V1TPE tpe;
 
   public static final String SERIALIZED_NAME_ITERATIVE = "iterative";
   @SerializedName(SERIALIZED_NAME_ITERATIVE)
@@ -174,25 +174,25 @@ public class V1Matrix {
   }
 
 
-  public V1Matrix hyperopt(V1Hyperopt hyperopt) {
+  public V1Matrix tpe(V1TPE tpe) {
     
-    this.hyperopt = hyperopt;
+    this.tpe = tpe;
     return this;
   }
 
    /**
-   * Get hyperopt
-   * @return hyperopt
+   * Get tpe
+   * @return tpe
   **/
   @javax.annotation.Nullable
 
-  public V1Hyperopt getHyperopt() {
-    return hyperopt;
+  public V1TPE getTpe() {
+    return tpe;
   }
 
 
-  public void setHyperopt(V1Hyperopt hyperopt) {
-    this.hyperopt = hyperopt;
+  public void setTpe(V1TPE tpe) {
+    this.tpe = tpe;
   }
 
 
@@ -254,14 +254,14 @@ public class V1Matrix {
         Objects.equals(this.grid, v1Matrix.grid) &&
         Objects.equals(this.hyperband, v1Matrix.hyperband) &&
         Objects.equals(this.bayes, v1Matrix.bayes) &&
-        Objects.equals(this.hyperopt, v1Matrix.hyperopt) &&
+        Objects.equals(this.tpe, v1Matrix.tpe) &&
         Objects.equals(this.iterative, v1Matrix.iterative) &&
         Objects.equals(this.mapping, v1Matrix.mapping);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(random, grid, hyperband, bayes, hyperopt, iterative, mapping);
+    return Objects.hash(random, grid, hyperband, bayes, tpe, iterative, mapping);
   }
 
   @Override
@@ -272,7 +272,7 @@ public class V1Matrix {
     sb.append("    grid: ").append(toIndentedString(grid)).append("\n");
     sb.append("    hyperband: ").append(toIndentedString(hyperband)).append("\n");
     sb.append("    bayes: ").append(toIndentedString(bayes)).append("\n");
-    sb.append("    hyperopt: ").append(toIndentedString(hyperopt)).append("\n");
+    sb.append("    tpe: ").append(toIndentedString(tpe)).append("\n");
     sb.append("    iterative: ").append(toIndentedString(iterative)).append("\n");
     sb.append("    mapping: ").append(toIndentedString(mapping)).append("\n");
     sb.append("}");
@@ -301,7 +301,7 @@ public class V1Matrix {
     openapiFields.add("grid");
     openapiFields.add("hyperband");
     openapiFields.add("bayes");
-    openapiFields.add("hyperopt");
+    openapiFields.add("tpe");
     openapiFields.add("iterative");
     openapiFields.add("mapping");
 
@@ -345,9 +345,9 @@ public class V1Matrix {
       if (jsonObj.get("bayes") != null && !jsonObj.get("bayes").isJsonNull()) {
         V1Bayes.validateJsonObject(jsonObj.getAsJsonObject("bayes"));
       }
-      // validate the optional field `hyperopt`
-      if (jsonObj.get("hyperopt") != null && !jsonObj.get("hyperopt").isJsonNull()) {
-        V1Hyperopt.validateJsonObject(jsonObj.getAsJsonObject("hyperopt"));
+      // validate the optional field `tpe`
+      if (jsonObj.get("tpe") != null && !jsonObj.get("tpe").isJsonNull()) {
+        V1TPE.validateJsonObject(jsonObj.getAsJsonObject("tpe"));
       }
       // validate the optional field `iterative`
       if (jsonObj.get("iterative") != null && !jsonObj.get("iterative").isJsonNull()) {

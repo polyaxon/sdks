@@ -22,10 +22,10 @@ import java.io.IOException;
 import org.openapitools.client.model.V1Bayes;
 import org.openapitools.client.model.V1GridSearch;
 import org.openapitools.client.model.V1Hyperband;
-import org.openapitools.client.model.V1Hyperopt;
 import org.openapitools.client.model.V1Iterative;
 import org.openapitools.client.model.V1Mapping;
 import org.openapitools.client.model.V1RandomSearch;
+import org.openapitools.client.model.V1TPE;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -77,11 +77,11 @@ public class V1MatrixTest {
     }
 
     /**
-     * Test the property 'hyperopt'
+     * Test the property 'tpe'
      */
     @Test
-    public void hyperoptTest() {
-        // TODO: test hyperopt
+    public void tpeTest() {
+        // TODO: test tpe
     }
 
     /**

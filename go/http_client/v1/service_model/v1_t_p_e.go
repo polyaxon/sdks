@@ -14,13 +14,10 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// V1Hyperopt Matrix based on hyperopt
+// V1TPE Matrix based on Polyaxon's native TPE implementation
 //
-// swagger:model v1Hyperopt
-type V1Hyperopt struct {
-
-	// Algorithm to use from the hyperopt library
-	Algorithm *V1HyperoptAlgorithms `json:"algorithm,omitempty"`
+// swagger:model v1TPE
+type V1TPE struct {
 
 	// Number of concurrent runs
 	Concurrency int32 `json:"concurrency,omitempty"`
@@ -28,7 +25,7 @@ type V1Hyperopt struct {
 	// A list of Early stopping objects, accepts both metric and failure early stopping mechanisms
 	EarlyStopping []any `json:"earlyStopping"`
 
-	// Kind of matrix, should be equal to "hyperopt"
+	// Kind of matrix, should be equal to "tpe"
 	Kind *string `json:"kind,omitempty"`
 
 	// Maximum number of iteration to produce new observations
@@ -50,13 +47,9 @@ type V1Hyperopt struct {
 	Tuner *V1Tuner `json:"tuner,omitempty"`
 }
 
-// Validate validates this v1 hyperopt
-func (m *V1Hyperopt) Validate(formats strfmt.Registry) error {
+// Validate validates this v1 t p e
+func (m *V1TPE) Validate(formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.validateAlgorithm(formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.validateMetric(formats); err != nil {
 		res = append(res, err)
@@ -72,30 +65,7 @@ func (m *V1Hyperopt) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Hyperopt) validateAlgorithm(formats strfmt.Registry) error {
-	if swag.IsZero(m.Algorithm) { // not required
-		return nil
-	}
-
-	if m.Algorithm != nil {
-		if err := m.Algorithm.Validate(formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("algorithm")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("algorithm")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1Hyperopt) validateMetric(formats strfmt.Registry) error {
+func (m *V1TPE) validateMetric(formats strfmt.Registry) error {
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -118,7 +88,7 @@ func (m *V1Hyperopt) validateMetric(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *V1Hyperopt) validateTuner(formats strfmt.Registry) error {
+func (m *V1TPE) validateTuner(formats strfmt.Registry) error {
 	if swag.IsZero(m.Tuner) { // not required
 		return nil
 	}
@@ -141,13 +111,9 @@ func (m *V1Hyperopt) validateTuner(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validate this v1 hyperopt based on the context it is used
-func (m *V1Hyperopt) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+// ContextValidate validate this v1 t p e based on the context it is used
+func (m *V1TPE) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateAlgorithm(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateMetric(ctx, formats); err != nil {
 		res = append(res, err)
@@ -163,32 +129,7 @@ func (m *V1Hyperopt) ContextValidate(ctx context.Context, formats strfmt.Registr
 	return nil
 }
 
-func (m *V1Hyperopt) contextValidateAlgorithm(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Algorithm != nil {
-
-		if swag.IsZero(m.Algorithm) { // not required
-			return nil
-		}
-
-		if err := m.Algorithm.ContextValidate(ctx, formats); err != nil {
-			ve := new(errors.Validation)
-			if stderrors.As(err, &ve) {
-				return ve.ValidateName("algorithm")
-			}
-			ce := new(errors.CompositeError)
-			if stderrors.As(err, &ce) {
-				return ce.ValidateName("algorithm")
-			}
-
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1Hyperopt) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1TPE) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Metric != nil {
 
@@ -213,7 +154,7 @@ func (m *V1Hyperopt) contextValidateMetric(ctx context.Context, formats strfmt.R
 	return nil
 }
 
-func (m *V1Hyperopt) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
+func (m *V1TPE) contextValidateTuner(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Tuner != nil {
 
@@ -239,7 +180,7 @@ func (m *V1Hyperopt) contextValidateTuner(ctx context.Context, formats strfmt.Re
 }
 
 // MarshalBinary interface implementation
-func (m *V1Hyperopt) MarshalBinary() ([]byte, error) {
+func (m *V1TPE) MarshalBinary() ([]byte, error) {
 	if m == nil {
 		return nil, nil
 	}
@@ -247,8 +188,8 @@ func (m *V1Hyperopt) MarshalBinary() ([]byte, error) {
 }
 
 // UnmarshalBinary interface implementation
-func (m *V1Hyperopt) UnmarshalBinary(b []byte) error {
-	var res V1Hyperopt
+func (m *V1TPE) UnmarshalBinary(b []byte) error {
+	var res V1TPE
 	if err := swag.ReadJSON(b, &res); err != nil {
 		return err
 	}

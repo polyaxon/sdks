@@ -130,8 +130,6 @@ import V1HpRange from './model/V1HpRange';
 import V1HpUniform from './model/V1HpUniform';
 import V1HubRef from './model/V1HubRef';
 import V1Hyperband from './model/V1Hyperband';
-import V1Hyperopt from './model/V1Hyperopt';
-import V1HyperoptAlgorithms from './model/V1HyperoptAlgorithms';
 import V1IO from './model/V1IO';
 import V1Init from './model/V1Init';
 import V1Installation from './model/V1Installation';
@@ -246,6 +244,7 @@ import V1Status from './model/V1Status';
 import V1StatusCondition from './model/V1StatusCondition';
 import V1Statuses from './model/V1Statuses';
 import V1TFJob from './model/V1TFJob';
+import V1TPE from './model/V1TPE';
 import V1Tag from './model/V1Tag';
 import V1Team from './model/V1Team';
 import V1TeamMember from './model/V1TeamMember';
@@ -1033,18 +1032,6 @@ export {
     V1Hyperband,
 
     /**
-     * The V1Hyperopt model constructor.
-     * @property {module:model/V1Hyperopt}
-     */
-    V1Hyperopt,
-
-    /**
-     * The V1HyperoptAlgorithms model constructor.
-     * @property {module:model/V1HyperoptAlgorithms}
-     */
-    V1HyperoptAlgorithms,
-
-    /**
      * The V1IO model constructor.
      * @property {module:model/V1IO}
      */
@@ -1727,6 +1714,12 @@ export {
      * @property {module:model/V1TFJob}
      */
     V1TFJob,
+
+    /**
+     * The V1TPE model constructor.
+     * @property {module:model/V1TPE}
+     */
+    V1TPE,
 
     /**
      * The V1Tag model constructor.

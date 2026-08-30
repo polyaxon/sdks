@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.openapitools.client.model.V1HyperoptAlgorithms;
 import org.openapitools.client.model.V1OptimizationMetric;
 import org.openapitools.client.model.V1Tuner;
 
@@ -51,17 +50,13 @@ import java.util.Set;
 import org.openapitools.client.JSON;
 
 /**
- * V1Hyperopt
+ * V1TPE
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class V1Hyperopt {
+public class V1TPE {
   public static final String SERIALIZED_NAME_KIND = "kind";
   @SerializedName(SERIALIZED_NAME_KIND)
-  private String kind = "hyperopt";
-
-  public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
-  @SerializedName(SERIALIZED_NAME_ALGORITHM)
-  private V1HyperoptAlgorithms algorithm = V1HyperoptAlgorithms.TPE;
+  private String kind = "tpe";
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
@@ -95,10 +90,10 @@ public class V1Hyperopt {
   @SerializedName(SERIALIZED_NAME_EARLY_STOPPING)
   private List<Object> earlyStopping;
 
-  public V1Hyperopt() {
+  public V1TPE() {
   }
 
-  public V1Hyperopt kind(String kind) {
+  public V1TPE kind(String kind) {
     
     this.kind = kind;
     return this;
@@ -120,35 +115,13 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt algorithm(V1HyperoptAlgorithms algorithm) {
-    
-    this.algorithm = algorithm;
-    return this;
-  }
-
-   /**
-   * Get algorithm
-   * @return algorithm
-  **/
-  @javax.annotation.Nullable
-
-  public V1HyperoptAlgorithms getAlgorithm() {
-    return algorithm;
-  }
-
-
-  public void setAlgorithm(V1HyperoptAlgorithms algorithm) {
-    this.algorithm = algorithm;
-  }
-
-
-  public V1Hyperopt params(Map<String, Object> params) {
+  public V1TPE params(Map<String, Object> params) {
     
     this.params = params;
     return this;
   }
 
-  public V1Hyperopt putParamsItem(String key, Object paramsItem) {
+  public V1TPE putParamsItem(String key, Object paramsItem) {
     if (this.params == null) {
       this.params = new HashMap<>();
     }
@@ -172,7 +145,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt numRuns(Integer numRuns) {
+  public V1TPE numRuns(Integer numRuns) {
     
     this.numRuns = numRuns;
     return this;
@@ -194,7 +167,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt maxIterations(Integer maxIterations) {
+  public V1TPE maxIterations(Integer maxIterations) {
     
     this.maxIterations = maxIterations;
     return this;
@@ -216,7 +189,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt metric(V1OptimizationMetric metric) {
+  public V1TPE metric(V1OptimizationMetric metric) {
     
     this.metric = metric;
     return this;
@@ -238,7 +211,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt seed(Integer seed) {
+  public V1TPE seed(Integer seed) {
     
     this.seed = seed;
     return this;
@@ -260,7 +233,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt concurrency(Integer concurrency) {
+  public V1TPE concurrency(Integer concurrency) {
     
     this.concurrency = concurrency;
     return this;
@@ -282,7 +255,7 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt tuner(V1Tuner tuner) {
+  public V1TPE tuner(V1Tuner tuner) {
     
     this.tuner = tuner;
     return this;
@@ -304,13 +277,13 @@ public class V1Hyperopt {
   }
 
 
-  public V1Hyperopt earlyStopping(List<Object> earlyStopping) {
+  public V1TPE earlyStopping(List<Object> earlyStopping) {
     
     this.earlyStopping = earlyStopping;
     return this;
   }
 
-  public V1Hyperopt addEarlyStoppingItem(Object earlyStoppingItem) {
+  public V1TPE addEarlyStoppingItem(Object earlyStoppingItem) {
     if (this.earlyStopping == null) {
       this.earlyStopping = new ArrayList<>();
     }
@@ -343,30 +316,28 @@ public class V1Hyperopt {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1Hyperopt v1Hyperopt = (V1Hyperopt) o;
-    return Objects.equals(this.kind, v1Hyperopt.kind) &&
-        Objects.equals(this.algorithm, v1Hyperopt.algorithm) &&
-        Objects.equals(this.params, v1Hyperopt.params) &&
-        Objects.equals(this.numRuns, v1Hyperopt.numRuns) &&
-        Objects.equals(this.maxIterations, v1Hyperopt.maxIterations) &&
-        Objects.equals(this.metric, v1Hyperopt.metric) &&
-        Objects.equals(this.seed, v1Hyperopt.seed) &&
-        Objects.equals(this.concurrency, v1Hyperopt.concurrency) &&
-        Objects.equals(this.tuner, v1Hyperopt.tuner) &&
-        Objects.equals(this.earlyStopping, v1Hyperopt.earlyStopping);
+    V1TPE v1TPE = (V1TPE) o;
+    return Objects.equals(this.kind, v1TPE.kind) &&
+        Objects.equals(this.params, v1TPE.params) &&
+        Objects.equals(this.numRuns, v1TPE.numRuns) &&
+        Objects.equals(this.maxIterations, v1TPE.maxIterations) &&
+        Objects.equals(this.metric, v1TPE.metric) &&
+        Objects.equals(this.seed, v1TPE.seed) &&
+        Objects.equals(this.concurrency, v1TPE.concurrency) &&
+        Objects.equals(this.tuner, v1TPE.tuner) &&
+        Objects.equals(this.earlyStopping, v1TPE.earlyStopping);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(kind, algorithm, params, numRuns, maxIterations, metric, seed, concurrency, tuner, earlyStopping);
+    return Objects.hash(kind, params, numRuns, maxIterations, metric, seed, concurrency, tuner, earlyStopping);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class V1Hyperopt {\n");
+    sb.append("class V1TPE {\n");
     sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
-    sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    numRuns: ").append(toIndentedString(numRuns)).append("\n");
     sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
@@ -398,7 +369,6 @@ public class V1Hyperopt {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("kind");
-    openapiFields.add("algorithm");
     openapiFields.add("params");
     openapiFields.add("numRuns");
     openapiFields.add("maxIterations");
@@ -416,20 +386,20 @@ public class V1Hyperopt {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to V1Hyperopt
+  * @throws IOException if the JSON Object is invalid with respect to V1TPE
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!V1Hyperopt.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Hyperopt is not found in the empty JSON string", V1Hyperopt.openapiRequiredFields.toString()));
+        if (!V1TPE.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1TPE is not found in the empty JSON string", V1TPE.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!V1Hyperopt.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Hyperopt` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!V1TPE.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1TPE` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
@@ -453,22 +423,22 @@ public class V1Hyperopt {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!V1Hyperopt.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'V1Hyperopt' and its subtypes
+       if (!V1TPE.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1TPE' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<V1Hyperopt> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(V1Hyperopt.class));
+       final TypeAdapter<V1TPE> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1TPE.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<V1Hyperopt>() {
+       return (TypeAdapter<T>) new TypeAdapter<V1TPE>() {
            @Override
-           public void write(JsonWriter out, V1Hyperopt value) throws IOException {
+           public void write(JsonWriter out, V1TPE value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public V1Hyperopt read(JsonReader in) throws IOException {
+           public V1TPE read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -479,18 +449,18 @@ public class V1Hyperopt {
   }
 
  /**
-  * Create an instance of V1Hyperopt given an JSON string
+  * Create an instance of V1TPE given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of V1Hyperopt
-  * @throws IOException if the JSON string is invalid with respect to V1Hyperopt
+  * @return An instance of V1TPE
+  * @throws IOException if the JSON string is invalid with respect to V1TPE
   */
-  public static V1Hyperopt fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, V1Hyperopt.class);
+  public static V1TPE fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1TPE.class);
   }
 
  /**
-  * Convert an instance of V1Hyperopt to an JSON string
+  * Convert an instance of V1TPE to an JSON string
   *
   * @return JSON string
   */

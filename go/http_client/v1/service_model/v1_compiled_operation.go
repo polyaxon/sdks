@@ -60,7 +60,7 @@ type V1CompiledOperation struct {
 	// Optional component kind, should be equal to 'operation'
 	Kind string `json:"kind,omitempty"`
 
-	// Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)
+	// Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)
 	Matrix any `json:"matrix,omitempty"`
 
 	// Optional component name, should a valid slug

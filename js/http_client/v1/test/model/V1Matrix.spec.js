@@ -78,8 +78,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property hyperopt (base name: "hyperopt")', function() {
-      // uncomment below and update the code to test the property hyperopt
+    it('should have the property tpe (base name: "tpe")', function() {
+      // uncomment below and update the code to test the property tpe
       //var instance = new PolyaxonSdk.V1Matrix();
       //expect(instance).to.be();
     });

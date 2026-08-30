@@ -22581,7 +22581,7 @@
         },
         "matrix": {
           "type": "object",
-          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)"
+          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
         },
         "joins": {
           "type": "object",
@@ -24999,74 +24999,6 @@
       },
       "title": "Matrix based on hyperband"
     },
-    "v1Hyperopt": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "title": "Kind of matrix, should be equal to \"hyperopt\"",
-          "default": "hyperopt"
-        },
-        "algorithm": {
-          "$ref": "#/definitions/v1HyperoptAlgorithms",
-          "title": "Algorithm to use from the hyperopt library"
-        },
-        "params": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object"
-          },
-          "title": "Hyperparams/Space definition of params to traverse"
-        },
-        "numRuns": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Number of runs to generate and search"
-        },
-        "maxIterations": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Maximum number of iteration to produce new observations"
-        },
-        "metric": {
-          "$ref": "#/definitions/v1OptimizationMetric",
-          "title": "Metric to optimize during the iterations"
-        },
-        "seed": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Seed for the random generator"
-        },
-        "concurrency": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Number of concurrent runs"
-        },
-        "tuner": {
-          "$ref": "#/definitions/v1Tuner",
-          "title": "Tuner reference (hubRef) to use"
-        },
-        "earlyStopping": {
-          "type": "array",
-          "items": {
-            "type": "object"
-          },
-          "title": "A list of Early stopping objects, accepts both metric and failure early stopping mechanisms"
-        }
-      },
-      "title": "Matrix based on hyperopt"
-    },
-    "v1HyperoptAlgorithms": {
-      "type": "string",
-      "enum": [
-        "tpe",
-        "rand",
-        "anneal"
-      ],
-      "default": "tpe",
-      "description": "- tpe: tpe algorithm\n - rand: random algorithm\n - anneal: anneal algorithm",
-      "title": "Hyperopt algorithms enum"
-    },
     "v1IO": {
       "type": "object",
       "properties": {
@@ -26186,8 +26118,8 @@
         "bayes": {
           "$ref": "#/definitions/v1Bayes"
         },
-        "hyperopt": {
-          "$ref": "#/definitions/v1Hyperopt"
+        "tpe": {
+          "$ref": "#/definitions/v1TPE"
         },
         "iterative": {
           "$ref": "#/definitions/v1Iterative"
@@ -26205,7 +26137,7 @@
         "grid",
         "hyperband",
         "bayes",
-        "hyperopt",
+        "tpe",
         "iterative",
         "mapping"
       ],
@@ -26384,7 +26316,7 @@
         },
         "matrix": {
           "type": "object",
-          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/Hyperopt/Mapping/Iterative)"
+          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
         },
         "joins": {
           "type": "object",
@@ -29060,6 +28992,59 @@
         }
       },
       "title": "TF Job specification"
+    },
+    "v1TPE": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "title": "Kind of matrix, should be equal to \"tpe\"",
+          "default": "tpe"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          },
+          "title": "Hyperparams/Space definition of params to traverse"
+        },
+        "numRuns": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Number of runs to generate and search"
+        },
+        "maxIterations": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Maximum number of iteration to produce new observations"
+        },
+        "metric": {
+          "$ref": "#/definitions/v1OptimizationMetric",
+          "title": "Metric to optimize during the iterations"
+        },
+        "seed": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Seed for the random generator"
+        },
+        "concurrency": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Number of concurrent runs"
+        },
+        "tuner": {
+          "$ref": "#/definitions/v1Tuner",
+          "title": "Tuner reference (hubRef) to use"
+        },
+        "earlyStopping": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "A list of Early stopping objects, accepts both metric and failure early stopping mechanisms"
+        }
+      },
+      "title": "Matrix based on Polyaxon's native TPE implementation"
     },
     "v1Tag": {
       "type": "object",
