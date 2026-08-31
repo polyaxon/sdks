@@ -6,6 +6,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
 [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
@@ -31,6 +32,61 @@ Method | HTTP request | Description
 [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config
 [**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token
 
+
+
+## checkAgentConnection
+
+> Object checkAgentConnection(namespace, owner, uuid, connection)
+
+Check an agent connection
+
+### Example
+
+```javascript
+import PolyaxonSdk from 'polyaxon-sdk';
+let defaultClient = PolyaxonSdk.ApiClient.instance;
+// Configure API key authorization: ApiKey
+let ApiKey = defaultClient.authentications['ApiKey'];
+ApiKey.apiKey = 'YOUR API KEY';
+// Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+//ApiKey.apiKeyPrefix = 'Token';
+
+let apiInstance = new PolyaxonSdk.AgentsV1Api();
+let namespace = "namespace_example"; // String | namespace
+let owner = "owner_example"; // String | Owner of the namespace
+let uuid = "uuid_example"; // String | Uuid identifier of the entity
+let connection = "connection_example"; // String | Connection to use
+apiInstance.checkAgentConnection(namespace, owner, uuid, connection, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **namespace** | **String**| namespace | 
+ **owner** | **String**| Owner of the namespace | 
+ **uuid** | **String**| Uuid identifier of the entity | 
+ **connection** | **String**| Connection to use | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## collectAgentData

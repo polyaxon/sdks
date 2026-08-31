@@ -48,6 +48,16 @@
   }
 
   describe('AgentsV1Api', function() {
+    describe('checkAgentConnection', function() {
+      it('should call checkAgentConnection successfully', function(done) {
+        //uncomment below and update the code to test checkAgentConnection
+        //instance.checkAgentConnection(function(error) {
+        //  if (error) throw error;
+        //expect().to.be();
+        //});
+        done();
+      });
+    });
     describe('collectAgentData', function() {
       it('should call collectAgentData successfully', function(done) {
         //uncomment below and update the code to test collectAgentData

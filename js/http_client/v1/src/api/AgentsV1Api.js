@@ -45,6 +45,66 @@ export default class AgentsV1Api {
 
 
     /**
+     * Callback function to receive the result of the checkAgentConnection operation.
+     * @callback module:api/AgentsV1Api~checkAgentConnectionCallback
+     * @param {String} error Error message, if any.
+     * @param {Object} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * Check an agent connection
+     * @param {String} namespace namespace
+     * @param {String} owner Owner of the namespace
+     * @param {String} uuid Uuid identifier of the entity
+     * @param {String} connection Connection to use
+     * @param {module:api/AgentsV1Api~checkAgentConnectionCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Object}
+     */
+    checkAgentConnection(namespace, owner, uuid, connection, callback) {
+      let postBody = null;
+      // verify the required parameter 'namespace' is set
+      if (namespace === undefined || namespace === null) {
+        throw new Error("Missing the required parameter 'namespace' when calling checkAgentConnection");
+      }
+      // verify the required parameter 'owner' is set
+      if (owner === undefined || owner === null) {
+        throw new Error("Missing the required parameter 'owner' when calling checkAgentConnection");
+      }
+      // verify the required parameter 'uuid' is set
+      if (uuid === undefined || uuid === null) {
+        throw new Error("Missing the required parameter 'uuid' when calling checkAgentConnection");
+      }
+      // verify the required parameter 'connection' is set
+      if (connection === undefined || connection === null) {
+        throw new Error("Missing the required parameter 'connection' when calling checkAgentConnection");
+      }
+
+      let pathParams = {
+        'namespace': namespace,
+        'owner': owner,
+        'uuid': uuid,
+        'connection': connection
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = ['ApiKey'];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Object;
+      return this.apiClient.callApi(
+        '/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the collectAgentData operation.
      * @callback module:api/AgentsV1Api~collectAgentDataCallback
      * @param {String} error Error message, if any.

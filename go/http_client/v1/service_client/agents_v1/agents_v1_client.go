@@ -54,6 +54,8 @@ type ClientOption func(*runtime.ClientOperation)
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CheckAgentConnection(params *CheckAgentConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckAgentConnectionOK, *CheckAgentConnectionNoContent, error)
+
 	CollectAgentData(params *CollectAgentDataParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CollectAgentDataOK, *CollectAgentDataNoContent, error)
 
 	CreateAgent(params *CreateAgentParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CreateAgentOK, *CreateAgentNoContent, error)
@@ -103,6 +105,50 @@ type ClientService interface {
 	UpdateAgentToken(params *UpdateAgentTokenParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*UpdateAgentTokenOK, *UpdateAgentTokenNoContent, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+CheckAgentConnection checks an agent connection
+*/
+func (a *Client) CheckAgentConnection(params *CheckAgentConnectionParams, authInfo runtime.ClientAuthInfoWriter, opts ...ClientOption) (*CheckAgentConnectionOK, *CheckAgentConnectionNoContent, error) {
+	// NOTE: parameters are not validated before sending
+	if params == nil {
+		params = NewCheckAgentConnectionParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "CheckAgentConnection",
+		Method:             "POST",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http", "https"},
+		Params:             params,
+		Reader:             &CheckAgentConnectionReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	// several success responses have to be checked
+	switch value := result.(type) {
+	case *CheckAgentConnectionOK:
+		return value, nil, nil
+	case *CheckAgentConnectionNoContent:
+		return nil, value, nil
+	}
+
+	// unexpected success response.
+	//
+	// a default response is provided: fill this and return an error
+	unexpectedSuccess := result.(*CheckAgentConnectionDefault)
+	return nil, nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
 /*

@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
+| [**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection |
 | [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent |
 | [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent |
 | [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status |
@@ -30,6 +31,83 @@ All URIs are relative to *http://localhost*
 | [**updateAgentConfig**](AgentsV1Api.md#updateAgentConfig) | **PATCH** /api/v1/orgs/{owner}/agents/{agent.uuid}/config | Update agent config |
 | [**updateAgentToken**](AgentsV1Api.md#updateAgentToken) | **PUT** /api/v1/orgs/{owner}/agents/{entity}/token | Update agent token |
 
+
+<a name="checkAgentConnection"></a>
+# **checkAgentConnection**
+> Object checkAgentConnection(namespace, owner, uuid, connection)
+
+Check an agent connection
+
+### Example
+```java
+// Import classes:
+import org.openapitools.client.ApiClient;
+import org.openapitools.client.ApiException;
+import org.openapitools.client.Configuration;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.models.*;
+import org.openapitools.client.api.AgentsV1Api;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: ApiKey
+    ApiKeyAuth ApiKey = (ApiKeyAuth) defaultClient.getAuthentication("ApiKey");
+    ApiKey.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKey.setApiKeyPrefix("Token");
+
+    AgentsV1Api apiInstance = new AgentsV1Api(defaultClient);
+    String namespace = "namespace_example"; // String | namespace
+    String owner = "owner_example"; // String | Owner of the namespace
+    String uuid = "uuid_example"; // String | Uuid identifier of the entity
+    String connection = "connection_example"; // String | Connection to use
+    try {
+      Object result = apiInstance.checkAgentConnection(namespace, owner, uuid, connection);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling AgentsV1Api#checkAgentConnection");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| namespace | |
+| **owner** | **String**| Owner of the namespace | |
+| **uuid** | **String**| Uuid identifier of the entity | |
+| **connection** | **String**| Connection to use | |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **204** | No content. |  -  |
+| **403** | You don&#39;t have permission to access the resource. |  -  |
+| **404** | Resource does not exist. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 <a name="collectAgentData"></a>
 # **collectAgentData**

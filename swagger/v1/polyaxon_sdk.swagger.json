@@ -19957,6 +19957,71 @@
         ]
       }
     },
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check": {
+      "post": {
+        "summary": "Check an agent connection",
+        "operationId": "CheckAgentConnection",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "namespace",
+            "description": "namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "uuid",
+            "description": "Uuid identifier of the entity",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "connection",
+            "description": "Connection to use",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "AgentsV1"
+        ]
+      }
+    },
     "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect": {
       "get": {
         "summary": "Inspect an agent's service full conditions",

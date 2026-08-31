@@ -41,6 +41,21 @@ public class AgentsV1ApiTest {
     private final AgentsV1Api api = new AgentsV1Api();
 
     /**
+     * Check an agent connection
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void checkAgentConnectionTest() throws ApiException {
+        String namespace = null;
+        String owner = null;
+        String uuid = null;
+        String connection = null;
+        Object response = api.checkAgentConnection(namespace, owner, uuid, connection);
+        // TODO: test validations
+    }
+
+    /**
      * collect agent
      *
      * @throws ApiException if the Api call fails

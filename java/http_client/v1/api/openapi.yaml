@@ -21737,6 +21737,77 @@ paths:
       x-codegen-request-body-name: body
       x-content-type: application/json
       x-accepts: application/json
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check:
+    post:
+      operationId: CheckAgentConnection
+      parameters:
+      - description: namespace
+        explode: false
+        in: path
+        name: namespace
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Uuid identifier of the entity
+        explode: false
+        in: path
+        name: uuid
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Connection to use
+        explode: false
+        in: path
+        name: connection
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Check an agent connection
+      tags:
+      - AgentsV1
+      x-accepts: application/json
   /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect:
     get:
       operationId: InspectAgent

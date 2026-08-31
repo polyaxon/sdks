@@ -49,6 +49,13 @@ import {
     V1TokenToJSON,
 } from '../models';
 
+export interface CheckAgentConnectionRequest {
+    namespace: string;
+    owner: string;
+    uuid: string;
+    connection: string;
+}
+
 export interface CollectAgentDataRequest {
     namespace: string;
     owner: string;
@@ -223,6 +230,52 @@ export interface UpdateAgentTokenRequest {
  * 
  */
 export class AgentsV1Api extends runtime.BaseAPI {
+
+    /**
+     * Check an agent connection
+     */
+    async checkAgentConnectionRaw(requestParameters: CheckAgentConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<object>> {
+        if (requestParameters.namespace === null || requestParameters.namespace === undefined) {
+            throw new runtime.RequiredError('namespace','Required parameter requestParameters.namespace was null or undefined when calling checkAgentConnection.');
+        }
+
+        if (requestParameters.owner === null || requestParameters.owner === undefined) {
+            throw new runtime.RequiredError('owner','Required parameter requestParameters.owner was null or undefined when calling checkAgentConnection.');
+        }
+
+        if (requestParameters.uuid === null || requestParameters.uuid === undefined) {
+            throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling checkAgentConnection.');
+        }
+
+        if (requestParameters.connection === null || requestParameters.connection === undefined) {
+            throw new runtime.RequiredError('connection','Required parameter requestParameters.connection was null or undefined when calling checkAgentConnection.');
+        }
+
+        const queryParameters: any = {};
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        if (this.configuration && this.configuration.apiKey) {
+            headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
+        }
+
+        const response = await this.request({
+            path: `/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))).replace(`{${"connection"}}`, encodeURIComponent(String(requestParameters.connection))),
+            method: 'POST',
+            headers: headerParameters,
+            query: queryParameters,
+        }, initOverrides);
+
+        return new runtime.JSONApiResponse<any>(response);
+    }
+
+    /**
+     * Check an agent connection
+     */
+    async checkAgentConnection(requestParameters: CheckAgentConnectionRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<object> {
+        const response = await this.checkAgentConnectionRaw(requestParameters, initOverrides);
+        return await response.value();
+    }
 
     /**
      * collect agent
