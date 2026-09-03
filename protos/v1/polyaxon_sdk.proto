@@ -1513,7 +1513,8 @@ service AgentsV1 {
   // Check an agent connection
   rpc CheckAgentConnection(AgentResourcesRequest) returns (google.protobuf.Struct) {
     option (google.api.http) = {
-      post: "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check"
+      post: "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check"
+      body: "*"
     };
   }
 
