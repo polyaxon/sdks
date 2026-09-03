@@ -112,7 +112,7 @@ var api = new PolyaxonSdk.AgentsV1Api()
 var namespace = "namespace_example"; // {String} namespace
 var owner = "owner_example"; // {String} Owner of the namespace
 var uuid = "uuid_example"; // {String} Uuid identifier of the entity
-var connection = "connection_example"; // {String} Connection to use
+var body = new PolyaxonSdk.V1AgentResourcesRequest(); // {V1AgentResourcesRequest} 
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -120,7 +120,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.checkAgentConnection(namespace, owner, uuid, connection, callback);
+api.checkAgentConnection(namespace, owner, uuid, body, callback);
 
 ```
 
@@ -130,7 +130,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*PolyaxonSdk.AgentsV1Api* | [**checkAgentConnection**](docs/AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
+*PolyaxonSdk.AgentsV1Api* | [**checkAgentConnection**](docs/AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection
 *PolyaxonSdk.AgentsV1Api* | [**collectAgentData**](docs/AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 *PolyaxonSdk.AgentsV1Api* | [**createAgent**](docs/AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 *PolyaxonSdk.AgentsV1Api* | [**createAgentStatus**](docs/AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status

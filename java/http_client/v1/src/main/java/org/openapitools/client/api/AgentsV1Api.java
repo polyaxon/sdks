@@ -87,7 +87,7 @@ public class AgentsV1Api {
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
-     * @param connection Connection to use (required)
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -101,7 +101,7 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkAgentConnectionCall(String namespace, String owner, String uuid, String connection, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call checkAgentConnectionCall(String namespace, String owner, String uuid, V1AgentResourcesRequest body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -115,14 +115,13 @@ public class AgentsV1Api {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = body;
 
         // create path and map variables
-        String localVarPath = "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check"
+        String localVarPath = "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check"
             .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()))
             .replace("{" + "owner" + "}", localVarApiClient.escapeString(owner.toString()))
-            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()))
-            .replace("{" + "connection" + "}", localVarApiClient.escapeString(connection.toString()));
+            .replace("{" + "uuid" + "}", localVarApiClient.escapeString(uuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -139,6 +138,7 @@ public class AgentsV1Api {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -150,7 +150,7 @@ public class AgentsV1Api {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call checkAgentConnectionValidateBeforeCall(String namespace, String owner, String uuid, String connection, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call checkAgentConnectionValidateBeforeCall(String namespace, String owner, String uuid, V1AgentResourcesRequest body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling checkAgentConnection(Async)");
@@ -166,12 +166,12 @@ public class AgentsV1Api {
             throw new ApiException("Missing the required parameter 'uuid' when calling checkAgentConnection(Async)");
         }
 
-        // verify the required parameter 'connection' is set
-        if (connection == null) {
-            throw new ApiException("Missing the required parameter 'connection' when calling checkAgentConnection(Async)");
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException("Missing the required parameter 'body' when calling checkAgentConnection(Async)");
         }
 
-        return checkAgentConnectionCall(namespace, owner, uuid, connection, _callback);
+        return checkAgentConnectionCall(namespace, owner, uuid, body, _callback);
 
     }
 
@@ -181,7 +181,7 @@ public class AgentsV1Api {
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
-     * @param connection Connection to use (required)
+     * @param body  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,8 +194,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public Object checkAgentConnection(String namespace, String owner, String uuid, String connection) throws ApiException {
-        ApiResponse<Object> localVarResp = checkAgentConnectionWithHttpInfo(namespace, owner, uuid, connection);
+    public Object checkAgentConnection(String namespace, String owner, String uuid, V1AgentResourcesRequest body) throws ApiException {
+        ApiResponse<Object> localVarResp = checkAgentConnectionWithHttpInfo(namespace, owner, uuid, body);
         return localVarResp.getData();
     }
 
@@ -205,7 +205,7 @@ public class AgentsV1Api {
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
-     * @param connection Connection to use (required)
+     * @param body  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -218,8 +218,8 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> checkAgentConnectionWithHttpInfo(String namespace, String owner, String uuid, String connection) throws ApiException {
-        okhttp3.Call localVarCall = checkAgentConnectionValidateBeforeCall(namespace, owner, uuid, connection, null);
+    public ApiResponse<Object> checkAgentConnectionWithHttpInfo(String namespace, String owner, String uuid, V1AgentResourcesRequest body) throws ApiException {
+        okhttp3.Call localVarCall = checkAgentConnectionValidateBeforeCall(namespace, owner, uuid, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -230,7 +230,7 @@ public class AgentsV1Api {
      * @param namespace namespace (required)
      * @param owner Owner of the namespace (required)
      * @param uuid Uuid identifier of the entity (required)
-     * @param connection Connection to use (required)
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -244,9 +244,9 @@ public class AgentsV1Api {
         <tr><td> 0 </td><td> An unexpected error response. </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call checkAgentConnectionAsync(String namespace, String owner, String uuid, String connection, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call checkAgentConnectionAsync(String namespace, String owner, String uuid, V1AgentResourcesRequest body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = checkAgentConnectionValidateBeforeCall(namespace, owner, uuid, connection, _callback);
+        okhttp3.Call localVarCall = checkAgentConnectionValidateBeforeCall(namespace, owner, uuid, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

@@ -50,8 +50,8 @@ public class AgentsV1ApiTest {
         String namespace = null;
         String owner = null;
         String uuid = null;
-        String connection = null;
-        Object response = api.checkAgentConnection(namespace, owner, uuid, connection);
+        V1AgentResourcesRequest body = null;
+        Object response = api.checkAgentConnection(namespace, owner, uuid, body);
         // TODO: test validations
     }
 

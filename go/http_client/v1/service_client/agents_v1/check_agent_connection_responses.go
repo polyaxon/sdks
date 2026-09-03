@@ -107,12 +107,12 @@ func (o *CheckAgentConnectionOK) Code() int {
 
 func (o *CheckAgentConnectionOK) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionOK %s", 200, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionOK %s", 200, payload)
 }
 
 func (o *CheckAgentConnectionOK) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionOK %s", 200, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionOK %s", 200, payload)
 }
 
 func (o *CheckAgentConnectionOK) GetPayload() any {
@@ -175,12 +175,12 @@ func (o *CheckAgentConnectionNoContent) Code() int {
 
 func (o *CheckAgentConnectionNoContent) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionNoContent %s", 204, payload)
 }
 
 func (o *CheckAgentConnectionNoContent) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionNoContent %s", 204, payload)
 }
 
 func (o *CheckAgentConnectionNoContent) GetPayload() any {
@@ -243,12 +243,12 @@ func (o *CheckAgentConnectionForbidden) Code() int {
 
 func (o *CheckAgentConnectionForbidden) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionForbidden %s", 403, payload)
 }
 
 func (o *CheckAgentConnectionForbidden) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionForbidden %s", 403, payload)
 }
 
 func (o *CheckAgentConnectionForbidden) GetPayload() any {
@@ -311,12 +311,12 @@ func (o *CheckAgentConnectionNotFound) Code() int {
 
 func (o *CheckAgentConnectionNotFound) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionNotFound %s", 404, payload)
 }
 
 func (o *CheckAgentConnectionNotFound) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] checkAgentConnectionNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] checkAgentConnectionNotFound %s", 404, payload)
 }
 
 func (o *CheckAgentConnectionNotFound) GetPayload() any {
@@ -383,12 +383,12 @@ func (o *CheckAgentConnectionDefault) Code() int {
 
 func (o *CheckAgentConnectionDefault) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] CheckAgentConnection default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] CheckAgentConnection default %s", o._statusCode, payload)
 }
 
 func (o *CheckAgentConnectionDefault) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check][%d] CheckAgentConnection default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check][%d] CheckAgentConnection default %s", o._statusCode, payload)
 }
 
 func (o *CheckAgentConnectionDefault) GetPayload() *service_model.RuntimeError {

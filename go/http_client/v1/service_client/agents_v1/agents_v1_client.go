@@ -118,7 +118,7 @@ func (a *Client) CheckAgentConnection(params *CheckAgentConnectionParams, authIn
 	op := &runtime.ClientOperation{
 		ID:                 "CheckAgentConnection",
 		Method:             "POST",
-		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check",
+		PathPattern:        "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

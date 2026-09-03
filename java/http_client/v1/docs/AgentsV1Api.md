@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection |
+| [**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection |
 | [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent |
 | [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent |
 | [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status |
@@ -34,7 +34,7 @@ All URIs are relative to *http://localhost*
 
 <a name="checkAgentConnection"></a>
 # **checkAgentConnection**
-> Object checkAgentConnection(namespace, owner, uuid, connection)
+> Object checkAgentConnection(namespace, owner, uuid, body)
 
 Check an agent connection
 
@@ -63,9 +63,9 @@ public class Example {
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
-    String connection = "connection_example"; // String | Connection to use
+    V1AgentResourcesRequest body = new V1AgentResourcesRequest(); // V1AgentResourcesRequest | 
     try {
-      Object result = apiInstance.checkAgentConnection(namespace, owner, uuid, connection);
+      Object result = apiInstance.checkAgentConnection(namespace, owner, uuid, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#checkAgentConnection");
@@ -85,7 +85,7 @@ public class Example {
 | **namespace** | **String**| namespace | |
 | **owner** | **String**| Owner of the namespace | |
 | **uuid** | **String**| Uuid identifier of the entity | |
-| **connection** | **String**| Connection to use | |
+| **body** | [**V1AgentResourcesRequest**](V1AgentResourcesRequest.md)|  | |
 
 ### Return type
 
@@ -97,7 +97,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

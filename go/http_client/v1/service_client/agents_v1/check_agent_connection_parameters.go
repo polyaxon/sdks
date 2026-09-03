@@ -14,6 +14,8 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+
+	"github.com/polyaxon/sdks/go/http_client/v1/service_model"
 )
 
 // NewCheckAgentConnectionParams creates a new CheckAgentConnectionParams object,
@@ -61,11 +63,8 @@ CheckAgentConnectionParams contains all the parameters to send to the API endpoi
 */
 type CheckAgentConnectionParams struct {
 
-	/* Connection.
-
-	   Connection to use
-	*/
-	Connection string
+	// Body.
+	Body *service_model.V1AgentResourcesRequest
 
 	/* Namespace.
 
@@ -138,15 +137,15 @@ func (o *CheckAgentConnectionParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithConnection adds the connection to the check agent connection params
-func (o *CheckAgentConnectionParams) WithConnection(connection string) *CheckAgentConnectionParams {
-	o.SetConnection(connection)
+// WithBody adds the body to the check agent connection params
+func (o *CheckAgentConnectionParams) WithBody(body *service_model.V1AgentResourcesRequest) *CheckAgentConnectionParams {
+	o.SetBody(body)
 	return o
 }
 
-// SetConnection adds the connection to the check agent connection params
-func (o *CheckAgentConnectionParams) SetConnection(connection string) {
-	o.Connection = connection
+// SetBody adds the body to the check agent connection params
+func (o *CheckAgentConnectionParams) SetBody(body *service_model.V1AgentResourcesRequest) {
+	o.Body = body
 }
 
 // WithNamespace adds the namespace to the check agent connection params
@@ -189,10 +188,10 @@ func (o *CheckAgentConnectionParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
-	// path param connection
-	if err := r.SetPathParam("connection", o.Connection); err != nil {
-		return err
+	if o.Body != nil {
+		if err := r.SetBodyParam(o.Body); err != nil {
+			return err
+		}
 	}
 
 	// path param namespace

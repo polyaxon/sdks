@@ -19957,7 +19957,7 @@
         ]
       }
     },
-    "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check": {
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check": {
       "post": {
         "summary": "Check an agent connection",
         "operationId": "CheckAgentConnection",
@@ -20010,11 +20010,12 @@
             "type": "string"
           },
           {
-            "name": "connection",
-            "description": "Connection to use",
-            "in": "path",
+            "name": "body",
+            "in": "body",
             "required": true,
-            "type": "string"
+            "schema": {
+              "$ref": "#/definitions/v1AgentResourcesRequest"
+            }
           }
         ],
         "tags": [

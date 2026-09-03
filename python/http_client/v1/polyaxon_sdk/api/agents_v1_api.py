@@ -52,13 +52,13 @@ class AgentsV1Api(object):
         self.api_client = api_client
 
     @validate_arguments
-    def check_agent_connection(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], connection : Annotated[StrictStr, Field(..., description="Connection to use")], **kwargs) -> object:  # noqa: E501
+    def check_agent_connection(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1AgentResourcesRequest, **kwargs) -> object:  # noqa: E501
         """Check an agent connection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.check_agent_connection(namespace, owner, uuid, connection, async_req=True)
+        >>> thread = api.check_agent_connection(namespace, owner, uuid, body, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -67,8 +67,8 @@ class AgentsV1Api(object):
         :type owner: str
         :param uuid: Uuid identifier of the entity (required)
         :type uuid: str
-        :param connection: Connection to use (required)
-        :type connection: str
+        :param body: (required)
+        :type body: V1AgentResourcesRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -85,16 +85,16 @@ class AgentsV1Api(object):
         :rtype: object
         """
         kwargs['_return_http_data_only'] = True
-        return self.check_agent_connection_with_http_info(namespace, owner, uuid, connection, **kwargs)  # noqa: E501
+        return self.check_agent_connection_with_http_info(namespace, owner, uuid, body, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def check_agent_connection_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], connection : Annotated[StrictStr, Field(..., description="Connection to use")], **kwargs):  # noqa: E501
+    def check_agent_connection_with_http_info(self, namespace : Annotated[StrictStr, Field(..., description="namespace")], owner : Annotated[StrictStr, Field(..., description="Owner of the namespace")], uuid : Annotated[StrictStr, Field(..., description="Uuid identifier of the entity")], body : V1AgentResourcesRequest, **kwargs):  # noqa: E501
         """Check an agent connection  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.check_agent_connection_with_http_info(namespace, owner, uuid, connection, async_req=True)
+        >>> thread = api.check_agent_connection_with_http_info(namespace, owner, uuid, body, async_req=True)
         >>> result = thread.get()
 
         :param namespace: namespace (required)
@@ -103,8 +103,8 @@ class AgentsV1Api(object):
         :type owner: str
         :param uuid: Uuid identifier of the entity (required)
         :type uuid: str
-        :param connection: Connection to use (required)
-        :type connection: str
+        :param body: (required)
+        :type body: V1AgentResourcesRequest
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -135,7 +135,7 @@ class AgentsV1Api(object):
             'namespace',
             'owner',
             'uuid',
-            'connection'
+            'body'
         ]
         _all_params.extend(
             [
@@ -172,9 +172,6 @@ class AgentsV1Api(object):
         if _params['uuid']:
             _path_params['uuid'] = _params['uuid']
 
-        if _params['connection']:
-            _path_params['connection'] = _params['connection']
-
 
         # process the query parameters
         _query_params = []
@@ -185,9 +182,19 @@ class AgentsV1Api(object):
         _files = {}
         # process the body parameter
         _body_params = None
+        if _params['body']:
+            _body_params = _params['body']
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # set the HTTP header `Content-Type`
+        _content_types_list = _params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json']))
+        if _content_types_list:
+                _header_params['Content-Type'] = _content_types_list
 
         # authentication setting
         _auth_settings = ['ApiKey']  # noqa: E501
@@ -200,7 +207,7 @@ class AgentsV1Api(object):
         }
 
         return self.api_client.call_api(
-            '/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check', 'POST',
+            '/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check', 'POST',
             _path_params,
             _query_params,
             _header_params,

@@ -30220,7 +30220,7 @@
         "x-codegen-request-body-name" : "body"
       }
     },
-    "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check" : {
+    "/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check" : {
       "post" : {
         "tags" : [ "AgentsV1" ],
         "summary" : "Check an agent connection",
@@ -30255,17 +30255,17 @@
           "schema" : {
             "type" : "string"
           }
-        }, {
-          "name" : "connection",
-          "in" : "path",
-          "description" : "Connection to use",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false,
-          "schema" : {
-            "type" : "string"
-          }
         } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/v1AgentResourcesRequest"
+              }
+            }
+          },
+          "required" : true
+        },
         "responses" : {
           "200" : {
             "description" : "A successful response.",
@@ -30317,7 +30317,8 @@
               }
             }
           }
-        }
+        },
+        "x-codegen-request-body-name" : "body"
       }
     },
     "/streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect" : {

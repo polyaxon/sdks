@@ -21737,7 +21737,7 @@ paths:
       x-codegen-request-body-name: body
       x-content-type: application/json
       x-accepts: application/json
-  /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check:
+  /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check:
     post:
       operationId: CheckAgentConnection
       parameters:
@@ -21765,14 +21765,12 @@ paths:
         schema:
           type: string
         style: simple
-      - description: Connection to use
-        explode: false
-        in: path
-        name: connection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AgentResourcesRequest'
         required: true
-        schema:
-          type: string
-        style: simple
       responses:
         "200":
           content:
@@ -21807,6 +21805,8 @@ paths:
       summary: Check an agent connection
       tags:
       - AgentsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
       x-accepts: application/json
   /streams/v1/{namespace}/{owner}/agents/{uuid}/k8s_inspect:
     get:

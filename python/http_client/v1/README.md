@@ -82,11 +82,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     uuid = 'uuid_example' # str | Uuid identifier of the entity
-    connection = 'connection_example' # str | Connection to use
+    body = polyaxon_sdk.V1AgentResourcesRequest() # V1AgentResourcesRequest | 
 
     try:
         # Check an agent connection
-        api_response = api_instance.check_agent_connection(namespace, owner, uuid, connection)
+        api_response = api_instance.check_agent_connection(namespace, owner, uuid, body)
         print("The response of AgentsV1Api->check_agent_connection:\n")
         pprint(api_response)
     except ApiException as e:
@@ -100,7 +100,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsV1Api* | [**check_agent_connection**](docs/AgentsV1Api.md#check_agent_connection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
+*AgentsV1Api* | [**check_agent_connection**](docs/AgentsV1Api.md#check_agent_connection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection
 *AgentsV1Api* | [**collect_agent_data**](docs/AgentsV1Api.md#collect_agent_data) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 *AgentsV1Api* | [**create_agent**](docs/AgentsV1Api.md#create_agent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 *AgentsV1Api* | [**create_agent_status**](docs/AgentsV1Api.md#create_agent_status) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status

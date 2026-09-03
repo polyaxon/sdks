@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**check_agent_connection**](AgentsV1Api.md#check_agent_connection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
+[**check_agent_connection**](AgentsV1Api.md#check_agent_connection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection
 [**collect_agent_data**](AgentsV1Api.md#collect_agent_data) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**create_agent**](AgentsV1Api.md#create_agent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**create_agent_status**](AgentsV1Api.md#create_agent_status) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
@@ -33,7 +33,7 @@ Method | HTTP request | Description
 
 
 # **check_agent_connection**
-> object check_agent_connection(namespace, owner, uuid, connection)
+> object check_agent_connection(namespace, owner, uuid, body)
 
 Check an agent connection
 
@@ -71,11 +71,11 @@ with polyaxon_sdk.ApiClient(configuration) as api_client:
     namespace = 'namespace_example' # str | namespace
     owner = 'owner_example' # str | Owner of the namespace
     uuid = 'uuid_example' # str | Uuid identifier of the entity
-    connection = 'connection_example' # str | Connection to use
+    body = polyaxon_sdk.V1AgentResourcesRequest() # V1AgentResourcesRequest | 
 
     try:
         # Check an agent connection
-        api_response = api_instance.check_agent_connection(namespace, owner, uuid, connection)
+        api_response = api_instance.check_agent_connection(namespace, owner, uuid, body)
         print("The response of AgentsV1Api->check_agent_connection:\n")
         pprint(api_response)
     except Exception as e:
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
  **namespace** | **str**| namespace | 
  **owner** | **str**| Owner of the namespace | 
  **uuid** | **str**| Uuid identifier of the entity | 
- **connection** | **str**| Connection to use | 
+ **body** | [**V1AgentResourcesRequest**](V1AgentResourcesRequest.md)|  | 
 
 ### Return type
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

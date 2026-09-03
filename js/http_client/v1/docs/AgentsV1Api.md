@@ -6,7 +6,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
+[**checkAgentConnection**](AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection
 [**collectAgentData**](AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 [**createAgent**](AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 [**createAgentStatus**](AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status
@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 ## checkAgentConnection
 
-> Object checkAgentConnection(namespace, owner, uuid, connection)
+> Object checkAgentConnection(namespace, owner, uuid, body)
 
 Check an agent connection
 
@@ -55,8 +55,8 @@ let apiInstance = new PolyaxonSdk.AgentsV1Api();
 let namespace = "namespace_example"; // String | namespace
 let owner = "owner_example"; // String | Owner of the namespace
 let uuid = "uuid_example"; // String | Uuid identifier of the entity
-let connection = "connection_example"; // String | Connection to use
-apiInstance.checkAgentConnection(namespace, owner, uuid, connection, (error, data, response) => {
+let body = new PolyaxonSdk.V1AgentResourcesRequest(); // V1AgentResourcesRequest | 
+apiInstance.checkAgentConnection(namespace, owner, uuid, body, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
  **namespace** | **String**| namespace | 
  **owner** | **String**| Owner of the namespace | 
  **uuid** | **String**| Uuid identifier of the entity | 
- **connection** | **String**| Connection to use | 
+ **body** | [**V1AgentResourcesRequest**](V1AgentResourcesRequest.md)|  | 
 
 ### Return type
 
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

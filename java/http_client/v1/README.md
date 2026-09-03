@@ -102,9 +102,9 @@ public class Example {
     String namespace = "namespace_example"; // String | namespace
     String owner = "owner_example"; // String | Owner of the namespace
     String uuid = "uuid_example"; // String | Uuid identifier of the entity
-    String connection = "connection_example"; // String | Connection to use
+    V1AgentResourcesRequest body = new V1AgentResourcesRequest(); // V1AgentResourcesRequest | 
     try {
-      Object result = apiInstance.checkAgentConnection(namespace, owner, uuid, connection);
+      Object result = apiInstance.checkAgentConnection(namespace, owner, uuid, body);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AgentsV1Api#checkAgentConnection");
@@ -124,7 +124,7 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsV1Api* | [**checkAgentConnection**](docs/AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check | Check an agent connection
+*AgentsV1Api* | [**checkAgentConnection**](docs/AgentsV1Api.md#checkAgentConnection) | **POST** /streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check | Check an agent connection
 *AgentsV1Api* | [**collectAgentData**](docs/AgentsV1Api.md#collectAgentData) | **POST** /internal/v1/{namespace}/{owner}/agents/{uuid}/collect | collect agent
 *AgentsV1Api* | [**createAgent**](docs/AgentsV1Api.md#createAgent) | **POST** /api/v1/orgs/{owner}/agents | Create agent
 *AgentsV1Api* | [**createAgentStatus**](docs/AgentsV1Api.md#createAgentStatus) | **POST** /api/v1/orgs/{owner}/agents/{uuid}/statuses | Create new agent status

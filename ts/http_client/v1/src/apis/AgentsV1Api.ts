@@ -53,7 +53,7 @@ export interface CheckAgentConnectionRequest {
     namespace: string;
     owner: string;
     uuid: string;
-    connection: string;
+    body: V1AgentResourcesRequest;
 }
 
 export interface CollectAgentDataRequest {
@@ -247,23 +247,26 @@ export class AgentsV1Api extends runtime.BaseAPI {
             throw new runtime.RequiredError('uuid','Required parameter requestParameters.uuid was null or undefined when calling checkAgentConnection.');
         }
 
-        if (requestParameters.connection === null || requestParameters.connection === undefined) {
-            throw new runtime.RequiredError('connection','Required parameter requestParameters.connection was null or undefined when calling checkAgentConnection.');
+        if (requestParameters.body === null || requestParameters.body === undefined) {
+            throw new runtime.RequiredError('body','Required parameter requestParameters.body was null or undefined when calling checkAgentConnection.');
         }
 
         const queryParameters: any = {};
 
         const headerParameters: runtime.HTTPHeaders = {};
 
+        headerParameters['Content-Type'] = 'application/json';
+
         if (this.configuration && this.configuration.apiKey) {
             headerParameters["Authorization"] = this.configuration.apiKey("Authorization"); // ApiKey authentication
         }
 
         const response = await this.request({
-            path: `/streams/v1/{namespace}/{owner}/agents/{uuid}/connections/{connection}/check`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))).replace(`{${"connection"}}`, encodeURIComponent(String(requestParameters.connection))),
+            path: `/streams/v1/{namespace}/{owner}/agents/{uuid}/connections_check`.replace(`{${"namespace"}}`, encodeURIComponent(String(requestParameters.namespace))).replace(`{${"owner"}}`, encodeURIComponent(String(requestParameters.owner))).replace(`{${"uuid"}}`, encodeURIComponent(String(requestParameters.uuid))),
             method: 'POST',
             headers: headerParameters,
             query: queryParameters,
+            body: V1AgentResourcesRequestToJSON(requestParameters.body),
         }, initOverrides);
 
         return new runtime.JSONApiResponse<any>(response);
