@@ -31,9 +31,10 @@ class V1TeamMember(BaseModel):
     user_email: Optional[StrictStr] = None
     role: Optional[StrictStr] = None
     org_role: Optional[StrictStr] = None
+    kind: Optional[StrictStr] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
-    __properties = ["user", "user_email", "role", "org_role", "created_at", "updated_at"]
+    __properties = ["user", "user_email", "role", "org_role", "kind", "created_at", "updated_at"]
 
     class Config:
         allow_population_by_field_name = True
@@ -74,6 +75,7 @@ class V1TeamMember(BaseModel):
             "user_email": obj.get("user_email"),
             "role": obj.get("role"),
             "org_role": obj.get("org_role"),
+            "kind": obj.get("kind"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at")
         })

@@ -11,6 +11,7 @@
 |**userEmail** | **String** |  |  [optional] |
 |**role** | **String** |  |  [optional] |
 |**orgRole** | **String** |  |  [optional] |
+|**kind** | **String** |  |  [optional] |
 |**createdAt** | **OffsetDateTime** |  |  [optional] |
 |**updatedAt** | **OffsetDateTime** |  |  [optional] |
 

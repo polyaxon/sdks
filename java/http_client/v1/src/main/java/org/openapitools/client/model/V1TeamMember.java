@@ -65,6 +65,10 @@ public class V1TeamMember {
   @SerializedName(SERIALIZED_NAME_ORG_ROLE)
   private String orgRole;
 
+  public static final String SERIALIZED_NAME_KIND = "kind";
+  @SerializedName(SERIALIZED_NAME_KIND)
+  private String kind;
+
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
   private OffsetDateTime createdAt;
@@ -164,6 +168,28 @@ public class V1TeamMember {
   }
 
 
+  public V1TeamMember kind(String kind) {
+    
+    this.kind = kind;
+    return this;
+  }
+
+   /**
+   * Get kind
+   * @return kind
+  **/
+  @javax.annotation.Nullable
+
+  public String getKind() {
+    return kind;
+  }
+
+
+  public void setKind(String kind) {
+    this.kind = kind;
+  }
+
+
   public V1TeamMember createdAt(OffsetDateTime createdAt) {
     
     this.createdAt = createdAt;
@@ -222,13 +248,14 @@ public class V1TeamMember {
         Objects.equals(this.userEmail, v1TeamMember.userEmail) &&
         Objects.equals(this.role, v1TeamMember.role) &&
         Objects.equals(this.orgRole, v1TeamMember.orgRole) &&
+        Objects.equals(this.kind, v1TeamMember.kind) &&
         Objects.equals(this.createdAt, v1TeamMember.createdAt) &&
         Objects.equals(this.updatedAt, v1TeamMember.updatedAt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(user, userEmail, role, orgRole, createdAt, updatedAt);
+    return Objects.hash(user, userEmail, role, orgRole, kind, createdAt, updatedAt);
   }
 
   @Override
@@ -239,6 +266,7 @@ public class V1TeamMember {
     sb.append("    userEmail: ").append(toIndentedString(userEmail)).append("\n");
     sb.append("    role: ").append(toIndentedString(role)).append("\n");
     sb.append("    orgRole: ").append(toIndentedString(orgRole)).append("\n");
+    sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("}");
@@ -267,6 +295,7 @@ public class V1TeamMember {
     openapiFields.add("user_email");
     openapiFields.add("role");
     openapiFields.add("org_role");
+    openapiFields.add("kind");
     openapiFields.add("created_at");
     openapiFields.add("updated_at");
 
@@ -305,6 +334,9 @@ public class V1TeamMember {
       }
       if ((jsonObj.get("org_role") != null && !jsonObj.get("org_role").isJsonNull()) && !jsonObj.get("org_role").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `org_role` to be a primitive type in the JSON string but got `%s`", jsonObj.get("org_role").toString()));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
       }
   }
 

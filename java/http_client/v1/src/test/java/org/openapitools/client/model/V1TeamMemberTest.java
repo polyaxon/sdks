@@ -71,6 +71,14 @@ public class V1TeamMemberTest {
     }
 
     /**
+     * Test the property 'kind'
+     */
+    @Test
+    public void kindTest() {
+        // TODO: test kind
+    }
+
+    /**
      * Test the property 'createdAt'
      */
     @Test

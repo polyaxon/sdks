@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **user_email** | **String** |  | [optional] 
 **role** | **String** |  | [optional] 
 **org_role** | **String** |  | [optional] 
+**kind** | **String** |  | [optional] 
 **created_at** | **Date** |  | [optional] 
 **updated_at** | **Date** |  | [optional] 
 

@@ -59,6 +59,9 @@ class V1TeamMember {
             if (data.hasOwnProperty('org_role')) {
                 obj['org_role'] = ApiClient.convertToType(data['org_role'], 'String');
             }
+            if (data.hasOwnProperty('kind')) {
+                obj['kind'] = ApiClient.convertToType(data['kind'], 'String');
+            }
             if (data.hasOwnProperty('created_at')) {
                 obj['created_at'] = ApiClient.convertToType(data['created_at'], 'Date');
             }
@@ -91,6 +94,10 @@ class V1TeamMember {
         if (data['org_role'] && !(typeof data['org_role'] === 'string' || data['org_role'] instanceof String)) {
             throw new Error("Expected the field `org_role` to be a primitive type in the JSON string but got " + data['org_role']);
         }
+        // ensure the json data is a string
+        if (data['kind'] && !(typeof data['kind'] === 'string' || data['kind'] instanceof String)) {
+            throw new Error("Expected the field `kind` to be a primitive type in the JSON string but got " + data['kind']);
+        }
 
         return true;
     }
@@ -119,6 +126,11 @@ V1TeamMember.prototype['role'] = undefined;
  * @member {String} org_role
  */
 V1TeamMember.prototype['org_role'] = undefined;
+
+/**
+ * @member {String} kind
+ */
+V1TeamMember.prototype['kind'] = undefined;
 
 /**
  * @member {Date} created_at

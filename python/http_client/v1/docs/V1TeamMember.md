@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **user_email** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 **org_role** | **str** |  | [optional] 
+**kind** | **str** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 

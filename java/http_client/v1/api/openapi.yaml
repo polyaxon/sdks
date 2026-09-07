@@ -33263,12 +33263,14 @@ components:
         - user_email: user_email
           role: role
           updated_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
           created_at: 2000-01-23T04:56:07.000+00:00
           user: user
           org_role: org_role
         - user_email: user_email
           role: role
           updated_at: 2000-01-23T04:56:07.000+00:00
+          kind: kind
           created_at: 2000-01-23T04:56:07.000+00:00
           user: user
           org_role: org_role
@@ -49994,6 +49996,7 @@ components:
         user_email: user_email
         role: role
         updated_at: 2000-01-23T04:56:07.000+00:00
+        kind: kind
         created_at: 2000-01-23T04:56:07.000+00:00
         user: user
         org_role: org_role
@@ -50009,6 +50012,9 @@ components:
           type: string
         org_role:
           title: Organization Role
+          type: string
+        kind:
+          title: Organization membership seat kind (read-only in the API)
           type: string
         created_at:
           format: date-time

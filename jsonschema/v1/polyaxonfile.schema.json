@@ -11746,6 +11746,10 @@
           "title": "Optional time when the entity was created",
           "type": "string"
         },
+        "kind": {
+          "title": "Organization membership seat kind (read-only in the API)",
+          "type": "string"
+        },
         "org_role": {
           "title": "Organization Role",
           "type": "string"

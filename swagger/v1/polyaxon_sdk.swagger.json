@@ -29230,6 +29230,10 @@
           "type": "string",
           "title": "Organization Role"
         },
+        "kind": {
+          "type": "string",
+          "title": "Organization membership seat kind (read-only in the API)"
+        },
         "created_at": {
           "type": "string",
           "format": "date-time",

@@ -23,6 +23,9 @@ type V1TeamMember struct {
 	// Format: date-time
 	CreatedAt strfmt.DateTime `json:"created_at,omitempty"`
 
+	// Organization membership seat kind (read-only in the API)
+	Kind string `json:"kind,omitempty"`
+
 	// Organization Role
 	OrgRole string `json:"org_role,omitempty"`
 
