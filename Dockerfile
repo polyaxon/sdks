@@ -1,4 +1,4 @@
-FROM arm64v8/python:3.13-slim
+FROM python:3.13-slim
 
 # This dockerfile is intended for dev only purposes
 LABEL maintainer="Polyaxon, Inc. <contact@polyaxon.com>"
