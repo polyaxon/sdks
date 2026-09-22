@@ -114,4 +114,7 @@ message Operation {
       string urlRef = 32;
       Component component = 33;
     }
+
+    // Optional flag to reject params without a matching input or output declaration
+    bool strictParams = 34;
 }

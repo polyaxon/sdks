@@ -58,18 +58,21 @@ message Component {
     // Optional outputs definition
     repeated IO outputs = 14;
 
+    // Optional flag to reject params without a matching input or output declaration
+    bool strictParams = 15;
+
     // Optional build process
-    Build build = 15;
+    Build build = 16;
 
     // Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
-    google.protobuf.Struct run = 16;
+    google.protobuf.Struct run = 17;
 
     // Optional flag to mark this specification as template
-    Template template = 17;
+    Template template = 18;
 
     // Optional flag to mark this specification requires approval before running
-    bool isApproved = 18;
+    bool isApproved = 19;
 
     // Optional field to assign cost to this Component
-    float cost = 19;
+    float cost = 20;
 }

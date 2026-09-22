@@ -5043,6 +5043,10 @@
           "title": "Optional flag to skip this run if upstream was skipped",
           "type": "boolean"
         },
+        "strictParams": {
+          "title": "Flag to reject params without a matching input or output declaration",
+          "type": "boolean"
+        },
         "tags": {
           "items": {
             "type": "string"
@@ -5167,6 +5171,10 @@
           ],
           "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
           "type": "object"
+        },
+        "strictParams": {
+          "title": "Optional flag to reject params without a matching input or output declaration",
+          "type": "boolean"
         },
         "tags": {
           "items": {
@@ -8926,6 +8934,10 @@
         },
         "skipOnUpstreamSkip": {
           "title": "Optional flag to skip this run if upstream was skipped",
+          "type": "boolean"
+        },
+        "strictParams": {
+          "title": "Optional flag to reject params without a matching input or output declaration",
           "type": "boolean"
         },
         "tags": {
