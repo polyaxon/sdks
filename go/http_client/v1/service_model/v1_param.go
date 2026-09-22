@@ -21,7 +21,7 @@ type V1Param struct {
 	Connection string `json:"connection,omitempty"`
 
 	// A flag to signal to Polyaxon that this param should not be validated against io
-	ContextOnly bool `json:"contextOnly,omitempty"`
+	ContextOnly *bool `json:"contextOnly,omitempty"`
 
 	// Ref corresponds to a reference of an object
 	Ref string `json:"ref,omitempty"`

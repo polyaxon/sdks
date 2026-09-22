@@ -28,6 +28,7 @@ import org.openapitools.client.model.V1IO;
 import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -156,6 +157,14 @@ public class V1ComponentTest {
     @Test
     public void outputsTest() {
         // TODO: test outputs
+    }
+
+    /**
+     * Test the property 'strictParams'
+     */
+    @Test
+    public void strictParamsTest() {
+        // TODO: test strictParams
     }
 
     /**

@@ -37,6 +37,7 @@ import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -195,6 +196,10 @@ public class V1Operation {
   public static final String SERIALIZED_NAME_COMPONENT = "component";
   @SerializedName(SERIALIZED_NAME_COMPONENT)
   private V1Component component;
+
+  public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
+  @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
+  private Boolean strictParams;
 
   public V1Operation() {
   }
@@ -981,6 +986,28 @@ public class V1Operation {
   }
 
 
+  public V1Operation strictParams(Boolean strictParams) {
+    
+    this.strictParams = strictParams;
+    return this;
+  }
+
+   /**
+   * Get strictParams
+   * @return strictParams
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getStrictParams() {
+    return strictParams;
+  }
+
+
+  public void setStrictParams(Boolean strictParams) {
+    this.strictParams = strictParams;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1023,12 +1050,24 @@ public class V1Operation {
         Objects.equals(this.hubRef, v1Operation.hubRef) &&
         Objects.equals(this.dagRef, v1Operation.dagRef) &&
         Objects.equals(this.urlRef, v1Operation.urlRef) &&
-        Objects.equals(this.component, v1Operation.component);
+        Objects.equals(this.component, v1Operation.component) &&
+        Objects.equals(this.strictParams, v1Operation.strictParams);
+  }
+
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, matrix, joins, params, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, pathRef, hubRef, dagRef, urlRef, component);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, matrix, joins, params, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, pathRef, hubRef, dagRef, urlRef, component, strictParams);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -1068,6 +1107,7 @@ public class V1Operation {
     sb.append("    dagRef: ").append(toIndentedString(dagRef)).append("\n");
     sb.append("    urlRef: ").append(toIndentedString(urlRef)).append("\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
+    sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1123,6 +1163,7 @@ public class V1Operation {
     openapiFields.add("dagRef");
     openapiFields.add("urlRef");
     openapiFields.add("component");
+    openapiFields.add("strictParams");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

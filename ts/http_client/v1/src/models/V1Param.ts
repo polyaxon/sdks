@@ -54,7 +54,7 @@ export interface V1Param {
      * @type {boolean}
      * @memberof V1Param
      */
-    contextOnly?: boolean;
+    contextOnly?: boolean | null;
 }
 
 /**

@@ -65,6 +65,9 @@ type V1Component struct {
 	// Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
 	Run any `json:"run,omitempty"`
 
+	// Optional flag to reject params without a matching input or output declaration
+	StrictParams *bool `json:"strictParams,omitempty"`
+
 	// Optional component tags
 	Tags []string `json:"tags"`
 

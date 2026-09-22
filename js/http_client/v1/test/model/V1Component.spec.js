@@ -138,6 +138,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property strictParams (base name: "strictParams")', function() {
+      // uncomment below and update the code to test the property strictParams
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
     it('should have the property build (base name: "build")', function() {
       // uncomment below and update the code to test the property build
       //var instance = new PolyaxonSdk.V1Component();

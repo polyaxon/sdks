@@ -226,6 +226,12 @@ export interface V1CompiledOperation {
     isApproved?: boolean;
     /**
      * 
+     * @type {boolean}
+     * @memberof V1CompiledOperation
+     */
+    strictParams?: boolean | null;
+    /**
+     * 
      * @type {number}
      * @memberof V1CompiledOperation
      */
@@ -282,6 +288,7 @@ export function V1CompiledOperationFromJSONTyped(json: any, ignoreDiscriminator:
         'outputs': !exists(json, 'outputs') ? undefined : ((json['outputs'] as Array<any>).map(V1IOFromJSON)),
         'contexts': !exists(json, 'contexts') ? undefined : ((json['contexts'] as Array<any>).map(V1IOFromJSON)),
         'isApproved': !exists(json, 'isApproved') ? undefined : json['isApproved'],
+        'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
         'cost': !exists(json, 'cost') ? undefined : json['cost'],
         'run': !exists(json, 'run') ? undefined : json['run'],
     };
@@ -321,6 +328,7 @@ export function V1CompiledOperationToJSON(value?: V1CompiledOperation | null): a
         'outputs': value.outputs === undefined ? undefined : ((value.outputs as Array<any>).map(V1IOToJSON)),
         'contexts': value.contexts === undefined ? undefined : ((value.contexts as Array<any>).map(V1IOToJSON)),
         'isApproved': value.isApproved,
+        'strictParams': value.strictParams,
         'cost': value.cost,
         'run': value.run,
     };

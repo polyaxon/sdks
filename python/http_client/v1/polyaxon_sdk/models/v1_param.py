@@ -58,6 +58,11 @@ class V1Param(BaseModel):
                           exclude={
                           },
                           exclude_none=True)
+        # set to None if context_only (nullable) is None
+        # and __fields_set__ contains the field
+        if self.context_only is None and "context_only" in self.__fields_set__:
+            _dict['contextOnly'] = None
+
         return _dict
 
     @classmethod

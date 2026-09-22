@@ -48,12 +48,13 @@ class V1Component(BaseModel):
     hooks: Optional[conlist(V1Hook)] = None
     inputs: Optional[conlist(V1IO)] = None
     outputs: Optional[conlist(V1IO)] = None
+    strict_params: Optional[StrictBool] = Field(None, alias="strictParams")
     build: Optional[V1Build] = None
     run: Optional[Dict[str, Any]] = None
     template: Optional[V1Template] = None
     is_approved: Optional[StrictBool] = Field(None, alias="isApproved")
     cost: Optional[StrictFloat] = None
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "hooks", "inputs", "outputs", "build", "run", "template", "isApproved", "cost"]
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "hooks", "inputs", "outputs", "strictParams", "build", "run", "template", "isApproved", "cost"]
 
     class Config:
         allow_population_by_field_name = True
@@ -114,6 +115,11 @@ class V1Component(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of template
         if self.template:
             _dict['template'] = self.template.to_dict()
+        # set to None if strict_params (nullable) is None
+        # and __fields_set__ contains the field
+        if self.strict_params is None and "strict_params" in self.__fields_set__:
+            _dict['strictParams'] = None
+
         return _dict
 
     @classmethod
@@ -140,6 +146,7 @@ class V1Component(BaseModel):
             "hooks": [V1Hook.from_dict(_item) for _item in obj.get("hooks")] if obj.get("hooks") is not None else None,
             "inputs": [V1IO.from_dict(_item) for _item in obj.get("inputs")] if obj.get("inputs") is not None else None,
             "outputs": [V1IO.from_dict(_item) for _item in obj.get("outputs")] if obj.get("outputs") is not None else None,
+            "strict_params": obj.get("strictParams"),
             "build": V1Build.from_dict(obj.get("build")) if obj.get("build") is not None else None,
             "run": obj.get("run"),
             "template": V1Template.from_dict(obj.get("template")) if obj.get("template") is not None else None,

@@ -90,6 +90,9 @@ type V1CompiledOperation struct {
 	// Optional flag to skip this run if upstream was skipped
 	SkipOnUpstreamSkip bool `json:"skipOnUpstreamSkip,omitempty"`
 
+	// Flag to reject params without a matching input or output declaration
+	StrictParams *bool `json:"strictParams,omitempty"`
+
 	// Optional component tags
 	Tags []string `json:"tags"`
 

@@ -252,6 +252,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property strictParams (base name: "strictParams")', function() {
+      // uncomment below and update the code to test the property strictParams
+      //var instance = new PolyaxonSdk.V1Operation();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

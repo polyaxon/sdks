@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **dag_ref** | **str** |  | [optional] 
 **url_ref** | **str** |  | [optional] 
 **component** | [**V1Component**](V1Component.md) |  | [optional] 
+**strict_params** | **bool** |  | [optional] 
 
 ## Example
 

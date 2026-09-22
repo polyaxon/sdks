@@ -21,6 +21,7 @@
 |**hooks** | [**List&lt;V1Hook&gt;**](V1Hook.md) |  |  [optional] |
 |**inputs** | [**List&lt;V1IO&gt;**](V1IO.md) |  |  [optional] |
 |**outputs** | [**List&lt;V1IO&gt;**](V1IO.md) |  |  [optional] |
+|**strictParams** | **Boolean** |  |  [optional] |
 |**build** | [**V1Build**](V1Build.md) |  |  [optional] |
 |**run** | **Object** |  |  [optional] |
 |**template** | [**V1Template**](V1Template.md) |  |  [optional] |

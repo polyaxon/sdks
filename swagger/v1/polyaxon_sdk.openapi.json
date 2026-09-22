@@ -33580,6 +33580,11 @@
             "title" : "Optional flag to mark this specification requires approval before running",
             "type" : "boolean"
           },
+          "strictParams" : {
+            "title" : "Flag to reject params without a matching input or output declaration",
+            "type" : "boolean",
+            "nullable" : true
+          },
           "cost" : {
             "title" : "Optional field to assign cost to this Component",
             "type" : "number",
@@ -33664,6 +33669,11 @@
             "items" : {
               "$ref" : "#/components/schemas/v1IO"
             }
+          },
+          "strictParams" : {
+            "title" : "Optional flag to reject params without a matching input or output declaration",
+            "type" : "boolean",
+            "nullable" : true
           },
           "build" : {
             "$ref" : "#/components/schemas/v1Build"
@@ -36211,7 +36221,8 @@
           },
           "contextOnly" : {
             "title" : "A flag to signal to Polyaxon that this param should not be validated against io",
-            "type" : "boolean"
+            "type" : "boolean",
+            "nullable" : true
           }
         }
       },
@@ -37226,6 +37237,11 @@
           },
           "component" : {
             "$ref" : "#/components/schemas/v1Component"
+          },
+          "strictParams" : {
+            "title" : "Optional flag to reject params without a matching input or output declaration",
+            "type" : "boolean",
+            "nullable" : true
           }
         }
       },
@@ -37471,7 +37487,8 @@
           },
           "contextOnly" : {
             "title" : "A flag to signal to Polyaxon that this param should not be validated against io",
-            "type" : "boolean"
+            "type" : "boolean",
+            "nullable" : true
           }
         }
       },

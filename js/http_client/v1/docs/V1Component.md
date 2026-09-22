@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **hooks** | [**[V1Hook]**](V1Hook.md) |  | [optional] 
 **inputs** | [**[V1IO]**](V1IO.md) |  | [optional] 
 **outputs** | [**[V1IO]**](V1IO.md) |  | [optional] 
+**strictParams** | **Boolean** |  | [optional] 
 **build** | [**V1Build**](V1Build.md) |  | [optional] 
 **run** | **Object** |  | [optional] 
 **template** | [**V1Template**](V1Template.md) |  | [optional] 

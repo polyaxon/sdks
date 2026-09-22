@@ -72,7 +72,8 @@ class V1Operation(BaseModel):
     dag_ref: Optional[StrictStr] = Field(None, alias="dagRef")
     url_ref: Optional[StrictStr] = Field(None, alias="urlRef")
     component: Optional[V1Component] = None
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "matrix", "joins", "params", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "pathRef", "hubRef", "dagRef", "urlRef", "component"]
+    strict_params: Optional[StrictBool] = Field(None, alias="strictParams")
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "matrix", "joins", "params", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "pathRef", "hubRef", "dagRef", "urlRef", "component", "strictParams"]
 
     class Config:
         allow_population_by_field_name = True
@@ -143,6 +144,11 @@ class V1Operation(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of component
         if self.component:
             _dict['component'] = self.component.to_dict()
+        # set to None if strict_params (nullable) is None
+        # and __fields_set__ contains the field
+        if self.strict_params is None and "strict_params" in self.__fields_set__:
+            _dict['strictParams'] = None
+
         return _dict
 
     @classmethod
@@ -187,7 +193,8 @@ class V1Operation(BaseModel):
             "hub_ref": obj.get("hubRef"),
             "dag_ref": obj.get("dagRef"),
             "url_ref": obj.get("urlRef"),
-            "component": V1Component.from_dict(obj.get("component")) if obj.get("component") is not None else None
+            "component": V1Component.from_dict(obj.get("component")) if obj.get("component") is not None else None,
+            "strict_params": obj.get("strictParams")
         })
         return _obj
 

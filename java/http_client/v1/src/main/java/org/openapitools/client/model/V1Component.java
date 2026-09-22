@@ -30,6 +30,7 @@ import org.openapitools.client.model.V1IO;
 import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -112,6 +113,10 @@ public class V1Component {
   public static final String SERIALIZED_NAME_OUTPUTS = "outputs";
   @SerializedName(SERIALIZED_NAME_OUTPUTS)
   private List<V1IO> outputs;
+
+  public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
+  @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
+  private Boolean strictParams;
 
   public static final String SERIALIZED_NAME_BUILD = "build";
   @SerializedName(SERIALIZED_NAME_BUILD)
@@ -484,6 +489,28 @@ public class V1Component {
   }
 
 
+  public V1Component strictParams(Boolean strictParams) {
+    
+    this.strictParams = strictParams;
+    return this;
+  }
+
+   /**
+   * Get strictParams
+   * @return strictParams
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getStrictParams() {
+    return strictParams;
+  }
+
+
+  public void setStrictParams(Boolean strictParams) {
+    this.strictParams = strictParams;
+  }
+
+
   public V1Component build(V1Build build) {
     
     this.build = build;
@@ -618,6 +645,7 @@ public class V1Component {
         Objects.equals(this.hooks, v1Component.hooks) &&
         Objects.equals(this.inputs, v1Component.inputs) &&
         Objects.equals(this.outputs, v1Component.outputs) &&
+        Objects.equals(this.strictParams, v1Component.strictParams) &&
         Objects.equals(this.build, v1Component.build) &&
         Objects.equals(this.run, v1Component.run) &&
         Objects.equals(this.template, v1Component.template) &&
@@ -625,9 +653,20 @@ public class V1Component {
         Objects.equals(this.cost, v1Component.cost);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, hooks, inputs, outputs, build, run, template, isApproved, cost);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, hooks, inputs, outputs, strictParams, build, run, template, isApproved, cost);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -648,6 +687,7 @@ public class V1Component {
     sb.append("    hooks: ").append(toIndentedString(hooks)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
+    sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
     sb.append("    build: ").append(toIndentedString(build)).append("\n");
     sb.append("    run: ").append(toIndentedString(run)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
@@ -689,6 +729,7 @@ public class V1Component {
     openapiFields.add("hooks");
     openapiFields.add("inputs");
     openapiFields.add("outputs");
+    openapiFields.add("strictParams");
     openapiFields.add("build");
     openapiFields.add("run");
     openapiFields.add("template");

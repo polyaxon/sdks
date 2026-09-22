@@ -32,6 +32,7 @@ import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -248,6 +249,14 @@ public class V1CompiledOperationTest {
     @Test
     public void isApprovedTest() {
         // TODO: test isApproved
+    }
+
+    /**
+     * Test the property 'strictParams'
+     */
+    @Test
+    public void strictParamsTest() {
+        // TODO: test strictParams
     }
 
     /**

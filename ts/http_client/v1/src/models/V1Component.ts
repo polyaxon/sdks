@@ -148,6 +148,12 @@ export interface V1Component {
     outputs?: Array<V1IO>;
     /**
      * 
+     * @type {boolean}
+     * @memberof V1Component
+     */
+    strictParams?: boolean | null;
+    /**
+     * 
      * @type {V1Build}
      * @memberof V1Component
      */
@@ -211,6 +217,7 @@ export function V1ComponentFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'hooks': !exists(json, 'hooks') ? undefined : ((json['hooks'] as Array<any>).map(V1HookFromJSON)),
         'inputs': !exists(json, 'inputs') ? undefined : ((json['inputs'] as Array<any>).map(V1IOFromJSON)),
         'outputs': !exists(json, 'outputs') ? undefined : ((json['outputs'] as Array<any>).map(V1IOFromJSON)),
+        'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
         'build': !exists(json, 'build') ? undefined : V1BuildFromJSON(json['build']),
         'run': !exists(json, 'run') ? undefined : json['run'],
         'template': !exists(json, 'template') ? undefined : V1TemplateFromJSON(json['template']),
@@ -242,6 +249,7 @@ export function V1ComponentToJSON(value?: V1Component | null): any {
         'hooks': value.hooks === undefined ? undefined : ((value.hooks as Array<any>).map(V1HookToJSON)),
         'inputs': value.inputs === undefined ? undefined : ((value.inputs as Array<any>).map(V1IOToJSON)),
         'outputs': value.outputs === undefined ? undefined : ((value.outputs as Array<any>).map(V1IOToJSON)),
+        'strictParams': value.strictParams,
         'build': V1BuildToJSON(value.build),
         'run': value.run,
         'template': V1TemplateToJSON(value.template),

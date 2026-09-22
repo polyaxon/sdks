@@ -32,6 +32,7 @@
 |**outputs** | [**List&lt;V1IO&gt;**](V1IO.md) |  |  [optional] |
 |**contexts** | [**List&lt;V1IO&gt;**](V1IO.md) |  |  [optional] |
 |**isApproved** | **Boolean** |  |  [optional] |
+|**strictParams** | **Boolean** |  |  [optional] |
 |**cost** | **Float** |  |  [optional] |
 |**run** | **Object** |  |  [optional] |
 

@@ -131,6 +131,9 @@ class V1CompiledOperation {
             if (data.hasOwnProperty('isApproved')) {
                 obj['isApproved'] = ApiClient.convertToType(data['isApproved'], 'Boolean');
             }
+            if (data.hasOwnProperty('strictParams')) {
+                obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
+            }
             if (data.hasOwnProperty('cost')) {
                 obj['cost'] = ApiClient.convertToType(data['cost'], 'Number');
             }
@@ -382,6 +385,11 @@ V1CompiledOperation.prototype['contexts'] = undefined;
  * @member {Boolean} isApproved
  */
 V1CompiledOperation.prototype['isApproved'] = undefined;
+
+/**
+ * @member {Boolean} strictParams
+ */
+V1CompiledOperation.prototype['strictParams'] = undefined;
 
 /**
  * @member {Number} cost

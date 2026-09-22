@@ -37,5 +37,6 @@ Name | Type | Description | Notes
 **dagRef** | **String** |  | [optional] 
 **urlRef** | **String** |  | [optional] 
 **component** | [**V1Component**](V1Component.md) |  | [optional] 
+**strictParams** | **Boolean** |  | [optional] 
 
 

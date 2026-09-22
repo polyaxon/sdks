@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **outputs** | [**List[V1IO]**](V1IO.md) |  | [optional] 
 **contexts** | [**List[V1IO]**](V1IO.md) |  | [optional] 
 **is_approved** | **bool** |  | [optional] 
+**strict_params** | **bool** |  | [optional] 
 **cost** | **float** |  | [optional] 
 **run** | **object** |  | [optional] 
 

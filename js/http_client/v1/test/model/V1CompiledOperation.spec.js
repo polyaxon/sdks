@@ -204,6 +204,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property strictParams (base name: "strictParams")', function() {
+      // uncomment below and update the code to test the property strictParams
+      //var instance = new PolyaxonSdk.V1CompiledOperation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property cost (base name: "cost")', function() {
       // uncomment below and update the code to test the property cost
       //var instance = new PolyaxonSdk.V1CompiledOperation();

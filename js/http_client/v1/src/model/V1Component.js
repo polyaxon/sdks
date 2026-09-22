@@ -96,6 +96,9 @@ class V1Component {
             if (data.hasOwnProperty('outputs')) {
                 obj['outputs'] = ApiClient.convertToType(data['outputs'], [V1IO]);
             }
+            if (data.hasOwnProperty('strictParams')) {
+                obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
+            }
             if (data.hasOwnProperty('build')) {
                 obj['build'] = V1Build.constructFromObject(data['build']);
             }
@@ -277,6 +280,11 @@ V1Component.prototype['inputs'] = undefined;
  * @member {Array.<module:model/V1IO>} outputs
  */
 V1Component.prototype['outputs'] = undefined;
+
+/**
+ * @member {Boolean} strictParams
+ */
+V1Component.prototype['strictParams'] = undefined;
 
 /**
  * @member {module:model/V1Build} build

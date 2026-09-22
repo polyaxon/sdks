@@ -5045,7 +5045,8 @@
         },
         "strictParams": {
           "title": "Flag to reject params without a matching input or output declaration",
-          "type": "boolean"
+          "type": "boolean",
+          "x-nullable": true
         },
         "tags": {
           "items": {
@@ -5174,7 +5175,8 @@
         },
         "strictParams": {
           "title": "Optional flag to reject params without a matching input or output declaration",
-          "type": "boolean"
+          "type": "boolean",
+          "x-nullable": true
         },
         "tags": {
           "items": {
@@ -7847,7 +7849,8 @@
         },
         "contextOnly": {
           "title": "A flag to signal to Polyaxon that this param should not be validated against io",
-          "type": "boolean"
+          "type": "boolean",
+          "x-nullable": true
         },
         "toEnv": {
           "title": "A flag to signal to Polyaxon that this param must be tranformed to the environment variable passed",
@@ -8938,7 +8941,8 @@
         },
         "strictParams": {
           "title": "Optional flag to reject params without a matching input or output declaration",
-          "type": "boolean"
+          "type": "boolean",
+          "x-nullable": true
         },
         "tags": {
           "items": {
@@ -9197,7 +9201,8 @@
         },
         "contextOnly": {
           "title": "A flag to signal to Polyaxon that this param should not be validated against io",
-          "type": "boolean"
+          "type": "boolean",
+          "x-nullable": true
         },
         "ref": {
           "title": "Ref corresponds to a reference of an object",

@@ -22681,6 +22681,11 @@
           "type": "boolean",
           "title": "Optional flag to mark this specification requires approval before running"
         },
+        "strictParams": {
+          "type": "boolean",
+          "title": "Flag to reject params without a matching input or output declaration",
+          "x-nullable": true
+        },
         "cost": {
           "type": "number",
           "format": "float",
@@ -22767,6 +22772,11 @@
             "$ref": "#/definitions/v1IO"
           },
           "title": "Optional outputs definition"
+        },
+        "strictParams": {
+          "type": "boolean",
+          "title": "Optional flag to reject params without a matching input or output declaration",
+          "x-nullable": true
         },
         "build": {
           "$ref": "#/definitions/v1Build",
@@ -25407,7 +25417,8 @@
         },
         "contextOnly": {
           "type": "boolean",
-          "title": "A flag to signal to Polyaxon that this param should not be validated against io"
+          "title": "A flag to signal to Polyaxon that this param should not be validated against io",
+          "x-nullable": true
         }
       },
       "title": "JoinParam specification"
@@ -26441,6 +26452,11 @@
         },
         "component": {
           "$ref": "#/definitions/v1Component"
+        },
+        "strictParams": {
+          "type": "boolean",
+          "title": "Optional flag to reject params without a matching input or output declaration",
+          "x-nullable": true
         }
       },
       "title": "Operation specification"
@@ -26688,7 +26704,8 @@
         },
         "contextOnly": {
           "type": "boolean",
-          "title": "A flag to signal to Polyaxon that this param should not be validated against io"
+          "title": "A flag to signal to Polyaxon that this param should not be validated against io",
+          "x-nullable": true
         }
       },
       "title": "Param specification"

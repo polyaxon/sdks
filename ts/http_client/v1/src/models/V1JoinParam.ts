@@ -48,7 +48,7 @@ export interface V1JoinParam {
      * @type {boolean}
      * @memberof V1JoinParam
      */
-    contextOnly?: boolean;
+    contextOnly?: boolean | null;
 }
 
 /**

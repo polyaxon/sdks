@@ -158,6 +158,9 @@ class V1Operation {
             if (data.hasOwnProperty('component')) {
                 obj['component'] = V1Component.constructFromObject(data['component']);
             }
+            if (data.hasOwnProperty('strictParams')) {
+                obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
+            }
         }
         return obj;
     }
@@ -437,6 +440,11 @@ V1Operation.prototype['urlRef'] = undefined;
  * @member {module:model/V1Component} component
  */
 V1Operation.prototype['component'] = undefined;
+
+/**
+ * @member {Boolean} strictParams
+ */
+V1Operation.prototype['strictParams'] = undefined;
 
 
 

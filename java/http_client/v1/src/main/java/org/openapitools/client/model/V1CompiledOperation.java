@@ -34,6 +34,7 @@ import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -160,6 +161,10 @@ public class V1CompiledOperation {
   public static final String SERIALIZED_NAME_IS_APPROVED = "isApproved";
   @SerializedName(SERIALIZED_NAME_IS_APPROVED)
   private Boolean isApproved;
+
+  public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
+  @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
+  private Boolean strictParams;
 
   public static final String SERIALIZED_NAME_COST = "cost";
   @SerializedName(SERIALIZED_NAME_COST)
@@ -794,6 +799,28 @@ public class V1CompiledOperation {
   }
 
 
+  public V1CompiledOperation strictParams(Boolean strictParams) {
+    
+    this.strictParams = strictParams;
+    return this;
+  }
+
+   /**
+   * Get strictParams
+   * @return strictParams
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getStrictParams() {
+    return strictParams;
+  }
+
+
+  public void setStrictParams(Boolean strictParams) {
+    this.strictParams = strictParams;
+  }
+
+
   public V1CompiledOperation cost(Float cost) {
     
     this.cost = cost;
@@ -873,13 +900,25 @@ public class V1CompiledOperation {
         Objects.equals(this.outputs, v1CompiledOperation.outputs) &&
         Objects.equals(this.contexts, v1CompiledOperation.contexts) &&
         Objects.equals(this.isApproved, v1CompiledOperation.isApproved) &&
+        Objects.equals(this.strictParams, v1CompiledOperation.strictParams) &&
         Objects.equals(this.cost, v1CompiledOperation.cost) &&
         Objects.equals(this.run, v1CompiledOperation.run);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, build, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, matrix, joins, inputs, outputs, contexts, isApproved, cost, run);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, build, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, matrix, joins, inputs, outputs, contexts, isApproved, strictParams, cost, run);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
@@ -911,6 +950,7 @@ public class V1CompiledOperation {
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    contexts: ").append(toIndentedString(contexts)).append("\n");
     sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
+    sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
     sb.append("    run: ").append(toIndentedString(run)).append("\n");
     sb.append("}");
@@ -960,6 +1000,7 @@ public class V1CompiledOperation {
     openapiFields.add("outputs");
     openapiFields.add("contexts");
     openapiFields.add("isApproved");
+    openapiFields.add("strictParams");
     openapiFields.add("cost");
     openapiFields.add("run");
 

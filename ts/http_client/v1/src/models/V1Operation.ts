@@ -290,6 +290,12 @@ export interface V1Operation {
      * @memberof V1Operation
      */
     component?: V1Component;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Operation
+     */
+    strictParams?: boolean | null;
 }
 
 /**
@@ -344,6 +350,7 @@ export function V1OperationFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'dagRef': !exists(json, 'dagRef') ? undefined : json['dagRef'],
         'urlRef': !exists(json, 'urlRef') ? undefined : json['urlRef'],
         'component': !exists(json, 'component') ? undefined : V1ComponentFromJSON(json['component']),
+        'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
     };
 }
 
@@ -389,6 +396,7 @@ export function V1OperationToJSON(value?: V1Operation | null): any {
         'dagRef': value.dagRef,
         'urlRef': value.urlRef,
         'component': V1ComponentToJSON(value.component),
+        'strictParams': value.strictParams,
     };
 }
 

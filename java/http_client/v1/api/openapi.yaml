@@ -24779,6 +24779,7 @@ components:
             le: 9
             ge: 9
             maxLength: 8
+        strictParams: true
         plugins:
           mountArtifactsStore: true
           syncStatuses: true
@@ -25224,6 +25225,10 @@ components:
           title: Optional flag to mark this specification requires approval before
             running
           type: boolean
+        strictParams:
+          nullable: true
+          title: Flag to reject params without a matching input or output declaration
+          type: boolean
         cost:
           format: float
           title: Optional field to assign cost to this Component
@@ -25364,6 +25369,7 @@ components:
           - sections
           - sections
         cost: 0.43431398
+        strictParams: true
         kind: kind
         plugins:
           mountArtifactsStore: true
@@ -25627,6 +25633,11 @@ components:
             $ref: '#/components/schemas/v1IO'
           title: Optional outputs definition
           type: array
+        strictParams:
+          nullable: true
+          title: Optional flag to reject params without a matching input or output
+            declaration
+          type: boolean
         build:
           $ref: '#/components/schemas/v1Build'
         run:
@@ -26073,6 +26084,7 @@ components:
             - sections
             - sections
           cost: 0.43431398
+          strictParams: true
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -26412,6 +26424,7 @@ components:
             - sections
             - sections
           cost: 0.43431398
+          strictParams: true
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -26673,6 +26686,7 @@ components:
             - fields
             enabled: true
           dagRef: dagRef
+          strictParams: true
           plugins:
             mountArtifactsStore: true
             syncStatuses: true
@@ -26932,6 +26946,7 @@ components:
               - sections
               - sections
             cost: 0.43431398
+            strictParams: true
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -27203,6 +27218,7 @@ components:
             - fields
             enabled: true
           dagRef: dagRef
+          strictParams: true
           plugins:
             mountArtifactsStore: true
             syncStatuses: true
@@ -27462,6 +27478,7 @@ components:
               - sections
               - sections
             cost: 0.43431398
+            strictParams: true
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -31002,6 +31019,7 @@ components:
             the environment variable passed
           type: string
         contextOnly:
+          nullable: true
           title: A flag to signal to Polyaxon that this param should not be validated
             against io
           type: boolean
@@ -34210,6 +34228,7 @@ components:
           - fields
           enabled: true
         dagRef: dagRef
+        strictParams: true
         plugins:
           mountArtifactsStore: true
           syncStatuses: true
@@ -34469,6 +34488,7 @@ components:
             - sections
             - sections
           cost: 0.43431398
+          strictParams: true
           kind: kind
           plugins:
             mountArtifactsStore: true
@@ -34831,6 +34851,11 @@ components:
           type: string
         component:
           $ref: '#/components/schemas/v1Component'
+        strictParams:
+          nullable: true
+          title: Optional flag to reject params without a matching input or output
+            declaration
+          type: boolean
       title: Operation specification
       type: object
     v1OperationBody:
@@ -35062,6 +35087,7 @@ components:
             environment variable passed
           type: string
         contextOnly:
+          nullable: true
           title: A flag to signal to Polyaxon that this param should not be validated
             against io
           type: boolean
@@ -39418,6 +39444,7 @@ components:
               - sections
               - sections
             cost: 0.43431398
+            strictParams: true
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -39757,6 +39784,7 @@ components:
               - sections
               - sections
             cost: 0.43431398
+            strictParams: true
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -40018,6 +40046,7 @@ components:
               - fields
               enabled: true
             dagRef: dagRef
+            strictParams: true
             plugins:
               mountArtifactsStore: true
               syncStatuses: true
@@ -40277,6 +40306,7 @@ components:
                 - sections
                 - sections
               cost: 0.43431398
+              strictParams: true
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -40548,6 +40578,7 @@ components:
               - fields
               enabled: true
             dagRef: dagRef
+            strictParams: true
             plugins:
               mountArtifactsStore: true
               syncStatuses: true
@@ -40807,6 +40838,7 @@ components:
                 - sections
                 - sections
               cost: 0.43431398
+              strictParams: true
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -43895,6 +43927,7 @@ components:
                 - sections
                 - sections
               cost: 0.43431398
+              strictParams: true
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -44234,6 +44267,7 @@ components:
                 - sections
                 - sections
               cost: 0.43431398
+              strictParams: true
               kind: kind
               plugins:
                 mountArtifactsStore: true
@@ -44495,6 +44529,7 @@ components:
                 - fields
                 enabled: true
               dagRef: dagRef
+              strictParams: true
               plugins:
                 mountArtifactsStore: true
                 syncStatuses: true
@@ -44754,6 +44789,7 @@ components:
                   - sections
                   - sections
                 cost: 0.43431398
+                strictParams: true
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -45025,6 +45061,7 @@ components:
                 - fields
                 enabled: true
               dagRef: dagRef
+              strictParams: true
               plugins:
                 mountArtifactsStore: true
                 syncStatuses: true
@@ -45284,6 +45321,7 @@ components:
                   - sections
                   - sections
                 cost: 0.43431398
+                strictParams: true
                 kind: kind
                 plugins:
                   mountArtifactsStore: true
@@ -47334,6 +47372,7 @@ components:
             - fields
             enabled: true
           dagRef: dagRef
+          strictParams: true
           plugins:
             mountArtifactsStore: true
             syncStatuses: true
@@ -47593,6 +47632,7 @@ components:
               - sections
               - sections
             cost: 0.43431398
+            strictParams: true
             kind: kind
             plugins:
               mountArtifactsStore: true
@@ -47955,6 +47995,7 @@ components:
               le: 9
               ge: 9
               maxLength: 8
+          strictParams: true
           plugins:
             mountArtifactsStore: true
             syncStatuses: true

@@ -61,9 +61,10 @@ class V1CompiledOperation(BaseModel):
     outputs: Optional[conlist(V1IO)] = None
     contexts: Optional[conlist(V1IO)] = None
     is_approved: Optional[StrictBool] = Field(None, alias="isApproved")
+    strict_params: Optional[StrictBool] = Field(None, alias="strictParams")
     cost: Optional[StrictFloat] = None
     run: Optional[Dict[str, Any]] = None
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "build", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "matrix", "joins", "inputs", "outputs", "contexts", "isApproved", "cost", "run"]
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "build", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "matrix", "joins", "inputs", "outputs", "contexts", "isApproved", "strictParams", "cost", "run"]
 
     class Config:
         allow_population_by_field_name = True
@@ -142,6 +143,11 @@ class V1CompiledOperation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['contexts'] = _items
+        # set to None if strict_params (nullable) is None
+        # and __fields_set__ contains the field
+        if self.strict_params is None and "strict_params" in self.__fields_set__:
+            _dict['strictParams'] = None
+
         return _dict
 
     @classmethod
@@ -179,6 +185,7 @@ class V1CompiledOperation(BaseModel):
             "outputs": [V1IO.from_dict(_item) for _item in obj.get("outputs")] if obj.get("outputs") is not None else None,
             "contexts": [V1IO.from_dict(_item) for _item in obj.get("contexts")] if obj.get("contexts") is not None else None,
             "is_approved": obj.get("isApproved"),
+            "strict_params": obj.get("strictParams"),
             "cost": obj.get("cost"),
             "run": obj.get("run")
         })

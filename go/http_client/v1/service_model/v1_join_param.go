@@ -21,7 +21,7 @@ type V1JoinParam struct {
 	Connection string `json:"connection,omitempty"`
 
 	// A flag to signal to Polyaxon that this param should not be validated against io
-	ContextOnly bool `json:"contextOnly,omitempty"`
+	ContextOnly *bool `json:"contextOnly,omitempty"`
 
 	// A flag to signal to Polyaxon that this param must be tranformed to the environment variable passed
 	ToEnv string `json:"toEnv,omitempty"`
