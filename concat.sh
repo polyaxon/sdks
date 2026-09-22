@@ -14,7 +14,7 @@ jq -s '
 	.info.description = "   " |
 	.info.version = "2.17.0" |
 	.info.contact = {"name": "Polyaxon sdk", "url": "https://github.com/polyaxon/polyaxon", "email": "contact@polyaxon.com"}
-	' swagger/v1/{polyaxon_sdk_apis,owner.artifact,project.artifact,run.artifact,connections.default,earlyStopping.default,hp.default,matrix.default,reference.default,run.default,schedule.default}.swagger.json > "swagger/v1/polyaxon_sdk.swagger.json"
+	' swagger/v1/{polyaxon_sdk_apis,owner.artifact,project.artifact,run.artifact,connections.default,earlyStopping.default,hp.default,matrix.default,params.default,reference.default,run.default,schedule.default}.swagger.json > "swagger/v1/polyaxon_sdk.swagger.json"
 
 # Concat jsonschema
 jq -s '

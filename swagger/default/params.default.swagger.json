@@ -1,0 +1,39 @@
+{
+  "definitions": {
+    "v1Component": {
+      "properties": {
+        "strictParams": {
+          "x-nullable": true
+        }
+      }
+    },
+    "v1Operation": {
+      "properties": {
+        "strictParams": {
+          "x-nullable": true
+        }
+      }
+    },
+    "v1CompiledOperation": {
+      "properties": {
+        "strictParams": {
+          "x-nullable": true
+        }
+      }
+    },
+    "v1Param": {
+      "properties": {
+        "contextOnly": {
+          "x-nullable": true
+        }
+      }
+    },
+    "v1JoinParam": {
+      "properties": {
+        "contextOnly": {
+          "x-nullable": true
+        }
+      }
+    }
+  }
+}
