@@ -24,7 +24,7 @@ message Operation {
     // Spec version
     float version = 1;
 
-    // Optional component kind, should be equal to 'operation'
+    // Optional authored kind: component or operation
     string kind = 2;
 
     // Optional component name override, should a valid slug
@@ -75,46 +75,58 @@ message Operation {
     // Optional flag to skip this run if upstream was skipped
     bool skipOnUpstreamSkip = 18;
 
+    // Optional inputs definition
+    repeated IO inputs = 19;
+
+    // Optional outputs definition
+    repeated IO outputs = 20;
+
     // Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)
-    google.protobuf.Struct matrix = 19;
+    google.protobuf.Struct matrix = 21;
 
     // Optional dict of joins
-    map<string, Join> joins = 20;
+    map<string, Join> joins = 22;
 
     // Optional dict of params
-    map<string, Param> params = 21;
+    map<string, Param> params = 23;
+
+    // Optional flag to reject params without a matching input or output declaration
+    bool strictParams = 24;
 
     // Optional a run section to override the content of the run in the template
     // should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
-    google.protobuf.Struct runPatch = 22;
+    google.protobuf.Struct runPatch = 25;
 
     // Optional patch strategy, default post_merge
-    PatchStrategy patchStrategy = 23;
+    PatchStrategy patchStrategy = 26;
 
     // Optional flag to mark this specification as preset
-    bool isPreset = 24;
+    bool isPreset = 27;
 
     // Optional flag to mark this specification requires approval before running
-    bool isApproved = 25;
+    bool isApproved = 28;
 
     // Optional to mark this specification as template with instructions
-    Template template = 26;
+    Template template = 29;
 
     // Optional build process
-    Build build = 27;
+    Build build = 30;
 
     // Optional field to assign cost to this Component
-    float cost = 28;
+    float cost = 31;
 
-    // Component template specification
-    oneof definition {
-      string pathRef = 29;
-      string hubRef = 30;
-      string dagRef = 31;
-      string urlRef = 32;
-      Component component = 33;
-    }
+    // Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
+    google.protobuf.Struct run = 32;
 
-    // Optional flag to reject params without a matching input or output declaration
-    bool strictParams = 34;
+    // At most one reference; a resolved component can accompany it
+    string pathRef = 33;
+    string hubRef = 34;
+    string dagRef = 35;
+    string urlRef = 36;
+
+    // Inline base or the saved definition of a reference
+    Component component = 37;
+
+    // Local upload paths: strings or objects with from/to fields
+    repeated google.protobuf.Value mount = 38;
 }
