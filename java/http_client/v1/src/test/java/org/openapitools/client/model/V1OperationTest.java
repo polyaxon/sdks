@@ -28,6 +28,7 @@ import org.openapitools.client.model.V1Cache;
 import org.openapitools.client.model.V1Component;
 import org.openapitools.client.model.V1EventTrigger;
 import org.openapitools.client.model.V1Hook;
+import org.openapitools.client.model.V1IO;
 import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
@@ -199,6 +200,22 @@ public class V1OperationTest {
     }
 
     /**
+     * Test the property 'inputs'
+     */
+    @Test
+    public void inputsTest() {
+        // TODO: test inputs
+    }
+
+    /**
+     * Test the property 'outputs'
+     */
+    @Test
+    public void outputsTest() {
+        // TODO: test outputs
+    }
+
+    /**
      * Test the property 'matrix'
      */
     @Test
@@ -220,6 +237,14 @@ public class V1OperationTest {
     @Test
     public void paramsTest() {
         // TODO: test params
+    }
+
+    /**
+     * Test the property 'strictParams'
+     */
+    @Test
+    public void strictParamsTest() {
+        // TODO: test strictParams
     }
 
     /**
@@ -279,6 +304,14 @@ public class V1OperationTest {
     }
 
     /**
+     * Test the property 'run'
+     */
+    @Test
+    public void runTest() {
+        // TODO: test run
+    }
+
+    /**
      * Test the property 'pathRef'
      */
     @Test
@@ -319,11 +352,11 @@ public class V1OperationTest {
     }
 
     /**
-     * Test the property 'strictParams'
+     * Test the property 'mount'
      */
     @Test
-    public void strictParamsTest() {
-        // TODO: test strictParams
+    public void mountTest() {
+        // TODO: test mount
     }
 
 }

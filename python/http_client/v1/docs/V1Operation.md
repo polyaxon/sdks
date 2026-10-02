@@ -22,9 +22,12 @@ Name | Type | Description | Notes
 **trigger** | [**V1TriggerPolicy**](V1TriggerPolicy.md) |  | [optional] 
 **conditions** | **str** |  | [optional] 
 **skip_on_upstream_skip** | **bool** |  | [optional] 
+**inputs** | [**List[V1IO]**](V1IO.md) |  | [optional] 
+**outputs** | [**List[V1IO]**](V1IO.md) |  | [optional] 
 **matrix** | **object** |  | [optional] 
 **joins** | [**Dict[str, V1Join]**](V1Join.md) |  | [optional] 
 **params** | [**Dict[str, V1Param]**](V1Param.md) |  | [optional] 
+**strict_params** | **bool** |  | [optional] 
 **run_patch** | **object** |  | [optional] 
 **patch_strategy** | [**V1PatchStrategy**](V1PatchStrategy.md) |  | [optional] 
 **is_preset** | **bool** |  | [optional] 
@@ -32,12 +35,13 @@ Name | Type | Description | Notes
 **template** | [**V1Template**](V1Template.md) |  | [optional] 
 **build** | [**V1Build**](V1Build.md) |  | [optional] 
 **cost** | **float** |  | [optional] 
+**run** | **object** |  | [optional] 
 **path_ref** | **str** |  | [optional] 
 **hub_ref** | **str** |  | [optional] 
 **dag_ref** | **str** |  | [optional] 
 **url_ref** | **str** |  | [optional] 
 **component** | [**V1Component**](V1Component.md) |  | [optional] 
-**strict_params** | **bool** |  | [optional] 
+**mount** | **List[object]** |  | [optional] 
 
 ## Example
 

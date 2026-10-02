@@ -13,6 +13,7 @@ import (
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // V1Component Component specification
@@ -26,14 +27,32 @@ type V1Component struct {
 	// Optional flag to disable cache validation and force run this component
 	Cache *V1Cache `json:"cache,omitempty"`
 
+	// Inline base or the saved definition of a reference
+	Component *V1Component `json:"component,omitempty"`
+
+	// An optional template containing conditions to check before starting the run
+	Conditions string `json:"conditions,omitempty"`
+
 	// Optional field to assign cost to this Component
 	Cost float32 `json:"cost,omitempty"`
+
+	// dag ref
+	DagRef string `json:"dagRef,omitempty"`
+
+	// Optional graph dependencies of this op
+	Dependencies []string `json:"dependencies"`
 
 	// Optional component description
 	Description string `json:"description,omitempty"`
 
+	// Optional events section, must be a valid List of EventTrigger option (Run/Git/Alert/Webhook/Dataset)
+	Events []*V1EventTrigger `json:"events"`
+
 	// Optional hooks section
 	Hooks []*V1Hook `json:"hooks"`
+
+	// hub ref
+	HubRef string `json:"hubRef,omitempty"`
 
 	// Optional inputs definition
 	Inputs []*V1IO `json:"inputs"`
@@ -41,8 +60,20 @@ type V1Component struct {
 	// Optional flag to mark this specification requires approval before running
 	IsApproved bool `json:"isApproved,omitempty"`
 
-	// Optional component kind, should be equal to 'operation'
+	// Optional flag to mark this specification as preset
+	IsPreset bool `json:"isPreset,omitempty"`
+
+	// Optional dict of joins
+	Joins map[string]V1Join `json:"joins,omitempty"`
+
+	// Optional authored kind: component or operation
 	Kind string `json:"kind,omitempty"`
+
+	// Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)
+	Matrix any `json:"matrix,omitempty"`
+
+	// Local upload paths: strings or objects with from/to fields
+	Mount []any `json:"mount"`
 
 	// Optional component name, should be a valid fully qualified value: name[:version]
 	Name string `json:"name,omitempty"`
@@ -52,6 +83,15 @@ type V1Component struct {
 
 	// Optional outputs definition
 	Outputs []*V1IO `json:"outputs"`
+
+	// Optional dict of params
+	Params map[string]V1Param `json:"params,omitempty"`
+
+	// Optional patch strategy, default post_merge
+	PatchStrategy *V1PatchStrategy `json:"patchStrategy,omitempty"`
+
+	// At most one reference; a resolved component can accompany it
+	PathRef string `json:"pathRef,omitempty"`
 
 	// Optional plugins to enable
 	Plugins *V1Plugins `json:"plugins,omitempty"`
@@ -65,17 +105,33 @@ type V1Component struct {
 	// Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
 	Run any `json:"run,omitempty"`
 
+	// Optional a run section to override the content of the run in the template
+	// should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
+	RunPatch any `json:"runPatch,omitempty"`
+
+	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)
+	Schedule any `json:"schedule,omitempty"`
+
+	// Optional flag to skip this run if upstream was skipped
+	SkipOnUpstreamSkip bool `json:"skipOnUpstreamSkip,omitempty"`
+
 	// Optional flag to reject params without a matching input or output declaration
 	StrictParams *bool `json:"strictParams,omitempty"`
 
 	// Optional component tags
 	Tags []string `json:"tags"`
 
-	// Optional flag to mark this specification as template
+	// Optional to mark this specification as template with instructions
 	Template *V1Template `json:"template,omitempty"`
 
 	// optional termination section
 	Termination *V1Termination `json:"termination,omitempty"`
+
+	// Optional trigger policy
+	Trigger *V1TriggerPolicy `json:"trigger,omitempty"`
+
+	// url ref
+	URLRef string `json:"urlRef,omitempty"`
 
 	// Spec version
 	Version float32 `json:"version,omitempty"`
@@ -93,6 +149,14 @@ func (m *V1Component) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateComponent(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEvents(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateHooks(formats); err != nil {
 		res = append(res, err)
 	}
@@ -101,7 +165,19 @@ func (m *V1Component) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateJoins(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateOutputs(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParams(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePatchStrategy(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -114,6 +190,10 @@ func (m *V1Component) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateTermination(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTrigger(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -164,6 +244,59 @@ func (m *V1Component) validateCache(formats strfmt.Registry) error {
 
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *V1Component) validateComponent(formats strfmt.Registry) error {
+	if swag.IsZero(m.Component) { // not required
+		return nil
+	}
+
+	if m.Component != nil {
+		if err := m.Component.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("component")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("component")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Component) validateEvents(formats strfmt.Registry) error {
+	if swag.IsZero(m.Events) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Events); i++ {
+		if swag.IsZero(m.Events[i]) { // not required
+			continue
+		}
+
+		if m.Events[i] != nil {
+			if err := m.Events[i].Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -229,6 +362,36 @@ func (m *V1Component) validateInputs(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Component) validateJoins(formats strfmt.Registry) error {
+	if swag.IsZero(m.Joins) { // not required
+		return nil
+	}
+
+	for k := range m.Joins {
+
+		if err := validate.Required("joins"+"."+k, "body", m.Joins[k]); err != nil {
+			return err
+		}
+		if val, ok := m.Joins[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("joins" + "." + k)
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("joins" + "." + k)
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1Component) validateOutputs(formats strfmt.Registry) error {
 	if swag.IsZero(m.Outputs) { // not required
 		return nil
@@ -254,6 +417,59 @@ func (m *V1Component) validateOutputs(formats strfmt.Registry) error {
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *V1Component) validateParams(formats strfmt.Registry) error {
+	if swag.IsZero(m.Params) { // not required
+		return nil
+	}
+
+	for k := range m.Params {
+
+		if err := validate.Required("params"+"."+k, "body", m.Params[k]); err != nil {
+			return err
+		}
+		if val, ok := m.Params[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("params" + "." + k)
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("params" + "." + k)
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Component) validatePatchStrategy(formats strfmt.Registry) error {
+	if swag.IsZero(m.PatchStrategy) { // not required
+		return nil
+	}
+
+	if m.PatchStrategy != nil {
+		if err := m.PatchStrategy.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("patchStrategy")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("patchStrategy")
+			}
+
+			return err
+		}
 	}
 
 	return nil
@@ -328,6 +544,29 @@ func (m *V1Component) validateTermination(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Component) validateTrigger(formats strfmt.Registry) error {
+	if swag.IsZero(m.Trigger) { // not required
+		return nil
+	}
+
+	if m.Trigger != nil {
+		if err := m.Trigger.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("trigger")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("trigger")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this v1 component based on the context it is used
 func (m *V1Component) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -340,6 +579,14 @@ func (m *V1Component) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateComponent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateHooks(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -348,7 +595,19 @@ func (m *V1Component) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateJoins(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateOutputs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParams(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatchStrategy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -361,6 +620,10 @@ func (m *V1Component) ContextValidate(ctx context.Context, formats strfmt.Regist
 	}
 
 	if err := m.contextValidateTermination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrigger(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -415,6 +678,60 @@ func (m *V1Component) contextValidateCache(ctx context.Context, formats strfmt.R
 
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *V1Component) contextValidateComponent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Component != nil {
+
+		if swag.IsZero(m.Component) { // not required
+			return nil
+		}
+
+		if err := m.Component.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("component")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("component")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Component) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Events); i++ {
+
+		if m.Events[i] != nil {
+
+			if swag.IsZero(m.Events[i]) { // not required
+				return nil
+			}
+
+			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -478,6 +795,21 @@ func (m *V1Component) contextValidateInputs(ctx context.Context, formats strfmt.
 	return nil
 }
 
+func (m *V1Component) contextValidateJoins(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Joins {
+
+		if val, ok := m.Joins[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1Component) contextValidateOutputs(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Outputs); i++ {
@@ -502,6 +834,46 @@ func (m *V1Component) contextValidateOutputs(ctx context.Context, formats strfmt
 			}
 		}
 
+	}
+
+	return nil
+}
+
+func (m *V1Component) contextValidateParams(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Params {
+
+		if val, ok := m.Params[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Component) contextValidatePatchStrategy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PatchStrategy != nil {
+
+		if swag.IsZero(m.PatchStrategy) { // not required
+			return nil
+		}
+
+		if err := m.PatchStrategy.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("patchStrategy")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("patchStrategy")
+			}
+
+			return err
+		}
 	}
 
 	return nil
@@ -573,6 +945,31 @@ func (m *V1Component) contextValidateTermination(ctx context.Context, formats st
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("termination")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Component) contextValidateTrigger(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trigger != nil {
+
+		if swag.IsZero(m.Trigger) { // not required
+			return nil
+		}
+
+		if err := m.Trigger.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("trigger")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("trigger")
 			}
 
 			return err

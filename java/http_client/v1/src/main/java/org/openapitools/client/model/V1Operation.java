@@ -30,6 +30,7 @@ import org.openapitools.client.model.V1Cache;
 import org.openapitools.client.model.V1Component;
 import org.openapitools.client.model.V1EventTrigger;
 import org.openapitools.client.model.V1Hook;
+import org.openapitools.client.model.V1IO;
 import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
@@ -137,6 +138,14 @@ public class V1Operation {
   @SerializedName(SERIALIZED_NAME_SKIP_ON_UPSTREAM_SKIP)
   private Boolean skipOnUpstreamSkip;
 
+  public static final String SERIALIZED_NAME_INPUTS = "inputs";
+  @SerializedName(SERIALIZED_NAME_INPUTS)
+  private List<V1IO> inputs;
+
+  public static final String SERIALIZED_NAME_OUTPUTS = "outputs";
+  @SerializedName(SERIALIZED_NAME_OUTPUTS)
+  private List<V1IO> outputs;
+
   public static final String SERIALIZED_NAME_MATRIX = "matrix";
   @SerializedName(SERIALIZED_NAME_MATRIX)
   private Object matrix;
@@ -148,6 +157,10 @@ public class V1Operation {
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
   private Map<String, V1Param> params = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
+  @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
+  private Boolean strictParams;
 
   public static final String SERIALIZED_NAME_RUN_PATCH = "runPatch";
   @SerializedName(SERIALIZED_NAME_RUN_PATCH)
@@ -177,6 +190,10 @@ public class V1Operation {
   @SerializedName(SERIALIZED_NAME_COST)
   private Float cost;
 
+  public static final String SERIALIZED_NAME_RUN = "run";
+  @SerializedName(SERIALIZED_NAME_RUN)
+  private Object run;
+
   public static final String SERIALIZED_NAME_PATH_REF = "pathRef";
   @SerializedName(SERIALIZED_NAME_PATH_REF)
   private String pathRef;
@@ -197,9 +214,9 @@ public class V1Operation {
   @SerializedName(SERIALIZED_NAME_COMPONENT)
   private V1Component component;
 
-  public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
-  @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
-  private Boolean strictParams;
+  public static final String SERIALIZED_NAME_MOUNT = "mount";
+  @SerializedName(SERIALIZED_NAME_MOUNT)
+  private List<Object> mount;
 
   public V1Operation() {
   }
@@ -640,6 +657,66 @@ public class V1Operation {
   }
 
 
+  public V1Operation inputs(List<V1IO> inputs) {
+    
+    this.inputs = inputs;
+    return this;
+  }
+
+  public V1Operation addInputsItem(V1IO inputsItem) {
+    if (this.inputs == null) {
+      this.inputs = new ArrayList<>();
+    }
+    this.inputs.add(inputsItem);
+    return this;
+  }
+
+   /**
+   * Get inputs
+   * @return inputs
+  **/
+  @javax.annotation.Nullable
+
+  public List<V1IO> getInputs() {
+    return inputs;
+  }
+
+
+  public void setInputs(List<V1IO> inputs) {
+    this.inputs = inputs;
+  }
+
+
+  public V1Operation outputs(List<V1IO> outputs) {
+    
+    this.outputs = outputs;
+    return this;
+  }
+
+  public V1Operation addOutputsItem(V1IO outputsItem) {
+    if (this.outputs == null) {
+      this.outputs = new ArrayList<>();
+    }
+    this.outputs.add(outputsItem);
+    return this;
+  }
+
+   /**
+   * Get outputs
+   * @return outputs
+  **/
+  @javax.annotation.Nullable
+
+  public List<V1IO> getOutputs() {
+    return outputs;
+  }
+
+
+  public void setOutputs(List<V1IO> outputs) {
+    this.outputs = outputs;
+  }
+
+
   public V1Operation matrix(Object matrix) {
     
     this.matrix = matrix;
@@ -719,6 +796,28 @@ public class V1Operation {
 
   public void setParams(Map<String, V1Param> params) {
     this.params = params;
+  }
+
+
+  public V1Operation strictParams(Boolean strictParams) {
+    
+    this.strictParams = strictParams;
+    return this;
+  }
+
+   /**
+   * Get strictParams
+   * @return strictParams
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getStrictParams() {
+    return strictParams;
+  }
+
+
+  public void setStrictParams(Boolean strictParams) {
+    this.strictParams = strictParams;
   }
 
 
@@ -876,6 +975,28 @@ public class V1Operation {
   }
 
 
+  public V1Operation run(Object run) {
+    
+    this.run = run;
+    return this;
+  }
+
+   /**
+   * Get run
+   * @return run
+  **/
+  @javax.annotation.Nullable
+
+  public Object getRun() {
+    return run;
+  }
+
+
+  public void setRun(Object run) {
+    this.run = run;
+  }
+
+
   public V1Operation pathRef(String pathRef) {
     
     this.pathRef = pathRef;
@@ -986,25 +1107,33 @@ public class V1Operation {
   }
 
 
-  public V1Operation strictParams(Boolean strictParams) {
+  public V1Operation mount(List<Object> mount) {
     
-    this.strictParams = strictParams;
+    this.mount = mount;
+    return this;
+  }
+
+  public V1Operation addMountItem(Object mountItem) {
+    if (this.mount == null) {
+      this.mount = new ArrayList<>();
+    }
+    this.mount.add(mountItem);
     return this;
   }
 
    /**
-   * Get strictParams
-   * @return strictParams
+   * Get mount
+   * @return mount
   **/
   @javax.annotation.Nullable
 
-  public Boolean getStrictParams() {
-    return strictParams;
+  public List<Object> getMount() {
+    return mount;
   }
 
 
-  public void setStrictParams(Boolean strictParams) {
-    this.strictParams = strictParams;
+  public void setMount(List<Object> mount) {
+    this.mount = mount;
   }
 
 
@@ -1036,9 +1165,12 @@ public class V1Operation {
         Objects.equals(this.trigger, v1Operation.trigger) &&
         Objects.equals(this.conditions, v1Operation.conditions) &&
         Objects.equals(this.skipOnUpstreamSkip, v1Operation.skipOnUpstreamSkip) &&
+        Objects.equals(this.inputs, v1Operation.inputs) &&
+        Objects.equals(this.outputs, v1Operation.outputs) &&
         Objects.equals(this.matrix, v1Operation.matrix) &&
         Objects.equals(this.joins, v1Operation.joins) &&
         Objects.equals(this.params, v1Operation.params) &&
+        Objects.equals(this.strictParams, v1Operation.strictParams) &&
         Objects.equals(this.runPatch, v1Operation.runPatch) &&
         Objects.equals(this.patchStrategy, v1Operation.patchStrategy) &&
         Objects.equals(this.isPreset, v1Operation.isPreset) &&
@@ -1046,12 +1178,13 @@ public class V1Operation {
         Objects.equals(this.template, v1Operation.template) &&
         Objects.equals(this.build, v1Operation.build) &&
         Objects.equals(this.cost, v1Operation.cost) &&
+        Objects.equals(this.run, v1Operation.run) &&
         Objects.equals(this.pathRef, v1Operation.pathRef) &&
         Objects.equals(this.hubRef, v1Operation.hubRef) &&
         Objects.equals(this.dagRef, v1Operation.dagRef) &&
         Objects.equals(this.urlRef, v1Operation.urlRef) &&
         Objects.equals(this.component, v1Operation.component) &&
-        Objects.equals(this.strictParams, v1Operation.strictParams);
+        Objects.equals(this.mount, v1Operation.mount);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1060,7 +1193,7 @@ public class V1Operation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, matrix, joins, params, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, pathRef, hubRef, dagRef, urlRef, component, strictParams);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1092,9 +1225,12 @@ public class V1Operation {
     sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    skipOnUpstreamSkip: ").append(toIndentedString(skipOnUpstreamSkip)).append("\n");
+    sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+    sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
     sb.append("    matrix: ").append(toIndentedString(matrix)).append("\n");
     sb.append("    joins: ").append(toIndentedString(joins)).append("\n");
     sb.append("    params: ").append(toIndentedString(params)).append("\n");
+    sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
     sb.append("    runPatch: ").append(toIndentedString(runPatch)).append("\n");
     sb.append("    patchStrategy: ").append(toIndentedString(patchStrategy)).append("\n");
     sb.append("    isPreset: ").append(toIndentedString(isPreset)).append("\n");
@@ -1102,12 +1238,13 @@ public class V1Operation {
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    build: ").append(toIndentedString(build)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
+    sb.append("    run: ").append(toIndentedString(run)).append("\n");
     sb.append("    pathRef: ").append(toIndentedString(pathRef)).append("\n");
     sb.append("    hubRef: ").append(toIndentedString(hubRef)).append("\n");
     sb.append("    dagRef: ").append(toIndentedString(dagRef)).append("\n");
     sb.append("    urlRef: ").append(toIndentedString(urlRef)).append("\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
-    sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
+    sb.append("    mount: ").append(toIndentedString(mount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1148,9 +1285,12 @@ public class V1Operation {
     openapiFields.add("trigger");
     openapiFields.add("conditions");
     openapiFields.add("skipOnUpstreamSkip");
+    openapiFields.add("inputs");
+    openapiFields.add("outputs");
     openapiFields.add("matrix");
     openapiFields.add("joins");
     openapiFields.add("params");
+    openapiFields.add("strictParams");
     openapiFields.add("runPatch");
     openapiFields.add("patchStrategy");
     openapiFields.add("isPreset");
@@ -1158,12 +1298,13 @@ public class V1Operation {
     openapiFields.add("template");
     openapiFields.add("build");
     openapiFields.add("cost");
+    openapiFields.add("run");
     openapiFields.add("pathRef");
     openapiFields.add("hubRef");
     openapiFields.add("dagRef");
     openapiFields.add("urlRef");
     openapiFields.add("component");
-    openapiFields.add("strictParams");
+    openapiFields.add("mount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1259,6 +1400,34 @@ public class V1Operation {
       if ((jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) && !jsonObj.get("conditions").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `conditions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
       }
+      if (jsonObj.get("inputs") != null && !jsonObj.get("inputs").isJsonNull()) {
+        JsonArray jsonArrayinputs = jsonObj.getAsJsonArray("inputs");
+        if (jsonArrayinputs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("inputs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `inputs` to be an array in the JSON string but got `%s`", jsonObj.get("inputs").toString()));
+          }
+
+          // validate the optional field `inputs` (array)
+          for (int i = 0; i < jsonArrayinputs.size(); i++) {
+            V1IO.validateJsonObject(jsonArrayinputs.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("outputs") != null && !jsonObj.get("outputs").isJsonNull()) {
+        JsonArray jsonArrayoutputs = jsonObj.getAsJsonArray("outputs");
+        if (jsonArrayoutputs != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("outputs").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `outputs` to be an array in the JSON string but got `%s`", jsonObj.get("outputs").toString()));
+          }
+
+          // validate the optional field `outputs` (array)
+          for (int i = 0; i < jsonArrayoutputs.size(); i++) {
+            V1IO.validateJsonObject(jsonArrayoutputs.get(i).getAsJsonObject());
+          };
+        }
+      }
       // validate the optional field `template`
       if (jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) {
         V1Template.validateJsonObject(jsonObj.getAsJsonObject("template"));
@@ -1282,6 +1451,10 @@ public class V1Operation {
       // validate the optional field `component`
       if (jsonObj.get("component") != null && !jsonObj.get("component").isJsonNull()) {
         V1Component.validateJsonObject(jsonObj.getAsJsonObject("component"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("mount") != null && !jsonObj.get("mount").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mount` to be an array in the JSON string but got `%s`", jsonObj.get("mount").toString()));
       }
   }
 

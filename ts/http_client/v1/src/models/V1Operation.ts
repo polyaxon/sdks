@@ -43,6 +43,12 @@ import {
     V1HookFromJSONTyped,
     V1HookToJSON,
 } from './V1Hook';
+import type { V1IO } from './V1IO';
+import {
+    V1IOFromJSON,
+    V1IOFromJSONTyped,
+    V1IOToJSON,
+} from './V1IO';
 import type { V1Join } from './V1Join';
 import {
     V1JoinFromJSON,
@@ -202,6 +208,18 @@ export interface V1Operation {
     skipOnUpstreamSkip?: boolean;
     /**
      * 
+     * @type {Array<V1IO>}
+     * @memberof V1Operation
+     */
+    inputs?: Array<V1IO>;
+    /**
+     * 
+     * @type {Array<V1IO>}
+     * @memberof V1Operation
+     */
+    outputs?: Array<V1IO>;
+    /**
+     * 
      * @type {object}
      * @memberof V1Operation
      */
@@ -218,6 +236,12 @@ export interface V1Operation {
      * @memberof V1Operation
      */
     params?: { [key: string]: V1Param; };
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Operation
+     */
+    strictParams?: boolean | null;
     /**
      * 
      * @type {object}
@@ -262,6 +286,12 @@ export interface V1Operation {
     cost?: number;
     /**
      * 
+     * @type {object}
+     * @memberof V1Operation
+     */
+    run?: object;
+    /**
+     * 
      * @type {string}
      * @memberof V1Operation
      */
@@ -292,10 +322,10 @@ export interface V1Operation {
     component?: V1Component;
     /**
      * 
-     * @type {boolean}
+     * @type {Array<object>}
      * @memberof V1Operation
      */
-    strictParams?: boolean | null;
+    mount?: Array<object>;
 }
 
 /**
@@ -335,9 +365,12 @@ export function V1OperationFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'trigger': !exists(json, 'trigger') ? undefined : V1TriggerPolicyFromJSON(json['trigger']),
         'conditions': !exists(json, 'conditions') ? undefined : json['conditions'],
         'skipOnUpstreamSkip': !exists(json, 'skipOnUpstreamSkip') ? undefined : json['skipOnUpstreamSkip'],
+        'inputs': !exists(json, 'inputs') ? undefined : ((json['inputs'] as Array<any>).map(V1IOFromJSON)),
+        'outputs': !exists(json, 'outputs') ? undefined : ((json['outputs'] as Array<any>).map(V1IOFromJSON)),
         'matrix': !exists(json, 'matrix') ? undefined : json['matrix'],
         'joins': !exists(json, 'joins') ? undefined : (mapValues(json['joins'], V1JoinFromJSON)),
         'params': !exists(json, 'params') ? undefined : (mapValues(json['params'], V1ParamFromJSON)),
+        'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
         'runPatch': !exists(json, 'runPatch') ? undefined : json['runPatch'],
         'patchStrategy': !exists(json, 'patchStrategy') ? undefined : V1PatchStrategyFromJSON(json['patchStrategy']),
         'isPreset': !exists(json, 'isPreset') ? undefined : json['isPreset'],
@@ -345,12 +378,13 @@ export function V1OperationFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'template': !exists(json, 'template') ? undefined : V1TemplateFromJSON(json['template']),
         'build': !exists(json, 'build') ? undefined : V1BuildFromJSON(json['build']),
         'cost': !exists(json, 'cost') ? undefined : json['cost'],
+        'run': !exists(json, 'run') ? undefined : json['run'],
         'pathRef': !exists(json, 'pathRef') ? undefined : json['pathRef'],
         'hubRef': !exists(json, 'hubRef') ? undefined : json['hubRef'],
         'dagRef': !exists(json, 'dagRef') ? undefined : json['dagRef'],
         'urlRef': !exists(json, 'urlRef') ? undefined : json['urlRef'],
         'component': !exists(json, 'component') ? undefined : V1ComponentFromJSON(json['component']),
-        'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
+        'mount': !exists(json, 'mount') ? undefined : json['mount'],
     };
 }
 
@@ -381,9 +415,12 @@ export function V1OperationToJSON(value?: V1Operation | null): any {
         'trigger': V1TriggerPolicyToJSON(value.trigger),
         'conditions': value.conditions,
         'skipOnUpstreamSkip': value.skipOnUpstreamSkip,
+        'inputs': value.inputs === undefined ? undefined : ((value.inputs as Array<any>).map(V1IOToJSON)),
+        'outputs': value.outputs === undefined ? undefined : ((value.outputs as Array<any>).map(V1IOToJSON)),
         'matrix': value.matrix,
         'joins': value.joins === undefined ? undefined : (mapValues(value.joins, V1JoinToJSON)),
         'params': value.params === undefined ? undefined : (mapValues(value.params, V1ParamToJSON)),
+        'strictParams': value.strictParams,
         'runPatch': value.runPatch,
         'patchStrategy': V1PatchStrategyToJSON(value.patchStrategy),
         'isPreset': value.isPreset,
@@ -391,12 +428,13 @@ export function V1OperationToJSON(value?: V1Operation | null): any {
         'template': V1TemplateToJSON(value.template),
         'build': V1BuildToJSON(value.build),
         'cost': value.cost,
+        'run': value.run,
         'pathRef': value.pathRef,
         'hubRef': value.hubRef,
         'dagRef': value.dagRef,
         'urlRef': value.urlRef,
         'component': V1ComponentToJSON(value.component),
-        'strictParams': value.strictParams,
+        'mount': value.mount,
     };
 }
 

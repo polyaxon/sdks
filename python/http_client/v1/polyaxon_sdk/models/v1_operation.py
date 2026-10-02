@@ -27,6 +27,7 @@ from polyaxon_sdk.models.v1_cache import V1Cache
 from polyaxon_sdk.models.v1_component import V1Component
 from polyaxon_sdk.models.v1_event_trigger import V1EventTrigger
 from polyaxon_sdk.models.v1_hook import V1Hook
+from polyaxon_sdk.models.v1_io import V1IO
 from polyaxon_sdk.models.v1_join import V1Join
 from polyaxon_sdk.models.v1_param import V1Param
 from polyaxon_sdk.models.v1_patch_strategy import V1PatchStrategy
@@ -57,9 +58,12 @@ class V1Operation(BaseModel):
     trigger: Optional[V1TriggerPolicy] = None
     conditions: Optional[StrictStr] = None
     skip_on_upstream_skip: Optional[StrictBool] = Field(None, alias="skipOnUpstreamSkip")
+    inputs: Optional[conlist(V1IO)] = None
+    outputs: Optional[conlist(V1IO)] = None
     matrix: Optional[Dict[str, Any]] = None
     joins: Optional[Dict[str, V1Join]] = None
     params: Optional[Dict[str, V1Param]] = None
+    strict_params: Optional[StrictBool] = Field(None, alias="strictParams")
     run_patch: Optional[Dict[str, Any]] = Field(None, alias="runPatch")
     patch_strategy: Optional[V1PatchStrategy] = Field(None, alias="patchStrategy")
     is_preset: Optional[StrictBool] = Field(None, alias="isPreset")
@@ -67,13 +71,14 @@ class V1Operation(BaseModel):
     template: Optional[V1Template] = None
     build: Optional[V1Build] = None
     cost: Optional[StrictFloat] = None
+    run: Optional[Dict[str, Any]] = None
     path_ref: Optional[StrictStr] = Field(None, alias="pathRef")
     hub_ref: Optional[StrictStr] = Field(None, alias="hubRef")
     dag_ref: Optional[StrictStr] = Field(None, alias="dagRef")
     url_ref: Optional[StrictStr] = Field(None, alias="urlRef")
     component: Optional[V1Component] = None
-    strict_params: Optional[StrictBool] = Field(None, alias="strictParams")
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "matrix", "joins", "params", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "pathRef", "hubRef", "dagRef", "urlRef", "component", "strictParams"]
+    mount: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "inputs", "outputs", "matrix", "joins", "params", "strictParams", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "run", "pathRef", "hubRef", "dagRef", "urlRef", "component", "mount"]
 
     class Config:
         allow_population_by_field_name = True
@@ -121,6 +126,20 @@ class V1Operation(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['hooks'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in inputs (list)
+        _items = []
+        if self.inputs:
+            for _item in self.inputs:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['inputs'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in outputs (list)
+        _items = []
+        if self.outputs:
+            for _item in self.outputs:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['outputs'] = _items
         # override the default output from pydantic by calling `to_dict()` of each value in joins (dict)
         _field_dict = {}
         if self.joins:
@@ -179,9 +198,12 @@ class V1Operation(BaseModel):
             "trigger": obj.get("trigger"),
             "conditions": obj.get("conditions"),
             "skip_on_upstream_skip": obj.get("skipOnUpstreamSkip"),
+            "inputs": [V1IO.from_dict(_item) for _item in obj.get("inputs")] if obj.get("inputs") is not None else None,
+            "outputs": [V1IO.from_dict(_item) for _item in obj.get("outputs")] if obj.get("outputs") is not None else None,
             "matrix": obj.get("matrix"),
             "joins": dict((_k, V1Join.from_dict(_v)) for _k, _v in obj.get("joins").items()) if obj.get("joins") is not None else None,
             "params": dict((_k, V1Param.from_dict(_v)) for _k, _v in obj.get("params").items()) if obj.get("params") is not None else None,
+            "strict_params": obj.get("strictParams"),
             "run_patch": obj.get("runPatch"),
             "patch_strategy": obj.get("patchStrategy"),
             "is_preset": obj.get("isPreset"),
@@ -189,12 +211,13 @@ class V1Operation(BaseModel):
             "template": V1Template.from_dict(obj.get("template")) if obj.get("template") is not None else None,
             "build": V1Build.from_dict(obj.get("build")) if obj.get("build") is not None else None,
             "cost": obj.get("cost"),
+            "run": obj.get("run"),
             "path_ref": obj.get("pathRef"),
             "hub_ref": obj.get("hubRef"),
             "dag_ref": obj.get("dagRef"),
             "url_ref": obj.get("urlRef"),
             "component": V1Component.from_dict(obj.get("component")) if obj.get("component") is not None else None,
-            "strict_params": obj.get("strictParams")
+            "mount": obj.get("mount")
         })
         return _obj
 

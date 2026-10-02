@@ -5082,14 +5082,39 @@
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this component"
         },
+        "component": {
+          "$ref": "#/definitions/v1Component",
+          "title": "Inline base or the saved definition of a reference"
+        },
+        "conditions": {
+          "title": "An optional template containing conditions to check before starting the run",
+          "type": "string"
+        },
         "cost": {
           "format": "float",
           "title": "Optional field to assign cost to this Component",
           "type": "number"
         },
+        "dagRef": {
+          "type": "string"
+        },
+        "dependencies": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional graph dependencies of this op",
+          "type": "array"
+        },
         "description": {
           "title": "Optional component description",
           "type": "string"
+        },
+        "events": {
+          "items": {
+            "$ref": "#/definitions/v1EventTrigger"
+          },
+          "title": "Optional events section, must be a valid List of EventTrigger option (Run/Git/Alert/Webhook/Dataset)",
+          "type": "array"
         },
         "hooks": {
           "items": {
@@ -5097,6 +5122,9 @@
           },
           "title": "Optional hooks section",
           "type": "array"
+        },
+        "hubRef": {
+          "type": "string"
         },
         "inputs": {
           "items": {
@@ -5109,9 +5137,54 @@
           "title": "Optional flag to mark this specification requires approval before running",
           "type": "boolean"
         },
+        "isPreset": {
+          "title": "Optional flag to mark this specification as preset",
+          "type": "boolean"
+        },
+        "joins": {
+          "additionalProperties": {
+            "$ref": "#/definitions/v1Join"
+          },
+          "title": "Optional dict of joins",
+          "type": "object"
+        },
         "kind": {
-          "title": "Optional component kind, should be equal to 'operation'",
+          "title": "Optional authored kind: component or operation",
           "type": "string"
+        },
+        "matrix": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1RandomSearch"
+            },
+            {
+              "$ref": "#/definitions/v1GridSearch"
+            },
+            {
+              "$ref": "#/definitions/v1Hyperband"
+            },
+            {
+              "$ref": "#/definitions/v1Bayes"
+            },
+            {
+              "$ref": "#/definitions/v1TPE"
+            },
+            {
+              "$ref": "#/definitions/v1Iterative"
+            },
+            {
+              "$ref": "#/definitions/v1Mapping"
+            }
+          ],
+          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)",
+          "type": "object"
+        },
+        "mount": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Local upload paths: strings or objects with from/to fields",
+          "type": "array"
         },
         "name": {
           "title": "Optional component name, should be a valid fully qualified value: name[:version]",
@@ -5127,6 +5200,21 @@
           },
           "title": "Optional outputs definition",
           "type": "array"
+        },
+        "params": {
+          "additionalProperties": {
+            "$ref": "#/definitions/v1Param"
+          },
+          "title": "Optional dict of params",
+          "type": "object"
+        },
+        "patchStrategy": {
+          "$ref": "#/definitions/v1PatchStrategy",
+          "title": "Optional patch strategy, default post_merge"
+        },
+        "pathRef": {
+          "title": "At most one reference; a resolved component can accompany it",
+          "type": "string"
         },
         "plugins": {
           "$ref": "#/definitions/v1Plugins",
@@ -5173,6 +5261,55 @@
           "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
           "type": "object"
         },
+        "runPatch": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1Dag"
+            },
+            {
+              "$ref": "#/definitions/v1DaskCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Job"
+            },
+            {
+              "$ref": "#/definitions/v1MPIJob"
+            },
+            {
+              "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1RayCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Service"
+            },
+            {
+              "$ref": "#/definitions/v1TFJob"
+            }
+          ],
+          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
+          "type": "object"
+        },
+        "schedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1IntervalSchedule"
+            },
+            {
+              "$ref": "#/definitions/v1DateTimeSchedule"
+            },
+            {
+              "$ref": "#/definitions/v1CronSchedule"
+            }
+          ],
+          "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)",
+          "type": "object"
+        },
+        "skipOnUpstreamSkip": {
+          "title": "Optional flag to skip this run if upstream was skipped",
+          "type": "boolean"
+        },
         "strictParams": {
           "title": "Optional flag to reject params without a matching input or output declaration",
           "type": "boolean",
@@ -5187,11 +5324,18 @@
         },
         "template": {
           "$ref": "#/definitions/v1Template",
-          "title": "Optional flag to mark this specification as template"
+          "title": "Optional to mark this specification as template with instructions"
         },
         "termination": {
           "$ref": "#/definitions/v1Termination",
           "title": "optional termination section"
+        },
+        "trigger": {
+          "$ref": "#/definitions/v1TriggerPolicy",
+          "title": "Optional trigger policy"
+        },
+        "urlRef": {
+          "type": "string"
         },
         "version": {
           "format": "float",
@@ -8765,7 +8909,8 @@
           "title": "Optional flag to disable cache validation and force run this operation"
         },
         "component": {
-          "$ref": "#/definitions/v1Component"
+          "$ref": "#/definitions/v1Component",
+          "title": "Inline base or the saved definition of a reference"
         },
         "conditions": {
           "title": "An optional template containing conditions to check before starting the run",
@@ -8807,6 +8952,13 @@
         "hubRef": {
           "type": "string"
         },
+        "inputs": {
+          "items": {
+            "$ref": "#/definitions/v1IO"
+          },
+          "title": "Optional inputs definition",
+          "type": "array"
+        },
         "isApproved": {
           "title": "Optional flag to mark this specification requires approval before running",
           "type": "boolean"
@@ -8823,7 +8975,7 @@
           "type": "object"
         },
         "kind": {
-          "title": "Optional component kind, should be equal to 'operation'",
+          "title": "Optional authored kind: component or operation",
           "type": "string"
         },
         "matrix": {
@@ -8853,6 +9005,13 @@
           "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)",
           "type": "object"
         },
+        "mount": {
+          "items": {
+            "type": "object"
+          },
+          "title": "Local upload paths: strings or objects with from/to fields",
+          "type": "array"
+        },
         "name": {
           "title": "Optional component name override, should a valid slug",
           "type": "string"
@@ -8860,6 +9019,13 @@
         "namespace": {
           "title": "Optional namespace to use, uses agent's namespace by default",
           "type": "string"
+        },
+        "outputs": {
+          "items": {
+            "$ref": "#/definitions/v1IO"
+          },
+          "title": "Optional outputs definition",
+          "type": "array"
         },
         "params": {
           "additionalProperties": {
@@ -8873,6 +9039,7 @@
           "title": "Optional patch strategy, default post_merge"
         },
         "pathRef": {
+          "title": "At most one reference; a resolved component can accompany it",
           "type": "string"
         },
         "plugins": {
@@ -8889,6 +9056,36 @@
         "queue": {
           "title": "Optional queue to use for running this operation",
           "type": "string"
+        },
+        "run": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1Dag"
+            },
+            {
+              "$ref": "#/definitions/v1DaskCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Job"
+            },
+            {
+              "$ref": "#/definitions/v1MPIJob"
+            },
+            {
+              "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1RayCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Service"
+            },
+            {
+              "$ref": "#/definitions/v1TFJob"
+            }
+          ],
+          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag",
+          "type": "object"
         },
         "runPatch": {
           "oneOf": [

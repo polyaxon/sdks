@@ -22,14 +22,21 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.client.model.V1Build;
 import org.openapitools.client.model.V1Cache;
+import org.openapitools.client.model.V1EventTrigger;
 import org.openapitools.client.model.V1Hook;
 import org.openapitools.client.model.V1IO;
+import org.openapitools.client.model.V1Join;
+import org.openapitools.client.model.V1Param;
+import org.openapitools.client.model.V1PatchStrategy;
 import org.openapitools.client.model.V1Plugins;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
+import org.openapitools.client.model.V1TriggerPolicy;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -102,9 +109,33 @@ public class V1Component {
   @SerializedName(SERIALIZED_NAME_PLUGINS)
   private V1Plugins plugins;
 
+  public static final String SERIALIZED_NAME_SCHEDULE = "schedule";
+  @SerializedName(SERIALIZED_NAME_SCHEDULE)
+  private Object schedule;
+
+  public static final String SERIALIZED_NAME_EVENTS = "events";
+  @SerializedName(SERIALIZED_NAME_EVENTS)
+  private List<V1EventTrigger> events;
+
   public static final String SERIALIZED_NAME_HOOKS = "hooks";
   @SerializedName(SERIALIZED_NAME_HOOKS)
   private List<V1Hook> hooks;
+
+  public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
+  @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
+  private List<String> dependencies;
+
+  public static final String SERIALIZED_NAME_TRIGGER = "trigger";
+  @SerializedName(SERIALIZED_NAME_TRIGGER)
+  private V1TriggerPolicy trigger = V1TriggerPolicy.ALL_SUCCEEDED;
+
+  public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
+  @SerializedName(SERIALIZED_NAME_CONDITIONS)
+  private String conditions;
+
+  public static final String SERIALIZED_NAME_SKIP_ON_UPSTREAM_SKIP = "skipOnUpstreamSkip";
+  @SerializedName(SERIALIZED_NAME_SKIP_ON_UPSTREAM_SKIP)
+  private Boolean skipOnUpstreamSkip;
 
   public static final String SERIALIZED_NAME_INPUTS = "inputs";
   @SerializedName(SERIALIZED_NAME_INPUTS)
@@ -114,29 +145,77 @@ public class V1Component {
   @SerializedName(SERIALIZED_NAME_OUTPUTS)
   private List<V1IO> outputs;
 
+  public static final String SERIALIZED_NAME_MATRIX = "matrix";
+  @SerializedName(SERIALIZED_NAME_MATRIX)
+  private Object matrix;
+
+  public static final String SERIALIZED_NAME_JOINS = "joins";
+  @SerializedName(SERIALIZED_NAME_JOINS)
+  private Map<String, V1Join> joins = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_PARAMS = "params";
+  @SerializedName(SERIALIZED_NAME_PARAMS)
+  private Map<String, V1Param> params = new HashMap<>();
+
   public static final String SERIALIZED_NAME_STRICT_PARAMS = "strictParams";
   @SerializedName(SERIALIZED_NAME_STRICT_PARAMS)
   private Boolean strictParams;
 
-  public static final String SERIALIZED_NAME_BUILD = "build";
-  @SerializedName(SERIALIZED_NAME_BUILD)
-  private V1Build build;
+  public static final String SERIALIZED_NAME_RUN_PATCH = "runPatch";
+  @SerializedName(SERIALIZED_NAME_RUN_PATCH)
+  private Object runPatch;
 
-  public static final String SERIALIZED_NAME_RUN = "run";
-  @SerializedName(SERIALIZED_NAME_RUN)
-  private Object run;
+  public static final String SERIALIZED_NAME_PATCH_STRATEGY = "patchStrategy";
+  @SerializedName(SERIALIZED_NAME_PATCH_STRATEGY)
+  private V1PatchStrategy patchStrategy = V1PatchStrategy.REPLACE;
 
-  public static final String SERIALIZED_NAME_TEMPLATE = "template";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE)
-  private V1Template template;
+  public static final String SERIALIZED_NAME_IS_PRESET = "isPreset";
+  @SerializedName(SERIALIZED_NAME_IS_PRESET)
+  private Boolean isPreset;
 
   public static final String SERIALIZED_NAME_IS_APPROVED = "isApproved";
   @SerializedName(SERIALIZED_NAME_IS_APPROVED)
   private Boolean isApproved;
 
+  public static final String SERIALIZED_NAME_TEMPLATE = "template";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE)
+  private V1Template template;
+
+  public static final String SERIALIZED_NAME_BUILD = "build";
+  @SerializedName(SERIALIZED_NAME_BUILD)
+  private V1Build build;
+
   public static final String SERIALIZED_NAME_COST = "cost";
   @SerializedName(SERIALIZED_NAME_COST)
   private Float cost;
+
+  public static final String SERIALIZED_NAME_RUN = "run";
+  @SerializedName(SERIALIZED_NAME_RUN)
+  private Object run;
+
+  public static final String SERIALIZED_NAME_PATH_REF = "pathRef";
+  @SerializedName(SERIALIZED_NAME_PATH_REF)
+  private String pathRef;
+
+  public static final String SERIALIZED_NAME_HUB_REF = "hubRef";
+  @SerializedName(SERIALIZED_NAME_HUB_REF)
+  private String hubRef;
+
+  public static final String SERIALIZED_NAME_DAG_REF = "dagRef";
+  @SerializedName(SERIALIZED_NAME_DAG_REF)
+  private String dagRef;
+
+  public static final String SERIALIZED_NAME_URL_REF = "urlRef";
+  @SerializedName(SERIALIZED_NAME_URL_REF)
+  private String urlRef;
+
+  public static final String SERIALIZED_NAME_COMPONENT = "component";
+  @SerializedName(SERIALIZED_NAME_COMPONENT)
+  private V1Component component;
+
+  public static final String SERIALIZED_NAME_MOUNT = "mount";
+  @SerializedName(SERIALIZED_NAME_MOUNT)
+  private List<Object> mount;
 
   public V1Component() {
   }
@@ -399,6 +478,58 @@ public class V1Component {
   }
 
 
+  public V1Component schedule(Object schedule) {
+    
+    this.schedule = schedule;
+    return this;
+  }
+
+   /**
+   * Get schedule
+   * @return schedule
+  **/
+  @javax.annotation.Nullable
+
+  public Object getSchedule() {
+    return schedule;
+  }
+
+
+  public void setSchedule(Object schedule) {
+    this.schedule = schedule;
+  }
+
+
+  public V1Component events(List<V1EventTrigger> events) {
+    
+    this.events = events;
+    return this;
+  }
+
+  public V1Component addEventsItem(V1EventTrigger eventsItem) {
+    if (this.events == null) {
+      this.events = new ArrayList<>();
+    }
+    this.events.add(eventsItem);
+    return this;
+  }
+
+   /**
+   * Get events
+   * @return events
+  **/
+  @javax.annotation.Nullable
+
+  public List<V1EventTrigger> getEvents() {
+    return events;
+  }
+
+
+  public void setEvents(List<V1EventTrigger> events) {
+    this.events = events;
+  }
+
+
   public V1Component hooks(List<V1Hook> hooks) {
     
     this.hooks = hooks;
@@ -426,6 +557,102 @@ public class V1Component {
 
   public void setHooks(List<V1Hook> hooks) {
     this.hooks = hooks;
+  }
+
+
+  public V1Component dependencies(List<String> dependencies) {
+    
+    this.dependencies = dependencies;
+    return this;
+  }
+
+  public V1Component addDependenciesItem(String dependenciesItem) {
+    if (this.dependencies == null) {
+      this.dependencies = new ArrayList<>();
+    }
+    this.dependencies.add(dependenciesItem);
+    return this;
+  }
+
+   /**
+   * Get dependencies
+   * @return dependencies
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getDependencies() {
+    return dependencies;
+  }
+
+
+  public void setDependencies(List<String> dependencies) {
+    this.dependencies = dependencies;
+  }
+
+
+  public V1Component trigger(V1TriggerPolicy trigger) {
+    
+    this.trigger = trigger;
+    return this;
+  }
+
+   /**
+   * Get trigger
+   * @return trigger
+  **/
+  @javax.annotation.Nullable
+
+  public V1TriggerPolicy getTrigger() {
+    return trigger;
+  }
+
+
+  public void setTrigger(V1TriggerPolicy trigger) {
+    this.trigger = trigger;
+  }
+
+
+  public V1Component conditions(String conditions) {
+    
+    this.conditions = conditions;
+    return this;
+  }
+
+   /**
+   * Get conditions
+   * @return conditions
+  **/
+  @javax.annotation.Nullable
+
+  public String getConditions() {
+    return conditions;
+  }
+
+
+  public void setConditions(String conditions) {
+    this.conditions = conditions;
+  }
+
+
+  public V1Component skipOnUpstreamSkip(Boolean skipOnUpstreamSkip) {
+    
+    this.skipOnUpstreamSkip = skipOnUpstreamSkip;
+    return this;
+  }
+
+   /**
+   * Get skipOnUpstreamSkip
+   * @return skipOnUpstreamSkip
+  **/
+  @javax.annotation.Nullable
+
+  public Boolean getSkipOnUpstreamSkip() {
+    return skipOnUpstreamSkip;
+  }
+
+
+  public void setSkipOnUpstreamSkip(Boolean skipOnUpstreamSkip) {
+    this.skipOnUpstreamSkip = skipOnUpstreamSkip;
   }
 
 
@@ -489,6 +716,88 @@ public class V1Component {
   }
 
 
+  public V1Component matrix(Object matrix) {
+    
+    this.matrix = matrix;
+    return this;
+  }
+
+   /**
+   * Get matrix
+   * @return matrix
+  **/
+  @javax.annotation.Nullable
+
+  public Object getMatrix() {
+    return matrix;
+  }
+
+
+  public void setMatrix(Object matrix) {
+    this.matrix = matrix;
+  }
+
+
+  public V1Component joins(Map<String, V1Join> joins) {
+    
+    this.joins = joins;
+    return this;
+  }
+
+  public V1Component putJoinsItem(String key, V1Join joinsItem) {
+    if (this.joins == null) {
+      this.joins = new HashMap<>();
+    }
+    this.joins.put(key, joinsItem);
+    return this;
+  }
+
+   /**
+   * Get joins
+   * @return joins
+  **/
+  @javax.annotation.Nullable
+
+  public Map<String, V1Join> getJoins() {
+    return joins;
+  }
+
+
+  public void setJoins(Map<String, V1Join> joins) {
+    this.joins = joins;
+  }
+
+
+  public V1Component params(Map<String, V1Param> params) {
+    
+    this.params = params;
+    return this;
+  }
+
+  public V1Component putParamsItem(String key, V1Param paramsItem) {
+    if (this.params == null) {
+      this.params = new HashMap<>();
+    }
+    this.params.put(key, paramsItem);
+    return this;
+  }
+
+   /**
+   * Get params
+   * @return params
+  **/
+  @javax.annotation.Nullable
+
+  public Map<String, V1Param> getParams() {
+    return params;
+  }
+
+
+  public void setParams(Map<String, V1Param> params) {
+    this.params = params;
+  }
+
+
   public V1Component strictParams(Boolean strictParams) {
     
     this.strictParams = strictParams;
@@ -511,69 +820,69 @@ public class V1Component {
   }
 
 
-  public V1Component build(V1Build build) {
+  public V1Component runPatch(Object runPatch) {
     
-    this.build = build;
+    this.runPatch = runPatch;
     return this;
   }
 
    /**
-   * Get build
-   * @return build
+   * Get runPatch
+   * @return runPatch
   **/
   @javax.annotation.Nullable
 
-  public V1Build getBuild() {
-    return build;
+  public Object getRunPatch() {
+    return runPatch;
   }
 
 
-  public void setBuild(V1Build build) {
-    this.build = build;
+  public void setRunPatch(Object runPatch) {
+    this.runPatch = runPatch;
   }
 
 
-  public V1Component run(Object run) {
+  public V1Component patchStrategy(V1PatchStrategy patchStrategy) {
     
-    this.run = run;
+    this.patchStrategy = patchStrategy;
     return this;
   }
 
    /**
-   * Get run
-   * @return run
+   * Get patchStrategy
+   * @return patchStrategy
   **/
   @javax.annotation.Nullable
 
-  public Object getRun() {
-    return run;
+  public V1PatchStrategy getPatchStrategy() {
+    return patchStrategy;
   }
 
 
-  public void setRun(Object run) {
-    this.run = run;
+  public void setPatchStrategy(V1PatchStrategy patchStrategy) {
+    this.patchStrategy = patchStrategy;
   }
 
 
-  public V1Component template(V1Template template) {
+  public V1Component isPreset(Boolean isPreset) {
     
-    this.template = template;
+    this.isPreset = isPreset;
     return this;
   }
 
    /**
-   * Get template
-   * @return template
+   * Get isPreset
+   * @return isPreset
   **/
   @javax.annotation.Nullable
 
-  public V1Template getTemplate() {
-    return template;
+  public Boolean getIsPreset() {
+    return isPreset;
   }
 
 
-  public void setTemplate(V1Template template) {
-    this.template = template;
+  public void setIsPreset(Boolean isPreset) {
+    this.isPreset = isPreset;
   }
 
 
@@ -599,6 +908,50 @@ public class V1Component {
   }
 
 
+  public V1Component template(V1Template template) {
+    
+    this.template = template;
+    return this;
+  }
+
+   /**
+   * Get template
+   * @return template
+  **/
+  @javax.annotation.Nullable
+
+  public V1Template getTemplate() {
+    return template;
+  }
+
+
+  public void setTemplate(V1Template template) {
+    this.template = template;
+  }
+
+
+  public V1Component build(V1Build build) {
+    
+    this.build = build;
+    return this;
+  }
+
+   /**
+   * Get build
+   * @return build
+  **/
+  @javax.annotation.Nullable
+
+  public V1Build getBuild() {
+    return build;
+  }
+
+
+  public void setBuild(V1Build build) {
+    this.build = build;
+  }
+
+
   public V1Component cost(Float cost) {
     
     this.cost = cost;
@@ -618,6 +971,168 @@ public class V1Component {
 
   public void setCost(Float cost) {
     this.cost = cost;
+  }
+
+
+  public V1Component run(Object run) {
+    
+    this.run = run;
+    return this;
+  }
+
+   /**
+   * Get run
+   * @return run
+  **/
+  @javax.annotation.Nullable
+
+  public Object getRun() {
+    return run;
+  }
+
+
+  public void setRun(Object run) {
+    this.run = run;
+  }
+
+
+  public V1Component pathRef(String pathRef) {
+    
+    this.pathRef = pathRef;
+    return this;
+  }
+
+   /**
+   * Get pathRef
+   * @return pathRef
+  **/
+  @javax.annotation.Nullable
+
+  public String getPathRef() {
+    return pathRef;
+  }
+
+
+  public void setPathRef(String pathRef) {
+    this.pathRef = pathRef;
+  }
+
+
+  public V1Component hubRef(String hubRef) {
+    
+    this.hubRef = hubRef;
+    return this;
+  }
+
+   /**
+   * Get hubRef
+   * @return hubRef
+  **/
+  @javax.annotation.Nullable
+
+  public String getHubRef() {
+    return hubRef;
+  }
+
+
+  public void setHubRef(String hubRef) {
+    this.hubRef = hubRef;
+  }
+
+
+  public V1Component dagRef(String dagRef) {
+    
+    this.dagRef = dagRef;
+    return this;
+  }
+
+   /**
+   * Get dagRef
+   * @return dagRef
+  **/
+  @javax.annotation.Nullable
+
+  public String getDagRef() {
+    return dagRef;
+  }
+
+
+  public void setDagRef(String dagRef) {
+    this.dagRef = dagRef;
+  }
+
+
+  public V1Component urlRef(String urlRef) {
+    
+    this.urlRef = urlRef;
+    return this;
+  }
+
+   /**
+   * Get urlRef
+   * @return urlRef
+  **/
+  @javax.annotation.Nullable
+
+  public String getUrlRef() {
+    return urlRef;
+  }
+
+
+  public void setUrlRef(String urlRef) {
+    this.urlRef = urlRef;
+  }
+
+
+  public V1Component component(V1Component component) {
+    
+    this.component = component;
+    return this;
+  }
+
+   /**
+   * Get component
+   * @return component
+  **/
+  @javax.annotation.Nullable
+
+  public V1Component getComponent() {
+    return component;
+  }
+
+
+  public void setComponent(V1Component component) {
+    this.component = component;
+  }
+
+
+  public V1Component mount(List<Object> mount) {
+    
+    this.mount = mount;
+    return this;
+  }
+
+  public V1Component addMountItem(Object mountItem) {
+    if (this.mount == null) {
+      this.mount = new ArrayList<>();
+    }
+    this.mount.add(mountItem);
+    return this;
+  }
+
+   /**
+   * Get mount
+   * @return mount
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getMount() {
+    return mount;
+  }
+
+
+  public void setMount(List<Object> mount) {
+    this.mount = mount;
   }
 
 
@@ -642,15 +1157,33 @@ public class V1Component {
         Objects.equals(this.namespace, v1Component.namespace) &&
         Objects.equals(this.termination, v1Component.termination) &&
         Objects.equals(this.plugins, v1Component.plugins) &&
+        Objects.equals(this.schedule, v1Component.schedule) &&
+        Objects.equals(this.events, v1Component.events) &&
         Objects.equals(this.hooks, v1Component.hooks) &&
+        Objects.equals(this.dependencies, v1Component.dependencies) &&
+        Objects.equals(this.trigger, v1Component.trigger) &&
+        Objects.equals(this.conditions, v1Component.conditions) &&
+        Objects.equals(this.skipOnUpstreamSkip, v1Component.skipOnUpstreamSkip) &&
         Objects.equals(this.inputs, v1Component.inputs) &&
         Objects.equals(this.outputs, v1Component.outputs) &&
+        Objects.equals(this.matrix, v1Component.matrix) &&
+        Objects.equals(this.joins, v1Component.joins) &&
+        Objects.equals(this.params, v1Component.params) &&
         Objects.equals(this.strictParams, v1Component.strictParams) &&
-        Objects.equals(this.build, v1Component.build) &&
-        Objects.equals(this.run, v1Component.run) &&
-        Objects.equals(this.template, v1Component.template) &&
+        Objects.equals(this.runPatch, v1Component.runPatch) &&
+        Objects.equals(this.patchStrategy, v1Component.patchStrategy) &&
+        Objects.equals(this.isPreset, v1Component.isPreset) &&
         Objects.equals(this.isApproved, v1Component.isApproved) &&
-        Objects.equals(this.cost, v1Component.cost);
+        Objects.equals(this.template, v1Component.template) &&
+        Objects.equals(this.build, v1Component.build) &&
+        Objects.equals(this.cost, v1Component.cost) &&
+        Objects.equals(this.run, v1Component.run) &&
+        Objects.equals(this.pathRef, v1Component.pathRef) &&
+        Objects.equals(this.hubRef, v1Component.hubRef) &&
+        Objects.equals(this.dagRef, v1Component.dagRef) &&
+        Objects.equals(this.urlRef, v1Component.urlRef) &&
+        Objects.equals(this.component, v1Component.component) &&
+        Objects.equals(this.mount, v1Component.mount);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -659,7 +1192,7 @@ public class V1Component {
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, hooks, inputs, outputs, strictParams, build, run, template, isApproved, cost);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -684,15 +1217,33 @@ public class V1Component {
     sb.append("    namespace: ").append(toIndentedString(namespace)).append("\n");
     sb.append("    termination: ").append(toIndentedString(termination)).append("\n");
     sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
+    sb.append("    schedule: ").append(toIndentedString(schedule)).append("\n");
+    sb.append("    events: ").append(toIndentedString(events)).append("\n");
     sb.append("    hooks: ").append(toIndentedString(hooks)).append("\n");
+    sb.append("    dependencies: ").append(toIndentedString(dependencies)).append("\n");
+    sb.append("    trigger: ").append(toIndentedString(trigger)).append("\n");
+    sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    skipOnUpstreamSkip: ").append(toIndentedString(skipOnUpstreamSkip)).append("\n");
     sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
     sb.append("    outputs: ").append(toIndentedString(outputs)).append("\n");
+    sb.append("    matrix: ").append(toIndentedString(matrix)).append("\n");
+    sb.append("    joins: ").append(toIndentedString(joins)).append("\n");
+    sb.append("    params: ").append(toIndentedString(params)).append("\n");
     sb.append("    strictParams: ").append(toIndentedString(strictParams)).append("\n");
-    sb.append("    build: ").append(toIndentedString(build)).append("\n");
-    sb.append("    run: ").append(toIndentedString(run)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    runPatch: ").append(toIndentedString(runPatch)).append("\n");
+    sb.append("    patchStrategy: ").append(toIndentedString(patchStrategy)).append("\n");
+    sb.append("    isPreset: ").append(toIndentedString(isPreset)).append("\n");
     sb.append("    isApproved: ").append(toIndentedString(isApproved)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    build: ").append(toIndentedString(build)).append("\n");
     sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
+    sb.append("    run: ").append(toIndentedString(run)).append("\n");
+    sb.append("    pathRef: ").append(toIndentedString(pathRef)).append("\n");
+    sb.append("    hubRef: ").append(toIndentedString(hubRef)).append("\n");
+    sb.append("    dagRef: ").append(toIndentedString(dagRef)).append("\n");
+    sb.append("    urlRef: ").append(toIndentedString(urlRef)).append("\n");
+    sb.append("    component: ").append(toIndentedString(component)).append("\n");
+    sb.append("    mount: ").append(toIndentedString(mount)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -726,15 +1277,33 @@ public class V1Component {
     openapiFields.add("namespace");
     openapiFields.add("termination");
     openapiFields.add("plugins");
+    openapiFields.add("schedule");
+    openapiFields.add("events");
     openapiFields.add("hooks");
+    openapiFields.add("dependencies");
+    openapiFields.add("trigger");
+    openapiFields.add("conditions");
+    openapiFields.add("skipOnUpstreamSkip");
     openapiFields.add("inputs");
     openapiFields.add("outputs");
+    openapiFields.add("matrix");
+    openapiFields.add("joins");
+    openapiFields.add("params");
     openapiFields.add("strictParams");
-    openapiFields.add("build");
-    openapiFields.add("run");
-    openapiFields.add("template");
+    openapiFields.add("runPatch");
+    openapiFields.add("patchStrategy");
+    openapiFields.add("isPreset");
     openapiFields.add("isApproved");
+    openapiFields.add("template");
+    openapiFields.add("build");
     openapiFields.add("cost");
+    openapiFields.add("run");
+    openapiFields.add("pathRef");
+    openapiFields.add("hubRef");
+    openapiFields.add("dagRef");
+    openapiFields.add("urlRef");
+    openapiFields.add("component");
+    openapiFields.add("mount");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -795,6 +1364,20 @@ public class V1Component {
       if (jsonObj.get("plugins") != null && !jsonObj.get("plugins").isJsonNull()) {
         V1Plugins.validateJsonObject(jsonObj.getAsJsonObject("plugins"));
       }
+      if (jsonObj.get("events") != null && !jsonObj.get("events").isJsonNull()) {
+        JsonArray jsonArrayevents = jsonObj.getAsJsonArray("events");
+        if (jsonArrayevents != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("events").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `events` to be an array in the JSON string but got `%s`", jsonObj.get("events").toString()));
+          }
+
+          // validate the optional field `events` (array)
+          for (int i = 0; i < jsonArrayevents.size(); i++) {
+            V1EventTrigger.validateJsonObject(jsonArrayevents.get(i).getAsJsonObject());
+          };
+        }
+      }
       if (jsonObj.get("hooks") != null && !jsonObj.get("hooks").isJsonNull()) {
         JsonArray jsonArrayhooks = jsonObj.getAsJsonArray("hooks");
         if (jsonArrayhooks != null) {
@@ -808,6 +1391,13 @@ public class V1Component {
             V1Hook.validateJsonObject(jsonArrayhooks.get(i).getAsJsonObject());
           };
         }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("dependencies") != null && !jsonObj.get("dependencies").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dependencies` to be an array in the JSON string but got `%s`", jsonObj.get("dependencies").toString()));
+      }
+      if ((jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) && !jsonObj.get("conditions").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `conditions` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
       }
       if (jsonObj.get("inputs") != null && !jsonObj.get("inputs").isJsonNull()) {
         JsonArray jsonArrayinputs = jsonObj.getAsJsonArray("inputs");
@@ -837,13 +1427,33 @@ public class V1Component {
           };
         }
       }
+      // validate the optional field `template`
+      if (jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) {
+        V1Template.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      }
       // validate the optional field `build`
       if (jsonObj.get("build") != null && !jsonObj.get("build").isJsonNull()) {
         V1Build.validateJsonObject(jsonObj.getAsJsonObject("build"));
       }
-      // validate the optional field `template`
-      if (jsonObj.get("template") != null && !jsonObj.get("template").isJsonNull()) {
-        V1Template.validateJsonObject(jsonObj.getAsJsonObject("template"));
+      if ((jsonObj.get("pathRef") != null && !jsonObj.get("pathRef").isJsonNull()) && !jsonObj.get("pathRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pathRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pathRef").toString()));
+      }
+      if ((jsonObj.get("hubRef") != null && !jsonObj.get("hubRef").isJsonNull()) && !jsonObj.get("hubRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hubRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("hubRef").toString()));
+      }
+      if ((jsonObj.get("dagRef") != null && !jsonObj.get("dagRef").isJsonNull()) && !jsonObj.get("dagRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `dagRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("dagRef").toString()));
+      }
+      if ((jsonObj.get("urlRef") != null && !jsonObj.get("urlRef").isJsonNull()) && !jsonObj.get("urlRef").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `urlRef` to be a primitive type in the JSON string but got `%s`", jsonObj.get("urlRef").toString()));
+      }
+      // validate the optional field `component`
+      if (jsonObj.get("component") != null && !jsonObj.get("component").isJsonNull()) {
+        V1Component.validateJsonObject(jsonObj.getAsJsonObject("component"));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("mount") != null && !jsonObj.get("mount").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mount` to be an array in the JSON string but got `%s`", jsonObj.get("mount").toString()));
       }
   }
 

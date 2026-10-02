@@ -17,6 +17,7 @@ import V1Cache from './V1Cache';
 import V1Component from './V1Component';
 import V1EventTrigger from './V1EventTrigger';
 import V1Hook from './V1Hook';
+import V1IO from './V1IO';
 import V1Join from './V1Join';
 import V1Param from './V1Param';
 import V1PatchStrategy from './V1PatchStrategy';
@@ -113,6 +114,12 @@ class V1Operation {
             if (data.hasOwnProperty('skipOnUpstreamSkip')) {
                 obj['skipOnUpstreamSkip'] = ApiClient.convertToType(data['skipOnUpstreamSkip'], 'Boolean');
             }
+            if (data.hasOwnProperty('inputs')) {
+                obj['inputs'] = ApiClient.convertToType(data['inputs'], [V1IO]);
+            }
+            if (data.hasOwnProperty('outputs')) {
+                obj['outputs'] = ApiClient.convertToType(data['outputs'], [V1IO]);
+            }
             if (data.hasOwnProperty('matrix')) {
                 obj['matrix'] = ApiClient.convertToType(data['matrix'], Object);
             }
@@ -121,6 +128,9 @@ class V1Operation {
             }
             if (data.hasOwnProperty('params')) {
                 obj['params'] = ApiClient.convertToType(data['params'], {'String': V1Param});
+            }
+            if (data.hasOwnProperty('strictParams')) {
+                obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
             }
             if (data.hasOwnProperty('runPatch')) {
                 obj['runPatch'] = ApiClient.convertToType(data['runPatch'], Object);
@@ -143,6 +153,9 @@ class V1Operation {
             if (data.hasOwnProperty('cost')) {
                 obj['cost'] = ApiClient.convertToType(data['cost'], 'Number');
             }
+            if (data.hasOwnProperty('run')) {
+                obj['run'] = ApiClient.convertToType(data['run'], Object);
+            }
             if (data.hasOwnProperty('pathRef')) {
                 obj['pathRef'] = ApiClient.convertToType(data['pathRef'], 'String');
             }
@@ -158,8 +171,8 @@ class V1Operation {
             if (data.hasOwnProperty('component')) {
                 obj['component'] = V1Component.constructFromObject(data['component']);
             }
-            if (data.hasOwnProperty('strictParams')) {
-                obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
+            if (data.hasOwnProperty('mount')) {
+                obj['mount'] = ApiClient.convertToType(data['mount'], [Object]);
             }
         }
         return obj;
@@ -239,6 +252,26 @@ class V1Operation {
         if (data['conditions'] && !(typeof data['conditions'] === 'string' || data['conditions'] instanceof String)) {
             throw new Error("Expected the field `conditions` to be a primitive type in the JSON string but got " + data['conditions']);
         }
+        if (data['inputs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['inputs'])) {
+                throw new Error("Expected the field `inputs` to be an array in the JSON data but got " + data['inputs']);
+            }
+            // validate the optional field `inputs` (array)
+            for (const item of data['inputs']) {
+                V1IO.validateJSON(item);
+            };
+        }
+        if (data['outputs']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['outputs'])) {
+                throw new Error("Expected the field `outputs` to be an array in the JSON data but got " + data['outputs']);
+            }
+            // validate the optional field `outputs` (array)
+            for (const item of data['outputs']) {
+                V1IO.validateJSON(item);
+            };
+        }
         // validate the optional field `template`
         if (data['template']) { // data not null
           V1Template.validateJSON(data['template']);
@@ -266,6 +299,10 @@ class V1Operation {
         // validate the optional field `component`
         if (data['component']) { // data not null
           V1Component.validateJSON(data['component']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['mount'])) {
+            throw new Error("Expected the field `mount` to be an array in the JSON data but got " + data['mount']);
         }
 
         return true;
@@ -367,6 +404,16 @@ V1Operation.prototype['conditions'] = undefined;
 V1Operation.prototype['skipOnUpstreamSkip'] = undefined;
 
 /**
+ * @member {Array.<module:model/V1IO>} inputs
+ */
+V1Operation.prototype['inputs'] = undefined;
+
+/**
+ * @member {Array.<module:model/V1IO>} outputs
+ */
+V1Operation.prototype['outputs'] = undefined;
+
+/**
  * @member {Object} matrix
  */
 V1Operation.prototype['matrix'] = undefined;
@@ -380,6 +427,11 @@ V1Operation.prototype['joins'] = undefined;
  * @member {Object.<String, module:model/V1Param>} params
  */
 V1Operation.prototype['params'] = undefined;
+
+/**
+ * @member {Boolean} strictParams
+ */
+V1Operation.prototype['strictParams'] = undefined;
 
 /**
  * @member {Object} runPatch
@@ -417,6 +469,11 @@ V1Operation.prototype['build'] = undefined;
 V1Operation.prototype['cost'] = undefined;
 
 /**
+ * @member {Object} run
+ */
+V1Operation.prototype['run'] = undefined;
+
+/**
  * @member {String} pathRef
  */
 V1Operation.prototype['pathRef'] = undefined;
@@ -442,9 +499,9 @@ V1Operation.prototype['urlRef'] = undefined;
 V1Operation.prototype['component'] = undefined;
 
 /**
- * @member {Boolean} strictParams
+ * @member {Array.<Object>} mount
  */
-V1Operation.prototype['strictParams'] = undefined;
+V1Operation.prototype['mount'] = undefined;
 
 
 

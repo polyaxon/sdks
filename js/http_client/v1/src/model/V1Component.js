@@ -14,11 +14,16 @@
 import ApiClient from '../ApiClient';
 import V1Build from './V1Build';
 import V1Cache from './V1Cache';
+import V1EventTrigger from './V1EventTrigger';
 import V1Hook from './V1Hook';
 import V1IO from './V1IO';
+import V1Join from './V1Join';
+import V1Param from './V1Param';
+import V1PatchStrategy from './V1PatchStrategy';
 import V1Plugins from './V1Plugins';
 import V1Template from './V1Template';
 import V1Termination from './V1Termination';
+import V1TriggerPolicy from './V1TriggerPolicy';
 
 /**
  * The V1Component model module.
@@ -87,8 +92,26 @@ class V1Component {
             if (data.hasOwnProperty('plugins')) {
                 obj['plugins'] = V1Plugins.constructFromObject(data['plugins']);
             }
+            if (data.hasOwnProperty('schedule')) {
+                obj['schedule'] = ApiClient.convertToType(data['schedule'], Object);
+            }
+            if (data.hasOwnProperty('events')) {
+                obj['events'] = ApiClient.convertToType(data['events'], [V1EventTrigger]);
+            }
             if (data.hasOwnProperty('hooks')) {
                 obj['hooks'] = ApiClient.convertToType(data['hooks'], [V1Hook]);
+            }
+            if (data.hasOwnProperty('dependencies')) {
+                obj['dependencies'] = ApiClient.convertToType(data['dependencies'], ['String']);
+            }
+            if (data.hasOwnProperty('trigger')) {
+                obj['trigger'] = V1TriggerPolicy.constructFromObject(data['trigger']);
+            }
+            if (data.hasOwnProperty('conditions')) {
+                obj['conditions'] = ApiClient.convertToType(data['conditions'], 'String');
+            }
+            if (data.hasOwnProperty('skipOnUpstreamSkip')) {
+                obj['skipOnUpstreamSkip'] = ApiClient.convertToType(data['skipOnUpstreamSkip'], 'Boolean');
             }
             if (data.hasOwnProperty('inputs')) {
                 obj['inputs'] = ApiClient.convertToType(data['inputs'], [V1IO]);
@@ -96,23 +119,59 @@ class V1Component {
             if (data.hasOwnProperty('outputs')) {
                 obj['outputs'] = ApiClient.convertToType(data['outputs'], [V1IO]);
             }
+            if (data.hasOwnProperty('matrix')) {
+                obj['matrix'] = ApiClient.convertToType(data['matrix'], Object);
+            }
+            if (data.hasOwnProperty('joins')) {
+                obj['joins'] = ApiClient.convertToType(data['joins'], {'String': V1Join});
+            }
+            if (data.hasOwnProperty('params')) {
+                obj['params'] = ApiClient.convertToType(data['params'], {'String': V1Param});
+            }
             if (data.hasOwnProperty('strictParams')) {
                 obj['strictParams'] = ApiClient.convertToType(data['strictParams'], 'Boolean');
             }
-            if (data.hasOwnProperty('build')) {
-                obj['build'] = V1Build.constructFromObject(data['build']);
+            if (data.hasOwnProperty('runPatch')) {
+                obj['runPatch'] = ApiClient.convertToType(data['runPatch'], Object);
             }
-            if (data.hasOwnProperty('run')) {
-                obj['run'] = ApiClient.convertToType(data['run'], Object);
+            if (data.hasOwnProperty('patchStrategy')) {
+                obj['patchStrategy'] = V1PatchStrategy.constructFromObject(data['patchStrategy']);
             }
-            if (data.hasOwnProperty('template')) {
-                obj['template'] = V1Template.constructFromObject(data['template']);
+            if (data.hasOwnProperty('isPreset')) {
+                obj['isPreset'] = ApiClient.convertToType(data['isPreset'], 'Boolean');
             }
             if (data.hasOwnProperty('isApproved')) {
                 obj['isApproved'] = ApiClient.convertToType(data['isApproved'], 'Boolean');
             }
+            if (data.hasOwnProperty('template')) {
+                obj['template'] = V1Template.constructFromObject(data['template']);
+            }
+            if (data.hasOwnProperty('build')) {
+                obj['build'] = V1Build.constructFromObject(data['build']);
+            }
             if (data.hasOwnProperty('cost')) {
                 obj['cost'] = ApiClient.convertToType(data['cost'], 'Number');
+            }
+            if (data.hasOwnProperty('run')) {
+                obj['run'] = ApiClient.convertToType(data['run'], Object);
+            }
+            if (data.hasOwnProperty('pathRef')) {
+                obj['pathRef'] = ApiClient.convertToType(data['pathRef'], 'String');
+            }
+            if (data.hasOwnProperty('hubRef')) {
+                obj['hubRef'] = ApiClient.convertToType(data['hubRef'], 'String');
+            }
+            if (data.hasOwnProperty('dagRef')) {
+                obj['dagRef'] = ApiClient.convertToType(data['dagRef'], 'String');
+            }
+            if (data.hasOwnProperty('urlRef')) {
+                obj['urlRef'] = ApiClient.convertToType(data['urlRef'], 'String');
+            }
+            if (data.hasOwnProperty('component')) {
+                obj['component'] = V1Component.constructFromObject(data['component']);
+            }
+            if (data.hasOwnProperty('mount')) {
+                obj['mount'] = ApiClient.convertToType(data['mount'], [Object]);
             }
         }
         return obj;
@@ -164,6 +223,16 @@ class V1Component {
         if (data['plugins']) { // data not null
           V1Plugins.validateJSON(data['plugins']);
         }
+        if (data['events']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['events'])) {
+                throw new Error("Expected the field `events` to be an array in the JSON data but got " + data['events']);
+            }
+            // validate the optional field `events` (array)
+            for (const item of data['events']) {
+                V1EventTrigger.validateJSON(item);
+            };
+        }
         if (data['hooks']) { // data not null
             // ensure the json data is an array
             if (!Array.isArray(data['hooks'])) {
@@ -173,6 +242,14 @@ class V1Component {
             for (const item of data['hooks']) {
                 V1Hook.validateJSON(item);
             };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['dependencies'])) {
+            throw new Error("Expected the field `dependencies` to be an array in the JSON data but got " + data['dependencies']);
+        }
+        // ensure the json data is a string
+        if (data['conditions'] && !(typeof data['conditions'] === 'string' || data['conditions'] instanceof String)) {
+            throw new Error("Expected the field `conditions` to be a primitive type in the JSON string but got " + data['conditions']);
         }
         if (data['inputs']) { // data not null
             // ensure the json data is an array
@@ -194,13 +271,37 @@ class V1Component {
                 V1IO.validateJSON(item);
             };
         }
+        // validate the optional field `template`
+        if (data['template']) { // data not null
+          V1Template.validateJSON(data['template']);
+        }
         // validate the optional field `build`
         if (data['build']) { // data not null
           V1Build.validateJSON(data['build']);
         }
-        // validate the optional field `template`
-        if (data['template']) { // data not null
-          V1Template.validateJSON(data['template']);
+        // ensure the json data is a string
+        if (data['pathRef'] && !(typeof data['pathRef'] === 'string' || data['pathRef'] instanceof String)) {
+            throw new Error("Expected the field `pathRef` to be a primitive type in the JSON string but got " + data['pathRef']);
+        }
+        // ensure the json data is a string
+        if (data['hubRef'] && !(typeof data['hubRef'] === 'string' || data['hubRef'] instanceof String)) {
+            throw new Error("Expected the field `hubRef` to be a primitive type in the JSON string but got " + data['hubRef']);
+        }
+        // ensure the json data is a string
+        if (data['dagRef'] && !(typeof data['dagRef'] === 'string' || data['dagRef'] instanceof String)) {
+            throw new Error("Expected the field `dagRef` to be a primitive type in the JSON string but got " + data['dagRef']);
+        }
+        // ensure the json data is a string
+        if (data['urlRef'] && !(typeof data['urlRef'] === 'string' || data['urlRef'] instanceof String)) {
+            throw new Error("Expected the field `urlRef` to be a primitive type in the JSON string but got " + data['urlRef']);
+        }
+        // validate the optional field `component`
+        if (data['component']) { // data not null
+          V1Component.validateJSON(data['component']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['mount'])) {
+            throw new Error("Expected the field `mount` to be an array in the JSON data but got " + data['mount']);
         }
 
         return true;
@@ -267,9 +368,39 @@ V1Component.prototype['termination'] = undefined;
 V1Component.prototype['plugins'] = undefined;
 
 /**
+ * @member {Object} schedule
+ */
+V1Component.prototype['schedule'] = undefined;
+
+/**
+ * @member {Array.<module:model/V1EventTrigger>} events
+ */
+V1Component.prototype['events'] = undefined;
+
+/**
  * @member {Array.<module:model/V1Hook>} hooks
  */
 V1Component.prototype['hooks'] = undefined;
+
+/**
+ * @member {Array.<String>} dependencies
+ */
+V1Component.prototype['dependencies'] = undefined;
+
+/**
+ * @member {module:model/V1TriggerPolicy} trigger
+ */
+V1Component.prototype['trigger'] = undefined;
+
+/**
+ * @member {String} conditions
+ */
+V1Component.prototype['conditions'] = undefined;
+
+/**
+ * @member {Boolean} skipOnUpstreamSkip
+ */
+V1Component.prototype['skipOnUpstreamSkip'] = undefined;
 
 /**
  * @member {Array.<module:model/V1IO>} inputs
@@ -282,24 +413,39 @@ V1Component.prototype['inputs'] = undefined;
 V1Component.prototype['outputs'] = undefined;
 
 /**
+ * @member {Object} matrix
+ */
+V1Component.prototype['matrix'] = undefined;
+
+/**
+ * @member {Object.<String, module:model/V1Join>} joins
+ */
+V1Component.prototype['joins'] = undefined;
+
+/**
+ * @member {Object.<String, module:model/V1Param>} params
+ */
+V1Component.prototype['params'] = undefined;
+
+/**
  * @member {Boolean} strictParams
  */
 V1Component.prototype['strictParams'] = undefined;
 
 /**
- * @member {module:model/V1Build} build
+ * @member {Object} runPatch
  */
-V1Component.prototype['build'] = undefined;
+V1Component.prototype['runPatch'] = undefined;
 
 /**
- * @member {Object} run
+ * @member {module:model/V1PatchStrategy} patchStrategy
  */
-V1Component.prototype['run'] = undefined;
+V1Component.prototype['patchStrategy'] = undefined;
 
 /**
- * @member {module:model/V1Template} template
+ * @member {Boolean} isPreset
  */
-V1Component.prototype['template'] = undefined;
+V1Component.prototype['isPreset'] = undefined;
 
 /**
  * @member {Boolean} isApproved
@@ -307,9 +453,54 @@ V1Component.prototype['template'] = undefined;
 V1Component.prototype['isApproved'] = undefined;
 
 /**
+ * @member {module:model/V1Template} template
+ */
+V1Component.prototype['template'] = undefined;
+
+/**
+ * @member {module:model/V1Build} build
+ */
+V1Component.prototype['build'] = undefined;
+
+/**
  * @member {Number} cost
  */
 V1Component.prototype['cost'] = undefined;
+
+/**
+ * @member {Object} run
+ */
+V1Component.prototype['run'] = undefined;
+
+/**
+ * @member {String} pathRef
+ */
+V1Component.prototype['pathRef'] = undefined;
+
+/**
+ * @member {String} hubRef
+ */
+V1Component.prototype['hubRef'] = undefined;
+
+/**
+ * @member {String} dagRef
+ */
+V1Component.prototype['dagRef'] = undefined;
+
+/**
+ * @member {String} urlRef
+ */
+V1Component.prototype['urlRef'] = undefined;
+
+/**
+ * @member {module:model/V1Component} component
+ */
+V1Component.prototype['component'] = undefined;
+
+/**
+ * @member {Array.<Object>} mount
+ */
+V1Component.prototype['mount'] = undefined;
 
 
 

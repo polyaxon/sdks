@@ -27,7 +27,7 @@ type V1Operation struct {
 	// Optional flag to disable cache validation and force run this operation
 	Cache *V1Cache `json:"cache,omitempty"`
 
-	// component
+	// Inline base or the saved definition of a reference
 	Component *V1Component `json:"component,omitempty"`
 
 	// An optional template containing conditions to check before starting the run
@@ -54,6 +54,9 @@ type V1Operation struct {
 	// hub ref
 	HubRef string `json:"hubRef,omitempty"`
 
+	// Optional inputs definition
+	Inputs []*V1IO `json:"inputs"`
+
 	// Optional flag to mark this specification requires approval before running
 	IsApproved bool `json:"isApproved,omitempty"`
 
@@ -63,11 +66,14 @@ type V1Operation struct {
 	// Optional dict of joins
 	Joins map[string]V1Join `json:"joins,omitempty"`
 
-	// Optional component kind, should be equal to 'operation'
+	// Optional authored kind: component or operation
 	Kind string `json:"kind,omitempty"`
 
 	// Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)
 	Matrix any `json:"matrix,omitempty"`
+
+	// Local upload paths: strings or objects with from/to fields
+	Mount []any `json:"mount"`
 
 	// Optional component name override, should a valid slug
 	Name string `json:"name,omitempty"`
@@ -75,13 +81,16 @@ type V1Operation struct {
 	// Optional namespace to use, uses agent's namespace by default
 	Namespace string `json:"namespace,omitempty"`
 
+	// Optional outputs definition
+	Outputs []*V1IO `json:"outputs"`
+
 	// Optional dict of params
 	Params map[string]V1Param `json:"params,omitempty"`
 
 	// Optional patch strategy, default post_merge
 	PatchStrategy *V1PatchStrategy `json:"patchStrategy,omitempty"`
 
-	// path ref
+	// At most one reference; a resolved component can accompany it
 	PathRef string `json:"pathRef,omitempty"`
 
 	// Optional plugins to enable
@@ -92,6 +101,9 @@ type V1Operation struct {
 
 	// Optional queue to use for running this operation
 	Queue string `json:"queue,omitempty"`
+
+	// Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
+	Run any `json:"run,omitempty"`
 
 	// Optional a run section to override the content of the run in the template
 	// should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
@@ -149,7 +161,15 @@ func (m *V1Operation) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateInputs(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateJoins(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOutputs(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -312,6 +332,36 @@ func (m *V1Operation) validateHooks(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Operation) validateInputs(formats strfmt.Registry) error {
+	if swag.IsZero(m.Inputs) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Inputs); i++ {
+		if swag.IsZero(m.Inputs[i]) { // not required
+			continue
+		}
+
+		if m.Inputs[i] != nil {
+			if err := m.Inputs[i].Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("inputs" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("inputs" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1Operation) validateJoins(formats strfmt.Registry) error {
 	if swag.IsZero(m.Joins) { // not required
 		return nil
@@ -331,6 +381,36 @@ func (m *V1Operation) validateJoins(formats strfmt.Registry) error {
 				ce := new(errors.CompositeError)
 				if stderrors.As(err, &ce) {
 					return ce.ValidateName("joins" + "." + k)
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Operation) validateOutputs(formats strfmt.Registry) error {
+	if swag.IsZero(m.Outputs) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Outputs); i++ {
+		if swag.IsZero(m.Outputs[i]) { // not required
+			continue
+		}
+
+		if m.Outputs[i] != nil {
+			if err := m.Outputs[i].Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("outputs" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("outputs" + "." + strconv.Itoa(i))
 				}
 
 				return err
@@ -511,7 +591,15 @@ func (m *V1Operation) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateInputs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateJoins(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutputs(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -678,12 +766,70 @@ func (m *V1Operation) contextValidateHooks(ctx context.Context, formats strfmt.R
 	return nil
 }
 
+func (m *V1Operation) contextValidateInputs(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Inputs); i++ {
+
+		if m.Inputs[i] != nil {
+
+			if swag.IsZero(m.Inputs[i]) { // not required
+				return nil
+			}
+
+			if err := m.Inputs[i].ContextValidate(ctx, formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("inputs" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("inputs" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *V1Operation) contextValidateJoins(ctx context.Context, formats strfmt.Registry) error {
 
 	for k := range m.Joins {
 
 		if val, ok := m.Joins[k]; ok {
 			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Operation) contextValidateOutputs(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Outputs); i++ {
+
+		if m.Outputs[i] != nil {
+
+			if swag.IsZero(m.Outputs[i]) { // not required
+				return nil
+			}
+
+			if err := m.Outputs[i].ContextValidate(ctx, formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("outputs" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("outputs" + "." + strconv.Itoa(i))
+				}
+
 				return err
 			}
 		}

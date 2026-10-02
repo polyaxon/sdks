@@ -25,6 +25,12 @@ import {
     V1CacheFromJSONTyped,
     V1CacheToJSON,
 } from './V1Cache';
+import type { V1EventTrigger } from './V1EventTrigger';
+import {
+    V1EventTriggerFromJSON,
+    V1EventTriggerFromJSONTyped,
+    V1EventTriggerToJSON,
+} from './V1EventTrigger';
 import type { V1Hook } from './V1Hook';
 import {
     V1HookFromJSON,
@@ -37,6 +43,24 @@ import {
     V1IOFromJSONTyped,
     V1IOToJSON,
 } from './V1IO';
+import type { V1Join } from './V1Join';
+import {
+    V1JoinFromJSON,
+    V1JoinFromJSONTyped,
+    V1JoinToJSON,
+} from './V1Join';
+import type { V1Param } from './V1Param';
+import {
+    V1ParamFromJSON,
+    V1ParamFromJSONTyped,
+    V1ParamToJSON,
+} from './V1Param';
+import type { V1PatchStrategy } from './V1PatchStrategy';
+import {
+    V1PatchStrategyFromJSON,
+    V1PatchStrategyFromJSONTyped,
+    V1PatchStrategyToJSON,
+} from './V1PatchStrategy';
 import type { V1Plugins } from './V1Plugins';
 import {
     V1PluginsFromJSON,
@@ -55,6 +79,12 @@ import {
     V1TerminationFromJSONTyped,
     V1TerminationToJSON,
 } from './V1Termination';
+import type { V1TriggerPolicy } from './V1TriggerPolicy';
+import {
+    V1TriggerPolicyFromJSON,
+    V1TriggerPolicyFromJSONTyped,
+    V1TriggerPolicyToJSON,
+} from './V1TriggerPolicy';
 
 /**
  * 
@@ -130,10 +160,46 @@ export interface V1Component {
     plugins?: V1Plugins;
     /**
      * 
+     * @type {object}
+     * @memberof V1Component
+     */
+    schedule?: object;
+    /**
+     * 
+     * @type {Array<V1EventTrigger>}
+     * @memberof V1Component
+     */
+    events?: Array<V1EventTrigger>;
+    /**
+     * 
      * @type {Array<V1Hook>}
      * @memberof V1Component
      */
     hooks?: Array<V1Hook>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof V1Component
+     */
+    dependencies?: Array<string>;
+    /**
+     * 
+     * @type {V1TriggerPolicy}
+     * @memberof V1Component
+     */
+    trigger?: V1TriggerPolicy;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Component
+     */
+    conditions?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Component
+     */
+    skipOnUpstreamSkip?: boolean;
     /**
      * 
      * @type {Array<V1IO>}
@@ -148,28 +214,46 @@ export interface V1Component {
     outputs?: Array<V1IO>;
     /**
      * 
+     * @type {object}
+     * @memberof V1Component
+     */
+    matrix?: object;
+    /**
+     * 
+     * @type {{ [key: string]: V1Join; }}
+     * @memberof V1Component
+     */
+    joins?: { [key: string]: V1Join; };
+    /**
+     * 
+     * @type {{ [key: string]: V1Param; }}
+     * @memberof V1Component
+     */
+    params?: { [key: string]: V1Param; };
+    /**
+     * 
      * @type {boolean}
      * @memberof V1Component
      */
     strictParams?: boolean | null;
     /**
      * 
-     * @type {V1Build}
-     * @memberof V1Component
-     */
-    build?: V1Build;
-    /**
-     * 
      * @type {object}
      * @memberof V1Component
      */
-    run?: object;
+    runPatch?: object;
     /**
      * 
-     * @type {V1Template}
+     * @type {V1PatchStrategy}
      * @memberof V1Component
      */
-    template?: V1Template;
+    patchStrategy?: V1PatchStrategy;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof V1Component
+     */
+    isPreset?: boolean;
     /**
      * 
      * @type {boolean}
@@ -178,10 +262,64 @@ export interface V1Component {
     isApproved?: boolean;
     /**
      * 
+     * @type {V1Template}
+     * @memberof V1Component
+     */
+    template?: V1Template;
+    /**
+     * 
+     * @type {V1Build}
+     * @memberof V1Component
+     */
+    build?: V1Build;
+    /**
+     * 
      * @type {number}
      * @memberof V1Component
      */
     cost?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1Component
+     */
+    run?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Component
+     */
+    pathRef?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Component
+     */
+    hubRef?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Component
+     */
+    dagRef?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof V1Component
+     */
+    urlRef?: string;
+    /**
+     * 
+     * @type {V1Component}
+     * @memberof V1Component
+     */
+    component?: V1Component;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof V1Component
+     */
+    mount?: Array<object>;
 }
 
 /**
@@ -214,15 +352,33 @@ export function V1ComponentFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'namespace': !exists(json, 'namespace') ? undefined : json['namespace'],
         'termination': !exists(json, 'termination') ? undefined : V1TerminationFromJSON(json['termination']),
         'plugins': !exists(json, 'plugins') ? undefined : V1PluginsFromJSON(json['plugins']),
+        'schedule': !exists(json, 'schedule') ? undefined : json['schedule'],
+        'events': !exists(json, 'events') ? undefined : ((json['events'] as Array<any>).map(V1EventTriggerFromJSON)),
         'hooks': !exists(json, 'hooks') ? undefined : ((json['hooks'] as Array<any>).map(V1HookFromJSON)),
+        'dependencies': !exists(json, 'dependencies') ? undefined : json['dependencies'],
+        'trigger': !exists(json, 'trigger') ? undefined : V1TriggerPolicyFromJSON(json['trigger']),
+        'conditions': !exists(json, 'conditions') ? undefined : json['conditions'],
+        'skipOnUpstreamSkip': !exists(json, 'skipOnUpstreamSkip') ? undefined : json['skipOnUpstreamSkip'],
         'inputs': !exists(json, 'inputs') ? undefined : ((json['inputs'] as Array<any>).map(V1IOFromJSON)),
         'outputs': !exists(json, 'outputs') ? undefined : ((json['outputs'] as Array<any>).map(V1IOFromJSON)),
+        'matrix': !exists(json, 'matrix') ? undefined : json['matrix'],
+        'joins': !exists(json, 'joins') ? undefined : (mapValues(json['joins'], V1JoinFromJSON)),
+        'params': !exists(json, 'params') ? undefined : (mapValues(json['params'], V1ParamFromJSON)),
         'strictParams': !exists(json, 'strictParams') ? undefined : json['strictParams'],
-        'build': !exists(json, 'build') ? undefined : V1BuildFromJSON(json['build']),
-        'run': !exists(json, 'run') ? undefined : json['run'],
-        'template': !exists(json, 'template') ? undefined : V1TemplateFromJSON(json['template']),
+        'runPatch': !exists(json, 'runPatch') ? undefined : json['runPatch'],
+        'patchStrategy': !exists(json, 'patchStrategy') ? undefined : V1PatchStrategyFromJSON(json['patchStrategy']),
+        'isPreset': !exists(json, 'isPreset') ? undefined : json['isPreset'],
         'isApproved': !exists(json, 'isApproved') ? undefined : json['isApproved'],
+        'template': !exists(json, 'template') ? undefined : V1TemplateFromJSON(json['template']),
+        'build': !exists(json, 'build') ? undefined : V1BuildFromJSON(json['build']),
         'cost': !exists(json, 'cost') ? undefined : json['cost'],
+        'run': !exists(json, 'run') ? undefined : json['run'],
+        'pathRef': !exists(json, 'pathRef') ? undefined : json['pathRef'],
+        'hubRef': !exists(json, 'hubRef') ? undefined : json['hubRef'],
+        'dagRef': !exists(json, 'dagRef') ? undefined : json['dagRef'],
+        'urlRef': !exists(json, 'urlRef') ? undefined : json['urlRef'],
+        'component': !exists(json, 'component') ? undefined : V1ComponentFromJSON(json['component']),
+        'mount': !exists(json, 'mount') ? undefined : json['mount'],
     };
 }
 
@@ -246,15 +402,33 @@ export function V1ComponentToJSON(value?: V1Component | null): any {
         'namespace': value.namespace,
         'termination': V1TerminationToJSON(value.termination),
         'plugins': V1PluginsToJSON(value.plugins),
+        'schedule': value.schedule,
+        'events': value.events === undefined ? undefined : ((value.events as Array<any>).map(V1EventTriggerToJSON)),
         'hooks': value.hooks === undefined ? undefined : ((value.hooks as Array<any>).map(V1HookToJSON)),
+        'dependencies': value.dependencies,
+        'trigger': V1TriggerPolicyToJSON(value.trigger),
+        'conditions': value.conditions,
+        'skipOnUpstreamSkip': value.skipOnUpstreamSkip,
         'inputs': value.inputs === undefined ? undefined : ((value.inputs as Array<any>).map(V1IOToJSON)),
         'outputs': value.outputs === undefined ? undefined : ((value.outputs as Array<any>).map(V1IOToJSON)),
+        'matrix': value.matrix,
+        'joins': value.joins === undefined ? undefined : (mapValues(value.joins, V1JoinToJSON)),
+        'params': value.params === undefined ? undefined : (mapValues(value.params, V1ParamToJSON)),
         'strictParams': value.strictParams,
-        'build': V1BuildToJSON(value.build),
-        'run': value.run,
-        'template': V1TemplateToJSON(value.template),
+        'runPatch': value.runPatch,
+        'patchStrategy': V1PatchStrategyToJSON(value.patchStrategy),
+        'isPreset': value.isPreset,
         'isApproved': value.isApproved,
+        'template': V1TemplateToJSON(value.template),
+        'build': V1BuildToJSON(value.build),
         'cost': value.cost,
+        'run': value.run,
+        'pathRef': value.pathRef,
+        'hubRef': value.hubRef,
+        'dagRef': value.dagRef,
+        'urlRef': value.urlRef,
+        'component': V1ComponentToJSON(value.component),
+        'mount': value.mount,
     };
 }
 

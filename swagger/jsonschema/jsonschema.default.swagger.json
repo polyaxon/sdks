@@ -198,6 +198,34 @@
             }
           ]
         },
+        "run": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1Dag"
+            },
+            {
+              "$ref": "#/definitions/v1DaskCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Job"
+            },
+            {
+              "$ref": "#/definitions/v1MPIJob"
+            },
+            {
+              "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1RayCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Service"
+            },
+            {
+              "$ref": "#/definitions/v1TFJob"
+            }
+          ]
+        },
         "runPatch": {
           "oneOf": [
             {
@@ -230,7 +258,73 @@
     },
     "v1Component": {
       "properties": {
+        "schedule": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1IntervalSchedule"
+            },
+            {
+              "$ref": "#/definitions/v1DateTimeSchedule"
+            },
+            {
+              "$ref": "#/definitions/v1CronSchedule"
+            }
+          ]
+        },
+        "matrix": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1RandomSearch"
+            },
+            {
+              "$ref": "#/definitions/v1GridSearch"
+            },
+            {
+              "$ref": "#/definitions/v1Hyperband"
+            },
+            {
+              "$ref": "#/definitions/v1Bayes"
+            },
+            {
+              "$ref": "#/definitions/v1TPE"
+            },
+            {
+              "$ref": "#/definitions/v1Iterative"
+            },
+            {
+              "$ref": "#/definitions/v1Mapping"
+            }
+          ]
+        },
         "run": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/v1Dag"
+            },
+            {
+              "$ref": "#/definitions/v1DaskCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Job"
+            },
+            {
+              "$ref": "#/definitions/v1MPIJob"
+            },
+            {
+              "$ref": "#/definitions/v1PytorchJob"
+            },
+            {
+              "$ref": "#/definitions/v1RayCluster"
+            },
+            {
+              "$ref": "#/definitions/v1Service"
+            },
+            {
+              "$ref": "#/definitions/v1TFJob"
+            }
+          ]
+        },
+        "runPatch": {
           "oneOf": [
             {
               "$ref": "#/definitions/v1Dag"

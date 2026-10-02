@@ -120,8 +120,44 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property schedule (base name: "schedule")', function() {
+      // uncomment below and update the code to test the property schedule
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property events (base name: "events")', function() {
+      // uncomment below and update the code to test the property events
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
     it('should have the property hooks (base name: "hooks")', function() {
       // uncomment below and update the code to test the property hooks
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dependencies (base name: "dependencies")', function() {
+      // uncomment below and update the code to test the property dependencies
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property trigger (base name: "trigger")', function() {
+      // uncomment below and update the code to test the property trigger
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property conditions (base name: "conditions")', function() {
+      // uncomment below and update the code to test the property conditions
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property skipOnUpstreamSkip (base name: "skipOnUpstreamSkip")', function() {
+      // uncomment below and update the code to test the property skipOnUpstreamSkip
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });
@@ -138,26 +174,44 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property matrix (base name: "matrix")', function() {
+      // uncomment below and update the code to test the property matrix
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property joins (base name: "joins")', function() {
+      // uncomment below and update the code to test the property joins
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property params (base name: "params")', function() {
+      // uncomment below and update the code to test the property params
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
     it('should have the property strictParams (base name: "strictParams")', function() {
       // uncomment below and update the code to test the property strictParams
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });
 
-    it('should have the property build (base name: "build")', function() {
-      // uncomment below and update the code to test the property build
+    it('should have the property runPatch (base name: "runPatch")', function() {
+      // uncomment below and update the code to test the property runPatch
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });
 
-    it('should have the property run (base name: "run")', function() {
-      // uncomment below and update the code to test the property run
+    it('should have the property patchStrategy (base name: "patchStrategy")', function() {
+      // uncomment below and update the code to test the property patchStrategy
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });
 
-    it('should have the property template (base name: "template")', function() {
-      // uncomment below and update the code to test the property template
+    it('should have the property isPreset (base name: "isPreset")', function() {
+      // uncomment below and update the code to test the property isPreset
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });
@@ -168,8 +222,62 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property template (base name: "template")', function() {
+      // uncomment below and update the code to test the property template
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property build (base name: "build")', function() {
+      // uncomment below and update the code to test the property build
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
     it('should have the property cost (base name: "cost")', function() {
       // uncomment below and update the code to test the property cost
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property run (base name: "run")', function() {
+      // uncomment below and update the code to test the property run
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property pathRef (base name: "pathRef")', function() {
+      // uncomment below and update the code to test the property pathRef
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property hubRef (base name: "hubRef")', function() {
+      // uncomment below and update the code to test the property hubRef
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property dagRef (base name: "dagRef")', function() {
+      // uncomment below and update the code to test the property dagRef
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property urlRef (base name: "urlRef")', function() {
+      // uncomment below and update the code to test the property urlRef
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property component (base name: "component")', function() {
+      // uncomment below and update the code to test the property component
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property mount (base name: "mount")', function() {
+      // uncomment below and update the code to test the property mount
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });

@@ -162,6 +162,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property inputs (base name: "inputs")', function() {
+      // uncomment below and update the code to test the property inputs
+      //var instance = new PolyaxonSdk.V1Operation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property outputs (base name: "outputs")', function() {
+      // uncomment below and update the code to test the property outputs
+      //var instance = new PolyaxonSdk.V1Operation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property matrix (base name: "matrix")', function() {
       // uncomment below and update the code to test the property matrix
       //var instance = new PolyaxonSdk.V1Operation();
@@ -176,6 +188,12 @@
 
     it('should have the property params (base name: "params")', function() {
       // uncomment below and update the code to test the property params
+      //var instance = new PolyaxonSdk.V1Operation();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property strictParams (base name: "strictParams")', function() {
+      // uncomment below and update the code to test the property strictParams
       //var instance = new PolyaxonSdk.V1Operation();
       //expect(instance).to.be();
     });
@@ -222,6 +240,12 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property run (base name: "run")', function() {
+      // uncomment below and update the code to test the property run
+      //var instance = new PolyaxonSdk.V1Operation();
+      //expect(instance).to.be();
+    });
+
     it('should have the property pathRef (base name: "pathRef")', function() {
       // uncomment below and update the code to test the property pathRef
       //var instance = new PolyaxonSdk.V1Operation();
@@ -252,8 +276,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property strictParams (base name: "strictParams")', function() {
-      // uncomment below and update the code to test the property strictParams
+    it('should have the property mount (base name: "mount")', function() {
+      // uncomment below and update the code to test the property mount
       //var instance = new PolyaxonSdk.V1Operation();
       //expect(instance).to.be();
     });

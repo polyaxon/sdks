@@ -22708,7 +22708,7 @@
         },
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'operation'"
+          "title": "Optional authored kind: component or operation"
         },
         "name": {
           "type": "string",
@@ -22752,12 +22752,42 @@
           "$ref": "#/definitions/v1Plugins",
           "title": "Optional plugins to enable"
         },
+        "schedule": {
+          "type": "object",
+          "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1EventTrigger"
+          },
+          "title": "Optional events section, must be a valid List of EventTrigger option (Run/Git/Alert/Webhook/Dataset)"
+        },
         "hooks": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/v1Hook"
           },
           "title": "Optional hooks section"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Optional graph dependencies of this op"
+        },
+        "trigger": {
+          "$ref": "#/definitions/v1TriggerPolicy",
+          "title": "Optional trigger policy"
+        },
+        "conditions": {
+          "type": "string",
+          "title": "An optional template containing conditions to check before starting the run"
+        },
+        "skipOnUpstreamSkip": {
+          "type": "boolean",
+          "title": "Optional flag to skip this run if upstream was skipped"
         },
         "inputs": {
           "type": "array",
@@ -22773,31 +22803,85 @@
           },
           "title": "Optional outputs definition"
         },
+        "matrix": {
+          "type": "object",
+          "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
+        },
+        "joins": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1Join"
+          },
+          "title": "Optional dict of joins"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/v1Param"
+          },
+          "title": "Optional dict of params"
+        },
         "strictParams": {
           "type": "boolean",
           "title": "Optional flag to reject params without a matching input or output declaration",
           "x-nullable": true
         },
-        "build": {
-          "$ref": "#/definitions/v1Build",
-          "title": "Optional build process"
-        },
-        "run": {
+        "runPatch": {
           "type": "object",
-          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
+          "title": "Optional a run section to override the content of the run in the template\nshould be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
         },
-        "template": {
-          "$ref": "#/definitions/v1Template",
-          "title": "Optional flag to mark this specification as template"
+        "patchStrategy": {
+          "$ref": "#/definitions/v1PatchStrategy",
+          "title": "Optional patch strategy, default post_merge"
+        },
+        "isPreset": {
+          "type": "boolean",
+          "title": "Optional flag to mark this specification as preset"
         },
         "isApproved": {
           "type": "boolean",
           "title": "Optional flag to mark this specification requires approval before running"
         },
+        "template": {
+          "$ref": "#/definitions/v1Template",
+          "title": "Optional to mark this specification as template with instructions"
+        },
+        "build": {
+          "$ref": "#/definitions/v1Build",
+          "title": "Optional build process"
+        },
         "cost": {
           "type": "number",
           "format": "float",
           "title": "Optional field to assign cost to this Component"
+        },
+        "run": {
+          "type": "object",
+          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
+        },
+        "pathRef": {
+          "type": "string",
+          "title": "At most one reference; a resolved component can accompany it"
+        },
+        "hubRef": {
+          "type": "string"
+        },
+        "dagRef": {
+          "type": "string"
+        },
+        "urlRef": {
+          "type": "string"
+        },
+        "component": {
+          "$ref": "#/definitions/v1Component",
+          "title": "Inline base or the saved definition of a reference"
+        },
+        "mount": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Local upload paths: strings or objects with from/to fields"
         }
       },
       "title": "Component specification"
@@ -26310,7 +26394,7 @@
         },
         "kind": {
           "type": "string",
-          "title": "Optional component kind, should be equal to 'operation'"
+          "title": "Optional authored kind: component or operation"
         },
         "name": {
           "type": "string",
@@ -26391,6 +26475,20 @@
           "type": "boolean",
           "title": "Optional flag to skip this run if upstream was skipped"
         },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1IO"
+          },
+          "title": "Optional inputs definition"
+        },
+        "outputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1IO"
+          },
+          "title": "Optional outputs definition"
+        },
         "matrix": {
           "type": "object",
           "title": "Optional matrix section, must be a valid matrix option (Random/Grid/BO/Hyperband/TPE/Mapping/Iterative)"
@@ -26408,6 +26506,11 @@
             "$ref": "#/definitions/v1Param"
           },
           "title": "Optional dict of params"
+        },
+        "strictParams": {
+          "type": "boolean",
+          "title": "Optional flag to reject params without a matching input or output declaration",
+          "x-nullable": true
         },
         "runPatch": {
           "type": "object",
@@ -26438,8 +26541,13 @@
           "format": "float",
           "title": "Optional field to assign cost to this Component"
         },
+        "run": {
+          "type": "object",
+          "title": "Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag"
+        },
         "pathRef": {
-          "type": "string"
+          "type": "string",
+          "title": "At most one reference; a resolved component can accompany it"
         },
         "hubRef": {
           "type": "string"
@@ -26451,12 +26559,15 @@
           "type": "string"
         },
         "component": {
-          "$ref": "#/definitions/v1Component"
+          "$ref": "#/definitions/v1Component",
+          "title": "Inline base or the saved definition of a reference"
         },
-        "strictParams": {
-          "type": "boolean",
-          "title": "Optional flag to reject params without a matching input or output declaration",
-          "x-nullable": true
+        "mount": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Local upload paths: strings or objects with from/to fields"
         }
       },
       "title": "Operation specification"
