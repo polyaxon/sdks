@@ -25,6 +25,12 @@ import {
     V1CacheFromJSONTyped,
     V1CacheToJSON,
 } from './V1Cache';
+import type { V1Environment } from './V1Environment';
+import {
+    V1EnvironmentFromJSON,
+    V1EnvironmentFromJSONTyped,
+    V1EnvironmentToJSON,
+} from './V1Environment';
 import type { V1EventTrigger } from './V1EventTrigger';
 import {
     V1EventTriggerFromJSON,
@@ -43,6 +49,12 @@ import {
     V1IOFromJSONTyped,
     V1IOToJSON,
 } from './V1IO';
+import type { V1Init } from './V1Init';
+import {
+    V1InitFromJSON,
+    V1InitFromJSONTyped,
+    V1InitToJSON,
+} from './V1Init';
 import type { V1Join } from './V1Join';
 import {
     V1JoinFromJSON,
@@ -316,10 +328,70 @@ export interface V1Component {
     component?: V1Component;
     /**
      * 
+     * @type {Array<any>}
+     * @memberof V1Component
+     */
+    mount?: Array<any>;
+    /**
+     * 
+     * @type {object}
+     * @memberof V1Component
+     */
+    container?: object;
+    /**
+     * 
+     * @type {any}
+     * @memberof V1Component
+     */
+    cmd?: any | null;
+    /**
+     * 
+     * @type {{ [key: string]: string; }}
+     * @memberof V1Component
+     */
+    env?: { [key: string]: string; };
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof V1Component
+     */
+    resources?: { [key: string]: any; };
+    /**
+     * 
+     * @type {Array<number>}
+     * @memberof V1Component
+     */
+    ports?: Array<number>;
+    /**
+     * 
+     * @type {V1Environment}
+     * @memberof V1Component
+     */
+    environment?: V1Environment;
+    /**
+     * 
+     * @type {Array<V1Init>}
+     * @memberof V1Component
+     */
+    init?: Array<V1Init>;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof V1Component
+     */
+    connections?: Array<string>;
+    /**
+     * 
      * @type {Array<object>}
      * @memberof V1Component
      */
-    mount?: Array<object>;
+    sidecars?: Array<object>;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof V1Component
+     */
+    volumes?: Array<object>;
 }
 
 /**
@@ -379,6 +451,16 @@ export function V1ComponentFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'urlRef': !exists(json, 'urlRef') ? undefined : json['urlRef'],
         'component': !exists(json, 'component') ? undefined : V1ComponentFromJSON(json['component']),
         'mount': !exists(json, 'mount') ? undefined : json['mount'],
+        'container': !exists(json, 'container') ? undefined : json['container'],
+        'cmd': !exists(json, 'cmd') ? undefined : json['cmd'],
+        'env': !exists(json, 'env') ? undefined : json['env'],
+        'resources': !exists(json, 'resources') ? undefined : json['resources'],
+        'ports': !exists(json, 'ports') ? undefined : json['ports'],
+        'environment': !exists(json, 'environment') ? undefined : V1EnvironmentFromJSON(json['environment']),
+        'init': !exists(json, 'init') ? undefined : ((json['init'] as Array<any>).map(V1InitFromJSON)),
+        'connections': !exists(json, 'connections') ? undefined : json['connections'],
+        'sidecars': !exists(json, 'sidecars') ? undefined : json['sidecars'],
+        'volumes': !exists(json, 'volumes') ? undefined : json['volumes'],
     };
 }
 
@@ -429,6 +511,16 @@ export function V1ComponentToJSON(value?: V1Component | null): any {
         'urlRef': value.urlRef,
         'component': V1ComponentToJSON(value.component),
         'mount': value.mount,
+        'container': value.container,
+        'cmd': value.cmd,
+        'env': value.env,
+        'resources': value.resources,
+        'ports': value.ports,
+        'environment': V1EnvironmentToJSON(value.environment),
+        'init': value.init === undefined ? undefined : ((value.init as Array<any>).map(V1InitToJSON)),
+        'connections': value.connections,
+        'sidecars': value.sidecars,
+        'volumes': value.volumes,
     };
 }
 

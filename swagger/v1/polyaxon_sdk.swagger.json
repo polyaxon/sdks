@@ -22878,10 +22878,67 @@
         },
         "mount": {
           "type": "array",
-          "items": {
-            "type": "object"
-          },
+          "items": {},
           "title": "Local upload paths: strings or objects with from/to fields"
+        },
+        "container": {
+          "$ref": "#/definitions/v1Container",
+          "title": "Shortcut for run.container"
+        },
+        "cmd": {
+          "title": "Shortcut for the main container's shell command: a string or a list of lines"
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Shortcut for the main container's env: names to string values"
+        },
+        "resources": {
+          "type": "object",
+          "additionalProperties": {},
+          "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "Shortcut for run.ports, a service when no runtime is defined"
+        },
+        "environment": {
+          "$ref": "#/definitions/v1Environment",
+          "title": "Shortcut for run.environment"
+        },
+        "init": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Init"
+          },
+          "title": "Shortcut for run.init"
+        },
+        "connections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Shortcut for run.connections"
+        },
+        "sidecars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Container"
+          },
+          "title": "Shortcut for run.sidecars"
+        },
+        "volumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Volume"
+          },
+          "title": "Shortcut for run.volumes"
         }
       },
       "title": "Component specification"
@@ -26564,10 +26621,67 @@
         },
         "mount": {
           "type": "array",
-          "items": {
-            "type": "object"
-          },
+          "items": {},
           "title": "Local upload paths: strings or objects with from/to fields"
+        },
+        "container": {
+          "$ref": "#/definitions/v1Container",
+          "title": "Shortcut for run.container"
+        },
+        "cmd": {
+          "title": "Shortcut for the main container's shell command: a string or a list of lines"
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Shortcut for the main container's env: names to string values"
+        },
+        "resources": {
+          "type": "object",
+          "additionalProperties": {},
+          "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
+        },
+        "ports": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "Shortcut for run.ports, a service when no runtime is defined"
+        },
+        "environment": {
+          "$ref": "#/definitions/v1Environment",
+          "title": "Shortcut for run.environment"
+        },
+        "init": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Init"
+          },
+          "title": "Shortcut for run.init"
+        },
+        "connections": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "title": "Shortcut for run.connections"
+        },
+        "sidecars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Container"
+          },
+          "title": "Shortcut for run.sidecars"
+        },
+        "volumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Volume"
+          },
+          "title": "Shortcut for run.volumes"
         }
       },
       "title": "Operation specification"

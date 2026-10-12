@@ -28,9 +28,11 @@ import java.util.Map;
 import org.openapitools.client.model.V1Build;
 import org.openapitools.client.model.V1Cache;
 import org.openapitools.client.model.V1Component;
+import org.openapitools.client.model.V1Environment;
 import org.openapitools.client.model.V1EventTrigger;
 import org.openapitools.client.model.V1Hook;
 import org.openapitools.client.model.V1IO;
+import org.openapitools.client.model.V1Init;
 import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
@@ -217,6 +219,46 @@ public class V1Operation {
   public static final String SERIALIZED_NAME_MOUNT = "mount";
   @SerializedName(SERIALIZED_NAME_MOUNT)
   private List<Object> mount;
+
+  public static final String SERIALIZED_NAME_CONTAINER = "container";
+  @SerializedName(SERIALIZED_NAME_CONTAINER)
+  private Object container;
+
+  public static final String SERIALIZED_NAME_CMD = "cmd";
+  @SerializedName(SERIALIZED_NAME_CMD)
+  private Object cmd = null;
+
+  public static final String SERIALIZED_NAME_ENV = "env";
+  @SerializedName(SERIALIZED_NAME_ENV)
+  private Map<String, String> env = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_RESOURCES = "resources";
+  @SerializedName(SERIALIZED_NAME_RESOURCES)
+  private Map<String, Object> resources = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_PORTS = "ports";
+  @SerializedName(SERIALIZED_NAME_PORTS)
+  private List<Integer> ports;
+
+  public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+  @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
+  private V1Environment environment;
+
+  public static final String SERIALIZED_NAME_INIT = "init";
+  @SerializedName(SERIALIZED_NAME_INIT)
+  private List<V1Init> init;
+
+  public static final String SERIALIZED_NAME_CONNECTIONS = "connections";
+  @SerializedName(SERIALIZED_NAME_CONNECTIONS)
+  private List<String> connections;
+
+  public static final String SERIALIZED_NAME_SIDECARS = "sidecars";
+  @SerializedName(SERIALIZED_NAME_SIDECARS)
+  private List<Object> sidecars;
+
+  public static final String SERIALIZED_NAME_VOLUMES = "volumes";
+  @SerializedName(SERIALIZED_NAME_VOLUMES)
+  private List<Object> volumes;
 
   public V1Operation() {
   }
@@ -1137,6 +1179,282 @@ public class V1Operation {
   }
 
 
+  public V1Operation container(Object container) {
+    
+    this.container = container;
+    return this;
+  }
+
+   /**
+   * Get container
+   * @return container
+  **/
+  @javax.annotation.Nullable
+
+  public Object getContainer() {
+    return container;
+  }
+
+
+  public void setContainer(Object container) {
+    this.container = container;
+  }
+
+
+  public V1Operation cmd(Object cmd) {
+    
+    this.cmd = cmd;
+    return this;
+  }
+
+   /**
+   * Get cmd
+   * @return cmd
+  **/
+  @javax.annotation.Nullable
+
+  public Object getCmd() {
+    return cmd;
+  }
+
+
+  public void setCmd(Object cmd) {
+    this.cmd = cmd;
+  }
+
+
+  public V1Operation env(Map<String, String> env) {
+    
+    this.env = env;
+    return this;
+  }
+
+  public V1Operation putEnvItem(String key, String envItem) {
+    if (this.env == null) {
+      this.env = new HashMap<>();
+    }
+    this.env.put(key, envItem);
+    return this;
+  }
+
+   /**
+   * Get env
+   * @return env
+  **/
+  @javax.annotation.Nullable
+
+  public Map<String, String> getEnv() {
+    return env;
+  }
+
+
+  public void setEnv(Map<String, String> env) {
+    this.env = env;
+  }
+
+
+  public V1Operation resources(Map<String, Object> resources) {
+    
+    this.resources = resources;
+    return this;
+  }
+
+  public V1Operation putResourcesItem(String key, Object resourcesItem) {
+    if (this.resources == null) {
+      this.resources = new HashMap<>();
+    }
+    this.resources.put(key, resourcesItem);
+    return this;
+  }
+
+   /**
+   * Get resources
+   * @return resources
+  **/
+  @javax.annotation.Nullable
+
+  public Map<String, Object> getResources() {
+    return resources;
+  }
+
+
+  public void setResources(Map<String, Object> resources) {
+    this.resources = resources;
+  }
+
+
+  public V1Operation ports(List<Integer> ports) {
+    
+    this.ports = ports;
+    return this;
+  }
+
+  public V1Operation addPortsItem(Integer portsItem) {
+    if (this.ports == null) {
+      this.ports = new ArrayList<>();
+    }
+    this.ports.add(portsItem);
+    return this;
+  }
+
+   /**
+   * Get ports
+   * @return ports
+  **/
+  @javax.annotation.Nullable
+
+  public List<Integer> getPorts() {
+    return ports;
+  }
+
+
+  public void setPorts(List<Integer> ports) {
+    this.ports = ports;
+  }
+
+
+  public V1Operation environment(V1Environment environment) {
+    
+    this.environment = environment;
+    return this;
+  }
+
+   /**
+   * Get environment
+   * @return environment
+  **/
+  @javax.annotation.Nullable
+
+  public V1Environment getEnvironment() {
+    return environment;
+  }
+
+
+  public void setEnvironment(V1Environment environment) {
+    this.environment = environment;
+  }
+
+
+  public V1Operation init(List<V1Init> init) {
+    
+    this.init = init;
+    return this;
+  }
+
+  public V1Operation addInitItem(V1Init initItem) {
+    if (this.init == null) {
+      this.init = new ArrayList<>();
+    }
+    this.init.add(initItem);
+    return this;
+  }
+
+   /**
+   * Get init
+   * @return init
+  **/
+  @javax.annotation.Nullable
+
+  public List<V1Init> getInit() {
+    return init;
+  }
+
+
+  public void setInit(List<V1Init> init) {
+    this.init = init;
+  }
+
+
+  public V1Operation connections(List<String> connections) {
+    
+    this.connections = connections;
+    return this;
+  }
+
+  public V1Operation addConnectionsItem(String connectionsItem) {
+    if (this.connections == null) {
+      this.connections = new ArrayList<>();
+    }
+    this.connections.add(connectionsItem);
+    return this;
+  }
+
+   /**
+   * Get connections
+   * @return connections
+  **/
+  @javax.annotation.Nullable
+
+  public List<String> getConnections() {
+    return connections;
+  }
+
+
+  public void setConnections(List<String> connections) {
+    this.connections = connections;
+  }
+
+
+  public V1Operation sidecars(List<Object> sidecars) {
+    
+    this.sidecars = sidecars;
+    return this;
+  }
+
+  public V1Operation addSidecarsItem(Object sidecarsItem) {
+    if (this.sidecars == null) {
+      this.sidecars = new ArrayList<>();
+    }
+    this.sidecars.add(sidecarsItem);
+    return this;
+  }
+
+   /**
+   * Get sidecars
+   * @return sidecars
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getSidecars() {
+    return sidecars;
+  }
+
+
+  public void setSidecars(List<Object> sidecars) {
+    this.sidecars = sidecars;
+  }
+
+
+  public V1Operation volumes(List<Object> volumes) {
+    
+    this.volumes = volumes;
+    return this;
+  }
+
+  public V1Operation addVolumesItem(Object volumesItem) {
+    if (this.volumes == null) {
+      this.volumes = new ArrayList<>();
+    }
+    this.volumes.add(volumesItem);
+    return this;
+  }
+
+   /**
+   * Get volumes
+   * @return volumes
+  **/
+  @javax.annotation.Nullable
+
+  public List<Object> getVolumes() {
+    return volumes;
+  }
+
+
+  public void setVolumes(List<Object> volumes) {
+    this.volumes = volumes;
+  }
+
+
 
   @Override
   public boolean equals(Object o) {
@@ -1184,7 +1502,17 @@ public class V1Operation {
         Objects.equals(this.dagRef, v1Operation.dagRef) &&
         Objects.equals(this.urlRef, v1Operation.urlRef) &&
         Objects.equals(this.component, v1Operation.component) &&
-        Objects.equals(this.mount, v1Operation.mount);
+        Objects.equals(this.mount, v1Operation.mount) &&
+        Objects.equals(this.container, v1Operation.container) &&
+        Objects.equals(this.cmd, v1Operation.cmd) &&
+        Objects.equals(this.env, v1Operation.env) &&
+        Objects.equals(this.resources, v1Operation.resources) &&
+        Objects.equals(this.ports, v1Operation.ports) &&
+        Objects.equals(this.environment, v1Operation.environment) &&
+        Objects.equals(this.init, v1Operation.init) &&
+        Objects.equals(this.connections, v1Operation.connections) &&
+        Objects.equals(this.sidecars, v1Operation.sidecars) &&
+        Objects.equals(this.volumes, v1Operation.volumes);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -1193,7 +1521,7 @@ public class V1Operation {
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount, container, cmd, env, resources, ports, environment, init, connections, sidecars, volumes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1245,6 +1573,16 @@ public class V1Operation {
     sb.append("    urlRef: ").append(toIndentedString(urlRef)).append("\n");
     sb.append("    component: ").append(toIndentedString(component)).append("\n");
     sb.append("    mount: ").append(toIndentedString(mount)).append("\n");
+    sb.append("    container: ").append(toIndentedString(container)).append("\n");
+    sb.append("    cmd: ").append(toIndentedString(cmd)).append("\n");
+    sb.append("    env: ").append(toIndentedString(env)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
+    sb.append("    init: ").append(toIndentedString(init)).append("\n");
+    sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
+    sb.append("    sidecars: ").append(toIndentedString(sidecars)).append("\n");
+    sb.append("    volumes: ").append(toIndentedString(volumes)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1305,6 +1643,16 @@ public class V1Operation {
     openapiFields.add("urlRef");
     openapiFields.add("component");
     openapiFields.add("mount");
+    openapiFields.add("container");
+    openapiFields.add("cmd");
+    openapiFields.add("env");
+    openapiFields.add("resources");
+    openapiFields.add("ports");
+    openapiFields.add("environment");
+    openapiFields.add("init");
+    openapiFields.add("connections");
+    openapiFields.add("sidecars");
+    openapiFields.add("volumes");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1455,6 +1803,40 @@ public class V1Operation {
       // ensure the optional json data is an array if present
       if (jsonObj.get("mount") != null && !jsonObj.get("mount").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `mount` to be an array in the JSON string but got `%s`", jsonObj.get("mount").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
+      }
+      // validate the optional field `environment`
+      if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {
+        V1Environment.validateJsonObject(jsonObj.getAsJsonObject("environment"));
+      }
+      if (jsonObj.get("init") != null && !jsonObj.get("init").isJsonNull()) {
+        JsonArray jsonArrayinit = jsonObj.getAsJsonArray("init");
+        if (jsonArrayinit != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("init").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `init` to be an array in the JSON string but got `%s`", jsonObj.get("init").toString()));
+          }
+
+          // validate the optional field `init` (array)
+          for (int i = 0; i < jsonArrayinit.size(); i++) {
+            V1Init.validateJsonObject(jsonArrayinit.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("connections") != null && !jsonObj.get("connections").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connections` to be an array in the JSON string but got `%s`", jsonObj.get("connections").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("sidecars") != null && !jsonObj.get("sidecars").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sidecars` to be an array in the JSON string but got `%s`", jsonObj.get("sidecars").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("volumes") != null && !jsonObj.get("volumes").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `volumes` to be an array in the JSON string but got `%s`", jsonObj.get("volumes").toString()));
       }
   }
 

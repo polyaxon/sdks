@@ -160,6 +160,58 @@
     },
     "v1Operation": {
       "properties": {
+        "mount": {
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "cmd": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "resources": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "container": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+        },
+        "sidecars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+          }
+        },
+        "volumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+          }
+        },
         "schedule": {
           "oneOf": [
             {
@@ -258,6 +310,58 @@
     },
     "v1Component": {
       "properties": {
+        "mount": {
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "cmd": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "resources": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "container": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+        },
+        "sidecars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+          }
+        },
+        "volumes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+          }
+        },
         "schedule": {
           "oneOf": [
             {

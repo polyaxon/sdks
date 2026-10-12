@@ -27,11 +27,20 @@ type V1Operation struct {
 	// Optional flag to disable cache validation and force run this operation
 	Cache *V1Cache `json:"cache,omitempty"`
 
+	// Shortcut for the main container's shell command: a string or a list of lines
+	Cmd any `json:"cmd,omitempty"`
+
 	// Inline base or the saved definition of a reference
 	Component *V1Component `json:"component,omitempty"`
 
 	// An optional template containing conditions to check before starting the run
 	Conditions string `json:"conditions,omitempty"`
+
+	// Shortcut for run.connections
+	Connections []string `json:"connections"`
+
+	// Shortcut for run.container
+	Container V1Container `json:"container,omitempty"`
 
 	// Optional field to assign cost to this Component
 	Cost float32 `json:"cost,omitempty"`
@@ -45,6 +54,12 @@ type V1Operation struct {
 	// Optional component description override
 	Description string `json:"description,omitempty"`
 
+	// Shortcut for the main container's env: names to string values
+	Env map[string]string `json:"env,omitempty"`
+
+	// Shortcut for run.environment
+	Environment *V1Environment `json:"environment,omitempty"`
+
 	// Optional events section, must be a valid List of EventTrigger option (Run/Git/Alert/Webhook/Dataset)
 	Events []*V1EventTrigger `json:"events"`
 
@@ -53,6 +68,9 @@ type V1Operation struct {
 
 	// hub ref
 	HubRef string `json:"hubRef,omitempty"`
+
+	// Shortcut for run.init
+	Init []*V1Init `json:"init"`
 
 	// Optional inputs definition
 	Inputs []*V1IO `json:"inputs"`
@@ -96,11 +114,17 @@ type V1Operation struct {
 	// Optional plugins to enable
 	Plugins *V1Plugins `json:"plugins,omitempty"`
 
+	// Shortcut for run.ports, a service when no runtime is defined
+	Ports []int32 `json:"ports"`
+
 	// Optional list of presets to use for running this operation
 	Presets []string `json:"presets"`
 
 	// Optional queue to use for running this operation
 	Queue string `json:"queue,omitempty"`
+
+	// Shortcut for the main container's resources: a value or a request..limit range per resource
+	Resources map[string]any `json:"resources,omitempty"`
 
 	// Run definition, should be one of: Job/Service/Ray/Kubeflow/Dask/Dag
 	Run any `json:"run,omitempty"`
@@ -111,6 +135,9 @@ type V1Operation struct {
 
 	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)
 	Schedule any `json:"schedule,omitempty"`
+
+	// Shortcut for run.sidecars
+	Sidecars []V1Container `json:"sidecars"`
 
 	// Optional flag to skip this run if upstream was skipped
 	SkipOnUpstreamSkip bool `json:"skipOnUpstreamSkip,omitempty"`
@@ -135,6 +162,9 @@ type V1Operation struct {
 
 	// Spec version
 	Version float32 `json:"version,omitempty"`
+
+	// Shortcut for run.volumes
+	Volumes []V1Volume `json:"volumes"`
 }
 
 // Validate validates this v1 operation
@@ -153,11 +183,19 @@ func (m *V1Operation) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEnvironment(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEvents(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateHooks(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInit(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -272,6 +310,29 @@ func (m *V1Operation) validateComponent(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Operation) validateEnvironment(formats strfmt.Registry) error {
+	if swag.IsZero(m.Environment) { // not required
+		return nil
+	}
+
+	if m.Environment != nil {
+		if err := m.Environment.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("environment")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("environment")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V1Operation) validateEvents(formats strfmt.Registry) error {
 	if swag.IsZero(m.Events) { // not required
 		return nil
@@ -321,6 +382,36 @@ func (m *V1Operation) validateHooks(formats strfmt.Registry) error {
 				ce := new(errors.CompositeError)
 				if stderrors.As(err, &ce) {
 					return ce.ValidateName("hooks" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Operation) validateInit(formats strfmt.Registry) error {
+	if swag.IsZero(m.Init) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Init); i++ {
+		if swag.IsZero(m.Init[i]) { // not required
+			continue
+		}
+
+		if m.Init[i] != nil {
+			if err := m.Init[i].Validate(formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("init" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("init" + "." + strconv.Itoa(i))
 				}
 
 				return err
@@ -583,11 +674,19 @@ func (m *V1Operation) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateEnvironment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEvents(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateHooks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInit(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -708,6 +807,31 @@ func (m *V1Operation) contextValidateComponent(ctx context.Context, formats strf
 	return nil
 }
 
+func (m *V1Operation) contextValidateEnvironment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Environment != nil {
+
+		if swag.IsZero(m.Environment) { // not required
+			return nil
+		}
+
+		if err := m.Environment.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("environment")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("environment")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V1Operation) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
 
 	for i := 0; i < len(m.Events); i++ {
@@ -755,6 +879,35 @@ func (m *V1Operation) contextValidateHooks(ctx context.Context, formats strfmt.R
 				ce := new(errors.CompositeError)
 				if stderrors.As(err, &ce) {
 					return ce.ValidateName("hooks" + "." + strconv.Itoa(i))
+				}
+
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *V1Operation) contextValidateInit(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Init); i++ {
+
+		if m.Init[i] != nil {
+
+			if swag.IsZero(m.Init[i]) { // not required
+				return nil
+			}
+
+			if err := m.Init[i].ContextValidate(ctx, formats); err != nil {
+				ve := new(errors.Validation)
+				if stderrors.As(err, &ve) {
+					return ve.ValidateName("init" + "." + strconv.Itoa(i))
+				}
+				ce := new(errors.CompositeError)
+				if stderrors.As(err, &ce) {
+					return ce.ValidateName("init" + "." + strconv.Itoa(i))
 				}
 
 				return err

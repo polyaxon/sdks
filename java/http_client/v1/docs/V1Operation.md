@@ -45,6 +45,16 @@
 |**urlRef** | **String** |  |  [optional] |
 |**component** | [**V1Component**](V1Component.md) |  |  [optional] |
 |**mount** | **List&lt;Object&gt;** |  |  [optional] |
+|**container** | **Object** |  |  [optional] |
+|**cmd** | **Object** |  |  [optional] |
+|**env** | **Map&lt;String, String&gt;** |  |  [optional] |
+|**resources** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**ports** | **List&lt;Integer&gt;** |  |  [optional] |
+|**environment** | [**V1Environment**](V1Environment.md) |  |  [optional] |
+|**init** | [**List&lt;V1Init&gt;**](V1Init.md) |  |  [optional] |
+|**connections** | **List&lt;String&gt;** |  |  [optional] |
+|**sidecars** | **List&lt;Object&gt;** |  |  [optional] |
+|**volumes** | **List&lt;Object&gt;** |  |  [optional] |
 
 
 

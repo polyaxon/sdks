@@ -5082,6 +5082,20 @@
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this component"
         },
+        "cmd": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "title": "Shortcut for the main container's shell command: a string or a list of lines"
+        },
         "component": {
           "$ref": "#/definitions/v1Component",
           "title": "Inline base or the saved definition of a reference"
@@ -5089,6 +5103,17 @@
         "conditions": {
           "title": "An optional template containing conditions to check before starting the run",
           "type": "string"
+        },
+        "connections": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Shortcut for run.connections",
+          "type": "array"
+        },
+        "container": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.Container",
+          "title": "Shortcut for run.container"
         },
         "cost": {
           "format": "float",
@@ -5109,6 +5134,17 @@
           "title": "Optional component description",
           "type": "string"
         },
+        "env": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Shortcut for the main container's env: names to string values",
+          "type": "object"
+        },
+        "environment": {
+          "$ref": "#/definitions/v1Environment",
+          "title": "Shortcut for run.environment"
+        },
         "events": {
           "items": {
             "$ref": "#/definitions/v1EventTrigger"
@@ -5125,6 +5161,13 @@
         },
         "hubRef": {
           "type": "string"
+        },
+        "init": {
+          "items": {
+            "$ref": "#/definitions/v1Init"
+          },
+          "title": "Shortcut for run.init",
+          "type": "array"
         },
         "inputs": {
           "items": {
@@ -5181,7 +5224,14 @@
         },
         "mount": {
           "items": {
-            "type": "object"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
           },
           "title": "Local upload paths: strings or objects with from/to fields",
           "type": "array"
@@ -5220,6 +5270,14 @@
           "$ref": "#/definitions/v1Plugins",
           "title": "Optional plugins to enable"
         },
+        "ports": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "title": "Shortcut for run.ports, a service when no runtime is defined",
+          "type": "array"
+        },
         "presets": {
           "items": {
             "type": "string"
@@ -5230,6 +5288,20 @@
         "queue": {
           "title": "Optional queue to use for running this component",
           "type": "string"
+        },
+        "resources": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Shortcut for the main container's resources: a value or a request..limit range per resource",
+          "type": "object"
         },
         "run": {
           "oneOf": [
@@ -5306,6 +5378,13 @@
           "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)",
           "type": "object"
         },
+        "sidecars": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+          },
+          "title": "Shortcut for run.sidecars",
+          "type": "array"
+        },
         "skipOnUpstreamSkip": {
           "title": "Optional flag to skip this run if upstream was skipped",
           "type": "boolean"
@@ -5341,6 +5420,13 @@
           "format": "float",
           "title": "Spec version",
           "type": "number"
+        },
+        "volumes": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+          },
+          "title": "Shortcut for run.volumes",
+          "type": "array"
         }
       },
       "title": "Component specification",
@@ -8908,6 +8994,20 @@
           "$ref": "#/definitions/v1Cache",
           "title": "Optional flag to disable cache validation and force run this operation"
         },
+        "cmd": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          ],
+          "title": "Shortcut for the main container's shell command: a string or a list of lines"
+        },
         "component": {
           "$ref": "#/definitions/v1Component",
           "title": "Inline base or the saved definition of a reference"
@@ -8915,6 +9015,17 @@
         "conditions": {
           "title": "An optional template containing conditions to check before starting the run",
           "type": "string"
+        },
+        "connections": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Shortcut for run.connections",
+          "type": "array"
+        },
+        "container": {
+          "$ref": "#/definitions/io.k8s.api.core.v1.Container",
+          "title": "Shortcut for run.container"
         },
         "cost": {
           "format": "float",
@@ -8935,6 +9046,17 @@
           "title": "Optional component description override",
           "type": "string"
         },
+        "env": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Shortcut for the main container's env: names to string values",
+          "type": "object"
+        },
+        "environment": {
+          "$ref": "#/definitions/v1Environment",
+          "title": "Shortcut for run.environment"
+        },
         "events": {
           "items": {
             "$ref": "#/definitions/v1EventTrigger"
@@ -8951,6 +9073,13 @@
         },
         "hubRef": {
           "type": "string"
+        },
+        "init": {
+          "items": {
+            "$ref": "#/definitions/v1Init"
+          },
+          "title": "Shortcut for run.init",
+          "type": "array"
         },
         "inputs": {
           "items": {
@@ -9007,7 +9136,14 @@
         },
         "mount": {
           "items": {
-            "type": "object"
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
           },
           "title": "Local upload paths: strings or objects with from/to fields",
           "type": "array"
@@ -9046,6 +9182,14 @@
           "$ref": "#/definitions/v1Plugins",
           "title": "Optional plugins to enable"
         },
+        "ports": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "title": "Shortcut for run.ports, a service when no runtime is defined",
+          "type": "array"
+        },
         "presets": {
           "items": {
             "type": "string"
@@ -9056,6 +9200,20 @@
         "queue": {
           "title": "Optional queue to use for running this operation",
           "type": "string"
+        },
+        "resources": {
+          "additionalProperties": {
+            "oneOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "title": "Shortcut for the main container's resources: a value or a request..limit range per resource",
+          "type": "object"
         },
         "run": {
           "oneOf": [
@@ -9132,6 +9290,13 @@
           "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)",
           "type": "object"
         },
+        "sidecars": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Container"
+          },
+          "title": "Shortcut for run.sidecars",
+          "type": "array"
+        },
         "skipOnUpstreamSkip": {
           "title": "Optional flag to skip this run if upstream was skipped",
           "type": "boolean"
@@ -9167,6 +9332,13 @@
           "format": "float",
           "title": "Spec version",
           "type": "number"
+        },
+        "volumes": {
+          "items": {
+            "$ref": "#/definitions/io.k8s.api.core.v1.Volume"
+          },
+          "title": "Shortcut for run.volumes",
+          "type": "array"
         }
       },
       "title": "Operation specification",

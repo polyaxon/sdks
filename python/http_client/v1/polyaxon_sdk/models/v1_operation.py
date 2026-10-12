@@ -21,12 +21,14 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictStr, conlist
+from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, conlist
 from polyaxon_sdk.models.v1_build import V1Build
 from polyaxon_sdk.models.v1_cache import V1Cache
 from polyaxon_sdk.models.v1_component import V1Component
+from polyaxon_sdk.models.v1_environment import V1Environment
 from polyaxon_sdk.models.v1_event_trigger import V1EventTrigger
 from polyaxon_sdk.models.v1_hook import V1Hook
+from polyaxon_sdk.models.v1_init import V1Init
 from polyaxon_sdk.models.v1_io import V1IO
 from polyaxon_sdk.models.v1_join import V1Join
 from polyaxon_sdk.models.v1_param import V1Param
@@ -77,8 +79,18 @@ class V1Operation(BaseModel):
     dag_ref: Optional[StrictStr] = Field(None, alias="dagRef")
     url_ref: Optional[StrictStr] = Field(None, alias="urlRef")
     component: Optional[V1Component] = None
-    mount: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "inputs", "outputs", "matrix", "joins", "params", "strictParams", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "run", "pathRef", "hubRef", "dagRef", "urlRef", "component", "mount"]
+    mount: Optional[conlist(Any)] = None
+    container: Optional[Dict[str, Any]] = None
+    cmd: Optional[Any] = None
+    env: Optional[Dict[str, StrictStr]] = None
+    resources: Optional[Dict[str, Any]] = None
+    ports: Optional[conlist(StrictInt)] = None
+    environment: Optional[V1Environment] = None
+    init: Optional[conlist(V1Init)] = None
+    connections: Optional[conlist(StrictStr)] = None
+    sidecars: Optional[conlist(Dict[str, Any])] = None
+    volumes: Optional[conlist(Dict[str, Any])] = None
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "inputs", "outputs", "matrix", "joins", "params", "strictParams", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "run", "pathRef", "hubRef", "dagRef", "urlRef", "component", "mount", "container", "cmd", "env", "resources", "ports", "environment", "init", "connections", "sidecars", "volumes"]
 
     class Config:
         allow_population_by_field_name = True
@@ -163,10 +175,25 @@ class V1Operation(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of component
         if self.component:
             _dict['component'] = self.component.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of environment
+        if self.environment:
+            _dict['environment'] = self.environment.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in init (list)
+        _items = []
+        if self.init:
+            for _item in self.init:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['init'] = _items
         # set to None if strict_params (nullable) is None
         # and __fields_set__ contains the field
         if self.strict_params is None and "strict_params" in self.__fields_set__:
             _dict['strictParams'] = None
+
+        # set to None if cmd (nullable) is None
+        # and __fields_set__ contains the field
+        if self.cmd is None and "cmd" in self.__fields_set__:
+            _dict['cmd'] = None
 
         return _dict
 
@@ -217,7 +244,17 @@ class V1Operation(BaseModel):
             "dag_ref": obj.get("dagRef"),
             "url_ref": obj.get("urlRef"),
             "component": V1Component.from_dict(obj.get("component")) if obj.get("component") is not None else None,
-            "mount": obj.get("mount")
+            "mount": obj.get("mount"),
+            "container": obj.get("container"),
+            "cmd": obj.get("cmd"),
+            "env": obj.get("env"),
+            "resources": obj.get("resources"),
+            "ports": obj.get("ports"),
+            "environment": V1Environment.from_dict(obj.get("environment")) if obj.get("environment") is not None else None,
+            "init": [V1Init.from_dict(_item) for _item in obj.get("init")] if obj.get("init") is not None else None,
+            "connections": obj.get("connections"),
+            "sidecars": obj.get("sidecars"),
+            "volumes": obj.get("volumes")
         })
         return _obj
 

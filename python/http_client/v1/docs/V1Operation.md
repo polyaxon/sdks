@@ -42,6 +42,16 @@ Name | Type | Description | Notes
 **url_ref** | **str** |  | [optional] 
 **component** | [**V1Component**](V1Component.md) |  | [optional] 
 **mount** | **List[object]** |  | [optional] 
+**container** | **object** |  | [optional] 
+**cmd** | **object** |  | [optional] 
+**env** | **Dict[str, str]** |  | [optional] 
+**resources** | **Dict[str, object]** |  | [optional] 
+**ports** | **List[int]** |  | [optional] 
+**environment** | [**V1Environment**](V1Environment.md) |  | [optional] 
+**init** | [**List[V1Init]**](V1Init.md) |  | [optional] 
+**connections** | **List[str]** |  | [optional] 
+**sidecars** | **List[object]** |  | [optional] 
+**volumes** | **List[object]** |  | [optional] 
 
 ## Example
 

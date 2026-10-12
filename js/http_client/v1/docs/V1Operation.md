@@ -42,5 +42,15 @@ Name | Type | Description | Notes
 **urlRef** | **String** |  | [optional] 
 **component** | [**V1Component**](V1Component.md) |  | [optional] 
 **mount** | **[Object]** |  | [optional] 
+**container** | **Object** |  | [optional] 
+**cmd** | **Object** |  | [optional] 
+**env** | **{String: String}** |  | [optional] 
+**resources** | **{String: Object}** |  | [optional] 
+**ports** | **[Number]** |  | [optional] 
+**environment** | [**V1Environment**](V1Environment.md) |  | [optional] 
+**init** | [**[V1Init]**](V1Init.md) |  | [optional] 
+**connections** | **[String]** |  | [optional] 
+**sidecars** | **[Object]** |  | [optional] 
+**volumes** | **[Object]** |  | [optional] 
 
 

@@ -282,6 +282,66 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property container (base name: "container")', function() {
+      // uncomment below and update the code to test the property container
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property cmd (base name: "cmd")', function() {
+      // uncomment below and update the code to test the property cmd
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property env (base name: "env")', function() {
+      // uncomment below and update the code to test the property env
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property resources (base name: "resources")', function() {
+      // uncomment below and update the code to test the property resources
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property ports (base name: "ports")', function() {
+      // uncomment below and update the code to test the property ports
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property environment (base name: "environment")', function() {
+      // uncomment below and update the code to test the property environment
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property init (base name: "init")', function() {
+      // uncomment below and update the code to test the property init
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property connections (base name: "connections")', function() {
+      // uncomment below and update the code to test the property connections
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property sidecars (base name: "sidecars")', function() {
+      // uncomment below and update the code to test the property sidecars
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property volumes (base name: "volumes")', function() {
+      // uncomment below and update the code to test the property volumes
+      //var instance = new PolyaxonSdk.V1Component();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

@@ -26,9 +26,11 @@ import java.util.Map;
 import org.openapitools.client.model.V1Build;
 import org.openapitools.client.model.V1Cache;
 import org.openapitools.client.model.V1Component;
+import org.openapitools.client.model.V1Environment;
 import org.openapitools.client.model.V1EventTrigger;
 import org.openapitools.client.model.V1Hook;
 import org.openapitools.client.model.V1IO;
+import org.openapitools.client.model.V1Init;
 import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
@@ -357,6 +359,86 @@ public class V1OperationTest {
     @Test
     public void mountTest() {
         // TODO: test mount
+    }
+
+    /**
+     * Test the property 'container'
+     */
+    @Test
+    public void containerTest() {
+        // TODO: test container
+    }
+
+    /**
+     * Test the property 'cmd'
+     */
+    @Test
+    public void cmdTest() {
+        // TODO: test cmd
+    }
+
+    /**
+     * Test the property 'env'
+     */
+    @Test
+    public void envTest() {
+        // TODO: test env
+    }
+
+    /**
+     * Test the property 'resources'
+     */
+    @Test
+    public void resourcesTest() {
+        // TODO: test resources
+    }
+
+    /**
+     * Test the property 'ports'
+     */
+    @Test
+    public void portsTest() {
+        // TODO: test ports
+    }
+
+    /**
+     * Test the property 'environment'
+     */
+    @Test
+    public void environmentTest() {
+        // TODO: test environment
+    }
+
+    /**
+     * Test the property 'init'
+     */
+    @Test
+    public void initTest() {
+        // TODO: test init
+    }
+
+    /**
+     * Test the property 'connections'
+     */
+    @Test
+    public void connectionsTest() {
+        // TODO: test connections
+    }
+
+    /**
+     * Test the property 'sidecars'
+     */
+    @Test
+    public void sidecarsTest() {
+        // TODO: test sidecars
+    }
+
+    /**
+     * Test the property 'volumes'
+     */
+    @Test
+    public void volumesTest() {
+        // TODO: test volumes
     }
 
 }

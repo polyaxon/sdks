@@ -15,9 +15,11 @@ import ApiClient from '../ApiClient';
 import V1Build from './V1Build';
 import V1Cache from './V1Cache';
 import V1Component from './V1Component';
+import V1Environment from './V1Environment';
 import V1EventTrigger from './V1EventTrigger';
 import V1Hook from './V1Hook';
 import V1IO from './V1IO';
+import V1Init from './V1Init';
 import V1Join from './V1Join';
 import V1Param from './V1Param';
 import V1PatchStrategy from './V1PatchStrategy';
@@ -174,6 +176,36 @@ class V1Operation {
             if (data.hasOwnProperty('mount')) {
                 obj['mount'] = ApiClient.convertToType(data['mount'], [Object]);
             }
+            if (data.hasOwnProperty('container')) {
+                obj['container'] = ApiClient.convertToType(data['container'], Object);
+            }
+            if (data.hasOwnProperty('cmd')) {
+                obj['cmd'] = ApiClient.convertToType(data['cmd'], Object);
+            }
+            if (data.hasOwnProperty('env')) {
+                obj['env'] = ApiClient.convertToType(data['env'], {'String': 'String'});
+            }
+            if (data.hasOwnProperty('resources')) {
+                obj['resources'] = ApiClient.convertToType(data['resources'], {'String': Object});
+            }
+            if (data.hasOwnProperty('ports')) {
+                obj['ports'] = ApiClient.convertToType(data['ports'], ['Number']);
+            }
+            if (data.hasOwnProperty('environment')) {
+                obj['environment'] = V1Environment.constructFromObject(data['environment']);
+            }
+            if (data.hasOwnProperty('init')) {
+                obj['init'] = ApiClient.convertToType(data['init'], [V1Init]);
+            }
+            if (data.hasOwnProperty('connections')) {
+                obj['connections'] = ApiClient.convertToType(data['connections'], ['String']);
+            }
+            if (data.hasOwnProperty('sidecars')) {
+                obj['sidecars'] = ApiClient.convertToType(data['sidecars'], [Object]);
+            }
+            if (data.hasOwnProperty('volumes')) {
+                obj['volumes'] = ApiClient.convertToType(data['volumes'], [Object]);
+            }
         }
         return obj;
     }
@@ -303,6 +335,36 @@ class V1Operation {
         // ensure the json data is an array
         if (!Array.isArray(data['mount'])) {
             throw new Error("Expected the field `mount` to be an array in the JSON data but got " + data['mount']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['ports'])) {
+            throw new Error("Expected the field `ports` to be an array in the JSON data but got " + data['ports']);
+        }
+        // validate the optional field `environment`
+        if (data['environment']) { // data not null
+          V1Environment.validateJSON(data['environment']);
+        }
+        if (data['init']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['init'])) {
+                throw new Error("Expected the field `init` to be an array in the JSON data but got " + data['init']);
+            }
+            // validate the optional field `init` (array)
+            for (const item of data['init']) {
+                V1Init.validateJSON(item);
+            };
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['connections'])) {
+            throw new Error("Expected the field `connections` to be an array in the JSON data but got " + data['connections']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['sidecars'])) {
+            throw new Error("Expected the field `sidecars` to be an array in the JSON data but got " + data['sidecars']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['volumes'])) {
+            throw new Error("Expected the field `volumes` to be an array in the JSON data but got " + data['volumes']);
         }
 
         return true;
@@ -502,6 +564,56 @@ V1Operation.prototype['component'] = undefined;
  * @member {Array.<Object>} mount
  */
 V1Operation.prototype['mount'] = undefined;
+
+/**
+ * @member {Object} container
+ */
+V1Operation.prototype['container'] = undefined;
+
+/**
+ * @member {Object} cmd
+ */
+V1Operation.prototype['cmd'] = undefined;
+
+/**
+ * @member {Object.<String, String>} env
+ */
+V1Operation.prototype['env'] = undefined;
+
+/**
+ * @member {Object.<String, Object>} resources
+ */
+V1Operation.prototype['resources'] = undefined;
+
+/**
+ * @member {Array.<Number>} ports
+ */
+V1Operation.prototype['ports'] = undefined;
+
+/**
+ * @member {module:model/V1Environment} environment
+ */
+V1Operation.prototype['environment'] = undefined;
+
+/**
+ * @member {Array.<module:model/V1Init>} init
+ */
+V1Operation.prototype['init'] = undefined;
+
+/**
+ * @member {Array.<String>} connections
+ */
+V1Operation.prototype['connections'] = undefined;
+
+/**
+ * @member {Array.<Object>} sidecars
+ */
+V1Operation.prototype['sidecars'] = undefined;
+
+/**
+ * @member {Array.<Object>} volumes
+ */
+V1Operation.prototype['volumes'] = undefined;
 
 
 
