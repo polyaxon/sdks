@@ -33,7 +33,7 @@ HTTP_CLIENT := http_client
 # Move -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway\@v1.16.0/googleapis/ to -I/sdks/protos/google/api/
 # See https://github.com/grpc-ecosystem/grpc-gateway/issues/1935#issuecomment-803572170
 # Flags
-INCLUDE_FLAGS := -I/usr/local/include -I. -I/gopath/pkg/mod -I/sdks/protos/google/api -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2\@v2.30.0
+INCLUDE_FLAGS := -I/usr/local/include -I. -I/gopath/pkg/mod -I/sdks/protos/google/api -I/gopath/pkg/mod/github.com/grpc-ecosystem/grpc-gateway/v2\@v2.31.0
 API_FLAGS := --plugin=protoc-gen-openapiv2=/gopath/bin/protoc-gen-openapiv2 --swagger_out=simple_operation_ids=true,logtostderr=true,allow_delete_body=true:swagger
 PROTO_PATH := --proto_path=protos/
 
@@ -182,7 +182,8 @@ swagger-clean:
 swagger-to-openapi-v3:
 	python hack/patch_sandbox_swagger.py
 	java -jar $(PATH_SWAGGER_CODEGEN) generate -i swagger/$(VERSION)/polyaxon_sdk.swagger.json -l openapi -o swagger/temp
-	mv swagger/temp/openapi.json swagger/$(VERSION)/polyaxon_sdk.openapi.json
+	jq '(.components.schemas.v1Component, .components.schemas.v1Operation).properties |= (.mount.items = {} | .cmd |= del(.type) | .resources.additionalProperties = {})' \
+		swagger/temp/openapi.json > swagger/$(VERSION)/polyaxon_sdk.openapi.json
 	rm -rf swagger/temp
 
 swagger-generate: swagger-to-openapi-v3 \
