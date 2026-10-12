@@ -10,6 +10,9 @@ cp -r swagger/jsonschema/* swagger/v1/
 # Concat generated and upload/default files
 jq -s '
 	reduce .[] as $item ({}; . * $item) |
+	(.definitions.v1Component, .definitions.v1Operation).properties.mount.items = {} |
+	(.definitions.v1Component, .definitions.v1Operation).properties.cmd |= del(.type) |
+	(.definitions.v1Component, .definitions.v1Operation).properties.resources.additionalProperties = {} |
 	.info.title = "Polyaxon SDKs and REST API specification." |
 	.info.description = "   " |
 	.info.version = "2.17.0" |
