@@ -7,6 +7,9 @@ import "google/protobuf/struct.proto";
 import "v1/flow/build.proto";
 import "v1/flow/cache.proto";
 import "v1/flow/component.proto";
+import "v1/flow/environment.proto";
+import "v1/flow/init.proto";
+import "v1/flow/k8s.proto";
 import "v1/flow/events.proto";
 import "v1/flow/joins.proto";
 import "v1/flow/io.proto";
@@ -129,4 +132,34 @@ message Operation {
 
     // Local upload paths: strings or objects with from/to fields
     repeated google.protobuf.Value mount = 38;
+
+    // Shortcut for run.container
+    Container container = 39;
+
+    // Shortcut for the main container's shell command: a string or a list of lines
+    google.protobuf.Value cmd = 40;
+
+    // Shortcut for the main container's env: names to string values
+    map<string, string> env = 41;
+
+    // Shortcut for the main container's resources: a value or a request..limit range per resource
+    map<string, google.protobuf.Value> resources = 42;
+
+    // Shortcut for run.ports, a service when no runtime is defined
+    repeated int32 ports = 43;
+
+    // Shortcut for run.environment
+    Environment environment = 44;
+
+    // Shortcut for run.init
+    repeated Init init = 45;
+
+    // Shortcut for run.connections
+    repeated string connections = 46;
+
+    // Shortcut for run.sidecars
+    repeated Container sidecars = 47;
+
+    // Shortcut for run.volumes
+    repeated Volume volumes = 48;
 }
