@@ -22900,13 +22900,9 @@
           "additionalProperties": {},
           "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
         },
-        "ports": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": "Shortcut for run.ports, a service when no runtime is defined"
+        "service": {
+          "$ref": "#/definitions/v1ServiceShortcut",
+          "title": "Shortcut for the service-only run fields, a service when no runtime is defined"
         },
         "environment": {
           "$ref": "#/definitions/v1Environment",
@@ -26643,13 +26639,9 @@
           "additionalProperties": {},
           "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
         },
-        "ports": {
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": "Shortcut for run.ports, a service when no runtime is defined"
+        "service": {
+          "$ref": "#/definitions/v1ServiceShortcut",
+          "title": "Shortcut for the service-only run fields, a service when no runtime is defined"
         },
         "environment": {
           "$ref": "#/definitions/v1Environment",
@@ -29072,6 +29064,33 @@
         }
       },
       "title": "ServiceAccount specification"
+    },
+    "v1ServiceShortcut": {
+      "type": "object",
+      "properties": {
+        "ports": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": "Optional ports to expose"
+        },
+        "rewritePath": {
+          "type": "boolean",
+          "description": "Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).\nDefault is false, the service should handle a base url."
+        },
+        "isExternal": {
+          "type": "boolean",
+          "description": "Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth\nDefault is false, the service will be controlled by Polyaxon's auth."
+        },
+        "replicas": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Optional value to provision more than a single replica for the service"
+        }
+      },
+      "title": "Service-only fields of the root service shortcut"
     },
     "v1SettingsCatalog": {
       "type": "object",

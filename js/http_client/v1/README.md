@@ -672,6 +672,7 @@ Class | Method | HTTP request | Description
  - [PolyaxonSdk.V1SectionSpec](docs/V1SectionSpec.md)
  - [PolyaxonSdk.V1Service](docs/V1Service.md)
  - [PolyaxonSdk.V1ServiceAccount](docs/V1ServiceAccount.md)
+ - [PolyaxonSdk.V1ServiceShortcut](docs/V1ServiceShortcut.md)
  - [PolyaxonSdk.V1SettingsCatalog](docs/V1SettingsCatalog.md)
  - [PolyaxonSdk.V1SignalRequest](docs/V1SignalRequest.md)
  - [PolyaxonSdk.V1Stage](docs/V1Stage.md)

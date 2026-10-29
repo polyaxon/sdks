@@ -45,3 +45,20 @@ message Service {
     // Optional value to provision more than a single replica for the service
     int32 replicas = 11;
 }
+
+// Service-only fields of the root service shortcut
+message ServiceShortcut {
+    // Optional ports to expose
+    repeated int32 ports = 1;
+
+    // Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
+    // Default is false, the service should handle a base url.
+    bool rewritePath = 2;
+
+    // Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+    // Default is false, the service will be controlled by Polyaxon's auth.
+    bool isExternal = 3;
+
+    // Optional value to provision more than a single replica for the service
+    int32 replicas = 4;
+}

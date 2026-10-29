@@ -25501,9 +25501,6 @@ components:
         description: description
         run: "{}"
         matrix: "{}"
-        ports:
-        - 2
-        - 2
         isApproved: true
         hooks:
         - presets:
@@ -25790,6 +25787,13 @@ components:
               toInit: true
               value: "{}"
           queue: queue
+        service:
+          isExternal: true
+          replicas: 1
+          ports:
+          - 2
+          - 2
+          rewritePath: true
         name: name
         namespace: namespace
         patchStrategy: null
@@ -25951,12 +25955,8 @@ components:
           title: "Shortcut for the main container's resources: a value or a request..limit\
             \ range per resource"
           type: object
-        ports:
-          items:
-            format: int32
-            type: integer
-          title: "Shortcut for run.ports, a service when no runtime is defined"
-          type: array
+        service:
+          $ref: '#/components/schemas/v1ServiceShortcut'
         environment:
           $ref: '#/components/schemas/v1Environment'
         init:
@@ -26541,9 +26541,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 2
-          - 2
           isApproved: true
           hooks:
           - presets:
@@ -26830,6 +26827,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -27098,9 +27102,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 2
-          - 2
           isApproved: true
           hooks:
           - presets:
@@ -27387,6 +27388,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -27684,9 +27692,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 1
-          - 1
           isApproved: true
           hooks:
           - presets:
@@ -28173,9 +28178,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 2
-            - 2
             isApproved: true
             hooks:
             - presets:
@@ -28462,6 +28464,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -28530,6 +28539,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -28798,9 +28814,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 1
-          - 1
           isApproved: true
           hooks:
           - presets:
@@ -29287,9 +29300,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 2
-            - 2
             isApproved: true
             hooks:
             - presets:
@@ -29576,6 +29586,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -29644,6 +29661,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -36390,9 +36414,6 @@ components:
         description: description
         run: "{}"
         matrix: "{}"
-        ports:
-        - 1
-        - 1
         isApproved: true
         hooks:
         - presets:
@@ -36879,9 +36900,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 2
-          - 2
           isApproved: true
           hooks:
           - presets:
@@ -37168,6 +37186,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -37236,6 +37261,13 @@ components:
               toInit: true
               value: "{}"
           queue: queue
+        service:
+          isExternal: true
+          replicas: 1
+          ports:
+          - 2
+          - 2
+          rewritePath: true
         name: name
         namespace: namespace
         patchStrategy: null
@@ -37396,12 +37428,8 @@ components:
           title: "Shortcut for the main container's resources: a value or a request..limit\
             \ range per resource"
           type: object
-        ports:
-          items:
-            format: int32
-            type: integer
-          title: "Shortcut for run.ports, a service when no runtime is defined"
-          type: array
+        service:
+          $ref: '#/components/schemas/v1ServiceShortcut'
         environment:
           $ref: '#/components/schemas/v1Environment'
         init:
@@ -42144,9 +42172,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 2
-            - 2
             isApproved: true
             hooks:
             - presets:
@@ -42433,6 +42458,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -42701,9 +42733,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 2
-            - 2
             isApproved: true
             hooks:
             - presets:
@@ -42990,6 +43019,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -43287,9 +43323,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 1
-            - 1
             isApproved: true
             hooks:
             - presets:
@@ -43776,9 +43809,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 2
-              - 2
               isApproved: true
               hooks:
               - presets:
@@ -44065,6 +44095,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -44133,6 +44170,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -44401,9 +44445,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 1
-            - 1
             isApproved: true
             hooks:
             - presets:
@@ -44890,9 +44931,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 2
-              - 2
               isApproved: true
               hooks:
               - presets:
@@ -45179,6 +45217,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -45247,6 +45292,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -48225,9 +48277,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 2
-              - 2
               isApproved: true
               hooks:
               - presets:
@@ -48514,6 +48563,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -48782,9 +48838,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 2
-              - 2
               isApproved: true
               hooks:
               - presets:
@@ -49071,6 +49124,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -49368,9 +49428,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 1
-              - 1
               isApproved: true
               hooks:
               - presets:
@@ -49857,9 +49914,6 @@ components:
                 description: description
                 run: "{}"
                 matrix: "{}"
-                ports:
-                - 2
-                - 2
                 isApproved: true
                 hooks:
                 - presets:
@@ -50146,6 +50200,13 @@ components:
                       toInit: true
                       value: "{}"
                   queue: queue
+                service:
+                  isExternal: true
+                  replicas: 1
+                  ports:
+                  - 2
+                  - 2
+                  rewritePath: true
                 name: name
                 namespace: namespace
                 patchStrategy: null
@@ -50214,6 +50275,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -50482,9 +50550,6 @@ components:
               description: description
               run: "{}"
               matrix: "{}"
-              ports:
-              - 1
-              - 1
               isApproved: true
               hooks:
               - presets:
@@ -50971,9 +51036,6 @@ components:
                 description: description
                 run: "{}"
                 matrix: "{}"
-                ports:
-                - 2
-                - 2
                 isApproved: true
                 hooks:
                 - presets:
@@ -51260,6 +51322,13 @@ components:
                       toInit: true
                       value: "{}"
                   queue: queue
+                service:
+                  isExternal: true
+                  replicas: 1
+                  ports:
+                  - 2
+                  - 2
+                  rewritePath: true
                 name: name
                 namespace: namespace
                 patchStrategy: null
@@ -51328,6 +51397,13 @@ components:
                     toInit: true
                     value: "{}"
                 queue: queue
+              service:
+                isExternal: true
+                replicas: 1
+                ports:
+                - 2
+                - 2
+                rewritePath: true
               name: name
               namespace: namespace
               patchStrategy: null
@@ -53375,9 +53451,6 @@ components:
           description: description
           run: "{}"
           matrix: "{}"
-          ports:
-          - 1
-          - 1
           isApproved: true
           hooks:
           - presets:
@@ -53864,9 +53937,6 @@ components:
             description: description
             run: "{}"
             matrix: "{}"
-            ports:
-            - 2
-            - 2
             isApproved: true
             hooks:
             - presets:
@@ -54153,6 +54223,13 @@ components:
                   toInit: true
                   value: "{}"
               queue: queue
+            service:
+              isExternal: true
+              replicas: 1
+              ports:
+              - 2
+              - 2
+              rewritePath: true
             name: name
             namespace: namespace
             patchStrategy: null
@@ -54221,6 +54298,13 @@ components:
                 toInit: true
                 value: "{}"
             queue: queue
+          service:
+            isExternal: true
+            replicas: 1
+            ports:
+            - 2
+            - 2
+            rewritePath: true
           name: name
           namespace: namespace
           patchStrategy: null
@@ -55301,6 +55385,37 @@ components:
           title: Optional services allowed for this service account
           type: array
       title: ServiceAccount specification
+      type: object
+    v1ServiceShortcut:
+      example:
+        isExternal: true
+        replicas: 1
+        ports:
+        - 2
+        - 2
+        rewritePath: true
+      properties:
+        ports:
+          items:
+            format: int32
+            type: integer
+          title: Optional ports to expose
+          type: array
+        rewritePath:
+          description: |-
+            Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).
+            Default is false, the service should handle a base url.
+          type: boolean
+        isExternal:
+          description: |-
+            Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth
+            Default is false, the service will be controlled by Polyaxon's auth.
+          type: boolean
+        replicas:
+          format: int32
+          title: Optional value to provision more than a single replica for the service
+          type: integer
+      title: Service-only fields of the root service shortcut
       type: object
     v1SettingsCatalog:
       example:

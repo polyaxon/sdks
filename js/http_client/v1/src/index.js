@@ -235,6 +235,7 @@ import V1SearchSpec from './model/V1SearchSpec';
 import V1SectionSpec from './model/V1SectionSpec';
 import V1Service from './model/V1Service';
 import V1ServiceAccount from './model/V1ServiceAccount';
+import V1ServiceShortcut from './model/V1ServiceShortcut';
 import V1SettingsCatalog from './model/V1SettingsCatalog';
 import V1SignalRequest from './model/V1SignalRequest';
 import V1Stage from './model/V1Stage';
@@ -1660,6 +1661,12 @@ export {
      * @property {module:model/V1ServiceAccount}
      */
     V1ServiceAccount,
+
+    /**
+     * The V1ServiceShortcut model constructor.
+     * @property {module:model/V1ServiceShortcut}
+     */
+    V1ServiceShortcut,
 
     /**
      * The V1SettingsCatalog model constructor.

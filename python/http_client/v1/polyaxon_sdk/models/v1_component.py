@@ -21,7 +21,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictInt, StrictStr, conlist
+from pydantic import BaseModel, Field, StrictBool, StrictFloat, StrictStr, conlist
 from polyaxon_sdk.models.v1_build import V1Build
 from polyaxon_sdk.models.v1_cache import V1Cache
 from polyaxon_sdk.models.v1_environment import V1Environment
@@ -33,6 +33,7 @@ from polyaxon_sdk.models.v1_join import V1Join
 from polyaxon_sdk.models.v1_param import V1Param
 from polyaxon_sdk.models.v1_patch_strategy import V1PatchStrategy
 from polyaxon_sdk.models.v1_plugins import V1Plugins
+from polyaxon_sdk.models.v1_service_shortcut import V1ServiceShortcut
 from polyaxon_sdk.models.v1_template import V1Template
 from polyaxon_sdk.models.v1_termination import V1Termination
 from polyaxon_sdk.models.v1_trigger_policy import V1TriggerPolicy
@@ -83,13 +84,13 @@ class V1Component(BaseModel):
     cmd: Optional[Any] = None
     env: Optional[Dict[str, StrictStr]] = None
     resources: Optional[Dict[str, Any]] = None
-    ports: Optional[conlist(StrictInt)] = None
+    service: Optional[V1ServiceShortcut] = None
     environment: Optional[V1Environment] = None
     init: Optional[conlist(V1Init)] = None
     connections: Optional[conlist(StrictStr)] = None
     sidecars: Optional[conlist(Dict[str, Any])] = None
     volumes: Optional[conlist(Dict[str, Any])] = None
-    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "inputs", "outputs", "matrix", "joins", "params", "strictParams", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "run", "pathRef", "hubRef", "dagRef", "urlRef", "component", "mount", "container", "cmd", "env", "resources", "ports", "environment", "init", "connections", "sidecars", "volumes"]
+    __properties = ["version", "kind", "name", "description", "tags", "presets", "queue", "cache", "namespace", "termination", "plugins", "schedule", "events", "hooks", "dependencies", "trigger", "conditions", "skipOnUpstreamSkip", "inputs", "outputs", "matrix", "joins", "params", "strictParams", "runPatch", "patchStrategy", "isPreset", "isApproved", "template", "build", "cost", "run", "pathRef", "hubRef", "dagRef", "urlRef", "component", "mount", "container", "cmd", "env", "resources", "service", "environment", "init", "connections", "sidecars", "volumes"]
 
     class Config:
         allow_population_by_field_name = True
@@ -174,6 +175,9 @@ class V1Component(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of component
         if self.component:
             _dict['component'] = self.component.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of service
+        if self.service:
+            _dict['service'] = self.service.to_dict()
         # override the default output from pydantic by calling `to_dict()` of environment
         if self.environment:
             _dict['environment'] = self.environment.to_dict()
@@ -248,7 +252,7 @@ class V1Component(BaseModel):
             "cmd": obj.get("cmd"),
             "env": obj.get("env"),
             "resources": obj.get("resources"),
-            "ports": obj.get("ports"),
+            "service": V1ServiceShortcut.from_dict(obj.get("service")) if obj.get("service") is not None else None,
             "environment": V1Environment.from_dict(obj.get("environment")) if obj.get("environment") is not None else None,
             "init": [V1Init.from_dict(_item) for _item in obj.get("init")] if obj.get("init") is not None else None,
             "connections": obj.get("connections"),

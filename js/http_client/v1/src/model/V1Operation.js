@@ -24,6 +24,7 @@ import V1Join from './V1Join';
 import V1Param from './V1Param';
 import V1PatchStrategy from './V1PatchStrategy';
 import V1Plugins from './V1Plugins';
+import V1ServiceShortcut from './V1ServiceShortcut';
 import V1Template from './V1Template';
 import V1Termination from './V1Termination';
 import V1TriggerPolicy from './V1TriggerPolicy';
@@ -188,8 +189,8 @@ class V1Operation {
             if (data.hasOwnProperty('resources')) {
                 obj['resources'] = ApiClient.convertToType(data['resources'], {'String': Object});
             }
-            if (data.hasOwnProperty('ports')) {
-                obj['ports'] = ApiClient.convertToType(data['ports'], ['Number']);
+            if (data.hasOwnProperty('service')) {
+                obj['service'] = V1ServiceShortcut.constructFromObject(data['service']);
             }
             if (data.hasOwnProperty('environment')) {
                 obj['environment'] = V1Environment.constructFromObject(data['environment']);
@@ -336,9 +337,9 @@ class V1Operation {
         if (!Array.isArray(data['mount'])) {
             throw new Error("Expected the field `mount` to be an array in the JSON data but got " + data['mount']);
         }
-        // ensure the json data is an array
-        if (!Array.isArray(data['ports'])) {
-            throw new Error("Expected the field `ports` to be an array in the JSON data but got " + data['ports']);
+        // validate the optional field `service`
+        if (data['service']) { // data not null
+          V1ServiceShortcut.validateJSON(data['service']);
         }
         // validate the optional field `environment`
         if (data['environment']) { // data not null
@@ -586,9 +587,9 @@ V1Operation.prototype['env'] = undefined;
 V1Operation.prototype['resources'] = undefined;
 
 /**
- * @member {Array.<Number>} ports
+ * @member {module:model/V1ServiceShortcut} service
  */
-V1Operation.prototype['ports'] = undefined;
+V1Operation.prototype['service'] = undefined;
 
 /**
  * @member {module:model/V1Environment} environment

@@ -5270,14 +5270,6 @@
           "$ref": "#/definitions/v1Plugins",
           "title": "Optional plugins to enable"
         },
-        "ports": {
-          "items": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "title": "Shortcut for run.ports, a service when no runtime is defined",
-          "type": "array"
-        },
         "presets": {
           "items": {
             "type": "string"
@@ -5377,6 +5369,10 @@
           ],
           "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)",
           "type": "object"
+        },
+        "service": {
+          "$ref": "#/definitions/v1ServiceShortcut",
+          "title": "Shortcut for the service-only run fields, a service when no runtime is defined"
         },
         "sidecars": {
           "items": {
@@ -9182,14 +9178,6 @@
           "$ref": "#/definitions/v1Plugins",
           "title": "Optional plugins to enable"
         },
-        "ports": {
-          "items": {
-            "format": "int32",
-            "type": "integer"
-          },
-          "title": "Shortcut for run.ports, a service when no runtime is defined",
-          "type": "array"
-        },
         "presets": {
           "items": {
             "type": "string"
@@ -9289,6 +9277,10 @@
           ],
           "title": "Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)",
           "type": "object"
+        },
+        "service": {
+          "$ref": "#/definitions/v1ServiceShortcut",
+          "title": "Shortcut for the service-only run fields, a service when no runtime is defined"
         },
         "sidecars": {
           "items": {
@@ -11735,6 +11727,33 @@
         }
       },
       "title": "ServiceAccount specification",
+      "type": "object"
+    },
+    "v1ServiceShortcut": {
+      "properties": {
+        "isExternal": {
+          "description": "Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth\nDefault is false, the service will be controlled by Polyaxon's auth.",
+          "type": "boolean"
+        },
+        "ports": {
+          "items": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "title": "Optional ports to expose",
+          "type": "array"
+        },
+        "replicas": {
+          "format": "int32",
+          "title": "Optional value to provision more than a single replica for the service",
+          "type": "integer"
+        },
+        "rewritePath": {
+          "description": "Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).\nDefault is false, the service should handle a base url.",
+          "type": "boolean"
+        }
+      },
+      "title": "Service-only fields of the root service shortcut",
       "type": "object"
     },
     "v1SettingsCatalog": {

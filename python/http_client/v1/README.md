@@ -642,6 +642,7 @@ Class | Method | HTTP request | Description
  - [V1SectionSpec](docs/V1SectionSpec.md)
  - [V1Service](docs/V1Service.md)
  - [V1ServiceAccount](docs/V1ServiceAccount.md)
+ - [V1ServiceShortcut](docs/V1ServiceShortcut.md)
  - [V1SettingsCatalog](docs/V1SettingsCatalog.md)
  - [V1SignalRequest](docs/V1SignalRequest.md)
  - [V1Stage](docs/V1Stage.md)

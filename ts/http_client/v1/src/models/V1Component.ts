@@ -79,6 +79,12 @@ import {
     V1PluginsFromJSONTyped,
     V1PluginsToJSON,
 } from './V1Plugins';
+import type { V1ServiceShortcut } from './V1ServiceShortcut';
+import {
+    V1ServiceShortcutFromJSON,
+    V1ServiceShortcutFromJSONTyped,
+    V1ServiceShortcutToJSON,
+} from './V1ServiceShortcut';
 import type { V1Template } from './V1Template';
 import {
     V1TemplateFromJSON,
@@ -358,10 +364,10 @@ export interface V1Component {
     resources?: { [key: string]: any; };
     /**
      * 
-     * @type {Array<number>}
+     * @type {V1ServiceShortcut}
      * @memberof V1Component
      */
-    ports?: Array<number>;
+    service?: V1ServiceShortcut;
     /**
      * 
      * @type {V1Environment}
@@ -455,7 +461,7 @@ export function V1ComponentFromJSONTyped(json: any, ignoreDiscriminator: boolean
         'cmd': !exists(json, 'cmd') ? undefined : json['cmd'],
         'env': !exists(json, 'env') ? undefined : json['env'],
         'resources': !exists(json, 'resources') ? undefined : json['resources'],
-        'ports': !exists(json, 'ports') ? undefined : json['ports'],
+        'service': !exists(json, 'service') ? undefined : V1ServiceShortcutFromJSON(json['service']),
         'environment': !exists(json, 'environment') ? undefined : V1EnvironmentFromJSON(json['environment']),
         'init': !exists(json, 'init') ? undefined : ((json['init'] as Array<any>).map(V1InitFromJSON)),
         'connections': !exists(json, 'connections') ? undefined : json['connections'],
@@ -515,7 +521,7 @@ export function V1ComponentToJSON(value?: V1Component | null): any {
         'cmd': value.cmd,
         'env': value.env,
         'resources': value.resources,
-        'ports': value.ports,
+        'service': V1ServiceShortcutToJSON(value.service),
         'environment': V1EnvironmentToJSON(value.environment),
         'init': value.init === undefined ? undefined : ((value.init as Array<any>).map(V1InitToJSON)),
         'connections': value.connections,

@@ -36324,13 +36324,8 @@
             "type": "object",
             "additionalProperties": {}
           },
-          "ports": {
-            "title": "Shortcut for run.ports, a service when no runtime is defined",
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
+          "service": {
+            "$ref": "#/components/schemas/v1ServiceShortcut"
           },
           "environment": {
             "$ref": "#/components/schemas/v1Environment"
@@ -40063,13 +40058,8 @@
             "type": "object",
             "additionalProperties": {}
           },
-          "ports": {
-            "title": "Shortcut for run.ports, a service when no runtime is defined",
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            }
+          "service": {
+            "$ref": "#/components/schemas/v1ServiceShortcut"
           },
           "environment": {
             "$ref": "#/components/schemas/v1Environment"
@@ -42476,6 +42466,33 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "v1ServiceShortcut": {
+        "title": "Service-only fields of the root service shortcut",
+        "type": "object",
+        "properties": {
+          "ports": {
+            "title": "Optional ports to expose",
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "rewritePath": {
+            "type": "boolean",
+            "description": "Rewrite path to remove polyaxon base url(i.e. /v1/services/namespace/owner/project/).\nDefault is false, the service should handle a base url."
+          },
+          "isExternal": {
+            "type": "boolean",
+            "description": "Optional flag to signal to Polyaxon that this service should not go through Polyaxon's auth\nDefault is false, the service will be controlled by Polyaxon's auth."
+          },
+          "replicas": {
+            "title": "Optional value to provision more than a single replica for the service",
+            "type": "integer",
+            "format": "int32"
           }
         }
       },

@@ -34,6 +34,7 @@ import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
 import org.openapitools.client.model.V1Plugins;
+import org.openapitools.client.model.V1ServiceShortcut;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
@@ -393,11 +394,11 @@ public class V1ComponentTest {
     }
 
     /**
-     * Test the property 'ports'
+     * Test the property 'service'
      */
     @Test
-    public void portsTest() {
-        // TODO: test ports
+    public void serviceTest() {
+        // TODO: test service
     }
 
     /**

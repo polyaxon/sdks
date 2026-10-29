@@ -114,9 +114,6 @@ type V1Operation struct {
 	// Optional plugins to enable
 	Plugins *V1Plugins `json:"plugins,omitempty"`
 
-	// Shortcut for run.ports, a service when no runtime is defined
-	Ports []int32 `json:"ports"`
-
 	// Optional list of presets to use for running this operation
 	Presets []string `json:"presets"`
 
@@ -135,6 +132,9 @@ type V1Operation struct {
 
 	// Optional schedule section, must be a valid Schedule option (Cron/Interval/Repeatable/ExactTime)
 	Schedule any `json:"schedule,omitempty"`
+
+	// Shortcut for the service-only run fields, a service when no runtime is defined
+	Service *V1ServiceShortcut `json:"service,omitempty"`
 
 	// Shortcut for run.sidecars
 	Sidecars []V1Container `json:"sidecars"`
@@ -220,6 +220,10 @@ func (m *V1Operation) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validatePlugins(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateService(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -589,6 +593,29 @@ func (m *V1Operation) validatePlugins(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *V1Operation) validateService(formats strfmt.Registry) error {
+	if swag.IsZero(m.Service) { // not required
+		return nil
+	}
+
+	if m.Service != nil {
+		if err := m.Service.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("service")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("service")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *V1Operation) validateTemplate(formats strfmt.Registry) error {
 	if swag.IsZero(m.Template) { // not required
 		return nil
@@ -711,6 +738,10 @@ func (m *V1Operation) ContextValidate(ctx context.Context, formats strfmt.Regist
 	}
 
 	if err := m.contextValidatePlugins(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateService(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1048,6 +1079,31 @@ func (m *V1Operation) contextValidatePlugins(ctx context.Context, formats strfmt
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("plugins")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Operation) contextValidateService(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Service != nil {
+
+		if swag.IsZero(m.Service) { // not required
+			return nil
+		}
+
+		if err := m.Service.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("service")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("service")
 			}
 
 			return err

@@ -222,6 +222,7 @@ export * from './V1SearchSpec';
 export * from './V1SectionSpec';
 export * from './V1Service';
 export * from './V1ServiceAccount';
+export * from './V1ServiceShortcut';
 export * from './V1SettingsCatalog';
 export * from './V1SignalRequest';
 export * from './V1Stage';

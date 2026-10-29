@@ -306,8 +306,8 @@
       //expect(instance).to.be();
     });
 
-    it('should have the property ports (base name: "ports")', function() {
-      // uncomment below and update the code to test the property ports
+    it('should have the property service (base name: "service")', function() {
+      // uncomment below and update the code to test the property service
       //var instance = new PolyaxonSdk.V1Component();
       //expect(instance).to.be();
     });

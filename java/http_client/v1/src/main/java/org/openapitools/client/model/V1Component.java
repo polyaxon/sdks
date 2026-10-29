@@ -36,6 +36,7 @@ import org.openapitools.client.model.V1Join;
 import org.openapitools.client.model.V1Param;
 import org.openapitools.client.model.V1PatchStrategy;
 import org.openapitools.client.model.V1Plugins;
+import org.openapitools.client.model.V1ServiceShortcut;
 import org.openapitools.client.model.V1Template;
 import org.openapitools.client.model.V1Termination;
 import org.openapitools.client.model.V1TriggerPolicy;
@@ -235,9 +236,9 @@ public class V1Component {
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   private Map<String, Object> resources = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_PORTS = "ports";
-  @SerializedName(SERIALIZED_NAME_PORTS)
-  private List<Integer> ports;
+  public static final String SERIALIZED_NAME_SERVICE = "service";
+  @SerializedName(SERIALIZED_NAME_SERVICE)
+  private V1ServiceShortcut service;
 
   public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
   @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
@@ -1282,33 +1283,25 @@ public class V1Component {
   }
 
 
-  public V1Component ports(List<Integer> ports) {
+  public V1Component service(V1ServiceShortcut service) {
     
-    this.ports = ports;
-    return this;
-  }
-
-  public V1Component addPortsItem(Integer portsItem) {
-    if (this.ports == null) {
-      this.ports = new ArrayList<>();
-    }
-    this.ports.add(portsItem);
+    this.service = service;
     return this;
   }
 
    /**
-   * Get ports
-   * @return ports
+   * Get service
+   * @return service
   **/
   @javax.annotation.Nullable
 
-  public List<Integer> getPorts() {
-    return ports;
+  public V1ServiceShortcut getService() {
+    return service;
   }
 
 
-  public void setPorts(List<Integer> ports) {
-    this.ports = ports;
+  public void setService(V1ServiceShortcut service) {
+    this.service = service;
   }
 
 
@@ -1506,7 +1499,7 @@ public class V1Component {
         Objects.equals(this.cmd, v1Component.cmd) &&
         Objects.equals(this.env, v1Component.env) &&
         Objects.equals(this.resources, v1Component.resources) &&
-        Objects.equals(this.ports, v1Component.ports) &&
+        Objects.equals(this.service, v1Component.service) &&
         Objects.equals(this.environment, v1Component.environment) &&
         Objects.equals(this.init, v1Component.init) &&
         Objects.equals(this.connections, v1Component.connections) &&
@@ -1520,7 +1513,7 @@ public class V1Component {
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount, container, cmd, env, resources, ports, environment, init, connections, sidecars, volumes);
+    return Objects.hash(version, kind, name, description, tags, presets, queue, cache, namespace, termination, plugins, schedule, events, hooks, dependencies, trigger, conditions, skipOnUpstreamSkip, inputs, outputs, matrix, joins, params, strictParams, runPatch, patchStrategy, isPreset, isApproved, template, build, cost, run, pathRef, hubRef, dagRef, urlRef, component, mount, container, cmd, env, resources, service, environment, init, connections, sidecars, volumes);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1576,7 +1569,7 @@ public class V1Component {
     sb.append("    cmd: ").append(toIndentedString(cmd)).append("\n");
     sb.append("    env: ").append(toIndentedString(env)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
-    sb.append("    ports: ").append(toIndentedString(ports)).append("\n");
+    sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    init: ").append(toIndentedString(init)).append("\n");
     sb.append("    connections: ").append(toIndentedString(connections)).append("\n");
@@ -1646,7 +1639,7 @@ public class V1Component {
     openapiFields.add("cmd");
     openapiFields.add("env");
     openapiFields.add("resources");
-    openapiFields.add("ports");
+    openapiFields.add("service");
     openapiFields.add("environment");
     openapiFields.add("init");
     openapiFields.add("connections");
@@ -1803,9 +1796,9 @@ public class V1Component {
       if (jsonObj.get("mount") != null && !jsonObj.get("mount").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `mount` to be an array in the JSON string but got `%s`", jsonObj.get("mount").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("ports") != null && !jsonObj.get("ports").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `ports` to be an array in the JSON string but got `%s`", jsonObj.get("ports").toString()));
+      // validate the optional field `service`
+      if (jsonObj.get("service") != null && !jsonObj.get("service").isJsonNull()) {
+        V1ServiceShortcut.validateJsonObject(jsonObj.getAsJsonObject("service"));
       }
       // validate the optional field `environment`
       if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {

@@ -237,6 +237,7 @@ from polyaxon_sdk.models.v1_search_spec import V1SearchSpec
 from polyaxon_sdk.models.v1_section_spec import V1SectionSpec
 from polyaxon_sdk.models.v1_service import V1Service
 from polyaxon_sdk.models.v1_service_account import V1ServiceAccount
+from polyaxon_sdk.models.v1_service_shortcut import V1ServiceShortcut
 from polyaxon_sdk.models.v1_settings_catalog import V1SettingsCatalog
 from polyaxon_sdk.models.v1_signal_request import V1SignalRequest
 from polyaxon_sdk.models.v1_stage import V1Stage
