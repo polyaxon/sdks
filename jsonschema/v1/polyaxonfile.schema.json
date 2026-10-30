@@ -5120,6 +5120,10 @@
           "title": "Optional field to assign cost to this Component",
           "type": "number"
         },
+        "dag": {
+          "$ref": "#/definitions/v1DagShortcut",
+          "title": "Shortcut for the dag-only run fields, a dag when no runtime is defined"
+        },
         "dagRef": {
           "type": "string"
         },
@@ -5793,6 +5797,48 @@
         }
       },
       "title": "Dag reference specification",
+      "type": "object"
+    },
+    "v1DagShortcut": {
+      "properties": {
+        "components": {
+          "items": {
+            "$ref": "#/definitions/v1Component",
+            "type": "object"
+          },
+          "title": "Optional component references",
+          "type": "array"
+        },
+        "concurrency": {
+          "format": "int32",
+          "title": "Optional number of concurrent operations",
+          "type": "integer"
+        },
+        "earlyStopping": {
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/v1MetricEarlyStopping"
+              },
+              {
+                "$ref": "#/definitions/v1FailureEarlyStopping"
+              }
+            ],
+            "type": "object"
+          },
+          "title": "Optional early stopping policies",
+          "type": "array"
+        },
+        "operations": {
+          "items": {
+            "$ref": "#/definitions/v1Operation",
+            "type": "object"
+          },
+          "title": "Ops used in the graph",
+          "type": "array"
+        }
+      },
+      "title": "Dag-only fields of the root dag shortcut",
       "type": "object"
     },
     "v1Dashboard": {
@@ -9027,6 +9073,10 @@
           "format": "float",
           "title": "Optional field to assign cost to this Component",
           "type": "number"
+        },
+        "dag": {
+          "$ref": "#/definitions/v1DagShortcut",
+          "title": "Shortcut for the dag-only run fields, a dag when no runtime is defined"
         },
         "dagRef": {
           "type": "string"

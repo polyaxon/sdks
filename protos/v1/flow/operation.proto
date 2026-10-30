@@ -146,6 +146,9 @@ message Operation {
     // Shortcut for the main container's resources: a value or a request..limit range per resource
     map<string, google.protobuf.Value> resources = 42;
 
+    // Shortcut for the dag-only run fields, a dag when no runtime is defined
+    DagShortcut dag = 49;
+
     // Shortcut for the service-only run fields, a service when no runtime is defined
     ServiceShortcut service = 43;
 

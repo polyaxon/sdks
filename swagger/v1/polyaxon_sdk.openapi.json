@@ -31824,7 +31824,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -31846,7 +31845,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -32174,7 +32174,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -32196,7 +32195,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -33018,7 +33018,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -33040,7 +33039,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -34010,7 +34010,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -34032,7 +34031,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -34218,7 +34218,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -34240,7 +34239,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -34700,7 +34700,6 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "created",
               "enum": [
                 "created",
                 "resuming",
@@ -34722,7 +34721,8 @@
                 "retrying",
                 "unknown",
                 "done"
-              ]
+              ],
+              "default": "created"
             }
           }
         ],
@@ -35315,10 +35315,10 @@
       "protobufNullValue": {
         "type": "string",
         "description": "`NullValue` is a singleton enumeration to represent the null value for the\n`Value` type union.\n\n The JSON representation for `NullValue` is JSON `null`.\n\n - NULL_VALUE: Null value.",
-        "default": "NULL_VALUE",
         "enum": [
           "NULL_VALUE"
-        ]
+        ],
+        "default": "NULL_VALUE"
       },
       "runtimeError": {
         "type": "object",
@@ -35637,7 +35637,6 @@
         "title": "Artifact kind",
         "type": "string",
         "description": "- model: Model asset/event\n - audio: Audio asset/event\n - video: Vidio asset/event\n - histogram: Histogram asset/event\n - image: Image asset/event\n - tensor: Tensor asset/event\n - dataframe: Dataframe asset/event\n - chart: plotly/bokeh/vega chart\n - csv: Comma separated values\n - tsv: Tab separated values\n - psv: Pipe separated values\n - ssv: Space separated values\n - metric: Metric asset/event\n - env: Env file\n - html: HTML asset/event\n - text: Text asset/event\n - file: File asset/lineage\n - dir: Dir asset/lineage\n - dockerfile: Dockerfile asset\n - docker_image: Docker image\n - data: Data asset/event\n - coderef: Coderef lineage\n - table: Table asset/event\n - tensorboard: Tensorboard lineage\n - curve: Curve event\n - confusion: Confusion matrix event\n - analysis: Analysis lineage\n - iteration: Iteration lineage\n - markdown: Mardown event\n - system: System event\n - span: Trace/Span event\n - artifact: Generic artifact",
-        "default": "model",
         "enum": [
           "model",
           "audio",
@@ -35671,7 +35670,8 @@
           "system",
           "span",
           "artifact"
-        ]
+        ],
+        "default": "model"
       },
       "v1ArtifactTree": {
         "title": "Artifact tree response",
@@ -35931,12 +35931,12 @@
       "v1CleanPodPolicy": {
         "title": "CleanPodPolicy",
         "type": "string",
-        "default": "All",
         "enum": [
           "All",
           "Running",
           "None"
-        ]
+        ],
+        "default": "All"
       },
       "v1Cloning": {
         "type": "object",
@@ -35956,12 +35956,12 @@
       },
       "v1CloningKind": {
         "type": "string",
-        "default": "copy",
         "enum": [
           "copy",
           "restart",
           "cache"
-        ]
+        ],
+        "default": "copy"
       },
       "v1Compatibility": {
         "type": "object",
@@ -36324,6 +36324,9 @@
             "type": "object",
             "additionalProperties": {}
           },
+          "dag": {
+            "$ref": "#/components/schemas/v1DagShortcut"
+          },
           "service": {
             "$ref": "#/components/schemas/v1ServiceShortcut"
           },
@@ -36363,7 +36366,6 @@
       "v1ConnectionKind": {
         "title": "Connection kinds",
         "type": "string",
-        "default": "host_path",
         "enum": [
           "host_path",
           "volume_claim",
@@ -36408,7 +36410,8 @@
           "hipchat",
           "webhook",
           "custom"
-        ]
+        ],
+        "default": "host_path"
       },
       "v1ConnectionResource": {
         "title": "K8S resource schema validation",
@@ -36715,6 +36718,41 @@
           "name": {
             "title": "Value",
             "type": "string"
+          }
+        }
+      },
+      "v1DagShortcut": {
+        "title": "Dag-only fields of the root dag shortcut",
+        "type": "object",
+        "properties": {
+          "operations": {
+            "title": "Ops used in the graph",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "components": {
+            "title": "Optional component references",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "concurrency": {
+            "title": "Optional number of concurrent operations",
+            "type": "integer",
+            "format": "int32"
+          },
+          "earlyStopping": {
+            "title": "Optional early stopping policies",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {}
+            }
           }
         }
       },
@@ -37067,13 +37105,13 @@
       "v1EntityLevel": {
         "title": "Entity level visibility",
         "type": "string",
-        "default": "entity",
         "enum": [
           "entity",
           "project",
           "cross",
           "org"
-        ]
+        ],
+        "default": "entity"
       },
       "v1EntityNotificationBody": {
         "title": "Request data to create/update entity status",
@@ -37374,12 +37412,12 @@
         "title": "Chart kind",
         "type": "string",
         "description": "- plotly: Plotly chart\n - bokeh: Bokeh chart\n - vega: Vega chart",
-        "default": "plotly",
         "enum": [
           "plotly",
           "bokeh",
           "vega"
-        ]
+        ],
+        "default": "plotly"
       },
       "v1EventConfusionMatrix": {
         "title": "Cofusion matrix spec definition",
@@ -37444,12 +37482,12 @@
         "title": "Curve kind",
         "type": "string",
         "description": "- roc: ROC curve\n - pr: Precision Recall curve\n - custom: Custom curve",
-        "default": "roc",
         "enum": [
           "roc",
           "pr",
           "custom"
-        ]
+        ],
+        "default": "roc"
       },
       "v1EventDataframe": {
         "title": "Dataframe spec definition",
@@ -37512,7 +37550,6 @@
       },
       "v1EventKind": {
         "type": "string",
-        "default": "run_status_created",
         "enum": [
           "run_status_created",
           "run_status_resuming",
@@ -37546,7 +37583,8 @@
           "model_version_new_metric",
           "project_custom_event",
           "org_custom_event"
-        ]
+        ],
+        "default": "run_status_created"
       },
       "v1EventModel": {
         "title": "Model spec definition",
@@ -37636,7 +37674,6 @@
       "v1EventSpanKind": {
         "title": "Curve kind",
         "type": "string",
-        "default": "llm",
         "enum": [
           "llm",
           "chain",
@@ -37644,7 +37681,8 @@
           "tool",
           "embedding",
           "retriever"
-        ]
+        ],
+        "default": "llm"
       },
       "v1EventTrigger": {
         "title": "Event definition",
@@ -39701,12 +39739,12 @@
       },
       "v1ManagedBy": {
         "type": "string",
-        "default": "client",
         "enum": [
           "client",
           "cli",
           "agent"
-        ]
+        ],
+        "default": "client"
       },
       "v1Mapping": {
         "title": "Matrix based on map/array either specified manually by the user or passed from another step",
@@ -39769,7 +39807,6 @@
       },
       "v1MatrixKind": {
         "type": "string",
-        "default": "random",
         "enum": [
           "random",
           "grid",
@@ -39778,7 +39815,8 @@
           "tpe",
           "iterative",
           "mapping"
-        ]
+        ],
+        "default": "random"
       },
       "v1MedianStoppingPolicy": {
         "type": "object",
@@ -40058,6 +40096,9 @@
             "type": "object",
             "additionalProperties": {}
           },
+          "dag": {
+            "$ref": "#/components/schemas/v1DagShortcut"
+          },
           "service": {
             "$ref": "#/components/schemas/v1ServiceShortcut"
           },
@@ -40138,11 +40179,11 @@
         "title": "Optimization enum for metrics",
         "type": "string",
         "description": "- maximize: Minimize a metric\n - minimize: Minimize a metric",
-        "default": "maximize",
         "enum": [
           "maximize",
           "minimize"
-        ]
+        ],
+        "default": "maximize"
       },
       "v1OptimizationMetric": {
         "title": "OptimizationMetric specification",
@@ -40366,13 +40407,13 @@
         "title": "PatchStrategy",
         "type": "string",
         "description": "- replace: Replaces the keys\n - isnull: Only set the keys if they do not exist or if they are null\n - post_merge: Merge the all keys and replace by new one\n - pre_merge: Merge the all keys and keep old ones",
-        "default": "replace",
         "enum": [
           "replace",
           "isnull",
           "post_merge",
           "pre_merge"
-        ]
+        ],
+        "default": "replace"
       },
       "v1PathRef": {
         "title": "Path reference specification",
@@ -40439,12 +40480,12 @@
       },
       "v1PipelineKind": {
         "type": "string",
-        "default": "dag",
         "enum": [
           "dag",
           "matrix",
           "schedule"
-        ]
+        ],
+        "default": "dag"
       },
       "v1Plugins": {
         "title": "Plugins specification",
@@ -41090,12 +41131,12 @@
       },
       "v1ProjectVersionKind": {
         "type": "string",
-        "default": "component",
         "enum": [
           "component",
           "model",
           "artifact"
-        ]
+        ],
+        "default": "component"
       },
       "v1Pty": {
         "type": "object",
@@ -41541,11 +41582,11 @@
         "title": "ResourceTypes enum for optmiztion resources",
         "type": "string",
         "description": "- int: Int resource\n - float: Float resource",
-        "default": "int",
         "enum": [
           "int",
           "float"
-        ]
+        ],
+        "default": "int"
       },
       "v1Run": {
         "title": "Run specification",
@@ -41819,7 +41860,6 @@
       },
       "v1RunEdgeKind": {
         "type": "string",
-        "default": "action",
         "enum": [
           "action",
           "event",
@@ -41830,7 +41870,8 @@
           "tb",
           "build",
           "manual"
-        ]
+        ],
+        "default": "action"
       },
       "v1RunEdgeLineage": {
         "title": "single run edge",
@@ -41866,7 +41907,6 @@
       "v1RunKind": {
         "title": "Run kind enum\nKinds: job, service, dag, matrix, schedule\nRuntime kinds: job, service, dag, dask, ray, mpijob, tfjob\nhelper kinds: tuner, watchdog, notifier, cleaner, build",
         "type": "string",
-        "default": "job",
         "enum": [
           "job",
           "service",
@@ -41883,17 +41923,18 @@
           "notifier",
           "builder",
           "cleaner"
-        ]
+        ],
+        "default": "job"
       },
       "v1RunPending": {
         "type": "string",
-        "default": "approval",
         "enum": [
           "approval",
           "upload",
           "cache",
           "build"
-        ]
+        ],
+        "default": "approval"
       },
       "v1RunReferenceCatalog": {
         "title": "Run Settings catalog specification",
@@ -42051,12 +42092,12 @@
       },
       "v1ScheduleKind": {
         "type": "string",
-        "default": "cron",
         "enum": [
           "cron",
           "interval",
           "datetime"
-        ]
+        ],
+        "default": "cron"
       },
       "v1SchedulingPolicy": {
         "type": "object",
@@ -42585,13 +42626,13 @@
       },
       "v1Stages": {
         "type": "string",
-        "default": "testing",
         "enum": [
           "testing",
           "staging",
           "production",
           "disabled"
-        ]
+        ],
+        "default": "testing"
       },
       "v1Status": {
         "title": "Status specification",
@@ -42656,7 +42697,6 @@
       },
       "v1Statuses": {
         "type": "string",
-        "default": "created",
         "enum": [
           "created",
           "resuming",
@@ -42678,7 +42718,8 @@
           "retrying",
           "unknown",
           "done"
-        ]
+        ],
+        "default": "created"
       },
       "v1TFJob": {
         "title": "TF Job specification",
@@ -43108,7 +43149,6 @@
       "v1TriggerPolicy": {
         "title": "TriggerPolicy enum",
         "type": "string",
-        "default": "all_succeeded",
         "enum": [
           "all_succeeded",
           "all_failed",
@@ -43116,7 +43156,8 @@
           "one_succeeded",
           "one_failed",
           "one_done"
-        ]
+        ],
+        "default": "all_succeeded"
       },
       "v1TruncationStoppingPolicy": {
         "type": "object",

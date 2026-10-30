@@ -585,6 +585,35 @@
         }
       }
     },
+    "v1DagShortcut": {
+      "properties": {
+        "operations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Operation"
+          }
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/v1Component"
+          }
+        },
+        "earlyStopping": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "#/definitions/v1MetricEarlyStopping"
+              },
+              {
+                "$ref": "#/definitions/v1FailureEarlyStopping"
+              }
+            ]
+          }
+        }
+      }
+    },
     "v1KFReplica": {
       "properties": {
         "volumes": {

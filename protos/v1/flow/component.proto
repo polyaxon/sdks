@@ -145,6 +145,9 @@ message Component {
     // Shortcut for the main container's resources: a value or a request..limit range per resource
     map<string, google.protobuf.Value> resources = 42;
 
+    // Shortcut for the dag-only run fields, a dag when no runtime is defined
+    DagShortcut dag = 49;
+
     // Shortcut for the service-only run fields, a service when no runtime is defined
     ServiceShortcut service = 43;
 
@@ -162,4 +165,21 @@ message Component {
 
     // Shortcut for run.volumes
     repeated Volume volumes = 48;
+}
+
+// Nodes are structs here because typed nodes would create an import cycle.
+
+// Dag-only fields of the root dag shortcut
+message DagShortcut {
+    // Ops used in the graph
+    repeated google.protobuf.Struct operations = 1;
+
+    // Optional component references
+    repeated google.protobuf.Struct components = 2;
+
+    // Optional number of concurrent operations
+    int32 concurrency = 3;
+
+    // Optional early stopping policies
+    repeated google.protobuf.Struct earlyStopping = 4;
 }

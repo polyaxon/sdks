@@ -22900,6 +22900,10 @@
           "additionalProperties": {},
           "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
         },
+        "dag": {
+          "$ref": "#/definitions/v1DagShortcut",
+          "title": "Shortcut for the dag-only run fields, a dag when no runtime is defined"
+        },
         "service": {
           "$ref": "#/definitions/v1ServiceShortcut",
           "title": "Shortcut for the service-only run fields, a service when no runtime is defined"
@@ -23297,6 +23301,38 @@
         }
       },
       "title": "Dag reference specification"
+    },
+    "v1DagShortcut": {
+      "type": "object",
+      "properties": {
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Ops used in the graph"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Optional component references"
+        },
+        "concurrency": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Optional number of concurrent operations"
+        },
+        "earlyStopping": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "title": "Optional early stopping policies"
+        }
+      },
+      "title": "Dag-only fields of the root dag shortcut"
     },
     "v1Dashboard": {
       "type": "object",
@@ -26638,6 +26674,10 @@
           "type": "object",
           "additionalProperties": {},
           "title": "Shortcut for the main container's resources: a value or a request..limit range per resource"
+        },
+        "dag": {
+          "$ref": "#/definitions/v1DagShortcut",
+          "title": "Shortcut for the dag-only run fields, a dag when no runtime is defined"
         },
         "service": {
           "$ref": "#/definitions/v1ServiceShortcut",
