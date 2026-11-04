@@ -1985,7 +1985,7 @@ service OrganizationsV1 {
   // Skip cross-project runs selection
   rpc SkipOrganizationRuns(OwnerResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/orgs/{owner}/runs/Skip"
+      post: "/api/v1/orgs/{owner}/runs/skip"
       body: "uuids"
     };
   }
@@ -2351,7 +2351,7 @@ service TeamsV1 {
   // Skip cross-project runs selection
   rpc SkipTeamRuns(OwnerEntityResourceUuidsBodyRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/api/v1/orgs/{owner}/teams/{name}/runs/Skip"
+      post: "/api/v1/orgs/{owner}/teams/{name}/runs/skip"
       body: "uuids"
     };
   }
