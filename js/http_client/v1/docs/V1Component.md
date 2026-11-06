@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **cmd** | **Object** |  | [optional] 
 **env** | **{String: String}** |  | [optional] 
 **resources** | **{String: Object}** |  | [optional] 
+**dag** | [**V1DagShortcut**](V1DagShortcut.md) |  | [optional] 
 **service** | [**V1ServiceShortcut**](V1ServiceShortcut.md) |  | [optional] 
 **environment** | [**V1Environment**](V1Environment.md) |  | [optional] 
 **init** | [**[V1Init]**](V1Init.md) |  | [optional] 

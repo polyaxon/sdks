@@ -39,7 +39,7 @@ Method | HTTP request | Description
 [**patch_organization_settings**](OrganizationsV1Api.md#patch_organization_settings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings
 [**resend_organization_invitation**](OrganizationsV1Api.md#resend_organization_invitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation
 [**restore_organization_runs**](OrganizationsV1Api.md#restore_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection
-[**skip_organization_runs**](OrganizationsV1Api.md#skip_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/Skip | Skip cross-project runs selection
+[**skip_organization_runs**](OrganizationsV1Api.md#skip_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/skip | Skip cross-project runs selection
 [**stop_organization_runs**](OrganizationsV1Api.md#stop_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection
 [**tag_organization_runs**](OrganizationsV1Api.md#tag_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection
 [**transfer_organization_runs**](OrganizationsV1Api.md#transfer_organization_runs) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project

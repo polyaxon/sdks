@@ -105,11 +105,11 @@ func (o *SkipTeamRunsOK) Code() int {
 }
 
 func (o *SkipTeamRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsOK", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsOK", 200)
 }
 
 func (o *SkipTeamRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsOK", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsOK", 200)
 }
 
 func (o *SkipTeamRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -163,12 +163,12 @@ func (o *SkipTeamRunsNoContent) Code() int {
 
 func (o *SkipTeamRunsNoContent) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *SkipTeamRunsNoContent) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsNoContent %s", 204, payload)
 }
 
 func (o *SkipTeamRunsNoContent) GetPayload() any {
@@ -231,12 +231,12 @@ func (o *SkipTeamRunsForbidden) Code() int {
 
 func (o *SkipTeamRunsForbidden) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *SkipTeamRunsForbidden) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsForbidden %s", 403, payload)
 }
 
 func (o *SkipTeamRunsForbidden) GetPayload() any {
@@ -299,12 +299,12 @@ func (o *SkipTeamRunsNotFound) Code() int {
 
 func (o *SkipTeamRunsNotFound) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *SkipTeamRunsNotFound) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] skipTeamRunsNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] skipTeamRunsNotFound %s", 404, payload)
 }
 
 func (o *SkipTeamRunsNotFound) GetPayload() any {
@@ -371,12 +371,12 @@ func (o *SkipTeamRunsDefault) Code() int {
 
 func (o *SkipTeamRunsDefault) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] SkipTeamRuns default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] SkipTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipTeamRunsDefault) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/Skip][%d] SkipTeamRuns default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/teams/{name}/runs/skip][%d] SkipTeamRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipTeamRunsDefault) GetPayload() *service_model.RuntimeError {

@@ -6,7 +6,7 @@ info:
     url: https://github.com/polyaxon/polyaxon
   description: '   '
   title: Polyaxon SDKs and REST API specification.
-  version: 2.19.0
+  version: 2.20.0
 servers:
 - url: /
 security:
@@ -6725,59 +6725,6 @@ paths:
       tags:
       - OrganizationsV1
       x-accepts: application/json
-  /api/v1/orgs/{owner}/runs/Skip:
-    post:
-      operationId: SkipOrganizationRuns
-      parameters:
-      - description: Owner of the namespace
-        explode: false
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1Uuids'
-        description: Uuids of the entities
-        required: true
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Skip cross-project runs selection
-      tags:
-      - OrganizationsV1
-      x-codegen-request-body-name: body
-      x-content-type: application/json
-      x-accepts: application/json
   /api/v1/orgs/{owner}/runs/approve:
     post:
       operationId: ApproveOrganizationRuns
@@ -7204,6 +7151,59 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response.
       summary: Restore cross-project runs selection
+      tags:
+      - OrganizationsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/runs/skip:
+    post:
+      operationId: SkipOrganizationRuns
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Uuids'
+        description: Uuids of the entities
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Skip cross-project runs selection
       tags:
       - OrganizationsV1
       x-codegen-request-body-name: body
@@ -10721,67 +10721,6 @@ paths:
       tags:
       - TeamsV1
       x-accepts: application/json
-  /api/v1/orgs/{owner}/teams/{name}/runs/Skip:
-    post:
-      operationId: SkipTeamRuns
-      parameters:
-      - description: Owner of the namespace
-        explode: false
-        in: path
-        name: owner
-        required: true
-        schema:
-          type: string
-        style: simple
-      - description: Entity under namespace
-        explode: false
-        in: path
-        name: name
-        required: true
-        schema:
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1Uuids'
-        description: Uuids of the entities
-        required: true
-      responses:
-        "200":
-          content: {}
-          description: A successful response.
-        "204":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: No content.
-        "403":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: You don't have permission to access the resource.
-        "404":
-          content:
-            application/json:
-              schema:
-                type: object
-          description: Resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response.
-      summary: Skip cross-project runs selection
-      tags:
-      - TeamsV1
-      x-codegen-request-body-name: body
-      x-content-type: application/json
-      x-accepts: application/json
   /api/v1/orgs/{owner}/teams/{name}/runs/approve:
     post:
       operationId: ApproveTeamRuns
@@ -11256,6 +11195,67 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response.
       summary: Restore cross-project runs selection
+      tags:
+      - TeamsV1
+      x-codegen-request-body-name: body
+      x-content-type: application/json
+      x-accepts: application/json
+  /api/v1/orgs/{owner}/teams/{name}/runs/skip:
+    post:
+      operationId: SkipTeamRuns
+      parameters:
+      - description: Owner of the namespace
+        explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Entity under namespace
+        explode: false
+        in: path
+        name: name
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1Uuids'
+        description: Uuids of the entities
+        required: true
+      responses:
+        "200":
+          content: {}
+          description: A successful response.
+        "204":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: No content.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: You don't have permission to access the resource.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response.
+      summary: Skip cross-project runs selection
       tags:
       - TeamsV1
       x-codegen-request-body-name: body
@@ -25084,10 +25084,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 5.877125
+        cost: 7.8350353
         kind: kind
         trigger: null
-        version: 9.897492
+        version: 5.877125
         tags:
         - tags
         - tags
@@ -25352,12 +25352,6 @@ components:
                 connection: connection
                 toInit: true
                 value: value
-        template:
-          description: description
-          fields:
-          - fields
-          - fields
-          enabled: true
         container: "{}"
         sidecars:
         - null
@@ -25497,48 +25491,18 @@ components:
             le: 4
             ge: 4
             maxLength: 7
-        hubRef: hubRef
-        description: description
         run: "{}"
-        matrix: "{}"
-        isApproved: true
-        hooks:
-        - presets:
-          - presets
-          - presets
-          hubRef: hubRef
-          namespace: namespace
-          disableDefaults: true
-          connection: connection
-          trigger: null
-          conditions: conditions
-          params:
-            key:
-              ref: ref
-              toEnv: toEnv
-              contextOnly: true
-              connection: connection
-              toInit: true
-              value: "{}"
-          queue: queue
-        - presets:
-          - presets
-          - presets
-          hubRef: hubRef
-          namespace: namespace
-          disableDefaults: true
-          connection: connection
-          trigger: null
-          conditions: conditions
-          params:
-            key:
-              ref: ref
-              toEnv: toEnv
-              contextOnly: true
-              connection: connection
-              toInit: true
-              value: "{}"
-          queue: queue
+        dag:
+          components:
+          - "{}"
+          - "{}"
+          operations:
+          - "{}"
+          - "{}"
+          earlyStopping:
+          - "{}"
+          - "{}"
+          concurrency: 2
         events:
         - ref: ref
           kinds:
@@ -25696,15 +25660,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 0.43431398
         kind: kind
-        isPreset: true
         volumes:
         - null
         - null
-        resources:
-          key: ""
-        trigger: null
         params:
           key:
             ref: ref
@@ -25713,8 +25672,6 @@ components:
             connection: connection
             toInit: true
             value: "{}"
-        env:
-          key: env
         version: 3.9015453
         mount:
         - ""
@@ -25725,6 +25682,67 @@ components:
         dependencies:
         - dependencies
         - dependencies
+        skipOnUpstreamSkip: true
+        runPatch: "{}"
+        name: name
+        patchStrategy: null
+        urlRef: urlRef
+        cmd: ""
+        conditions: conditions
+        template:
+          description: description
+          fields:
+          - fields
+          - fields
+          enabled: true
+        hubRef: hubRef
+        description: description
+        matrix: "{}"
+        isApproved: true
+        hooks:
+        - presets:
+          - presets
+          - presets
+          hubRef: hubRef
+          namespace: namespace
+          disableDefaults: true
+          connection: connection
+          trigger: null
+          conditions: conditions
+          params:
+            key:
+              ref: ref
+              toEnv: toEnv
+              contextOnly: true
+              connection: connection
+              toInit: true
+              value: "{}"
+          queue: queue
+        - presets:
+          - presets
+          - presets
+          hubRef: hubRef
+          namespace: namespace
+          disableDefaults: true
+          connection: connection
+          trigger: null
+          conditions: conditions
+          params:
+            key:
+              ref: ref
+              toEnv: toEnv
+              contextOnly: true
+              connection: connection
+              toInit: true
+              value: "{}"
+          queue: queue
+        cost: 0.43431398
+        isPreset: true
+        resources:
+          key: ""
+        trigger: null
+        env:
+          key: env
         schedule: "{}"
         component: null
         environment:
@@ -25758,8 +25776,6 @@ components:
         presets:
         - presets
         - presets
-        skipOnUpstreamSkip: true
-        runPatch: "{}"
         build:
           cache:
             disable: true
@@ -25789,17 +25805,12 @@ components:
           queue: queue
         service:
           isExternal: true
-          replicas: 1
+          replicas: 8
           ports:
-          - 2
-          - 2
+          - 1
+          - 1
           rewritePath: true
-        name: name
         namespace: namespace
-        patchStrategy: null
-        urlRef: urlRef
-        cmd: ""
-        conditions: conditions
         pathRef: pathRef
         queue: queue
       properties:
@@ -25955,6 +25966,8 @@ components:
           title: "Shortcut for the main container's resources: a value or a request..limit\
             \ range per resource"
           type: object
+        dag:
+          $ref: '#/components/schemas/v1DagShortcut'
         service:
           $ref: '#/components/schemas/v1ServiceShortcut'
         environment:
@@ -26032,7 +26045,7 @@ components:
     v1ConnectionResource:
       example:
         mountPath: mountPath
-        defaultMode: 2
+        defaultMode: 3
         name: name
         items:
         - items
@@ -26143,7 +26156,7 @@ components:
         kind: null
         configMap:
           mountPath: mountPath
-          defaultMode: 2
+          defaultMode: 3
           name: name
           items:
           - items
@@ -26154,7 +26167,7 @@ components:
           key: annotations
         secret:
           mountPath: mountPath
-          defaultMode: 2
+          defaultMode: 3
           name: name
           items:
           - items
@@ -26239,7 +26252,7 @@ components:
       example:
         cron: cron
         dependsOnPast: true
-        maxRuns: 7
+        maxRuns: 0
         kind: cron
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
@@ -26392,12 +26405,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -26537,48 +26544,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -26736,15 +26713,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 0.43431398
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -26753,8 +26725,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 3.9015453
           mount:
           - ""
@@ -26765,6 +26735,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 0.43431398
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component: null
           environment:
@@ -26798,8 +26829,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -26829,17 +26858,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         - outputs:
@@ -26953,12 +26977,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -27098,48 +27116,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -27297,15 +27285,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 0.43431398
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -27314,8 +27297,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 3.9015453
           mount:
           - ""
@@ -27326,6 +27307,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 0.43431398
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component: null
           environment:
@@ -27359,8 +27401,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -27390,17 +27430,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         environment:
@@ -27543,12 +27578,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -27688,48 +27717,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -27887,15 +27886,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -27904,8 +27898,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 8.969579
           mount:
           - ""
@@ -27916,6 +27908,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 4.459605
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component:
             outputs:
@@ -28029,12 +28082,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -28174,48 +28221,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -28373,15 +28390,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 0.43431398
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -28390,8 +28402,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 3.9015453
             mount:
             - ""
@@ -28402,6 +28412,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 0.43431398
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component: null
             environment:
@@ -28435,8 +28506,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -28466,17 +28535,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           environment:
@@ -28510,8 +28574,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -28541,17 +28603,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         - outputs:
@@ -28665,12 +28722,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -28810,48 +28861,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -29009,15 +29030,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -29026,8 +29042,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 8.969579
           mount:
           - ""
@@ -29038,6 +29052,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 4.459605
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component:
             outputs:
@@ -29151,12 +29226,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -29296,48 +29365,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -29495,15 +29534,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 0.43431398
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -29512,8 +29546,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 3.9015453
             mount:
             - ""
@@ -29524,6 +29556,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 0.43431398
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component: null
             environment:
@@ -29557,8 +29650,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -29588,17 +29679,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           environment:
@@ -29632,8 +29718,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -29663,17 +29747,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         kind: dag
@@ -29686,7 +29765,7 @@ components:
         connections:
         - connections
         - connections
-        concurrency: 8
+        concurrency: 6
       properties:
         kind:
           default: dag
@@ -29739,6 +29818,43 @@ components:
           title: Value
           type: string
       title: Dag reference specification
+      type: object
+    v1DagShortcut:
+      example:
+        components:
+        - "{}"
+        - "{}"
+        operations:
+        - "{}"
+        - "{}"
+        earlyStopping:
+        - "{}"
+        - "{}"
+        concurrency: 2
+      properties:
+        operations:
+          items:
+            properties: {}
+            type: object
+          title: Ops used in the graph
+          type: array
+        components:
+          items:
+            properties: {}
+            type: object
+          title: Optional component references
+          type: array
+        concurrency:
+          format: int32
+          title: Optional number of concurrent operations
+          type: integer
+        earlyStopping:
+          items:
+            properties: {}
+            type: object
+          title: Optional early stopping policies
+          type: array
+      title: Dag-only fields of the root dag shortcut
       type: object
     v1Dashboard:
       example:
@@ -30061,8 +30177,8 @@ components:
           connections:
           - connections
           - connections
-        maxReplicas: 8
-        minReplicas: 5
+        maxReplicas: 7
+        minReplicas: 8
         kind: daskcluster
         worker:
           container: "{}"
@@ -30847,46 +30963,46 @@ components:
       example:
         image:
           path: path
-          colorspace: 0
+          colorspace: 7
           width: 0
-          height: 4
+          height: 0
         curve:
           annotation: annotation
           kind: null
           x:
-          - 6.9660444
-          - 6.9660444
+          - 9.8069515
+          - 9.8069515
           "y":
-          - 9.8069515
-          - 9.8069515
+          - 1.3949519
+          - 1.3949519
         video:
           path: path
           content_type: content_type
-          colorspace: 4
-          width: 6
-          height: 2
+          colorspace: 6
+          width: 4
+          height: 6
         histogram:
           counts:
-          - 4.332304821875894
-          - 4.332304821875894
+          - 2.7977867356748476
+          - 2.7977867356748476
           values:
-          - 7.203794749804894
-          - 7.203794749804894
+          - 4.332304821875894
+          - 4.332304821875894
         artifact:
           path: path
           kind: null
-        metric: 8.675064
-        step: 3
+        metric: 4.5183096
+        step: 8
         html: html
         model:
           path: path
           framework: framework
           spec: "{}"
         audio:
-          num_channels: 9
+          num_channels: 0
           path: path
-          length_frames: 0
-          sample_rate: 2.7977867
+          length_frames: 2
+          sample_rate: 9.386525
           content_type: content_type
         text: text
         dataframe:
@@ -30991,10 +31107,10 @@ components:
       type: object
     v1EventAudio:
       example:
-        num_channels: 9
+        num_channels: 0
         path: path
-        length_frames: 0
-        sample_rate: 2.7977867
+        length_frames: 2
+        sample_rate: 9.386525
         content_type: content_type
       properties:
         sample_rate:
@@ -31079,11 +31195,11 @@ components:
         annotation: annotation
         kind: null
         x:
-        - 6.9660444
-        - 6.9660444
+        - 9.8069515
+        - 9.8069515
         "y":
-        - 9.8069515
-        - 9.8069515
+        - 1.3949519
+        - 1.3949519
       properties:
         kind:
           $ref: '#/components/schemas/v1EventCurveKind'
@@ -31132,11 +31248,11 @@ components:
     v1EventHistogram:
       example:
         counts:
-        - 4.332304821875894
-        - 4.332304821875894
+        - 2.7977867356748476
+        - 2.7977867356748476
         values:
-        - 7.203794749804894
-        - 7.203794749804894
+        - 4.332304821875894
+        - 4.332304821875894
       properties:
         values:
           items:
@@ -31153,9 +31269,9 @@ components:
     v1EventImage:
       example:
         path: path
-        colorspace: 0
+        colorspace: 7
         width: 0
-        height: 4
+        height: 0
       properties:
         height:
           description: Height of the image.
@@ -31359,9 +31475,9 @@ components:
       example:
         path: path
         content_type: content_type
-        colorspace: 4
-        width: 6
-        height: 2
+        colorspace: 6
+        width: 4
+        height: 6
       properties:
         height:
           description: Height of the video.
@@ -32617,11 +32733,11 @@ components:
     v1IntervalSchedule:
       example:
         dependsOnPast: true
-        maxRuns: 0
+        maxRuns: 3
         kind: interval
         endAt: 2000-01-23T04:56:07.000+00:00
         startAt: 2000-01-23T04:56:07.000+00:00
-        frequency: 3
+        frequency: 2
       properties:
         kind:
           default: interval
@@ -33127,7 +33243,7 @@ components:
           schedulerName: schedulerName
           affinity: "{}"
           hostPID: hostPID
-        replicas: 8
+        replicas: 9
         volumes:
         - null
         - null
@@ -35500,7 +35616,7 @@ components:
     v1MPIJob:
       example:
         cleanPodPolicy: null
-        slotsPerWorker: 0
+        slotsPerWorker: 5
         kind: mpijob
         worker:
           container: "{}"
@@ -35656,7 +35772,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -35664,9 +35780,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 6
+          minAvailable: 4
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 4
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         launcher:
@@ -35823,7 +35939,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -36265,12 +36381,6 @@ components:
                 connection: connection
                 toInit: true
                 value: value
-        template:
-          description: description
-          fields:
-          - fields
-          - fields
-          enabled: true
         container: "{}"
         sidecars:
         - null
@@ -36410,48 +36520,18 @@ components:
             le: 4
             ge: 4
             maxLength: 7
-        hubRef: hubRef
-        description: description
         run: "{}"
-        matrix: "{}"
-        isApproved: true
-        hooks:
-        - presets:
-          - presets
-          - presets
-          hubRef: hubRef
-          namespace: namespace
-          disableDefaults: true
-          connection: connection
-          trigger: null
-          conditions: conditions
-          params:
-            key:
-              ref: ref
-              toEnv: toEnv
-              contextOnly: true
-              connection: connection
-              toInit: true
-              value: "{}"
-          queue: queue
-        - presets:
-          - presets
-          - presets
-          hubRef: hubRef
-          namespace: namespace
-          disableDefaults: true
-          connection: connection
-          trigger: null
-          conditions: conditions
-          params:
-            key:
-              ref: ref
-              toEnv: toEnv
-              contextOnly: true
-              connection: connection
-              toInit: true
-              value: "{}"
-          queue: queue
+        dag:
+          components:
+          - "{}"
+          - "{}"
+          operations:
+          - "{}"
+          - "{}"
+          earlyStopping:
+          - "{}"
+          - "{}"
+          concurrency: 2
         events:
         - ref: ref
           kinds:
@@ -36609,15 +36689,10 @@ components:
           sections:
           - sections
           - sections
-        cost: 4.459605
         kind: kind
-        isPreset: true
         volumes:
         - null
         - null
-        resources:
-          key: ""
-        trigger: null
         params:
           key:
             ref: ref
@@ -36626,8 +36701,6 @@ components:
             connection: connection
             toInit: true
             value: "{}"
-        env:
-          key: env
         version: 8.969579
         mount:
         - ""
@@ -36638,6 +36711,67 @@ components:
         dependencies:
         - dependencies
         - dependencies
+        skipOnUpstreamSkip: true
+        runPatch: "{}"
+        name: name
+        patchStrategy: null
+        urlRef: urlRef
+        cmd: ""
+        conditions: conditions
+        template:
+          description: description
+          fields:
+          - fields
+          - fields
+          enabled: true
+        hubRef: hubRef
+        description: description
+        matrix: "{}"
+        isApproved: true
+        hooks:
+        - presets:
+          - presets
+          - presets
+          hubRef: hubRef
+          namespace: namespace
+          disableDefaults: true
+          connection: connection
+          trigger: null
+          conditions: conditions
+          params:
+            key:
+              ref: ref
+              toEnv: toEnv
+              contextOnly: true
+              connection: connection
+              toInit: true
+              value: "{}"
+          queue: queue
+        - presets:
+          - presets
+          - presets
+          hubRef: hubRef
+          namespace: namespace
+          disableDefaults: true
+          connection: connection
+          trigger: null
+          conditions: conditions
+          params:
+            key:
+              ref: ref
+              toEnv: toEnv
+              contextOnly: true
+              connection: connection
+              toInit: true
+              value: "{}"
+          queue: queue
+        cost: 4.459605
+        isPreset: true
+        resources:
+          key: ""
+        trigger: null
+        env:
+          key: env
         schedule: "{}"
         component:
           outputs:
@@ -36751,12 +36885,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -36896,48 +37024,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -37095,15 +37193,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 0.43431398
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -37112,8 +37205,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 3.9015453
           mount:
           - ""
@@ -37124,6 +37215,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 0.43431398
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component: null
           environment:
@@ -37157,8 +37309,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -37188,17 +37338,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         environment:
@@ -37232,8 +37377,6 @@ components:
         presets:
         - presets
         - presets
-        skipOnUpstreamSkip: true
-        runPatch: "{}"
         build:
           cache:
             disable: true
@@ -37263,17 +37406,12 @@ components:
           queue: queue
         service:
           isExternal: true
-          replicas: 1
+          replicas: 8
           ports:
-          - 2
-          - 2
+          - 1
+          - 1
           rewritePath: true
-        name: name
         namespace: namespace
-        patchStrategy: null
-        urlRef: urlRef
-        cmd: ""
-        conditions: conditions
         pathRef: pathRef
         queue: queue
       properties:
@@ -37428,6 +37566,8 @@ components:
           title: "Shortcut for the main container's resources: a value or a request..limit\
             \ range per resource"
           type: object
+        dag:
+          $ref: '#/components/schemas/v1DagShortcut'
         service:
           $ref: '#/components/schemas/v1ServiceShortcut'
         environment:
@@ -38728,21 +38868,21 @@ components:
       type: object
     v1PytorchElasticPolicy:
       example:
-        maxReplicas: 1
+        maxReplicas: 3
         rdvzId: rdvzId
         rdvzConf:
         - "{}"
         - "{}"
-        nProcPerNode: 9
+        nProcPerNode: 8
         Metrics:
         - "{}"
         - "{}"
-        minReplicas: 9
-        maxRestarts: 8
+        minReplicas: 1
+        maxRestarts: 0
         rdvzHost: rdvzHost
         rdvzBackend: rdvzBackend
         standalone: true
-        rdvzPort: 3
+        rdvzPort: 9
       properties:
         minReplicas:
           description: minReplicas is the lower limit for the number of replicas to
@@ -38806,21 +38946,21 @@ components:
         cleanPodPolicy: null
         nProcPerNode: nProcPerNode
         elasticPolicy:
-          maxReplicas: 1
+          maxReplicas: 3
           rdvzId: rdvzId
           rdvzConf:
           - "{}"
           - "{}"
-          nProcPerNode: 9
+          nProcPerNode: 8
           Metrics:
           - "{}"
           - "{}"
-          minReplicas: 9
-          maxRestarts: 8
+          minReplicas: 1
+          maxRestarts: 0
           rdvzHost: rdvzHost
           rdvzBackend: rdvzBackend
           standalone: true
-          rdvzPort: 3
+          rdvzPort: 9
         kind: pytorchjob
         worker:
           container: "{}"
@@ -38976,7 +39116,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -38984,9 +39124,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 6
+          minAvailable: 4
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 4
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         master:
@@ -39143,7 +39283,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -39312,7 +39452,7 @@ components:
       example:
         rayVersion: rayVersion
         head:
-          maxReplicas: 3
+          maxReplicas: 9
           container: "{}"
           init:
           - modelRef: modelRef
@@ -39468,7 +39608,7 @@ components:
             affinity: "{}"
             hostPID: hostPID
           minReplicas: 3
-          replicas: 7
+          replicas: 3
           volumes:
           - null
           - null
@@ -39487,7 +39627,7 @@ components:
         entrypoint: entrypoint
         enableInTreeAutoscaling: true
         workers:
-        - maxReplicas: 3
+        - maxReplicas: 9
           container: "{}"
           init:
           - modelRef: modelRef
@@ -39643,7 +39783,7 @@ components:
             affinity: "{}"
             hostPID: hostPID
           minReplicas: 3
-          replicas: 7
+          replicas: 3
           volumes:
           - null
           - null
@@ -39652,7 +39792,7 @@ components:
           connections:
           - connections
           - connections
-        - maxReplicas: 3
+        - maxReplicas: 9
           container: "{}"
           init:
           - modelRef: modelRef
@@ -39808,7 +39948,7 @@ components:
             affinity: "{}"
             hostPID: hostPID
           minReplicas: 3
-          replicas: 7
+          replicas: 3
           volumes:
           - null
           - null
@@ -39855,7 +39995,7 @@ components:
       type: object
     v1RayReplica:
       example:
-        maxReplicas: 3
+        maxReplicas: 9
         container: "{}"
         init:
         - modelRef: modelRef
@@ -40011,7 +40151,7 @@ components:
           affinity: "{}"
           hostPID: hostPID
         minReplicas: 3
-        replicas: 7
+        replicas: 3
         volumes:
         - null
         - null
@@ -40924,8 +41064,8 @@ components:
             connections:
             - connections
             - connections
-          maxReplicas: 8
-          minReplicas: 5
+          maxReplicas: 7
+          minReplicas: 8
           kind: daskcluster
           worker:
             container: "{}"
@@ -41412,7 +41552,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -41574,7 +41714,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -41735,7 +41875,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -41743,9 +41883,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 6
+            minAvailable: 4
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 4
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           successPolicy: successPolicy
@@ -41903,7 +42043,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -42023,12 +42163,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -42168,48 +42302,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -42367,15 +42471,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 0.43431398
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -42384,8 +42483,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 3.9015453
             mount:
             - ""
@@ -42396,6 +42493,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 0.43431398
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component: null
             environment:
@@ -42429,8 +42587,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -42460,17 +42616,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           - outputs:
@@ -42584,12 +42735,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -42729,48 +42874,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -42928,15 +43043,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 0.43431398
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -42945,8 +43055,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 3.9015453
             mount:
             - ""
@@ -42957,6 +43065,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 0.43431398
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component: null
             environment:
@@ -42990,8 +43159,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -43021,17 +43188,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           environment:
@@ -43174,12 +43336,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -43319,48 +43475,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -43518,15 +43644,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -43535,8 +43656,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 8.969579
             mount:
             - ""
@@ -43547,6 +43666,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 4.459605
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component:
               outputs:
@@ -43660,12 +43840,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -43805,48 +43979,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -44004,15 +44148,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 0.43431398
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -44021,8 +44160,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 3.9015453
               mount:
               - ""
@@ -44033,6 +44170,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 0.43431398
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component: null
               environment:
@@ -44066,8 +44264,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -44097,17 +44293,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             environment:
@@ -44141,8 +44332,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -44172,17 +44361,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           - outputs:
@@ -44296,12 +44480,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -44441,48 +44619,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -44640,15 +44788,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 4.459605
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -44657,8 +44800,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 8.969579
             mount:
             - ""
@@ -44669,6 +44810,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 4.459605
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component:
               outputs:
@@ -44782,12 +44984,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -44927,48 +45123,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -45126,15 +45292,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 0.43431398
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -45143,8 +45304,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 3.9015453
               mount:
               - ""
@@ -45155,6 +45314,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 0.43431398
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component: null
               environment:
@@ -45188,8 +45408,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -45219,17 +45437,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             environment:
@@ -45263,8 +45476,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -45294,17 +45505,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           kind: dag
@@ -45317,26 +45523,26 @@ components:
           connections:
           - connections
           - connections
-          concurrency: 8
+          concurrency: 6
         pytorchJob:
           cleanPodPolicy: null
           nProcPerNode: nProcPerNode
           elasticPolicy:
-            maxReplicas: 1
+            maxReplicas: 3
             rdvzId: rdvzId
             rdvzConf:
             - "{}"
             - "{}"
-            nProcPerNode: 9
+            nProcPerNode: 8
             Metrics:
             - "{}"
             - "{}"
-            minReplicas: 9
-            maxRestarts: 8
+            minReplicas: 1
+            maxRestarts: 0
             rdvzHost: rdvzHost
             rdvzBackend: rdvzBackend
             standalone: true
-            rdvzPort: 3
+            rdvzPort: 9
           kind: pytorchjob
           worker:
             container: "{}"
@@ -45492,7 +45698,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -45500,9 +45706,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 6
+            minAvailable: 4
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 4
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           master:
@@ -45659,7 +45865,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -45669,7 +45875,7 @@ components:
         raycluster:
           rayVersion: rayVersion
           head:
-            maxReplicas: 3
+            maxReplicas: 9
             container: "{}"
             init:
             - modelRef: modelRef
@@ -45825,7 +46031,7 @@ components:
               affinity: "{}"
               hostPID: hostPID
             minReplicas: 3
-            replicas: 7
+            replicas: 3
             volumes:
             - null
             - null
@@ -45844,7 +46050,7 @@ components:
           entrypoint: entrypoint
           enableInTreeAutoscaling: true
           workers:
-          - maxReplicas: 3
+          - maxReplicas: 9
             container: "{}"
             init:
             - modelRef: modelRef
@@ -46000,7 +46206,7 @@ components:
               affinity: "{}"
               hostPID: hostPID
             minReplicas: 3
-            replicas: 7
+            replicas: 3
             volumes:
             - null
             - null
@@ -46009,7 +46215,7 @@ components:
             connections:
             - connections
             - connections
-          - maxReplicas: 3
+          - maxReplicas: 9
             container: "{}"
             init:
             - modelRef: modelRef
@@ -46165,7 +46371,7 @@ components:
               affinity: "{}"
               hostPID: hostPID
             minReplicas: 3
-            replicas: 7
+            replicas: 3
             volumes:
             - null
             - null
@@ -46338,7 +46544,7 @@ components:
           - connections
         mpiJob:
           cleanPodPolicy: null
-          slotsPerWorker: 0
+          slotsPerWorker: 5
           kind: mpijob
           worker:
             container: "{}"
@@ -46494,7 +46700,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -46502,9 +46708,9 @@ components:
             - connections
             - connections
           schedulingPolicy:
-            minAvailable: 6
+            minAvailable: 4
             priorityClass: priorityClass
-            scheduleTimeoutSeconds: 4
+            scheduleTimeoutSeconds: 8
             minResources: "{}"
             queue: queue
           launcher:
@@ -46661,7 +46867,7 @@ components:
               schedulerName: schedulerName
               affinity: "{}"
               hostPID: hostPID
-            replicas: 8
+            replicas: 9
             volumes:
             - null
             - null
@@ -46777,7 +46983,7 @@ components:
         cron:
           cron: cron
           dependsOnPast: true
-          maxRuns: 7
+          maxRuns: 0
           kind: cron
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
@@ -46786,11 +46992,11 @@ components:
           startAt: 2000-01-23T04:56:07.000+00:00
         interval:
           dependsOnPast: true
-          maxRuns: 0
+          maxRuns: 3
           kind: interval
           endAt: 2000-01-23T04:56:07.000+00:00
           startAt: 2000-01-23T04:56:07.000+00:00
-          frequency: 3
+          frequency: 2
       properties:
         cron:
           $ref: '#/components/schemas/v1CronSchedule'
@@ -46809,9 +47015,9 @@ components:
       type: string
     v1SchedulingPolicy:
       example:
-        minAvailable: 6
+        minAvailable: 4
         priorityClass: priorityClass
-        scheduleTimeoutSeconds: 4
+        scheduleTimeoutSeconds: 8
         minResources: "{}"
         queue: queue
       properties:
@@ -46861,7 +47067,7 @@ components:
           user: user
         resource:
           mountPath: mountPath
-          defaultMode: 2
+          defaultMode: 3
           name: name
           items:
           - items
@@ -47029,8 +47235,8 @@ components:
               connections:
               - connections
               - connections
-            maxReplicas: 8
-            minReplicas: 5
+            maxReplicas: 7
+            minReplicas: 8
             kind: daskcluster
             worker:
               container: "{}"
@@ -47517,7 +47723,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -47679,7 +47885,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -47840,7 +48046,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -47848,9 +48054,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 6
+              minAvailable: 4
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 4
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             successPolicy: successPolicy
@@ -48008,7 +48214,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -48128,12 +48334,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -48273,48 +48473,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -48472,15 +48642,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 0.43431398
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -48489,8 +48654,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 3.9015453
               mount:
               - ""
@@ -48501,6 +48664,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 0.43431398
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component: null
               environment:
@@ -48534,8 +48758,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -48565,17 +48787,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             - outputs:
@@ -48689,12 +48906,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -48834,48 +49045,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -49033,15 +49214,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 0.43431398
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -49050,8 +49226,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 3.9015453
               mount:
               - ""
@@ -49062,6 +49236,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 0.43431398
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component: null
               environment:
@@ -49095,8 +49330,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -49126,17 +49359,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             environment:
@@ -49279,12 +49507,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -49424,48 +49646,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -49623,15 +49815,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -49640,8 +49827,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 8.969579
               mount:
               - ""
@@ -49652,6 +49837,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 4.459605
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component:
                 outputs:
@@ -49765,12 +50011,6 @@ components:
                         connection: connection
                         toInit: true
                         value: value
-                template:
-                  description: description
-                  fields:
-                  - fields
-                  - fields
-                  enabled: true
                 container: "{}"
                 sidecars:
                 - null
@@ -49910,48 +50150,18 @@ components:
                     le: 4
                     ge: 4
                     maxLength: 7
-                hubRef: hubRef
-                description: description
                 run: "{}"
-                matrix: "{}"
-                isApproved: true
-                hooks:
-                - presets:
-                  - presets
-                  - presets
-                  hubRef: hubRef
-                  namespace: namespace
-                  disableDefaults: true
-                  connection: connection
-                  trigger: null
-                  conditions: conditions
-                  params:
-                    key:
-                      ref: ref
-                      toEnv: toEnv
-                      contextOnly: true
-                      connection: connection
-                      toInit: true
-                      value: "{}"
-                  queue: queue
-                - presets:
-                  - presets
-                  - presets
-                  hubRef: hubRef
-                  namespace: namespace
-                  disableDefaults: true
-                  connection: connection
-                  trigger: null
-                  conditions: conditions
-                  params:
-                    key:
-                      ref: ref
-                      toEnv: toEnv
-                      contextOnly: true
-                      connection: connection
-                      toInit: true
-                      value: "{}"
-                  queue: queue
+                dag:
+                  components:
+                  - "{}"
+                  - "{}"
+                  operations:
+                  - "{}"
+                  - "{}"
+                  earlyStopping:
+                  - "{}"
+                  - "{}"
+                  concurrency: 2
                 events:
                 - ref: ref
                   kinds:
@@ -50109,15 +50319,10 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 0.43431398
                 kind: kind
-                isPreset: true
                 volumes:
                 - null
                 - null
-                resources:
-                  key: ""
-                trigger: null
                 params:
                   key:
                     ref: ref
@@ -50126,8 +50331,6 @@ components:
                     connection: connection
                     toInit: true
                     value: "{}"
-                env:
-                  key: env
                 version: 3.9015453
                 mount:
                 - ""
@@ -50138,6 +50341,67 @@ components:
                 dependencies:
                 - dependencies
                 - dependencies
+                skipOnUpstreamSkip: true
+                runPatch: "{}"
+                name: name
+                patchStrategy: null
+                urlRef: urlRef
+                cmd: ""
+                conditions: conditions
+                template:
+                  description: description
+                  fields:
+                  - fields
+                  - fields
+                  enabled: true
+                hubRef: hubRef
+                description: description
+                matrix: "{}"
+                isApproved: true
+                hooks:
+                - presets:
+                  - presets
+                  - presets
+                  hubRef: hubRef
+                  namespace: namespace
+                  disableDefaults: true
+                  connection: connection
+                  trigger: null
+                  conditions: conditions
+                  params:
+                    key:
+                      ref: ref
+                      toEnv: toEnv
+                      contextOnly: true
+                      connection: connection
+                      toInit: true
+                      value: "{}"
+                  queue: queue
+                - presets:
+                  - presets
+                  - presets
+                  hubRef: hubRef
+                  namespace: namespace
+                  disableDefaults: true
+                  connection: connection
+                  trigger: null
+                  conditions: conditions
+                  params:
+                    key:
+                      ref: ref
+                      toEnv: toEnv
+                      contextOnly: true
+                      connection: connection
+                      toInit: true
+                      value: "{}"
+                  queue: queue
+                cost: 0.43431398
+                isPreset: true
+                resources:
+                  key: ""
+                trigger: null
+                env:
+                  key: env
                 schedule: "{}"
                 component: null
                 environment:
@@ -50171,8 +50435,6 @@ components:
                 presets:
                 - presets
                 - presets
-                skipOnUpstreamSkip: true
-                runPatch: "{}"
                 build:
                   cache:
                     disable: true
@@ -50202,17 +50464,12 @@ components:
                   queue: queue
                 service:
                   isExternal: true
-                  replicas: 1
+                  replicas: 8
                   ports:
-                  - 2
-                  - 2
+                  - 1
+                  - 1
                   rewritePath: true
-                name: name
                 namespace: namespace
-                patchStrategy: null
-                urlRef: urlRef
-                cmd: ""
-                conditions: conditions
                 pathRef: pathRef
                 queue: queue
               environment:
@@ -50246,8 +50503,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -50277,17 +50532,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             - outputs:
@@ -50401,12 +50651,6 @@ components:
                       connection: connection
                       toInit: true
                       value: value
-              template:
-                description: description
-                fields:
-                - fields
-                - fields
-                enabled: true
               container: "{}"
               sidecars:
               - null
@@ -50546,48 +50790,18 @@ components:
                   le: 4
                   ge: 4
                   maxLength: 7
-              hubRef: hubRef
-              description: description
               run: "{}"
-              matrix: "{}"
-              isApproved: true
-              hooks:
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
-              - presets:
-                - presets
-                - presets
-                hubRef: hubRef
-                namespace: namespace
-                disableDefaults: true
-                connection: connection
-                trigger: null
-                conditions: conditions
-                params:
-                  key:
-                    ref: ref
-                    toEnv: toEnv
-                    contextOnly: true
-                    connection: connection
-                    toInit: true
-                    value: "{}"
-                queue: queue
+              dag:
+                components:
+                - "{}"
+                - "{}"
+                operations:
+                - "{}"
+                - "{}"
+                earlyStopping:
+                - "{}"
+                - "{}"
+                concurrency: 2
               events:
               - ref: ref
                 kinds:
@@ -50745,15 +50959,10 @@ components:
                 sections:
                 - sections
                 - sections
-              cost: 4.459605
               kind: kind
-              isPreset: true
               volumes:
               - null
               - null
-              resources:
-                key: ""
-              trigger: null
               params:
                 key:
                   ref: ref
@@ -50762,8 +50971,6 @@ components:
                   connection: connection
                   toInit: true
                   value: "{}"
-              env:
-                key: env
               version: 8.969579
               mount:
               - ""
@@ -50774,6 +50981,67 @@ components:
               dependencies:
               - dependencies
               - dependencies
+              skipOnUpstreamSkip: true
+              runPatch: "{}"
+              name: name
+              patchStrategy: null
+              urlRef: urlRef
+              cmd: ""
+              conditions: conditions
+              template:
+                description: description
+                fields:
+                - fields
+                - fields
+                enabled: true
+              hubRef: hubRef
+              description: description
+              matrix: "{}"
+              isApproved: true
+              hooks:
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              - presets:
+                - presets
+                - presets
+                hubRef: hubRef
+                namespace: namespace
+                disableDefaults: true
+                connection: connection
+                trigger: null
+                conditions: conditions
+                params:
+                  key:
+                    ref: ref
+                    toEnv: toEnv
+                    contextOnly: true
+                    connection: connection
+                    toInit: true
+                    value: "{}"
+                queue: queue
+              cost: 4.459605
+              isPreset: true
+              resources:
+                key: ""
+              trigger: null
+              env:
+                key: env
               schedule: "{}"
               component:
                 outputs:
@@ -50887,12 +51155,6 @@ components:
                         connection: connection
                         toInit: true
                         value: value
-                template:
-                  description: description
-                  fields:
-                  - fields
-                  - fields
-                  enabled: true
                 container: "{}"
                 sidecars:
                 - null
@@ -51032,48 +51294,18 @@ components:
                     le: 4
                     ge: 4
                     maxLength: 7
-                hubRef: hubRef
-                description: description
                 run: "{}"
-                matrix: "{}"
-                isApproved: true
-                hooks:
-                - presets:
-                  - presets
-                  - presets
-                  hubRef: hubRef
-                  namespace: namespace
-                  disableDefaults: true
-                  connection: connection
-                  trigger: null
-                  conditions: conditions
-                  params:
-                    key:
-                      ref: ref
-                      toEnv: toEnv
-                      contextOnly: true
-                      connection: connection
-                      toInit: true
-                      value: "{}"
-                  queue: queue
-                - presets:
-                  - presets
-                  - presets
-                  hubRef: hubRef
-                  namespace: namespace
-                  disableDefaults: true
-                  connection: connection
-                  trigger: null
-                  conditions: conditions
-                  params:
-                    key:
-                      ref: ref
-                      toEnv: toEnv
-                      contextOnly: true
-                      connection: connection
-                      toInit: true
-                      value: "{}"
-                  queue: queue
+                dag:
+                  components:
+                  - "{}"
+                  - "{}"
+                  operations:
+                  - "{}"
+                  - "{}"
+                  earlyStopping:
+                  - "{}"
+                  - "{}"
+                  concurrency: 2
                 events:
                 - ref: ref
                   kinds:
@@ -51231,15 +51463,10 @@ components:
                   sections:
                   - sections
                   - sections
-                cost: 0.43431398
                 kind: kind
-                isPreset: true
                 volumes:
                 - null
                 - null
-                resources:
-                  key: ""
-                trigger: null
                 params:
                   key:
                     ref: ref
@@ -51248,8 +51475,6 @@ components:
                     connection: connection
                     toInit: true
                     value: "{}"
-                env:
-                  key: env
                 version: 3.9015453
                 mount:
                 - ""
@@ -51260,6 +51485,67 @@ components:
                 dependencies:
                 - dependencies
                 - dependencies
+                skipOnUpstreamSkip: true
+                runPatch: "{}"
+                name: name
+                patchStrategy: null
+                urlRef: urlRef
+                cmd: ""
+                conditions: conditions
+                template:
+                  description: description
+                  fields:
+                  - fields
+                  - fields
+                  enabled: true
+                hubRef: hubRef
+                description: description
+                matrix: "{}"
+                isApproved: true
+                hooks:
+                - presets:
+                  - presets
+                  - presets
+                  hubRef: hubRef
+                  namespace: namespace
+                  disableDefaults: true
+                  connection: connection
+                  trigger: null
+                  conditions: conditions
+                  params:
+                    key:
+                      ref: ref
+                      toEnv: toEnv
+                      contextOnly: true
+                      connection: connection
+                      toInit: true
+                      value: "{}"
+                  queue: queue
+                - presets:
+                  - presets
+                  - presets
+                  hubRef: hubRef
+                  namespace: namespace
+                  disableDefaults: true
+                  connection: connection
+                  trigger: null
+                  conditions: conditions
+                  params:
+                    key:
+                      ref: ref
+                      toEnv: toEnv
+                      contextOnly: true
+                      connection: connection
+                      toInit: true
+                      value: "{}"
+                  queue: queue
+                cost: 0.43431398
+                isPreset: true
+                resources:
+                  key: ""
+                trigger: null
+                env:
+                  key: env
                 schedule: "{}"
                 component: null
                 environment:
@@ -51293,8 +51579,6 @@ components:
                 presets:
                 - presets
                 - presets
-                skipOnUpstreamSkip: true
-                runPatch: "{}"
                 build:
                   cache:
                     disable: true
@@ -51324,17 +51608,12 @@ components:
                   queue: queue
                 service:
                   isExternal: true
-                  replicas: 1
+                  replicas: 8
                   ports:
-                  - 2
-                  - 2
+                  - 1
+                  - 1
                   rewritePath: true
-                name: name
                 namespace: namespace
-                patchStrategy: null
-                urlRef: urlRef
-                cmd: ""
-                conditions: conditions
                 pathRef: pathRef
                 queue: queue
               environment:
@@ -51368,8 +51647,6 @@ components:
               presets:
               - presets
               - presets
-              skipOnUpstreamSkip: true
-              runPatch: "{}"
               build:
                 cache:
                   disable: true
@@ -51399,17 +51676,12 @@ components:
                 queue: queue
               service:
                 isExternal: true
-                replicas: 1
+                replicas: 8
                 ports:
-                - 2
-                - 2
+                - 1
+                - 1
                 rewritePath: true
-              name: name
               namespace: namespace
-              patchStrategy: null
-              urlRef: urlRef
-              cmd: ""
-              conditions: conditions
               pathRef: pathRef
               queue: queue
             kind: dag
@@ -51422,26 +51694,26 @@ components:
             connections:
             - connections
             - connections
-            concurrency: 8
+            concurrency: 6
           pytorchJob:
             cleanPodPolicy: null
             nProcPerNode: nProcPerNode
             elasticPolicy:
-              maxReplicas: 1
+              maxReplicas: 3
               rdvzId: rdvzId
               rdvzConf:
               - "{}"
               - "{}"
-              nProcPerNode: 9
+              nProcPerNode: 8
               Metrics:
               - "{}"
               - "{}"
-              minReplicas: 9
-              maxRestarts: 8
+              minReplicas: 1
+              maxRestarts: 0
               rdvzHost: rdvzHost
               rdvzBackend: rdvzBackend
               standalone: true
-              rdvzPort: 3
+              rdvzPort: 9
             kind: pytorchjob
             worker:
               container: "{}"
@@ -51597,7 +51869,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -51605,9 +51877,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 6
+              minAvailable: 4
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 4
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             master:
@@ -51764,7 +52036,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -51774,7 +52046,7 @@ components:
           raycluster:
             rayVersion: rayVersion
             head:
-              maxReplicas: 3
+              maxReplicas: 9
               container: "{}"
               init:
               - modelRef: modelRef
@@ -51930,7 +52202,7 @@ components:
                 affinity: "{}"
                 hostPID: hostPID
               minReplicas: 3
-              replicas: 7
+              replicas: 3
               volumes:
               - null
               - null
@@ -51949,7 +52221,7 @@ components:
             entrypoint: entrypoint
             enableInTreeAutoscaling: true
             workers:
-            - maxReplicas: 3
+            - maxReplicas: 9
               container: "{}"
               init:
               - modelRef: modelRef
@@ -52105,7 +52377,7 @@ components:
                 affinity: "{}"
                 hostPID: hostPID
               minReplicas: 3
-              replicas: 7
+              replicas: 3
               volumes:
               - null
               - null
@@ -52114,7 +52386,7 @@ components:
               connections:
               - connections
               - connections
-            - maxReplicas: 3
+            - maxReplicas: 9
               container: "{}"
               init:
               - modelRef: modelRef
@@ -52270,7 +52542,7 @@ components:
                 affinity: "{}"
                 hostPID: hostPID
               minReplicas: 3
-              replicas: 7
+              replicas: 3
               volumes:
               - null
               - null
@@ -52443,7 +52715,7 @@ components:
             - connections
           mpiJob:
             cleanPodPolicy: null
-            slotsPerWorker: 0
+            slotsPerWorker: 5
             kind: mpijob
             worker:
               container: "{}"
@@ -52599,7 +52871,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -52607,9 +52879,9 @@ components:
               - connections
               - connections
             schedulingPolicy:
-              minAvailable: 6
+              minAvailable: 4
               priorityClass: priorityClass
-              scheduleTimeoutSeconds: 4
+              scheduleTimeoutSeconds: 8
               minResources: "{}"
               queue: queue
             launcher:
@@ -52766,7 +53038,7 @@ components:
                 schedulerName: schedulerName
                 affinity: "{}"
                 hostPID: hostPID
-              replicas: 8
+              replicas: 9
               volumes:
               - null
               - null
@@ -53003,7 +53275,7 @@ components:
           cron:
             cron: cron
             dependsOnPast: true
-            maxRuns: 7
+            maxRuns: 0
             kind: cron
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
@@ -53012,11 +53284,11 @@ components:
             startAt: 2000-01-23T04:56:07.000+00:00
           interval:
             dependsOnPast: true
-            maxRuns: 0
+            maxRuns: 3
             kind: interval
             endAt: 2000-01-23T04:56:07.000+00:00
             startAt: 2000-01-23T04:56:07.000+00:00
-            frequency: 3
+            frequency: 2
         polyaxonSidecarContainer:
           sleepInterval: 4
           monitorSpec: true
@@ -53044,7 +53316,7 @@ components:
           kind: null
           configMap:
             mountPath: mountPath
-            defaultMode: 2
+            defaultMode: 3
             name: name
             items:
             - items
@@ -53055,7 +53327,7 @@ components:
             key: annotations
           secret:
             mountPath: mountPath
-            defaultMode: 2
+            defaultMode: 3
             name: name
             items:
             - items
@@ -53072,46 +53344,46 @@ components:
         event:
           image:
             path: path
-            colorspace: 0
+            colorspace: 7
             width: 0
-            height: 4
+            height: 0
           curve:
             annotation: annotation
             kind: null
             x:
-            - 6.9660444
-            - 6.9660444
+            - 9.8069515
+            - 9.8069515
             "y":
-            - 9.8069515
-            - 9.8069515
+            - 1.3949519
+            - 1.3949519
           video:
             path: path
             content_type: content_type
-            colorspace: 4
-            width: 6
-            height: 2
+            colorspace: 6
+            width: 4
+            height: 6
           histogram:
             counts:
-            - 4.332304821875894
-            - 4.332304821875894
+            - 2.7977867356748476
+            - 2.7977867356748476
             values:
-            - 7.203794749804894
-            - 7.203794749804894
+            - 4.332304821875894
+            - 4.332304821875894
           artifact:
             path: path
             kind: null
-          metric: 8.675064
-          step: 3
+          metric: 4.5183096
+          step: 8
           html: html
           model:
             path: path
             framework: framework
             spec: "{}"
           audio:
-            num_channels: 9
+            num_channels: 0
             path: path
-            length_frames: 0
-            sample_rate: 2.7977867
+            length_frames: 2
+            sample_rate: 9.386525
             content_type: content_type
           text: text
           dataframe:
@@ -53302,12 +53574,6 @@ components:
                   connection: connection
                   toInit: true
                   value: value
-          template:
-            description: description
-            fields:
-            - fields
-            - fields
-            enabled: true
           container: "{}"
           sidecars:
           - null
@@ -53447,48 +53713,18 @@ components:
               le: 4
               ge: 4
               maxLength: 7
-          hubRef: hubRef
-          description: description
           run: "{}"
-          matrix: "{}"
-          isApproved: true
-          hooks:
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
-          - presets:
-            - presets
-            - presets
-            hubRef: hubRef
-            namespace: namespace
-            disableDefaults: true
-            connection: connection
-            trigger: null
-            conditions: conditions
-            params:
-              key:
-                ref: ref
-                toEnv: toEnv
-                contextOnly: true
-                connection: connection
-                toInit: true
-                value: "{}"
-            queue: queue
+          dag:
+            components:
+            - "{}"
+            - "{}"
+            operations:
+            - "{}"
+            - "{}"
+            earlyStopping:
+            - "{}"
+            - "{}"
+            concurrency: 2
           events:
           - ref: ref
             kinds:
@@ -53646,15 +53882,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 4.459605
           kind: kind
-          isPreset: true
           volumes:
           - null
           - null
-          resources:
-            key: ""
-          trigger: null
           params:
             key:
               ref: ref
@@ -53663,8 +53894,6 @@ components:
               connection: connection
               toInit: true
               value: "{}"
-          env:
-            key: env
           version: 8.969579
           mount:
           - ""
@@ -53675,6 +53904,67 @@ components:
           dependencies:
           - dependencies
           - dependencies
+          skipOnUpstreamSkip: true
+          runPatch: "{}"
+          name: name
+          patchStrategy: null
+          urlRef: urlRef
+          cmd: ""
+          conditions: conditions
+          template:
+            description: description
+            fields:
+            - fields
+            - fields
+            enabled: true
+          hubRef: hubRef
+          description: description
+          matrix: "{}"
+          isApproved: true
+          hooks:
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          - presets:
+            - presets
+            - presets
+            hubRef: hubRef
+            namespace: namespace
+            disableDefaults: true
+            connection: connection
+            trigger: null
+            conditions: conditions
+            params:
+              key:
+                ref: ref
+                toEnv: toEnv
+                contextOnly: true
+                connection: connection
+                toInit: true
+                value: "{}"
+            queue: queue
+          cost: 4.459605
+          isPreset: true
+          resources:
+            key: ""
+          trigger: null
+          env:
+            key: env
           schedule: "{}"
           component:
             outputs:
@@ -53788,12 +54078,6 @@ components:
                     connection: connection
                     toInit: true
                     value: value
-            template:
-              description: description
-              fields:
-              - fields
-              - fields
-              enabled: true
             container: "{}"
             sidecars:
             - null
@@ -53933,48 +54217,18 @@ components:
                 le: 4
                 ge: 4
                 maxLength: 7
-            hubRef: hubRef
-            description: description
             run: "{}"
-            matrix: "{}"
-            isApproved: true
-            hooks:
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
-            - presets:
-              - presets
-              - presets
-              hubRef: hubRef
-              namespace: namespace
-              disableDefaults: true
-              connection: connection
-              trigger: null
-              conditions: conditions
-              params:
-                key:
-                  ref: ref
-                  toEnv: toEnv
-                  contextOnly: true
-                  connection: connection
-                  toInit: true
-                  value: "{}"
-              queue: queue
+            dag:
+              components:
+              - "{}"
+              - "{}"
+              operations:
+              - "{}"
+              - "{}"
+              earlyStopping:
+              - "{}"
+              - "{}"
+              concurrency: 2
             events:
             - ref: ref
               kinds:
@@ -54132,15 +54386,10 @@ components:
               sections:
               - sections
               - sections
-            cost: 0.43431398
             kind: kind
-            isPreset: true
             volumes:
             - null
             - null
-            resources:
-              key: ""
-            trigger: null
             params:
               key:
                 ref: ref
@@ -54149,8 +54398,6 @@ components:
                 connection: connection
                 toInit: true
                 value: "{}"
-            env:
-              key: env
             version: 3.9015453
             mount:
             - ""
@@ -54161,6 +54408,67 @@ components:
             dependencies:
             - dependencies
             - dependencies
+            skipOnUpstreamSkip: true
+            runPatch: "{}"
+            name: name
+            patchStrategy: null
+            urlRef: urlRef
+            cmd: ""
+            conditions: conditions
+            template:
+              description: description
+              fields:
+              - fields
+              - fields
+              enabled: true
+            hubRef: hubRef
+            description: description
+            matrix: "{}"
+            isApproved: true
+            hooks:
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            - presets:
+              - presets
+              - presets
+              hubRef: hubRef
+              namespace: namespace
+              disableDefaults: true
+              connection: connection
+              trigger: null
+              conditions: conditions
+              params:
+                key:
+                  ref: ref
+                  toEnv: toEnv
+                  contextOnly: true
+                  connection: connection
+                  toInit: true
+                  value: "{}"
+              queue: queue
+            cost: 0.43431398
+            isPreset: true
+            resources:
+              key: ""
+            trigger: null
+            env:
+              key: env
             schedule: "{}"
             component: null
             environment:
@@ -54194,8 +54502,6 @@ components:
             presets:
             - presets
             - presets
-            skipOnUpstreamSkip: true
-            runPatch: "{}"
             build:
               cache:
                 disable: true
@@ -54225,17 +54531,12 @@ components:
               queue: queue
             service:
               isExternal: true
-              replicas: 1
+              replicas: 8
               ports:
-              - 2
-              - 2
+              - 1
+              - 1
               rewritePath: true
-            name: name
             namespace: namespace
-            patchStrategy: null
-            urlRef: urlRef
-            cmd: ""
-            conditions: conditions
             pathRef: pathRef
             queue: queue
           environment:
@@ -54269,8 +54570,6 @@ components:
           presets:
           - presets
           - presets
-          skipOnUpstreamSkip: true
-          runPatch: "{}"
           build:
             cache:
               disable: true
@@ -54300,17 +54599,12 @@ components:
             queue: queue
           service:
             isExternal: true
-            replicas: 1
+            replicas: 8
             ports:
-            - 2
-            - 2
+            - 1
+            - 1
             rewritePath: true
-          name: name
           namespace: namespace
-          patchStrategy: null
-          urlRef: urlRef
-          cmd: ""
-          conditions: conditions
           pathRef: pathRef
           queue: queue
         compiledOperation:
@@ -54730,10 +55024,10 @@ components:
             sections:
             - sections
             - sections
-          cost: 5.877125
+          cost: 7.8350353
           kind: kind
           trigger: null
-          version: 9.897492
+          version: 5.877125
           tags:
           - tags
           - tags
@@ -55389,10 +55683,10 @@ components:
     v1ServiceShortcut:
       example:
         isExternal: true
-        replicas: 1
+        replicas: 8
         ports:
-        - 2
-        - 2
+        - 1
+        - 1
         rewritePath: true
       properties:
         ports:
@@ -55773,7 +56067,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -55935,7 +56229,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -56096,7 +56390,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null
@@ -56104,9 +56398,9 @@ components:
           - connections
           - connections
         schedulingPolicy:
-          minAvailable: 6
+          minAvailable: 4
           priorityClass: priorityClass
-          scheduleTimeoutSeconds: 4
+          scheduleTimeoutSeconds: 8
           minResources: "{}"
           queue: queue
         successPolicy: successPolicy
@@ -56264,7 +56558,7 @@ components:
             schedulerName: schedulerName
             affinity: "{}"
             hostPID: hostPID
-          replicas: 8
+          replicas: 9
           volumes:
           - null
           - null

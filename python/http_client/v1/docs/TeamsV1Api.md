@@ -30,7 +30,7 @@ Method | HTTP request | Description
 [**patch_team**](TeamsV1Api.md#patch_team) | **PATCH** /api/v1/orgs/{owner}/teams/{team.name} | Patch team
 [**patch_team_member**](TeamsV1Api.md#patch_team_member) | **PATCH** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Patch team member
 [**restore_team_runs**](TeamsV1Api.md#restore_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/restore | Restore cross-project runs selection
-[**skip_team_runs**](TeamsV1Api.md#skip_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/Skip | Skip cross-project runs selection
+[**skip_team_runs**](TeamsV1Api.md#skip_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/skip | Skip cross-project runs selection
 [**stop_team_runs**](TeamsV1Api.md#stop_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/stop | Stop cross-project runs selection
 [**tag_team_runs**](TeamsV1Api.md#tag_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/tag | Tag cross-project runs selection
 [**transfer_team_runs**](TeamsV1Api.md#transfer_team_runs) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/transfer | Transfer cross-project runs selection to a new project

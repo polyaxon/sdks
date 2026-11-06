@@ -105,11 +105,11 @@ func (o *SkipOrganizationRunsOK) Code() int {
 }
 
 func (o *SkipOrganizationRunsOK) Error() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsOK", 200)
 }
 
 func (o *SkipOrganizationRunsOK) String() string {
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsOK", 200)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsOK", 200)
 }
 
 func (o *SkipOrganizationRunsOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
@@ -163,12 +163,12 @@ func (o *SkipOrganizationRunsNoContent) Code() int {
 
 func (o *SkipOrganizationRunsNoContent) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *SkipOrganizationRunsNoContent) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsNoContent %s", 204, payload)
 }
 
 func (o *SkipOrganizationRunsNoContent) GetPayload() any {
@@ -231,12 +231,12 @@ func (o *SkipOrganizationRunsForbidden) Code() int {
 
 func (o *SkipOrganizationRunsForbidden) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *SkipOrganizationRunsForbidden) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsForbidden %s", 403, payload)
 }
 
 func (o *SkipOrganizationRunsForbidden) GetPayload() any {
@@ -299,12 +299,12 @@ func (o *SkipOrganizationRunsNotFound) Code() int {
 
 func (o *SkipOrganizationRunsNotFound) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *SkipOrganizationRunsNotFound) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] skipOrganizationRunsNotFound %s", 404, payload)
 }
 
 func (o *SkipOrganizationRunsNotFound) GetPayload() any {
@@ -371,12 +371,12 @@ func (o *SkipOrganizationRunsDefault) Code() int {
 
 func (o *SkipOrganizationRunsDefault) Error() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipOrganizationRunsDefault) String() string {
 	payload, _ := json.Marshal(o.Payload)
-	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/Skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
+	return fmt.Sprintf("[POST /api/v1/orgs/{owner}/runs/skip][%d] SkipOrganizationRuns default %s", o._statusCode, payload)
 }
 
 func (o *SkipOrganizationRunsDefault) GetPayload() *service_model.RuntimeError {

@@ -49,6 +49,7 @@
 |**cmd** | **Object** |  |  [optional] |
 |**env** | **Map&lt;String, String&gt;** |  |  [optional] |
 |**resources** | **Map&lt;String, Object&gt;** |  |  [optional] |
+|**dag** | [**V1DagShortcut**](V1DagShortcut.md) |  |  [optional] |
 |**service** | [**V1ServiceShortcut**](V1ServiceShortcut.md) |  |  [optional] |
 |**environment** | [**V1Environment**](V1Environment.md) |  |  [optional] |
 |**init** | [**List&lt;V1Init&gt;**](V1Init.md) |  |  [optional] |

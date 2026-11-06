@@ -1648,7 +1648,7 @@ func (a *Client) SkipOrganizationRuns(params *SkipOrganizationRunsParams, authIn
 	op := &runtime.ClientOperation{
 		ID:                 "SkipOrganizationRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/orgs/{owner}/runs/Skip",
+		PathPattern:        "/api/v1/orgs/{owner}/runs/skip",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

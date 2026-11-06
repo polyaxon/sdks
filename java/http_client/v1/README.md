@@ -1,7 +1,7 @@
 # openapi-java-client
 
 Polyaxon SDKs and REST API specification.
-- API version: 2.19.0
+- API version: 2.20.0
 
    
 
@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>org.openapitools</groupId>
   <artifactId>openapi-java-client</artifactId>
-  <version>2.19.0</version>
+  <version>2.20.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "org.openapitools:openapi-java-client:2.19.0"
+     implementation "org.openapitools:openapi-java-client:2.20.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/openapi-java-client-2.19.0.jar`
+* `target/openapi-java-client-2.20.0.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -204,7 +204,7 @@ Class | Method | HTTP request | Description
 *OrganizationsV1Api* | [**patchOrganizationSettings**](docs/OrganizationsV1Api.md#patchOrganizationSettings) | **PATCH** /api/v1/orgs/{owner}/settings | Patch oranization settings
 *OrganizationsV1Api* | [**resendOrganizationInvitation**](docs/OrganizationsV1Api.md#resendOrganizationInvitation) | **POST** /api/v1/orgs/{owner}/invitations | Resend organization invitation
 *OrganizationsV1Api* | [**restoreOrganizationRuns**](docs/OrganizationsV1Api.md#restoreOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/restore | Restore cross-project runs selection
-*OrganizationsV1Api* | [**skipOrganizationRuns**](docs/OrganizationsV1Api.md#skipOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/Skip | Skip cross-project runs selection
+*OrganizationsV1Api* | [**skipOrganizationRuns**](docs/OrganizationsV1Api.md#skipOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/skip | Skip cross-project runs selection
 *OrganizationsV1Api* | [**stopOrganizationRuns**](docs/OrganizationsV1Api.md#stopOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/stop | Stop cross-project runs selection
 *OrganizationsV1Api* | [**tagOrganizationRuns**](docs/OrganizationsV1Api.md#tagOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/tag | Tag cross-project runs selection
 *OrganizationsV1Api* | [**transferOrganizationRuns**](docs/OrganizationsV1Api.md#transferOrganizationRuns) | **POST** /api/v1/orgs/{owner}/runs/transfer | Transfer cross-project runs selection to a new project
@@ -419,7 +419,7 @@ Class | Method | HTTP request | Description
 *TeamsV1Api* | [**patchTeam**](docs/TeamsV1Api.md#patchTeam) | **PATCH** /api/v1/orgs/{owner}/teams/{team.name} | Patch team
 *TeamsV1Api* | [**patchTeamMember**](docs/TeamsV1Api.md#patchTeamMember) | **PATCH** /api/v1/orgs/{owner}/teams/{team}/members/{member.user} | Patch team member
 *TeamsV1Api* | [**restoreTeamRuns**](docs/TeamsV1Api.md#restoreTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/restore | Restore cross-project runs selection
-*TeamsV1Api* | [**skipTeamRuns**](docs/TeamsV1Api.md#skipTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/Skip | Skip cross-project runs selection
+*TeamsV1Api* | [**skipTeamRuns**](docs/TeamsV1Api.md#skipTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/skip | Skip cross-project runs selection
 *TeamsV1Api* | [**stopTeamRuns**](docs/TeamsV1Api.md#stopTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/stop | Stop cross-project runs selection
 *TeamsV1Api* | [**tagTeamRuns**](docs/TeamsV1Api.md#tagTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/tag | Tag cross-project runs selection
 *TeamsV1Api* | [**transferTeamRuns**](docs/TeamsV1Api.md#transferTeamRuns) | **POST** /api/v1/orgs/{owner}/teams/{name}/runs/transfer | Transfer cross-project runs selection to a new project
@@ -487,6 +487,7 @@ Class | Method | HTTP request | Description
  - [V1Culling](docs/V1Culling.md)
  - [V1Dag](docs/V1Dag.md)
  - [V1DagRef](docs/V1DagRef.md)
+ - [V1DagShortcut](docs/V1DagShortcut.md)
  - [V1Dashboard](docs/V1Dashboard.md)
  - [V1DashboardSpec](docs/V1DashboardSpec.md)
  - [V1DaskCluster](docs/V1DaskCluster.md)

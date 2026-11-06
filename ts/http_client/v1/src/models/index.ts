@@ -43,6 +43,7 @@ export * from './V1CronSchedule';
 export * from './V1Culling';
 export * from './V1Dag';
 export * from './V1DagRef';
+export * from './V1DagShortcut';
 export * from './V1Dashboard';
 export * from './V1DashboardSpec';
 export * from './V1DaskCluster';

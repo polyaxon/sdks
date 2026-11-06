@@ -1230,7 +1230,7 @@ func (a *Client) SkipTeamRuns(params *SkipTeamRunsParams, authInfo runtime.Clien
 	op := &runtime.ClientOperation{
 		ID:                 "SkipTeamRuns",
 		Method:             "POST",
-		PathPattern:        "/api/v1/orgs/{owner}/teams/{name}/runs/Skip",
+		PathPattern:        "/api/v1/orgs/{owner}/teams/{name}/runs/skip",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"http", "https"},

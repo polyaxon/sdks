@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **cmd** | **object** |  | [optional] 
 **env** | **Dict[str, str]** |  | [optional] 
 **resources** | **Dict[str, object]** |  | [optional] 
+**dag** | [**V1DagShortcut**](V1DagShortcut.md) |  | [optional] 
 **service** | [**V1ServiceShortcut**](V1ServiceShortcut.md) |  | [optional] 
 **environment** | [**V1Environment**](V1Environment.md) |  | [optional] 
 **init** | [**List[V1Init]**](V1Init.md) |  | [optional] 

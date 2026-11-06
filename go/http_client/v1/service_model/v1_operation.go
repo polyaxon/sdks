@@ -45,6 +45,9 @@ type V1Operation struct {
 	// Optional field to assign cost to this Component
 	Cost float32 `json:"cost,omitempty"`
 
+	// Shortcut for the dag-only run fields, a dag when no runtime is defined
+	Dag *V1DagShortcut `json:"dag,omitempty"`
+
 	// dag ref
 	DagRef string `json:"dagRef,omitempty"`
 
@@ -183,6 +186,10 @@ func (m *V1Operation) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDag(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEnvironment(formats); err != nil {
 		res = append(res, err)
 	}
@@ -305,6 +312,29 @@ func (m *V1Operation) validateComponent(formats strfmt.Registry) error {
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("component")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Operation) validateDag(formats strfmt.Registry) error {
+	if swag.IsZero(m.Dag) { // not required
+		return nil
+	}
+
+	if m.Dag != nil {
+		if err := m.Dag.Validate(formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("dag")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("dag")
 			}
 
 			return err
@@ -701,6 +731,10 @@ func (m *V1Operation) ContextValidate(ctx context.Context, formats strfmt.Regist
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDag(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEnvironment(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -829,6 +863,31 @@ func (m *V1Operation) contextValidateComponent(ctx context.Context, formats strf
 			ce := new(errors.CompositeError)
 			if stderrors.As(err, &ce) {
 				return ce.ValidateName("component")
+			}
+
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *V1Operation) contextValidateDag(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Dag != nil {
+
+		if swag.IsZero(m.Dag) { // not required
+			return nil
+		}
+
+		if err := m.Dag.ContextValidate(ctx, formats); err != nil {
+			ve := new(errors.Validation)
+			if stderrors.As(err, &ve) {
+				return ve.ValidateName("dag")
+			}
+			ce := new(errors.CompositeError)
+			if stderrors.As(err, &ce) {
+				return ce.ValidateName("dag")
 			}
 
 			return err
