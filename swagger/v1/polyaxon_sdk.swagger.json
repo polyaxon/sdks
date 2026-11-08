@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Polyaxon SDKs and REST API specification.",
-    "version": "2.20.0",
+    "version": "2.20.1",
     "contact": {
       "name": "Polyaxon sdk",
       "url": "https://github.com/polyaxon/polyaxon",
@@ -6183,56 +6183,6 @@
         ]
       }
     },
-    "/api/v1/orgs/{owner}/runs/Skip": {
-      "post": {
-        "summary": "Skip cross-project runs selection",
-        "operationId": "SkipOrganizationRuns",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Uuids of the entities",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1Uuids"
-            }
-          }
-        ],
-        "tags": [
-          "OrganizationsV1"
-        ]
-      }
-    },
     "/api/v1/orgs/{owner}/runs/approve": {
       "post": {
         "summary": "Approve cross-project runs selection",
@@ -6589,6 +6539,56 @@
       "post": {
         "summary": "Restore cross-project runs selection",
         "operationId": "RestoreOrganizationRuns",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Uuids of the entities",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Uuids"
+            }
+          }
+        ],
+        "tags": [
+          "OrganizationsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/runs/skip": {
+      "post": {
+        "summary": "Skip cross-project runs selection",
+        "operationId": "SkipOrganizationRuns",
         "responses": {
           "200": {
             "description": "A successful response."
@@ -9850,63 +9850,6 @@
         ]
       }
     },
-    "/api/v1/orgs/{owner}/teams/{name}/runs/Skip": {
-      "post": {
-        "summary": "Skip cross-project runs selection",
-        "operationId": "SkipTeamRuns",
-        "responses": {
-          "200": {
-            "description": "A successful response."
-          },
-          "204": {
-            "description": "No content.",
-            "schema": {}
-          },
-          "403": {
-            "description": "You don't have permission to access the resource.",
-            "schema": {}
-          },
-          "404": {
-            "description": "Resource does not exist.",
-            "schema": {}
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "owner",
-            "description": "Owner of the namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "name",
-            "description": "Entity under namespace",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "description": "Uuids of the entities",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/v1Uuids"
-            }
-          }
-        ],
-        "tags": [
-          "TeamsV1"
-        ]
-      }
-    },
     "/api/v1/orgs/{owner}/teams/{name}/runs/approve": {
       "post": {
         "summary": "Approve cross-project runs selection",
@@ -10298,6 +10241,63 @@
       "post": {
         "summary": "Restore cross-project runs selection",
         "operationId": "RestoreTeamRuns",
+        "responses": {
+          "200": {
+            "description": "A successful response."
+          },
+          "204": {
+            "description": "No content.",
+            "schema": {}
+          },
+          "403": {
+            "description": "You don't have permission to access the resource.",
+            "schema": {}
+          },
+          "404": {
+            "description": "Resource does not exist.",
+            "schema": {}
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "owner",
+            "description": "Owner of the namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "description": "Entity under namespace",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Uuids of the entities",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1Uuids"
+            }
+          }
+        ],
+        "tags": [
+          "TeamsV1"
+        ]
+      }
+    },
+    "/api/v1/orgs/{owner}/teams/{name}/runs/skip": {
+      "post": {
+        "summary": "Skip cross-project runs selection",
+        "operationId": "SkipTeamRuns",
         "responses": {
           "200": {
             "description": "A successful response."
